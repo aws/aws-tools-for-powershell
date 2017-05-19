@@ -57,6 +57,9 @@
     <Reference Include="AWSSDK.AppStream">
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.1.4\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Athena">
+      <HintPath>..\..\packages\AWSSDK.Athena.3.3.0\lib\net35\AWSSDK.Athena.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AWSHealth">
       <HintPath>..\..\packages\AWSSDK.AWSHealth.3.3.0.15\lib\net35\AWSSDK.AWSHealth.dll</HintPath>
     </Reference>

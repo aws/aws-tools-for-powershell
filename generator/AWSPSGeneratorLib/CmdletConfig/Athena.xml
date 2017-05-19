@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>ATH</ServiceNounPrefix>
+  <ServiceName>Amazon Athena</ServiceName>
+  <ServiceClientInterface>IAmazonAthena</ServiceClientInterface>
+  <ServiceClient>AmazonAthenaClient</ServiceClient>
+  <ServiceNamespace>Amazon.Athena</ServiceNamespace>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <PipelineByValueProperties>
+    <Property>NamedQueryId</Property>
+    <Property>QueryExecutionId</Property>
+    <Property>Name</Property>
+    <Property>Database</Property>
+  </PipelineByValueProperties>
+
+  <PipelineParameter/>
+
+  <MetadataProperties>
+  </MetadataProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="BatchGetNamedQuery" Verb="Get" Noun="NamedQueryBatch" Output="Response" />
+    <ServiceOperation MethodName="BatchGetQueryExecution" Verb="Get" Noun="QueryExecutionBatch" Output="Response" />
+    <ServiceOperation MethodName="CreateNamedQuery" PipelineParameter="QueryString" />
+    <ServiceOperation MethodName="DeleteNamedQuery" Output="Void" />
+    <ServiceOperation MethodName="GetNamedQuery" />
+    <ServiceOperation MethodName="GetQueryExecution" />
+
+    <!-- has non-standard paging, Count member sits in nested ResultSet structure -->
+    <ServiceOperation MethodName="GetQueryResults" Exclude="true" />
+
+    <ServiceOperation MethodName="ListNamedQueries" Verb="Get" Noun="NamedQueryList" />
+    <ServiceOperation MethodName="ListQueryExecutions" Verb="Get" Noun="QueryExecutionList" />
+    <ServiceOperation MethodName="StartQueryExecution" PipelineParameter="QueryString" />
+    <ServiceOperation MethodName="StopQueryExecution" Output="Void" />
+  </ServiceOperations>
+
+</ConfigModel>

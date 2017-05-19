@@ -8,6 +8,7 @@
 		"AWSSDK.ApplicationAutoScaling": "3.3.2.7",
 		"AWSSDK.ApplicationDiscoveryService": "3.3.2.7",
 		"AWSSDK.AppStream": "3.3.1.4",
+		"AWSSDK.Athena": "3.3.0",
 		"AWSSDK.AutoScaling": "3.3.0.19",
 		"AWSSDK.AWSHealth": "3.3.0.15",
 		"AWSSDK.AWSMarketplaceCommerceAnalytics": "3.3.3.7",

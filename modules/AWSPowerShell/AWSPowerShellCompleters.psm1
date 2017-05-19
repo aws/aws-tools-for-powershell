@@ -351,6 +351,33 @@ $APS_map = @{
 _awsArgumentCompleterRegistration $APS_Completers $APS_map
 
 
+# Argument completions for service Amazon Athena
+$ATH_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Athena.EncryptionOption
+        "Start-ATHQueryExecution/ResultConfiguration_EncryptionConfiguration_EncryptionOption"
+        {
+            $v = "CSE_KMS","SSE_KMS","SSE_S3"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ATH_map = @{
+    "ResultConfiguration_EncryptionConfiguration_EncryptionOption"=@("Start-ATHQueryExecution")
+}
+
+_awsArgumentCompleterRegistration $ATH_Completers $ATH_map
+
+
 # Argument completions for service AWS Batch
 $BAT_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
