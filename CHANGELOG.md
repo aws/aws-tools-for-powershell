@@ -1,3 +1,13 @@
+### 3.3.90.0 (2017-05-19)
+  * AWSPowerShell.NetCore module
+    - Added CompatiblePSEditions entry to the module manifest to mark the module as only being compatible with PowerShell Core environments.
+  * Amazon Inspector
+    - Added cmdlet Get-INSAssessmentReport to support the new GetAssessmentReport API. This new API adds the ability to produce an assessment report that includes detailed and comprehensive results of a specified assessment run.
+  * Amazon Lightsail
+    - Added cmdlet Set-LSInstancePublicPort to support the new PutInstancePublicPorts API, enabling a single request to both open and close public ports on an instance.
+  * Amazon Athena
+    - Added support for the new Amazon Athena service. Amazon Athena is an interactive query service that makes it easy to analyze data in Amazon S3 using standard SQL. Athena is serverless, so there is no infrastructure to manage, and you pay only for the queries that you run. Cmdlets for this service have the noun prefix 'ATH' and can be listed using the command 'Get-AWSCmdletName -Service ATH'.
+
 ### 3.3.86.0 (2017-05-12)
   * AWS Lambda
     - Added support for automatic pagination of all available results on service APIs that supported paging. Updated cmdlets are Get-LMAliasList, Get-LMEventSourceMappings, Get-LMFunctions and Get-LMVersionsByFunction.
