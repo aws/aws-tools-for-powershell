@@ -546,7 +546,11 @@ namespace AWSPowerShellGenerator.Generators
                     // http://docs.aws.amazon.com/sdkfornet/v3/apidocs/index.html?page=EC2/TEC2ScheduledInstance.html&tocid=Amazon_EC2_Model_ScheduledInstance
                     // Note how the pages are arranged beneath an extra folder
                     var nameComponents = t.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+                    
                     var serviceName = nameComponents[1];
+                    if (ServiceNamespaceContractions.ContainsKey(serviceName))
+                        serviceName = ServiceNamespaceContractions[serviceName];
+
                     var tName = nameComponents[nameComponents.Length - 1];
                      
                     var sdkTypePagePath = string.Format("T{0}{1}", serviceName, tName);
@@ -569,18 +573,22 @@ namespace AWSPowerShellGenerator.Generators
         // docs from one tool
         private static string ShrinkSdkLongFilepath(string name)
         {
-            var fixedUpName = name.Replace(".", "").Replace("<", "").Replace(">", "");
+            var fixedUpName = name.Replace('.', '_');
+            // don't use encoded <> in filename, as browsers re-encode it in links to %3C
+            // and the link fails
+            fixedUpName = fixedUpName.Replace("&lt;", "!").Replace("&gt;", "!");
             fixedUpName = fixedUpName.Replace("Amazon", "");
             fixedUpName = fixedUpName.Replace("_Model_", "");
             fixedUpName = fixedUpName.Replace("_Begin", "");
             fixedUpName = fixedUpName.Replace("_End", "");
             fixedUpName = fixedUpName.Replace("Client_", "");
-            fixedUpName = fixedUpName.Replace("ElasticLoadBalancing", "ELB");
-            fixedUpName = fixedUpName.Replace("ElasticBeanstalk", "EB_");
-            fixedUpName = fixedUpName.Replace("ElasticMapReduce", "EMR");
-            fixedUpName = fixedUpName.Replace("ElasticTranscoder", "ETS");
-            fixedUpName = fixedUpName.Replace("SimpleNotificationService", "SNS");
+            fixedUpName = fixedUpName.Replace("+", "");
             fixedUpName = fixedUpName.Replace("_", "");
+
+            foreach (var k in ServiceNamespaceContractions.Keys)
+            {
+                fixedUpName = fixedUpName.Replace(k, ServiceNamespaceContractions[k]);
+            }
 
             if (fixedUpName.Length > MAX_FILE_SIZE)
             {

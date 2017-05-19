@@ -65,6 +65,21 @@ namespace AWSPowerShellGenerator.Generators
             {"AWS Security Token Service", new string[] {"Use-STSRoleWithSAML", "Use-STSWebIdentityRole"}}
         };
 
+        // matchs same collection in the sdk, where we shorten paths to avoid issues with
+        // Windows path lengths
+        public static Dictionary<string, string> ServiceNamespaceContractions = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
+        {
+            {"ElasticLoadBalancing", "ELB"},
+            {"ElasticBeanstalk", "EB"},
+            {"ElasticMapReduce", "EMR"},
+            {"ElasticTranscoder", "ETS"},
+            {"SimpleNotificationService", "SNS"},
+            {"IdentityManagement", "IAM"},
+            {"DatabaseMigrationService", "DMS"},
+            {"ApplicationDiscoveryService", "ADS"},
+            {"SimpleSystemsManagement", "SSM"},
+        };
+
         protected override void GenerateHelper()
         {
             var psCmdletType = typeof(PSCmdlet);
