@@ -30,7 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Returns a description of the specified Amazon Resource Name (ARN) of virtual tapes.
     /// If a <code>TapeARN</code> is not specified, returns a description of all virtual tapes
-    /// associated with the specified gateway. This operation is only supported in tape gateways.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// associated with the specified gateway. This operation is only supported in the tape
+    /// gateway architecture.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGTapes")]
     [OutputType("Amazon.StorageGateway.Model.Tape")]
@@ -57,8 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>Specifies one or more unique Amazon Resource Names (ARNs) that represent the virtual
-        /// tapes you want to describe. If this parameter is not specified, AWS Storage Gateway
-        /// returns a description of all virtual tapes associated with the specified gateway.</para>
+        /// tapes you want to describe. If this parameter is not specified, Tape gateway returns
+        /// a description of all virtual tapes associated with the specified gateway.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

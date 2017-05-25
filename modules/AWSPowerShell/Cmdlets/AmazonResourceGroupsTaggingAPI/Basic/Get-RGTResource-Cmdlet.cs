@@ -45,6 +45,18 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     public partial class GetRGTResourceCmdlet : AmazonResourceGroupsTaggingAPIClientCmdlet, IExecutor
     {
         
+        #region Parameter ResourcesPerPage
+        /// <summary>
+        /// <para>
+        /// <para>A limit that restricts the number of resources returned by GetResources in paginated
+        /// output. You can set ResourcesPerPage to a minimum of 1 item and the maximum of 50
+        /// items. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ResourcesPerPage { get; set; }
+        #endregion
+        
         #region Parameter ResourceTypeFilter
         /// <summary>
         /// <para>
@@ -133,6 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             PreExecutionContextLoad(context);
             
             context.PaginationToken = this.PaginationToken;
+            if (ParameterWasBound("ResourcesPerPage"))
+                context.ResourcesPerPage = this.ResourcesPerPage;
             if (this.ResourceTypeFilter != null)
             {
                 context.ResourceTypeFilters = new List<System.String>(this.ResourceTypeFilter);
@@ -159,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.RGT
             
             // create request and set iteration invariants
             var request = new Amazon.ResourceGroupsTaggingAPI.Model.GetResourcesRequest();
+            if (cmdletContext.ResourcesPerPage != null)
+            {
+                request.ResourcesPerPage = cmdletContext.ResourcesPerPage.Value;
+            }
             if (cmdletContext.ResourceTypeFilters != null)
             {
                 request.ResourceTypeFilters = cmdletContext.ResourceTypeFilters;
@@ -302,6 +320,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         internal class CmdletContext : ExecutorContext
         {
             public System.String PaginationToken { get; set; }
+            public System.Int32? ResourcesPerPage { get; set; }
             public List<System.String> ResourceTypeFilters { get; set; }
             public List<Amazon.ResourceGroupsTaggingAPI.Model.TagFilter> TagFilters { get; set; }
             public int? TagsPerPage { get; set; }

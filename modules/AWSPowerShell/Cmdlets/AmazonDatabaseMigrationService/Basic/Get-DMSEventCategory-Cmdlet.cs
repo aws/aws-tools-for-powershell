@@ -22,54 +22,51 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.StorageGateway;
-using Amazon.StorageGateway.Model;
+using Amazon.DatabaseMigrationService;
+using Amazon.DatabaseMigrationService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SG
+namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Deletes a file share from a file gateway. This operation is only supported in the
-    /// file gateway architecture.
+    /// Lists categories for all event source types, or, if specified, for a specified source
+    /// type. You can see a list of the event categories and source types in <a href="http://docs.aws.amazon.com/dms/latest/userguide/CHAP_Events.html">
+    /// Working with Events and Notifications </a> in the AWS Database Migration Service User
+    /// Guide.
     /// </summary>
-    [Cmdlet("Remove", "SGFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteFileShare operation against AWS Storage Gateway.", Operation = new[] {"DeleteFileShare"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DeleteFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "DMSEventCategory")]
+    [OutputType("Amazon.DatabaseMigrationService.Model.EventCategoryGroup")]
+    [AWSCmdlet("Invokes the DescribeEventCategories operation against AWS Database Migration Service.", Operation = new[] {"DescribeEventCategories"})]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.EventCategoryGroup",
+        "This cmdlet returns a collection of EventCategoryGroup objects.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeEventCategoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSGFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetDMSEventCategoryCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter FileShareARN
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the file share to be deleted. </para>
+        /// <para>Filters applied to the action.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String FileShareARN { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.DatabaseMigrationService.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter SourceType
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para> The type of AWS DMS resource that generates events. </para><para>Valid values: replication-instance | migration-task</para>
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String SourceType { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FileShareARN", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SGFileShare (DeleteFileShare)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -80,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FileShareARN = this.FileShareARN;
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.DatabaseMigrationService.Model.Filter>(this.Filter);
+            }
+            context.SourceType = this.SourceType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -95,11 +96,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.DeleteFileShareRequest();
+            var request = new Amazon.DatabaseMigrationService.Model.DescribeEventCategoriesRequest();
             
-            if (cmdletContext.FileShareARN != null)
+            if (cmdletContext.Filters != null)
             {
-                request.FileShareARN = cmdletContext.FileShareARN;
+                request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.SourceType != null)
+            {
+                request.SourceType = cmdletContext.SourceType;
             }
             
             CmdletOutput output;
@@ -110,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.FileShareARN;
+                object pipelineOutput = response.EventCategoryGroupList;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -135,14 +140,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private Amazon.StorageGateway.Model.DeleteFileShareResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteFileShareRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeEventCategoriesResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeEventCategoriesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteFileShare");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeEventCategories");
             #if DESKTOP
-            return client.DeleteFileShare(request);
+            return client.DescribeEventCategories(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteFileShareAsync(request);
+            var task = client.DescribeEventCategoriesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -153,7 +158,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FileShareARN { get; set; }
+            public List<Amazon.DatabaseMigrationService.Model.Filter> Filters { get; set; }
+            public System.String SourceType { get; set; }
         }
         
     }

@@ -39,7 +39,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// up to 100 volumes. You can optionally specify the <code>Limit</code> field in the
     /// body to limit the number of volumes in the response. If the number of volumes returned
     /// in the response is truncated, the response includes a Marker field. You can use this
-    /// Marker value in your subsequent request to retrieve the next set of volumes.
+    /// Marker value in your subsequent request to retrieve the next set of volumes. This
+    /// operation is only supported in the cached volume and stored volume gateway architectures.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGVolume")]

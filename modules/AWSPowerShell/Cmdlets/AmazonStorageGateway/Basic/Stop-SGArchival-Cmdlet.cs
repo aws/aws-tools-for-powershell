@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Cancels archiving of a virtual tape to the virtual tape shelf (VTS) after the archiving
-    /// process is initiated. This operation is only supported in tape gateways.
+    /// process is initiated. This operation is only supported in the tape gateway architecture.
     /// </summary>
     [Cmdlet("Stop", "SGArchival", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -1613,6 +1613,36 @@ $DMS_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.DatabaseMigrationService.AuthMechanismValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthMechanism") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthMechanism")
+        }
+        {
+            $v = "default","mongodb_cr","scram_sha_1"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.AuthTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_AuthType") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_AuthType")
+        }
+        {
+            $v = "no","password"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.CompressionTypeValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/S3Settings_CompressionType") -Or
+            ($_ -eq "New-DMSEndpoint/S3Settings_CompressionType")
+        }
+        {
+            $v = "gzip","none"
+            break
+        }
+        
         # Amazon.DatabaseMigrationService.DmsSslModeValue
         {
             ($_ -eq "Edit-DMSEndpoint/SslMode") -Or
@@ -1633,6 +1663,16 @@ $DMS_Completers = {
             break
         }
         
+        # Amazon.DatabaseMigrationService.NestingLevelValue
+        {
+            ($_ -eq "Edit-DMSEndpoint/MongoDbSettings_NestingLevel") -Or
+            ($_ -eq "New-DMSEndpoint/MongoDbSettings_NestingLevel")
+        }
+        {
+            $v = "none","one"
+            break
+        }
+        
         # Amazon.DatabaseMigrationService.ReplicationEndpointTypeValue
         {
             ($_ -eq "Edit-DMSEndpoint/EndpointType") -Or
@@ -1640,6 +1680,13 @@ $DMS_Completers = {
         }
         {
             $v = "source","target"
+            break
+        }
+        
+        # Amazon.DatabaseMigrationService.SourceType
+        "Get-DMSEvent/SourceType"
+        {
+            $v = "replication-instance"
             break
         }
         
@@ -1660,6 +1707,11 @@ $DMS_Completers = {
 $DMS_map = @{
     "EndpointType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "MigrationType"=@("Edit-DMSReplicationTask","New-DMSReplicationTask")
+    "MongoDbSettings_AuthMechanism"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MongoDbSettings_AuthType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "MongoDbSettings_NestingLevel"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "S3Settings_CompressionType"=@("Edit-DMSEndpoint","New-DMSEndpoint")
+    "SourceType"=@("Get-DMSEvent")
     "SslMode"=@("Edit-DMSEndpoint","New-DMSEndpoint")
     "StartReplicationTaskType"=@("Start-DMSReplicationTask")
 }

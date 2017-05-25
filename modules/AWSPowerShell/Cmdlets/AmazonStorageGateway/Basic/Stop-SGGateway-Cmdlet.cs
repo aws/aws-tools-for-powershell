@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// 
     ///  
     /// <para>
-    /// The operation shuts down the gateway service component running in the storage gateway's
-    /// virtual machine (VM) and not the VM.
+    /// The operation shuts down the gateway service component running in the gateway's virtual
+    /// machine (VM) and not the host VM.
     /// </para><note><para>
     /// If you want to shut down the VM, it is recommended that you first shut down the gateway
     /// component in the VM to avoid unpredictable conditions.

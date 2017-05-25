@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Deletes the specified virtual tape from the virtual tape shelf (VTS). This operation
-    /// is only supported in tape gateways.
+    /// is only supported in the tape gateway architecture.
     /// </summary>
     [Cmdlet("Remove", "SGTapeArchive", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

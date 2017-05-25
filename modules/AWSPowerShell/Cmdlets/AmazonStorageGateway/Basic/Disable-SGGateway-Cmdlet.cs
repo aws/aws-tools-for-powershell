@@ -28,12 +28,14 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Disables a gateway when the gateway is no longer functioning. For example, if your
-    /// gateway VM is damaged, you can disable the gateway so you can recover virtual tapes.
+    /// Disables a tape gateway when the gateway is no longer functioning. For example, if
+    /// your gateway VM is damaged, you can disable the gateway so you can recover virtual
+    /// tapes.
     /// 
     ///  
     /// <para>
-    /// Use this operation for a tape gateway that is not reachable or not functioning.
+    /// Use this operation for a tape gateway that is not reachable or not functioning. This
+    /// operation is only supported in the tape gateway architectures.
     /// </para><important><para>
     /// Once a gateway is disabled it cannot be enabled.
     /// </para></important>

@@ -29,12 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Returns a description of specified virtual tapes in the virtual tape shelf (VTS).
+    /// This operation is only supported in the tape gateway architecture.
     /// 
     ///  
     /// <para>
     /// If a specific <code>TapeARN</code> is not specified, AWS Storage Gateway returns a
-    /// description of all virtual tapes found in the VTS associated with your account. This
-    /// operation is only supported in tape gateways.
+    /// description of all virtual tapes found in the VTS associated with your account.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGTapeArchives")]

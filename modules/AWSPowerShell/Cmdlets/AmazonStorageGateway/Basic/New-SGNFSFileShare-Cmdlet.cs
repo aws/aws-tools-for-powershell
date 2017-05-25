@@ -31,7 +31,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Creates a file share on an existing file gateway. In Storage Gateway, a file share
     /// is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes
     /// file shares using a Network File System (NFS) interface. This operation is only supported
-    /// in file gateways.
+    /// in the file gateway architecture.
+    /// 
+    ///  <important><para>
+    /// File gateway requires AWS Security Token Service (AWS STS) to be activated to enable
+    /// you create a file share. Make sure AWS STS is activated in the region you are creating
+    /// your file gateway in. If AWS STS is not activated in the region, activate it. For
+    /// information about how to activate AWS STS, see Activating and Deactivating AWS STS
+    /// in an AWS Region in the AWS Identity and Access Management User Guide. 
+    /// </para><para>
+    /// File gateway does not support creating hard or symbolic links on a file share.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "SGNFSFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -146,7 +156,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter LocationARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the backend storage used for storing file data. </para>
+        /// <para>The ARN of the backed storage used for storing file data. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -167,8 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>Sets the write status of a file share. "true", if the write status is read-only; otherwise
-        /// "false.</para>
+        /// <para>Sets the write status of a file share: "true" if the write status is read-only, and
+        /// otherwise "false".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -189,9 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter Squash
         /// <summary>
         /// <para>
-        /// <para>Maps a user to anonymous user. Valid options: "RootSquash" - Only root is mapped to
-        /// anonymous user, "NoSquash" - No one is mapped to anonymous user or "AllSquash" - Everyone
-        /// is mapped to anonymous user. </para>
+        /// <para>Maps a user to anonymous user. Valid options are the following: </para><ul><li><para>"RootSquash" - Only root is mapped to anonymous user.</para></li><li><para>"NoSquash" - No one is mapped to anonymous user.</para></li><li><para>"AllSquash" - Everyone is mapped to anonymous user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

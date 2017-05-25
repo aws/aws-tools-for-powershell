@@ -29,20 +29,20 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Initiates a snapshot of a gateway from a volume recovery point. This operation is
-    /// only supported in the cached volumes gateway architecture.
+    /// only supported in the cached volume gateway architecture.
     /// 
     ///  
     /// <para>
     /// A volume recovery point is a point in time at which all data of the volume is consistent
     /// and from which you can create a snapshot. To get a list of volume recovery point for
-    /// cached volumes gateway, use <a>ListVolumeRecoveryPoints</a>.
+    /// cached volume gateway, use <a>ListVolumeRecoveryPoints</a>.
     /// </para><para>
     /// In the <code>CreateSnapshotFromVolumeRecoveryPoint</code> request, you identify the
     /// volume by providing its Amazon Resource Name (ARN). You must also provide a description
-    /// for the snapshot. When AWS Storage Gateway takes a snapshot of the specified volume,
-    /// the snapshot and its description appear in the AWS Storage Gateway console. In response,
-    /// AWS Storage Gateway returns you a snapshot ID. You can use this snapshot ID to check
-    /// the snapshot progress or later use it when you want to create a volume from a snapshot.
+    /// for the snapshot. When the gateway takes a snapshot of the specified volume, the snapshot
+    /// and its description appear in the AWS Storage Gateway console. In response, the gateway
+    /// returns you a snapshot ID. You can use this snapshot ID to check the snapshot progress
+    /// or later use it when you want to create a volume from a snapshot.
     /// </para><note><para>
     /// To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
     /// in <i>Amazon Elastic Compute Cloud API Reference</i>.

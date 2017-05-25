@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         /// to Use an External ID When Granting Access to Your AWS Resources to a Third Party</a>
         /// in the <i>IAM User Guide</i>.</para><para>The regex used to validated this parameter is a string of characters consisting of
         /// upper- and lower-case alphanumeric characters with no spaces. You can also include
-        /// underscores or any of the following characters: =,.@:\/-</para>
+        /// underscores or any of the following characters: =,.@:/-</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]

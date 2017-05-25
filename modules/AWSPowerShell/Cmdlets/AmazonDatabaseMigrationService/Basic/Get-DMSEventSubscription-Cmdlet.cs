@@ -22,63 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.StorageGateway;
-using Amazon.StorageGateway.Model;
+using Amazon.DatabaseMigrationService;
+using Amazon.DatabaseMigrationService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SG
+namespace Amazon.PowerShell.Cmdlets.DMS
 {
     /// <summary>
-    /// Lists virtual tapes in your virtual tape library (VTL) and your virtual tape shelf
-    /// (VTS). You specify the tapes to list by specifying one or more tape Amazon Resource
-    /// Names (ARNs). If you don't specify a tape ARN, the operation lists all virtual tapes
-    /// in both your VTL and VTS.
+    /// Lists all the event subscriptions for a customer account. The description of a subscription
+    /// includes <code>SubscriptionName</code>, <code>SNSTopicARN</code>, <code>CustomerID</code>,
+    /// <code>SourceType</code>, <code>SourceID</code>, <code>CreationTime</code>, and <code>Status</code>.
+    /// 
     /// 
     ///  
     /// <para>
-    /// This operation supports pagination. By default, the operation returns a maximum of
-    /// up to 100 tapes. You can optionally specify the <code>Limit</code> parameter in the
-    /// body to limit the number of tapes in the response. If the number of tapes returned
-    /// in the response is truncated, the response includes a <code>Marker</code> element
-    /// that you can use in your subsequent request to retrieve the next set of tapes. This
-    /// operation is only supported in the tape gateway architecture.
+    /// If you specify <code>SubscriptionName</code>, this action lists the description for
+    /// that subscription.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SGTape")]
-    [OutputType("Amazon.StorageGateway.Model.TapeInfo")]
-    [AWSCmdlet("Invokes the ListTapes operation against AWS Storage Gateway.", Operation = new[] {"ListTapes"})]
-    [AWSCmdletOutput("Amazon.StorageGateway.Model.TapeInfo",
-        "This cmdlet returns a collection of TapeInfo objects.",
-        "The service call response (type Amazon.StorageGateway.Model.ListTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DMSEventSubscription")]
+    [OutputType("Amazon.DatabaseMigrationService.Model.EventSubscription")]
+    [AWSCmdlet("Invokes the DescribeEventSubscriptions operation against AWS Database Migration Service.", Operation = new[] {"DescribeEventSubscriptions"})]
+    [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.EventSubscription",
+        "This cmdlet returns a collection of EventSubscription objects.",
+        "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public partial class GetSGTapeCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetDMSEventSubscriptionCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter TapeARNs
+        #region Parameter Filter
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Filters applied to the action.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String[] TapeARNs { get; set; }
+        [Alias("Filters")]
+        public Amazon.DatabaseMigrationService.Model.Filter[] Filter { get; set; }
         #endregion
         
-        #region Parameter Limit
+        #region Parameter SubscriptionName
         /// <summary>
         /// <para>
-        /// <para>An optional number limit for the tapes in the list returned by this call.</para>
+        /// <para>The name of the AWS DMS event subscription to be described.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int Limit { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String SubscriptionName { get; set; }
         #endregion
         
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>A string that indicates the position at which to begin the returned list of tapes.</para>
+        /// <para> An optional pagination token provided by a previous request. If this parameter is
+        /// specified, the response includes only records beyond the marker, up to the value specified
+        /// by <code>MaxRecords</code>. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -87,6 +85,19 @@ namespace Amazon.PowerShell.Cmdlets.SG
         [System.Management.Automation.Parameter]
         [Alias("NextToken")]
         public System.String Marker { get; set; }
+        #endregion
+        
+        #region Parameter MaxRecord
+        /// <summary>
+        /// <para>
+        /// <para> The maximum number of records to include in the response. If more records exist than
+        /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems","MaxRecords")]
+        public int MaxRecord { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -102,13 +113,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
-            context.Marker = this.Marker;
-            if (this.TapeARNs != null)
+            if (this.Filter != null)
             {
-                context.TapeARNs = new List<System.String>(this.TapeARNs);
+                context.Filters = new List<Amazon.DatabaseMigrationService.Model.Filter>(this.Filter);
             }
+            context.Marker = this.Marker;
+            if (ParameterWasBound("MaxRecord"))
+                context.MaxRecords = this.MaxRecord;
+            context.SubscriptionName = this.SubscriptionName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,25 +136,36 @@ namespace Amazon.PowerShell.Cmdlets.SG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.StorageGateway.Model.ListTapesRequest();
-            if (cmdletContext.TapeARNs != null)
+            var request = new Amazon.DatabaseMigrationService.Model.DescribeEventSubscriptionsRequest();
+            if (cmdletContext.Filters != null)
             {
-                request.TapeARNs = cmdletContext.TapeARNs;
+                request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.SubscriptionName != null)
+            {
+                request.SubscriptionName = cmdletContext.SubscriptionName;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.Marker))
             {
                 _nextMarker = cmdletContext.Marker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecords))
             {
-                _emitLimit = cmdletContext.Limit;
+                // The service has a maximum page size of 100. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 100 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxRecords;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.Marker) || AutoIterationHelpers.HasValue(cmdletContext.MaxRecords);
             bool _continueIteration = true;
             
             try
@@ -152,7 +175,21 @@ namespace Amazon.PowerShell.Cmdlets.SG
                     request.Marker = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxRecords))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxRecords);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -163,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.TapeInfos;
+                        object pipelineOutput = response.EventSubscriptionsList;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -172,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.TapeInfos.Count;
+                        int _receivedThisCall = response.EventSubscriptionsList.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -192,6 +229,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -215,14 +261,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private Amazon.StorageGateway.Model.ListTapesResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.ListTapesRequest request)
+        private Amazon.DatabaseMigrationService.Model.DescribeEventSubscriptionsResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.DescribeEventSubscriptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "ListTapes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "DescribeEventSubscriptions");
             #if DESKTOP
-            return client.ListTapes(request);
+            return client.DescribeEventSubscriptions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListTapesAsync(request);
+            var task = client.DescribeEventSubscriptionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -233,9 +279,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal class CmdletContext : ExecutorContext
         {
-            public int? Limit { get; set; }
+            public List<Amazon.DatabaseMigrationService.Model.Filter> Filters { get; set; }
             public System.String Marker { get; set; }
-            public List<System.String> TapeARNs { get; set; }
+            public int? MaxRecords { get; set; }
+            public System.String SubscriptionName { get; set; }
         }
         
     }

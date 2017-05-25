@@ -80,6 +80,13 @@
 	  <ServiceOperation MethodName="StopReplicationTask" />
 	  <ServiceOperation MethodName="TestConnection" PipelineParameter="ReplicationInstanceArn" />
 
+	  <ServiceOperation MethodName="ModifyEventSubscription" PipelineParameter="SubscriptionName" />
+	  <ServiceOperation MethodName="ReloadTables" Verb="Restore" Noun="Table" PipelineParameter="ReplicationTaskArn" />
+	  <ServiceOperation MethodName="CreateEventSubscription" PipelineParameter="SubscriptionName" />
+	  <ServiceOperation MethodName="DeleteEventSubscription" />
+	  <ServiceOperation MethodName="DescribeEventCategories" Noun="EventCategory" PipelineParameter="SourceType" />
+	  <ServiceOperation MethodName="DescribeEvents" Noun="Event" PipelineParameter="SourceIdentifier" />
+	  <ServiceOperation MethodName="DescribeEventSubscriptions" Noun="EventSubscription" PipelineParameter="SubscriptionName" />
   </ServiceOperations>
 
 </ConfigModel>

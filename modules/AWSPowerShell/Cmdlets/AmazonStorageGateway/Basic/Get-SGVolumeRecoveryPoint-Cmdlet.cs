@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Lists the recovery points for a specified gateway. This operation is only supported
-    /// in the cached volumes gateway architecture.
+    /// in the cached volume gateway architecture.
     /// 
     ///  
     /// <para>

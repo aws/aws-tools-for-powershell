@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Activates the gateway you previously deployed on your host. For more information,
     /// see <a href="http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html">
     /// Activate the AWS Storage Gateway</a>. In the activation process, you specify information
-    /// such as the region you want to use for storing snapshots, the time zone for scheduled
-    /// snapshots the gateway snapshot schedule window, an activation key, and a name for
-    /// your gateway. The activation process also associates your gateway with your account;
-    /// for more information, see <a>UpdateGatewayInformation</a>.
+    /// such as the region you want to use for storing snapshots or tapes, the time zone for
+    /// scheduled snapshots the gateway snapshot schedule window, an activation key, and a
+    /// name for your gateway. The activation process also associates your gateway with your
+    /// account; for more information, see <a>UpdateGatewayInformation</a>.
     /// 
     ///  <note><para>
     /// You must turn on the gateway VM before you can activate your gateway.
@@ -78,13 +78,13 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter GatewayRegion
         /// <summary>
         /// <para>
-        /// <para>A value that indicates the region where you want to store the snapshot backups. The
-        /// gateway region specified must be the same region as the region in your <code>Host</code>
-        /// header in the request. For more information about available regions and endpoints
-        /// for AWS Storage Gateway, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
+        /// <para>A value that indicates the region where you want to store your data. The gateway region
+        /// specified must be the same region as the region in your <code>Host</code> header in
+        /// the request. For more information about available regions and endpoints for AWS Storage
+        /// Gateway, see <a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#sg_region">Regions
         /// and Endpoints</a> in the <i>Amazon Web Services Glossary</i>.</para><para> Valid Values: "us-east-1", "us-east-2", "us-west-1", "us-west-2", "ca-central-1",
         /// "eu-west-1", "eu-central-1", "eu-west-2", "ap-northeast-1", "ap-northeast-2", "ap-southeast-1",
-        /// "ap-southeast-2", "sa-east-1"</para>
+        /// "ap-southeast-2", "ap-south-1", "sa-east-1"</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
@@ -95,7 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <summary>
         /// <para>
         /// <para>A value that indicates the time zone you want to set for the gateway. The time zone
-        /// is used, for example, for scheduling snapshots and your gateway's maintenance schedule.</para>
+        /// is of the format "GMT-hr:mm" or "GMT+hr:mm". For example, GMT-4:00 indicates the time
+        /// is 4 hours behind GMT. GMT+2:00 indicates the time is 2 hours ahead of GMT. The time
+        /// zone is used, for example, for scheduling snapshots and your gateway's maintenance
+        /// schedule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskIdentifier
         /// <summary>
         /// <para>
-        /// <para>The replication task identifier.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
+        /// <para>The replication task identifier.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,8 +107,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter TableMapping
         /// <summary>
         /// <para>
-        /// <para>The path of the JSON file that contains the table mappings. Preceed the path with
-        /// "file://".</para><para>For example, --table-mappings file://mappingfile.json</para>
+        /// <para>When using the AWS CLI or boto3, provide the path of the JSON file that contains the
+        /// table mappings. Precede the path with "file://". When working with the DMS API, provide
+        /// the JSON as the parameter value.</para><para>For example, --table-mappings file://mappingfile.json</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
