@@ -37,7 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// A user can then index faces using the <code>IndexFaces</code> operation and persist
     /// results in a specific collection. Then, a user can search the collection for faces
     /// in the user-specific container. 
-    /// </para><para>
+    /// </para><note><para>
+    /// Collection names are case-sensitive.
+    /// </para></note><para>
     /// For an example, see <a>example1</a>. 
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:CreateCollection</code>

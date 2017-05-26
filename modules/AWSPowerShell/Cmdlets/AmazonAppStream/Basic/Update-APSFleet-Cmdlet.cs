@@ -77,9 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisconnectTimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>The time after disconnection when a session is considered to have ended. When the
-        /// user reconnects after a disconnection, the user is connected to the same instance
-        /// within this time interval.</para>
+        /// <para>The time after disconnection when a session is considered to have ended. If a user
+        /// who got disconnected reconnects within this timeout interval, the user is connected
+        /// back to their previous session. The input can be any numeric value in seconds between
+        /// 60 and 57600.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter EnableDefaultInternetAccess
         /// <summary>
         /// <para>
-        /// <para>Enable/Disable default Internet access from fleet.</para>
+        /// <para>Enables or disables default Internet access for the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -131,7 +132,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter MaxUserDurationInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time during which a streaming session can run.</para>
+        /// <para>The maximum time for which a streaming session can run. The input can be any numeric
+        /// value in seconds between 600 and 57600.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

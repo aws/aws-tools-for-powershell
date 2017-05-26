@@ -28,8 +28,8 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Detects explicit or suggestive adult content in a specified .jpeg or .png image. Use
-    /// <code>DetectModerationLabels</code> to moderate images depending on your requirements.
+    /// Detects explicit or suggestive adult content in a specified JPEG or PNG format image.
+    /// Use <code>DetectModerationLabels</code> to moderate images depending on your requirements.
     /// For example, you might want to filter images that contain nudity, but not images containing
     /// suggestive content.
     /// 

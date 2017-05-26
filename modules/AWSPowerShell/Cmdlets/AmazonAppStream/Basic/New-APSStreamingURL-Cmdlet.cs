@@ -93,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Validity
         /// <summary>
         /// <para>
-        /// <para>The validity duration of the URL in seconds. After this duration, the URL returned
-        /// by this operation becomes invalid.</para>
+        /// <para>The duration up to which the URL returned by this action is valid. The input can be
+        /// any numeric value in seconds between 1 and 604800 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

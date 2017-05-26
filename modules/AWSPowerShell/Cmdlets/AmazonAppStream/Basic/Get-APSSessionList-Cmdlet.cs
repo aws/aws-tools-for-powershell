@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// this operation returns streaming sessions for only that user. Pass this value for
     /// the <code>nextToken</code> parameter in a subsequent call to this operation to retrieve
     /// the next set of items. If an authentication type is not provided, the operation defaults
-    /// to users authenticated using a streaming url.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// to users authenticated using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSSessionList")]
     [OutputType("Amazon.AppStream.Model.Session")]
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The authentication method of the user. It can be <code>API</code> for a user authenticated
-        /// using a streaming url or <code>SAML</code> for a SAML federated user. If an authentication
+        /// using a streaming URL, or <code>SAML</code> for a SAML federated user. If an authentication
         /// type is not provided, the operation defaults to users authenticated using a streaming
-        /// url.</para>
+        /// URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

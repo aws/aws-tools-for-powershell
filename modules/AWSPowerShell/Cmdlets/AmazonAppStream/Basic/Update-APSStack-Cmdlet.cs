@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class UpdateAPSStackCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        #region Parameter DeleteStorageConnector
+        /// <summary>
+        /// <para>
+        /// <para>Remove all the storage connectors currently enabled for the stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("DeleteStorageConnectors")]
+        public System.Boolean DeleteStorageConnector { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -68,6 +79,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter StorageConnector
+        /// <summary>
+        /// <para>
+        /// <para>The storage connectors to be enabled for the stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("StorageConnectors")]
+        public Amazon.AppStream.Model.StorageConnector[] StorageConnector { get; set; }
         #endregion
         
         #region Parameter Force
@@ -99,9 +121,15 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("DeleteStorageConnector"))
+                context.DeleteStorageConnectors = this.DeleteStorageConnector;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.Name = this.Name;
+            if (this.StorageConnector != null)
+            {
+                context.StorageConnectors = new List<Amazon.AppStream.Model.StorageConnector>(this.StorageConnector);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -118,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.UpdateStackRequest();
             
+            if (cmdletContext.DeleteStorageConnectors != null)
+            {
+                request.DeleteStorageConnectors = cmdletContext.DeleteStorageConnectors.Value;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -129,6 +161,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.StorageConnectors != null)
+            {
+                request.StorageConnectors = cmdletContext.StorageConnectors;
             }
             
             CmdletOutput output;
@@ -182,9 +218,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.Boolean? DeleteStorageConnectors { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String Name { get; set; }
+            public List<Amazon.AppStream.Model.StorageConnector> StorageConnectors { get; set; }
         }
         
     }
