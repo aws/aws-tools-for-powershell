@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> (Get-EC2AccountAttribute -AttributeName supported-platforms).AttributeValues
+    
+AttributeValue
+--------------
+EC2
+VPC</code>
+    <description>This example describes whether you can launch instances into EC2-Classic and EC2-VPC in the region, or only into EC2-VPC.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-EC2AccountAttribute -AttributeName default-vpc).AttributeValues
+    
+AttributeValue
+--------------
+vpc-12345678</code>
+    <description>This example describes your default VPC, or is 'none' if you do not have a default VPC in the region.</description>
+  </example>
+  <example>
+    <code>PS C:\> (Get-EC2AccountAttribute -AttributeName max-instances).AttributeValues
+    
+AttributeValue
+--------------
+20</code>
+    <description>This example describes the maximum number of On-Demand instances that you can run.</description>
+  </example>
+</examples>

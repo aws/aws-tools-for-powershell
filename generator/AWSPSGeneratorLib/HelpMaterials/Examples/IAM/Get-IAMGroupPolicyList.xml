@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\>Get-IAMGroupPolicyList -GroupName Testers
+
+Deny-Assume-S3-Role-In-Production
+PowerUserAccess-Testers</code>
+    <description>This example returns a list of the inline policies that are embedded in the group <code>Testers</code>. To get the managed policies that are attached to the group, use the command <code>Get-IAMAttachedGroupPolicies</code>.</description>
+  </example>
+</examples>

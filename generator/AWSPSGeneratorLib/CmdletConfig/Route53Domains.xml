@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>R53D</ServiceNounPrefix>
   <ServiceName>Amazon Route 53 Domains</ServiceName>
   <ServiceClientInterface>IAmazonRoute53Domains</ServiceClientInterface>
@@ -10,23 +11,27 @@
   <PipelineParameter>DomainName</PipelineParameter>
   
   <AutoIterate Start="Marker" Next="NextPageMarker" />
-
+  
   <DefaultRegion>us-east-1</DefaultRegion>
-
+  
+  <VerbMappings>
+    <Map From="List" To="Get"/>
+  </VerbMappings>
+  
   <ServiceOperations>
-    <ServiceOperation MethodName="CheckDomainAvailability" Verb="Get" />
+    <ServiceOperation MethodName="CheckDomainAvailability" Verb="Test" LegacyAlias="Get-R53DDomainAvailability" />
     <ServiceOperation MethodName="DeleteTagsForDomain" Output="Void" />
     <ServiceOperation MethodName="DisableDomainAutoRenew" Output="Void" />
     <ServiceOperation MethodName="DisableDomainTransferLock" />
     <ServiceOperation MethodName="EnableDomainAutoRenew" Output="Void" />
     <ServiceOperation MethodName="EnableDomainTransferLock" />
-	<ServiceOperation MethodName="GetContactReachabilityStatus" Output="Response" />
+    <ServiceOperation MethodName="GetContactReachabilityStatus" Output="Response" />
     <ServiceOperation MethodName="GetDomainDetail" Output="Response" />
     <ServiceOperation MethodName="GetDomainSuggestions" Noun="DomainSuggestion"/>
     <ServiceOperation MethodName="GetOperationDetail" Output="Response" />
-    <ServiceOperation MethodName="ListDomains" Verb="Get" />
-    <ServiceOperation MethodName="ListOperations" Verb="Get" />
-    <ServiceOperation MethodName="ListTagsForDomain" Verb="Get" />
+    <ServiceOperation MethodName="ListDomains" Noun="DomainList" LegacyAlias="Get-R53DDomains" />
+    <ServiceOperation MethodName="ListOperations" Noun="OperationList" LegacyAlias="Get-R53DOperations" />
+    <ServiceOperation MethodName="ListTagsForDomain" />
     <ServiceOperation MethodName="RegisterDomain" ShouldProcessTarget="DomainName">
       <Params>
         <!-- stops rename thru singularization -->
@@ -34,8 +39,7 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="RenewDomain" Verb="Update" Noun="DomainRenewal"/>
-	<ServiceOperation MethodName="ResendContactReachabilityEmail" Verb="Send" Output="Response" />
-	
+    <ServiceOperation MethodName="ResendContactReachabilityEmail" Verb="Send" Output="Response" />
     <ServiceOperation MethodName="RetrieveDomainAuthCode" Verb="Get" />
     <ServiceOperation MethodName="TransferDomain" Verb="Invoke" Noun="DomainTransfer" ShouldProcessTarget="DomainName">
       <Params>
@@ -43,10 +47,9 @@
         <Param Name="DurationInYears" AutoRename="false" />
       </Params>
     </ServiceOperation>
-
     <ServiceOperation MethodName="UpdateDomainContact" />
     <ServiceOperation MethodName="UpdateDomainContactPrivacy" />
-    <ServiceOperation MethodName="UpdateDomainNameservers" />
+    <ServiceOperation MethodName="UpdateDomainNameservers" Noun="DomainNameserver" LegacyAlias="Update-R53DDomainNameservers" />
     <ServiceOperation MethodName="UpdateTagsForDomain" Output="Void" />
     <ServiceOperation MethodName="ViewBilling" Verb="Get" Noun="BillingRecord">
       <AutoIterate Start="Marker" Next="NextPageMarker" EmitLimit="MaxItems" ServicePageSize="20"/>
@@ -62,5 +65,4 @@
     <Property>DomainName</Property>
     <Property>OperationId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

@@ -1,24 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>LEX</ServiceNounPrefix>
   <ServiceName>Amazon Lex</ServiceName>
   <ServiceClientInterface>IAmazonLex</ServiceClientInterface>
   <ServiceClient>AmazonLexClient</ServiceClient>
   <ServiceNamespace>Amazon.Lex</ServiceNamespace>
 
-  <CustomAliases>
-  </CustomAliases>
-
-  <VerbMappings>
-  </VerbMappings>
-
   <ServiceOperations>
     <ServiceOperation MethodName="PostText" Verb="Send" PipelineParameter="InputText" Output="Response" IgnoreSupportsShouldProcess="true"/>
     <ServiceOperation MethodName="PostContent" Verb="Send" NoPipelineParameter="true" Output="Response" IgnoreSupportsShouldProcess="true"/>
   </ServiceOperations>
-
-  <PipelineByValueProperties>
-  </PipelineByValueProperties>
-
 </ConfigModel>

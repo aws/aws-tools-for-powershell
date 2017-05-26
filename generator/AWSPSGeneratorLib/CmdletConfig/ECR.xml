@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ECR</ServiceNounPrefix>
   <ServiceName>Amazon EC2 Container Registry</ServiceName>
   <ServiceClientInterface>IAmazonECR</ServiceClientInterface>
@@ -8,41 +9,40 @@
   <ServiceNamespace>Amazon.ECR</ServiceNamespace>
 
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="100"/>
-
+  
   <PipelineParameter>RepositoryName</PipelineParameter>
-
+  
   <PipelineByValueProperties>
     <Property>RegistryId</Property>
     <Property>RepositoryName</Property>
     <Property>UploadId</Property>
   </PipelineByValueProperties>
-
+  
   <ServiceOperations>
-	  <ServiceOperation MethodName="BatchCheckLayerAvailability" PipelineParameter="LayerDigests" Output="Response" Verb="Get" Noun="LayerAvailabilityBatch" />
-	  <ServiceOperation MethodName="BatchDeleteImage" Verb="Remove" Noun="ImageBatch" PipelineParameter="ImageIds" Output="Response" />
-	  <ServiceOperation MethodName="BatchGetImage" Verb="Get" Noun="ImageBatch" PipelineParameter="ImageIds" Output="Response" />
-	  <ServiceOperation MethodName="CompleteLayerUpload" PipelineParameter="LayerDigests" Output="Response" ShouldProcessTarget="UploadId" />
-	  <ServiceOperation MethodName="CreateRepository" />
+    <ServiceOperation MethodName="BatchCheckLayerAvailability" PipelineParameter="LayerDigests" Output="Response" Verb="Get" Noun="LayerAvailabilityBatch" />
+    <ServiceOperation MethodName="BatchDeleteImage" Verb="Remove" Noun="ImageBatch" PipelineParameter="ImageIds" Output="Response" />
+    <ServiceOperation MethodName="BatchGetImage" Verb="Get" Noun="ImageBatch" PipelineParameter="ImageIds" Output="Response" />
+    <ServiceOperation MethodName="CompleteLayerUpload" PipelineParameter="LayerDigests" Output="Response" ShouldProcessTarget="UploadId" />
+    <ServiceOperation MethodName="CreateRepository" />
     <ServiceOperation MethodName="DeleteRepository">
       <Params>
         <Param Name="Force" NewName="IgnoreExistingImages" AutoApplyAlias="false"/>
       </Params>
     </ServiceOperation>
-	  <ServiceOperation MethodName="DeleteRepositoryPolicy" Output="Response" />
-      <ServiceOperation MethodName="DescribeImages" Noun="ImageMetadata" />
-	  <ServiceOperation MethodName="DescribeRepositories" Noun="Repository" PipelineParameter="RepositoryNames" />
-	  <ServiceOperation MethodName="GetAuthorizationToken" />
-	  <ServiceOperation MethodName="GetDownloadUrlForLayer" Output="Response" />
-	  <ServiceOperation MethodName="GetRepositoryPolicy" Output="Response" />
-	  <ServiceOperation MethodName="InitiateLayerUpload" Output="Response" Verb="Start" />
-	  <ServiceOperation MethodName="ListImages" Verb="Get" Noun="Image" />
-	  <ServiceOperation MethodName="PutImage" PipelineParameter="ImageManifest" ShouldProcessTarget="RepositoryName" />
+    <ServiceOperation MethodName="DeleteRepositoryPolicy" Output="Response" />
+    <ServiceOperation MethodName="DescribeImages" Noun="ImageMetadata" />
+    <ServiceOperation MethodName="DescribeRepositories" Noun="Repository" PipelineParameter="RepositoryNames" />
+    <ServiceOperation MethodName="GetAuthorizationToken" />
+    <ServiceOperation MethodName="GetDownloadUrlForLayer" Output="Response" />
+    <ServiceOperation MethodName="GetRepositoryPolicy" Output="Response" />
+    <ServiceOperation MethodName="InitiateLayerUpload" Output="Response" Verb="Start" />
+    <ServiceOperation MethodName="ListImages" Verb="Get" Noun="Image" />
+    <ServiceOperation MethodName="PutImage" PipelineParameter="ImageManifest" ShouldProcessTarget="RepositoryName" />
     <ServiceOperation MethodName="SetRepositoryPolicy" PipelineParameter="PolicyText" Output="Response" ShouldProcessTarget="RepositoryName">
       <Params>
         <Param Name="Force" NewName="OverridePolicy" AutoApplyAlias="false"/>
       </Params>
     </ServiceOperation>
-	  <ServiceOperation MethodName="UploadLayerPart" Exclude="true" />
+    <ServiceOperation MethodName="UploadLayerPart" Exclude="true" />
   </ServiceOperations>
-
 </ConfigModel>

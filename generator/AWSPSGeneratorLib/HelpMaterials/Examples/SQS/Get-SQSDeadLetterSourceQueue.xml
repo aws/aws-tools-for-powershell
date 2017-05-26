@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-SQSDeadLetterSourceQueue -QueueUrl https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyDeadLetterQueue
+	
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyQueue
+https://sqs.us-east-1.amazonaws.com/80398EXAMPLE/MyOtherQueue</code>
+    <description>This example lists the URLs of any queues that rely on the specified queue as their dead letter queue.</description>
+  </example>
+</examples>

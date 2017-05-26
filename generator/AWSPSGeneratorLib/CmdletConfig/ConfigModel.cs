@@ -243,6 +243,22 @@ namespace AWSPowerShellGenerator.CmdletConfig
         #region Configuration Properties
 
         /// <summary>
+        /// <para>
+        /// If specified, allows us to skip reflecting over the service client
+        /// to generate cmdlets but still process other data in the config 
+        /// (eg legacy aliases). 
+        /// </para>
+        /// <remarks>
+        /// We currently use this for CloudSearchDomain which has non-
+        /// standard client constructors and all of its operations
+        /// excluded from codegen. Due to originally having plural cmdlet
+        /// names, we want to take advantage of alias processing but none
+        /// of the rest of the generation process.
+        /// </remarks>
+        /// </summary>
+        public bool SkipCmdletGeneration;
+
+        /// <summary>
         /// If specified, governs the subfolder beneath AWSPowerShell/Cmdlets
         /// where the generated source will be emitted. If not specified,
         /// the name of the service client is used instead.
@@ -439,20 +455,45 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlArrayItem("Namespace")]
         public List<string> AdditionalNamespaces = new List<string>();
 
-        [DebuggerBrowsable(DebuggerBrowsableState.Never)]
+        /// <summary>
+        /// DEPRECATED
+        /// Additional aliases defined in the config, beyond the automatic aliases we generate.
+        /// These go into awsaliases.ps1.
+        /// Key is the cmdlet name; value is the alias (including parameters)
+        /// </summary>
         [XmlArray("CustomAliases")]
         [XmlArrayItem("AliasSet")]
         public List<AliasSet> CustomAliasesList = new List<AliasSet>();
 
         Dictionary<string, HashSet<string>> _customAliases;
-        /// <summary>
-        /// Additional aliases defined in the config, beyond the automatic aliases we generate.
-        /// Key is the cmdlet name; value is the alias (including parameters)
-        /// </summary>
         [XmlIgnore]
         public Dictionary<string, HashSet<string>> CustomAliases
         {
             get { return _customAliases ?? (_customAliases = CustomAliasesList.ToDictionary(a => a.Cmdlet, a => a.Aliases)); }
+        }
+
+        /// <summary>
+        /// Legacy alias entries for custom, hand-maintained cmdlets for a service.
+        /// These entries are used to ensure the aliases get emitted into the 
+        /// AWSPowerShellLegacyAliases.psm1 file and the overall module manifest. Hand-
+        /// maintained cmdlets that need a legacy alias should also have a LegacyAlias
+        /// attribute entry added to their AWSCmdletAttribute - this ensures that an table
+        /// of contents entry is generated for the alias in the web doc generator.
+        /// NOTE: Only use this collection in config files to provide aliases for custom
+        /// cmdlets. For generatable service operations, use the LegacyAlias attribute
+        /// on the respective ServiceOperation element.
+        /// Key is the current cmdlet name; value is the backwards-compatible alias
+        /// (there should only ever be one alias)
+        /// </summary>
+        [XmlArray("LegacyAliases")]
+        [XmlArrayItem("AliasSet")]
+        public List<AliasSet> LegacyAliasesList = new List<AliasSet>();
+
+        Dictionary<string, HashSet<string>> _legacyAliases;
+        [XmlIgnore]
+        public Dictionary<string, HashSet<string>> LegacyAliases
+        {
+            get { return _legacyAliases ?? (_legacyAliases = LegacyAliasesList.ToDictionary(a => a.Cmdlet, a => a.Aliases)); }
         }
 
         /// <summary>

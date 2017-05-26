@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CF</ServiceNounPrefix>
   <ServiceName>Amazon CloudFront</ServiceName>
   <ServiceClientInterface>IAmazonCloudFront</ServiceClientInterface>
@@ -8,21 +9,22 @@
   <ServiceNamespace>Amazon.CloudFront</ServiceNamespace>
 
   <PositionalParameters>Id</PositionalParameters>
+  
   <PipelineParameter>Id</PipelineParameter>
-
+  
   <!-- CloudFront has no directly enumerable output, so we do not support auto-iteration -->
   
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateCloudFrontOriginAccessIdentity" Output="Response" AnonymousShouldProcessTarget="true"/>
     <ServiceOperation MethodName="CreateDistribution" Output="Response" AnonymousShouldProcessTarget="true"/>
-	<ServiceOperation MethodName="CreateDistributionWithTags" Noun="DistributionWithTag" Output="Response" AnonymousShouldProcessTarget="true"/>
+    <ServiceOperation MethodName="CreateDistributionWithTags" Noun="DistributionWithTag" Output="Response" AnonymousShouldProcessTarget="true"/>
     <ServiceOperation MethodName="CreateInvalidation" Output="Response" PipelineParameter="DistributionId"/>
     <ServiceOperation MethodName="CreateStreamingDistribution" Output="Response"/>
-	<ServiceOperation MethodName="CreateStreamingDistributionWithTags" Noun="StreamingDistributionWithTag" Output="Response" AnonymousShouldProcessTarget="true"/>
+    <ServiceOperation MethodName="CreateStreamingDistributionWithTags" Noun="StreamingDistributionWithTag" Output="Response" AnonymousShouldProcessTarget="true"/>
     <ServiceOperation MethodName="DeleteCloudFrontOriginAccessIdentity" Output="Void" ShouldProcessTarget="Id" PositionalParameters="IfMatch"/>
     <ServiceOperation MethodName="DeleteDistribution" Output="Void" ShouldProcessTarget="Id" PositionalParameters="IfMatch"/>
     <ServiceOperation MethodName="DeleteStreamingDistribution" Output="Void" ShouldProcessTarget="Id" PositionalParameters="IfMatch"/>
@@ -33,30 +35,29 @@
     <ServiceOperation MethodName="GetInvalidation" PipelineParameter="DistributionId" PositionalParameters="Id"/>
     <ServiceOperation MethodName="GetStreamingDistribution"/>
     <ServiceOperation MethodName="GetStreamingDistributionConfig"/>
-    <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities"/>
-    <ServiceOperation MethodName="ListDistributions"/>
-	<ServiceOperation MethodName="ListDistributionsByWebACLId" Noun="DistributionListByWebACLId"/>
-    <ServiceOperation MethodName="ListInvalidations" PipelineParameter="DistributionId"/>
-    <ServiceOperation MethodName="ListStreamingDistributions"/>
-	<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" />
-	<ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="Resource" Output="Void">
-		<Params>
-			<Param Name="Tags_Items" NewName="Tag" AutoApplyAlias="false" />
-		</Params>
-	</ServiceOperation>
-	<ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="Resource" Output="Void">
-		<Params>
-			<Param Name="TagKeys_Items" NewName="TagKey" AutoApplyAlias="false" />
-		</Params>
-	</ServiceOperation>
+    <ServiceOperation MethodName="ListCloudFrontOriginAccessIdentities" Noun="CloudFrontOriginAccessIdentityList" LegacyAlias="Get-CFCloudFrontOriginAccessIdentities" />
+    <ServiceOperation MethodName="ListDistributions" Noun="DistributionList" LegacyAlias="Get-CFDistributions"/>
+    <ServiceOperation MethodName="ListDistributionsByWebACLId" Noun="DistributionListByWebACLId"/>
+    <ServiceOperation MethodName="ListInvalidations" PipelineParameter="DistributionId" Noun="InvalidationList" LegacyAlias="Get-CFInvalidations"/>
+    <ServiceOperation MethodName="ListStreamingDistributions" Noun="StreamingDistributionList" LegacyAlias="Get-CFStreamingDistributions"/>
+    <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" />
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="Resource" Output="Void">
+      <Params>
+        <Param Name="Tags_Items" NewName="Tag" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="Resource" Output="Void">
+      <Params>
+        <Param Name="TagKeys_Items" NewName="TagKey" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="UpdateCloudFrontOriginAccessIdentity" PositionalParameters="IfMatch"/>
     <ServiceOperation MethodName="UpdateDistribution" PositionalParameters="IfMatch" ShouldProcessTarget="Id"/>
     <ServiceOperation MethodName="UpdateStreamingDistribution" PositionalParameters="IfMatch"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>Id</Property>
     <Property>DistributionId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

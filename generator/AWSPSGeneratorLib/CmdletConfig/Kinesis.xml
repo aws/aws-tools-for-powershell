@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>KIN</ServiceNounPrefix>
   <ServiceName>Amazon Kinesis</ServiceName>
   <ServiceNamespace>Amazon.Kinesis</ServiceNamespace>
@@ -13,14 +13,13 @@
     <Map From="Shards" To="Shard" />
     <!-- <Map From="Streams" To="Stream" /> -->
   </NounMappings>
-
+  
   <MetadataProperties>
     <Property>NextExclusiveStartStreamName</Property>
     <Property>HasMoreShards</Property>
   </MetadataProperties>
-
+  
   <ServiceOperations>
-
     <ServiceOperation MethodName="AddTagsToStream" Output="Void" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="CreateStream" Output="Void" PositionalParameters="ShardCount" PipelineParameter="StreamName" />
     <ServiceOperation MethodName="DeleteStream" Output="Void" />
@@ -28,7 +27,7 @@
     <ServiceOperation MethodName="DescribeStream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="GetRecords" PipelineParameter="ShardIterator" Output="Response"/>
     <ServiceOperation MethodName="GetShardIterator" PipelineParameter="ShardId" />
-    <ServiceOperation MethodName="ListStreams" Output="Response" Verb="Get" PipelineParameter="ExclusiveStartStreamName" PositionalParameters="Limit"/>
+    <ServiceOperation MethodName="ListStreams" Output="Response" Verb="Get" PipelineParameter="ExclusiveStartStreamName" PositionalParameters="Limit" Noun="StreamList" LegacyAlias="Get-KINStreams"/>
     <ServiceOperation MethodName="ListTagsForStream" Output="Response" Verb="Get" PositionalParameters="Limit" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="MergeShards" Output="Void" PositionalParameters="ShardToMerge;AdjacentShardToMerge" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="PutRecord" Exclude="true" />
@@ -40,18 +39,10 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="UpdateShardCount" PipelineParameter="StreamName" PositionalParameters="ShardCount;ScalingType" Output="Response"/>
-
-    <ServiceOperation MethodName="DecreaseStreamRetentionPeriod"
-                      Verb="Request" Noun="StreamRetentionPeriodDecrease"
-                      PipelineParameter="StreamName" Output="Void" />
-    <ServiceOperation MethodName="IncreaseStreamRetentionPeriod"
-                      Verb="Request" Noun="StreamRetentionPeriodIncrease"
-                      PipelineParameter="StreamName" Output="Void" />
-
+    <ServiceOperation MethodName="DecreaseStreamRetentionPeriod" Verb="Request" Noun="StreamRetentionPeriodDecrease" PipelineParameter="StreamName" Output="Void" />
+    <ServiceOperation MethodName="IncreaseStreamRetentionPeriod" Verb="Request" Noun="StreamRetentionPeriodIncrease" PipelineParameter="StreamName" Output="Void" />
     <ServiceOperation MethodName="SplitShard" Output="Void" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName"/>
-
-	<ServiceOperation MethodName="DisableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
-	<ServiceOperation MethodName="EnableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
-	
+    <ServiceOperation MethodName="DisableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
+    <ServiceOperation MethodName="EnableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
   </ServiceOperations>
 </ConfigModel>

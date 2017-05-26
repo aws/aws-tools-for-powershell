@@ -16,9 +16,7 @@
     <Path>CloudFormation.xml</Path>
     <Path>CloudFront.xml</Path>
     <Path>CloudSearch.xml</Path>
-    <!-- maintained by hand and excluded from generation due to non-standard client ctors
     <Path>CloudSearchDomain.xml</Path>
-    -->
     <Path>CloudTrail.xml</Path>
     <Path>CodeBuild.xml</Path>
     <Path>CodeCommit.xml</Path>
@@ -82,10 +80,10 @@
     <Path>Route53Domains.xml</Path>
     <Path>S3.xml</Path>
     <Path>Shield.xml</Path>
-	<Path>ServiceCatalog.xml</Path>
+    <Path>ServiceCatalog.xml</Path>
     <Path>SES.xml</Path>
     <Path>SFN.xml</Path>
-	<Path>Snowball.xml</Path>
+    <Path>Snowball.xml</Path>
     <Path>SMS.xml</Path>
     <Path>SNS.xml</Path>
     <Path>SSM.xml</Path>
@@ -112,14 +110,14 @@
     <Map From="Modify" To="Edit" />
     <Map From="Put" To="Write" />
   </VerbMappings>
-
+  
   <TypesNotToFlatten>
     <Type>System.IO.Stream</Type>
     <Type>System.IO.MemoryStream</Type>
     <Type>System.Collections.Generic.List`1</Type>
     <Type>System.Collections.Generic.Dictionary`2</Type>
   </TypesNotToFlatten>
-
+  
   <MetadataProperties>
     <Property>NextToken</Property>
     <Property>NextPageToken</Property>
@@ -137,7 +135,7 @@
     <Property>Limit</Property>
     <Property>PaginationToken</Property>
   </MetadataProperties>
-
+  
   <!--
     any cmdlet generated with these verbs will have 'shouldprocess'
     attributing and operation confirmation code added automatically
@@ -145,5 +143,4 @@
   <SupportsShouldProcessVerbs>
     <Verb>Remove</Verb>
   </SupportsShouldProcessVerbs>
-
 </ConfigModelCollection>

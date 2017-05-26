@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>HLTH</ServiceNounPrefix>
   <ServiceName>AWS Health</ServiceName>
   <ServiceNamespace>Amazon.AWSHealth</ServiceNamespace>
@@ -17,5 +18,4 @@
     <ServiceOperation MethodName="DescribeEvents" Noun="Event" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeEventTypes" Noun="EventType" NoPipelineParameter="true" />
   </ServiceOperations>
-  
 </ConfigModel>

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Update", "CSScalingParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearch.Model.ScalingParametersStatus")]
-    [AWSCmdlet("Invokes the UpdateScalingParameters operation against Amazon CloudSearch.", Operation = new[] {"UpdateScalingParameters"})]
+    [AWSCmdlet("Invokes the UpdateScalingParameters operation against Amazon CloudSearch.", Operation = new[] {"UpdateScalingParameters"}, LegacyAlias="Update-CSScalingParameters")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ScalingParametersStatus",
         "This cmdlet returns a ScalingParametersStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.UpdateScalingParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

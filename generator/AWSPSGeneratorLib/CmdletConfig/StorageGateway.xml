@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SG</ServiceNounPrefix>
   <ServiceName>AWS Storage Gateway</ServiceName>
   <ServiceClientInterface>IAmazonStorageGateway</ServiceClientInterface>
@@ -8,8 +9,9 @@
   <ServiceNamespace>Amazon.StorageGateway</ServiceNamespace>
 
   <PositionalParameters>GatewayARN</PositionalParameters>
+  
   <PipelineParameter>GatewayARN</PipelineParameter>
-
+  
   <NounMappings>
     <Map From="CachediSCSIVolumes" To="CachediSCSIVolume" />
     <Map From="Gateways" To="Gateway" />
@@ -25,36 +27,33 @@
     <Map From="Shutdown" To="Stop" />
     <Map From="Retrieve" To="Get" />
   </VerbMappings>
-
+  
   <AutoIterate EmitLimit="Limit" Start="Marker" Next="Marker" />
   
   <CustomAliases>
     <AliasSet Cmdlet="Enable-SGGateway">Activate-SGGateway</AliasSet>
     <AliasSet Cmdlet="Stop-SGGateway">Shutdown-SGGateway</AliasSet>
   </CustomAliases>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="ActivateGateway" PipelineParameter="ActivationKey" PositionalParameters="GatewayName;GatewayTimezone;GatewayRegion;GatewayType"/>
     <ServiceOperation MethodName="AddCache" PositionalParameters="DiskIds"/>
     <ServiceOperation MethodName="AddUploadBuffer" PositionalParameters="DiskIds"/>
     <ServiceOperation MethodName="AddWorkingStorage" PositionalParameters="DiskIds"/>
-	<ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceARN" />
-    <ServiceOperation MethodName="CreateCachediSCSIVolume" Output="Response" 
-                      PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken"
-                      ShouldProcessTarget="GatewayARN">
+    <ServiceOperation MethodName="AddTagsToResource" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceARN" />
+    <ServiceOperation MethodName="CreateCachediSCSIVolume" Output="Response" PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken" ShouldProcessTarget="GatewayARN">
       <Params>
-        <Param Name="VolumeSizeInBytes" AutoRename="false" /> <!-- stops rename thru singularization -->
+        <Param Name="VolumeSizeInBytes" AutoRename="false" />
+        <!-- stops rename thru singularization -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateNFSFileShare" ShouldProcessTarget="GatewayARN"/>
     <ServiceOperation MethodName="CreateSnapshot" Output="Response" PipelineParameter="VolumeARN" PositionalParameters="SnapshotDescription"/>
     <ServiceOperation MethodName="CreateSnapshotFromVolumeRecoveryPoint" Output="Response" PipelineParameter="VolumeARN" PositionalParameters="SnapshotDescription"/>
-    <ServiceOperation MethodName="CreateStorediSCSIVolume" Output="Response" 
-                      PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken"
-                      ShouldProcessTarget="GatewayARN"/>
+    <ServiceOperation MethodName="CreateStorediSCSIVolume" Output="Response" PositionalParameters="VolumeSizeInBytes;SnapshotId;TargetName;NetworkInterfaceId;ClientToken" ShouldProcessTarget="GatewayARN"/>
     <ServiceOperation MethodName="CreateTapeWithBarcode" PositionalParameters="TapeBarcode"/>
     <ServiceOperation MethodName="DeleteBandwidthRateLimit" ShouldProcessTarget="BandwidthType" PositionalParameters="BandwidthType"/>
-    <ServiceOperation MethodName="DeleteChapCredentials" Output="Response" ShouldProcessTarget="InitiatorName" PipelineParameter="TargetARN" PositionalParameters="InitiatorName"/>
+    <ServiceOperation MethodName="DeleteChapCredentials" Output="Response" ShouldProcessTarget="InitiatorName" PipelineParameter="TargetARN" PositionalParameters="InitiatorName" Noun="ChapCredential" LegacyAlias="Remove-SGChapCredentials"/>
     <ServiceOperation MethodName="DeleteFileShare"/>
     <ServiceOperation MethodName="DeleteGateway"/>
     <ServiceOperation MethodName="DeleteSnapshotSchedule" />
@@ -62,7 +61,7 @@
     <ServiceOperation MethodName="DescribeBandwidthRateLimit" Output="Response"/>
     <ServiceOperation MethodName="DescribeCache" Output="Response"/>
     <ServiceOperation MethodName="DescribeCachediSCSIVolumes" />
-    <ServiceOperation MethodName="DescribeChapCredentials" />
+    <ServiceOperation MethodName="DescribeChapCredentials" Noun="ChapCredential" LegacyAlias="Get-SGChapCredentials" />
     <ServiceOperation MethodName="DescribeNFSFileShares" Noun="NFSFileShareList"/>
     <ServiceOperation MethodName="DescribeGatewayInformation" Output="Response"/>
     <ServiceOperation MethodName="DescribeMaintenanceStartTime" Output="Response"/>
@@ -70,56 +69,52 @@
     <ServiceOperation MethodName="DescribeStorediSCSIVolumes" />
     <ServiceOperation MethodName="DescribeUploadBuffer" Output="Response"/>
     <ServiceOperation MethodName="DescribeWorkingStorage" Output="Response"/>
-    <ServiceOperation MethodName="ListFileShares" Verb="Get" Noun="FileShareList"/>
+    <ServiceOperation MethodName="ListFileShares" Noun="FileShareList"/>
     <ServiceOperation MethodName="ListGateways"/>
     <ServiceOperation MethodName="ListLocalDisks" Output="Response"/>
-	<ServiceOperation MethodName="ListVolumeInitiators"  PositionalParameters="VolumeARN"/>
+    <ServiceOperation MethodName="ListVolumeInitiators" PositionalParameters="VolumeARN" Noun="VolumeInitiatorList" LegacyAlias="Get-SGVolumeInitiators"/>
     <ServiceOperation MethodName="ListVolumeRecoveryPoints" Output="Response"/>
     <ServiceOperation MethodName="ListVolumes" MetadataProperties="GatewayARN" />
-	<ServiceOperation MethodName="ListTagsForResource" 
-		Verb="List" 
-		Noun="ResourceTags" 
-		PipelineParameter="ResourceARN" 
-		MetadataProperties="ResourceARN" />
-	<ServiceOperation MethodName="ListTapes" Noun="Tape" NoPipelineParameter="true" />
-  <ServiceOperation MethodName="RefreshCache" Verb="Invoke" Noun="CacheRefresh" />
-	<ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARN" />
+    <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTag" PipelineParameter="ResourceARN" MetadataProperties="ResourceARN" LegacyAlias="Get-SGResourceTags"/>
+    <ServiceOperation MethodName="ListTapes" Noun="Tape" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="RefreshCache" Verb="Invoke" Noun="CacheRefresh" />
+    <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARN" />
     <ServiceOperation MethodName="SetLocalConsolePassword"/>
     <ServiceOperation MethodName="ShutdownGateway"/>
     <ServiceOperation MethodName="StartGateway"/>
     <ServiceOperation MethodName="UpdateBandwidthRateLimit" PositionalParameters="AverageUploadRateLimitInBitsPerSec;AverageDownloadRateLimitInBitsPerSec"/>
-    <ServiceOperation MethodName="UpdateChapCredentials" Output="Response" PipelineParameter="TargetARN" PositionalParameters="SecretToAuthenticateInitiator;InitiatorName;SecretToAuthenticateTarget"/>
+    <ServiceOperation MethodName="UpdateChapCredentials" Output="Response" PipelineParameter="TargetARN" PositionalParameters="SecretToAuthenticateInitiator;InitiatorName;SecretToAuthenticateTarget" Noun="ChapCredential" LegacyAlias="Update-SGChapCredentials"/>
     <ServiceOperation MethodName="UpdateGatewayInformation" PositionalParameters="GatewayName;GatewayTimezone" Output="Response"/>
     <ServiceOperation MethodName="UpdateGatewaySoftwareNow"/>
     <ServiceOperation MethodName="UpdateMaintenanceStartTime" PositionalParameters="HourOfDay;MinuteOfHour;DayOfWeek"/>
     <ServiceOperation MethodName="UpdateNFSFileShare" ShouldProcessTarget="FileShareARN"/>
     <ServiceOperation MethodName="UpdateSnapshotSchedule" PipelineParameter="VolumeARN" PositionalParameters="StartAt;RecurrenceInHours;Description">
       <Params>
-        <Param Name="RecurrenceInHours" AutoRename="false" /> <!-- stops rename thru singularization -->
+        <Param Name="RecurrenceInHours" AutoRename="false" />
+        <!-- stops rename thru singularization -->
       </Params>
     </ServiceOperation>
-
-    <ServiceOperation MethodName="DescribeVTLDevices" MetadataProperties="GatewayARN" />
+    <ServiceOperation MethodName="DescribeVTLDevices" MetadataProperties="GatewayARN" Noun="VTLDevice" LegacyAlias="Get-SGVTLDevices"/>
     <ServiceOperation MethodName="RetrieveTapeArchive" />
     <ServiceOperation MethodName="CancelArchival" />
     <ServiceOperation MethodName="CancelRetrieval" />
-    <ServiceOperation MethodName="DescribeTapes" />
+    <ServiceOperation MethodName="DescribeTapes" Noun="TapeList" LegacyAlias="Get-SGTapes" />
     <ServiceOperation MethodName="RetrieveTapeRecoveryPoint" />
-    <ServiceOperation MethodName="CreateTapes">
+    <ServiceOperation MethodName="CreateTapes" Noun="Tape" LegacyAlias="New-SGTapes">
       <Params>
-        <Param Name="TapeSizeInBytes" AutoRename="false" /> <!-- stops rename thru singularization -->
+        <Param Name="TapeSizeInBytes" AutoRename="false" />
+        <!-- stops rename thru singularization -->
       </Params>
     </ServiceOperation>
-
-    <ServiceOperation MethodName="DescribeTapeArchives" />
+    <ServiceOperation MethodName="DescribeTapeArchives" Noun="TapeArchiveList" LegacyAlias="Get-SGTapeArchives" />
     <ServiceOperation MethodName="DeleteTapeArchive" />
     <ServiceOperation MethodName="DisableGateway" />
     <ServiceOperation MethodName="DeleteTape" ShouldProcessTarget="TapeARN" />
-    <ServiceOperation MethodName="DescribeTapeRecoveryPoints" MetadataProperties="GatewayARN" />
+    <ServiceOperation MethodName="DescribeTapeRecoveryPoints" MetadataProperties="GatewayARN" Noun="TapeRecoveryPointList" LegacyAlias="Get-SGTapeRecoveryPoints"/>
     <ServiceOperation MethodName="ResetCache" MetadataProperties="GatewayARN" Output="Void" />
     <ServiceOperation MethodName="UpdateVTLDeviceType" MetadataProperties="VTLDeviceARN" Output="Void" ShouldProcessTarget="VTLDeviceARN"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>GatewayARN</Property>
     <Property>FileShareARN</Property>
@@ -129,5 +124,4 @@
     <Property>NetworkInterfaceId</Property>
     <Property>TargetARN</Property>
   </PipelineByValueProperties>
-  
 </ConfigModel>

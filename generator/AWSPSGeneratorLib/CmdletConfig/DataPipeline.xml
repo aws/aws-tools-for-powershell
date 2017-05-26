@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>DP</ServiceNounPrefix>
   <ServiceName>AWS Data Pipeline</ServiceName>
   <ServiceClientInterface>IAmazonDataPipeline</ServiceClientInterface>
@@ -8,8 +9,9 @@
   <ServiceNamespace>Amazon.DataPipeline</ServiceNamespace>
 
   <PositionalParameters>PipelineId</PositionalParameters>
+  
   <PipelineParameter>PipelineId</PipelineParameter>
-
+  
   <NounMappings>
     <Map From="Objects" To="Object" />
     <Map From="Pipelines" To="Pipeline" />
@@ -21,20 +23,18 @@
     <Map From="Validate" To="Test" />
     <Map From="Evaluate" To="Invoke" />
   </VerbMappings>
-
+  
   <AutoIterate Start="Marker" Next="Marker" TruncatedFlag="HasMoreResults" />
   
-  <!--
-  https://p4db.amazon.com/source-views/p4db/brazil/fileViewer.cgi?FSPC=//brazil/src/appgroup/webservices/apps/SetlWebServiceModelPublic/mainline/model/main-Documentation.xml&REV=84
+  <!-- https://p4db.amazon.com/source-views/p4db/brazil/fileViewer.cgi?FSPC=//brazil/src/appgroup/webservices/apps/SetlWebServiceModelPublic/mainline/model/main-Documentation.xml&REV=84
 VERBOSE: The command name 'Evaluate-DPExpression' includes an unapproved verb which might make it less discoverable.
 VERBOSE: The command name 'Report-DPTaskProgress' includes an unapproved verb which might make it less discoverable.
 VERBOSE: The command name 'Report-DPTaskRunnerHeartbeat' includes an unapproved verb which might make it less discoverable.
 VERBOSE: The command name 'Validate-DPPipelineDefinition' includes an unapproved verb which might make it less discoverable.
   -->
-  
   <ServiceOperations>
     <ServiceOperation MethodName="ActivatePipeline" Output="Void"/>
-    <ServiceOperation MethodName="AddTags" Output="Void"/>
+    <ServiceOperation MethodName="AddTags" Output="Void" Noun="ResourceTag" LegacyAlias="Add-DPTags"/>
     <ServiceOperation MethodName="CreatePipeline" PipelineParameter="Name" PositionalParameters="UniqueId;Description"/>
     <ServiceOperation MethodName="DeactivatePipeline" Output="Void"/>
     <ServiceOperation MethodName="DeletePipeline" Output="Void"/>
@@ -46,7 +46,7 @@ VERBOSE: The command name 'Validate-DPPipelineDefinition' includes an unapproved
     <ServiceOperation MethodName="PollForTask" Verb="Get" Noun="Task" PipelineParameter="WorkerGroup" PositionalParameters="Hostname"/>
     <ServiceOperation MethodName="PutPipelineDefinition" Output="Response" PositionalParameters="PipelineObjects"/>
     <ServiceOperation MethodName="QueryObjects" Verb="Find" Noun="Objects"/>
-    <ServiceOperation MethodName="RemoveTags" Output="Void"/>
+    <ServiceOperation MethodName="RemoveTags" Output="Void" Noun="ResourceTag" LegacyAlias="Remove-DPTags"/>
     <ServiceOperation MethodName="ReportTaskProgress" PipelineParameter="TaskId"/>
     <ServiceOperation MethodName="ReportTaskRunnerHeartbeat" PipelineParameter="TaskrunnerId" PositionalParameters="WorkerGroup;Hostname"/>
     <ServiceOperation MethodName="SetStatus" Output="Void" PositionalParameters="ObjectIds;Status">
@@ -63,10 +63,9 @@ VERBOSE: The command name 'Validate-DPPipelineDefinition' includes an unapproved
   <MetadataProperties>
     <Property>HasMoreResults</Property>
   </MetadataProperties>
-
+  
   <PipelineByValueProperties>
     <Property>PipelineId</Property>
     <Property>TaskId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

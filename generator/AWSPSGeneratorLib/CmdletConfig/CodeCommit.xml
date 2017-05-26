@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CC</ServiceNounPrefix>
   <ServiceName>AWS CodeCommit</ServiceName>
   <ServiceNamespace>Amazon.CodeCommit</ServiceNamespace>
@@ -9,7 +9,7 @@
   <ServiceClient>AmazonCodeCommitClient</ServiceClient>
 
   <PipelineParameter>RepositoryName</PipelineParameter>
-
+  
   <AutoIterate Start="NextToken" Next="NextToken" />
   
   <ServiceOperations>
@@ -31,5 +31,4 @@
     <ServiceOperation MethodName="UpdateRepositoryDescription" Output="Void"/>
     <ServiceOperation MethodName="UpdateRepositoryName" Output="Void" ShouldProcessTarget="OldName"/>
   </ServiceOperations>
-  
 </ConfigModel>

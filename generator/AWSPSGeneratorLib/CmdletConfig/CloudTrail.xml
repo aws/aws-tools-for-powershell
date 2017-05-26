@@ -1,57 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	
+<ConfigModel 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
 	<ServiceNounPrefix>CT</ServiceNounPrefix>
-  <ServiceName>AWS CloudTrail</ServiceName>
+	<ServiceName>AWS CloudTrail</ServiceName>
 	<ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
 	<ServiceClient>AmazonCloudTrailClient</ServiceClient>
 	<ServiceNamespace>Amazon.CloudTrail</ServiceNamespace>
 
-  <PipelineParameter>Name</PipelineParameter>
-  
+	<PipelineParameter>Name</PipelineParameter>
+	
 	<NounMappings>
 		<Map From="Trails" To="Trail" />
 		<Map From="Tags" To="Tag" />
-    <Map From="PublicKeys" To="PublicKey" />
+		<Map From="PublicKeys" To="PublicKey" />
 	</NounMappings>
-
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <Params>
-    <Param Name="Trail_" Exclude="true" />
-  </Params>
-
-  <PipelineByValueProperties>		
-		<Property>Name</Property>		
+	
+	<VerbMappings>
+		<Map From="List" To="Get" />
+	</VerbMappings>
+	
+	<Params>
+		<Param Name="Trail_" Exclude="true" />
+	</Params>
+	
+	<PipelineByValueProperties>
+		<Property>Name</Property>
 		<Property>S3BucketName</Property>
 		<Property>S3KeyPrefix</Property>
 		<Property>SnsTopicName</Property>
 	</PipelineByValueProperties>
 	
 	<ServiceOperations>
-		<ServiceOperation MethodName="AddTags" Output="Void" PipelineParameter="ResourceId"/>	
+		<ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-CTTag" Output="Void" PipelineParameter="ResourceId"/>
 		<ServiceOperation MethodName="CreateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
 		<ServiceOperation MethodName="DeleteTrail" Output="Void" />
-		<ServiceOperation MethodName="DescribeTrails" 
-            PipelineParameter="TrailNameList" 
-            PositionalParameters="TrailNameList;IncludeShadowTrails" >
-          <Params>
-            <Param Name="TrailNameList" Alias="Name" />
-          </Params>
+		<ServiceOperation MethodName="DescribeTrails" PipelineParameter="TrailNameList" PositionalParameters="TrailNameList;IncludeShadowTrails">
+			<Params>
+				<Param Name="TrailNameList" Alias="Name" />
+			</Params>
 		</ServiceOperation>
-		<ServiceOperation MethodName="GetTrailStatus" Output="Response"  PositionalParameters="Name" />
-		<ServiceOperation MethodName="LookupEvents" Verb="Find" />
+		<ServiceOperation MethodName="GetTrailStatus" Output="Response" PositionalParameters="Name" />
+		<ServiceOperation MethodName="LookupEvents" Verb="Find" Noun="Event" LegacyAlias="Find-CTEvents"/>
 		<ServiceOperation MethodName="ListPublicKeys" />
-		<ServiceOperation MethodName="ListTags"/>
-		<ServiceOperation MethodName="RemoveTags" Output="Void" ShouldProcessTarget="ResourceId"/>
+		<ServiceOperation MethodName="ListTags" Noun="ResourceTag" LegacyAlias="Get-CTTag"/>
+		<ServiceOperation MethodName="RemoveTags" Noun="ResourceTag" LegacyAlias="Remove-CTTag" Output="Void" ShouldProcessTarget="ResourceId"/>
 		<ServiceOperation MethodName="StartLogging" Output="Void" />
 		<ServiceOperation MethodName="StopLogging" Output="Void" />
-    <ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
-    <ServiceOperation MethodName="GetEventSelectors" Output="Response"/>
-    <ServiceOperation MethodName="PutEventSelectors" Output="Response"/>
-  </ServiceOperations>
-  
+		<ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
+		<ServiceOperation MethodName="GetEventSelectors" Output="Response" Noun="EventSelector" LegacyAlias="Get-CTEventSelectors" />
+		<ServiceOperation MethodName="PutEventSelectors" Output="Response" Noun="EventSelector" LegacyAlias="Write-CTEventSelectors" />
+	</ServiceOperations>
 </ConfigModel>

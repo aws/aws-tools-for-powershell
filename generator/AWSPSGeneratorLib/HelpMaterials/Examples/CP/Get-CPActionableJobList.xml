@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+      <code>PS C:\> Get-CPActionableJobList -ActionTypeId_Category Build -ActionTypeId_Owner Custom -ActionTypeId_Provider MyCustomProviderName -ActionTypeId_Version 1 -QueryParam @{"ProjectName" = "MyProjectName"}
+	  
+AccountId       Data                                 Id                                      Nonce
+---------       ----                                 --                                      -----
+80398EXAMPLE    Amazon.CodePipeline.Model.JobData    0de392f5-712d-4f41-ace3-f57a0EXAMPLE    3</code>
+      <description>This example gets information about all actionable jobs for the specified action category, owner, provider, version, and query parameters.</description>
+    </example>
+</examples>

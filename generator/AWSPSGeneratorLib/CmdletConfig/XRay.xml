@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>XR</ServiceNounPrefix>
   <ServiceName>AWS X-Ray</ServiceName>
   <ServiceClientInterface>IAmazonXRay</ServiceClientInterface>
   <ServiceClient>AmazonXRayClient</ServiceClient>
   <ServiceNamespace>Amazon.XRay</ServiceNamespace>
-
-  <PipelineByValueProperties>
-  </PipelineByValueProperties>
-
-  <PipelineParameter>
-  </PipelineParameter>
 
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetTraces" Verb="Get" Noun="TraceBatch" Output="Response" NoPipelineParameter="true"/>
@@ -21,5 +16,4 @@
     <ServiceOperation MethodName="PutTelemetryRecords" Noun="TelemetryRecord" Output="Void" PipelineParameter="EC2InstanceId"/>
     <ServiceOperation MethodName="PutTraceSegments" Noun="TraceSegment"/>
   </ServiceOperations>
-
 </ConfigModel>

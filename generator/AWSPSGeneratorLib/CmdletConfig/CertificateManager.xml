@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ACM</ServiceNounPrefix>
   <ServiceName>AWS Certificate Manager</ServiceName>
   <ServiceClientInterface>IAmazonCertificateManager</ServiceClientInterface>
@@ -8,14 +9,14 @@
   <ServiceNamespace>Amazon.CertificateManager</ServiceNamespace>
 
   <AutoIterate Start="NextToken" EmitLimit="MaxItems" Next="NextToken" />
-
+  
   <PipelineParameter>CertificateArn</PipelineParameter>
-
+  
   <PipelineByValueProperties>
     <Property>CertificateArn</Property>
     <Property>DomainName</Property>
   </PipelineByValueProperties>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AddTagsToCertificate" Noun="CertificateTag" Output="Void" PositionalParameters="Tags"/>
     <ServiceOperation MethodName="DeleteCertificate" Output="Void" />
@@ -28,5 +29,4 @@
     <ServiceOperation MethodName="RemoveTagsFromCertificate" Noun="CertificateTag" Output="Void" ShouldProcessTarget="CertificateArn" />
     <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Output="Void" />
   </ServiceOperations>
-
 </ConfigModel>

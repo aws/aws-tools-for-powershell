@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CS</ServiceNounPrefix>
   <ServiceName>Amazon CloudSearch</ServiceName>
   <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
@@ -8,8 +9,9 @@
   <ServiceNamespace>Amazon.CloudSearch</ServiceNamespace>
 
   <PositionalParameters>DomainName</PositionalParameters>
+  
   <PipelineParameter>DomainName</PipelineParameter>
-
+  
   <NounMappings>
     <Map From="AnalysisSchemes" To="AnalysisScheme" />
     <Map From="AvailabilityOptions" To="AvailabilityOption" />
@@ -25,12 +27,12 @@
   <VerbMappings>
     <Map From="Define" To="Set" />
   </VerbMappings>
-
+  
   <CustomAliases>
     <AliasSet Cmdlet="Set-CSIndexField">Define-CSIndexField</AliasSet>
     <AliasSet Cmdlet="Start-CSIndex">Index-CSDocuments</AliasSet>
   </CustomAliases>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="BuildSuggesters" Verb="Start" Noun="SuggestersBuild"/>
     <ServiceOperation MethodName="CreateDomain"/>
@@ -43,25 +45,24 @@
     <ServiceOperation MethodName="DeleteExpression" ShouldProcessTarget="ExpressionName" PositionalParameters="ExpressionName"/>
     <ServiceOperation MethodName="DeleteIndexField" ShouldProcessTarget="IndexFieldName" PositionalParameters="IndexFieldName"/>
     <ServiceOperation MethodName="DeleteSuggester" ShouldProcessTarget="SuggesterName" PositionalParameters="SuggesterName"/>
-    <ServiceOperation MethodName="DescribeAnalysisSchemes"/>
-    <ServiceOperation MethodName="DescribeAvailabilityOptions"/>
+    <ServiceOperation MethodName="DescribeAnalysisSchemes" Noun="AnalysisScheme" LegacyAlias="Get-CSAnalysisSchemes"/>
+    <ServiceOperation MethodName="DescribeAvailabilityOptions" Noun="AvailabilityOption" LegacyAlias="Get-CSAvailabilityOptions"/>
     <ServiceOperation MethodName="DescribeDomains" />
     <ServiceOperation MethodName="DescribeExpressions"/>
-    <ServiceOperation MethodName="DescribeIndexFields" PositionalParameters="FieldNames"/>
-    <ServiceOperation MethodName="DescribeScalingParameters"/>
-    <ServiceOperation MethodName="DescribeServiceAccessPolicies"/>
+    <ServiceOperation MethodName="DescribeIndexFields" PositionalParameters="FieldNames" Noun="IndexField" LegacyAlias="Get-CSIndexFields"/>
+    <ServiceOperation MethodName="DescribeScalingParameters" Noun="ScalingParameter" LegacyAlias="Get-CSScalingParameters"/>
+    <ServiceOperation MethodName="DescribeServiceAccessPolicies" Noun="ServiceAccessPolicy" LegacyAlias="Get-CSServiceAccessPolicies"/>
     <ServiceOperation MethodName="DescribeSuggesters"/>
     <ServiceOperation MethodName="IndexDocuments" Verb="Start" Noun="Index"/>
-    <ServiceOperation MethodName="ListDomainNames" Verb="Get"/>
-    <ServiceOperation MethodName="UpdateAvailabilityOptions"/>
-    <ServiceOperation MethodName="UpdateScalingParameters"/>
-    <ServiceOperation MethodName="UpdateServiceAccessPolicies" PositionalParameters="AccessPolicies"/>
+    <ServiceOperation MethodName="ListDomainNames" Verb="Get" Noun="DomainNameList" LegacyAlias="Get-CSListDomainNames"/>
+    <ServiceOperation MethodName="UpdateAvailabilityOptions" Noun="AvailabilityOption" LegacyAlias="Update-CSAvailabilityOptions"/>
+    <ServiceOperation MethodName="UpdateScalingParameters" Noun="ScalingParameter" LegacyAlias="Update-CSScalingParameters"/>
+    <ServiceOperation MethodName="UpdateServiceAccessPolicies" PositionalParameters="AccessPolicies" Noun="ServiceAccessPolicy" LegacyAlias="Update-CSServiceAccessPolicies"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>DomainName</Property>
     <Property>DomainId</Property>
     <Property>IndexFieldName</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

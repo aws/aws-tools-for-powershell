@@ -1,66 +1,65 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ServiceNounPrefix>INS</ServiceNounPrefix>
+    <ServiceName>Amazon Inspector</ServiceName>
+    <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
+    <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
+    <ServiceClient>AmazonInspectorClient</ServiceClient>
 
-  <ServiceNounPrefix>INS</ServiceNounPrefix>
-  <ServiceName>Amazon Inspector</ServiceName>
-  <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
-  <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
-  <ServiceClient>AmazonInspectorClient</ServiceClient>
-
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken"  />
-
-  <VerbMappings>
-      <Map From="List" To="Get"/>
-  </VerbMappings>
-   
-  <PipelineByValueProperties>
-	<Property>AssessmentRunArn</Property>
-	<Property>AssessmentRunName</Property>
-	<Property>AssessmentTargetArn</Property>
-    <Property>AssessmentTargetName</Property>
-	<Property>AssessmentTemplateArn</Property>
-    <Property>ResourceGroupArn</Property>
-	<Property>ResourceArn</Property>
-	<Property>PreviewAgentsArn</Property>
-	<Property>RoleArn</Property>
-	<Property>TopicArn</Property>
-  </PipelineByValueProperties>
-   
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddAttributesToFindings" Noun="FindingAttribute" PipelineParameter="FindingArn" />
-    <ServiceOperation MethodName="CreateAssessmentTarget" PipelineParameter="ResourceGroupArn" ShouldProcessTarget="AssessmentTargetName" />
-    <ServiceOperation MethodName="CreateAssessmentTemplate" PipelineParameter="AssessmentTargetArn" ShouldProcessTarget="AssessmentTemplateName" />
-    <ServiceOperation MethodName="CreateResourceGroup" />
-    <ServiceOperation MethodName="DeleteAssessmentRun" Output="Void" />
-    <ServiceOperation MethodName="DeleteAssessmentTarget" Output="Void" />
-    <ServiceOperation MethodName="DeleteAssessmentTemplate" Output="Void" />
-    <ServiceOperation MethodName="DescribeAssessmentRuns" Noun="AssessmentRun" Output="Response"/>
-    <ServiceOperation MethodName="DescribeAssessmentTargets" Noun="AssessmentTarget" Output="Response" />
-    <ServiceOperation MethodName="DescribeAssessmentTemplates" Noun="AssessmentTemplate" Output="Response" />
-    <ServiceOperation MethodName="DescribeCrossAccountAccessRole" Output="Response" />
-    <ServiceOperation MethodName="DescribeFindings" Noun="Finding" Output="Response" PipelineParameter="FindingArn" />
-    <ServiceOperation MethodName="DescribeResourceGroups" Noun="ResourceGroup" Output="Response" />
-    <ServiceOperation MethodName="DescribeRulesPackages" Noun="RulesPackage" Output="Response" PipelineParameter="RulesPackageArn" />
-    <ServiceOperation MethodName="GetAssessmentReport" PipelineParameter="AssessmentRunArn" Output="Response" />
-    <ServiceOperation MethodName="GetTelemetryMetadata" />
-    <ServiceOperation MethodName="ListAssessmentRunAgents" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" />
-    <ServiceOperation MethodName="ListAssessmentRuns" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArn" />
-    <ServiceOperation MethodName="ListAssessmentTargets" Noun="AssessmentTargetList" />
-    <ServiceOperation MethodName="ListAssessmentTemplates" Noun="AssessmentTemplateList" PipelineParameter="AssessmentTargetArn" />
-    <ServiceOperation MethodName="ListEventSubscriptions" Noun="EventSubscription" />
-    <ServiceOperation MethodName="ListFindings" Noun="FindingList" PipelineParameter="AssessmentRunArn" />
-    <ServiceOperation MethodName="ListRulesPackages" Noun="RulesPackageList" />
-    <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTagList" />
-    <ServiceOperation MethodName="PreviewAgents" Noun="AgentPreview" Verb="Get" />
-    <ServiceOperation MethodName="RegisterCrossAccountAccessRole" Output="Void" />
-    <ServiceOperation MethodName="RemoveAttributesFromFindings" Noun="FindingAttribute" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="SetTagsForResource" Output="Void" Noun="ResourceTag" PipelineParameter="ResourceArn" />
-    <ServiceOperation MethodName="StartAssessmentRun" NoPipelineParameter="true" ShouldProcessTarget="AssessmentTemplateArn" />
-    <ServiceOperation MethodName="StopAssessmentRun" Output="Void" />
-    <ServiceOperation MethodName="SubscribeToEvent" Output="Void" Noun="EventSubscription" Verb="Add" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
-    <ServiceOperation MethodName="UnsubscribeFromEvent" Output="Void" Noun="EventSubscription" Verb="Remove" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
-    <ServiceOperation MethodName="UpdateAssessmentTarget" Output="Void" PipelineParameter="AssessmentTargetArn" />
-  </ServiceOperations>
-  
+    <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+    
+    <VerbMappings>
+        <Map From="List" To="Get"/>
+    </VerbMappings>
+    
+    <PipelineByValueProperties>
+        <Property>AssessmentRunArn</Property>
+        <Property>AssessmentRunName</Property>
+        <Property>AssessmentTargetArn</Property>
+        <Property>AssessmentTargetName</Property>
+        <Property>AssessmentTemplateArn</Property>
+        <Property>ResourceGroupArn</Property>
+        <Property>ResourceArn</Property>
+        <Property>PreviewAgentsArn</Property>
+        <Property>RoleArn</Property>
+        <Property>TopicArn</Property>
+    </PipelineByValueProperties>
+    
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddAttributesToFindings" Noun="FindingAttribute" PipelineParameter="FindingArn" />
+        <ServiceOperation MethodName="CreateAssessmentTarget" PipelineParameter="ResourceGroupArn" ShouldProcessTarget="AssessmentTargetName" />
+        <ServiceOperation MethodName="CreateAssessmentTemplate" PipelineParameter="AssessmentTargetArn" ShouldProcessTarget="AssessmentTemplateName" />
+        <ServiceOperation MethodName="CreateResourceGroup" />
+        <ServiceOperation MethodName="DeleteAssessmentRun" Output="Void" />
+        <ServiceOperation MethodName="DeleteAssessmentTarget" Output="Void" />
+        <ServiceOperation MethodName="DeleteAssessmentTemplate" Output="Void" />
+        <ServiceOperation MethodName="DescribeAssessmentRuns" Noun="AssessmentRun" Output="Response"/>
+        <ServiceOperation MethodName="DescribeAssessmentTargets" Noun="AssessmentTarget" Output="Response" />
+        <ServiceOperation MethodName="DescribeAssessmentTemplates" Noun="AssessmentTemplate" Output="Response" />
+        <ServiceOperation MethodName="DescribeCrossAccountAccessRole" Output="Response" />
+        <ServiceOperation MethodName="DescribeFindings" Noun="Finding" Output="Response" PipelineParameter="FindingArn" />
+        <ServiceOperation MethodName="DescribeResourceGroups" Noun="ResourceGroup" Output="Response" />
+        <ServiceOperation MethodName="DescribeRulesPackages" Noun="RulesPackage" Output="Response" PipelineParameter="RulesPackageArn" />
+        <ServiceOperation MethodName="GetAssessmentReport" PipelineParameter="AssessmentRunArn" Output="Response" />
+        <ServiceOperation MethodName="GetTelemetryMetadata" />
+        <ServiceOperation MethodName="ListAssessmentRunAgents" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" />
+        <ServiceOperation MethodName="ListAssessmentRuns" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArn" />
+        <ServiceOperation MethodName="ListAssessmentTargets" Noun="AssessmentTargetList" />
+        <ServiceOperation MethodName="ListAssessmentTemplates" Noun="AssessmentTemplateList" PipelineParameter="AssessmentTargetArn" />
+        <ServiceOperation MethodName="ListEventSubscriptions" Noun="EventSubscription" />
+        <ServiceOperation MethodName="ListFindings" Noun="FindingList" PipelineParameter="AssessmentRunArn" />
+        <ServiceOperation MethodName="ListRulesPackages" Noun="RulesPackageList" />
+        <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTagList" />
+        <ServiceOperation MethodName="PreviewAgents" Noun="AgentPreview" Verb="Get" />
+        <ServiceOperation MethodName="RegisterCrossAccountAccessRole" Output="Void" />
+        <ServiceOperation MethodName="RemoveAttributesFromFindings" Noun="FindingAttribute" NoPipelineParameter="true" />
+        <ServiceOperation MethodName="SetTagsForResource" Output="Void" Noun="ResourceTag" PipelineParameter="ResourceArn" />
+        <ServiceOperation MethodName="StartAssessmentRun" NoPipelineParameter="true" ShouldProcessTarget="AssessmentTemplateArn" />
+        <ServiceOperation MethodName="StopAssessmentRun" Output="Void" />
+        <ServiceOperation MethodName="SubscribeToEvent" Output="Void" Noun="EventSubscription" Verb="Add" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
+        <ServiceOperation MethodName="UnsubscribeFromEvent" Output="Void" Noun="EventSubscription" Verb="Remove" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
+        <ServiceOperation MethodName="UpdateAssessmentTarget" Output="Void" PipelineParameter="AssessmentTargetArn" />
+    </ServiceOperations>
 </ConfigModel>

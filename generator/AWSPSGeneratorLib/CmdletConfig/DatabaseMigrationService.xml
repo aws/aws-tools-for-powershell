@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>DMS</ServiceNounPrefix>
-  <ServiceName>AWS Database Migration Service</ServiceName>
-  <ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
-  <ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.DatabaseMigrationService</ServiceNamespace>
+<ConfigModel 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ServiceNounPrefix>DMS</ServiceNounPrefix>
+	<ServiceName>AWS Database Migration Service</ServiceName>
+	<ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
+	<ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
+	<ServiceNamespace>Amazon.DatabaseMigrationService</ServiceNamespace>
 
   <AdditionalNamespaces />
 

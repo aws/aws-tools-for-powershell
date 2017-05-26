@@ -78,9 +78,7 @@ namespace AWSPowerShellGenerator.Utils
             for (var i = 0; i < Errors.Count; i++)
             {
                 var error = Errors[i];
-                sw.WriteLine("Error {0} of {1}", i + 1, Errors.Count);
-                if (!string.IsNullOrEmpty(error.Message))
-                    sw.WriteLine("Message: " + error.Message);
+                sw.WriteLine("Error {0} of {1}{2}", i + 1, Errors.Count, !string.IsNullOrEmpty(error.Message) ? " Message " + error.Message : "");
                 if (error.Exception != null)
                     sw.WriteLine("Exception: " + error.Exception);
             }

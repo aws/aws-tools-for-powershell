@@ -1,75 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ELB2</ServiceNounPrefix>
-  <ServiceName>Elastic Load Balancing V2</ServiceName>
-  <ServiceClientInterface>IAmazonElasticLoadBalancingV2</ServiceClientInterface>
-  <ServiceClient>AmazonElasticLoadBalancingV2Client</ServiceClient>
-  <ServiceNamespace>Amazon.ElasticLoadBalancingV2</ServiceNamespace>
+<ConfigModel 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<ServiceNounPrefix>ELB2</ServiceNounPrefix>
+	<ServiceName>Elastic Load Balancing V2</ServiceName>
+	<ServiceClientInterface>IAmazonElasticLoadBalancingV2</ServiceClientInterface>
+	<ServiceClient>AmazonElasticLoadBalancingV2Client</ServiceClient>
+	<ServiceNamespace>Amazon.ElasticLoadBalancingV2</ServiceNamespace>
 
-  <PipelineParameter />
-  
-  <AutoIterate EmitLimit="PageSize" Start="Marker" Next="NextMarker" />
-
-  <NounMappings>
-	<Map From="Tags" To="Tag" />
-	<Map From="Rules" To="Rule" />
-	<Map From="Targets" To="Target" />
-	<Map From="Listeners" To="Listener" />
-	<Map From="Subnets" To="Subnet" />
-  </NounMappings>
-  
-  <VerbMappings>
-	<Map From="Modify" To="Edit" />
-    <Map From="Deregister" To="Unregister" />
-  </VerbMappings>
-  
-  <ServiceOperations>
-	<ServiceOperation MethodName="AddTags" NoPipelineParameter="true" Output="Void" />
-	<ServiceOperation MethodName="CreateListener" PipelineParameter="LoadBalancerArn" />
-	<ServiceOperation MethodName="CreateLoadBalancer" NoPipelineParameter="true" />
-	<ServiceOperation MethodName="CreateRule" PipelineParameter="ListenerArn" />
-	<ServiceOperation MethodName="CreateTargetGroup" NoPipelineParameter="true" ShouldProcessTarget="Name" />
-	<ServiceOperation MethodName="DeleteListener" Output="Void" />
-	<ServiceOperation MethodName="DeleteLoadBalancer" Output="Void" />
-	<ServiceOperation MethodName="DeleteRule" Output="Void" />
-	<ServiceOperation MethodName="DeleteTargetGroup" Output="Void" />
-	<ServiceOperation MethodName="DeregisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
-  <ServiceOperation MethodName="DescribeAccountLimits" Noun="AccountLimit" />
-	<ServiceOperation MethodName="DescribeListeners" PipelineParameter="ListenerArn" />
-	<ServiceOperation MethodName="DescribeLoadBalancerAttributes"  Noun="LoadBalancerAttribute" />
-	<ServiceOperation MethodName="DescribeLoadBalancers" NoPipelineParameter="true" Noun="LoadBalancer" />
-	<ServiceOperation MethodName="DescribeRules" PipelineParameter="ListenerArn" />
-	<ServiceOperation MethodName="DescribeSSLPolicies" Noun="SSLPolicy" />
-	<ServiceOperation MethodName="DescribeTags" />
-	<ServiceOperation MethodName="DescribeTargetGroupAttributes" Noun="TargetGroupAttribute" />
-	<ServiceOperation MethodName="DescribeTargetGroups" PipelineParameter="LoadBalancerArn" Noun="TargetGroup" />
-	<ServiceOperation MethodName="DescribeTargetHealth" PipelineParameter="TargetGroupArn" />
-	<ServiceOperation MethodName="ModifyListener" PipelineParameter="ListenerArn" />
-	<ServiceOperation MethodName="ModifyLoadBalancerAttributes" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerArn" />
-	<ServiceOperation MethodName="ModifyRule" PipelineParameter="RuleArn" />
-	<ServiceOperation MethodName="ModifyTargetGroup" PipelineParameter="TargetGroupArn" />
-	<ServiceOperation MethodName="ModifyTargetGroupAttributes" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" />
-	<ServiceOperation MethodName="RegisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
-	<ServiceOperation MethodName="RemoveTags" NoPipelineParameter="true" Output="Void" />
-	<ServiceOperation MethodName="SetIpAddressType" PipelineParameter="LoadBalancerArn"/>
-	<ServiceOperation MethodName="SetRulePriorities" Noun="RulePriority" NoPipelineParameter="true" />
-	<ServiceOperation MethodName="SetSecurityGroups" PipelineParameter="LoadBalancerArn" Noun="SecurityGroup" />
-	<ServiceOperation MethodName="SetSubnets" PipelineParameter="LoadBalancerArn" />
-  </ServiceOperations>
-
-  <PipelineByValueProperties>
-	<Property>TargetGroupArn</Property>
-	<Property>SubnetId</Property>
-	<Property>ZoneName</Property>
-	<Property>CertificateArn</Property>
-	<Property>ListenerArn</Property>
-	<Property>LoadBalancerArn</Property>
-	<Property>LoadBalancerName</Property>
-	<Property>VpcId</Property>
-	<Property>RuleArn</Property>
-	<Property>ResourceArn</Property>
-	<Property>TargetGroupName</Property>
-  </PipelineByValueProperties>
-  
+	<AutoIterate EmitLimit="PageSize" Start="Marker" Next="NextMarker" />
+	
+	<NounMappings>
+		<Map From="Tags" To="Tag" />
+		<Map From="Rules" To="Rule" />
+		<Map From="Targets" To="Target" />
+		<Map From="Listeners" To="Listener" />
+		<Map From="Subnets" To="Subnet" />
+	</NounMappings>
+	
+	<VerbMappings>
+		<Map From="Modify" To="Edit" />
+		<Map From="Deregister" To="Unregister" />
+	</VerbMappings>
+	
+	<ServiceOperations>
+		<ServiceOperation MethodName="AddTags" NoPipelineParameter="true" Output="Void" />
+		<ServiceOperation MethodName="CreateListener" PipelineParameter="LoadBalancerArn" />
+		<ServiceOperation MethodName="CreateLoadBalancer" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="CreateRule" PipelineParameter="ListenerArn" />
+		<ServiceOperation MethodName="CreateTargetGroup" NoPipelineParameter="true" ShouldProcessTarget="Name" />
+		<ServiceOperation MethodName="DeleteListener" Output="Void" />
+		<ServiceOperation MethodName="DeleteLoadBalancer" Output="Void" />
+		<ServiceOperation MethodName="DeleteRule" Output="Void" />
+		<ServiceOperation MethodName="DeleteTargetGroup" Output="Void" />
+		<ServiceOperation MethodName="DeregisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
+		<ServiceOperation MethodName="DescribeAccountLimits" Noun="AccountLimit" />
+		<ServiceOperation MethodName="DescribeListeners" PipelineParameter="ListenerArn" />
+		<ServiceOperation MethodName="DescribeLoadBalancerAttributes" Noun="LoadBalancerAttribute" />
+		<ServiceOperation MethodName="DescribeLoadBalancers" NoPipelineParameter="true" Noun="LoadBalancer" />
+		<ServiceOperation MethodName="DescribeRules" PipelineParameter="ListenerArn" />
+		<ServiceOperation MethodName="DescribeSSLPolicies" Noun="SSLPolicy" />
+		<ServiceOperation MethodName="DescribeTags" />
+		<ServiceOperation MethodName="DescribeTargetGroupAttributes" Noun="TargetGroupAttribute" />
+		<ServiceOperation MethodName="DescribeTargetGroups" PipelineParameter="LoadBalancerArn" Noun="TargetGroup" />
+		<ServiceOperation MethodName="DescribeTargetHealth" PipelineParameter="TargetGroupArn" />
+		<ServiceOperation MethodName="ModifyListener" PipelineParameter="ListenerArn" />
+		<ServiceOperation MethodName="ModifyLoadBalancerAttributes" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerArn" />
+		<ServiceOperation MethodName="ModifyRule" PipelineParameter="RuleArn" />
+		<ServiceOperation MethodName="ModifyTargetGroup" PipelineParameter="TargetGroupArn" />
+		<ServiceOperation MethodName="ModifyTargetGroupAttributes" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" />
+		<ServiceOperation MethodName="RegisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
+		<ServiceOperation MethodName="RemoveTags" NoPipelineParameter="true" Output="Void" />
+		<ServiceOperation MethodName="SetIpAddressType" PipelineParameter="LoadBalancerArn"/>
+		<ServiceOperation MethodName="SetRulePriorities" Noun="RulePriority" NoPipelineParameter="true" />
+		<ServiceOperation MethodName="SetSecurityGroups" PipelineParameter="LoadBalancerArn" Noun="SecurityGroup" />
+		<ServiceOperation MethodName="SetSubnets" PipelineParameter="LoadBalancerArn" />
+	</ServiceOperations>
+	
+	<PipelineByValueProperties>
+		<Property>TargetGroupArn</Property>
+		<Property>SubnetId</Property>
+		<Property>ZoneName</Property>
+		<Property>CertificateArn</Property>
+		<Property>ListenerArn</Property>
+		<Property>LoadBalancerArn</Property>
+		<Property>LoadBalancerName</Property>
+		<Property>VpcId</Property>
+		<Property>RuleArn</Property>
+		<Property>ResourceArn</Property>
+		<Property>TargetGroupName</Property>
+	</PipelineByValueProperties>
 </ConfigModel>

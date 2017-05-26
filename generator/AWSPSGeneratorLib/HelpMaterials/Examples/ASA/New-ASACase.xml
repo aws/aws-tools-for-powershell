@@ -3,7 +3,7 @@
   <example>
     <code>New-ASACase -ServiceCode "amazon-cloudfront" -CategoryCode "APIs" -SeverityCode "low" -Subject "subject text" -CommunicationBody "description of the case" -CcEmailAddress @("email1@domain.com", "email2@domain.com") -IssueType "technical"</code>
     <description>
-      Creates a new case in the AWS Support Center. Values for the -ServiceCode and -CategoryCode parameters can be obtained using the Get-ASAServices cmdlet. The value for the -SeverityCode parameter can be obtained using the Get-ASASeverityLevels cmdlet. The -IssueType parameter value can be either "customer-service" or "technical". If successful the AWS Support case number is output.
+      Creates a new case in the AWS Support Center. Values for the -ServiceCode and -CategoryCode parameters can be obtained using the Get-ASAService cmdlet. The value for the -SeverityCode parameter can be obtained using the Get-ASASeverityLevel cmdlet. The -IssueType parameter value can be either "customer-service" or "technical". If successful the AWS Support case number is output.
       By default the case will be handled in English, to use Japanese add the -Language "ja" parameter.
       The -ServiceCode, -CategoryCode, -Subject and -CommunicationBody parameters are mandatory.
     </description>

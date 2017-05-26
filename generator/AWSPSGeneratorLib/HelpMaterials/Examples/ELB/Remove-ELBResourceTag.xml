@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Remove-ELBResourceTag -LoadBalancerName my-load-balancer -Tag @{ Key="project" }
+    
+Confirm
+Are you sure you want to perform this action?
+Performing the operation "Remove-ELBResourceTag (RemoveTags)" on target "Amazon.ElasticLoadBalancing.Model.TagKeyOnly".
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"):</code>
+    <description>This example removes the specified tag from the specified load balancer. You are prompted for confirmation before the operation proceeds, unless you also specify the Force parameter. The syntax used by this example requires PowerShell version 3 or later.</description>
+  </example>
+  <example>
+    <code>PS C:\> $tag = New-Object Amazon.ElasticLoadBalancing.Model.TagKeyOnly
+PS C:\> $tag.Key = "project"
+PS C:\> Remove-ELBResourceTag -Tag $tag -Force</code>
+    <description>With Powershell version 2, you must use New-Object to create the tag for the Tag parameter.</description>
+  </example>
+</examples>

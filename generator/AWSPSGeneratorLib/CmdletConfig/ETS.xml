@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ETS</ServiceNounPrefix>
   <ServiceName>Amazon Elastic Transcoder</ServiceName>
   <ServiceClientInterface>IAmazonElasticTranscoder</ServiceClientInterface>
@@ -15,12 +16,13 @@
     <Map From="Presets" To="Preset" />
     <Map From="Pipelines" To="Pipeline" />
   </NounMappings>
-
+  
   <AutoIterate Start="PageToken" Next="NextPageToken" />
-
+  
   <PositionalParameters>Id</PositionalParameters>
+  
   <PipelineParameter>Id</PipelineParameter>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CancelJob" Output="Void"/>
     <ServiceOperation MethodName="CreateJob" PipelineParameter="PipelineId">
@@ -49,7 +51,7 @@
     <ServiceOperation MethodName="ReadPreset"/>
     <ServiceOperation MethodName="TestRole" Exclude="true"/>
     <ServiceOperation MethodName="UpdatePipeline" PositionalParameters="Name;InputBucket;Role"/>
-    <ServiceOperation MethodName="UpdatePipelineNotifications" />
+    <ServiceOperation MethodName="UpdatePipelineNotifications" Noun="PipelineNotification" LegacyAlias="Update-ETSPipelineNotifications" />
     <ServiceOperation MethodName="UpdatePipelineStatus" PositionalParameters="Status"/>
   </ServiceOperations>
 
@@ -64,5 +66,4 @@
     <Property>PresetId</Property>
     <Property>PipelineId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

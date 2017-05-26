@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SES</ServiceNounPrefix>
   <ServiceName>Amazon Simple Email Service</ServiceName>
   <ServiceClientInterface>IAmazonSimpleEmailService</ServiceClientInterface>
@@ -19,35 +20,28 @@
     <Map From="List" To="Get" />
     <Map From="Verify" To="Confirm" />
   </VerbMappings>
-
+  
   <AutoIterate EmitLimit="MaxItems" Start="NextToken" Next="NextToken" />
   
   <DefaultRegion>us-east-1</DefaultRegion>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteIdentity" Output="Void" />
     <ServiceOperation MethodName="DeleteIdentityPolicy" Output="Void" PipelineParameter="PolicyName" />
     <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Output="Void" />
-    <ServiceOperation MethodName="GetIdentityDkimAttributes" />    
-    <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" />
+    <ServiceOperation MethodName="GetIdentityDkimAttributes" />
+    <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" Noun="IdentityMailFromDomainAttribute" LegacyAlias="Get-SESIdentityMailFromDomainAttributes"/>
     <ServiceOperation MethodName="GetIdentityNotificationAttributes" />
     <ServiceOperation MethodName="GetIdentityPolicies" Noun="IdentityPolicy" PipelineParameter="PolicyNames" />
     <ServiceOperation MethodName="GetIdentityVerificationAttributes" />
     <ServiceOperation MethodName="GetSendQuota" Output="Response"/>
-    <ServiceOperation MethodName="GetSendStatistics"/>
+    <ServiceOperation MethodName="GetSendStatistics" Noun="SendStatistic" LegacyAlias="Get-SESSendStatistics"/>
     <ServiceOperation MethodName="ListIdentities" />
     <ServiceOperation MethodName="ListIdentityPolicies" Noun="IdentityPolicyList" />
     <ServiceOperation MethodName="ListVerifiedEmailAddresses"/>
     <ServiceOperation MethodName="PutIdentityPolicy" Output="Void" PipelineParameter="Policy" />
-    <ServiceOperation MethodName="SendEmail" 
-                      PipelineParameter="Source" 
-                      ShouldProcessTarget="Source"
-                      PositionalParameters="Destination_ToAddresses"/>
-    <ServiceOperation MethodName="SendRawEmail" 
-                      PipelineParameter="Source" 
-                      ShouldProcessTarget="Source"
-                      PositionalParameters="Destinations"
-                      RemapMemoryStreamParameters="false"/>
+    <ServiceOperation MethodName="SendEmail" PipelineParameter="Source" ShouldProcessTarget="Source" PositionalParameters="Destination_ToAddresses"/>
+    <ServiceOperation MethodName="SendRawEmail" PipelineParameter="Source" ShouldProcessTarget="Source" PositionalParameters="Destinations" RemapMemoryStreamParameters="false"/>
     <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="DkimEnabled"/>
     <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="ForwardingEnabled"/>
     <ServiceOperation MethodName="SetIdentityMailFromDomain" Output="Void" PipelineParameter="Identity" PositionalParameters="MailFromDomain;BehaviorOnMXFailure"/>
@@ -56,8 +50,6 @@
     <ServiceOperation MethodName="VerifyDomainIdentity" />
     <ServiceOperation MethodName="VerifyEmailAddress" Output="Void" />
     <ServiceOperation MethodName="VerifyEmailIdentity" Output="Void" />
-    
-    
     <ServiceOperation MethodName="CloneReceiptRuleSet" Output="Void" Verb="Copy" PipelineParameter="OriginalRuleSetName"/>
     <ServiceOperation MethodName="CreateReceiptFilter" Output="Void" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="CreateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
@@ -68,15 +60,14 @@
     <ServiceOperation MethodName="DescribeActiveReceiptRuleSet" Output="Response" />
     <ServiceOperation MethodName="DescribeReceiptRule" PipelineParameter="RuleName" />
     <ServiceOperation MethodName="DescribeReceiptRuleSet" Output="Response"/>
-    <ServiceOperation MethodName="ListReceiptFilters"/>
-    <ServiceOperation MethodName="ListReceiptRuleSets"/>
+    <ServiceOperation MethodName="ListReceiptFilters" Noun="ReceiptFilterList" LegacyAlias="Get-SESReceiptFilters"/>
+    <ServiceOperation MethodName="ListReceiptRuleSets" Noun="ReceiptRuleSetList" LegacyAlias="Get-SESReceiptRuleSets"/>
     <ServiceOperation MethodName="ReorderReceiptRuleSet" Output="Void" Verb="Set" Noun="ReceiptRuleSetOrder" PipelineParameter="RuleNames"/>
     <ServiceOperation MethodName="SendBounce" PipelineParameter="BouncedRecipientInfoList" ShouldProcessTarget="BounceSender"/>
     <ServiceOperation MethodName="SetActiveReceiptRuleSet" Output="Void"/>
     <ServiceOperation MethodName="SetReceiptRulePosition" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
     <ServiceOperation MethodName="UpdateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
     <ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Output="Void" PipelineParameter="Identity" />
-
     <ServiceOperation MethodName="DeleteConfigurationSet" Output="Void"/>
     <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Output="Void" PipelineParameter="EventDestinationName" />
     <ServiceOperation MethodName="DescribeConfigurationSet" PipelineParameter="ConfigurationSetName" Output="Response"/>
@@ -84,8 +75,8 @@
     <ServiceOperation MethodName="CreateConfigurationSet" Output="Void"/>
     <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Output="Void" PipelineParameter="ConfigurationSetName" />
     <ServiceOperation MethodName="ListConfigurationSets" Verb="Get" Noun="ConfigurationSetList"/>
-    
   </ServiceOperations>
+  
   <PipelineByValueProperties>
     <Property>Identity</Property>
     <Property>EmailAddress</Property>
@@ -94,5 +85,4 @@
     <Property>EventDestinationName</Property>
     <Property>ConfigurationSetName</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

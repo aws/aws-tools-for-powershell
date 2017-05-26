@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CDIR</ServiceNounPrefix>
   <ServiceName>AWS Cloud Directory</ServiceName>
   <ServiceNamespace>Amazon.CloudDirectory</ServiceNamespace>
@@ -9,13 +9,12 @@
   <ServiceClient>AmazonCloudDirectoryClient</ServiceClient>
 
   <PipelineParameter>DirectoryArn</PipelineParameter>
-
+  
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
-
+  
   <ServiceOperations>
-
     <ServiceOperation MethodName="ListFacetAttributes" Noun="FacetAttribute" PipelineParameter="SchemaArn"/>
     <ServiceOperation MethodName="ListFacetNames" Noun="FacetName" PipelineParameter="SchemaArn"/>
     <ServiceOperation MethodName="ListIndex" Noun="Index"/>
@@ -31,25 +30,23 @@
     <ServiceOperation MethodName="ListAttachedIndices" Noun="ObjectIndex"/>
     <ServiceOperation MethodName="ListDevelopmentSchemaArns" Noun="DevelopmentSchemaArn"/>
     <ServiceOperation MethodName="ListDirectories" Noun="Directory"/>
-
-    <ServiceOperation MethodName="LookupPolicy"  Verb="Get" Noun="DirectoryPolicy"/>
+    <ServiceOperation MethodName="LookupPolicy" Verb="Get" Noun="DirectoryPolicy"/>
     <ServiceOperation MethodName="PublishSchema" PipelineParameter="DevelopmentSchemaArn"/>
     <ServiceOperation MethodName="PutSchemaFromJson" PipelineParameter="SchemaArn"/>
     <ServiceOperation MethodName="RemoveFacetFromObject" Output="Void"/>
-    <ServiceOperation MethodName="TagResource"  Verb="Add" Noun="ResourceTag" PipelineParameter="SchemaArn" Output="Void"/>
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="SchemaArn" Output="Void"/>
     <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceArn" Output="Void"/>
     <ServiceOperation MethodName="UpdateFacet" PipelineParameter="SchemaArn" Output="Void"/>
     <ServiceOperation MethodName="UpdateObjectAttributes" Noun="ObjectAttribute"/>
     <ServiceOperation MethodName="UpdateSchema" PipelineParameter="SchemaArn"/>
-
     <ServiceOperation MethodName="AddFacetToObject" Output="Void"/>
     <ServiceOperation MethodName="ApplySchema" Verb="Add" Noun="Schema" Output="Response"/>
-    <ServiceOperation MethodName="AttachObject"  Verb="Connect"/>
+    <ServiceOperation MethodName="AttachObject" Verb="Connect"/>
     <ServiceOperation MethodName="AttachPolicy" Verb="Mount" PipelineParameter="PolicyToObject" Output="Void"/>
     <ServiceOperation MethodName="AttachToIndex" Verb="Mount" Noun="ObjectToIndex"/>
     <ServiceOperation MethodName="BatchRead" Verb="Read" Noun="DirectoryBatch"/>
     <ServiceOperation MethodName="BatchWrite" Verb="Write" Noun="DirectoryBatch"/>
-    <ServiceOperation MethodName="CreateDirectory" PipelineParameter="SchemaArn" Output="Response"/> 
+    <ServiceOperation MethodName="CreateDirectory" PipelineParameter="SchemaArn" Output="Response"/>
     <ServiceOperation MethodName="CreateFacet" PipelineParameter="SchemaArn" Output="Void"/>
     <ServiceOperation MethodName="CreateIndex"/>
     <ServiceOperation MethodName="CreateObject" Noun="DirectoryObject"/>
@@ -58,7 +55,6 @@
     <ServiceOperation MethodName="DeleteFacet" PipelineParameter="SchemaArn" Output="Void"/>
     <ServiceOperation MethodName="DeleteObject" Noun="DirectoryObject" Output="Void"/>
     <ServiceOperation MethodName="DeleteSchema"/>
-
     <ServiceOperation MethodName="DetachFromIndex" Noun="ObjectFromIndex"/>
     <ServiceOperation MethodName="DetachObject" Verb="Disconnect"/>
     <ServiceOperation MethodName="DetachPolicy" Noun="PolicyFromObject" Output="Void"/>
@@ -68,6 +64,5 @@
     <ServiceOperation MethodName="GetFacet" PipelineParameter="SchemaArn"/>
     <ServiceOperation MethodName="GetObjectInformation" Output="Response"/>
     <ServiceOperation MethodName="GetSchemaAsJson" Output="Response"/>
-    
   </ServiceOperations>
 </ConfigModel>

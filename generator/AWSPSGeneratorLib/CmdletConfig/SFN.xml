@@ -1,17 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SFN</ServiceNounPrefix>
   <ServiceName>Amazon Step Functions</ServiceName>
   <ServiceClientInterface>IAmazonStepFunctions</ServiceClientInterface>
   <ServiceClient>AmazonStepFunctionsClient</ServiceClient>
   <ServiceNamespace>Amazon.StepFunctions</ServiceNamespace>
-
-  <NounMappings>
-  </NounMappings>
-  
-  <VerbMappings>
-  </VerbMappings>
 
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
   
@@ -34,8 +29,4 @@
     <ServiceOperation MethodName="StartExecution" PipelineParameter="StateMachineArn" Output="Response"/>
     <ServiceOperation MethodName="StopExecution" PipelineParameter="ExecutionArn"/>
   </ServiceOperations>
-
-  <PipelineByValueProperties>
-  </PipelineByValueProperties>
-
 </ConfigModel>

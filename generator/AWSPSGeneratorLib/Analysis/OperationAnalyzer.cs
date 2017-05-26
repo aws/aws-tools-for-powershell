@@ -11,6 +11,7 @@ using System.Xml;
 using AWSPowerShellGenerator.CmdletConfig;
 using AWSPowerShellGenerator.Generators;
 using AWSPowerShellGenerator.Utils;
+using System.Text.RegularExpressions;
 
 namespace AWSPowerShellGenerator.Analysis
 {
@@ -463,8 +464,9 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (!string.IsNullOrEmpty(CurrentOperation.LegacyAlias))
             {
-                generator.AddLegacyAlias(CurrentOperation.LegacyAlias,
-                                         string.Format("{0}-{1}", CurrentOperation.SelectedVerb, CurrentOperation.SelectedNoun));
+                generator.AddLegacyAlias(CurrentModel.ServiceName,
+                                         string.Format("{0}-{1}", CurrentOperation.SelectedVerb, CurrentOperation.SelectedNoun),
+                                         CurrentOperation.LegacyAlias);
             }
 
             LogAnalysisResults();
@@ -875,6 +877,34 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (!ApprovedVerbs.Contains(verb))
                 Logger.LogError("Unapproved verb [{0}] in operation [{1}]", verb, CurrentOperation.MethodName);
+
+            var nounArray = Regex.Split(noun, @"(?<!^)(?=[A-Z])");
+            var nounTermination = nounArray[nounArray.Length - 1];
+            // service yields some nounds as plural but they are not for cmdlet name purposes
+            var pluralFalsePositives = new HashSet<string>(StringComparer.OrdinalIgnoreCase)
+            {
+                "data",
+                "information",
+                "status"
+            };
+
+            if (Pluralization.IsPlural(nounTermination) && !pluralFalsePositives.Contains(nounTermination))
+            {
+                var suggestedNoun = new StringBuilder();
+                // entry 0-n is the capitalized noun prefix, skip that
+                for (var i = CurrentModel.ServiceNounPrefix.Length; i < nounArray.Length - 1; i++)
+                {
+                    suggestedNoun.Append(nounArray[i]);
+                }
+                suggestedNoun.Append(Pluralization.Singularize(nounTermination));
+
+                Logger.LogError("Plural noun [{0}] in operation [{1} ({2}-{3})]. Suggest noun rename to [{4}].",
+                                    noun,
+                                    CurrentOperation.MethodName,
+                                    verb,
+                                    noun,
+                                    suggestedNoun);
+            }
 
             CurrentOperation.SelectedVerb = verb;
             CurrentOperation.SelectedNoun = noun;

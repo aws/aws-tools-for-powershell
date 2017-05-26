@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CGIP</ServiceNounPrefix>
   <ServiceName>Amazon Cognito Identity Provider</ServiceName>
   <ServiceNamespace>Amazon.CognitoIdentityProvider</ServiceNamespace>
@@ -8,8 +9,9 @@
   <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
 
   <PipelineParameter>UserPoolId</PipelineParameter>
+  
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
-
+  
   <PipelineByValueProperties>
     <Property>UserPoolId</Property>
     <Property>UserName</Property>
@@ -19,14 +21,13 @@
     <Property>AccessToken</Property>
     <Property>AttributeName</Property>
   </PipelineByValueProperties>
-
+  
   <MetadataProperties>
     <Property>PaginationToken</Property>
     <Property>NextToken</Property>
   </MetadataProperties>
-
+  
   <ServiceOperations>
-
     <ServiceOperation MethodName="AdminAddUserToGroup" Verb="Add" Noun="UserToGroupAdmin" PipelineParameter="Username" Output="Void" ShouldProcessTarget="GroupName"/>
     <ServiceOperation MethodName="AdminConfirmSignUp" Output="Void" ShouldProcessTarget="UserName" Verb="Confirm" Noun="UserRegistrationAdmin"/>
     <ServiceOperation MethodName="AdminCreateUser" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Create"/>
@@ -51,29 +52,23 @@
     <ServiceOperation MethodName="AdminUserGlobalSignOut" Verb="Disconnect" Noun="UserGlobalAdmin" PipelineParameter="Username" Output="Void" />
     <ServiceOperation MethodName="AdminRespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponseAdmin" PipelineParameter="ClientId" Output="Response" />
     <ServiceOperation MethodName="AdminRemoveUserFromGroup" Verb="Remove" Noun="UserFromGroupAdmin" PipelineParameter="Username" Output="Void" ShouldProcessTarget="Username" />
-
     <ServiceOperation MethodName="AddCustomAttributes" Output="Void" Noun="CustomAttribute"/>
     <ServiceOperation MethodName="CreateGroup" PipelineParameter="GroupName" />
     <ServiceOperation MethodName="CreateUserPool" ShouldProcessTarget="PoolName"/>
     <ServiceOperation MethodName="CreateUserPoolClient" />
-
     <ServiceOperation MethodName="DeleteGroup" PipelineParameter="GroupName" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPool" Output="Void"/>
     <ServiceOperation MethodName="DeleteUserPoolClient" Output="Void" PipelineParameter="ClientId"/>
     <ServiceOperation MethodName="DescribeUserPool" />
     <ServiceOperation MethodName="DescribeUserPoolClient" />
-
     <ServiceOperation MethodName="GetGroup" PipelineParameter="GroupName"/>
-
     <ServiceOperation MethodName="ListGroups" Verb="Get" Noun="GroupList">
       <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
     </ServiceOperation>
-
     <ServiceOperation MethodName="ListUserPoolClients" Verb="Get" Noun="UserPoolClientList"/>
     <ServiceOperation MethodName="ListUsersInGroup" Verb="Get" PipelineParameter="GroupName">
       <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
     </ServiceOperation>
-    
     <!-- see opening paragraphs of http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html 
          as to why I chose 'stop-devicetracking' as a name for ForgetDevice. The pipeline parameters for these cmdlets have
          been determined by inspecting the model for required parameters (in the complete absence of usable docs)
@@ -88,20 +83,14 @@
     <ServiceOperation MethodName="UpdateDeviceStatus" Verb="Edit" Noun="DeviceStatus" PipelineParameter="DeviceKey" Output="Void" />
     <ServiceOperation MethodName="ConfirmDevice" Verb="Approve" Noun="Device" PipelineParameter="DeviceKey" />
     <ServiceOperation MethodName="GlobalSignOut" Verb="Disconnect" Noun="DeviceGlobal" Output="Void"/>
-
     <ServiceOperation MethodName="RespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponse" PipelineParameter="ClientId" Output="Response" />
-
     <ServiceOperation MethodName="ListUsers" Verb="Get" Noun="UserList">
       <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
     </ServiceOperation>
-    
     <ServiceOperation MethodName="ListUserPools" Verb="Get" Noun="UserPoolList"/>
-
     <ServiceOperation MethodName="UpdateGroup" PipelineParameter="GroupName" />
     <ServiceOperation MethodName="UpdateUserPool" Output="Void"/>
     <ServiceOperation MethodName="UpdateUserPoolClient" />
-
-
     <!-- these operations do not need user auth (they use AnonymousAWSCredentials when instantiating the client) -->
     <ServiceOperation MethodName="ChangePassword" AnonymousAuthentication="Always" Output="Void" Verb="Update" ShouldProcessTarget="AccessToken"/>
     <ServiceOperation MethodName="ConfirmForgotPassword" AnonymousAuthentication="Always" Output="Void"/>
@@ -116,15 +105,13 @@
     <ServiceOperation MethodName="SignUp" AnonymousAuthentication="Always" Output="Response" Verb="Register" Noun="UserInPool"/>
     <ServiceOperation MethodName="UpdateUserAttributes" AnonymousAuthentication="Always" Noun="UserAttribute" ShouldProcessTarget="AccessToken"/>
     <ServiceOperation MethodName="VerifyUserAttribute" AnonymousAuthentication="Always" Output="Void" Verb="Test" PipelineParameter="AccessToken"/>
-
-	<ServiceOperation MethodName="GetCSVHeader" Output="Response" />
-	<ServiceOperation MethodName="ListUserImportJobs" Verb="Get" Noun="UserImportJobList">
+    <ServiceOperation MethodName="GetCSVHeader" Output="Response" />
+    <ServiceOperation MethodName="ListUserImportJobs" Verb="Get" Noun="UserImportJobList">
       <AutoIterate EmitLimit="MaxResults" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
-	</ServiceOperation>
-	<ServiceOperation MethodName="StartUserImportJob" PipelineParameter="JobId" />
-	<ServiceOperation MethodName="StopUserImportJob" PipelineParameter="JobId" />
-	<ServiceOperation MethodName="CreateUserImportJob" />
-	<ServiceOperation MethodName="DescribeUserImportJob" PipelineParameter="JobId" />
-	
+    </ServiceOperation>
+    <ServiceOperation MethodName="StartUserImportJob" PipelineParameter="JobId" />
+    <ServiceOperation MethodName="StopUserImportJob" PipelineParameter="JobId" />
+    <ServiceOperation MethodName="CreateUserImportJob" />
+    <ServiceOperation MethodName="DescribeUserImportJob" PipelineParameter="JobId" />
   </ServiceOperations>
 </ConfigModel>

@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>DC</ServiceNounPrefix>
   <ServiceName>AWS Direct Connect</ServiceName>
   <ServiceClientInterface>IAmazonDirectConnect</ServiceClientInterface>
@@ -13,7 +14,7 @@
     <Map From="VirtualGateways" To="VirtualGateway" />
     <Map From="VirtualInterfaces" To="VirtualInterface" />
   </NounMappings>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Verb="Enable" Output="Response" PipelineParameter="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan"/>
     <ServiceOperation MethodName="AllocateHostedConnection" PipelineParameter="ConnectionId" Output="Response" />
@@ -45,7 +46,7 @@
     <ServiceOperation MethodName="DescribeInterconnectLoa" PipelineParameter="InterconnectId"/>
     <ServiceOperation MethodName="DescribeLags" Noun="Lag" />
     <ServiceOperation MethodName="DescribeLoa" PipelineParameter="ConnectionId" Output="Response" />
-    <ServiceOperation MethodName="DescribeLocations"/>
+    <ServiceOperation MethodName="DescribeLocations" Noun="Location" LegacyAlias="Get-DCLocations" />
     <ServiceOperation MethodName="DescribeVirtualGateways"/>
     <ServiceOperation MethodName="DescribeVirtualInterfaces" PipelineParameter="ConnectionId" PositionalParameters="VirtualInterfaceId"/>
     <ServiceOperation MethodName="DescribeTags" Verb="Get" Noun="ResourceTag"/>
@@ -53,11 +54,10 @@
     <ServiceOperation MethodName="UpdateLag" PipelineParameter="LagId" Output="Response" />
     <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="Resource" Output="Void"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>ConnectionId</Property>
     <Property>InterconnectId</Property>
     <Property>VirtualInterfaceId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

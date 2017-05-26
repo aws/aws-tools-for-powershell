@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>PS C:\> Get-ASLifecycleHook -AutoScalingGroupName my-asg -LifecycleHookName myLifecycleHook
+    
+AutoScalingGroupName  : my-asg
+DefaultResult         : ABANDON
+GlobalTimeout         : 172800
+HeartbeatTimeout      : 3600
+LifecycleHookName     : myLifecycleHook
+LifecycleTransition   : autoscaling:EC2_INSTANCE_LAUNCHING
+NotificationMetadata  :
+NotificationTargetARN : arn:aws:sns:us-west-2:123456789012:my-topic
+RoleARN               : arn:aws:iam::123456789012:role/my-iam-role</code>
+    <description>This example describes the specified lifecycle hook.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-ASLifecycleHook -AutoScalingGroupName my-asg</code>
+    <description>This example describes all lifecycle hooks for the specified Auto Scaling group.</description>
+  </example>
+  <example>
+    <code>PS C:\> Get-ASLifecycleHook</code>
+    <description>This example describes all lifecycle hooks for all your Auto Scaling groups.</description>
+  </example>
+</examples>

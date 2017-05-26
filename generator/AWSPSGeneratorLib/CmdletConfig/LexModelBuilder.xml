@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>LMB</ServiceNounPrefix>
   <ServiceName>Amazon Lex Model Building Service</ServiceName>
   <ServiceNamespace>Amazon.LexModelBuildingService</ServiceNamespace>
@@ -8,14 +9,14 @@
   <ServiceClient>AmazonLexModelBuildingServiceClient</ServiceClient>
 
   <PipelineParameter>Name</PipelineParameter>
-
+  
   <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
+  
   <TypesNotToFlatten>
     <Type>Amazon.LexModelBuildingService.Model.Statement</Type>
     <Type>Amazon.LexModelBuildingService.Model.Slot</Type>
   </TypesNotToFlatten>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateBotVersion" Output="Response" />
     <ServiceOperation MethodName="CreateIntentVersion" Output="Response" />
@@ -51,5 +52,4 @@
     <ServiceOperation MethodName="PutIntent" Output="Response" />
     <ServiceOperation MethodName="PutSlotType" Output="Response" />
   </ServiceOperations>
-  
 </ConfigModel>

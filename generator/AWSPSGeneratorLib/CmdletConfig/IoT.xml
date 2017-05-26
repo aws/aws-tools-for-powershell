@@ -1,208 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ServiceNounPrefix>IOT</ServiceNounPrefix>
+    <ServiceName>AWS IoT</ServiceName>
+    <ServiceNamespace>Amazon.IoT</ServiceNamespace>
+    <ServiceClientInterface>IAmazonIoT</ServiceClientInterface>
+    <ServiceClient>AmazonIoTClient</ServiceClient>
 
-  <ServiceNounPrefix>IOT</ServiceNounPrefix>
-  <ServiceName>AWS IoT</ServiceName>
-  <ServiceNamespace>Amazon.IoT</ServiceNamespace>
-  <ServiceClientInterface>IAmazonIoT</ServiceClientInterface>
-  <ServiceClient>AmazonIoTClient</ServiceClient>
-
-  <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
-
-  <MetadataProperties>
-    <Property>AscendingOrder</Property>
-  </MetadataProperties>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="AcceptCertificateTransfer"
-        Verb="Confirm"
-        PipelineParameter="CertificateId"
-        Output="Void"/>
-    <ServiceOperation MethodName="AttachPrincipalPolicy"
-        Verb="Add"
-        PipelineParameter="Principal"
-        Output="Void" />
-    <ServiceOperation MethodName="AttachThingPrincipal"
-        Verb="Add"
-        PipelineParameter="ThingName"
-        Output="Void" />
-    <ServiceOperation MethodName="CancelCertificateTransfer"
-        Output="Void" />
-    <ServiceOperation MethodName="CreateCertificateFromCsr"
-        NoPipelineParameter="true"
-        IgnoreSupportsShouldProcess="true"
-        Output="Response"/>
-    <ServiceOperation MethodName="CreateKeysAndCertificate"
-        NoPipelineParameter="true"
-        Output="Response" />
-    <ServiceOperation MethodName="CreatePolicy"
-        NoPipelineParameter="true"
-        Output="Response"/>
-    <ServiceOperation MethodName="CreatePolicyVersion"
-        PipelineParameter="PolicyName"
-        Output="Response"/>
-    <ServiceOperation MethodName="CreateThing"
-        PipelineParameter="ThingName"
-        Output="Response" />
-	<ServiceOperation MethodName="CreateThingType"
-        PipelineParameter="ThingTypeName"
-		Output="Response" />
-    <ServiceOperation MethodName="DeleteCertificate"
-        Output="Void"/>
-    <ServiceOperation MethodName="DeletePolicy"
-        Output="Void" />
-    <ServiceOperation MethodName="DeletePolicyVersion"
-        ShouldProcessTarget="PolicyVersionId"
-        PipelineParameter="PolicyName"
-        Output="Void"/>
-    <ServiceOperation MethodName="DeleteThing"
-	    PipelineParameter="ThingName"
-        Output="Void"/>
-    <ServiceOperation MethodName="DeleteThingType"
-        Output="Void"/>
-    <ServiceOperation MethodName="DeleteTopicRule"
-        Output="Void"/>
-	<ServiceOperation MethodName="DeprecateThingType"
-		Verb="Set"
-		Noun="ThingTypeDeprecation"
-		PipelineParameter="ThingTypeName"
-		Output="Void"/>
-    <ServiceOperation MethodName="DescribeCertificate" />
-    <ServiceOperation MethodName="DescribeEndpoint" />
-    <ServiceOperation MethodName="DescribeThing"
-        Output="Response" />
-	<ServiceOperation MethodName="DescribeThingType" Output="Response" />
-    <ServiceOperation MethodName="DetachPrincipalPolicy"
-        Verb="Remove"
-        PipelineParameter="PrincipalId"
-        Output="Void"/>
-    <ServiceOperation MethodName="DetachThingPrincipal"
-        Verb="Remove"
-        PipelineParameter="ThingName"
-        Output="Void"/>
-    <ServiceOperation MethodName="GetLoggingOptions"
-        Output="Response"/>
-    <ServiceOperation MethodName="GetPolicy"
-        Output="Response"/>
-    <ServiceOperation MethodName="GetPolicyVersion"
-        PipelineParameter="PolicyName"
-        Output="Response"/>
-
-    <ServiceOperation MethodName="GetTopicRule" Output="Response" />
-    <ServiceOperation MethodName="EnableTopicRule" Output="Void" />
-    <ServiceOperation MethodName="DisableTopicRule" Output="Void" />
-
-    <ServiceOperation MethodName="ListCertificates"
-                      Verb="Get"
-                      Noun="CertificateList"
-                      NoPipelineParameter="true">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListOutgoingCertificates"
-                      Verb="Get"
-                      Noun="OutgoingCertificate"
-                      NoPipelineParameter="true">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListPolicies"
-                      Verb="Get"
-                      Noun="PolicyList"
-                      NoPipelineParameter="true">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-    </ServiceOperation>
-	<ServiceOperation MethodName="ListPolicyPrincipals" PipelineParameter="PolicyName" Verb="Get" Noun="PolicyPrincipalsList">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-	</ServiceOperation>
-	
-    <ServiceOperation MethodName="ListPolicyVersions"
-                      Verb="Get"
-                      Noun="PolicyVersionList">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListPrincipalPolicies"
-                      Verb="Get"
-                      Noun="PrincipalPolicyList"
-                      PipelineParameter="Principal">
-      <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListPrincipalThings"
-                      Verb="Get"
-                      Noun="PrincipalThingList"
-                      PipelineParameter="Principal">
-      <AutoIterate Start="Marker" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListThingPrincipals"
-        Verb="Get"
-        Noun="ThingPrincipalList" />
-    <ServiceOperation MethodName="ListThings"
-                      Verb="Get"
-                      Noun="ThingList"
-                      NoPipelineParameter="true">
-    </ServiceOperation>
-	<ServiceOperation MethodName="ListThingTypes"
-                      Verb="Get"
-                      Noun="ThingTypesList"
-					  PipelineParameter="ThingTypeName"
-					  />
-    <ServiceOperation MethodName="ListTopicRules"
-                      Verb="Get"
-                      Noun="TopicRuleList"
-                      PipelineParameter="Topic">
-    </ServiceOperation>
-    <ServiceOperation MethodName="RejectCertificateTransfer"
-        Verb="Deny"
-        Output="Void"
-        PipelineParameter="CertificateId"/>
-    <ServiceOperation MethodName="SetDefaultPolicyVersion"
-        PipelineParameter="PolicyName"
-        Output="Void"/>
-    <ServiceOperation MethodName="SetLoggingOptions"
-        NoPipelineParameter="true"
-        Output="Void"/>
-    <ServiceOperation MethodName="TransferCertificate"
-        Verb="Request"
-        Noun="CertificateTransfer"
-        PipelineParameter="CertificateId"/>
-    <ServiceOperation MethodName="UpdateCertificate"
-        PipelineParameter="CertificateId"
-        Output="Void"/>
-    <ServiceOperation MethodName="UpdateThing"
-        PipelineParameter="ThingName"
-        Output="Void"/>
-    <ServiceOperation MethodName="CreateTopicRule"
-        NoPipelineParameter="true"
-        Output="Void"/>
-    <ServiceOperation MethodName="ReplaceTopicRule"
-        Verb="Set"
-        PipelineParameter="RuleName"
-        Output="Void"/>
-
-    <!-- BYOCertificate operations -->
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="MaxResults" ServicePageSize="250" />
     
-    <ServiceOperation MethodName="DeleteCACertificate" Output="Void"/>
-    <ServiceOperation MethodName="DeleteRegistrationCode" 
-        Output="Void"
-        IgnoreSupportsShouldProcess="true" />
-    <ServiceOperation MethodName="DescribeCACertificate" />
-    <ServiceOperation MethodName="RegisterCACertificate" 
-        Output="Response"
-        IgnoreSupportsShouldProcess="true"
-        NoPipelineParameter="true" />
-    <ServiceOperation MethodName="RegisterCertificate" 
-        Output="Response" 
-        IgnoreSupportsShouldProcess="true"
-        NoPipelineParameter="true" />
-    <ServiceOperation MethodName="ListCACertificates" 
-        NoPipelineParameter="true" 
-        Verb="Get" Noun="CACertificateList" />   
-    <ServiceOperation MethodName="ListCertificatesByCA" 
-        NoPipelineParameter="true" 
-        Verb="Get" Noun="CertificateListByCA" /> 
-    <ServiceOperation MethodName="GetRegistrationCode" />   
-    <ServiceOperation MethodName="UpdateCACertificate"
-        Output="Void" 
-        NoPipelineParameter="true"/>    
-  </ServiceOperations>
-
+    <MetadataProperties>
+        <Property>AscendingOrder</Property>
+    </MetadataProperties>
+    
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptCertificateTransfer" Verb="Confirm" PipelineParameter="CertificateId" Output="Void"/>
+        <ServiceOperation MethodName="AttachPrincipalPolicy" Verb="Add" PipelineParameter="Principal" Output="Void" />
+        <ServiceOperation MethodName="AttachThingPrincipal" Verb="Add" PipelineParameter="ThingName" Output="Void" />
+        <ServiceOperation MethodName="CancelCertificateTransfer" Output="Void" />
+        <ServiceOperation MethodName="CreateCertificateFromCsr" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" Output="Response"/>
+        <ServiceOperation MethodName="CreateKeysAndCertificate" NoPipelineParameter="true" Output="Response" />
+        <ServiceOperation MethodName="CreatePolicy" NoPipelineParameter="true" Output="Response"/>
+        <ServiceOperation MethodName="CreatePolicyVersion" PipelineParameter="PolicyName" Output="Response"/>
+        <ServiceOperation MethodName="CreateThing" PipelineParameter="ThingName" Output="Response" />
+        <ServiceOperation MethodName="CreateThingType" PipelineParameter="ThingTypeName" Output="Response" />
+        <ServiceOperation MethodName="DeleteCertificate" Output="Void"/>
+        <ServiceOperation MethodName="DeletePolicy" Output="Void" />
+        <ServiceOperation MethodName="DeletePolicyVersion" ShouldProcessTarget="PolicyVersionId" PipelineParameter="PolicyName" Output="Void"/>
+        <ServiceOperation MethodName="DeleteThing" PipelineParameter="ThingName" Output="Void"/>
+        <ServiceOperation MethodName="DeleteThingType" Output="Void"/>
+        <ServiceOperation MethodName="DeleteTopicRule" Output="Void"/>
+        <ServiceOperation MethodName="DeprecateThingType" Verb="Set" Noun="ThingTypeDeprecation" PipelineParameter="ThingTypeName" Output="Void"/>
+        <ServiceOperation MethodName="DescribeCertificate" />
+        <ServiceOperation MethodName="DescribeEndpoint" />
+        <ServiceOperation MethodName="DescribeThing" Output="Response" />
+        <ServiceOperation MethodName="DescribeThingType" Output="Response" />
+        <ServiceOperation MethodName="DetachPrincipalPolicy" Verb="Remove" PipelineParameter="PrincipalId" Output="Void"/>
+        <ServiceOperation MethodName="DetachThingPrincipal" Verb="Remove" PipelineParameter="ThingName" Output="Void"/>
+        <ServiceOperation MethodName="GetLoggingOptions" Output="Response" Noun="LoggingOption" LegacyAlias="Get-IOTLoggingOptions" />
+        <ServiceOperation MethodName="GetPolicy" Output="Response"/>
+        <ServiceOperation MethodName="GetPolicyVersion" PipelineParameter="PolicyName" Output="Response"/>
+        <ServiceOperation MethodName="GetTopicRule" Output="Response" />
+        <ServiceOperation MethodName="EnableTopicRule" Output="Void" />
+        <ServiceOperation MethodName="DisableTopicRule" Output="Void" />
+        <ServiceOperation MethodName="ListCertificates" Verb="Get" Noun="CertificateList" NoPipelineParameter="true">
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOutgoingCertificates" Verb="Get" Noun="OutgoingCertificate" NoPipelineParameter="true">
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicies" Verb="Get" Noun="PolicyList" NoPipelineParameter="true">
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyPrincipals" PipelineParameter="PolicyName" Verb="Get" Noun="PolicyPrincipalsList">
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPolicyVersions" Verb="Get" Noun="PolicyVersionList">
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrincipalPolicies" Verb="Get" Noun="PrincipalPolicyList" PipelineParameter="Principal">
+            <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPrincipalThings" Verb="Get" Noun="PrincipalThingList" PipelineParameter="Principal">
+            <AutoIterate Start="Marker" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="250" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListThingPrincipals" Verb="Get" Noun="ThingPrincipalList" />
+        <ServiceOperation MethodName="ListThings" Verb="Get" Noun="ThingList" NoPipelineParameter="true"></ServiceOperation>
+        <ServiceOperation MethodName="ListThingTypes" Verb="Get" Noun="ThingTypesList" PipelineParameter="ThingTypeName" />
+        <ServiceOperation MethodName="ListTopicRules" Verb="Get" Noun="TopicRuleList" PipelineParameter="Topic"></ServiceOperation>
+        <ServiceOperation MethodName="RejectCertificateTransfer" Verb="Deny" Output="Void" PipelineParameter="CertificateId"/>
+        <ServiceOperation MethodName="SetDefaultPolicyVersion" PipelineParameter="PolicyName" Output="Void"/>
+        <ServiceOperation MethodName="SetLoggingOptions" NoPipelineParameter="true" Output="Void" Noun="LoggingOption" LegacyAlias="Set-IOTLoggingOptions"/>
+        <ServiceOperation MethodName="TransferCertificate" Verb="Request" Noun="CertificateTransfer" PipelineParameter="CertificateId"/>
+        <ServiceOperation MethodName="UpdateCertificate" PipelineParameter="CertificateId" Output="Void"/>
+        <ServiceOperation MethodName="UpdateThing" PipelineParameter="ThingName" Output="Void"/>
+        <ServiceOperation MethodName="CreateTopicRule" NoPipelineParameter="true" Output="Void"/>
+        <ServiceOperation MethodName="ReplaceTopicRule" Verb="Set" PipelineParameter="RuleName" Output="Void"/>
+        <!-- BYOCertificate operations -->
+        <ServiceOperation MethodName="DeleteCACertificate" Output="Void"/>
+        <ServiceOperation MethodName="DeleteRegistrationCode" Output="Void" IgnoreSupportsShouldProcess="true" />
+        <ServiceOperation MethodName="DescribeCACertificate" />
+        <ServiceOperation MethodName="RegisterCACertificate" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true" />
+        <ServiceOperation MethodName="RegisterCertificate" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true" />
+        <ServiceOperation MethodName="ListCACertificates" NoPipelineParameter="true" Verb="Get" Noun="CACertificateList" />
+        <ServiceOperation MethodName="ListCertificatesByCA" NoPipelineParameter="true" Verb="Get" Noun="CertificateListByCA" />
+        <ServiceOperation MethodName="GetRegistrationCode" />
+        <ServiceOperation MethodName="UpdateCACertificate" Output="Void" NoPipelineParameter="true"/>
+    </ServiceOperations>
 </ConfigModel>

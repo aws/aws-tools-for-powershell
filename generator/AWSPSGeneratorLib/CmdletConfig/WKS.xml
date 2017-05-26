@@ -1,30 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>WKS</ServiceNounPrefix>
   <ServiceName>Amazon WorkSpaces</ServiceName>
   <ServiceNamespace>Amazon.WorkSpaces</ServiceNamespace>
   <ServiceClientInterface>IAmazonWorkSpaces</ServiceClientInterface>
   <ServiceClient>AmazonWorkSpacesClient</ServiceClient>
-  
-  <AutoIterate Start="NextToken"
-               Next="NextToken" />
 
+  <AutoIterate Start="NextToken" Next="NextToken" />
+  
   <NounMappings>
     <Map From="Tags" To="Tag" />
   </NounMappings>
-
-    <ServiceOperations>
+  
+  <ServiceOperations>
     <ServiceOperation MethodName="CreateWorkspaces" Output="Response" Noun="Workspace"/>
-    <ServiceOperation MethodName="DescribeWorkspaceBundles" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeWorkspaceBundles" NoPipelineParameter="true" Noun="WorkspaceBundle" LegacyAlias="Get-WKSWorkspaceBundles"/>
     <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DescribeWorkspaceDirectories" />
-    <ServiceOperation MethodName="DescribeWorkspaces" NoPipelineParameter="true">
-        <AutoIterate EmitLimit="Limit"
-               Start="NextToken"
-               Next="NextToken" />
-    </ServiceOperation>          
+    <ServiceOperation MethodName="DescribeWorkspaceDirectories" Noun="WorkspaceDirectory" LegacyAlias="Get-WKSWorkspaceDirectories"/>
+    <ServiceOperation MethodName="DescribeWorkspaces" NoPipelineParameter="true" Noun="Workspace" LegacyAlias="Get-WKSWorkspaces">
+      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" />
+    </ServiceOperation>
     <ServiceOperation MethodName="ModifyWorkspaceProperties" Noun="WorkspaceProperty" Output="Void" PipelineParameter="WorkspaceId" />
     <ServiceOperation MethodName="RebootWorkspaces" Verb="Restart" Noun="Workspace" Exclude="true">
       <Params>
@@ -36,7 +33,7 @@
         <Param Name="RebuildWorkspaceRequests" NewName="Request" Alias="RebuildWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="StartWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true" >
+    <ServiceOperation MethodName="StartWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true">
       <Params>
         <Param Name="StartWorkspaceRequests" NewName="Request" Alias="StartWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
@@ -44,19 +41,15 @@
     <ServiceOperation MethodName="CreateTags" Output="Void" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DeleteTags" Output="Void" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeTags" />
-    
     <ServiceOperation MethodName="StopWorkspaces" Noun="Workspace" NoPipelineParameter="true" Exclude="true">
       <Params>
         <Param Name="StopWorkspaceRequests" NewName="Request" Alias="StopWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace" Exclude="true" >
+    <ServiceOperation MethodName="TerminateWorkspaces" Verb="Stop" Noun="Workspace" Exclude="true">
       <Params>
         <Param Name="TerminateWorkspaceRequests" NewName="Request" Alias="TerminateWorkspaceRequest" AutoApplyAlias="true" />
       </Params>
     </ServiceOperation>
-
-    
   </ServiceOperations>
-  
 </ConfigModel>

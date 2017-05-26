@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EC2</ServiceNounPrefix>
   <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
   <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
@@ -10,21 +11,19 @@
   <Params>
     <Param Name="DryRun" Exclude="true" />
   </Params>
-
+  
   <PositionalParameters>InstanceId</PositionalParameters>
+  
   <PipelineParameter>InstanceId</PipelineParameter>
-
+  
   <ParamEmitters>
-    <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;"
-                  ParamName="InstanceIds"
-                  EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
+    <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
   </ParamEmitters>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Verb="Confirm" />
     <ServiceOperation MethodName="AllocateAddress" Output="Response" />
-    <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId"
-                      PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
+    <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
     <ServiceOperation MethodName="AssociateAddress" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId"/>
     <ServiceOperation MethodName="AssociateDhcpOptions" Output="Void" PipelineParameter="VpcId" PositionalParameters="DhcpOptionsId"/>
     <ServiceOperation MethodName="AssociateRouteTable" PipelineParameter="RouteTableId" PositionalParameters="SubnetId"/>
@@ -45,12 +44,13 @@
     <ServiceOperation MethodName="CopySnapshot" PipelineParameter="SourceSnapshotId" PositionalParameters="SourceRegion;Description"/>
     <ServiceOperation MethodName="CreateCustomerGateway" PipelineParameter="Type" PositionalParameters="PublicIp;BgpAsn">
       <Params>
-        <Param Name="PublicIp" Alias="IpAddress" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="PublicIp" Alias="IpAddress" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateDhcpOptions" />
     <ServiceOperation MethodName="CreateFpgaImage" NoPipelineParameter="true" Output="Response"/>
-	  <ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName"/>
+    <ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName" Noun="FlowLog" LegacyAlias="New-EC2FlowLogs" />
     <ServiceOperation MethodName="CreateImage" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings"/>
     <ServiceOperation MethodName="CreateInstanceExportTask" PositionalParameters="TargetEnvironment;Description"/>
     <ServiceOperation MethodName="CreateInternetGateway"/>
@@ -60,20 +60,23 @@
     <ServiceOperation MethodName="CreateNetworkInterface" PipelineParameter="SubnetId" PositionalParameters="Description;PrivateIpAddress;Groups">
       <Params>
         <Param Name="PrivateIpAddresses" NewName="PrivateIpAddressSet" />
-        <Param Name="Groups" Alias="GroupId" />  <!-- maintain compat with v1 sdk name -->
+        <Param Name="Groups" Alias="GroupId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreatePlacementGroup" Output="Void" PipelineParameter="GroupName" PositionalParameters="Strategy"/>
     <ServiceOperation MethodName="CreateReservedInstancesListing" PipelineParameter="ReservedInstancesId" PositionalParameters="InstanceCount;PriceSchedules;ClientToken">
       <Params>
-        <Param Name="PriceSchedules" Alias="PricingSchedules" />  <!-- maintain compat with v1 sdk name -->
+        <Param Name="PriceSchedules" Alias="PricingSchedules" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateRoute" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
     <ServiceOperation MethodName="CreateRouteTable" />
     <ServiceOperation MethodName="CreateSecurityGroup" PipelineParameter="GroupName" PositionalParameters="Description;VpcId">
       <Params>
-        <Param Name="Description" Alias="GroupDescription" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Description" Alias="GroupDescription" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateSnapshot" PipelineParameter="VolumeId" PositionalParameters="Description"/>
@@ -81,7 +84,8 @@
     <ServiceOperation MethodName="CreateSubnet" PipelineParameter="VpcId" PositionalParameters="CidrBlock;AvailabilityZone"/>
     <ServiceOperation MethodName="CreateTags" Output="Void" PipelineParameter="Resources" PositionalParameters="Tags">
       <Params>
-        <Param Name="Resources" Alias="ResourceId" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Resources" Alias="ResourceId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
       <PassThru>
         <Expression>cmdletContext.Tags</Expression>
@@ -90,11 +94,10 @@
     </ServiceOperation>
     <ServiceOperation MethodName="CreateVolume" PipelineParameter="SnapshotId" PositionalParameters="Size;AvailabilityZone;IOPS;VolumeType;Encrypted"/>
     <ServiceOperation MethodName="CreateVpc" PipelineParameter="CidrBlock" PositionalParameters="InstanceTenancy"/>
-    <ServiceOperation MethodName="CreateVpnConnection" PipelineParameter="Type"
-                      PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly"
-                      ShouldProcessTarget="VpnGatewayId">
+    <ServiceOperation MethodName="CreateVpnConnection" PipelineParameter="Type" PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" ShouldProcessTarget="VpnGatewayId">
       <Params>
-        <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateVpnConnectionRoute" Output="Void" PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
@@ -102,25 +105,23 @@
     <ServiceOperation MethodName="CreateVpnGateway" PipelineParameter="Type" PositionalParameters="AvailabilityZone"/>
     <ServiceOperation MethodName="DeleteCustomerGateway" Output="Void" ShouldProcessMsgNoun="Customer Gateway" />
     <ServiceOperation MethodName="DeleteDhcpOptions" Output="Void" />
-	<ServiceOperation MethodName="DeleteFlowLogs" />
+    <ServiceOperation MethodName="DeleteFlowLogs" Noun="FlowLog" LegacyAlias="Remove-EC2FlowLogs" />
     <ServiceOperation MethodName="DeleteInternetGateway" Output="Void" ShouldProcessMsgNoun="Internet Gateway" />
     <ServiceOperation MethodName="DeleteKeyPair" Output="Void" />
     <ServiceOperation MethodName="DeleteNetworkAcl" Output="Void" ShouldProcessMsgNoun="Network ACL" />
-    <ServiceOperation MethodName="DeleteNetworkAclEntry" Output="Void" ShouldProcessTarget="NetworkAclId"  ShouldProcessMsgNoun="Network ACL Entry"
-                       PipelineParameter="NetworkAclId" PositionalParameters="RuleNumber;Egress"/>
+    <ServiceOperation MethodName="DeleteNetworkAclEntry" Output="Void" ShouldProcessTarget="NetworkAclId" ShouldProcessMsgNoun="Network ACL Entry" PipelineParameter="NetworkAclId" PositionalParameters="RuleNumber;Egress"/>
     <ServiceOperation MethodName="DeleteNetworkInterface" Output="Void" ShouldProcessMsgNoun="Network Interface" />
     <ServiceOperation MethodName="DeletePlacementGroup" Output="Void" ShouldProcessMsgNoun="Placement Group" />
-    <ServiceOperation MethodName="DeleteRoute" Output="Void" ShouldProcessTarget="RouteTableId"
-                      PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock"/>
+    <ServiceOperation MethodName="DeleteRoute" Output="Void" ShouldProcessTarget="RouteTableId" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock"/>
     <ServiceOperation MethodName="DeleteRouteTable" Output="Void" ShouldProcessMsgNoun="Route Table" />
-    <ServiceOperation MethodName="DeleteSecurityGroup" Output="Void" ShouldProcessMsgNoun="Security Group" ShouldProcessTarget="GroupId|GroupName"
-                      PipelineParameter="GroupId"/>
+    <ServiceOperation MethodName="DeleteSecurityGroup" Output="Void" ShouldProcessMsgNoun="Security Group" ShouldProcessTarget="GroupId|GroupName" PipelineParameter="GroupId"/>
     <ServiceOperation MethodName="DeleteSnapshot" Output="Void" />
     <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Output="Void" ShouldProcessMsgNoun="Spot Datafeed Subscription" />
     <ServiceOperation MethodName="DeleteSubnet" Output="Void" />
     <ServiceOperation MethodName="DeleteTags" Output="Void" ShouldProcessTarget="Resources" PipelineParameter="Resources" PositionalParameters="Tags">
       <Params>
-        <Param Name="Resources" Alias="ResourceId" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Resources" Alias="ResourceId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
       <PassThru>
         <Expression>cmdletContext.Tags</Expression>
@@ -130,14 +131,14 @@
     <ServiceOperation MethodName="DeleteVolume" Output="Void" />
     <ServiceOperation MethodName="DeleteVpc" Output="Void" />
     <ServiceOperation MethodName="DeleteVpnConnection" Output="Void" ShouldProcessMsgNoun="VPN Connection" />
-    <ServiceOperation MethodName="DeleteVpnConnectionRoute" Output="Void" ShouldProcessTarget="VpnConnectionId" ShouldProcessMsgNoun="VPN Connection Route"
-                       PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
+    <ServiceOperation MethodName="DeleteVpnConnectionRoute" Output="Void" ShouldProcessTarget="VpnConnectionId" ShouldProcessMsgNoun="VPN Connection Route" PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
     <ServiceOperation MethodName="DeleteVpcEndpoints" Noun="VpcEndpoint"/>
     <ServiceOperation MethodName="DeleteVpnGateway" Output="Void" ShouldProcessMsgNoun="VPN Gateway" />
     <ServiceOperation MethodName="DeregisterImage" Output="Void" />
-    <ServiceOperation MethodName="DescribeAccountAttributes" >
+    <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute" LegacyAlias="Get-EC2AccountAttributes">
       <Params>
-        <Param Name="AttributeNames" Alias="AccountAttributeNames" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="AttributeNames" Alias="AccountAttributeNames" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeAddresses" PipelineParameter="PublicIps" PositionalParameters="AllocationIds;Filters"/>
@@ -146,18 +147,19 @@
     <ServiceOperation MethodName="DescribeConversionTasks" Exclude="true" />
     <ServiceOperation MethodName="DescribeCustomerGateways" PipelineParameter="CustomerGatewayIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeDhcpOptions" PipelineParameter="DhcpOptionsIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeExportTasks" />
-    <ServiceOperation MethodName="DescribeFlowLogs" PipelineParameter="FlowLogIds"/>
+    <ServiceOperation MethodName="DescribeExportTasks" Noun="ExportTask" LegacyAlias="Get-EC2ExportTasks" />
+    <ServiceOperation MethodName="DescribeFlowLogs" PipelineParameter="FlowLogIds" Noun="FlowLog" LegacyAlias="Get-EC2FlowLogs" />
     <ServiceOperation MethodName="DescribeIdentityIdFormat" PipelineParameter="PrincipalArn" PositionalParameters="Resource"/>
     <ServiceOperation MethodName="DescribeImageAttribute" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeImages" PipelineParameter="ImageIds" PositionalParameters="Owners;ExecutableUsers;Filters">
       <Params>
-        <Param Name="ExecutableUsers" Alias="ExecutableBy" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="ExecutableUsers" Alias="ExecutableBy" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeInstanceAttribute" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeInstances" Exclude="true"/>
-    <ServiceOperation MethodName="DescribeInstanceStatus" PipelineParameter="InstanceIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeInstanceStatus" PipelineParameter="InstanceIds" PositionalParameters="Filters" />
     <ServiceOperation MethodName="DescribeInternetGateways" PipelineParameter="InternetGatewayIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeKeyPairs" PipelineParameter="KeyNames" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeMovingAddresses" Noun="MovingAddress" PipelineParameter="PublicIps" PositionalParameters="Filters"/>
@@ -169,21 +171,22 @@
     <ServiceOperation MethodName="DescribeRegions" PipelineParameter="RegionNames" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeReservedInstances" PipelineParameter="ReservedInstancesIds" PositionalParameters="Filters;OfferingType"/>
     <ServiceOperation MethodName="DescribeReservedInstancesListings" PipelineParameter="ReservedInstancesListingId" PositionalParameters="ReservedInstancesId;Filters"/>
-    <ServiceOperation MethodName="DescribeReservedInstancesModifications" />
+    <ServiceOperation MethodName="DescribeReservedInstancesModifications" Noun="ReservedInstancesModification" LegacyAlias="Get-EC2ReservedInstancesModifications" />
     <ServiceOperation MethodName="DescribeReservedInstancesOfferings" PipelineParameter="ReservedInstancesOfferingIds" PositionalParameters="InstanceType;AvailabilityZone">
       <Params>
-        <Param Name="ReservedInstancesOfferingIds" Alias="ReservedInstancesId" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="ReservedInstancesOfferingIds" Alias="ReservedInstancesId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeRouteTables" PipelineParameter="RouteTableIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeSecurityGroups" PipelineParameter="GroupIds" PositionalParameters="Filters"/>
-	<ServiceOperation MethodName="DescribeSecurityGroupReferences" Noun="SecurityGroupReference" />
+    <ServiceOperation MethodName="DescribeSecurityGroupReferences" Noun="SecurityGroupReference" />
     <ServiceOperation MethodName="DescribeSnapshotAttribute" Output="Response" PipelineParameter="SnapshotId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeSnapshots" PipelineParameter="SnapshotIds" PositionalParameters="OwnerIds;RestorableByUserIds;Filters"/>
     <ServiceOperation MethodName="DescribeSpotDatafeedSubscription"/>
     <ServiceOperation MethodName="DescribeSpotInstanceRequests" PipelineParameter="SpotInstanceRequestIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeSpotPriceHistory"/>
-	<ServiceOperation MethodName="DescribeStaleSecurityGroups" Noun="StaleSecurityGroup" PipelineParameter="VpcId" />
+    <ServiceOperation MethodName="DescribeStaleSecurityGroups" Noun="StaleSecurityGroup" PipelineParameter="VpcId" />
     <ServiceOperation MethodName="DescribeSubnets" PipelineParameter="SubnetIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeTags" />
     <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" PipelineParameter="VolumeId" PositionalParameters="Attribute"/>
@@ -214,13 +217,12 @@
     <ServiceOperation MethodName="EnableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
     <ServiceOperation MethodName="EnableVolumeIO" Output="Void" />
     <ServiceOperation MethodName="GetConsoleOutput" Output="Response"/>
-	<ServiceOperation MethodName="GetConsoleScreenshot" Output="Response" />
+    <ServiceOperation MethodName="GetConsoleScreenshot" Output="Response" />
     <ServiceOperation MethodName="GetPasswordData" Exclude="true"/>
     <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Output="Response" />
     <ServiceOperation MethodName="ImportInstance" Exclude="true"/>
     <ServiceOperation MethodName="ImportKeyPair" Output="Response" PipelineParameter="KeyName" PositionalParameters="PublicKeyMaterial"/>
     <ServiceOperation MethodName="ImportVolume" Exclude="true"/>
-
     <!-- Import V2 (these replace the V1 Import-EC2Instance and Import-EC2Volume, which are documented as deprecated) -->
     <ServiceOperation MethodName="CancelImportTask" PipelineParameter="ImportTaskId" Output="Response" />
     <ServiceOperation MethodName="DescribeImportImageTasks" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" />
@@ -232,43 +234,33 @@
         <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" />
       </Params>
     </ServiceOperation>
-
     <!-- Spot Fleet -->
-    <ServiceOperation MethodName="CancelSpotFleetRequests"
-                      Noun="SpotFleetRequest"
-                      Output="Response"
-                      PipelineParameter="SpotFleetRequestIds" />
-    <ServiceOperation MethodName="DescribeSpotFleetInstances"
-                      Noun="SpotFleetInstance"
-                      PipelineParameter="SpotFleetRequestId" />
-    <ServiceOperation MethodName="DescribeSpotFleetRequestHistory"
-                      Output="Response"
-                      PipelineParameter="SpotFleetRequestId" />
-    <ServiceOperation MethodName="DescribeSpotFleetRequests"
-                      Noun="SpotFleetRequest"
-                      PipelineParameter="SpotFleetRequestId" />
-    <ServiceOperation MethodName="RequestSpotFleet"
-                      ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice"
-                      Output="Void"/>
+    <ServiceOperation MethodName="CancelSpotFleetRequests" Noun="SpotFleetRequest" Output="Response" PipelineParameter="SpotFleetRequestIds" />
+    <ServiceOperation MethodName="DescribeSpotFleetInstances" Noun="SpotFleetInstance" PipelineParameter="SpotFleetRequestId" />
+    <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" Output="Response" PipelineParameter="SpotFleetRequestId" />
+    <ServiceOperation MethodName="DescribeSpotFleetRequests" Noun="SpotFleetRequest" PipelineParameter="SpotFleetRequestId" />
+    <ServiceOperation MethodName="RequestSpotFleet" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" Output="Void"/>
     <ServiceOperation MethodName="ModifySpotFleetRequest" />
-
     <ServiceOperation MethodName="ModifyIdentityIdFormat" Output="Void" PipelineParameter="PrincipalArn" PositionalParameters="Resource"/>
     <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
     <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
       <Params>
-        <Param Name="Groups" Alias="GroupId" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Groups" Alias="GroupId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="ModifyNetworkInterfaceAttribute" Output="Void" PipelineParameter="NetworkInterfaceId">
       <Params>
-        <Param Name="Groups" Alias="GroupId" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Groups" Alias="GroupId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="ModifyReservedInstances" />
-    <ServiceOperation MethodName="ModifySubnetAttribute"  Output="Void" PipelineParameter="SubnetId" PositionalParameters="MapPublicIpOnLaunch"/>
+    <ServiceOperation MethodName="ModifySubnetAttribute" Output="Void" PipelineParameter="SubnetId" PositionalParameters="MapPublicIpOnLaunch"/>
     <ServiceOperation MethodName="ModifySnapshotAttribute" Output="Void" PipelineParameter="SnapshotId">
       <Params>
-        <Param Name="GroupNames" Alias="UserGroup" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="GroupNames" Alias="UserGroup" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="ModifyVolume" PipelineParameter="VolumeId"/>
@@ -278,8 +270,7 @@
     <ServiceOperation MethodName="ModifyVpcEndpoint" PipelineParameter="VpcEndpointId" Output="Void"/>
     <ServiceOperation MethodName="MonitorInstances" Verb="Start" Noun="InstanceMonitoring" />
     <ServiceOperation MethodName="MoveAddressToVpc" Output="Response"/>
-    <ServiceOperation MethodName="PurchaseReservedInstancesOffering" Verb="New" Noun="ReservedInstance"
-                      PipelineParameter="ReservedInstancesOfferingId" PositionalParameters="InstanceCount;LimitPrice_Amount;LimitPrice_CurrencyCode"/>
+    <ServiceOperation MethodName="PurchaseReservedInstancesOffering" Verb="New" Noun="ReservedInstance" PipelineParameter="ReservedInstancesOfferingId" PositionalParameters="InstanceCount;LimitPrice_Amount;LimitPrice_CurrencyCode"/>
     <ServiceOperation MethodName="RebootInstances" Output="Void" />
     <ServiceOperation MethodName="RegisterImage" PipelineParameter="ImageLocation" PositionalParameters="Name;Description" ShouldProcessTarget="ImageLocation"/>
     <ServiceOperation MethodName="ReleaseAddress" Output="Void" ShouldProcessTarget="PublicIp" PipelineParameter="PublicIp" PositionalParameters="AllocationId"/>
@@ -291,12 +282,12 @@
         <Param Name="IcmpTypeCode_Type" Alias="Icmp_Type" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="ReplaceRoute" Output="Void" PipelineParameter="RouteTableId"
-                      PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
+    <ServiceOperation MethodName="ReplaceRoute" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
     <ServiceOperation MethodName="ReplaceRouteTableAssociation" PipelineParameter="AssociationId" PositionalParameters="RouteTableId"/>
     <ServiceOperation MethodName="ReportInstanceStatus" Output="Void" PipelineParameter="Instances" PositionalParameters="Status;StartTime;EndTime;ReasonCodes;Description">
       <Params>
-        <Param Name="Instances" Alias="InstanceId" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="Instances" Alias="InstanceId" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="RequestSpotInstances" ShouldProcessTarget="SpotPrice"/>
@@ -310,7 +301,8 @@
     <ServiceOperation MethodName="RunInstances" PipelineParameter="ImageId" Exclude="true"/>
     <ServiceOperation MethodName="StartInstances" PipelineParameter="InstanceIds">
       <Params>
-        <Param Name="InstanceIds" Alias="Instance" /> <!-- maintain compat with v1 sdk name -->
+        <Param Name="InstanceIds" Alias="Instance" />
+        <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="StopInstances" Exclude="true"/>
@@ -322,67 +314,51 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="UnmonitorInstances" Verb="Stop" Noun="InstanceMonitoring" />
-
-    <ServiceOperation MethodName="DescribeVpcPeeringConnections" PipelineParameter="VpcPeeringConnectionIds" PositionalParameters="Filters"/>
+    <ServiceOperation MethodName="DescribeVpcPeeringConnections" PipelineParameter="VpcPeeringConnectionIds" PositionalParameters="Filters" Noun="VpcPeeringConnection" LegacyAlias="Get-EC2VpcPeeringConnections" />
     <ServiceOperation MethodName="CreateVpcPeeringConnection" PipelineParameter="VpcId" PositionalParameters="PeerVpcId;PeerOwnerId"/>
     <ServiceOperation MethodName="AcceptVpcPeeringConnection" Verb="Approve" />
-    <ServiceOperation MethodName="RejectVpcPeeringConnection" Verb="Deny" Output="Void"  />
-    <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void"  />
-
+    <ServiceOperation MethodName="RejectVpcPeeringConnection" Verb="Deny" Output="Void" />
+    <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void" />
     <ServiceOperation MethodName="AttachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId;Groups"/>
     <ServiceOperation MethodName="DescribeClassicLinkInstances" PipelineParameter="InstanceIds" Noun="ClassicLinkInstance"/>
     <ServiceOperation MethodName="DescribeVpcClassicLink" PipelineParameter="VpcIds" />
     <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
     <ServiceOperation MethodName="DisableVpcClassicLink" />
     <ServiceOperation MethodName="EnableVpcClassicLink" />
-
     <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" />
     <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" />
     <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" />
-
-    <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType"/>
-    <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="ModifyHosts" Output="Response" PipelineParameter="HostIds" PositionalParameters="AutoPlacement" />
+    <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType" Noun="Host" LegacyAlias="New-EC2Hosts" />
+    <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters" Noun="Host" LegacyAlias="Get-EC2Hosts"/>
+    <ServiceOperation MethodName="ModifyHosts" Output="Response" PipelineParameter="HostIds" PositionalParameters="AutoPlacement" Noun="Host" LegacyAlias="Edit-EC2Hosts" />
     <ServiceOperation MethodName="ModifyInstancePlacement"/>
-    <ServiceOperation MethodName="ReleaseHosts" Output="Response"/>
+    <ServiceOperation MethodName="ReleaseHosts" Output="Response" Noun="Host" LegacyAlias="ReleaseHosts" />
     <ServiceOperation MethodName="DescribeIdFormat"/>
     <ServiceOperation MethodName="ModifyIdFormat" Output="Void" PipelineParameter="Resource"/>
-
     <ServiceOperation MethodName="CreateNatGateway" PipelineParameter="SubnetId" Output="Response" />
     <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
     <ServiceOperation MethodName="DeleteNatGateway" />
-
-    <ServiceOperation MethodName="RunScheduledInstances"
-                      Noun="ScheduledInstance"
-                      PipelineParameter="LaunchSpecification"
-                      ShouldProcessTarget="ScheduledInstanceId" />
-    <ServiceOperation MethodName="PurchaseScheduledInstances"
-                      Verb="New"
-                      Noun="ScheduledInstancePurchase"
-                      PipelineParameter="PurchaseRequests"/>
+    <ServiceOperation MethodName="RunScheduledInstances" Noun="ScheduledInstance" PipelineParameter="LaunchSpecification" ShouldProcessTarget="ScheduledInstanceId" />
+    <ServiceOperation MethodName="PurchaseScheduledInstances" Verb="New" Noun="ScheduledInstancePurchase" PipelineParameter="PurchaseRequests"/>
     <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" />
     <ServiceOperation MethodName="DescribeScheduledInstances" Noun="ScheduledInstance" />
-
-	<ServiceOperation MethodName="PurchaseHostReservation" Verb="New" PipelineParameter="OfferingId" Output="Response" />
-	<ServiceOperation MethodName="GetHostReservationPurchasePreview" PipelineParameter="OfferingId" Output="Response" />
-	<ServiceOperation MethodName="DescribeHostReservationOfferings" 
-	                  Noun="HostReservationOffering" 
-					  PipelineParameter="OfferingId" 
-					  />
-	<ServiceOperation MethodName="DescribeHostReservations" Noun="HostReservation" NoPipelineParameter="true" />
-	<ServiceOperation MethodName="UnassignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
-  <ServiceOperation MethodName="DisassociateSubnetCidrBlock" Output="Response"/>
-  <ServiceOperation MethodName="DisassociateVpcCidrBlock" Output="Response"/>
-  <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" Noun="EgressOnlyInternetGatewayList" NoPipelineParameter="true"/>
-  <ServiceOperation MethodName="DeleteEgressOnlyInternetGateway" NoPipelineParameter="true" />
-  <ServiceOperation MethodName="CreateEgressOnlyInternetGateway" Output="Response" PipelineParameter="VpcId" />
-  <ServiceOperation MethodName="AssignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
-  <ServiceOperation MethodName="AssociateSubnetCidrBlock" Output="Response" PipelineParameter="SubnetId" />
-  <ServiceOperation MethodName="AssociateVpcCidrBlock" Output="Response" PipelineParameter="VpcId" />
-  <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" ShouldProcessTarget="AssociationId"/>
-  <ServiceOperation MethodName="DisassociateIamInstanceProfile" />
-  <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Noun="IamInstanceProfileAssociation"/>
-  <ServiceOperation MethodName="AssociateIamInstanceProfile" />
+    <ServiceOperation MethodName="PurchaseHostReservation" Verb="New" PipelineParameter="OfferingId" Output="Response" />
+    <ServiceOperation MethodName="GetHostReservationPurchasePreview" PipelineParameter="OfferingId" Output="Response" />
+    <ServiceOperation MethodName="DescribeHostReservationOfferings" Noun="HostReservationOffering" PipelineParameter="OfferingId" />
+    <ServiceOperation MethodName="DescribeHostReservations" Noun="HostReservation" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="UnassignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
+    <ServiceOperation MethodName="DisassociateSubnetCidrBlock" Output="Response"/>
+    <ServiceOperation MethodName="DisassociateVpcCidrBlock" Output="Response"/>
+    <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" Noun="EgressOnlyInternetGatewayList" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="DeleteEgressOnlyInternetGateway" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="CreateEgressOnlyInternetGateway" Output="Response" PipelineParameter="VpcId" />
+    <ServiceOperation MethodName="AssignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
+    <ServiceOperation MethodName="AssociateSubnetCidrBlock" Output="Response" PipelineParameter="SubnetId" />
+    <ServiceOperation MethodName="AssociateVpcCidrBlock" Output="Response" PipelineParameter="VpcId" />
+    <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" ShouldProcessTarget="AssociationId"/>
+    <ServiceOperation MethodName="DisassociateIamInstanceProfile" />
+    <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Noun="IamInstanceProfileAssociation"/>
+    <ServiceOperation MethodName="AssociateIamInstanceProfile" />
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic
@@ -391,7 +367,7 @@
   <CustomAliases>
     <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
   </CustomAliases>
-
+  
   <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
   -->
   <VerbMappings>
@@ -407,13 +383,13 @@
     <Map From="Release" To="Remove" />
     <Map From="Run" To="New" />
   </VerbMappings>
-
+  
   <MetadataProperties>
     <Property>SpotFleetRequestId</Property>
   </MetadataProperties>
-
+  
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory" />
-
+  
   <!-- noun mappings contains service-specific noun remaps, augmenting the global map
   -->
   <NounMappings>
@@ -448,7 +424,7 @@
     <Map From="VpnGateways" To="VpnGateway" />
     <!--<Map From="DhcpOptions" To="DhcpOption" />-->
   </NounMappings>
-
+  
   <PipelineByValueProperties>
     <Property>InstanceId</Property>
     <Property>ImageId</Property>
@@ -487,5 +463,4 @@
     <Property>KeyName</Property>
     <Property>ImportTaskId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

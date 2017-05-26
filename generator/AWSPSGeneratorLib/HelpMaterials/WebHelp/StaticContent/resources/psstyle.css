@@ -162,6 +162,16 @@
     margin-left: 15px;
 }
 
+.aliases {
+    
+}
+
+.aliases thead td {
+    background-color: silver;
+    /* width just gives consistent column alignment */
+    width: 25%;
+}
+
 .versioninfo {
     
 }

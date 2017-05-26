@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>DDB</ServiceNounPrefix>
   <ServiceName>Amazon DynamoDB</ServiceName>
   <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
@@ -8,13 +9,11 @@
   <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
 
   <PositionalParameters>TableName</PositionalParameters>
+  
   <PipelineParameter>TableName</PipelineParameter>
-
-  <AutoIterate Start="ExclusiveStartTableName"
-               Next="LastEvaluatedTableName"
-               EmitLimit="Limit"
-			         />
-
+  
+  <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit" />
+  
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetItem" Exclude="true" Verb="Get" Noun="BatchItem" Output="Response"/>
     <ServiceOperation MethodName="BatchWriteItem" Exclude="true" Verb="Write" Noun="BatchItem" Output="Response"/>
@@ -26,7 +25,7 @@
     <ServiceOperation MethodName="DescribeTimeToLive" />
     <ServiceOperation MethodName="UpdateTimeToLive" />
     <ServiceOperation MethodName="GetItem" Exclude="true" Output="Response"/>
-    <ServiceOperation MethodName="ListTables" Verb="Get" Noun="Tables" />
+    <ServiceOperation MethodName="ListTables" Verb="Get" Noun="TableList" LegacyAlias="Get-DDBTables" />
     <ServiceOperation MethodName="PutItem" Exclude="true" Output="Response"/>
     <ServiceOperation MethodName="Query" Exclude="true" Verb="Select" Noun="Data" Output="Response"/>
     <ServiceOperation MethodName="Scan" Exclude="true" Verb="Read" Noun="Table" Output="Response"/>
@@ -42,13 +41,12 @@
     <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" Output="Void"/>
   </ServiceOperations>
 
-	<MetadataProperties>
+  <MetadataProperties>
     <Property>ExclusiveStartTableName</Property>
     <Property>LastEvaluatedTableName</Property>
-	</MetadataProperties>
-
+  </MetadataProperties>
+  
   <PipelineByValueProperties>
     <Property>TableName</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

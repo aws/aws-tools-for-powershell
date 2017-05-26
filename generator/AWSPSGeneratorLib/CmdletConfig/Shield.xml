@@ -1,17 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SHLD</ServiceNounPrefix>
   <ServiceName>AWS Shield</ServiceName>
   <ServiceClientInterface>IAmazonShield</ServiceClientInterface>
   <ServiceClient>AmazonShieldClient</ServiceClient>
   <ServiceNamespace>Amazon.Shield</ServiceNamespace>
 
-  <AutoIterate EmitLimit="MaxResults"
-               Start="NextToken"
-               Next="NextToken" 
-			   />
-
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+  
   <PipelineByValueProperties>
     <Property>ResourceArn</Property>
     <Property>Name</Property>
@@ -19,19 +17,16 @@
     <Property>AttackId</Property>
     <Property>MitigationName</Property>
   </PipelineByValueProperties>
-
-  <PipelineParameter />
-
+  
   <ServiceOperations>
-	<ServiceOperation MethodName="CreateProtection" PipelineParameter="ResourceArn" />
-	<ServiceOperation MethodName="CreateSubscription" Output="Void" />
-	<ServiceOperation MethodName="DeleteProtection" Output="Void" />
-	<ServiceOperation MethodName="DeleteSubscription" Output="Void" />
-	<ServiceOperation MethodName="DescribeAttack" />
-	<ServiceOperation MethodName="DescribeProtection" />
-	<ServiceOperation MethodName="DescribeSubscription" />
-	<ServiceOperation MethodName="ListAttacks" Verb="Get" Noun="AttackList" NoPipelineParameter="true" />
-	<ServiceOperation MethodName="ListProtections" Verb="Get" Noun="ProtectionList" />
+    <ServiceOperation MethodName="CreateProtection" PipelineParameter="ResourceArn" />
+    <ServiceOperation MethodName="CreateSubscription" Output="Void" />
+    <ServiceOperation MethodName="DeleteProtection" Output="Void" />
+    <ServiceOperation MethodName="DeleteSubscription" Output="Void" />
+    <ServiceOperation MethodName="DescribeAttack" />
+    <ServiceOperation MethodName="DescribeProtection" />
+    <ServiceOperation MethodName="DescribeSubscription" />
+    <ServiceOperation MethodName="ListAttacks" Verb="Get" Noun="AttackList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="ListProtections" Verb="Get" Noun="ProtectionList" />
   </ServiceOperations>
-
 </ConfigModel>

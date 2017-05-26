@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>STS</ServiceNounPrefix>
   <ServiceName>AWS Security Token Service</ServiceName>
   <ServiceClientInterface>IAmazonSecurityTokenService</ServiceClientInterface>
@@ -15,16 +16,16 @@
     <AliasSet Cmdlet="Use-STSRole">Assume-STSRole</AliasSet>
     <AliasSet Cmdlet="Use-STSWebIdentityRole">Assume-STSWebIdentityRole</AliasSet>
   </CustomAliases>
-
-	<ServiceOperations>
-		<ServiceOperation MethodName="AssumeRole" Verb="Use" Noun="Role" Output="Response" PositionalParameters="RoleSessionName;Policy;DurationSeconds;ExternalId" PipelineParameter="RoleArn">
+  
+  <ServiceOperations>
+    <ServiceOperation MethodName="AssumeRole" Verb="Use" Noun="Role" Output="Response" PositionalParameters="RoleSessionName;Policy;DurationSeconds;ExternalId" PipelineParameter="RoleArn">
       <Params>
         <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
         <Param Name="DurationSeconds" NewName="DurationInSeconds" />
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="AssumeRoleWithWebIdentity" Exclude="true"/>
-		<ServiceOperation MethodName="DecodeAuthorizationMessage" />
+    <ServiceOperation MethodName="DecodeAuthorizationMessage" />
     <ServiceOperation MethodName="GetFederationToken" Output="Response" PositionalParameters="Policy;DurationSeconds" PipelineParameter="Name">
       <Params>
         <!-- bring naming convention into line with other services and use suffix 'InUNITS' -->
@@ -44,9 +45,5 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="GetCallerIdentity" Output="Response" />
-
   </ServiceOperations>
-
-  <PipelineByValueProperties />
-  
 </ConfigModel>

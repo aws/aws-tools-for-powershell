@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<examples>
+  <example>
+    <code>Get-CFCloudFrontOriginAccessIdentityList -MaxItem 2
+
+IsTruncated : True
+Items       : {E326XXXXXXXXXT, E1YWXXXXXXX9B}
+Marker      :
+MaxItems    : 2
+NextMarker  : E1YXXXXXXXXX9B
+Quantity    : 2</code>
+    <description>This example returns a list of Amazon CloudFront origin access identities. Because the -MaxItem parameter specifies a value of 2, the results include two identities.</description>
+  </example>
+</examples>

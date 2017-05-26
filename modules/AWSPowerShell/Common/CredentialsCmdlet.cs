@@ -24,14 +24,7 @@ using System.Management.Automation.Host;
 using System.Collections.ObjectModel;
 
 using Amazon.Runtime;
-using Amazon.Util;
-using Amazon.Runtime.Internal.Auth;
-using System.IO;
-using Amazon.PowerShell.Utils;
-using Amazon.Runtime.Internal;
 using Amazon.Runtime.CredentialManagement;
-using Amazon.Runtime.CredentialManagement.Internal;
-
 #if DESKTOP
 using Amazon.SecurityToken.SAML;
 #endif
@@ -39,13 +32,18 @@ using Amazon.SecurityToken.SAML;
 namespace Amazon.PowerShell.Common
 {
     /// <summary>
+    /// <para>
     /// Creates and returns an AWSCredentials object
+    /// </para>
+    /// <para>
+    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>New-AWSCredentials</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "AWSCredentials")]
+    [Cmdlet("New", "AWSCredential")]
     [OutputType(typeof(AWSCredentials))]
-    [AWSCmdlet("Returns a populated AWSCredentials instance.")]
+    [AWSCmdlet("Returns a populated AWSCredentials instance.", LegacyAlias = "New-AWSCredentials")]
     [AWSCmdletOutput("AWSCredentials", "AWSCredentials instance containing AWS credentials data.")]
-    public class NewCredentialsCmdlet : PSCmdlet, IDynamicParameters
+    public class NewCredentialCmdlet : PSCmdlet, IDynamicParameters
     {
         private AWSCredentialsArgumentsFull Parameters { get; set; }
 
@@ -56,7 +54,7 @@ namespace Amazon.PowerShell.Common
             {
                 // used to be equivalent of write-host but got customer feedback that the inability to
                 // suppress it interfered with console output (https://forums.aws.amazon.com/thread.jspa?threadID=211600&tstart=0).
-                WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                WriteVerbose(InitializeDefaultConfigurationCmdlet.CredentialsSourceMessage(currentCredentials));
             }
             else
             {
@@ -80,14 +78,20 @@ namespace Amazon.PowerShell.Common
     }
 
     /// <summary>
+    /// <para>
     /// Saves AWS credentials to persistent store (-StoreAs) or temporarily for the shell using shell variable $StoredAWSCredentials.
+    /// </para>
+    /// <para>
+    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>Set-AWSCredentials</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Set", "AWSCredentials")]
+    [Cmdlet("Set", "AWSCredential")]
     [AWSCmdlet("Saves AWS credentials to persistent store (-StoreAs) or temporarily for the shell using shell variable $StoredAWSCredentials."
-                + "Note that temporary session-based credentials cannot be saved to the persistent store.")]
+                + "Note that temporary session-based credentials cannot be saved to the persistent store.",
+                LegacyAlias = "Set-AWSCredentials")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
-    public class SetCredentialsCmdlet : PSCmdlet, IDynamicParameters
+    public class SetCredentialCmdlet : PSCmdlet, IDynamicParameters
     {
         private class SetCredentialsParameters : AWSCredentialsArgumentsFull
         {
@@ -119,7 +123,7 @@ namespace Amazon.PowerShell.Common
 
             if (Parameters.TryGetCredentials(Host, out currentCredentials))
             {
-                WriteVerbose(InitializeDefaultsCmdlet.CredentialsSourceMessage(currentCredentials));
+                WriteVerbose(InitializeDefaultConfigurationCmdlet.CredentialsSourceMessage(currentCredentials));
 
                 if (string.IsNullOrEmpty(Parameters.StoreAs))
                 {
@@ -211,13 +215,21 @@ namespace Amazon.PowerShell.Common
     }
 
     /// <summary>
-    /// Clears the set of AWS credentials currently set as default in the shell or, if supplied with a name, deletes the set of credentials associated with the supplied name from the local credentials store.
+    /// <para>
+    /// Clears the set of AWS credentials currently set as default in the shell or, if supplied with a name, deletes the set of 
+    /// credentials associated with the supplied name from the local credentials store.
+    /// </para>
+    /// <para>
+    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>Clear-AWSCredentials</i>.
+    /// </para>
     /// </summary>
     [OutputType("None")]
-    [AWSCmdlet("Clears the set of AWS credentials currently set as default in the shell or, if supplied with a name, deletes the set of credentials associated with the supplied name from the local credentials store.")]
+    [AWSCmdlet("Clears the set of AWS credentials currently set as default in the shell or, if supplied with a name, deletes the set of credentials "
+               + "associated with the supplied name from the local credentials store.",
+               LegacyAlias = "Clear-AWSCredentials")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
-    [Cmdlet("Clear", "AWSCredentials")]
-    public class ClearCredentialsCmdlet : PSCmdlet
+    [Cmdlet("Clear", "AWSCredential")]
+    public class ClearCredentialCmdlet : PSCmdlet
     {
         #region Parameter ProfileName
         /// <summary>
@@ -276,17 +288,25 @@ namespace Amazon.PowerShell.Common
     }
 
     /// <summary>
+    /// <para>
     /// Returns an AWSCredentials object initialized with from either credentials currently set as default in the shell or saved and associated with the supplied name from the local credential store.
     /// Optionally the cmdlet can list the names, types, and locations of all sets of credentials held in local stores.
+    /// </para>
+    /// <para>
+    /// Note: For scripts written against earlier versions of this module this cmdlet can also be invoked with the alias <i>Get-AWSCredentials</i>.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "AWSCredentials", DefaultParameterSetName ="Shell")]
+    [Cmdlet("Get", "AWSCredential", DefaultParameterSetName ="Shell")]
     [OutputType("Amazon.Runtime.AWSCredentials")]
     [OutputType("String")]
     [AWSCmdletOutput("Amazon.Runtime.AWSCredentials", "Object containing a set of AWS credentials.")]
     [AWSCmdletOutput("String", "The set of names associated with saved credentials in local stores.")]
     [AWSCmdletOutput("Amazon.Powershell.Common.ProfileInfo", "The set of names, types, and locations associated with saved credentials in local stores.")]
-    [AWSCmdlet("Returns an AWSCredentials object initialized with from either credentials currently set as default in the shell or saved and associated with the supplied name from a local credential store. Optionally the cmdlet can list the names, types, and locations of all sets of credentials held in the store.")]
-    public class GetCredentialsCmdlet : PSCmdlet
+    [AWSCmdlet("Returns an AWSCredentials object initialized with from either credentials currently set as default in the shell or saved and "
+               + "associated with the supplied name from a local credential store. Optionally the cmdlet can list the names, types, and locations "
+               + "of all sets of credentials held in the store.",
+               LegacyAlias = "Get-AWSCredentials")]
+    public class GetCredentialCmdlet : PSCmdlet
     {
         #region Parameter ProfileName
         /// <summary>

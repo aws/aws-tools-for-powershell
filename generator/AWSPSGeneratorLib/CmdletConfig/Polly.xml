@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>POL</ServiceNounPrefix>
   <ServiceName>Amazon Polly</ServiceName>
   <ServiceClientInterface>IAmazonPolly</ServiceClientInterface>
@@ -8,13 +9,7 @@
   <ServiceNamespace>Amazon.Polly</ServiceNamespace>
 
   <DefaultRegion>us-east-1</DefaultRegion>
-
-  <CustomAliases>
-  </CustomAliases>
-
-  <VerbMappings>
-  </VerbMappings>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteLexicon" Output="Void"/>
     <ServiceOperation MethodName="DescribeVoices" Noun="Voice" PipelineParameter="LanguageCode"/>
@@ -23,8 +18,4 @@
     <ServiceOperation MethodName="PutLexicon" Output="Void" PipelineParameter="Content"/>
     <ServiceOperation MethodName="SynthesizeSpeech" Verb="Get" Output="Response" PipelineParameter="Text"/>
   </ServiceOperations>
-
-  <PipelineByValueProperties>
-  </PipelineByValueProperties>
-
 </ConfigModel>

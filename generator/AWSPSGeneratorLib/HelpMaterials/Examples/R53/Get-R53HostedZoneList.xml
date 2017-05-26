@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>Get-R53HostedZoneList</code>
+        <description>Outputs all of your public and private hosted zones.</description>
+    </example>
+    <example>
+        <code>Get-R53HostedZoneList -DelegationSetId NZ8X2CISAMPLE</code>
+        <description>Outputs all of the hosted zones that are associated with the reusable delegation set that has the ID NZ8X2CISAMPLE</description>
+    </example>
+</examples>

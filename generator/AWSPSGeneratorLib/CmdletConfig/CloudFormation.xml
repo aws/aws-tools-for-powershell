@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CFN</ServiceNounPrefix>
   <ServiceName>AWS CloudFormation</ServiceName>
   <ServiceClientInterface>IAmazonCloudFormation</ServiceClientInterface>
@@ -11,26 +12,27 @@
     <Map From="Estimate" To="Measure" />
     <Map From="Validate" To="Test" />
   </VerbMappings>
-
+  
   <CustomAliases>
     <AliasSet Cmdlet="Measure-CFNTemplateCost">Estimate-CFNTemplateCost</AliasSet>
     <AliasSet Cmdlet="Test-CFNTemplate">Validate-CFNTemplate</AliasSet>
     <AliasSet Cmdlet="Get-CFNStackSummaries">List-CFNStacks</AliasSet>
     <AliasSet Cmdlet="Get-CFNStackResourceSummaries">List-CFNStackResources</AliasSet>
   </CustomAliases>
-
+  
   <AutoIterate Start="NextToken" Next="NextToken" Exclusions="DescribeChangeSet" />
-
+  
   <PositionalParameters>StackName</PositionalParameters>
+  
   <PipelineParameter>StackName</PipelineParameter>
-
+  
   <NounMappings>
     <Map From="StackEvents" To="StackEvent" />
     <Map From="StackResourceSummaries" To="StackResourceSummary" />
     <Map From="Stacks" To="Stack" />
     <Map From="StackSummaries" To="StackSummary" />
   </NounMappings>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CancelUpdateStack" Output="Void"/>
     <ServiceOperation MethodName="CreateStack">
@@ -38,15 +40,15 @@
         <Param Name="TimeoutInMinutes" AutoRename="false" />
       </Params>
     </ServiceOperation>
-    <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Output="Void" />    
+    <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Output="Void" />
     <ServiceOperation MethodName="CreateChangeSet" Exclude="true"/>
     <ServiceOperation MethodName="DeleteChangeSet" PipelineParameter="ChangeSetName" Output="Void" />
     <ServiceOperation MethodName="DeleteStack" Output="Void"/>
-    <ServiceOperation MethodName="DescribeAccountLimits"/>
+    <ServiceOperation MethodName="DescribeAccountLimits" Noun="AccountLimit" LegacyAlias="Get-CFNAccountLimits"/>
     <ServiceOperation MethodName="DescribeChangeSet" PipelineParameter="ChangeSetName" Output="Response" />
-    <ServiceOperation MethodName="DescribeStackEvents"/>
+    <ServiceOperation MethodName="DescribeStackEvents" Noun="StackEvent" LegacyAlias="Get-CFNStackEvents"/>
     <ServiceOperation MethodName="DescribeStackResource" PositionalParameters="LogicalResourceId"/>
-    <ServiceOperation MethodName="DescribeStackResources"/>
+    <ServiceOperation MethodName="DescribeStackResources" Noun="StackResourceList" LegacyAlias="Get-CFNStackResources"/>
     <ServiceOperation MethodName="DescribeStacks"/>
     <ServiceOperation MethodName="EstimateTemplateCost" PipelineParameter="TemplateBody"/>
     <ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" PipelineParameter="ChangeSetName" Output="Void" />
@@ -54,20 +56,19 @@
     <ServiceOperation MethodName="GetTemplate" Exclude="true"/>
     <ServiceOperation MethodName="GetTemplateSummary" Output="Response"/>
     <ServiceOperation MethodName="ListImports" Verb="Get" Noun="ImportList"/>
-    <ServiceOperation MethodName="ListChangeSets" Verb="Get" Noun="ChangeSetList"  />
-    <ServiceOperation MethodName="ListStackResources" Verb="Get" Noun="StackResourceSummaries"/>
-    <ServiceOperation MethodName="ListStacks" Verb="Get" Noun="StackSummaries" PipelineParameter="StackStatusFilter"/>
+    <ServiceOperation MethodName="ListChangeSets" Verb="Get" Noun="ChangeSetList" />
+    <ServiceOperation MethodName="ListStackResources" Verb="Get" Noun="StackResourceSummary" LegacyAlias="Get-CFNStackResourceSummaries" />
+    <ServiceOperation MethodName="ListStacks" Verb="Get" Noun="StackSummary" PipelineParameter="StackStatusFilter" LegacyAlias="Get-CFNStackSummaries" />
     <ServiceOperation MethodName="SetStackPolicy" Output="Void"/>
     <ServiceOperation MethodName="UpdateStack"/>
     <ServiceOperation MethodName="ValidateTemplate" Output="Response" PipelineParameter="TemplateBody"/>
     <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" Output="Void"/>
     <ServiceOperation MethodName="ListExports" Verb="Get" Noun="Export"/>
   </ServiceOperations>
-
+  
   <PipelineByValueProperties>
     <Property>StackName</Property>
     <Property>LogicalResourceId</Property>
     <Property>PhysicalResourceId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>

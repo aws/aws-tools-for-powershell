@@ -1,19 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>ES</ServiceNounPrefix>
   <ServiceName>Amazon Elasticsearch</ServiceName>
   <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
   <ServiceClient>AmazonElasticsearchClient</ServiceClient>
   <ServiceNamespace>Amazon.Elasticsearch</ServiceNamespace>
 
-  <AdditionalNamespaces />
-
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken"/>
-
+ 
   <ServiceOperations>
-
-	  <ServiceOperation MethodName="AddTags" Noun="Tag" PipelineParameter="TagList" Output="Void"/>
+    <ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-ESTag" PipelineParameter="TagList" Output="Void"/>
     <ServiceOperation MethodName="CreateElasticsearchDomain" NoPipelineParameter="true" Noun="Domain"/>
     <ServiceOperation MethodName="DeleteElasticsearchDomain" Noun="Domain" />
     <ServiceOperation MethodName="DescribeElasticsearchDomain" Noun="Domain"/>
@@ -23,10 +21,8 @@
     <ServiceOperation MethodName="ListDomainNames" Verb="Get" Noun="DomainNameList"/>
     <ServiceOperation MethodName="ListElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName"/>
     <ServiceOperation MethodName="ListElasticsearchVersions" Verb="Get" Noun="VersionList"/>
-    <ServiceOperation MethodName="ListTags" Verb="Get" Noun="Tag" />
-    <ServiceOperation MethodName="RemoveTags" Noun="Tag" Output="Void" PipelineParameter="TagKeys" ShouldProcessTarget="ARN" />
+    <ServiceOperation MethodName="ListTags" Verb="Get" Noun="ResourceTag" LegacyAlias="Get-ESTag" />
+    <ServiceOperation MethodName="RemoveTags" Noun="ResourceTag" LegacyAlias="Remove-ESTag" Output="Void" PipelineParameter="TagKeys" ShouldProcessTarget="ARN" />
     <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Noun="DomainConfig" NoPipelineParameter="true"/>
-
   </ServiceOperations>
-
 </ConfigModel>

@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CUR</ServiceNounPrefix>
   <ServiceName>AWS Cost and Usage Report</ServiceName>
   <ServiceNamespace>Amazon.CostAndUsageReport</ServiceNamespace>
   <ServiceClientInterface>IAmazonCostAndUsageReport</ServiceClientInterface>
   <ServiceClient>AmazonCostAndUsageReportClient</ServiceClient>
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="PutReportDefinition" Output="Void" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="DescribeReportDefinitions" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="DescribeReportDefinitions" NoPipelineParameter="true" Noun="ReportDefinition" LegacyAlias="Get-CURReportDefinitions" />
     <ServiceOperation MethodName="DeleteReportDefinition"/>
   </ServiceOperations>
-
 </ConfigModel>

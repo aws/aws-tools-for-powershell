@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<examples>
-  <example>
-    <code>PS C:\>Get-IAMUserPolicies -UserName David
-
-Davids_IAM_Admin_Policy</code>
-    <description>This example retrieves the list of names of the inline policies that are embedded in the IAM user named <code>David</code>.</description>
-  </example>
-</examples>

@@ -1,13 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SSM</ServiceNounPrefix>
   <ServiceName>Amazon Simple Systems Management</ServiceName>
   <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
   <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
   <ServiceNamespace>Amazon.SimpleSystemsManagement</ServiceNamespace>
-
-  <AdditionalNamespaces />
 
   <PipelineParameter>InstanceId</PipelineParameter>
   
@@ -16,12 +15,12 @@
        autoiterate settings are therefore in effect below.
   -->
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="50" Exclusions="ListInventoryEntries" />
-
+  
   <ServiceOperations>
     <ServiceOperation MethodName="CreateAssociation" />
     <ServiceOperation MethodName="CreateAssociationBatch" Noun="AssociationFromBatch" Output="Response"/>
     <ServiceOperation MethodName="CreateDocument" PipelineParameter="Content" ShouldProcessTarget="Name"/>
-    <ServiceOperation MethodName="DeleteAssociation" Output="Void"  />
+    <ServiceOperation MethodName="DeleteAssociation" Output="Void" />
     <ServiceOperation MethodName="DeleteDocument" Output="Void" />
     <ServiceOperation MethodName="DescribeAssociation" />
     <ServiceOperation MethodName="DescribeDocument" Noun="DocumentDescription" />
@@ -29,27 +28,23 @@
     <ServiceOperation MethodName="ListAssociations" Verb="Get" Noun="AssociationList" />
     <ServiceOperation MethodName="ListDocuments" Verb="Get" Noun="DocumentList" />
     <ServiceOperation MethodName="UpdateAssociationStatus" />
-	
-	<!-- RunCommand apis -->
+    <!-- RunCommand apis -->
     <ServiceOperation MethodName="CancelCommand" ShouldProcessTarget="InstanceIds" Output="Void" />
     <ServiceOperation MethodName="ListCommandInvocations" Noun="CommandInvocation" Verb="Get" />
     <ServiceOperation MethodName="ListCommands" Verb="Get" Noun="Command" />
     <ServiceOperation MethodName="SendCommand" ShouldProcessTarget="InstanceIds"/>
     <ServiceOperation MethodName="DescribeInstanceInformation" />
-
-	<!-- Document sharing apis -->
+    <!-- Document sharing apis -->
     <ServiceOperation MethodName="DescribeDocumentPermission" PipelineParameter="Name" />
     <ServiceOperation MethodName="ModifyDocumentPermission" PipelineParameter="Name" Output="Void" />
-	
-	<ServiceOperation MethodName="UpdateManagedInstanceRole" Output="Void" />
-	<ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
-	<ServiceOperation MethodName="CreateActivation" NoPipelineParameter="true" Output="Response" />
-	<ServiceOperation MethodName="DeleteActivation" Output="Void" />
-	<ServiceOperation MethodName="DeregisterManagedInstance" Verb="Unregister" Output="Void" />
-	<ServiceOperation MethodName="DescribeActivations" Noun="Activation" NoPipelineParameter="true" />
-	<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
-	<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
-	
+    <ServiceOperation MethodName="UpdateManagedInstanceRole" Output="Void" />
+    <ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
+    <ServiceOperation MethodName="CreateActivation" NoPipelineParameter="true" Output="Response" />
+    <ServiceOperation MethodName="DeleteActivation" Output="Void" />
+    <ServiceOperation MethodName="DeregisterManagedInstance" Verb="Unregister" Output="Void" />
+    <ServiceOperation MethodName="DescribeActivations" Noun="Activation" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
+    <ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
     <ServiceOperation MethodName="CreateMaintenanceWindow" PipelineParameter="Name" />
     <ServiceOperation MethodName="DeleteMaintenanceWindow" />
     <ServiceOperation MethodName="DeleteParameter" Output="Void" />
@@ -57,7 +52,7 @@
     <ServiceOperation MethodName="DeregisterTaskFromMaintenanceWindow" PipelineParameter="WindowTaskId" Output="Response" />
     <ServiceOperation MethodName="DescribeAutomationExecutions" NoPipelineParameter="true" Noun="AutomationExecutionList" />
     <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Noun="EffectiveInstanceAssociationList">
-        <AutoIterate ServicePageSize="5" />
+      <AutoIterate ServicePageSize="5" />
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" />
     <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId">
@@ -69,7 +64,7 @@
     <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId">
       <AutoIterate ServicePageSize="100" />
     </ServiceOperation>
-    <ServiceOperation MethodName="DescribeMaintenanceWindowTargets">
+    <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" Noun="MaintenanceWindowTarget" LegacyAlias="Get-SSMMaintenanceWindowTargets">
       <AutoIterate ServicePageSize="100" />
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId">
@@ -101,8 +96,7 @@
     <ServiceOperation MethodName="UpdateAssociation" PipelineParameter="AssociationId" />
     <ServiceOperation MethodName="UpdateDocument" PipelineParameter="Content" />
     <ServiceOperation MethodName="UpdateDocumentDefaultVersion" PipelineParameter="Name" />
-    <ServiceOperation MethodName="UpdateMaintenanceWindow" PipelineParameter="WindowId" Output="Response" />    
-    
+    <ServiceOperation MethodName="UpdateMaintenanceWindow" PipelineParameter="WindowId" Output="Response" />
     <ServiceOperation MethodName="GetPatchBaselineForPatchGroup" Output="Response" />
     <ServiceOperation MethodName="RegisterDefaultPatchBaseline" />
     <ServiceOperation MethodName="RegisterPatchBaselineForPatchGroup" PipelineParameter="BaselineId" Output="Response" />
@@ -135,22 +129,15 @@
     <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline">
       <AutoIterate ServicePageSize="100" />
     </ServiceOperation>
-
   </ServiceOperations>
 
-  <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
-  -->
   <VerbMappings>
     <Map From="Associate" To="Register" />
     <Map From="Disassociate" To="Unregister" />
     <Map From="Deregister" To="Unregister" />
     <Map From="List" To="Get" />
   </VerbMappings>
-
-  <!-- noun mappings contains service-specific noun remaps, augmenting the global map
-  -->
-  <NounMappings />
-
+  
   <PipelineByValueProperties>
     <Property>InstanceId</Property>
     <Property>Name</Property>
@@ -168,5 +155,4 @@
     <Property>PatchGroup</Property>
     <Property>SnapshotId</Property>
   </PipelineByValueProperties>
-
 </ConfigModel>
