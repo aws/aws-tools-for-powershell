@@ -1,3 +1,11 @@
+### 3.3.95.0 (2017-05-26)
+  * AWS AppStream
+    - Updated the New-APSStack cmdlet with new parameter -StorageConnector, and the Update-APSStack with new parameters -StorageConnector and -DeleteStorageConnector, to add support for persistent user storage, backed by S3.
+  * AWS Data Migration Service
+    - Updated cmdlets to add support for using Amazon S3 and Amazon DynamoDB as targets for database migration, and using MongoDB as a source for database migration.
+    - Added cmdlets to support event subscriptions: Edit-DMSEventSubscription (ModifyEventSubscription API), Get-DMSEvent (DescribeEvents API), Get-DMSEventCategory (DescribeEventCategories API), Get-DMSEventSubscription (DescribeEventSubscriptions API), New-DMSEventSubscription (CreateEventSubscription API), Remove-DMSEventSubscription (DeleteEventSubscription API).
+    - Added cmdlet Restore-DMSTable to support the new ReloadTables API.
+
 ### 3.3.90.0 (2017-05-19)
   * AWSPowerShell.NetCore module
     - Added CompatiblePSEditions entry to the module manifest to mark the module as only being compatible with PowerShell Core environments.

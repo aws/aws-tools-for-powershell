@@ -192,8 +192,9 @@ PrivateData = @{
 
     PSData = @{
 		Tags = 'AWS'
-        LicenseUri = 'http://docs.aws.amazon.com/powershell/latest/reference/License.html'
-        ProjectUri = 'http://aws.amazon.com/powershell/'
+        LicenseUri = 'https://docs.aws.amazon.com/powershell/latest/reference/License.html'
+        ProjectUri = 'https://aws.amazon.com/powershell/'
+        IconUri = 'https://sdk-for-net.amazonwebservices.com/images/AWSLogo128x128.png'
     }
 
 }
