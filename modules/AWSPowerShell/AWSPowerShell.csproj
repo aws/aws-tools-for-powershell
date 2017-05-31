@@ -103,7 +103,7 @@
       <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.1.7\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
-      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.4\lib\net35\AWSSDK.Rekognition.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.4.1\lib\net35\AWSSDK.Rekognition.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Polly">
       <HintPath>..\..\packages\AWSSDK.Polly.3.3.2\lib\net35\AWSSDK.Polly.dll</HintPath>
@@ -328,7 +328,7 @@
       <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.19\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationDiscoveryService">
-      <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.2.7\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ApplicationDiscoveryService.3.3.2.8\lib\net35\AWSSDK.ApplicationDiscoveryService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ApplicationAutoScaling">
       <HintPath>..\..\packages\AWSSDK.ApplicationAutoScaling.3.3.2.7\lib\net35\AWSSDK.ApplicationAutoScaling.dll</HintPath>
