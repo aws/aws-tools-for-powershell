@@ -1,3 +1,9 @@
+### 3.3.96.0 (2017-05-31)
+  * All services
+    - Cmdlet names for all services have been reviewed and those with plural nouns corrected to be singular to follow best practices. For more details see the blog post 'Updates to AWSPowerShell Cmdlet Names' on the AWS .NET Developer Blog https://aws.amazon.com/blogs/developer/category/net/. A new submodule, loaded automatically, contains backwards-compatible aliases to ensure current scripts will continue to work with the older cmdlet names.
+  * Amazon Cloud Directory
+    - Added support for Typed Links, enabling customers to create object-to-object relationships that are not hierarchical in nature. Typed Links enable customers to quickly query for data along these relationships. Customers can also enforce referential integrity using Typed Links, ensuring data in use is not inadvertently deleted.
+
 ### 3.3.95.0 (2017-05-26)
   * AWS AppStream
     - Updated the New-APSStack cmdlet with new parameter -StorageConnector, and the Update-APSStack with new parameters -StorageConnector and -DeleteStorageConnector, to add support for persistent user storage, backed by S3.
