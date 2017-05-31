@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name associated with the schema. This is unique to each account and in each region.</para>
+        /// <para>The name that is associated with the schema. This is unique to each account and in
+        /// each region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

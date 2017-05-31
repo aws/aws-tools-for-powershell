@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>Attributes associated with the <a>Facet</a>.e</para>
+        /// <para>The attributes that are associated with the <a>Facet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the <a>Facet</a>, which is unique for a given schema.</para>
+        /// <para>The name of the <a>Facet</a>, which is unique for a given schema.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -65,8 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter ObjectType
         /// <summary>
         /// <para>
-        /// <para>Specifies whether a given object created from this facet is of type Node, Leaf Node,
-        /// Policy or Index.</para><ul><li><para>Node: Can have multiple children but one parent.</para></li></ul><ul><li><para>Leaf Node: Cannot have children but can have multiple parents.</para></li></ul><ul><li><para>Policy: Allows you to store a policy document and policy type. For more information,
+        /// <para>Specifies whether a given object created from this facet is of type node, leaf node,
+        /// policy or index.</para><ul><li><para>Node: Can have multiple children but one parent.</para></li></ul><ul><li><para>Leaf node: Cannot have children but can have multiple parents.</para></li></ul><ul><li><para>Policy: Allows you to store a policy document and policy type. For more information,
         /// see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies">Policies</a>.</para></li></ul><ul><li><para>Index: Can be created with the Index API.</para></li></ul>
         /// </para>
         /// </summary>
@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>Schema ARN in which the new <a>Facet</a> will be created. For more information, see
-        /// <a>arns</a>.</para>
+        /// <para>The schema ARN in which the new <a>Facet</a> will be created. For more information,
+        /// see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,60 +28,44 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Performs all the write operations in a batch. Either all the operations succeed or
-    /// none. Batch writes supports only object-related operations.
+    /// Returns the identity attribute order for a specific <a>TypedLinkFacet</a>. For more
+    /// information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
+    /// link</a>.
     /// </summary>
-    [Cmdlet("Write", "CDIRDirectoryBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CloudDirectory.Model.BatchWriteOperationResponse")]
-    [AWSCmdlet("Invokes the BatchWrite operation against AWS Cloud Directory.", Operation = new[] {"BatchWrite"})]
-    [AWSCmdletOutput("Amazon.CloudDirectory.Model.BatchWriteOperationResponse",
-        "This cmdlet returns a collection of BatchWriteOperationResponse objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.BatchWriteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CDIRTypedLinkFacetInformation")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the GetTypedLinkFacetInformation operation against AWS Cloud Directory.", Operation = new[] {"GetTypedLinkFacetInformation"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.CloudDirectory.Model.GetTypedLinkFacetInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteCDIRDirectoryBatchCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class GetCDIRTypedLinkFacetInformationCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
-        #region Parameter DirectoryArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more
-        /// information, see <a>arns</a>.</para>
+        /// <para>The unique name of the typed link facet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryArn { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter Operation
+        #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>A list of operations that are part of the batch.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the schema. For more information,
+        /// see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Operations")]
-        public Amazon.CloudDirectory.Model.BatchWriteOperation[] Operation { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String SchemaArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CDIRDirectoryBatch (BatchWrite)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -92,11 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DirectoryArn = this.DirectoryArn;
-            if (this.Operation != null)
-            {
-                context.Operations = new List<Amazon.CloudDirectory.Model.BatchWriteOperation>(this.Operation);
-            }
+            context.Name = this.Name;
+            context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -111,15 +92,15 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudDirectory.Model.BatchWriteRequest();
+            var request = new Amazon.CloudDirectory.Model.GetTypedLinkFacetInformationRequest();
             
-            if (cmdletContext.DirectoryArn != null)
+            if (cmdletContext.Name != null)
             {
-                request.DirectoryArn = cmdletContext.DirectoryArn;
+                request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.Operations != null)
+            if (cmdletContext.SchemaArn != null)
             {
-                request.Operations = cmdletContext.Operations;
+                request.SchemaArn = cmdletContext.SchemaArn;
             }
             
             CmdletOutput output;
@@ -130,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Responses;
+                object pipelineOutput = response.IdentityAttributeOrder;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -155,14 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.BatchWriteResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.BatchWriteRequest request)
+        private Amazon.CloudDirectory.Model.GetTypedLinkFacetInformationResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.GetTypedLinkFacetInformationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "BatchWrite");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "GetTypedLinkFacetInformation");
             #if DESKTOP
-            return client.BatchWrite(request);
+            return client.GetTypedLinkFacetInformation(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.BatchWriteAsync(request);
+            var task = client.GetTypedLinkFacetInformationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -173,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DirectoryArn { get; set; }
-            public List<Amazon.CloudDirectory.Model.BatchWriteOperation> Operations { get; set; }
+            public System.String Name { get; set; }
+            public System.String SchemaArn { get; set; }
         }
         
     }

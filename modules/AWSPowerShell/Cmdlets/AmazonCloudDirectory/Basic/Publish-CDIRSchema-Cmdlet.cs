@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Publishes a development schema with a version. If description and attributes are specified,
-    /// PublishSchema overrides the development schema description and attributes. If not,
-    /// the development schema description and attributes are used.
+    /// <code>PublishSchema</code> overrides the development schema description and attributes.
+    /// If not, the development schema description and attributes are used.
     /// </summary>
     [Cmdlet("Publish", "CDIRSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DevelopmentSchemaArn
         /// <summary>
         /// <para>
-        /// <para>ARN associated with the development schema. For more information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the development schema. For
+        /// more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>New name under which the schema will be published. If this is not provided, the development
-        /// schema is considered.</para>
+        /// <para>The new name under which the schema will be published. If this is not provided, the
+        /// development schema is considered.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>Version under which the schema will be published.</para>
+        /// <para>The version under which the schema will be published.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>ARN associated with the <a>Directory</a>. For more information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more
+        /// information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -65,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Operation
         /// <summary>
         /// <para>
-        /// <para>List of operations that are part of the batch.</para>
+        /// <para>A list of operations that are part of the batch.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

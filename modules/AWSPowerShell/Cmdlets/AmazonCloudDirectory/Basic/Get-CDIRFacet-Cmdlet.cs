@@ -28,9 +28,9 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Gets details of the <a>Facet</a>, such as Facet Name, Attributes, <a>Rule</a>s, or
-    /// ObjectType. You can call this on all kinds of schema facets -- published, development,
-    /// or applied.
+    /// Gets details of the <a>Facet</a>, such as facet name, attributes, <a>Rule</a>s, or
+    /// <code>ObjectType</code>. You can call this on all kinds of schema facets -- published,
+    /// development, or applied.
     /// </summary>
     [Cmdlet("Get", "CDIRFacet")]
     [OutputType("Amazon.CloudDirectory.Model.Facet")]
@@ -55,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>ARN associated with the <a>Facet</a>. For more information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more
+        /// information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

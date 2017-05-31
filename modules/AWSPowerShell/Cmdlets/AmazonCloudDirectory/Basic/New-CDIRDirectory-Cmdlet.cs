@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Name of the <a>Directory</a>. Should be unique per account, per region.</para>
+        /// <para>The name of the <a>Directory</a>. Should be unique per account, per region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the published schema that will be copied into the data <a>Directory</a>. For
-        /// more information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the published schema that will be copied into the
+        /// data <a>Directory</a>. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

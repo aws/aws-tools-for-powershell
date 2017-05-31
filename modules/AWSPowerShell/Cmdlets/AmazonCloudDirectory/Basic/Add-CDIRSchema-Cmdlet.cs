@@ -28,8 +28,8 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Copies input published schema into <a>Directory</a> with same name and version as
-    /// that of published schema .
+    /// Copies the input published schema into the <a>Directory</a> with the same name and
+    /// version as that of the published schema .
     /// </summary>
     [Cmdlet("Add", "CDIRSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.ApplySchemaResponse")]
@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>ARN associated with the <a>Directory</a> into which the schema is copied. For more
-        /// information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> into which
+        /// the schema is copied. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter PublishedSchemaArn
         /// <summary>
         /// <para>
-        /// <para>Published schema ARN that needs to be copied. For more information, see <a>arns</a>.</para>
+        /// <para>Published schema Amazon Resource Name (ARN) that needs to be copied. For more information,
+        /// see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

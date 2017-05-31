@@ -28,33 +28,65 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists all policies from the root of the <a>Directory</a> to the object specified.
-    /// If there are no policies present, an empty list is returned. If policies are present,
-    /// and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
-    /// for such objects. If policies are present, it returns <code>ObjectIdentifier</code>,
-    /// <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root
-    /// from the target object are ignored. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies">Policies</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a paginated list of all the incoming <a>TypedLinkSpecifier</a> information
+    /// for an object. It also supports filtering by typed link facet and identity attributes.
+    /// For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
+    /// link</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "CDIRDirectoryPolicy")]
-    [OutputType("Amazon.CloudDirectory.Model.PolicyToPath")]
-    [AWSCmdlet("Invokes the LookupPolicy operation against AWS Cloud Directory.", Operation = new[] {"LookupPolicy"})]
-    [AWSCmdletOutput("Amazon.CloudDirectory.Model.PolicyToPath",
-        "This cmdlet returns a collection of PolicyToPath objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.LookupPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CDIRIncomingTypedLink")]
+    [OutputType("Amazon.CloudDirectory.Model.TypedLinkSpecifier")]
+    [AWSCmdlet("Invokes the ListIncomingTypedLinks operation against AWS Cloud Directory.", Operation = new[] {"ListIncomingTypedLinks"})]
+    [AWSCmdletOutput("Amazon.CloudDirectory.Model.TypedLinkSpecifier",
+        "This cmdlet returns a collection of TypedLinkSpecifier objects.",
+        "The service call response (type Amazon.CloudDirectory.Model.ListIncomingTypedLinksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetCDIRDirectoryPolicyCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class GetCDIRIncomingTypedLinkCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
+        
+        #region Parameter ConsistencyLevel
+        /// <summary>
+        /// <para>
+        /// <para>The consistency level to execute the request at.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CloudDirectory.ConsistencyLevel")]
+        public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
+        #endregion
         
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more
-        /// information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the directory where you want to list the typed links.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryArn { get; set; }
+        #endregion
+        
+        #region Parameter FilterAttributeRange
+        /// <summary>
+        /// <para>
+        /// <para>Provides range filters for multiple attributes. When providing ranges to typed link
+        /// selection, any inexact ranges must be specified at the end. Any attributes that do
+        /// not have a range specified are presumed to match the entire range.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("FilterAttributeRanges")]
+        public Amazon.CloudDirectory.Model.TypedLinkAttributeRange[] FilterAttributeRange { get; set; }
+        #endregion
+        
+        #region Parameter FilterTypedLink_SchemaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the schema. For more information,
+        /// see <a>arns</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FilterTypedLink_SchemaArn { get; set; }
         #endregion
         
         #region Parameter ObjectReference_Selector
@@ -74,11 +106,20 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public System.String ObjectReference_Selector { get; set; }
         #endregion
         
+        #region Parameter FilterTypedLink_TypedLinkName
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the typed link facet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String FilterTypedLink_TypedLinkName { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be retrieved in a single call. This is an approximate
-        /// number.</para>
+        /// <para>The maximum number of results to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to request the next page of results.</para>
+        /// <para>The pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -112,7 +153,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ConsistencyLevel = this.ConsistencyLevel;
             context.DirectoryArn = this.DirectoryArn;
+            if (this.FilterAttributeRange != null)
+            {
+                context.FilterAttributeRanges = new List<Amazon.CloudDirectory.Model.TypedLinkAttributeRange>(this.FilterAttributeRange);
+            }
+            context.FilterTypedLink_SchemaArn = this.FilterTypedLink_SchemaArn;
+            context.FilterTypedLink_TypedLinkName = this.FilterTypedLink_TypedLinkName;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -132,11 +180,48 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudDirectory.Model.LookupPolicyRequest();
+            var request = new Amazon.CloudDirectory.Model.ListIncomingTypedLinksRequest();
             
+            if (cmdletContext.ConsistencyLevel != null)
+            {
+                request.ConsistencyLevel = cmdletContext.ConsistencyLevel;
+            }
             if (cmdletContext.DirectoryArn != null)
             {
                 request.DirectoryArn = cmdletContext.DirectoryArn;
+            }
+            if (cmdletContext.FilterAttributeRanges != null)
+            {
+                request.FilterAttributeRanges = cmdletContext.FilterAttributeRanges;
+            }
+            
+             // populate FilterTypedLink
+            bool requestFilterTypedLinkIsNull = true;
+            request.FilterTypedLink = new Amazon.CloudDirectory.Model.TypedLinkSchemaAndFacetName();
+            System.String requestFilterTypedLink_filterTypedLink_SchemaArn = null;
+            if (cmdletContext.FilterTypedLink_SchemaArn != null)
+            {
+                requestFilterTypedLink_filterTypedLink_SchemaArn = cmdletContext.FilterTypedLink_SchemaArn;
+            }
+            if (requestFilterTypedLink_filterTypedLink_SchemaArn != null)
+            {
+                request.FilterTypedLink.SchemaArn = requestFilterTypedLink_filterTypedLink_SchemaArn;
+                requestFilterTypedLinkIsNull = false;
+            }
+            System.String requestFilterTypedLink_filterTypedLink_TypedLinkName = null;
+            if (cmdletContext.FilterTypedLink_TypedLinkName != null)
+            {
+                requestFilterTypedLink_filterTypedLink_TypedLinkName = cmdletContext.FilterTypedLink_TypedLinkName;
+            }
+            if (requestFilterTypedLink_filterTypedLink_TypedLinkName != null)
+            {
+                request.FilterTypedLink.TypedLinkName = requestFilterTypedLink_filterTypedLink_TypedLinkName;
+                requestFilterTypedLinkIsNull = false;
+            }
+             // determine if request.FilterTypedLink should be set to null
+            if (requestFilterTypedLinkIsNull)
+            {
+                request.FilterTypedLink = null;
             }
             if (cmdletContext.MaxResults != null)
             {
@@ -186,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.PolicyToPathList;
+                        object pipelineOutput = response.LinkSpecifiers;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -197,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.PolicyToPathList.Count;
+                            int _receivedThisCall = response.LinkSpecifiers.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -232,14 +317,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.LookupPolicyResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.LookupPolicyRequest request)
+        private Amazon.CloudDirectory.Model.ListIncomingTypedLinksResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListIncomingTypedLinksRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "LookupPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListIncomingTypedLinks");
             #if DESKTOP
-            return client.LookupPolicy(request);
+            return client.ListIncomingTypedLinks(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.LookupPolicyAsync(request);
+            var task = client.ListIncomingTypedLinksAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -250,7 +335,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }
+            public List<Amazon.CloudDirectory.Model.TypedLinkAttributeRange> FilterAttributeRanges { get; set; }
+            public System.String FilterTypedLink_SchemaArn { get; set; }
+            public System.String FilterTypedLink_TypedLinkName { get; set; }
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.String ObjectReference_Selector { get; set; }

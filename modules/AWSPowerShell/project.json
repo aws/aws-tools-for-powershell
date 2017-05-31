@@ -17,7 +17,7 @@
 		"AWSSDK.Batch": "3.3.2.6",
 		"AWSSDK.Budgets": "3.3.1.10",
 		"AWSSDK.CertificateManager": "3.3.2.10",
-		"AWSSDK.CloudDirectory": "3.3.2.6",
+		"AWSSDK.CloudDirectory": "3.3.3",
 		"AWSSDK.CloudFormation": "3.3.5.3",
 		"AWSSDK.CloudFront": "3.3.4",
 		"AWSSDK.CloudHSM": "3.3.0.17",

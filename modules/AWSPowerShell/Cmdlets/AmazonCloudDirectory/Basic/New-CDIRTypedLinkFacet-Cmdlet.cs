@@ -28,66 +28,62 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Does the following:
-    /// 
-    ///  <ol><li><para>
-    /// Adds new <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
-    /// </para></li><li><para>
-    /// Updates existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
-    /// </para></li><li><para>
-    /// Deletes existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
-    /// </para></li></ol>
+    /// Creates a <a>TypedLinkFacet</a>. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
+    /// link</a>.
     /// </summary>
-    [Cmdlet("Update", "CDIRFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "CDIRTypedLinkFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateFacet operation against AWS Cloud Directory.", Operation = new[] {"UpdateFacet"})]
+    [AWSCmdlet("Invokes the CreateTypedLinkFacet operation against AWS Cloud Directory.", Operation = new[] {"CreateTypedLinkFacet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SchemaArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudDirectory.Model.UpdateFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.CloudDirectory.Model.CreateTypedLinkFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCDIRFacetCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class NewCDIRTypedLinkFacetCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
-        #region Parameter AttributeUpdate
+        #region Parameter Facet_Attribute
         /// <summary>
         /// <para>
-        /// <para>List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute
-        /// is followed by <code>AttributeAction</code>, which specifies the type of update operation
-        /// to perform. </para>
+        /// <para>An ordered set of attributes that are associate with the typed link. You can use typed
+        /// link attributes when you need to represent the relationship between two objects or
+        /// allow for quick filtering of incoming or outgoing typed links.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("AttributeUpdates")]
-        public Amazon.CloudDirectory.Model.FacetAttributeUpdate[] AttributeUpdate { get; set; }
+        [Alias("Facet_Attributes")]
+        public Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition[] Facet_Attribute { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter Facet_IdentityAttributeOrder
         /// <summary>
         /// <para>
-        /// <para>The name of the facet.</para>
+        /// <para>A range filter that you provide for multiple attributes. The ability to filter typed
+        /// links considers the order that the attributes are defined on the typed link facet.
+        /// When providing ranges to typed link selection, any inexact ranges must be specified
+        /// at the end. Any attributes that do not have a range specified are presumed to match
+        /// the entire range. Filters are interpreted in the order of the attributes on the typed
+        /// link facet, not the order in which they are supplied to any API calls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public System.String[] Facet_IdentityAttributeOrder { get; set; }
         #endregion
         
-        #region Parameter ObjectType
+        #region Parameter Facet_Name
         /// <summary>
         /// <para>
-        /// <para>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a>
-        /// for more details.</para>
+        /// <para>The unique name of the typed link facet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CloudDirectory.ObjectType")]
-        public Amazon.CloudDirectory.ObjectType ObjectType { get; set; }
+        public System.String Facet_Name { get; set; }
         #endregion
         
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more
-        /// information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the schema. For more information,
+        /// see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -118,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SchemaArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CDIRFacet (UpdateFacet)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CDIRTypedLinkFacet (CreateTypedLinkFacet)"))
             {
                 return;
             }
@@ -132,12 +128,15 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.AttributeUpdate != null)
+            if (this.Facet_Attribute != null)
             {
-                context.AttributeUpdates = new List<Amazon.CloudDirectory.Model.FacetAttributeUpdate>(this.AttributeUpdate);
+                context.Facet_Attributes = new List<Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition>(this.Facet_Attribute);
             }
-            context.Name = this.Name;
-            context.ObjectType = this.ObjectType;
+            if (this.Facet_IdentityAttributeOrder != null)
+            {
+                context.Facet_IdentityAttributeOrder = new List<System.String>(this.Facet_IdentityAttributeOrder);
+            }
+            context.Facet_Name = this.Facet_Name;
             context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -153,19 +152,46 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudDirectory.Model.UpdateFacetRequest();
+            var request = new Amazon.CloudDirectory.Model.CreateTypedLinkFacetRequest();
             
-            if (cmdletContext.AttributeUpdates != null)
+            
+             // populate Facet
+            bool requestFacetIsNull = true;
+            request.Facet = new Amazon.CloudDirectory.Model.TypedLinkFacet();
+            List<Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition> requestFacet_facet_Attribute = null;
+            if (cmdletContext.Facet_Attributes != null)
             {
-                request.AttributeUpdates = cmdletContext.AttributeUpdates;
+                requestFacet_facet_Attribute = cmdletContext.Facet_Attributes;
             }
-            if (cmdletContext.Name != null)
+            if (requestFacet_facet_Attribute != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Facet.Attributes = requestFacet_facet_Attribute;
+                requestFacetIsNull = false;
             }
-            if (cmdletContext.ObjectType != null)
+            List<System.String> requestFacet_facet_IdentityAttributeOrder = null;
+            if (cmdletContext.Facet_IdentityAttributeOrder != null)
             {
-                request.ObjectType = cmdletContext.ObjectType;
+                requestFacet_facet_IdentityAttributeOrder = cmdletContext.Facet_IdentityAttributeOrder;
+            }
+            if (requestFacet_facet_IdentityAttributeOrder != null)
+            {
+                request.Facet.IdentityAttributeOrder = requestFacet_facet_IdentityAttributeOrder;
+                requestFacetIsNull = false;
+            }
+            System.String requestFacet_facet_Name = null;
+            if (cmdletContext.Facet_Name != null)
+            {
+                requestFacet_facet_Name = cmdletContext.Facet_Name;
+            }
+            if (requestFacet_facet_Name != null)
+            {
+                request.Facet.Name = requestFacet_facet_Name;
+                requestFacetIsNull = false;
+            }
+             // determine if request.Facet should be set to null
+            if (requestFacetIsNull)
+            {
+                request.Facet = null;
             }
             if (cmdletContext.SchemaArn != null)
             {
@@ -207,14 +233,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.UpdateFacetResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateFacetRequest request)
+        private Amazon.CloudDirectory.Model.CreateTypedLinkFacetResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.CreateTypedLinkFacetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpdateFacet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "CreateTypedLinkFacet");
             #if DESKTOP
-            return client.UpdateFacet(request);
+            return client.CreateTypedLinkFacet(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateFacetAsync(request);
+            var task = client.CreateTypedLinkFacetAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -225,9 +251,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.CloudDirectory.Model.FacetAttributeUpdate> AttributeUpdates { get; set; }
-            public System.String Name { get; set; }
-            public Amazon.CloudDirectory.ObjectType ObjectType { get; set; }
+            public List<Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition> Facet_Attributes { get; set; }
+            public List<System.String> Facet_IdentityAttributeOrder { get; set; }
+            public System.String Facet_Name { get; set; }
             public System.String SchemaArn { get; set; }
         }
         

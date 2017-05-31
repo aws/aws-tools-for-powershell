@@ -13,6 +13,8 @@
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
+
+  <AutoIterate Start="NextToken" Next="NextToken" MaxResults="MaxResults" />
   
   <ServiceOperations>
     <ServiceOperation MethodName="ListFacetAttributes" Noun="FacetAttribute" PipelineParameter="SchemaArn"/>
@@ -64,5 +66,16 @@
     <ServiceOperation MethodName="GetFacet" PipelineParameter="SchemaArn"/>
     <ServiceOperation MethodName="GetObjectInformation" Output="Response"/>
     <ServiceOperation MethodName="GetSchemaAsJson" Output="Response"/>
+
+    <ServiceOperation MethodName="UpdateTypedLinkFacet" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="GetTypedLinkFacetInformation" PipelineParameter="Name" />
+    <ServiceOperation MethodName="ListIncomingTypedLinks" Noun="IncomingTypedLink" />
+    <ServiceOperation MethodName="ListOutgoingTypedLinks" Noun="OutgoingTypedLink" />
+    <ServiceOperation MethodName="ListTypedLinkFacetAttributes" Noun="TypedLinkFacetAttribute" PipelineParameter="Name" />
+    <ServiceOperation MethodName="ListTypedLinkFacetNames" Noun="TypedLinkFacetName" PipelineParameter="SchemaArn" />
+    <ServiceOperation MethodName="AttachTypedLink" Verb="Mount" />
+    <ServiceOperation MethodName="CreateTypedLinkFacet" PipelineParameter="SchemaArn" Output="Void" />
+    <ServiceOperation MethodName="DeleteTypedLinkFacet" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="DetachTypedLink" Verb="Dismount" Output="Void" />
   </ServiceOperations>
 </ConfigModel>

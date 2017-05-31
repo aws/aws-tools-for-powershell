@@ -28,7 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// API for removing tags from a resource.
+    /// An API operation for removing tags from a resource.
     /// </summary>
     [Cmdlet("Remove", "CDIRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the resource. Tagging is only supported for directories.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>Keys of the tag that needs to be removed from the resource.</para>
+        /// <para>Keys of the tag that need to be removed from the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

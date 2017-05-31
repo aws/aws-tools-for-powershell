@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the development schema. For more information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) of the development schema. For more information, see
+        /// <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

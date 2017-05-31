@@ -28,7 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists all attributes associated with an object.
+    /// Lists all attributes that are associated with an object.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIRObjectAttribute")]
     [OutputType("Amazon.CloudDirectory.Model.AttributeKeyAndValue")]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>ARN associated with the <a>Directory</a> where the object resides. For more information,
-        /// see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where
+        /// the object resides. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -87,8 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter ObjectReference_Selector
         /// <summary>
         /// <para>
-        /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// <para>A path selector supports easy selection of an object by the parent/child links leading
+        /// to it from the directory root. Use the link names from each parent/child link to construct
+        /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
+        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
+        /// Cloud Directory. When creating objects, the system will provide you with the identifier
+        /// of the created object. An object’s identifier is immutable and no two objects will
+        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of items to be retrieved in a single call. This is an approximate number.</para>
+        /// <para>The maximum number of items to be retrieved in a single call. This is an approximate
+        /// number.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,6 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <summary>
         /// <para>
         /// <para>The pagination token.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,7 +160,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.CloudDirectory.Model.ListObjectAttributesRequest();
             
             if (cmdletContext.ConsistencyLevel != null)
@@ -194,10 +205,6 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 request.MaxResults = cmdletContext.MaxResults.Value;
             }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             
              // populate ObjectReference
             bool requestObjectReferenceIsNull = true;
@@ -218,30 +225,65 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 request.ObjectReference = null;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
+            }
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Attributes;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Attributes;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.Attributes.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()

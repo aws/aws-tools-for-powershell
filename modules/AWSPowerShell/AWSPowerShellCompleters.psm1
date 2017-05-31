@@ -623,6 +623,7 @@ $CDIR_Completers = {
     {
         # Amazon.CloudDirectory.ConsistencyLevel
         {
+            ($_ -eq "Get-CDIRIncomingTypedLink/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRIndex/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectAttribute/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectChild/ConsistencyLevel") -Or
@@ -630,6 +631,7 @@ $CDIR_Completers = {
             ($_ -eq "Get-CDIRObjectInformation/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectParent/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRObjectPolicy/ConsistencyLevel") -Or
+            ($_ -eq "Get-CDIROutgoingTypedLink/ConsistencyLevel") -Or
             ($_ -eq "Get-CDIRPolicyAttachment/ConsistencyLevel") -Or
             ($_ -eq "Read-CDIRDirectoryBatch/ConsistencyLevel")
         }
@@ -663,7 +665,7 @@ $CDIR_Completers = {
 }
 
 $CDIR_map = @{
-    "ConsistencyLevel"=@("Get-CDIRIndex","Get-CDIRObjectAttribute","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
+    "ConsistencyLevel"=@("Get-CDIRIncomingTypedLink","Get-CDIRIndex","Get-CDIRObjectAttribute","Get-CDIRObjectChild","Get-CDIRObjectIndex","Get-CDIRObjectInformation","Get-CDIRObjectParent","Get-CDIRObjectPolicy","Get-CDIROutgoingTypedLink","Get-CDIRPolicyAttachment","Read-CDIRDirectoryBatch")
     "ObjectType"=@("New-CDIRFacet","Update-CDIRFacet")
     "State"=@("Get-CDIRDirectory")
 }

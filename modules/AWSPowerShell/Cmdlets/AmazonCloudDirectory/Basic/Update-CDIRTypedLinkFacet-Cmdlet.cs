@@ -28,55 +28,73 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Updates a given object's attributes.
+    /// Updates a <a>TypedLinkFacet</a>. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
+    /// link</a>.
     /// </summary>
-    [Cmdlet("Update", "CDIRObjectAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateObjectAttributes operation against AWS Cloud Directory.", Operation = new[] {"UpdateObjectAttributes"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CDIRTypedLinkFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the UpdateTypedLinkFacet operation against AWS Cloud Directory.", Operation = new[] {"UpdateTypedLinkFacet"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.CloudDirectory.Model.UpdateTypedLinkFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCDIRObjectAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class UpdateCDIRTypedLinkFacetCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
         #region Parameter AttributeUpdate
         /// <summary>
         /// <para>
-        /// <para>The attributes update structure.</para>
+        /// <para>Attributes update structure.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("AttributeUpdates")]
-        public Amazon.CloudDirectory.Model.ObjectAttributeUpdate[] AttributeUpdate { get; set; }
+        public Amazon.CloudDirectory.Model.TypedLinkFacetAttributeUpdate[] AttributeUpdate { get; set; }
         #endregion
         
-        #region Parameter DirectoryArn
+        #region Parameter IdentityAttributeOrder
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> where
-        /// the object resides. For more information, see <a>arns</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryArn { get; set; }
-        #endregion
-        
-        #region Parameter ObjectReference_Selector
-        /// <summary>
-        /// <para>
-        /// <para>A path selector supports easy selection of an object by the parent/child links leading
-        /// to it from the directory root. Use the link names from each parent/child link to construct
-        /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
-        /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
-        /// Cloud Directory. When creating objects, the system will provide you with the identifier
-        /// of the created object. An object’s identifier is immutable and no two objects will
-        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// <para>A range filter that you provide for multiple attributes. The ability to filter typed
+        /// links considers the order that the attributes are defined on the typed link facet.
+        /// When providing ranges to a typed link selection, any inexact ranges must be specified
+        /// at the end. Any attributes that do not have a range specified are presumed to match
+        /// the entire range. Filters are interpreted in the order of the attributes on the typed
+        /// link facet, not the order in which they are supplied to any API calls.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ObjectReference_Selector { get; set; }
+        public System.String[] IdentityAttributeOrder { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The unique name of the typed link facet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter SchemaArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the schema. For more information,
+        /// see <a>arns</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SchemaArn { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the Name parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,8 +111,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectoryArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CDIRObjectAttribute (UpdateObjectAttributes)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CDIRTypedLinkFacet (UpdateTypedLinkFacet)"))
             {
                 return;
             }
@@ -110,10 +128,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             
             if (this.AttributeUpdate != null)
             {
-                context.AttributeUpdates = new List<Amazon.CloudDirectory.Model.ObjectAttributeUpdate>(this.AttributeUpdate);
+                context.AttributeUpdates = new List<Amazon.CloudDirectory.Model.TypedLinkFacetAttributeUpdate>(this.AttributeUpdate);
             }
-            context.DirectoryArn = this.DirectoryArn;
-            context.ObjectReference_Selector = this.ObjectReference_Selector;
+            if (this.IdentityAttributeOrder != null)
+            {
+                context.IdentityAttributeOrder = new List<System.String>(this.IdentityAttributeOrder);
+            }
+            context.Name = this.Name;
+            context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -128,34 +150,23 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudDirectory.Model.UpdateObjectAttributesRequest();
+            var request = new Amazon.CloudDirectory.Model.UpdateTypedLinkFacetRequest();
             
             if (cmdletContext.AttributeUpdates != null)
             {
                 request.AttributeUpdates = cmdletContext.AttributeUpdates;
             }
-            if (cmdletContext.DirectoryArn != null)
+            if (cmdletContext.IdentityAttributeOrder != null)
             {
-                request.DirectoryArn = cmdletContext.DirectoryArn;
+                request.IdentityAttributeOrder = cmdletContext.IdentityAttributeOrder;
             }
-            
-             // populate ObjectReference
-            bool requestObjectReferenceIsNull = true;
-            request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
-            System.String requestObjectReference_objectReference_Selector = null;
-            if (cmdletContext.ObjectReference_Selector != null)
+            if (cmdletContext.Name != null)
             {
-                requestObjectReference_objectReference_Selector = cmdletContext.ObjectReference_Selector;
+                request.Name = cmdletContext.Name;
             }
-            if (requestObjectReference_objectReference_Selector != null)
+            if (cmdletContext.SchemaArn != null)
             {
-                request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
-                requestObjectReferenceIsNull = false;
-            }
-             // determine if request.ObjectReference should be set to null
-            if (requestObjectReferenceIsNull)
-            {
-                request.ObjectReference = null;
+                request.SchemaArn = cmdletContext.SchemaArn;
             }
             
             CmdletOutput output;
@@ -166,7 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ObjectIdentifier;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.Name;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -191,14 +204,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.UpdateObjectAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateObjectAttributesRequest request)
+        private Amazon.CloudDirectory.Model.UpdateTypedLinkFacetResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateTypedLinkFacetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpdateObjectAttributes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpdateTypedLinkFacet");
             #if DESKTOP
-            return client.UpdateObjectAttributes(request);
+            return client.UpdateTypedLinkFacet(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateObjectAttributesAsync(request);
+            var task = client.UpdateTypedLinkFacetAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -209,9 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.CloudDirectory.Model.ObjectAttributeUpdate> AttributeUpdates { get; set; }
-            public System.String DirectoryArn { get; set; }
-            public System.String ObjectReference_Selector { get; set; }
+            public List<Amazon.CloudDirectory.Model.TypedLinkFacetAttributeUpdate> AttributeUpdates { get; set; }
+            public List<System.String> IdentityAttributeOrder { get; set; }
+            public System.String Name { get; set; }
+            public System.String SchemaArn { get; set; }
         }
         
     }

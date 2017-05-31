@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Creates an object in a <a>Directory</a>. Additionally attaches the object to a parent,
-    /// if a parent reference and LinkName is specified. An object is simply a collection
-    /// of <a>Facet</a> attributes. You can also use this API call to create a policy object,
-    /// if the facet from which you create the object is a policy facet.
+    /// if a parent reference and <code>LinkName</code> is specified. An object is simply
+    /// a collection of <a>Facet</a> attributes. You can also use this API call to create
+    /// a policy object, if the facet from which you create the object is a policy facet.
     /// </summary>
     [Cmdlet("New", "CDIRDirectoryObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -46,8 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>ARN associated with the <a>Directory</a> in which the object will be created. For
-        /// more information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a> in which
+        /// the object will be created. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -67,8 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter ObjectAttributeList
         /// <summary>
         /// <para>
-        /// <para>Attribute map whose attribute ARN contains the key and attribute value as the map
-        /// value.</para>
+        /// <para>The attribute map whose attribute ARN contains the key and attribute value as the
+        /// map value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaFacet
         /// <summary>
         /// <para>
-        /// <para>List of facet ARNs to be associated with the object. For more information, see <a>arns</a>.</para>
+        /// <para>A list of schema facets to be associated with the object that contains <code>SchemaArn</code>
+        /// and facet name. For more information, see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +90,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter ParentReference_Selector
         /// <summary>
         /// <para>
-        /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// <para>A path selector supports easy selection of an object by the parent/child links leading
+        /// to it from the directory root. Use the link names from each parent/child link to construct
+        /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
+        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
+        /// Cloud Directory. When creating objects, the system will provide you with the identifier
+        /// of the created object. An object’s identifier is immutable and no two objects will
+        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

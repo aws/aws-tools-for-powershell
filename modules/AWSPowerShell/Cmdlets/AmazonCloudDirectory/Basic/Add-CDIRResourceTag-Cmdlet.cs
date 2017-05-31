@@ -28,7 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// API for adding tags to a resource.
+    /// An API operation for adding tags to a resource.
     /// </summary>
     [Cmdlet("Add", "CDIRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>ARN of the resource. Tagging is only supported for directories.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource. Tagging is only supported for directories.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>List of tag key value pairs.</para>
+        /// <para>A list of tag key-value pairs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

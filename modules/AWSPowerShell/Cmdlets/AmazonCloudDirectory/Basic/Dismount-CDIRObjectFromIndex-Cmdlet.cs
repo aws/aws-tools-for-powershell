@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter DirectoryArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the directory the index and object exist in.</para>
+        /// <para>The Amazon Resource Name (ARN) of the directory the index and object exist in.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -53,8 +53,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter IndexReference_Selector
         /// <summary>
         /// <para>
-        /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// <para>A path selector supports easy selection of an object by the parent/child links leading
+        /// to it from the directory root. Use the link names from each parent/child link to construct
+        /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
+        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
+        /// Cloud Directory. When creating objects, the system will provide you with the identifier
+        /// of the created object. An object’s identifier is immutable and no two objects will
+        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,8 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter TargetReference_Selector
         /// <summary>
         /// <para>
-        /// <para>Allows you to specify an object. You can identify an object in one of the following
-        /// ways:</para><ul><li><para><i>$ObjectIdentifier</i> - Identifies the object by <code>ObjectIdentifier</code></para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// <para>A path selector supports easy selection of an object by the parent/child links leading
+        /// to it from the directory root. Use the link names from each parent/child link to construct
+        /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
+        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
+        /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
+        /// Cloud Directory. When creating objects, the system will provide you with the identifier
+        /// of the created object. An object’s identifier is immutable and no two objects will
+        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

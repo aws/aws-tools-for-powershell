@@ -28,57 +28,46 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists all policies from the root of the <a>Directory</a> to the object specified.
-    /// If there are no policies present, an empty list is returned. If policies are present,
-    /// and if some objects don't have the policies attached, it returns the <code>ObjectIdentifier</code>
-    /// for such objects. If policies are present, it returns <code>ObjectIdentifier</code>,
-    /// <code>policyId</code>, and <code>policyType</code>. Paths that don't lead to the root
-    /// from the target object are ignored. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/cd_key_concepts.html#policies">Policies</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a paginated list of all attribute definitions for a particular <a>TypedLinkFacet</a>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
+    /// link</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "CDIRDirectoryPolicy")]
-    [OutputType("Amazon.CloudDirectory.Model.PolicyToPath")]
-    [AWSCmdlet("Invokes the LookupPolicy operation against AWS Cloud Directory.", Operation = new[] {"LookupPolicy"})]
-    [AWSCmdletOutput("Amazon.CloudDirectory.Model.PolicyToPath",
-        "This cmdlet returns a collection of PolicyToPath objects.",
-        "The service call response (type Amazon.CloudDirectory.Model.LookupPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CDIRTypedLinkFacetAttribute")]
+    [OutputType("Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition")]
+    [AWSCmdlet("Invokes the ListTypedLinkFacetAttributes operation against AWS Cloud Directory.", Operation = new[] {"ListTypedLinkFacetAttributes"})]
+    [AWSCmdletOutput("Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition",
+        "This cmdlet returns a collection of TypedLinkAttributeDefinition objects.",
+        "The service call response (type Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetCDIRDirectoryPolicyCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class GetCDIRTypedLinkFacetAttributeCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
-        #region Parameter DirectoryArn
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Directory</a>. For more
-        /// information, see <a>arns</a>.</para>
+        /// <para>The unique name of the typed link facet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DirectoryArn { get; set; }
+        public System.String Name { get; set; }
         #endregion
         
-        #region Parameter ObjectReference_Selector
+        #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>A path selector supports easy selection of an object by the parent/child links leading
-        /// to it from the directory root. Use the link names from each parent/child link to construct
-        /// the path. Path selectors start with a slash (/) and link names are separated by slashes.
-        /// For more information about paths, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#accessingobjects">Accessing
-        /// Objects</a>. You can identify an object in one of the following ways:</para><ul><li><para><i>$ObjectIdentifier</i> - An object identifier is an opaque string provided by Amazon
-        /// Cloud Directory. When creating objects, the system will provide you with the identifier
-        /// of the created object. An object’s identifier is immutable and no two objects will
-        /// ever share the same object identifier</para></li><li><para><i>/some/path</i> - Identifies the object based on path</para></li><li><para><i>#SomeBatchReference</i> - Identifies the object in a batch call</para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the schema. For more information,
+        /// see <a>arns</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ObjectReference_Selector { get; set; }
+        public System.String SchemaArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to be retrieved in a single call. This is an approximate
-        /// number.</para>
+        /// <para>The maximum number of results to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token to request the next page of results.</para>
+        /// <para>The pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -112,11 +101,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DirectoryArn = this.DirectoryArn;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
+            context.Name = this.Name;
             context.NextToken = this.NextToken;
-            context.ObjectReference_Selector = this.ObjectReference_Selector;
+            context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,34 +121,19 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudDirectory.Model.LookupPolicyRequest();
+            var request = new Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesRequest();
             
-            if (cmdletContext.DirectoryArn != null)
-            {
-                request.DirectoryArn = cmdletContext.DirectoryArn;
-            }
             if (cmdletContext.MaxResults != null)
             {
                 request.MaxResults = cmdletContext.MaxResults.Value;
             }
-            
-             // populate ObjectReference
-            bool requestObjectReferenceIsNull = true;
-            request.ObjectReference = new Amazon.CloudDirectory.Model.ObjectReference();
-            System.String requestObjectReference_objectReference_Selector = null;
-            if (cmdletContext.ObjectReference_Selector != null)
+            if (cmdletContext.Name != null)
             {
-                requestObjectReference_objectReference_Selector = cmdletContext.ObjectReference_Selector;
+                request.Name = cmdletContext.Name;
             }
-            if (requestObjectReference_objectReference_Selector != null)
+            if (cmdletContext.SchemaArn != null)
             {
-                request.ObjectReference.Selector = requestObjectReference_objectReference_Selector;
-                requestObjectReferenceIsNull = false;
-            }
-             // determine if request.ObjectReference should be set to null
-            if (requestObjectReferenceIsNull)
-            {
-                request.ObjectReference = null;
+                request.SchemaArn = cmdletContext.SchemaArn;
             }
             
             // Initialize loop variant and commence piping
@@ -186,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.PolicyToPathList;
+                        object pipelineOutput = response.Attributes;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -197,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.PolicyToPathList.Count;
+                            int _receivedThisCall = response.Attributes.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -232,14 +206,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.LookupPolicyResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.LookupPolicyRequest request)
+        private Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListTypedLinkFacetAttributesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "LookupPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListTypedLinkFacetAttributes");
             #if DESKTOP
-            return client.LookupPolicy(request);
+            return client.ListTypedLinkFacetAttributes(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.LookupPolicyAsync(request);
+            var task = client.ListTypedLinkFacetAttributesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -250,10 +224,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String DirectoryArn { get; set; }
             public System.Int32? MaxResults { get; set; }
+            public System.String Name { get; set; }
             public System.String NextToken { get; set; }
-            public System.String ObjectReference_Selector { get; set; }
+            public System.String SchemaArn { get; set; }
         }
         
     }

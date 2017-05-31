@@ -28,75 +28,43 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Does the following:
-    /// 
-    ///  <ol><li><para>
-    /// Adds new <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
-    /// </para></li><li><para>
-    /// Updates existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
-    /// </para></li><li><para>
-    /// Deletes existing <code>Attributes</code>, <code>Rules</code>, or <code>ObjectTypes</code>.
-    /// </para></li></ol>
+    /// Deletes a <a>TypedLinkFacet</a>. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/objectsandlinks.html#typedlink">Typed
+    /// link</a>.
     /// </summary>
-    [Cmdlet("Update", "CDIRFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "CDIRTypedLinkFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateFacet operation against AWS Cloud Directory.", Operation = new[] {"UpdateFacet"})]
+    [AWSCmdlet("Invokes the DeleteTypedLinkFacet operation against AWS Cloud Directory.", Operation = new[] {"DeleteTypedLinkFacet"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SchemaArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CloudDirectory.Model.UpdateFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.CloudDirectory.Model.DeleteTypedLinkFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCDIRFacetCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
+    public partial class RemoveCDIRTypedLinkFacetCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
-        
-        #region Parameter AttributeUpdate
-        /// <summary>
-        /// <para>
-        /// <para>List of attributes that need to be updated in a given schema <a>Facet</a>. Each attribute
-        /// is followed by <code>AttributeAction</code>, which specifies the type of update operation
-        /// to perform. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("AttributeUpdates")]
-        public Amazon.CloudDirectory.Model.FacetAttributeUpdate[] AttributeUpdate { get; set; }
-        #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the facet.</para>
+        /// <para>The unique name of the typed link facet.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
-        #endregion
-        
-        #region Parameter ObjectType
-        /// <summary>
-        /// <para>
-        /// <para>The object type that is associated with the facet. See <a>CreateFacetRequest$ObjectType</a>
-        /// for more details.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CloudDirectory.ObjectType")]
-        public Amazon.CloudDirectory.ObjectType ObjectType { get; set; }
         #endregion
         
         #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) that is associated with the <a>Facet</a>. For more
-        /// information, see <a>arns</a>.</para>
+        /// <para>The Amazon Resource Name (ARN) that is associated with the schema. For more information,
+        /// see <a>arns</a>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String SchemaArn { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the SchemaArn parameter.
+        /// Returns the value passed to the Name parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SchemaArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CDIRFacet (UpdateFacet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CDIRTypedLinkFacet (DeleteTypedLinkFacet)"))
             {
                 return;
             }
@@ -132,12 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.AttributeUpdate != null)
-            {
-                context.AttributeUpdates = new List<Amazon.CloudDirectory.Model.FacetAttributeUpdate>(this.AttributeUpdate);
-            }
             context.Name = this.Name;
-            context.ObjectType = this.ObjectType;
             context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -153,19 +116,11 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CloudDirectory.Model.UpdateFacetRequest();
+            var request = new Amazon.CloudDirectory.Model.DeleteTypedLinkFacetRequest();
             
-            if (cmdletContext.AttributeUpdates != null)
-            {
-                request.AttributeUpdates = cmdletContext.AttributeUpdates;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.ObjectType != null)
-            {
-                request.ObjectType = cmdletContext.ObjectType;
             }
             if (cmdletContext.SchemaArn != null)
             {
@@ -182,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.SchemaArn;
+                    pipelineOutput = this.Name;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -207,14 +162,14 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudDirectory.Model.UpdateFacetResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateFacetRequest request)
+        private Amazon.CloudDirectory.Model.DeleteTypedLinkFacetResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.DeleteTypedLinkFacetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpdateFacet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "DeleteTypedLinkFacet");
             #if DESKTOP
-            return client.UpdateFacet(request);
+            return client.DeleteTypedLinkFacet(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateFacetAsync(request);
+            var task = client.DeleteTypedLinkFacetAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -225,9 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.CloudDirectory.Model.FacetAttributeUpdate> AttributeUpdates { get; set; }
             public System.String Name { get; set; }
-            public Amazon.CloudDirectory.ObjectType ObjectType { get; set; }
             public System.String SchemaArn { get; set; }
         }
         

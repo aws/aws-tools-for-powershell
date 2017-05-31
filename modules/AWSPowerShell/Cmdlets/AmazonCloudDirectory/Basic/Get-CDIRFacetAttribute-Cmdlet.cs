@@ -28,7 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Retrieves attributes attached to the facet.
+    /// Retrieves attributes attached to the facet.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIRFacetAttribute")]
     [OutputType("Amazon.CloudDirectory.Model.FacetAttribute")]
@@ -77,6 +77,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>
         /// <para>The pagination token.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
@@ -113,7 +116,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.CloudDirectory.Model.ListFacetAttributesRequest();
             
             if (cmdletContext.MaxResults != null)
@@ -124,39 +128,70 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             {
                 request.Name = cmdletContext.Name;
             }
-            if (cmdletContext.NextToken != null)
-            {
-                request.NextToken = cmdletContext.NextToken;
-            }
             if (cmdletContext.SchemaArn != null)
             {
                 request.SchemaArn = cmdletContext.SchemaArn;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            {
+                _nextMarker = cmdletContext.NextToken;
+                _userControllingPaging = true;
+            }
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Attributes;
-                notes = new Dictionary<string, object>();
-                notes["NextToken"] = response.NextToken;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.NextToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Attributes;
+                        notes = new Dictionary<string, object>();
+                        notes["NextToken"] = response.NextToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.Attributes.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                        }
+                        
+                        _nextMarker = response.NextToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
