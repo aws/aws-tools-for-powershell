@@ -43,8 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AdminCreateUserConfig_AllowAdminCreateUserOnly
         /// <summary>
         /// <para>
-        /// <para>Set to True if only the administrator is allowed to create user profiles. Set to False
-        /// if users can sign themselves up via an app.</para>
+        /// <para>Set to <code>True</code> if only the administrator is allowed to create user profiles.
+        /// Set to <code>False</code> if users can sign themselves up via an app.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter EmailVerificationSubject
         /// <summary>
         /// <para>
-        /// <para>The subject of the email verfication message.</para>
+        /// <para>The subject of the email verification message.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -343,8 +343,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The user account expiration limit, in days, after which the account is no longer usable.
-        /// To reset the account after that time limit, you must call AdminCreateUser again, specifying
-        /// "RESEND" for the MessageAction parameter. The default value for this paameter is 7.</para>
+        /// To reset the account after that time limit, you must call <code>AdminCreateUser</code>
+        /// again, specifying <code>"RESEND"</code> for the <code>MessageAction</code> parameter.
+        /// The default value for this parameter is 7.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

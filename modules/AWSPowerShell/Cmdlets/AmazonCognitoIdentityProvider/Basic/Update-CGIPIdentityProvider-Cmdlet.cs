@@ -28,69 +28,65 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Updates the specified group with the specified attributes.
-    /// 
-    ///  
-    /// <para>
-    /// Requires developer credentials.
-    /// </para>
+    /// Updates identity provider information for a user pool.
     /// </summary>
-    [Cmdlet("Update", "CGIPGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.GroupType")]
-    [AWSCmdlet("Invokes the UpdateGroup operation against Amazon Cognito Identity Provider.", Operation = new[] {"UpdateGroup"})]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GroupType",
-        "This cmdlet returns a GroupType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]
+    [AWSCmdlet("Invokes the UpdateIdentityProvider operation against Amazon Cognito Identity Provider.", Operation = new[] {"UpdateIdentityProvider"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.IdentityProviderType",
+        "This cmdlet returns a IdentityProviderType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateIdentityProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCGIPGroupCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class UpdateCGIPIdentityProviderCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter Description
+        #region Parameter AttributeMapping
         /// <summary>
         /// <para>
-        /// <para>A string containing the new description of the group.</para>
+        /// <para>The identity provider attribute mapping to be changed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
+        public System.Collections.Hashtable AttributeMapping { get; set; }
         #endregion
         
-        #region Parameter GroupName
+        #region Parameter IdpIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the group.</para>
+        /// <para>A list of identity provider identifiers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("IdpIdentifiers")]
+        public System.String[] IdpIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter ProviderDetail
+        /// <summary>
+        /// <para>
+        /// <para>The identity provider details to be updated, such as <code>MetadataURL</code> and
+        /// <code>MetadataFile</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ProviderDetails")]
+        public System.Collections.Hashtable ProviderDetail { get; set; }
+        #endregion
+        
+        #region Parameter ProviderName
+        /// <summary>
+        /// <para>
+        /// <para>The identity provider name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String GroupName { get; set; }
-        #endregion
-        
-        #region Parameter Precedence
-        /// <summary>
-        /// <para>
-        /// <para>The new precedence value for the group. For more information about this parameter,
-        /// see <a href="API_CreateGroup.html">CreateGroup</a>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 Precedence { get; set; }
-        #endregion
-        
-        #region Parameter RoleArn
-        /// <summary>
-        /// <para>
-        /// <para>The new role ARN for the group. This is used for setting the <code>cognito:roles</code>
-        /// and <code>cognito:preferred_role</code> claims in the token.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String RoleArn { get; set; }
+        public System.String ProviderName { get; set; }
         #endregion
         
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool.</para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -111,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("GroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CGIPGroup (UpdateGroup)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProviderName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CGIPIdentityProvider (UpdateIdentityProvider)"))
             {
                 return;
             }
@@ -126,11 +122,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Description = this.Description;
-            context.GroupName = this.GroupName;
-            if (ParameterWasBound("Precedence"))
-                context.Precedence = this.Precedence;
-            context.RoleArn = this.RoleArn;
+            if (this.AttributeMapping != null)
+            {
+                context.AttributeMapping = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AttributeMapping.Keys)
+                {
+                    context.AttributeMapping.Add((String)hashKey, (String)(this.AttributeMapping[hashKey]));
+                }
+            }
+            if (this.IdpIdentifier != null)
+            {
+                context.IdpIdentifiers = new List<System.String>(this.IdpIdentifier);
+            }
+            if (this.ProviderDetail != null)
+            {
+                context.ProviderDetails = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.ProviderDetail.Keys)
+                {
+                    context.ProviderDetails.Add((String)hashKey, (String)(this.ProviderDetail[hashKey]));
+                }
+            }
+            context.ProviderName = this.ProviderName;
             context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
@@ -146,23 +158,23 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.UpdateGroupRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.UpdateIdentityProviderRequest();
             
-            if (cmdletContext.Description != null)
+            if (cmdletContext.AttributeMapping != null)
             {
-                request.Description = cmdletContext.Description;
+                request.AttributeMapping = cmdletContext.AttributeMapping;
             }
-            if (cmdletContext.GroupName != null)
+            if (cmdletContext.IdpIdentifiers != null)
             {
-                request.GroupName = cmdletContext.GroupName;
+                request.IdpIdentifiers = cmdletContext.IdpIdentifiers;
             }
-            if (cmdletContext.Precedence != null)
+            if (cmdletContext.ProviderDetails != null)
             {
-                request.Precedence = cmdletContext.Precedence.Value;
+                request.ProviderDetails = cmdletContext.ProviderDetails;
             }
-            if (cmdletContext.RoleArn != null)
+            if (cmdletContext.ProviderName != null)
             {
-                request.RoleArn = cmdletContext.RoleArn;
+                request.ProviderName = cmdletContext.ProviderName;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -177,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Group;
+                object pipelineOutput = response.IdentityProvider;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -202,14 +214,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.UpdateGroupResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateGroupRequest request)
+        private Amazon.CognitoIdentityProvider.Model.UpdateIdentityProviderResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateIdentityProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateGroup");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateIdentityProvider");
             #if DESKTOP
-            return client.UpdateGroup(request);
+            return client.UpdateIdentityProvider(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateGroupAsync(request);
+            var task = client.UpdateIdentityProviderAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -220,10 +232,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Description { get; set; }
-            public System.String GroupName { get; set; }
-            public System.Int32? Precedence { get; set; }
-            public System.String RoleArn { get; set; }
+            public Dictionary<System.String, System.String> AttributeMapping { get; set; }
+            public List<System.String> IdpIdentifiers { get; set; }
+            public Dictionary<System.String, System.String> ProviderDetails { get; set; }
+            public System.String ProviderName { get; set; }
             public System.String UserPoolId { get; set; }
         }
         

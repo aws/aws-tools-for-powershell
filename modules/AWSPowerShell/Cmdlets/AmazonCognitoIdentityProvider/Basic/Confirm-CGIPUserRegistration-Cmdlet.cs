@@ -64,10 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>Boolean to be specified to force user confirmation irrespective of existing alias.
-        /// By default set to False. If this parameter is set to True and the phone number/email
-        /// used for sign up confirmation already exists as an alias with a different user, the
-        /// API call will migrate the alias from the previous user to the newly created user being
-        /// confirmed. If set to False, the API will throw an <b>AliasExistsException</b> error.</para>
+        /// By default set to <code>False</code>. If this parameter is set to <code>True</code>
+        /// and the phone number/email used for sign up confirmation already exists as an alias
+        /// with a different user, the API call will migrate the alias from the previous user
+        /// to the newly created user being confirmed. If set to <code>False</code>, the API will
+        /// throw an <b>AliasExistsException</b> error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

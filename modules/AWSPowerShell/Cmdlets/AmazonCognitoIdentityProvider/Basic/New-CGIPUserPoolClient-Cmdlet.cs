@@ -40,6 +40,53 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class NewCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter AllowedOAuthFlow
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>code</code> to initiate a code grant flow, which provides an authorization
+        /// code as the response. This code can be exchanged for access tokens with the token
+        /// endpoint.</para><para>Set to <code>token</code> to specify that the client should get the access token (and,
+        /// optionally, ID token, based on scopes) directly.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AllowedOAuthFlows")]
+        public System.String[] AllowedOAuthFlow { get; set; }
+        #endregion
+        
+        #region Parameter AllowedOAuthFlowsUserPoolClient
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>True</code> if the client is allowed to follow the OAuth protocol when
+        /// interacting with Cognito user pools.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AllowedOAuthFlowsUserPoolClient { get; set; }
+        #endregion
+        
+        #region Parameter AllowedOAuthScope
+        /// <summary>
+        /// <para>
+        /// <para>A list of allowed <code>OAuth</code> scopes. Currently supported values are <code>"phone"</code>,
+        /// <code>"email"</code>, <code>"openid"</code>, and <code>"Cognito"</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AllowedOAuthScopes")]
+        public System.String[] AllowedOAuthScope { get; set; }
+        #endregion
+        
+        #region Parameter CallbackURLs
+        /// <summary>
+        /// <para>
+        /// <para>A list of allowed callback URLs for the identity providers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] CallbackURLs { get; set; }
+        #endregion
+        
         #region Parameter ClientName
         /// <summary>
         /// <para>
@@ -48,6 +95,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientName { get; set; }
+        #endregion
+        
+        #region Parameter DefaultRedirectURI
+        /// <summary>
+        /// <para>
+        /// <para>The default redirect URI. Must be in the <code>CallbackURLs</code> list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DefaultRedirectURI { get; set; }
         #endregion
         
         #region Parameter ExplicitAuthFlow
@@ -72,6 +129,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Boolean GenerateSecret { get; set; }
         #endregion
         
+        #region Parameter LogoutURLs
+        /// <summary>
+        /// <para>
+        /// <para>A list of allowed logout URLs for the identity providers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] LogoutURLs { get; set; }
+        #endregion
+        
         #region Parameter ReadAttribute
         /// <summary>
         /// <para>
@@ -86,11 +153,23 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter RefreshTokenValidity
         /// <summary>
         /// <para>
-        /// <para>The validity of the refresh token, in days.</para>
+        /// <para>The time limit, in days, after which the refresh token is no longer valid and cannot
+        /// be used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 RefreshTokenValidity { get; set; }
+        #endregion
+        
+        #region Parameter SupportedIdentityProvider
+        /// <summary>
+        /// <para>
+        /// <para>A list of provider names for the identity providers that are supported on this client.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SupportedIdentityProviders")]
+        public System.String[] SupportedIdentityProvider { get; set; }
         #endregion
         
         #region Parameter UserPoolId
@@ -143,19 +222,42 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AllowedOAuthFlow != null)
+            {
+                context.AllowedOAuthFlows = new List<System.String>(this.AllowedOAuthFlow);
+            }
+            if (ParameterWasBound("AllowedOAuthFlowsUserPoolClient"))
+                context.AllowedOAuthFlowsUserPoolClient = this.AllowedOAuthFlowsUserPoolClient;
+            if (this.AllowedOAuthScope != null)
+            {
+                context.AllowedOAuthScopes = new List<System.String>(this.AllowedOAuthScope);
+            }
+            if (this.CallbackURLs != null)
+            {
+                context.CallbackURLs = new List<System.String>(this.CallbackURLs);
+            }
             context.ClientName = this.ClientName;
+            context.DefaultRedirectURI = this.DefaultRedirectURI;
             if (this.ExplicitAuthFlow != null)
             {
                 context.ExplicitAuthFlows = new List<System.String>(this.ExplicitAuthFlow);
             }
             if (ParameterWasBound("GenerateSecret"))
                 context.GenerateSecret = this.GenerateSecret;
+            if (this.LogoutURLs != null)
+            {
+                context.LogoutURLs = new List<System.String>(this.LogoutURLs);
+            }
             if (this.ReadAttribute != null)
             {
                 context.ReadAttributes = new List<System.String>(this.ReadAttribute);
             }
             if (ParameterWasBound("RefreshTokenValidity"))
                 context.RefreshTokenValidity = this.RefreshTokenValidity;
+            if (this.SupportedIdentityProvider != null)
+            {
+                context.SupportedIdentityProviders = new List<System.String>(this.SupportedIdentityProvider);
+            }
             context.UserPoolId = this.UserPoolId;
             if (this.WriteAttribute != null)
             {
@@ -177,9 +279,29 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.CreateUserPoolClientRequest();
             
+            if (cmdletContext.AllowedOAuthFlows != null)
+            {
+                request.AllowedOAuthFlows = cmdletContext.AllowedOAuthFlows;
+            }
+            if (cmdletContext.AllowedOAuthFlowsUserPoolClient != null)
+            {
+                request.AllowedOAuthFlowsUserPoolClient = cmdletContext.AllowedOAuthFlowsUserPoolClient.Value;
+            }
+            if (cmdletContext.AllowedOAuthScopes != null)
+            {
+                request.AllowedOAuthScopes = cmdletContext.AllowedOAuthScopes;
+            }
+            if (cmdletContext.CallbackURLs != null)
+            {
+                request.CallbackURLs = cmdletContext.CallbackURLs;
+            }
             if (cmdletContext.ClientName != null)
             {
                 request.ClientName = cmdletContext.ClientName;
+            }
+            if (cmdletContext.DefaultRedirectURI != null)
+            {
+                request.DefaultRedirectURI = cmdletContext.DefaultRedirectURI;
             }
             if (cmdletContext.ExplicitAuthFlows != null)
             {
@@ -189,6 +311,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.GenerateSecret = cmdletContext.GenerateSecret.Value;
             }
+            if (cmdletContext.LogoutURLs != null)
+            {
+                request.LogoutURLs = cmdletContext.LogoutURLs;
+            }
             if (cmdletContext.ReadAttributes != null)
             {
                 request.ReadAttributes = cmdletContext.ReadAttributes;
@@ -196,6 +322,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.RefreshTokenValidity != null)
             {
                 request.RefreshTokenValidity = cmdletContext.RefreshTokenValidity.Value;
+            }
+            if (cmdletContext.SupportedIdentityProviders != null)
+            {
+                request.SupportedIdentityProviders = cmdletContext.SupportedIdentityProviders;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -257,11 +387,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> AllowedOAuthFlows { get; set; }
+            public System.Boolean? AllowedOAuthFlowsUserPoolClient { get; set; }
+            public List<System.String> AllowedOAuthScopes { get; set; }
+            public List<System.String> CallbackURLs { get; set; }
             public System.String ClientName { get; set; }
+            public System.String DefaultRedirectURI { get; set; }
             public List<System.String> ExplicitAuthFlows { get; set; }
             public System.Boolean? GenerateSecret { get; set; }
+            public List<System.String> LogoutURLs { get; set; }
             public List<System.String> ReadAttributes { get; set; }
             public System.Int32? RefreshTokenValidity { get; set; }
+            public List<System.String> SupportedIdentityProviders { get; set; }
             public System.String UserPoolId { get; set; }
             public List<System.String> WriteAttributes { get; set; }
         }

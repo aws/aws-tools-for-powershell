@@ -232,9 +232,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter VoiceId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Parrot voice ID that you want Amazon Lex to use for voice interactions
-        /// with the user. The locale configured for the voice must match the locale of the bot.
-        /// For more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/API_Voice.html">Voice</a>
+        /// <para>The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with
+        /// the user. The locale configured for the voice must match the locale of the bot. For
+        /// more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/API_Voice.html">Voice</a>
         /// in the <i>Amazon Polly Developer Guide</i>.</para>
         /// </para>
         /// </summary>

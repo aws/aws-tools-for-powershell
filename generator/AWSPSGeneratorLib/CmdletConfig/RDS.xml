@@ -50,9 +50,13 @@
     <ServiceOperation MethodName="ApplyPendingMaintenanceAction" PipelineParameter="ResourceIdentifier" Verb="Submit"/>
     <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" Verb="Enable" Noun="DBSecurityGroupIngress" PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
     <ServiceOperation MethodName="CopyDBClusterParameterGroup" PipelineParameter="SourceDBClusterParameterGroupIdentifier" />
+    <ServiceOperation MethodName="CopyDBClusterSnapshot" PipelineParameter="SourceDBClusterSnapshotIdentifier" PositionalParameters="TargetDBClusterSnapshotIdentifier" />
     <ServiceOperation MethodName="CopyDBParameterGroup" PipelineParameter="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription"/>
     <ServiceOperation MethodName="CopyDBSnapshot" PipelineParameter="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier"/>
     <ServiceOperation MethodName="CopyOptionGroup" PipelineParameter="SourceOptionGroupIdentifier" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription"/>
+    <ServiceOperation MethodName="CreateDBCluster" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier"/>
+    <ServiceOperation MethodName="CreateDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" />
+    <ServiceOperation MethodName="CreateDBClusterSnapshot" PipelineParameter="DBClusterIdentifier" PositionalParameter="DBClusterSnapshotIdentifier"/>
     <ServiceOperation MethodName="CreateDBInstance" PipelineParameter="DBName" PositionalParameters="DBInstanceIdentifier"/>
     <ServiceOperation MethodName="CreateDBInstanceReadReplica" PositionalParameters="SourceDBInstanceIdentifier" ShouldProcessTarget="DBInstanceIdentifier"/>
     <ServiceOperation MethodName="CreateDBParameterGroup" PipelineParameter="DBParameterGroupName" PositionalParameters="Description"/>
@@ -61,6 +65,9 @@
     <ServiceOperation MethodName="CreateDBSubnetGroup" PipelineParameter="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds"/>
     <ServiceOperation MethodName="CreateEventSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SnsTopicArn;SourceType"/>
     <ServiceOperation MethodName="CreateOptionGroup" PipelineParameter="OptionGroupName" PositionalParameters="EngineName;MajorEngineVersion;OptionGroupDescription"/>
+    <ServiceOperation MethodName="DeleteDBCluster" ShouldProcessTarget="DBClusterIdentifier"/>
+    <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Output="Void" ShouldProcessTarget="DBClusterParameterGroupName"/>
+    <ServiceOperation MethodName="DeleteDBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier"/>
     <ServiceOperation MethodName="DeleteDBInstance" ShouldProcessTarget="DBInstanceIdentifier"/>
     <ServiceOperation MethodName="DeleteDBParameterGroup" Output="Void"/>
     <ServiceOperation MethodName="DeleteDBSecurityGroup" Output="Void" />
@@ -93,13 +100,24 @@
     <ServiceOperation MethodName="DescribeEventCategories" PipelineParameter="SourceType" Noun="EventCategory" LegacyAlias="Get-RDSEventCategories"/>
     <ServiceOperation MethodName="DescribeEvents" PipelineParameter="SourceIdentifier" PositionalParameters="SourceType"/>
     <ServiceOperation MethodName="DescribeEventSubscriptions" PipelineParameter="SubscriptionName" Noun="EventSubscription" LegacyAlias="Get-RDSEventSubscriptions"/>
+    <ServiceOperation MethodName="DescribeDBClusterParameterGroups" PipelineParameter="DBClusterParameterGroupName"/>
+    <ServiceOperation MethodName="DescribeDBClusterParameters" PipelineParameter="DBClusterParameterGroupName" />
+    <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Noun="DBClusterSnapshotAttribute" />
+    <ServiceOperation MethodName="DescribeDBClusters" />
+    <ServiceOperation MethodName="DescribeDBClusterSnapshots" />
+    <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" />
     <ServiceOperation MethodName="DescribeOptionGroupOptions" PipelineParameter="EngineName" PositionalParameters="MajorEngineVersion"/>
     <ServiceOperation MethodName="DescribeOptionGroups" PipelineParameter="OptionGroupName"/>
     <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" PipelineParameter="Engine"/>
     <ServiceOperation MethodName="DescribeReservedDBInstances" PipelineParameter="ReservedDBInstanceId"/>
     <ServiceOperation MethodName="DescribePendingMaintenanceActions" PipelineParameter="ResourceIdentifier" Noun="PendingMaintenanceAction" LegacyAlias="Get-RDSPendingMaintenanceActions"/>
     <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" PipelineParameter="ReservedDBInstancesOfferingId" Noun="ReservedDBInstancesOfferingList" LegacyAlias="Get-RDSReservedDBInstancesOfferings"/>
+    <ServiceOperation MethodName="DescribeSourceRegions" Noun="SourceRegion" />
+    <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" />
     <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceName"/>
+    <ServiceOperation MethodName="ModifyDBCluster" ShouldProcessTarget="DBClusterIdentifier" />
+    <ServiceOperation MethodName="ModifyDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" PositionalParameters="Parameters"/>
+    <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" />
     <ServiceOperation MethodName="ModifyDBInstance" ShouldProcessTarget="DBInstanceIdentifier"/>
     <ServiceOperation MethodName="ModifyDBParameterGroup" PipelineParameter="DBParameterGroupName" PositionalParameters="Parameters"/>
     <ServiceOperation MethodName="ModifyDBSnapshot" PipelineParameter="DBSnapshotIdentifier"/>
@@ -108,6 +126,7 @@
     <ServiceOperation MethodName="ModifyEventSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SnsTopicArn"/>
     <ServiceOperation MethodName="ModifyOptionGroup" PipelineParameter="OptionGroupName" PositionalParameters="ApplyImmediately"/>
     <ServiceOperation MethodName="PromoteReadReplica" Verb="Convert" Noun="ReadReplicaToStandalone"/>
+    <ServiceOperation MethodName="PromoteReadReplicaDBCluster" Verb="Convert" Noun="ReadReplicaDBCluster"/>
     <ServiceOperation MethodName="PurchaseReservedDBInstancesOffering" Verb="Get" Noun="ReservedDBInstancesOffering" PipelineParameter="ReservedDBInstancesOfferingId"/>
     <ServiceOperation MethodName="RebootDBInstance"/>
     <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" PipelineParameter="DBClusterIdentifier" PositionalParameters="RoleArn"/>
@@ -121,33 +140,15 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="ResetDBParameterGroup" PipelineParameter="DBParameterGroupName"/>
-    <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" PositionalParameters="DBSnapshotIdentifier" ShouldProcessTarget="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" PipelineParameter="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" ShouldProcessTarget="SourceDBInstanceIdentifier"/>
-    <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
-    <!-- Aurora APIs -->
-    <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="ModifyDBCluster" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="ModifyDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" PositionalParameters="Parameters"/>
     <ServiceOperation MethodName="ResetDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" PositionalParameters="Parameters"/> />
     <ServiceOperation MethodName="RestoreDBClusterFromS3" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier" />
     <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier" />
     <ServiceOperation MethodName="RestoreDBClusterToPointInTime" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="DescribeDBClusterParameterGroups" PipelineParameter="DBClusterParameterGroupName"/>
-    <ServiceOperation MethodName="DescribeDBClusterParameters" PipelineParameter="DBClusterParameterGroupName" />
-    <ServiceOperation MethodName="DescribeDBClusters" />
-    <ServiceOperation MethodName="DescribeDBClusterSnapshots" />
-    <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" />
-    <ServiceOperation MethodName="CopyDBClusterSnapshot" PipelineParameter="SourceDBClusterSnapshotIdentifier" PositionalParameters="TargetDBClusterSnapshotIdentifier" />
-    <ServiceOperation MethodName="CreateDBCluster" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier"/>
-    <ServiceOperation MethodName="CreateDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" />
-    <ServiceOperation MethodName="CreateDBClusterSnapshot" PipelineParameter="DBClusterIdentifier" PositionalParameter="DBClusterSnapshotIdentifier"/>
-    <ServiceOperation MethodName="DeleteDBCluster" ShouldProcessTarget="DBClusterIdentifier"/>
-    <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Output="Void" ShouldProcessTarget="DBClusterParameterGroupName"/>
-    <ServiceOperation MethodName="DeleteDBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier"/>
-    <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" />
-    <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Noun="DBClusterSnapshotAttribute" />
-    <ServiceOperation MethodName="PromoteReadReplicaDBCluster" Verb="Convert" Noun="ReadReplicaDBCluster"/>
-    <ServiceOperation MethodName="DescribeSourceRegions" Noun="SourceRegion" />
+    <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" PositionalParameters="DBSnapshotIdentifier" ShouldProcessTarget="DBInstanceIdentifier"/>
+    <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" PipelineParameter="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" ShouldProcessTarget="SourceDBInstanceIdentifier"/>
+    <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
+    <ServiceOperation MethodName="StartDBInstance" />
+    <ServiceOperation MethodName="StopDBInstance" />
   </ServiceOperations>
 
   <NounMappings>

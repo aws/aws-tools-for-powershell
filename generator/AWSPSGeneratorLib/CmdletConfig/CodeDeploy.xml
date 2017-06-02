@@ -42,6 +42,7 @@
     <ServiceOperation MethodName="ListDeploymentGroups" Verb="Get" Noun="DeploymentGroupList" Output="Response"/>
     <ServiceOperation MethodName="ListDeploymentInstances" Verb="Get" Noun="DeploymentInstanceList"/>
     <ServiceOperation MethodName="ListDeployments" Verb="Get" Noun="DeploymentList"/>
+    <ServiceOperation MethodName="ListGitHubAccountTokenNames" Verb="Get" Noun="GitHubAccountTokenNameList" />
     <ServiceOperation MethodName="RegisterApplicationRevision" Output="Void"/>
     <ServiceOperation MethodName="SkipWaitTimeForInstanceTermination" Output="Void"/>
     <ServiceOperation MethodName="StopDeployment" Output="Response" />

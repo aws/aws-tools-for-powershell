@@ -47,7 +47,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AuthFlow
         /// <summary>
         /// <para>
-        /// <para>The authentication flow.</para>
+        /// <para>The authentication flow for this call to execute. The API action will depend on this
+        /// value. For example:</para><ul><li><para><code>REFRESH_TOKEN_AUTH</code> will take in a valid refresh token and return new
+        /// tokens.</para></li><li><para><code>USER_SRP_AUTH</code> will take in <code>USERNAME</code> and <code>SRPA</code>
+        /// and return the SRP variables to be used for next challenge execution.</para></li></ul><para>Valid values include:</para><ul><li><para><code>USER_SRP_AUTH</code>: Authentication flow for the Secure Remote Password (SRP)
+        /// protocol.</para></li><li><para><code>REFRESH_TOKEN_AUTH</code>/<code>REFRESH_TOKEN</code>: Authentication flow for
+        /// refreshing the access token and ID token by supplying a valid refresh token.</para></li><li><para><code>CUSTOM_AUTH</code>: Custom authentication flow.</para></li><li><para><code>ADMIN_NO_SRP_AUTH</code>: Non-SRP authentication flow; you can pass in the
+        /// USERNAME and PASSWORD directly if the flow is enabled for calling the app client.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -58,7 +64,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AuthParameter
         /// <summary>
         /// <para>
-        /// <para>The authentication parameters.</para>
+        /// <para>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code>
+        /// that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</para><ul><li><para>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRPA</code>
+        /// (required), <code>SECRET_HASH</code> (required if the app client is configured with
+        /// a client secret), <code>DEVICE_KEY</code></para></li><li><para>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>USERNAME</code> (required),
+        /// <code>SECRET_HASH</code> (required if the app client is configured with a client secret),
+        /// <code>REFRESH_TOKEN</code> (required), <code>DEVICE_KEY</code></para></li><li><para>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
+        /// (if app client is configured with client secret), <code>PASSWORD</code> (required),
+        /// <code>DEVICE_KEY</code></para></li><li><para>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code>
+        /// (if app client is configured with client secret), <code>DEVICE_KEY</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The client app ID.</para>
+        /// <para>The app client ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -79,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientMetadata
         /// <summary>
         /// <para>
-        /// <para>The client app metadata.</para>
+        /// <para>This is a random key-value pair map which can contain any key and will be passed to
+        /// your PreAuthentication Lambda trigger as-is. It can be used to implement additional
+        /// validations around authentication.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

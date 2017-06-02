@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AttributesToGet
         /// <summary>
         /// <para>
-        /// <para>The attributes to get from the request to list users.</para>
+        /// <para>An array of strings, where each string is the name of a user attribute to be returned
+        /// for each user in the search results. If the array is empty, all attributes are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +55,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The filter for the list users request.</para>
+        /// <para>A filter string of the form "<i>AttributeName</i><i>Filter-Type</i> "<i>AttributeValue</i>"".
+        /// Quotation marks within the filter string must be escaped using the backslash (\) character.
+        /// For example, "<code>family_name</code> = \"Reddy\"".</para><ul><li><para><i>AttributeName</i>: The name of the attribute to search for. You can only search
+        /// for one attribute at a time.</para></li><li><para><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code>
+        /// = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code>
+        /// ^= \"Jon\"". </para></li><li><para><i>AttributeValue</i>: The attribute value that must be matched for each user.</para></li></ul><para>If the filter string is empty, <code>ListUsers</code> returns all users in the user
+        /// pool.</para><para>You can only search for the following standard attributes:</para><ul><li><para><code>username</code> (case-sensitive)</para></li><li><para><code>email</code></para></li><li><para><code>phone_number</code></para></li><li><para><code>name</code></para></li><li><para><code>given_name</code></para></li><li><para><code>family_name</code></para></li><li><para><code>preferred_username</code></para></li><li><para><code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</para></li><li><para><code>status</code> (case-insensitive)</para></li></ul><para>Custom attributes are not searchable.</para><para>For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching
+        /// for Users Using the ListUsers API</a> and <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples
+        /// of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for which you want to list users.</para>
+        /// <para>The user pool ID for the user pool on which the search should be performed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -74,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The limit of the request to list users.</para>
+        /// <para>Maximum number of users to be returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

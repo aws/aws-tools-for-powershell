@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Confirms tracking of the device. This API call is the call that beings device tracking.
+    /// Confirms tracking of the device. This API call is the call that begins device tracking.
     /// </summary>
     [Cmdlet("Approve", "CGIPDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]

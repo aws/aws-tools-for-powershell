@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID&gt;</para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

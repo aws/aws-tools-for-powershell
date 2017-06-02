@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter UserAttribute
         /// <summary>
         /// <para>
-        /// <para>An array of name-value pairs representing user attributes.</para>
+        /// <para>An array of name-value pairs representing user attributes.</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+        /// name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

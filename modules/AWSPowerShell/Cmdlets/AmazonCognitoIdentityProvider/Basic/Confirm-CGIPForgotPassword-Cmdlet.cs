@@ -28,8 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows a user to enter a code provided when they reset their password to update their
-    /// password.
+    /// Allows a user to enter a confirmation code to reset a forgotten password.
     /// </summary>
     [Cmdlet("Confirm", "CGIPForgotPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
@@ -54,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ConfirmationCode
         /// <summary>
         /// <para>
-        /// <para>The confirmation code sent by a user's request to retrieve a forgotten password.</para>
+        /// <para>The confirmation code sent by a user's request to retrieve a forgotten password. For
+        /// more information, see <a href="API_ForgotPassword.html">ForgotPassword</a></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter Password
         /// <summary>
         /// <para>
-        /// <para>The password sent by sent by a user's request to retrieve a forgotten password.</para>
+        /// <para>The password sent by a user's request to retrieve a forgotten password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

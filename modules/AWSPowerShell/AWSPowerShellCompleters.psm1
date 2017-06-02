@@ -1492,6 +1492,13 @@ $CGIP_Completers = {
             break
         }
         
+        # Amazon.CognitoIdentityProvider.IdentityProviderTypeType
+        "New-CGIPIdentityProvider/ProviderType"
+        {
+            $v = "SAML"
+            break
+        }
+        
         # Amazon.CognitoIdentityProvider.MessageActionType
         "New-CGIPUserAdmin/MessageAction"
         {
@@ -1522,6 +1529,7 @@ $CGIP_map = @{
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "ProviderType"=@("New-CGIPIdentityProvider")
 }
 
 _awsArgumentCompleterRegistration $CGIP_Completers $CGIP_map

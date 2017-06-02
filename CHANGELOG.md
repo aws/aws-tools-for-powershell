@@ -1,3 +1,11 @@
+### 3.3.98.0 (2017-06-02)
+  * Amazon Relational Database Service
+    - Customers can now easily and quickly stop and start their DB instances using two new cmdlets, Start-RDSDBInstance (StartDBInstance API) and Stop-RDSDBInstance (StopDBInstance API).
+  * AWS CodeDeploy
+    - Added new cmdlet Get-CDGitHubAccountTokenNameList (ListGitHubAccountTokenNames API) to support improved GitHub account and repository connection management. You can now create and store up to 25 connections to GitHub accounts in order to associate AWS CodeDeploy applications with GitHub repositories. Each connection can support multiple repositories. You can create connections to up to 25 different GitHub accounts, or create more than one connection to a single account.
+  * Amazon Cognito Identity Provider
+    - Added cmdlets to support integration of external identity providers. The new cmdlets are Get-CGIPIdentityProvider (DescribeIdentityProvider API), Get-CGIPIdentityProviderByIdentifier (GetIdentityProviderByIdentifier API), Get-CGIPIdentityProviderList (ListIdentityProviders API), Get-CGIPUserPoolDomain (DescribeUserPoolDomain API), New-CGIPUserPoolDomain (CreateUserPoolDomain API), Remove-CGIPIdentityProvider (DeleteIdentityProvider API), Remove-CGIPUserPoolDomain (DeleteUserPoolDomain API) and Update-CGIPIdentityProvider (UpdateIdentityProvider API).
+
 ### 3.3.96.0 (2017-05-31)
   * All services
     - Cmdlet names for all services have been reviewed and those with plural nouns corrected to be singular to follow best practices. For more details see the blog post 'Updates to AWSPowerShell Cmdlet Names' on the AWS .NET Developer Blog https://aws.amazon.com/blogs/developer/category/net/. A new submodule, loaded automatically, contains backwards-compatible aliases to ensure current scripts will continue to work with the older cmdlet names.

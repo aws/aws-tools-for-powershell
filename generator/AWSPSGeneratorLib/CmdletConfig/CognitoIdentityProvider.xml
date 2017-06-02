@@ -113,5 +113,15 @@
     <ServiceOperation MethodName="StopUserImportJob" PipelineParameter="JobId" />
     <ServiceOperation MethodName="CreateUserImportJob" />
     <ServiceOperation MethodName="DescribeUserImportJob" PipelineParameter="JobId" />
+
+    <ServiceOperation MethodName="UpdateIdentityProvider" PipelineParameter="ProviderName" />
+    <ServiceOperation MethodName="CreateUserPoolDomain" PipelineParameter="Domain" Output="Void" />
+    <ServiceOperation MethodName="DeleteIdentityProvider" PipelineParameter="ProviderName" Output="Void" />
+    <ServiceOperation MethodName="DeleteUserPoolDomain" PipelineParameter="Domain" Output="Void" />
+    <ServiceOperation MethodName="DescribeIdentityProvider" PipelineParameter="ProviderName" />
+    <ServiceOperation MethodName="DescribeUserPoolDomain" />
+    <ServiceOperation MethodName="GetIdentityProviderByIdentifier" PipelineParameter="IdpIdentifier" />
+    <ServiceOperation MethodName="ListIdentityProviders" Verb="Get" Noun="IdentityProviderList"  />
+    <ServiceOperation MethodName="CreateIdentityProvider" PipelineParameter="ProviderName" />
   </ServiceOperations>
 </ConfigModel>

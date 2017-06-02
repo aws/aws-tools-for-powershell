@@ -22,70 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.LexModelBuildingService;
-using Amazon.LexModelBuildingService.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.LMB
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Returns a list of all of the channels associated with the specified bot. 
-    /// 
-    ///  
-    /// <para>
-    /// The <code>GetBotChannelAssociations</code> operation requires permissions for the
-    /// <code>lex:GetBotChannelAssociations</code> action.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists information about all identity providers for a user pool.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "LMBBotChannelAssociationList")]
-    [OutputType("Amazon.LexModelBuildingService.Model.BotChannelAssociation")]
-    [AWSCmdlet("Invokes the GetBotChannelAssociations operation against Amazon Lex Model Building Service.", Operation = new[] {"GetBotChannelAssociations"})]
-    [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.BotChannelAssociation",
-        "This cmdlet returns a collection of BotChannelAssociation objects.",
-        "The service call response (type Amazon.LexModelBuildingService.Model.GetBotChannelAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CGIPIdentityProviderList")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.ProviderDescription")]
+    [AWSCmdlet("Invokes the ListIdentityProviders operation against Amazon Cognito Identity Provider.", Operation = new[] {"ListIdentityProviders"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ProviderDescription",
+        "This cmdlet returns a collection of ProviderDescription objects.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListIdentityProvidersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetLMBBotChannelAssociationListCmdlet : AmazonLexModelBuildingServiceClientCmdlet, IExecutor
+    public partial class GetCGIPIdentityProviderListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter BotAlias
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>An alias pointing to the specific version of the Amazon Lex bot to which this association
-        /// is being made.</para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String BotAlias { get; set; }
-        #endregion
-        
-        #region Parameter BotName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the Amazon Lex bot in the association.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String BotName { get; set; }
-        #endregion
-        
-        #region Parameter NameContain
-        /// <summary>
-        /// <para>
-        /// <para>Substring to match in channel association names. An association will be returned if
-        /// any part of its name matches the substring. For example, "xyz" matches both "xyzabc"
-        /// and "abcxyz." To return all bot channel associations, use a hyphen ("-") as the <code>nameContains</code>
-        /// parameter.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("NameContains")]
-        public System.String NameContain { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of associations to return in the response. The default is 50. </para>
+        /// <para>The maximum number of identity providers to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,10 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A pagination token for fetching the next page of associations. If the response to
-        /// this call is truncated, Amazon Lex returns a pagination token in the response. To
-        /// fetch the next page of associations, specify the pagination token in the next request.
-        /// </para>
+        /// <para>A pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -122,12 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.BotAlias = this.BotAlias;
-            context.BotName = this.BotName;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
-            context.NameContains = this.NameContain;
             context.NextToken = this.NextToken;
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,30 +107,29 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.LexModelBuildingService.Model.GetBotChannelAssociationsRequest();
-            if (cmdletContext.BotAlias != null)
+            var request = new Amazon.CognitoIdentityProvider.Model.ListIdentityProvidersRequest();
+            if (cmdletContext.UserPoolId != null)
             {
-                request.BotAlias = cmdletContext.BotAlias;
-            }
-            if (cmdletContext.BotName != null)
-            {
-                request.BotName = cmdletContext.BotName;
-            }
-            if (cmdletContext.NameContains != null)
-            {
-                request.NameContains = cmdletContext.NameContains;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 60;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 60. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 60 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -182,6 +145,20 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -190,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.BotChannelAssociations;
+                        object pipelineOutput = response.Providers;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -199,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.BotChannelAssociations.Count;
+                        int _receivedThisCall = response.Providers.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -219,6 +196,15 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 60 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -242,14 +228,14 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         
         #region AWS Service Operation Call
         
-        private Amazon.LexModelBuildingService.Model.GetBotChannelAssociationsResponse CallAWSServiceOperation(IAmazonLexModelBuildingService client, Amazon.LexModelBuildingService.Model.GetBotChannelAssociationsRequest request)
+        private Amazon.CognitoIdentityProvider.Model.ListIdentityProvidersResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListIdentityProvidersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lex Model Building Service", "GetBotChannelAssociations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ListIdentityProviders");
             #if DESKTOP
-            return client.GetBotChannelAssociations(request);
+            return client.ListIdentityProviders(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetBotChannelAssociationsAsync(request);
+            var task = client.ListIdentityProvidersAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -260,11 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String BotAlias { get; set; }
-            public System.String BotName { get; set; }
             public int? MaxResults { get; set; }
-            public System.String NameContains { get; set; }
             public System.String NextToken { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

@@ -22,56 +22,47 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CognitoIdentityProvider;
-using Amazon.CognitoIdentityProvider.Model;
+using Amazon.RDS;
+using Amazon.RDS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CGIP
+namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Enables the specified user as an administrator. Works on any user.
-    /// 
-    ///  
-    /// <para>
-    /// Requires developer credentials.
-    /// </para>
+    /// Stops a DB instance. When you stop a DB instance, Amazon RDS retains the DB instance's
+    /// metadata, including its endpoint, DB parameter group, and option group membership.
+    /// Amazon RDS also retains the transaction logs so you can do a point-in-time restore
+    /// if necessary. For more information, see Stopping and Starting a DB instance in the
+    /// AWS RDS user guide.
     /// </summary>
-    [Cmdlet("Enable", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AdminEnableUser operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminEnableUser"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserPoolId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminEnableUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Stop", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.RDS.Model.DBInstance")]
+    [AWSCmdlet("Invokes the StopDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"StopDBInstance"})]
+    [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
+        "This cmdlet returns a DBInstance object.",
+        "The service call response (type Amazon.RDS.Model.StopDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableCGIPUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class StopRDSDBInstanceCmdlet : AmazonRDSClientCmdlet, IExecutor
     {
         
-        #region Parameter Username
+        #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user name of the user you wish to enable.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Username { get; set; }
-        #endregion
-        
-        #region Parameter UserPoolId
-        /// <summary>
-        /// <para>
-        /// <para>The user pool ID for the user pool where you want to enable the user.</para>
+        /// <para> The user-supplied instance identifier. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String UserPoolId { get; set; }
+        public System.String DBInstanceIdentifier { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter DBSnapshotIdentifier
         /// <summary>
-        /// Returns the value passed to the UserPoolId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para> The user-supplied instance identifier of the DB Snapshot created immediately before
+        /// the DB instance is stopped. </para>
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String DBSnapshotIdentifier { get; set; }
         #endregion
         
         #region Parameter Force
@@ -88,8 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserPoolId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-CGIPUserAdmin (AdminEnableUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBInstanceIdentifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-RDSDBInstance (StopDBInstance)"))
             {
                 return;
             }
@@ -103,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Username = this.Username;
-            context.UserPoolId = this.UserPoolId;
+            context.DBInstanceIdentifier = this.DBInstanceIdentifier;
+            context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,15 +110,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.AdminEnableUserRequest();
+            var request = new Amazon.RDS.Model.StopDBInstanceRequest();
             
-            if (cmdletContext.Username != null)
+            if (cmdletContext.DBInstanceIdentifier != null)
             {
-                request.Username = cmdletContext.Username;
+                request.DBInstanceIdentifier = cmdletContext.DBInstanceIdentifier;
             }
-            if (cmdletContext.UserPoolId != null)
+            if (cmdletContext.DBSnapshotIdentifier != null)
             {
-                request.UserPoolId = cmdletContext.UserPoolId;
+                request.DBSnapshotIdentifier = cmdletContext.DBSnapshotIdentifier;
             }
             
             CmdletOutput output;
@@ -138,9 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.UserPoolId;
+                object pipelineOutput = response.DBInstance;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -165,14 +154,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.AdminEnableUserResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminEnableUserRequest request)
+        private Amazon.RDS.Model.StopDBInstanceResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.StopDBInstanceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminEnableUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "StopDBInstance");
             #if DESKTOP
-            return client.AdminEnableUser(request);
+            return client.StopDBInstance(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AdminEnableUserAsync(request);
+            var task = client.StopDBInstanceAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -183,8 +172,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Username { get; set; }
-            public System.String UserPoolId { get; set; }
+            public System.String DBInstanceIdentifier { get; set; }
+            public System.String DBSnapshotIdentifier { get; set; }
         }
         
     }

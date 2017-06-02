@@ -28,71 +28,41 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Enables the specified user as an administrator. Works on any user.
-    /// 
-    ///  
-    /// <para>
-    /// Requires developer credentials.
-    /// </para>
+    /// Gets information about a specific identity provider.
     /// </summary>
-    [Cmdlet("Enable", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AdminEnableUser operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminEnableUser"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserPoolId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.AdminEnableUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIPIdentityProvider")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.IdentityProviderType")]
+    [AWSCmdlet("Invokes the DescribeIdentityProvider operation against Amazon Cognito Identity Provider.", Operation = new[] {"DescribeIdentityProvider"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.IdentityProviderType",
+        "This cmdlet returns a IdentityProviderType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.DescribeIdentityProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EnableCGIPUserAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetCGIPIdentityProviderCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter Username
+        #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The user name of the user you wish to enable.</para>
+        /// <para>The identity provider name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Username { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ProviderName { get; set; }
         #endregion
         
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to enable the user.</para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserPoolId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the UserPoolId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserPoolId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Enable-CGIPUserAdmin (AdminEnableUser)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -103,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Username = this.Username;
+            context.ProviderName = this.ProviderName;
             context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
@@ -119,11 +89,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.AdminEnableUserRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.DescribeIdentityProviderRequest();
             
-            if (cmdletContext.Username != null)
+            if (cmdletContext.ProviderName != null)
             {
-                request.Username = cmdletContext.Username;
+                request.ProviderName = cmdletContext.ProviderName;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -138,9 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.UserPoolId;
+                object pipelineOutput = response.IdentityProvider;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -165,14 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.AdminEnableUserResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.AdminEnableUserRequest request)
+        private Amazon.CognitoIdentityProvider.Model.DescribeIdentityProviderResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DescribeIdentityProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "AdminEnableUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DescribeIdentityProvider");
             #if DESKTOP
-            return client.AdminEnableUser(request);
+            return client.DescribeIdentityProvider(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AdminEnableUserAsync(request);
+            var task = client.DescribeIdentityProviderAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -183,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String Username { get; set; }
+            public System.String ProviderName { get; set; }
             public System.String UserPoolId { get; set; }
         }
         

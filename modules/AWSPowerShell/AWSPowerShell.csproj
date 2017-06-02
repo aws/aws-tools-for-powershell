@@ -79,7 +79,7 @@
       <HintPath>..\..\packages\AWSSDK.Lex.3.3.1.6\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.LexModelBuildingService">
-      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.1\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.LexModelBuildingService.3.3.1.1\lib\net35\AWSSDK.LexModelBuildingService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.2\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
@@ -175,7 +175,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.2.6\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.10.3\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.11\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.1.6\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -223,7 +223,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticMapReduce.3.3.3.10\lib\net35\AWSSDK.ElasticMapReduce.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancingV2">
-      <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.2\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancingV2.3.3.3\lib\net35\AWSSDK.ElasticLoadBalancingV2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticLoadBalancing">
       <HintPath>..\..\packages\AWSSDK.ElasticLoadBalancing.3.3.1\lib\net35\AWSSDK.ElasticLoadBalancing.dll</HintPath>
@@ -271,7 +271,7 @@
       <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.6.11\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
-      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.3.1\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.4\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentity">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentity.3.3.2.10\lib\net35\AWSSDK.CognitoIdentity.dll</HintPath>
@@ -280,7 +280,7 @@
       <HintPath>..\..\packages\AWSSDK.CodePipeline.3.3.0.19\lib\net35\AWSSDK.CodePipeline.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeDeploy">
-      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.4\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeDeploy.3.3.5\lib\net35\AWSSDK.CodeDeploy.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeCommit">
       <HintPath>..\..\packages\AWSSDK.CodeCommit.3.3.1.10\lib\net35\AWSSDK.CodeCommit.dll</HintPath>

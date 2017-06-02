@@ -28,53 +28,45 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Calling this API causes a message to be sent to the end user with a confirmation code
-    /// that is required to change the user's password. For the <code>Username</code> parameter,
-    /// you can use the username or user alias. If a verified phone number exists for the
-    /// user, the confirmation code is sent to the phone number. Otherwise, if a verified
-    /// email exists, the confirmation code is sent to the email. If neither a verified phone
-    /// number nor a verified email exists, <code>InvalidParameterException</code> is thrown.
-    /// To use the confirmation code for resetting the password, call <a href="API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.
+    /// Deletes an identity provider for a user pool.
     /// </summary>
-    [Cmdlet("Reset", "CGIPForgottenPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType")]
-    [AWSCmdlet("Invokes the ForgotPassword operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ForgotPassword"})]
-    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType",
-        "This cmdlet returns a CodeDeliveryDetailsType object.",
-        "The service call response (type Amazon.CognitoIdentityProvider.Model.ForgotPasswordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteIdentityProvider operation against Amazon Cognito Identity Provider.", Operation = new[] {"DeleteIdentityProvider"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProviderName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteIdentityProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class ResetCGIPForgottenPasswordCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class RemoveCGIPIdentityProviderCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientId
+        #region Parameter ProviderName
         /// <summary>
         /// <para>
-        /// <para>The ID of the client associated with the user pool.</para>
+        /// <para>The identity provider name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ProviderName { get; set; }
+        #endregion
+        
+        #region Parameter UserPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The user pool ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ClientId { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
-        #region Parameter SecretHash
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>A keyed-hash message authentication code (HMAC) calculated using the secret key of
-        /// a user pool client and username plus the client ID in the message.</para>
-        /// </para>
+        /// Returns the value passed to the ProviderName parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String SecretHash { get; set; }
-        #endregion
-        
-        #region Parameter Username
-        /// <summary>
-        /// <para>
-        /// <para>The user name of the user for whom you want to enter a code to reset a forgotten password.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Username { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -91,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-CGIPForgottenPassword (ForgotPassword)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProviderName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CGIPIdentityProvider (DeleteIdentityProvider)"))
             {
                 return;
             }
@@ -100,14 +92,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             var context = new CmdletContext
             {
                 Region = this.Region,
+                Credentials = this.CurrentCredentials
             };
             
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ClientId = this.ClientId;
-            context.SecretHash = this.SecretHash;
-            context.Username = this.Username;
+            context.ProviderName = this.ProviderName;
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,30 +114,28 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.ForgotPasswordRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.DeleteIdentityProviderRequest();
             
-            if (cmdletContext.ClientId != null)
+            if (cmdletContext.ProviderName != null)
             {
-                request.ClientId = cmdletContext.ClientId;
+                request.ProviderName = cmdletContext.ProviderName;
             }
-            if (cmdletContext.SecretHash != null)
+            if (cmdletContext.UserPoolId != null)
             {
-                request.SecretHash = cmdletContext.SecretHash;
-            }
-            if (cmdletContext.Username != null)
-            {
-                request.Username = cmdletContext.Username;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
             
             // issue call
-            var client = Client ?? CreateClient(context.Region);
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CodeDeliveryDetails;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ProviderName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -170,14 +160,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.ForgotPasswordResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ForgotPasswordRequest request)
+        private Amazon.CognitoIdentityProvider.Model.DeleteIdentityProviderResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DeleteIdentityProviderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ForgotPassword");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DeleteIdentityProvider");
             #if DESKTOP
-            return client.ForgotPassword(request);
+            return client.DeleteIdentityProvider(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ForgotPasswordAsync(request);
+            var task = client.DeleteIdentityProviderAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -188,9 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ClientId { get; set; }
-            public System.String SecretHash { get; set; }
-            public System.String Username { get; set; }
+            public System.String ProviderName { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }
