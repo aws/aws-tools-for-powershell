@@ -1,3 +1,12 @@
+### 3.3.99.0 (2017-06-05)
+  * All services
+    - Resolved issue causing the backwards-compatible aliases introduced recently to not be available on PowerShell v3 or v4 systems.
+  * Amazon Kinesis Analytics
+    - Added support for publishing error messages concerning application misconfigurations to to AWS CloudWatch Logs with new cmdlets Add-KINAApplicationCloudWatchLoggingOption (AddApplicationCloudWatchLoggingOption API) and Remove-KINAApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption API).
+  * Amazon WorkDocs
+    - Added support for managing tags and custom metadata on resources with new cmdlets New-WDCustomMetadata (CreateCustomMetadata API), New-WDLabel (CreateLabels API), Remove-WDCustomMetadata (DeleteCustomMetadata API) and Remove-WDLabel (DeleteLabels API). 
+    - Added new cmdlets to support adding and retrieving comments at the document level: Get-WDComment (DescribeComments API), New-WDComment (CreateComment API) and Remove-WDComment (DeleteComment API)
+
 ### 3.3.98.0 (2017-06-02)
   * Amazon Relational Database Service
     - Customers can now easily and quickly stop and start their DB instances using two new cmdlets, Start-RDSDBInstance (StartDBInstance API) and Stop-RDSDBInstance (StopDBInstance API).
