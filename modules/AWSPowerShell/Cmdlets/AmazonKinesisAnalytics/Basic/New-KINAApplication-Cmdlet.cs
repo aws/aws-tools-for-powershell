@@ -39,8 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// In the input configuration, you map the streaming source to an in-application stream,
     /// which you can think of as a constantly updating table. In the mapping, you must provide
     /// a schema for the in-application stream and map each data column in the in-application
-    /// stream to a data element in the streaming source, with the option of renaming, casting
-    /// and dropping columns as desired.
+    /// stream to a data element in the streaming source.
     /// </para><para>
     /// Your application code is one or more SQL statements that read input data, transform
     /// it, and generate output. Your application code can create one or more SQL artifacts
@@ -73,9 +72,13 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>One or more SQL statements that read input data, transform it, and generate output.
-        /// For example, you can write a SQL statement that reads input data and generates a running
-        /// average of the number of advertisement clicks by vendor.</para><para>You can also provide a series of SQL statements, where output of one statement can
-        /// be used as the input for the next statement.</para><para>Note that the application code must create the streams with names specified in the
+        /// For example, you can write a SQL statement that reads data from one in-application
+        /// stream, generates a running average of the number of advertisement clicks by vendor,
+        /// and insert resulting rows in another in-application stream using pumps. For more inforamtion
+        /// about the typical pattern, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html">Application
+        /// Code</a>. </para><para>You can provide such series of SQL statements, where output of one statement can be
+        /// used as the input for the next statement. You store intermediate results by creating
+        /// in-application streams and pumps.</para><para>Note that the application code must create the streams with names specified in the
         /// <code>Outputs</code>. For example, if your <code>Outputs</code> defines output streams
         /// named <code>ExampleOutputStream1</code> and <code>ExampleOutputStream2</code>, then
         /// your application code must create these streams. </para>
@@ -103,6 +106,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
+        
+        #region Parameter CloudWatchLoggingOption
+        /// <summary>
+        /// <para>
+        /// <para>Use this parameter to configure a CloudWatch log stream to monitor application configuration
+        /// errors. For more information, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-monitor-configuration.html">Monitoring
+        /// Configuration Errors</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CloudWatchLoggingOptions")]
+        public Amazon.KinesisAnalytics.Model.CloudWatchLoggingOption[] CloudWatchLoggingOption { get; set; }
         #endregion
         
         #region Parameter Input
@@ -175,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             context.ApplicationCode = this.ApplicationCode;
             context.ApplicationDescription = this.ApplicationDescription;
             context.ApplicationName = this.ApplicationName;
+            if (this.CloudWatchLoggingOption != null)
+            {
+                context.CloudWatchLoggingOptions = new List<Amazon.KinesisAnalytics.Model.CloudWatchLoggingOption>(this.CloudWatchLoggingOption);
+            }
             if (this.Input != null)
             {
                 context.Inputs = new List<Amazon.KinesisAnalytics.Model.Input>(this.Input);
@@ -210,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.CloudWatchLoggingOptions != null)
+            {
+                request.CloudWatchLoggingOptions = cmdletContext.CloudWatchLoggingOptions;
             }
             if (cmdletContext.Inputs != null)
             {
@@ -274,6 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             public System.String ApplicationCode { get; set; }
             public System.String ApplicationDescription { get; set; }
             public System.String ApplicationName { get; set; }
+            public List<Amazon.KinesisAnalytics.Model.CloudWatchLoggingOption> CloudWatchLoggingOptions { get; set; }
             public List<Amazon.KinesisAnalytics.Model.Input> Inputs { get; set; }
             public List<Amazon.KinesisAnalytics.Model.Output> Outputs { get; set; }
         }

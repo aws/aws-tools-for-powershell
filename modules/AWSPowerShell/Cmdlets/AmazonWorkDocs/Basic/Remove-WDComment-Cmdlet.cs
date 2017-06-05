@@ -28,24 +28,16 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Retrieves the path information (the hierarchy from the root folder) for the specified
-    /// folder.
-    /// 
-    ///  
-    /// <para>
-    /// By default, Amazon WorkDocs returns a maximum of 100 levels upwards from the requested
-    /// folder and only includes the IDs of the parent folders in the path. You can limit
-    /// the maximum number of levels. You can also request the parent folder names.
-    /// </para>
+    /// Deletes the specified comment from the document version.
     /// </summary>
-    [Cmdlet("Get", "WDFolderPath")]
-    [OutputType("Amazon.WorkDocs.Model.ResourcePath")]
-    [AWSCmdlet("Invokes the GetFolderPath operation against Amazon WorkDocs.", Operation = new[] {"GetFolderPath"})]
-    [AWSCmdletOutput("Amazon.WorkDocs.Model.ResourcePath",
-        "This cmdlet returns a ResourcePath object.",
-        "The service call response (type Amazon.WorkDocs.Model.GetFolderPathResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WDComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteComment operation against Amazon WorkDocs.", Operation = new[] {"DeleteComment"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CommentId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.WorkDocs.Model.DeleteCommentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetWDFolderPathCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
+    public partial class RemoveWDCommentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
         #region Parameter AuthenticationToken
@@ -59,56 +51,64 @@ namespace Amazon.PowerShell.Cmdlets.WD
         public System.String AuthenticationToken { get; set; }
         #endregion
         
-        #region Parameter Field
+        #region Parameter CommentId
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of values. Specify "NAME" to include the names of the parent
-        /// folders.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Fields")]
-        public System.String Field { get; set; }
-        #endregion
-        
-        #region Parameter FolderId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the folder.</para>
+        /// <para>The ID of the comment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String FolderId { get; set; }
+        public System.String CommentId { get; set; }
         #endregion
         
-        #region Parameter Limit
+        #region Parameter DocumentId
         /// <summary>
         /// <para>
-        /// <para>The maximum number of levels in the hierarchy to return.</para>
+        /// <para>The ID of the document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public System.String DocumentId { get; set; }
         #endregion
         
-        #region Parameter Marker
+        #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>This value is not supported.</para>
-        /// </para>
-        /// <para>
-        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// <para>The ID of the document version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("NextToken")]
-        public System.String Marker { get; set; }
+        public System.String VersionId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the CommentId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CommentId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WDComment (DeleteComment)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -120,11 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
             PreExecutionContextLoad(context);
             
             context.AuthenticationToken = this.AuthenticationToken;
-            context.Fields = this.Field;
-            context.FolderId = this.FolderId;
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
-            context.Marker = this.Marker;
+            context.CommentId = this.CommentId;
+            context.DocumentId = this.DocumentId;
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -139,27 +137,23 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkDocs.Model.GetFolderPathRequest();
+            var request = new Amazon.WorkDocs.Model.DeleteCommentRequest();
             
             if (cmdletContext.AuthenticationToken != null)
             {
                 request.AuthenticationToken = cmdletContext.AuthenticationToken;
             }
-            if (cmdletContext.Fields != null)
+            if (cmdletContext.CommentId != null)
             {
-                request.Fields = cmdletContext.Fields;
+                request.CommentId = cmdletContext.CommentId;
             }
-            if (cmdletContext.FolderId != null)
+            if (cmdletContext.DocumentId != null)
             {
-                request.FolderId = cmdletContext.FolderId;
+                request.DocumentId = cmdletContext.DocumentId;
             }
-            if (cmdletContext.Limit != null)
+            if (cmdletContext.VersionId != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
-            }
-            if (cmdletContext.Marker != null)
-            {
-                request.Marker = cmdletContext.Marker;
+                request.VersionId = cmdletContext.VersionId;
             }
             
             CmdletOutput output;
@@ -170,7 +164,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Path;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.CommentId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -195,14 +191,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkDocs.Model.GetFolderPathResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetFolderPathRequest request)
+        private Amazon.WorkDocs.Model.DeleteCommentResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeleteCommentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetFolderPath");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DeleteComment");
             #if DESKTOP
-            return client.GetFolderPath(request);
+            return client.DeleteComment(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetFolderPathAsync(request);
+            var task = client.DeleteCommentAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -214,10 +210,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         internal class CmdletContext : ExecutorContext
         {
             public System.String AuthenticationToken { get; set; }
-            public System.String Fields { get; set; }
-            public System.String FolderId { get; set; }
-            public int? Limit { get; set; }
-            public System.String Marker { get; set; }
+            public System.String CommentId { get; set; }
+            public System.String DocumentId { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

@@ -31,14 +31,24 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// Retrieves the metadata of the specified folder.
     /// </summary>
     [Cmdlet("Get", "WDFolder")]
-    [OutputType("Amazon.WorkDocs.Model.FolderMetadata")]
+    [OutputType("Amazon.WorkDocs.Model.GetFolderResponse")]
     [AWSCmdlet("Invokes the GetFolder operation against Amazon WorkDocs.", Operation = new[] {"GetFolder"})]
-    [AWSCmdletOutput("Amazon.WorkDocs.Model.FolderMetadata",
-        "This cmdlet returns a FolderMetadata object.",
-        "The service call response (type Amazon.WorkDocs.Model.GetFolderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.WorkDocs.Model.GetFolderResponse",
+        "This cmdlet returns a Amazon.WorkDocs.Model.GetFolderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
         
         #region Parameter FolderId
         /// <summary>
@@ -48,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String FolderId { get; set; }
+        #endregion
+        
+        #region Parameter IncludeCustomMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Set to TRUE to include custom metadata in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludeCustomMetadata { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -63,7 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.FolderId = this.FolderId;
+            if (ParameterWasBound("IncludeCustomMetadata"))
+                context.IncludeCustomMetadata = this.IncludeCustomMetadata;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -80,9 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.GetFolderRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.FolderId != null)
             {
                 request.FolderId = cmdletContext.FolderId;
+            }
+            if (cmdletContext.IncludeCustomMetadata != null)
+            {
+                request.IncludeCustomMetadata = cmdletContext.IncludeCustomMetadata.Value;
             }
             
             CmdletOutput output;
@@ -93,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Metadata;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -136,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String FolderId { get; set; }
+            public System.Boolean? IncludeCustomMetadata { get; set; }
         }
         
     }

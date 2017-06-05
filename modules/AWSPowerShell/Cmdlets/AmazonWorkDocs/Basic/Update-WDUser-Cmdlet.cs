@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class UpdateWDUserCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter GivenName
         /// <summary>
         /// <para>
@@ -154,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.GivenName = this.GivenName;
             context.Locale = this.Locale;
             if (ParameterWasBound("StorageRule_StorageAllocatedInByte"))
@@ -179,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.UpdateUserRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.GivenName != null)
             {
                 request.GivenName = cmdletContext.GivenName;
@@ -284,6 +300,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String GivenName { get; set; }
             public Amazon.WorkDocs.LocaleType Locale { get; set; }
             public System.Int64? StorageRule_StorageAllocatedInBytes { get; set; }

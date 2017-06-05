@@ -28,26 +28,46 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Retrieves the specified document object.
+    /// Retrieves details of a document.
     /// </summary>
     [Cmdlet("Get", "WDDocument")]
-    [OutputType("Amazon.WorkDocs.Model.DocumentMetadata")]
+    [OutputType("Amazon.WorkDocs.Model.GetDocumentResponse")]
     [AWSCmdlet("Invokes the GetDocument operation against Amazon WorkDocs.", Operation = new[] {"GetDocument"})]
-    [AWSCmdletOutput("Amazon.WorkDocs.Model.DocumentMetadata",
-        "This cmdlet returns a DocumentMetadata object.",
-        "The service call response (type Amazon.WorkDocs.Model.GetDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.WorkDocs.Model.GetDocumentResponse",
+        "This cmdlet returns a Amazon.WorkDocs.Model.GetDocumentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetWDDocumentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter DocumentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the document object.</para>
+        /// <para>The ID of the document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DocumentId { get; set; }
+        #endregion
+        
+        #region Parameter IncludeCustomMetadata
+        /// <summary>
+        /// <para>
+        /// <para>Set this to <code>TRUE</code> to include custom metadata in the response.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean IncludeCustomMetadata { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -63,7 +83,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.DocumentId = this.DocumentId;
+            if (ParameterWasBound("IncludeCustomMetadata"))
+                context.IncludeCustomMetadata = this.IncludeCustomMetadata;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -80,9 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.GetDocumentRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.DocumentId != null)
             {
                 request.DocumentId = cmdletContext.DocumentId;
+            }
+            if (cmdletContext.IncludeCustomMetadata != null)
+            {
+                request.IncludeCustomMetadata = cmdletContext.IncludeCustomMetadata.Value;
             }
             
             CmdletOutput output;
@@ -93,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Metadata;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -136,7 +167,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String DocumentId { get; set; }
+            public System.Boolean? IncludeCustomMetadata { get; set; }
         }
         
     }

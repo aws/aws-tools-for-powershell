@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class RemoveWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter FolderId
         /// <summary>
         /// <para>
@@ -88,6 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.FolderId = this.FolderId;
             
             // allow further manipulation of loaded context prior to processing
@@ -105,6 +117,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.DeleteFolderRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.FolderId != null)
             {
                 request.FolderId = cmdletContext.FolderId;
@@ -163,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String FolderId { get; set; }
         }
         

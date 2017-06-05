@@ -41,6 +41,27 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class NewWDUserCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
+        #region Parameter EmailAddress
+        /// <summary>
+        /// <para>
+        /// <para>The email address of the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String EmailAddress { get; set; }
+        #endregion
+        
         #region Parameter GivenName
         /// <summary>
         /// <para>
@@ -152,6 +173,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
+            context.EmailAddress = this.EmailAddress;
             context.GivenName = this.GivenName;
             context.OrganizationId = this.OrganizationId;
             context.Password = this.Password;
@@ -177,6 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.CreateUserRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
+            if (cmdletContext.EmailAddress != null)
+            {
+                request.EmailAddress = cmdletContext.EmailAddress;
+            }
             if (cmdletContext.GivenName != null)
             {
                 request.GivenName = cmdletContext.GivenName;
@@ -282,6 +313,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
+            public System.String EmailAddress { get; set; }
             public System.String GivenName { get; set; }
             public System.String OrganizationId { get; set; }
             public System.String Password { get; set; }

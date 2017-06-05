@@ -48,6 +48,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class GetWDDocumentPathCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter DocumentId
         /// <summary>
         /// <para>
@@ -61,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Field
         /// <summary>
         /// <para>
-        /// <para>A comma-separated list of values. Specify "NAME" to include the names of the parent
-        /// folders.</para>
+        /// <para>A comma-separated list of values. Specify <code>NAME</code> to include the names of
+        /// the parent folders.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,6 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.DocumentId = this.DocumentId;
             context.Fields = this.Field;
             if (ParameterWasBound("Limit"))
@@ -129,6 +141,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.GetDocumentPathRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.DocumentId != null)
             {
                 request.DocumentId = cmdletContext.DocumentId;
@@ -197,6 +213,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String DocumentId { get; set; }
             public System.String Fields { get; set; }
             public int? Limit { get; set; }

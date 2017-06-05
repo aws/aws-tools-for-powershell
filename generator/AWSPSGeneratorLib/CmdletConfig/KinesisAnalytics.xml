@@ -25,6 +25,9 @@
 		<ServiceOperation MethodName="StartApplication" Output="Void" />
 		<ServiceOperation MethodName="StopApplication" Output="Void" />
 		<ServiceOperation MethodName="UpdateApplication" Output="Void" />
+
+		<ServiceOperation MethodName="AddApplicationCloudWatchLoggingOption" Output="Void" />
+		<ServiceOperation MethodName="DeleteApplicationCloudWatchLoggingOption" PipelineParameter="CloudWatchLoggingOptionId" Output="Void" />
 	</ServiceOperations>
 	
 	<PipelineByValueProperties>

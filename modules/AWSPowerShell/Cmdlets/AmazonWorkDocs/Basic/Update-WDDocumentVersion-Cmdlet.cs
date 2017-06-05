@@ -47,6 +47,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class UpdateWDDocumentVersionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter DocumentId
         /// <summary>
         /// <para>
@@ -116,6 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.DocumentId = this.DocumentId;
             context.VersionId = this.VersionId;
             context.VersionStatus = this.VersionStatus;
@@ -135,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.UpdateDocumentVersionRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.DocumentId != null)
             {
                 request.DocumentId = cmdletContext.DocumentId;
@@ -201,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String DocumentId { get; set; }
             public System.String VersionId { get; set; }
             public Amazon.WorkDocs.DocumentVersionStatus VersionStatus { get; set; }

@@ -57,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputStartingPositionConfiguration_InputStartingPosition
         /// <summary>
         /// <para>
-        /// <para>The starting position on the stream.</para><ul><li><para><code>LATEST</code> - Start reading just after the most recent record in the stream.</para></li><li><para><code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream,
+        /// <para>The starting position on the stream.</para><ul><li><para><code>NOW</code> - Start reading just after the most recent record in the stream,
+        /// start at the request timestamp that the customer issued.</para></li><li><para><code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream,
         /// which is the oldest record available in the stream. This option is not available for
         /// an Amazon Kinesis Firehose delivery stream.</para></li><li><para><code>LAST_STOPPED_POINT</code> - Resume reading from where the application last
         /// stopped reading.</para></li></ul>

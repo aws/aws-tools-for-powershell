@@ -28,22 +28,17 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Retrieves the document versions for the specified document.
-    /// 
-    ///  
-    /// <para>
-    /// By default, only active versions are returned.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// List all the comments for the specified document version.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "WDDocumentVersionList")]
-    [OutputType("Amazon.WorkDocs.Model.DocumentVersionMetadata")]
-    [AWSCmdlet("Invokes the DescribeDocumentVersions operation against Amazon WorkDocs.", Operation = new[] {"DescribeDocumentVersions"})]
-    [AWSCmdletOutput("Amazon.WorkDocs.Model.DocumentVersionMetadata",
-        "This cmdlet returns a collection of DocumentVersionMetadata objects.",
-        "The service call response (type Amazon.WorkDocs.Model.DescribeDocumentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "WDComment")]
+    [OutputType("Amazon.WorkDocs.Model.Comment")]
+    [AWSCmdlet("Invokes the DescribeComments operation against Amazon WorkDocs.", Operation = new[] {"DescribeComments"})]
+    [AWSCmdletOutput("Amazon.WorkDocs.Model.Comment",
+        "This cmdlet returns a collection of Comment objects.",
+        "The service call response (type Amazon.WorkDocs.Model.DescribeCommentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: Marker (type System.String)"
     )]
-    public partial class GetWDDocumentVersionListCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
+    public partial class GetWDCommentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
         #region Parameter AuthenticationToken
@@ -63,35 +58,24 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// <para>The ID of the document.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String DocumentId { get; set; }
         #endregion
         
-        #region Parameter Field
+        #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>Specify "SOURCE" to include initialized versions and a URL for the source document.</para>
+        /// <para>The ID of the document version.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Fields")]
-        public System.String Field { get; set; }
-        #endregion
-        
-        #region Parameter Include
-        /// <summary>
-        /// <para>
-        /// <para>A comma-separated list of values. Specify "INITIALIZED" to include incomplete versions.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Include { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String VersionId { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of versions to return with this call.</para>
+        /// <para>The maximum number of items to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The marker for the next set of results. (You received this marker from a previous
-        /// call.)</para>
+        /// <para>The marker for the next set of results. This marker was received from a previous call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -129,11 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             
             context.AuthenticationToken = this.AuthenticationToken;
             context.DocumentId = this.DocumentId;
-            context.Fields = this.Field;
-            context.Include = this.Include;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
+            context.VersionId = this.VersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -149,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.WorkDocs.Model.DescribeDocumentVersionsRequest();
+            var request = new Amazon.WorkDocs.Model.DescribeCommentsRequest();
             if (cmdletContext.AuthenticationToken != null)
             {
                 request.AuthenticationToken = cmdletContext.AuthenticationToken;
@@ -158,13 +140,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 request.DocumentId = cmdletContext.DocumentId;
             }
-            if (cmdletContext.Fields != null)
+            if (cmdletContext.VersionId != null)
             {
-                request.Fields = cmdletContext.Fields;
-            }
-            if (cmdletContext.Include != null)
-            {
-                request.Include = cmdletContext.Include;
+                request.VersionId = cmdletContext.VersionId;
             }
             
             // Initialize loop variants and commence piping
@@ -200,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.DocumentVersions;
+                        object pipelineOutput = response.Comments;
                         notes = new Dictionary<string, object>();
                         notes["Marker"] = response.Marker;
                         output = new CmdletOutput
@@ -209,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.DocumentVersions.Count;
+                        int _receivedThisCall = response.Comments.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.Marker));
@@ -252,14 +230,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkDocs.Model.DescribeDocumentVersionsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeDocumentVersionsRequest request)
+        private Amazon.WorkDocs.Model.DescribeCommentsResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DescribeCommentsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DescribeDocumentVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DescribeComments");
             #if DESKTOP
-            return client.DescribeDocumentVersions(request);
+            return client.DescribeComments(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeDocumentVersionsAsync(request);
+            var task = client.DescribeCommentsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -272,10 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             public System.String AuthenticationToken { get; set; }
             public System.String DocumentId { get; set; }
-            public System.String Fields { get; set; }
-            public System.String Include { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
+            public System.String VersionId { get; set; }
         }
         
     }

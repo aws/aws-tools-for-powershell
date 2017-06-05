@@ -28,15 +28,15 @@ using Amazon.KinesisAnalytics.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
-    /// Updates an existing Kinesis Analytics application. Using this API, you can update
-    /// application code, input configuration, and output configuration. 
+    /// Updates an existing Amazon Kinesis Analytics application. Using this API, you can
+    /// update application code, input configuration, and output configuration. 
     /// 
     ///  
     /// <para>
-    /// Note that Kinesis Analytics updates the <code>CurrentApplicationVersionId</code> each
-    /// time you update your application. 
+    /// Note that Amazon Kinesis Analytics updates the <code>CurrentApplicationVersionId</code>
+    /// each time you update your application. 
     /// </para><para>
-    /// This opeation requires permission for the <code>kinesisanalytics:UpdateApplication</code>
+    /// This operation requires permission for the <code>kinesisanalytics:UpdateApplication</code>
     /// action.
     /// </para>
     /// </summary>
@@ -63,11 +63,22 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>Name of the Kinesis Analytics application to update.</para>
+        /// <para>Name of the Amazon Kinesis Analytics application to update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ApplicationName { get; set; }
+        #endregion
+        
+        #region Parameter ApplicationUpdate_CloudWatchLoggingOptionUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Describes application CloudWatch logging option updates.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ApplicationUpdate_CloudWatchLoggingOptionUpdates")]
+        public Amazon.KinesisAnalytics.Model.CloudWatchLoggingOptionUpdate[] ApplicationUpdate_CloudWatchLoggingOptionUpdate { get; set; }
         #endregion
         
         #region Parameter CurrentApplicationVersionId
@@ -154,6 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             
             context.ApplicationName = this.ApplicationName;
             context.ApplicationUpdate_ApplicationCodeUpdate = this.ApplicationUpdate_ApplicationCodeUpdate;
+            if (this.ApplicationUpdate_CloudWatchLoggingOptionUpdate != null)
+            {
+                context.ApplicationUpdate_CloudWatchLoggingOptionUpdates = new List<Amazon.KinesisAnalytics.Model.CloudWatchLoggingOptionUpdate>(this.ApplicationUpdate_CloudWatchLoggingOptionUpdate);
+            }
             if (this.ApplicationUpdate_InputUpdate != null)
             {
                 context.ApplicationUpdate_InputUpdates = new List<Amazon.KinesisAnalytics.Model.InputUpdate>(this.ApplicationUpdate_InputUpdate);
@@ -200,6 +215,16 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestApplicationUpdate_applicationUpdate_ApplicationCodeUpdate != null)
             {
                 request.ApplicationUpdate.ApplicationCodeUpdate = requestApplicationUpdate_applicationUpdate_ApplicationCodeUpdate;
+                requestApplicationUpdateIsNull = false;
+            }
+            List<Amazon.KinesisAnalytics.Model.CloudWatchLoggingOptionUpdate> requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate = null;
+            if (cmdletContext.ApplicationUpdate_CloudWatchLoggingOptionUpdates != null)
+            {
+                requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate = cmdletContext.ApplicationUpdate_CloudWatchLoggingOptionUpdates;
+            }
+            if (requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate != null)
+            {
+                request.ApplicationUpdate.CloudWatchLoggingOptionUpdates = requestApplicationUpdate_applicationUpdate_CloudWatchLoggingOptionUpdate;
                 requestApplicationUpdateIsNull = false;
             }
             List<Amazon.KinesisAnalytics.Model.InputUpdate> requestApplicationUpdate_applicationUpdate_InputUpdate = null;
@@ -297,6 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         {
             public System.String ApplicationName { get; set; }
             public System.String ApplicationUpdate_ApplicationCodeUpdate { get; set; }
+            public List<Amazon.KinesisAnalytics.Model.CloudWatchLoggingOptionUpdate> ApplicationUpdate_CloudWatchLoggingOptionUpdates { get; set; }
             public List<Amazon.KinesisAnalytics.Model.InputUpdate> ApplicationUpdate_InputUpdates { get; set; }
             public List<Amazon.KinesisAnalytics.Model.OutputUpdate> ApplicationUpdate_OutputUpdates { get; set; }
             public List<Amazon.KinesisAnalytics.Model.ReferenceDataSourceUpdate> ApplicationUpdate_ReferenceDataSourceUpdates { get; set; }

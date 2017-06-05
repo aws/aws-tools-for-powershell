@@ -4728,6 +4728,13 @@ $WD_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkDocs.CommentVisibilityType
+        "New-WDComment/Visibility"
+        {
+            $v = "PRIVATE","PUBLIC"
+            break
+        }
+        
         # Amazon.WorkDocs.DocumentVersionStatus
         "Update-WDDocumentVersion/VersionStatus"
         {
@@ -4847,6 +4854,7 @@ $WD_map = @{
     "SubscriptionType"=@("New-WDNotificationSubscription")
     "Type"=@("Get-WDFolderContent","Update-WDUser")
     "VersionStatus"=@("Update-WDDocumentVersion")
+    "Visibility"=@("New-WDComment")
 }
 
 _awsArgumentCompleterRegistration $WD_Completers $WD_map

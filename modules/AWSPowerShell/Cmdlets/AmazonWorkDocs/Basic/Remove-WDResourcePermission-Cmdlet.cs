@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class RemoveWDResourcePermissionCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter PrincipalId
         /// <summary>
         /// <para>
@@ -109,6 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.PrincipalId = this.PrincipalId;
             context.PrincipalType = this.PrincipalType;
             context.ResourceId = this.ResourceId;
@@ -128,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.RemoveResourcePermissionRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.PrincipalId != null)
             {
                 request.PrincipalId = cmdletContext.PrincipalId;
@@ -194,6 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String PrincipalId { get; set; }
             public Amazon.WorkDocs.PrincipalType PrincipalType { get; set; }
             public System.String ResourceId { get; set; }

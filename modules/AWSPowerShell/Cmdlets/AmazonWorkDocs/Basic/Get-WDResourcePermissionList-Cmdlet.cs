@@ -41,6 +41,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     public partial class GetWDResourcePermissionListCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
+        
         #region Parameter ResourceId
         /// <summary>
         /// <para>
@@ -90,6 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
@@ -110,6 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             
             // create request and set iteration invariants
             var request = new Amazon.WorkDocs.Model.DescribeResourcePermissionsRequest();
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
@@ -218,6 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
             public System.String ResourceId { get; set; }

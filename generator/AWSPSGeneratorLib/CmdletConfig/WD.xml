@@ -13,24 +13,24 @@
   <ServiceOperations>
     <ServiceOperation MethodName="AbortDocumentVersionUpload" Verb="Stop" Output="Void" ShouldProcessTarget="DocumentId" PipelineParameter="DocumentId" />
     <ServiceOperation MethodName="InitiateDocumentVersionUpload" Verb="Start" Output="Response" ShouldProcessTarget="Id" PipelineParameter="Id" />
-    <ServiceOperation MethodName="DeleteDocument" Output="Void"/>
+    <ServiceOperation MethodName="DeleteDocument" Output="Void" PipelineParameter="DocumentId" />
     <ServiceOperation MethodName="DescribeDocumentVersions" Noun="DocumentVersionList" PipelineParameter="DocumentId"/>
-    <ServiceOperation MethodName="GetDocument" />
+    <ServiceOperation MethodName="GetDocument" PipelineParameter="DocumentId" Output="Response" />
     <ServiceOperation MethodName="GetDocumentPath" PipelineParameter="DocumentId"/>
-    <ServiceOperation MethodName="GetDocumentVersion" PipelineParameter="DocumentId"/>
+    <ServiceOperation MethodName="GetDocumentVersion" PipelineParameter="DocumentId" Output="Response" />
     <ServiceOperation MethodName="UpdateDocument" Output="Void" PipelineParameter="DocumentId"/>
     <ServiceOperation MethodName="UpdateDocumentVersion" Output="Void" PipelineParameter="DocumentId"/>
-    <ServiceOperation MethodName="ActivateUser" Verb="Enable"/>
+    <ServiceOperation MethodName="ActivateUser" Verb="Enable" PipelineParameter="UserId" />
     <ServiceOperation MethodName="CreateUser" ShouldProcessTarget="GivenName" PipelineParameter="OrganizationId" />
-    <ServiceOperation MethodName="DeactivateUser" Verb="Disable" Output="Void"/>
-    <ServiceOperation MethodName="DeleteUser" Output="Void"/>
+    <ServiceOperation MethodName="DeactivateUser" Verb="Disable" Output="Void" PipelineParameter="UserId" />
+    <ServiceOperation MethodName="DeleteUser" Output="Void" PipelineParameter="UserId" />
     <ServiceOperation MethodName="DescribeUsers" Noun="UserList" PipelineParameter="OrganizationId" MetadataProperties="TotalNumberOfUsers"/>
     <ServiceOperation MethodName="UpdateUser" ShouldProcessTarget="UserId" PipelineParameter="UserId" />
     <ServiceOperation MethodName="CreateFolder" ShouldProcessTarget="Name" PipelineParameter="ParentFolderId"/>
-    <ServiceOperation MethodName="DeleteFolder" Output="Void"/>
-    <ServiceOperation MethodName="DeleteFolderContents" Noun="FolderContent" Output="Void"/>
+    <ServiceOperation MethodName="DeleteFolder" Output="Void" PipelineParameter="FolderId" />
+    <ServiceOperation MethodName="DeleteFolderContents" Noun="FolderContent" Output="Void" PipelineParameter="FolderId" />
     <ServiceOperation MethodName="DescribeFolderContents" Noun="FolderContent" PipelineParameter="FolderId" Output="Response"/>
-    <ServiceOperation MethodName="GetFolder"/>
+    <ServiceOperation MethodName="GetFolder" PipelineParameter="FolderId" Output="Response" />
     <ServiceOperation MethodName="GetFolderPath" PipelineParameter="FolderId"/>
     <ServiceOperation MethodName="UpdateFolder" Output="Void" PipelineParameter="FolderId" ShouldProcessTarget="FolderId"/>
     <ServiceOperation MethodName="CreateNotificationSubscription" PipelineParameter="OrganizationId" />
@@ -40,5 +40,17 @@
     <ServiceOperation MethodName="DescribeResourcePermissions" Noun="ResourcePermissionList" PipelineParameter="ResourceId"/>
     <ServiceOperation MethodName="RemoveAllResourcePermissions" Output="Void" Exclude="true" />
     <ServiceOperation MethodName="RemoveResourcePermission" Output="Void" PipelineParameter="ResourceId"/>
+
+    <!-- choosing text as the pipeline input for CreateComment, so here-strings and contents from
+        files (get-content) can be piped in
+    -->
+    <ServiceOperation MethodName="CreateComment" PipelineParameter="Text" ShouldProcessTarget="VersionId" />
+    <ServiceOperation MethodName="CreateCustomMetadata" PipelineParameter="ResourceId" Output="Void" />
+    <ServiceOperation MethodName="CreateLabels" Noun="Label" PipelineParameter="ResourceId" Output="Void" />
+    <ServiceOperation MethodName="DeleteComment" PipelineParameter="CommentId" Output="Void" />
+    <ServiceOperation MethodName="DeleteCustomMetadata" PipelineParameter="ResourceId" Output="Void" />
+    <ServiceOperation MethodName="DeleteLabels" Noun="Label" PipelineParameter="Labels" Output="Void" />
+    <ServiceOperation MethodName="DescribeComments" Noun="Comment" PipelineParameter="VersionId" />
+
   </ServiceOperations>
 </ConfigModel>

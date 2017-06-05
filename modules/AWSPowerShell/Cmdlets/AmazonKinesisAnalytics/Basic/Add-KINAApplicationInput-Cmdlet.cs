@@ -94,9 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>Name prefix to use when creating in-application stream. Suppose you specify a prefix
-        /// "MyInApplicationStream". Kinesis Analytics will then create one or more (as per the
-        /// <code>InputParallelism</code> count you specified) in-application streams with names
-        /// "MyInApplicationStream_001", "MyInApplicationStream_002" and so on. </para>
+        /// "MyInApplicationStream". Amazon Kinesis Analytics will then create one or more (as
+        /// per the <code>InputParallelism</code> count you specified) in-application streams
+        /// with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

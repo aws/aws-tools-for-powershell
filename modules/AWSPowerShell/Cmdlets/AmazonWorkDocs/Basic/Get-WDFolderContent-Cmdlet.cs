@@ -28,7 +28,7 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Describes the contents of the specified folder, including its documents and sub-folders.
+    /// Describes the contents of the specified folder, including its documents and subfolders.
     /// 
     ///  
     /// <para>
@@ -45,6 +45,17 @@ namespace Amazon.PowerShell.Cmdlets.WD
     )]
     public partial class GetWDFolderContentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthenticationToken
+        /// <summary>
+        /// <para>
+        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthenticationToken { get; set; }
+        #endregion
         
         #region Parameter FolderId
         /// <summary>
@@ -113,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The marker for the next set of results. (You received this marker from a previous
-        /// call.)</para>
+        /// <para>The marker for the next set of results. This marker was received from a previous call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -138,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthenticationToken = this.AuthenticationToken;
             context.FolderId = this.FolderId;
             context.Include = this.Include;
             if (ParameterWasBound("Limit"))
@@ -162,6 +173,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // create request
             var request = new Amazon.WorkDocs.Model.DescribeFolderContentsRequest();
             
+            if (cmdletContext.AuthenticationToken != null)
+            {
+                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
             if (cmdletContext.FolderId != null)
             {
                 request.FolderId = cmdletContext.FolderId;
@@ -242,6 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AuthenticationToken { get; set; }
             public System.String FolderId { get; set; }
             public System.String Include { get; set; }
             public System.Int32? Limit { get; set; }

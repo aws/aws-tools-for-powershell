@@ -22,48 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkDocs;
-using Amazon.WorkDocs.Model;
+using Amazon.KinesisAnalytics;
+using Amazon.KinesisAnalytics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WD
+namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
-    /// Deactivates the specified user, which revokes the user's access to Amazon WorkDocs.
+    /// Deletes a CloudWatch log stream from an application. For more information about using
+    /// CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-monitor-configuration.html">Monitoring
+    /// Configuration Errors</a>.
     /// </summary>
-    [Cmdlet("Disable", "WDUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "KINAApplicationCloudWatchLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeactivateUser operation against Amazon WorkDocs.", Operation = new[] {"DeactivateUser"})]
+    [AWSCmdlet("Invokes the DeleteApplicationCloudWatchLoggingOption operation against Amazon Kinesis Analytics.", Operation = new[] {"DeleteApplicationCloudWatchLoggingOption"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.WorkDocs.Model.DeactivateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CloudWatchLoggingOptionId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class DisableWDUserCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
+    public partial class RemoveKINAApplicationCloudWatchLoggingOptionCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
-        #region Parameter AuthenticationToken
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
-        /// API actions, as in accessing the API using AWS credentials.</para>
+        /// <para>The Amazon Kinesis Analytics application name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String AuthenticationToken { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApplicationName { get; set; }
         #endregion
         
-        #region Parameter UserId
+        #region Parameter CloudWatchLoggingOptionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the user.</para>
+        /// <para>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete.
+        /// You can use the <a>DescribeApplication</a> operation to get the <code>CloudWatchLoggingOptionId</code>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String UserId { get; set; }
+        public System.String CloudWatchLoggingOptionId { get; set; }
+        #endregion
+        
+        #region Parameter CurrentApplicationVersionId
+        /// <summary>
+        /// <para>
+        /// <para>The version ID of the Amazon Kinesis Analytics application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.Int64 CurrentApplicationVersionId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the UserId parameter.
+        /// Returns the value passed to the CloudWatchLoggingOptionId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Disable-WDUser (DeactivateUser)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CloudWatchLoggingOptionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINAApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption)"))
             {
                 return;
             }
@@ -99,8 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AuthenticationToken = this.AuthenticationToken;
-            context.UserId = this.UserId;
+            context.ApplicationName = this.ApplicationName;
+            context.CloudWatchLoggingOptionId = this.CloudWatchLoggingOptionId;
+            if (ParameterWasBound("CurrentApplicationVersionId"))
+                context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -115,15 +130,19 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkDocs.Model.DeactivateUserRequest();
+            var request = new Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionRequest();
             
-            if (cmdletContext.AuthenticationToken != null)
+            if (cmdletContext.ApplicationName != null)
             {
-                request.AuthenticationToken = cmdletContext.AuthenticationToken;
+                request.ApplicationName = cmdletContext.ApplicationName;
             }
-            if (cmdletContext.UserId != null)
+            if (cmdletContext.CloudWatchLoggingOptionId != null)
             {
-                request.UserId = cmdletContext.UserId;
+                request.CloudWatchLoggingOptionId = cmdletContext.CloudWatchLoggingOptionId;
+            }
+            if (cmdletContext.CurrentApplicationVersionId != null)
+            {
+                request.CurrentApplicationVersionId = cmdletContext.CurrentApplicationVersionId.Value;
             }
             
             CmdletOutput output;
@@ -136,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.UserId;
+                    pipelineOutput = this.CloudWatchLoggingOptionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -161,14 +180,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkDocs.Model.DeactivateUserResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.DeactivateUserRequest request)
+        private Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "DeactivateUser");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DeleteApplicationCloudWatchLoggingOption");
             #if DESKTOP
-            return client.DeactivateUser(request);
+            return client.DeleteApplicationCloudWatchLoggingOption(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeactivateUserAsync(request);
+            var task = client.DeleteApplicationCloudWatchLoggingOptionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -179,8 +198,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AuthenticationToken { get; set; }
-            public System.String UserId { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.String CloudWatchLoggingOptionId { get; set; }
+            public System.Int64? CurrentApplicationVersionId { get; set; }
         }
         
     }

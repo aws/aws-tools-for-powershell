@@ -28,17 +28,16 @@ using Amazon.WorkDocs.Model;
 namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
-    /// Updates the specified attributes of the specified folder. The user must have access
-    /// to both the folder and its parent folder, if applicable.
+    /// Adds a new comment to the specified document version.
     /// </summary>
-    [Cmdlet("Update", "WDFolder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateFolder operation against Amazon WorkDocs.", Operation = new[] {"UpdateFolder"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FolderId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.WorkDocs.Model.UpdateFolderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "WDComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.WorkDocs.Model.Comment")]
+    [AWSCmdlet("Invokes the CreateComment operation against Amazon WorkDocs.", Operation = new[] {"CreateComment"})]
+    [AWSCmdletOutput("Amazon.WorkDocs.Model.Comment",
+        "This cmdlet returns a Comment object.",
+        "The service call response (type Amazon.WorkDocs.Model.CreateCommentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateWDFolderCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
+    public partial class NewWDCommentCmdlet : AmazonWorkDocsClientCmdlet, IExecutor
     {
         
         #region Parameter AuthenticationToken
@@ -52,55 +51,79 @@ namespace Amazon.PowerShell.Cmdlets.WD
         public System.String AuthenticationToken { get; set; }
         #endregion
         
-        #region Parameter FolderId
+        #region Parameter DocumentId
         /// <summary>
         /// <para>
-        /// <para>The ID of the folder.</para>
+        /// <para>The ID of the document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DocumentId { get; set; }
+        #endregion
+        
+        #region Parameter NotifyCollaborator
+        /// <summary>
+        /// <para>
+        /// <para>Set this parameter to TRUE to send an email out to the document collaborators after
+        /// the comment is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NotifyCollaborators")]
+        public System.Boolean NotifyCollaborator { get; set; }
+        #endregion
+        
+        #region Parameter ParentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the parent comment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ParentId { get; set; }
+        #endregion
+        
+        #region Parameter Text
+        /// <summary>
+        /// <para>
+        /// <para>The text of the comment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String FolderId { get; set; }
+        public System.String Text { get; set; }
         #endregion
         
-        #region Parameter Name
+        #region Parameter ThreadId
         /// <summary>
         /// <para>
-        /// <para>The name of the folder.</para>
+        /// <para>The ID of the root comment in the thread.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public System.String ThreadId { get; set; }
         #endregion
         
-        #region Parameter ParentFolderId
+        #region Parameter VersionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the parent folder.</para>
+        /// <para>The ID of the document version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ParentFolderId { get; set; }
+        public System.String VersionId { get; set; }
         #endregion
         
-        #region Parameter ResourceState
+        #region Parameter Visibility
         /// <summary>
         /// <para>
-        /// <para>The resource state of the folder. Note that only ACTIVE and RECYCLED are accepted
-        /// values from the API.</para>
+        /// <para>The visibility of the comment. Options are either PRIVATE, where the comment is visible
+        /// only to the comment author and document owner and co-owners, or PUBLIC, where the
+        /// comment is visible to document owners, co-owners, and contributors.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.WorkDocs.ResourceStateType")]
-        public Amazon.WorkDocs.ResourceStateType ResourceState { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the FolderId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [AWSConstantClassSource("Amazon.WorkDocs.CommentVisibilityType")]
+        public Amazon.WorkDocs.CommentVisibilityType Visibility { get; set; }
         #endregion
         
         #region Parameter Force
@@ -117,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FolderId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-WDFolder (UpdateFolder)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VersionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-WDComment (CreateComment)"))
             {
                 return;
             }
@@ -133,10 +156,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
             PreExecutionContextLoad(context);
             
             context.AuthenticationToken = this.AuthenticationToken;
-            context.FolderId = this.FolderId;
-            context.Name = this.Name;
-            context.ParentFolderId = this.ParentFolderId;
-            context.ResourceState = this.ResourceState;
+            context.DocumentId = this.DocumentId;
+            if (ParameterWasBound("NotifyCollaborator"))
+                context.NotifyCollaborators = this.NotifyCollaborator;
+            context.ParentId = this.ParentId;
+            context.Text = this.Text;
+            context.ThreadId = this.ThreadId;
+            context.VersionId = this.VersionId;
+            context.Visibility = this.Visibility;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -151,27 +178,39 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkDocs.Model.UpdateFolderRequest();
+            var request = new Amazon.WorkDocs.Model.CreateCommentRequest();
             
             if (cmdletContext.AuthenticationToken != null)
             {
                 request.AuthenticationToken = cmdletContext.AuthenticationToken;
             }
-            if (cmdletContext.FolderId != null)
+            if (cmdletContext.DocumentId != null)
             {
-                request.FolderId = cmdletContext.FolderId;
+                request.DocumentId = cmdletContext.DocumentId;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.NotifyCollaborators != null)
             {
-                request.Name = cmdletContext.Name;
+                request.NotifyCollaborators = cmdletContext.NotifyCollaborators.Value;
             }
-            if (cmdletContext.ParentFolderId != null)
+            if (cmdletContext.ParentId != null)
             {
-                request.ParentFolderId = cmdletContext.ParentFolderId;
+                request.ParentId = cmdletContext.ParentId;
             }
-            if (cmdletContext.ResourceState != null)
+            if (cmdletContext.Text != null)
             {
-                request.ResourceState = cmdletContext.ResourceState;
+                request.Text = cmdletContext.Text;
+            }
+            if (cmdletContext.ThreadId != null)
+            {
+                request.ThreadId = cmdletContext.ThreadId;
+            }
+            if (cmdletContext.VersionId != null)
+            {
+                request.VersionId = cmdletContext.VersionId;
+            }
+            if (cmdletContext.Visibility != null)
+            {
+                request.Visibility = cmdletContext.Visibility;
             }
             
             CmdletOutput output;
@@ -182,9 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.FolderId;
+                object pipelineOutput = response.Comment;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -209,14 +246,14 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkDocs.Model.UpdateFolderResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.UpdateFolderRequest request)
+        private Amazon.WorkDocs.Model.CreateCommentResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.CreateCommentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "UpdateFolder");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "CreateComment");
             #if DESKTOP
-            return client.UpdateFolder(request);
+            return client.CreateComment(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateFolderAsync(request);
+            var task = client.CreateCommentAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -228,10 +265,13 @@ namespace Amazon.PowerShell.Cmdlets.WD
         internal class CmdletContext : ExecutorContext
         {
             public System.String AuthenticationToken { get; set; }
-            public System.String FolderId { get; set; }
-            public System.String Name { get; set; }
-            public System.String ParentFolderId { get; set; }
-            public Amazon.WorkDocs.ResourceStateType ResourceState { get; set; }
+            public System.String DocumentId { get; set; }
+            public System.Boolean? NotifyCollaborators { get; set; }
+            public System.String ParentId { get; set; }
+            public System.String Text { get; set; }
+            public System.String ThreadId { get; set; }
+            public System.String VersionId { get; set; }
+            public Amazon.WorkDocs.CommentVisibilityType Visibility { get; set; }
         }
         
     }
