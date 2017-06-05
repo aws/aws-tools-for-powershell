@@ -268,6 +268,12 @@ namespace AWSPowerShellGenerator.Generators
                 }
             }
 
+            // Must export the aliases in this nested submodule for users on PSv3 or v4. If we don't,
+            // the aliases will not be present afterward even though we have expliclty listed them in
+            // the main module manifest. PS v5+ seems to have scoping changes that make this unnecessary,
+            // but harmless.
+            sb.AppendLine("Export-ModuleMember -Alias *");
+
             return sb.ToString();
         }
 
