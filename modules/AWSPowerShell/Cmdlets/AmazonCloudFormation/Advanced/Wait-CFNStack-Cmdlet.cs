@@ -19,7 +19,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
-using System.Text;
 using System.Threading;
 using Amazon.PowerShell.Common;
 using Amazon.CloudFormation;
@@ -32,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// or timeout occurs.
     /// </summary>
     [Cmdlet("Wait", "CFNStack")]
-    [OutputType("Amazon.CloudFormation.Model.Stack")]
+    [OutputType("Amazon.CloudFormation.Model.Stack", "None")]
     [AWSCmdlet("Pauses execution of a script until a stack reaches a specified status or timeout occurs. The DescribeStacks API is used to obtain the status of the stack.", Operation = new[] { "DescribeStacks" })]
-    [AWSCmdletOutput("Amazon.CloudFormation.Model.Stack",
-        "This cmdlet returns an Amazon.CloudFormation.Model.Stack object.",
+    [AWSCmdletOutput("None or Amazon.CloudFormation.Model.Stack",
+        "If the stack exists when one of the requested states is reached the cmdlet returns an Amazon.CloudFormation.Model.Stack object, otherwise it returns nothing.",
         "The service call response (type Amazon.CloudFormation.Model.DescribeStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class WaitCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
@@ -61,6 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// If not specified the command checks the stack's status against the states 
         /// 'UPDATE_ROLLBACK_COMPLETE', 'CREATE_COMPLETE', 'ROLLBACK_COMPLETE' and 'UPDATE_COMPLETE'.
         /// </para>
+        /// <para>If the set of states contains 'DELETE_COMPLETE' the cmdlet will wait for the underlying
+        /// DescribeStacks API call to return an error indicating the stack no longer exists before 
+        /// exiting. No output is emitted to the pipeline in this scenario.</para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         [AWSConstantClassSource("Amazon.CloudFormation.StackStatus")]
@@ -118,33 +120,55 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
             while (true)
             {
-                var output = Execute(_cmdletContext) as CmdletOutput;
-                if (output != null)
+                // if the user specified DELETE_COMPLETE then we are in fact watching for the
+                // stack to disappear (and an exception to be thrown from DescribeStacks)...
+                try
                 {
-                    var stack = output.PipelineOutput as Stack;
-                    if (stack != null)
+                    var output = Execute(_cmdletContext) as CmdletOutput;
+                    if (output != null)
                     {
-                        if (TestCFNStackCmdlet.IsStackInState(stack.StackStatus, _cmdletContext.Status))
+                        var stack = output.PipelineOutput as Stack;
+                        if (stack != null)
                         {
-                            ProcessOutput(output);
-                            break;
+                            if (TestCFNStackCmdlet.IsStackInState(stack.StackStatus, _cmdletContext.Status))
+                            {
+                                ProcessOutput(output);
+                                break;
+                            }
                         }
                     }
-                }
 
-                var now = DateTime.UtcNow;
-                if ((now - _startTime).TotalSeconds > _cmdletContext.Timeout)
+                    var now = DateTime.UtcNow;
+                    if ((now - _startTime).TotalSeconds > _cmdletContext.Timeout)
+                    {
+                        var err = string.Format("...timed out after {0} seconds waiting for CloudFormation stack {1} in region {2} to reach one of state(s): {3}",
+                                                 _cmdletContext.Timeout,
+                                                 _cmdletContext.StackName,
+                                                 _cmdletContext.Region.SystemName,
+                                                 TestCFNStackCmdlet.StateSetToFormattedString(_cmdletContext.Status));
+                        ThrowExecutionError(err, this);
+                    }
+
+                    WriteVerbose(string.Format("...sleeping for {0} seconds before re-testing status", PollSleepInSeconds));
+                    Thread.Sleep(PollSleepInSeconds * 1000);
+                }
+                catch (Exception)
                 {
-                    var err = string.Format("Timed out after {0} seconds waiting for CloudFormation stack {1} in region {2} to reach one of state(s): {3}",
-                                             _cmdletContext.Timeout,
-                                             _cmdletContext.StackName, 
-                                             _cmdletContext.Region.SystemName, 
-                                             TestCFNStackCmdlet.StateSetToFormattedString(_cmdletContext.Status));
-                    ThrowExecutionError(err, this);
+                    // ...of course we don't know from the error cfn gives us if this is truly
+                    // delete completed, or 'stack doesn't exist because you have wrong name/not yours'
+                    // scenario
+                    if (_cmdletContext.Status.Contains(StackStatus.DELETE_COMPLETE))
+                    {
+                        WriteVerbose("...status test on stack threw exception, assuming stack has reached termination as states to test included 'DELETE_COMPLETE'.");
+                        // cannot send exception back in output object here, as it will
+                        // stop the pipeline with an error
+                        ProcessOutput(new CmdletOutput());
+                    }
+                    else
+                    {
+                        throw;
+                    }
                 }
-
-                WriteVerbose(string.Format("Sleeping for {0} seconds", PollSleepInSeconds));
-                Thread.Sleep(PollSleepInSeconds * 1000);
             }
 
             base.EndProcessing();

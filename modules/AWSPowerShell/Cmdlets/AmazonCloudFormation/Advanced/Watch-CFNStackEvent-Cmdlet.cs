@@ -41,6 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     {
         private const int DefaultIntervalInSeconds = 5;
 
+        private DateTime? _lastPollTime;
+
         #region Parameter StackName
         /// <summary>
         /// The name or unique stack ID of the of the CloudFormation stack whose status will be monitored.
@@ -101,16 +103,39 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                                        context.Region.SystemName,
                                        TestCFNStackCmdlet.StateSetToFormattedString(context.Status)));
 
+
             while (true)
             {
-                var output = Execute(context) as CmdletOutput;
-                ProcessOutput(output);
+                try
+                {
+                    Execute(context);
 
-                if (TestCFNStackCmdlet.IsStackInState(Client, context.StackName, context.Status))
-                    break;
+                    if (TestCFNStackCmdlet.IsStackInState(Client, context.StackName, context.Status, true))
+                    {
+                        WriteVerbose("Stack reached requested state, exiting poll loop");
+                        break;
+                    }
 
-                WriteVerbose(string.Format("Stack not in desired state, sleeping for {0} seconds", context.Interval));
-                Thread.Sleep(context.Interval * 1000);
+                    WriteVerbose(string.Format("...stack not in desired state, sleeping for {0} seconds before next event poll", context.Interval));
+                    Thread.Sleep(context.Interval * 1000);
+                }
+                catch (Exception)
+                {
+                    // ...of course we don't know from the error cfn gives us if this is truly
+                    // delete completed, or 'stack doesn't exist because you have wrong name/not yours'
+                    // scenario
+                    if (context.Status.Contains(StackStatus.DELETE_COMPLETE))
+                    {
+                        WriteVerbose("...status test on stack threw exception, assuming stack has reached termination as states to test included 'DELETE_COMPLETE'.");
+                        // cannot send exception back in output object here, as it will
+                        // stop the pipeline with an error
+                        ProcessOutput(new CmdletOutput());
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
             }
         }
 
@@ -121,28 +146,42 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             var cmdletContext = context as CmdletContext;
 
             var request = new DescribeStackEventsRequest {StackName = cmdletContext.StackName};
-            CmdletOutput output;
 
-            var now = DateTime.UtcNow;
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                WriteVerbose("Polling for fresh events on stack");
+                if (_lastPollTime != null)
+                {
+                    WriteVerbose("...polling for events on stack since " + _lastPollTime.Value.ToString("u"));
+                }
+                else
+                {
+                    WriteVerbose("...polling for events on stack");     
+                }
+
+                var lastPollTime = _lastPollTime;
+                _lastPollTime = DateTime.UtcNow;
+
                 var response = CallAWSServiceOperation(client, request);
 
-                var events = response.StackEvents.Where(e => (now - e.Timestamp.ToUniversalTime()).TotalSeconds < cmdletContext.Interval).ToList();
-                output = new CmdletOutput
-                {
-                    PipelineOutput = events,
-                    ServiceResponse = response
-                };
+                var events = lastPollTime == null 
+                    ? response.StackEvents
+                    : response.StackEvents.Where(e => e.Timestamp.ToUniversalTime() > lastPollTime).ToList();
+
+                Console.WriteLine("Captured last poll time at {0}", _lastPollTime.Value.ToString("u"));
+                Console.WriteLine("Emitting {0} events", events.Count);
+
+                WriteObject(events, true);
             }
             catch (Exception e)
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                var errorMsg = "Error polling for stack events";
+                if (e.InnerException != null)
+                    errorMsg += ": " + e.InnerException.Message;
+                ThrowExecutionError(errorMsg, this, e);
             }
 
-            return output;
+            return null;
         }
 
         public ExecutorContext CreateContext()

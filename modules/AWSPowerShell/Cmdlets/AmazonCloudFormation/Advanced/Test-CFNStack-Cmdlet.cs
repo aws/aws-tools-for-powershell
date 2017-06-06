@@ -22,7 +22,6 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.CloudFormation;
 using Amazon.CloudFormation.Model;
-using Amazon.PowerShell.Cmdlets.ORG;
 
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
                 output = new CmdletOutput
                 {
-                    PipelineOutput = IsStackInState(client, cmdletContext.StackName, cmdletContext.Status)
+                    PipelineOutput = IsStackInState(client, cmdletContext.StackName, cmdletContext.Status, false)
                 };
             }
             catch (Exception e)
@@ -131,12 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 
         #endregion
 
-        internal static bool IsStackInState(IAmazonCloudFormation client, string stackName, HashSet<StackStatus> desiredStates)
+        internal static bool IsStackInState(IAmazonCloudFormation client, string stackName, HashSet<StackStatus> desiredStates, bool throwOnError)
         {
-            var request = new DescribeStacksRequest {StackName = stackName};
+            try
+            {
+                var request = new DescribeStacksRequest { StackName = stackName };
 
 #if DESKTOP
-            var response = client.DescribeStacks(request);
+                var response = client.DescribeStacks(request);
 #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
             var task = client.DescribeStacksAsync(request);
@@ -145,7 +146,15 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 #error "Unknown build edition"
 #endif
 
-            return IsStackInState(response.Stacks[0].StackStatus, desiredStates);
+                return IsStackInState(response.Stacks[0].StackStatus, desiredStates);
+            }
+            catch (Exception)
+            {
+                if (throwOnError)
+                    throw;
+            }
+
+            return false;
         }
 
         internal static bool IsStackInState(StackStatus status, HashSet<StackStatus> desiredStates)

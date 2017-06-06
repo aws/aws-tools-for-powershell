@@ -205,7 +205,7 @@
             <NetCoreSDKAssemblies Include="$(SDKAssembliesFolder)\netstandard1.3\*.dll" 
                            Exclude="$(SDKAssembliesFolder)\netstandard1.3\*.Glacier.*;$(SDKAssembliesFolder)\netstandard1.3\*.CognitoSync.*;$(SDKAssembliesFolder)\netstandard1.3\*.SimpleDB.*"/>
         </ItemGroup>
-        
+
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\AWSPowerShell.NetCore.psd1"
               DestinationFolder="$(NetCoreDeploymentArtifacts)"/>
         <Copy SourceFiles="$(RootPath)\modules\AWSPowerShell\$(BuildSourceFolder)\AWSPowerShell.NetCore.dll"

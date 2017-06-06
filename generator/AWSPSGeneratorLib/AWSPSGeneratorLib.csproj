@@ -99,7 +99,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormatConfig\ConfigModel.cs" />
-    <None Include="FormatConfig\CustomFormats\Amazon.SimpleSystemsManagement.Model.AssociationDescription.ps1xml" />
+    <None Include="FormatConfig\Configs.xml" />
+    <None Include="FormatConfig\CustomFormats\**\*.ps1xml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ServiceResources\TypeExtensions\AmazonEC2\Image.xml" />
