@@ -1,3 +1,15 @@
+### 3.3.104.0 (2017-06-09)
+  * Amazon S3
+    - Fixed issue with the Remove-S3Object cmdlet not correctly binding version data when a collection of Amazon.S3.Model.S3ObjectVersion instances are piped to the -InputObject parameter. The examples for this cmdlet have been updated to illustrate usage scenarios deleting single and multiple objects.
+  * AWS OpsWorks
+    - Added support for resource tagging with new cmdlets Add-OPSResourceTag (TagResource API), Get-OPSResourceTag (ListTags API) and Remove-OPSResourceTag (UntagResource API).
+  * AWS IoT
+    - Updated the Get-IOTCertificate cmdlet with a new parameter -CertificatePem to support retrieving the description of a certificate with the certificate's PEM.  
+  * Amazon Pinpoint
+    - Added cmdlets to support SMS Text and Email Messaging support in addition to Mobile Push Notifications.
+  * AWS Rekognition
+    - Added cmdlets Get-REKCelebrityInfo (GetCelebrityInfo API) and Find-REKCelebrity (RecognizeCelebrities API).
+
 ### 3.3.99.0 (2017-06-05)
   * All services
     - Resolved issue causing the backwards-compatible aliases introduced recently to not be available on PowerShell v3 or v4 systems.
