@@ -22,43 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.Pinpoint;
+using Amazon.Pinpoint.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Gets information about the specified certificate. You may specify the certificate
-    /// using either its ID or PEM.
+    /// Get an SMS channel
     /// </summary>
-    [Cmdlet("Get", "IOTCertificate")]
-    [OutputType("Amazon.IoT.Model.CertificateDescription")]
-    [AWSCmdlet("Invokes the DescribeCertificate operation against AWS IoT.", Operation = new[] {"DescribeCertificate"})]
-    [AWSCmdletOutput("Amazon.IoT.Model.CertificateDescription",
-        "This cmdlet returns a CertificateDescription object.",
-        "The service call response (type Amazon.IoT.Model.DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINSmsChannel")]
+    [OutputType("Amazon.Pinpoint.Model.SMSChannelResponse")]
+    [AWSCmdlet("Invokes the GetSmsChannel operation against Amazon Pinpoint.", Operation = new[] {"GetSmsChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.SMSChannelResponse",
+        "This cmdlet returns a SMSChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetSmsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetPINSmsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter CertificateId
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CertificateId { get; set; }
-        #endregion
-        
-        #region Parameter CertificatePem
-        /// <summary>
-        /// <para>
-        /// <para>The PEM of the certificate.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CertificatePem { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CertificateId = this.CertificateId;
-            context.CertificatePem = this.CertificatePem;
+            context.ApplicationId = this.ApplicationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.DescribeCertificateRequest();
+            var request = new Amazon.Pinpoint.Model.GetSmsChannelRequest();
             
-            if (cmdletContext.CertificateId != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.CertificateId = cmdletContext.CertificateId;
-            }
-            if (cmdletContext.CertificatePem != null)
-            {
-                request.CertificatePem = cmdletContext.CertificatePem;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
             
             CmdletOutput output;
@@ -109,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CertificateDescription;
+                object pipelineOutput = response.SMSChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,14 +118,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.DescribeCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DescribeCertificateRequest request)
+        private Amazon.Pinpoint.Model.GetSmsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetSmsChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DescribeCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetSmsChannel");
             #if DESKTOP
-            return client.DescribeCertificate(request);
+            return client.GetSmsChannel(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeCertificateAsync(request);
+            var task = client.GetSmsChannelAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -152,8 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CertificateId { get; set; }
-            public System.String CertificatePem { get; set; }
+            public System.String ApplicationId { get; set; }
         }
         
     }

@@ -30,64 +30,73 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// the specified object from Amazon S3.Once deleted, there is no method to restore or undelete an object.
     /// </para>
     /// <para>
-    /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
-    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
+    /// You can pipe Amazon.S3.Model.S3Object or Amazon.S3.Model.S3ObjectVersion instances to this cmdlet and their 
+    /// members will be used to satisfy the BucketName, Key (and VersionId if an S3ObjectVersion instance is supplied) 
+    /// parameters.
+    /// <br/><br/>
+    /// <b>Note: </b>When piping a collection of Amazon.S3.Model.S3Object or Amazon.S3.Model.S3ObjectVersion instances
+    /// to identify the objects to be deleted the cmdlet receives the elements from the piped collection 
+    /// one element at a time and will therefore make one service call per collection element to be deleted. To perform 
+    /// the deletion as a batch with a single call to the service specify the collection as the value of the -InputObject 
+    /// parameter. The -KeyCollection and -KeyAndVersionCollection parameters automatically process as a batch and make 
+    /// a single call to the service to delete all of the objects identified in the collections supplied to the parameters.
     /// </para>
     /// </summary>
-    [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_SingleObject, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType(new Type[] { typeof(DeleteObjectResponse), typeof(DeleteObjectsResponse) })]
+    [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_WithKey, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType(typeof(DeleteObjectResponse), typeof(DeleteObjectsResponse))]
     [AWSCmdlet("Invokes the DeleteObjects operation against Amazon S3.", Operation = new [] {"DeleteObjects"})]
-    [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectResponse instance if deleting a single object or Amazon.S3.Model.DeleteObjectsResponse instance for multi-object delete.")]
+    [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectResponse", "When deleting a single object.")]
+    [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectsResponse", "When deleting multiple objects.")]
     public class RemoveS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ParamSet_SingleObject = "SingleObjectDelete";
-        const string Paramset_MultipleObject = "MultipleObjectDelete";
+        private const string ParamSet_WithKey = "WithKey";
+        private const string ParamSet_WithKeyVersionCollection = "WithKeyVersionCollection";
+        private const string ParamSet_WithS3ObjectCollection = "WithS3ObjectCollection";
+        private const string ParamSet_WithKeyCollection = "WithKeyCollection";
 
         #region Parameter BucketName
         /// <summary>
-        /// The name of the bucket containing the object(s) to be removed.
+        /// The name of the bucket containing the object(s) to be deleted.
         /// </summary>
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = ParamSet_WithKey)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = ParamSet_WithKeyVersionCollection)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = ParamSet_WithKeyCollection)]
         public System.String BucketName { get; set; }
         #endregion
 
-        #region Single Object Delete Parameters
-
         #region Parameter Key
         /// <summary>
-        /// Key value identifying a single object in S3 to remove.
+        /// The object key identifying the object to be deleted.
         /// </summary>
-        [Parameter(Position = 1, ParameterSetName = ParamSet_SingleObject, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Position = 1, ParameterSetName = ParamSet_WithKey, ValueFromPipelineByPropertyName = true, Mandatory = true)]
         public System.String Key { get; set; }
         #endregion
 
         #region Parameter VersionId
         /// <summary>
-        /// If specified, the specific version of the S3 object is removed.
+        /// Version identifier of the S3 object to be deleted, for buckets with versioning enabled.
         /// </summary>
-        [Parameter(Position = 2, ParameterSetName = ParamSet_SingleObject)]
+        [Parameter(Position = 2, ParameterSetName = ParamSet_WithKey, ValueFromPipelineByPropertyName = true)]
         public System.String VersionId { get; set; }
         #endregion
 
-        #endregion
-
-        #region Multi-Object Delete Parameters
-
         #region Parameter VersionKey
         /// <summary>
-        /// Collection of KeyVersion objects describing the S3 objects to be deleted.
+        /// Collection of Amazon.S3.Model.KeyVersion objects describing the S3 objects to be deleted.
         /// </summary>
-        [Parameter(ParameterSetName = Paramset_MultipleObject)]
-        [Alias("VersionKeys")]
-        public Amazon.S3.Model.KeyVersion[] VersionKey { get; set; }
+        [Parameter(Mandatory = true, ParameterSetName = ParamSet_WithKeyVersionCollection)]
+        [Alias("VersionKeys", "VersionKey")]
+        public Amazon.S3.Model.KeyVersion[] KeyAndVersionCollection { get; set; }
         #endregion
 
         #region Parameter InputObject
         /// <summary>
-        /// Collection of S3Object instances describing the S3 objects to be deleted.
+        /// Collection of S3Object or S3ObjectVersion instances describing the S3 objects to be deleted. 
+        /// <br/>
+        /// <b>Note: </b>the objects must all belong to the same bucket.
         /// </summary>
-        [Parameter(ParameterSetName = Paramset_MultipleObject, ValueFromPipeline = true)]
-        [Alias("InputObjects")]
+        [Parameter(ValueFromPipeline = true, Mandatory = true, ParameterSetName = ParamSet_WithS3ObjectCollection)]
+        [Alias("InputObjects", "S3ObjectCollection")]
         public Amazon.S3.Model.S3Object[] InputObject { get; set; }
         #endregion
 
@@ -95,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Collection of key names describing the S3 objects to be deleted.
         /// </summary>
-        [Parameter(ParameterSetName = Paramset_MultipleObject)]
+        [Parameter(Mandatory = true, ParameterSetName = ParamSet_WithKeyCollection)]
         [Alias("Keys")]
         public System.String[] KeyCollection { get; set; }
         #endregion
@@ -114,10 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </para>
         /// </summary>
         [Alias("Quiet")]
-        [Parameter(ParameterSetName = Paramset_MultipleObject)]
+        [Parameter(ParameterSetName = ParamSet_WithKeyCollection)]
+        [Parameter(ParameterSetName = ParamSet_WithS3ObjectCollection)]
+        [Parameter(ParameterSetName = ParamSet_WithKeyVersionCollection)]
         public SwitchParameter ReportErrorsOnly { get; set; }
-        #endregion
-
         #endregion
 
         #region Shared Parameters
@@ -193,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             base.ProcessRecord();
 
-            var isSingleObjectDelete = this.ParameterSetName == ParamSet_SingleObject;
+            var isSingleObjectDelete = this.ParameterSetName == ParamSet_WithKey;
 
             var context = new CmdletContext
             {
@@ -215,11 +224,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("KeyCollection", MyInvocation.BoundParameters);
 
                 if (this.KeyCollection != null && this.KeyCollection.Length > 0)
-                    context.Keys = new List<string>(this.KeyCollection);
-                if (this.VersionKey != null && this.VersionKey.Length > 0)
-                    context.VersionKeys = new List<KeyVersion>(this.VersionKey);
+                    context.KeyCollection = new List<string>(this.KeyCollection);
+                if (this.KeyAndVersionCollection != null && this.KeyAndVersionCollection.Length > 0)
+                    context.KeyAndVersionCollection = new List<KeyVersion>(this.KeyAndVersionCollection);
                 if (this.InputObject != null && this.InputObject.Length > 0)
-                    context.InputObjects = new List<S3Object>(this.InputObject);
+                    context.S3ObjectCollection = new List<S3Object>(this.InputObject);
 
                 if (this.ReportErrorsOnly.IsPresent)
                     context.Quiet = true;
@@ -240,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            if (!string.IsNullOrEmpty(cmdletContext.Key))
+            if (this.ParameterSetName == ParamSet_WithKey)
                 return DeleteSingleS3Object(cmdletContext);
             else
                 return DeleteMultiS3Object(cmdletContext);
@@ -250,10 +259,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
 
-            var request = new DeleteObjectRequest();
+            var request = new DeleteObjectRequest
+            {
+                BucketName = cmdletContext.BucketName,
+                Key = cmdletContext.Key
+            };
 
-            request.BucketName = cmdletContext.BucketName;
-            request.Key = cmdletContext.Key;
             if (!string.IsNullOrEmpty(cmdletContext.VersionId))
                 request.VersionId = cmdletContext.VersionId;
 
@@ -292,27 +303,37 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
 
-            var request = new DeleteObjectsRequest {BucketName = cmdletContext.BucketName, Quiet = cmdletContext.Quiet};
-
-            if (cmdletContext.Keys != null)
+            var request = new DeleteObjectsRequest
             {
-                foreach (var key in cmdletContext.Keys)
+                Quiet = cmdletContext.Quiet
+            };
+
+            if (cmdletContext.KeyCollection != null)
+            {
+                request.BucketName = cmdletContext.BucketName;
+                foreach (var key in cmdletContext.KeyCollection)
                 {
                     request.AddKey(key);
                 }
             }
-            else if (cmdletContext.VersionKeys != null)
+            else if (cmdletContext.KeyAndVersionCollection != null)
             {
-                foreach (var key in cmdletContext.VersionKeys)
+                request.BucketName = cmdletContext.BucketName;
+                foreach (var key in cmdletContext.KeyAndVersionCollection)
                 {
                     request.AddKey(key.Key, key.VersionId);
                 }
             }
-            else if (cmdletContext.InputObjects != null)
+            else if (cmdletContext.S3ObjectCollection != null)
             {
-                foreach (var s3Object in cmdletContext.InputObjects)
+                request.BucketName = cmdletContext.S3ObjectCollection[0].BucketName;
+                foreach (var s3Object in cmdletContext.S3ObjectCollection)
                 {
-                    request.AddKey(s3Object.Key);
+                    var s3ObjectVersion = s3Object as S3ObjectVersion;
+                    if (s3ObjectVersion != null)
+                        request.AddKey(s3ObjectVersion.Key, s3ObjectVersion.VersionId);
+                    else
+                        request.AddKey(s3Object.Key);
                 }
             }
 
@@ -394,9 +415,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String VersionId { get; set; }
             
             public Boolean Quiet { get; set; }
-            public List<KeyVersion> VersionKeys { get; set; }
-            public List<S3Object> InputObjects { get; set; }
-            public List<string> Keys { get; set; }
+            public List<KeyVersion> KeyAndVersionCollection { get; set; }
+            public List<S3Object> S3ObjectCollection { get; set; }
+            public List<string> KeyCollection { get; set; }
 
             public String SerialNumber { get; set; }
             public String AuthenticationValue { get; set; }

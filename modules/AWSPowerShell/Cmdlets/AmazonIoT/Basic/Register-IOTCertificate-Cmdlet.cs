@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Status
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The status of the register certificate request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The ID of the CA certificate. This operation will list all registered device certificate
-        /// that were signed by this CA certificate. </para>
+        /// that were signed by this CA certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

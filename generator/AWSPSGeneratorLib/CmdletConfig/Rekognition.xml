@@ -51,6 +51,7 @@
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DetectModerationLabels" Verb="Find" Noun="ModerationLabel" NoPipelineParameter="true"/>
+        <ServiceOperation MethodName="GetCelebrityInfo" Output="Response" />
         <ServiceOperation MethodName="IndexFaces" Verb="Add" Noun="DetectedFacesToCollection" Output="Response">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
@@ -61,6 +62,14 @@
         </ServiceOperation>
         <ServiceOperation MethodName="ListCollections" Verb="Get" Noun="CollectionIdList" />
         <ServiceOperation MethodName="ListFaces" Verb="Get" Noun="FaceList" />
+        <ServiceOperation MethodName="RecognizeCelebrities" Verb="Find" Noun="Celebrity" Output="Response">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+        </ServiceOperation>
         <ServiceOperation MethodName="SearchFaces" Noun="Face" Output="Response" />
         <ServiceOperation MethodName="SearchFacesByImage" Output="Response">
             <Params>

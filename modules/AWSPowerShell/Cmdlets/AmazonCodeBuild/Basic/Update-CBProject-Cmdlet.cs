@@ -130,11 +130,14 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// path to the ZIP file that contains the source code (for example, <code><i>bucket-name</i>/<i>path</i>/<i>to</i>/<i>object-name</i>.zip</code>)</para></li><li><para>For source code in a GitHub repository, the HTTPS clone URL to the repository that
         /// contains the source and the build spec. Also, you must connect your AWS account to
         /// your GitHub account. To do this, use the AWS CodeBuild console to begin creating a
-        /// build project, and follow the on-screen instructions to complete the connection. (After
-        /// you have connected to your GitHub account, you do not need to finish creating the
-        /// build project, and you may then leave the AWS CodeBuild console.) To instruct AWS
-        /// CodeBuild to then use this connection, in the <code>source</code> object, set the
-        /// <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
+        /// build project. When you use the console to connect (or reconnect) with GitHub, on
+        /// the GitHub <b>Authorize application</b> page that displays, for <b>Organization access</b>,
+        /// choose <b>Request access</b> next to each repository you want to allow AWS CodeBuild
+        /// to have access to. Then choose <b>Authorize application</b>. (After you have connected
+        /// to your GitHub account, you do not need to finish creating the build project, and
+        /// you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use
+        /// this connection, in the <code>source</code> object, set the <code>auth</code> object's
+        /// <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -217,6 +220,27 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Artifacts_Path { get; set; }
+        #endregion
+        
+        #region Parameter Environment_PrivilegedMode
+        /// <summary>
+        /// <para>
+        /// <para>If set to true, enables running the Docker daemon inside a Docker container; otherwise,
+        /// false or not specified (the default). This value must be set to true only if this
+        /// build project will be used to build Docker images, and the specified build environment
+        /// image is not one provided by AWS CodeBuild with Docker support. Otherwise, all associated
+        /// builds that attempt to interact with the Docker daemon will fail. Note that you must
+        /// also start the Docker daemon so that your builds can interact with it as needed. One
+        /// way to do this is to initialize the Docker daemon in the install phase of your build
+        /// spec by running the following build commands. (Do not run the following build commands
+        /// if the specified build environment image is provided by AWS CodeBuild with Docker
+        /// support.)</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
+        /// --storage-driver=vfs&amp; - timeout -t 15 sh -c "until docker info; do echo .; sleep
+        /// 1; done"</code></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Environment_PrivilegedMode { get; set; }
         #endregion
         
         #region Parameter Auth_Resource
@@ -358,6 +382,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 context.Environment_EnvironmentVariables = new List<Amazon.CodeBuild.Model.EnvironmentVariable>(this.Environment_EnvironmentVariable);
             }
             context.Environment_Image = this.Environment_Image;
+            if (ParameterWasBound("Environment_PrivilegedMode"))
+                context.Environment_PrivilegedMode = this.Environment_PrivilegedMode;
             context.Environment_Type = this.Environment_Type;
             context.Name = this.Name;
             context.ServiceRole = this.ServiceRole;
@@ -497,6 +523,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestEnvironment_environment_Image != null)
             {
                 request.Environment.Image = requestEnvironment_environment_Image;
+                requestEnvironmentIsNull = false;
+            }
+            System.Boolean? requestEnvironment_environment_PrivilegedMode = null;
+            if (cmdletContext.Environment_PrivilegedMode != null)
+            {
+                requestEnvironment_environment_PrivilegedMode = cmdletContext.Environment_PrivilegedMode.Value;
+            }
+            if (requestEnvironment_environment_PrivilegedMode != null)
+            {
+                request.Environment.PrivilegedMode = requestEnvironment_environment_PrivilegedMode.Value;
                 requestEnvironmentIsNull = false;
             }
             Amazon.CodeBuild.EnvironmentType requestEnvironment_environment_Type = null;
@@ -667,6 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
             public List<Amazon.CodeBuild.Model.EnvironmentVariable> Environment_EnvironmentVariables { get; set; }
             public System.String Environment_Image { get; set; }
+            public System.Boolean? Environment_PrivilegedMode { get; set; }
             public Amazon.CodeBuild.EnvironmentType Environment_Type { get; set; }
             public System.String Name { get; set; }
             public System.String ServiceRole { get; set; }

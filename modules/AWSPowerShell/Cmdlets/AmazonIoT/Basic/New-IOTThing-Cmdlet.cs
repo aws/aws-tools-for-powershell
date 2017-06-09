@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter AttributePayload_Attribute
         /// <summary>
         /// <para>
-        /// <para>A JSON string containing up to three key-value pair in JSON format. For example:</para><para><code>{\"attributes\":{\"string1\":\"string2\"}})</code></para>
+        /// <para>A JSON string containing up to three key-value pair in JSON format. For example:</para><para><code>{\"attributes\":{\"string1\":\"string2\"}}</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

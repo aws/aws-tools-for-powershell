@@ -28,46 +28,41 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Detects faces in the input image and adds them to the specified collection. 
+    /// Returns an array of celebrities recognized in the input image. The image is passed
+    /// either as base64-encoded image bytes or as a reference to an image in an Amazon S3
+    /// bucket. The image must be either a PNG or JPEG formatted file. For more information,
+    /// see <a>celebrity-recognition</a>. 
     /// 
     ///  
-    /// <para>
-    ///  Amazon Rekognition does not save the actual faces detected. Instead, the underlying
-    /// detection algorithm first detects the faces in the input image, and for each face
-    /// extracts facial features into a feature vector, and stores it in the back-end database.
-    /// Amazon Rekognition uses feature vectors when performing face match and search operations
-    /// using the and operations. 
+    /// <para><code>RecognizeCelebrities</code> returns the 15 largest faces in the image. It lists
+    /// recognized celebrities in the <code>CelebrityFaces</code> list and unrecognized faces
+    /// in the <code>UnrecognizedFaces</code> list. The operation doesn't return celebrities
+    /// whose face sizes are smaller than the largest 15 faces in the image.
     /// </para><para>
-    /// If you provide the optional <code>externalImageID</code> for the input image you provided,
-    /// Amazon Rekognition associates this ID with all faces that it detects. When you call
-    /// the operation, the response returns the external ID. You can use this external image
-    /// ID to create a client-side index to associate the faces with each image. You can then
-    /// use the index to find all faces in an image. 
+    /// For each celebrity recognized, the API returns a <code>Celebrity</code> object. The
+    /// <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional
+    /// information, match confidence, and a <code>ComparedFace</code> object that you can
+    /// use to locate the celebrity's face on the image.
     /// </para><para>
-    /// In response, the operation returns an array of metadata for all detected faces. This
-    /// includes, the bounding box of the detected face, confidence value (indicating the
-    /// bounding box contains a face), a face ID assigned by the service for each face that
-    /// is detected and stored, and an image ID assigned by the service for the input image.
-    /// If you request all facial attributes (using the <code>detectionAttributes</code> parameter,
-    /// Amazon Rekognition returns detailed facial attributes such as facial landmarks (for
-    /// example, location of eye and mount) and other facial attributes such gender. If you
-    /// provide the same image, specify the same collection, and use the same external ID
-    /// in the <code>IndexFaces</code> operation, Amazon Rekognition doesn't save duplicate
-    /// face metadata. 
+    /// Rekognition does not retain information about which images a celebrity has been recognized
+    /// in. Your application must store this information and use the <code>Celebrity</code>
+    /// ID property as a unique identifier for the celebrity. If you don't store the celebrity
+    /// name or additional information URLs returned by <code>RecognizeCelebrities</code>,
+    /// you will need the ID to identify the celebrity in a call to the operation.
     /// </para><para>
-    /// For an example, see <a>example2</a>.
+    /// For an example, see <a>recognize-celebrities-tutorial</a>.
     /// </para><para>
-    /// This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
-    /// action.
+    /// This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code>
+    /// operation.
     /// </para>
     /// </summary>
-    [Cmdlet("Add", "REKDetectedFacesToCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Rekognition.Model.IndexFacesResponse")]
-    [AWSCmdlet("Invokes the IndexFaces operation against Amazon Rekognition.", Operation = new[] {"IndexFaces"})]
-    [AWSCmdletOutput("Amazon.Rekognition.Model.IndexFacesResponse",
-        "This cmdlet returns a Amazon.Rekognition.Model.IndexFacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Find", "REKCelebrity")]
+    [OutputType("Amazon.Rekognition.Model.RecognizeCelebritiesResponse")]
+    [AWSCmdlet("Invokes the RecognizeCelebrities operation against Amazon Rekognition.", Operation = new[] {"RecognizeCelebrities"})]
+    [AWSCmdletOutput("Amazon.Rekognition.Model.RecognizeCelebritiesResponse",
+        "This cmdlet returns a Amazon.Rekognition.Model.RecognizeCelebritiesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddREKDetectedFacesToCollectionCmdlet : AmazonRekognitionClientCmdlet, IExecutor
+    public partial class FindREKCelebrityCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
         #region Parameter ImageBucket
@@ -90,44 +85,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public byte[] ImageContent { get; set; }
         #endregion
         
-        #region Parameter CollectionId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of an existing collection to which you want to add the faces that are detected
-        /// in the input images.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CollectionId { get; set; }
-        #endregion
-        
-        #region Parameter DetectionAttribute
-        /// <summary>
-        /// <para>
-        /// <para>An array of facial attributes that you want to be returned. This can be the default
-        /// list of attributes or all attributes. If you don't specify a value for <code>Attributes</code>
-        /// or if you specify <code>["DEFAULT"]</code>, the API returns the following subset of
-        /// facial attributes: <code>BoundingBox</code>, <code>Confidence</code>, <code>Pose</code>,
-        /// <code>Quality</code> and <code>Landmarks</code>. If you provide <code>["ALL"]</code>,
-        /// all facial attributes are returned but the operation will take longer to complete.</para><para>If you provide both, <code>["ALL", "DEFAULT"]</code>, the service uses a logical AND
-        /// operator to determine which attributes to return (in this case, all attributes). </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("DetectionAttributes")]
-        public System.String[] DetectionAttribute { get; set; }
-        #endregion
-        
-        #region Parameter ExternalImageId
-        /// <summary>
-        /// <para>
-        /// <para>ID you want to assign to all the faces detected in the image.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ExternalImageId { get; set; }
-        #endregion
-        
         #region Parameter ImageName
         /// <summary>
         /// <para>
@@ -148,25 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public System.String ImageVersion { get; set; }
         #endregion
         
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CollectionId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-REKDetectedFacesToCollection (IndexFaces)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -177,12 +118,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CollectionId = this.CollectionId;
-            if (this.DetectionAttribute != null)
-            {
-                context.DetectionAttributes = new List<System.String>(this.DetectionAttribute);
-            }
-            context.ExternalImageId = this.ExternalImageId;
             context.ImageContent = this.ImageContent;
             context.ImageBucket = this.ImageBucket;
             context.ImageName = this.ImageName;
@@ -205,20 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.REK
             {
                 var cmdletContext = context as CmdletContext;
                 // create request
-                var request = new Amazon.Rekognition.Model.IndexFacesRequest();
+                var request = new Amazon.Rekognition.Model.RecognizeCelebritiesRequest();
                 
-                if (cmdletContext.CollectionId != null)
-                {
-                    request.CollectionId = cmdletContext.CollectionId;
-                }
-                if (cmdletContext.DetectionAttributes != null)
-                {
-                    request.DetectionAttributes = cmdletContext.DetectionAttributes;
-                }
-                if (cmdletContext.ExternalImageId != null)
-                {
-                    request.ExternalImageId = cmdletContext.ExternalImageId;
-                }
                 
                  // populate Image
                 bool requestImageIsNull = true;
@@ -326,14 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #region AWS Service Operation Call
         
-        private Amazon.Rekognition.Model.IndexFacesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.IndexFacesRequest request)
+        private Amazon.Rekognition.Model.RecognizeCelebritiesResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.RecognizeCelebritiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "IndexFaces");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "RecognizeCelebrities");
             #if DESKTOP
-            return client.IndexFaces(request);
+            return client.RecognizeCelebrities(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.IndexFacesAsync(request);
+            var task = client.RecognizeCelebritiesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -344,9 +267,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CollectionId { get; set; }
-            public List<System.String> DetectionAttributes { get; set; }
-            public System.String ExternalImageId { get; set; }
             public byte[] ImageContent { get; set; }
             public System.String ImageBucket { get; set; }
             public System.String ImageName { get; set; }

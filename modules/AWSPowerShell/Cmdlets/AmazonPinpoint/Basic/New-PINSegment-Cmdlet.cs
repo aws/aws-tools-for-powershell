@@ -64,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter AppVersion_DimensionType
         /// <summary>
         /// <para>
-        /// The type of dimension:INCLUSIVE – Endpoints
-        /// that match the criteria are included in the segment.EXCLUSIVE – Endpoints that match
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
         /// the criteria are excluded from the segment.
         /// </para>
         /// </summary>
@@ -75,11 +75,25 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public Amazon.Pinpoint.DimensionType AppVersion_DimensionType { get; set; }
         #endregion
         
+        #region Parameter Channel_DimensionType
+        /// <summary>
+        /// <para>
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
+        /// the criteria are excluded from the segment.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType")]
+        [AWSConstantClassSource("Amazon.Pinpoint.DimensionType")]
+        public Amazon.Pinpoint.DimensionType Channel_DimensionType { get; set; }
+        #endregion
+        
         #region Parameter DeviceType_DimensionType
         /// <summary>
         /// <para>
-        /// The type of dimension:INCLUSIVE – Endpoints
-        /// that match the criteria are included in the segment.EXCLUSIVE – Endpoints that match
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
         /// the criteria are excluded from the segment.
         /// </para>
         /// </summary>
@@ -92,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Make_DimensionType
         /// <summary>
         /// <para>
-        /// The type of dimension:INCLUSIVE – Endpoints
-        /// that match the criteria are included in the segment.EXCLUSIVE – Endpoints that match
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
         /// the criteria are excluded from the segment.
         /// </para>
         /// </summary>
@@ -106,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Model_DimensionType
         /// <summary>
         /// <para>
-        /// The type of dimension:INCLUSIVE – Endpoints
-        /// that match the criteria are included in the segment.EXCLUSIVE – Endpoints that match
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
         /// the criteria are excluded from the segment.
         /// </para>
         /// </summary>
@@ -120,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Platform_DimensionType
         /// <summary>
         /// <para>
-        /// The type of dimension:INCLUSIVE – Endpoints
-        /// that match the criteria are included in the segment.EXCLUSIVE – Endpoints that match
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
         /// the criteria are excluded from the segment.
         /// </para>
         /// </summary>
@@ -134,8 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Country_DimensionType
         /// <summary>
         /// <para>
-        /// The type of dimension:INCLUSIVE – Endpoints
-        /// that match the criteria are included in the segment.EXCLUSIVE – Endpoints that match
+        /// The type of dimension:INCLUSIVE - Endpoints
+        /// that match the criteria are included in the segment.EXCLUSIVE - Endpoints that match
         /// the criteria are excluded from the segment.
         /// </para>
         /// </summary>
@@ -171,9 +185,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Recency_RecencyType
         /// <summary>
         /// <para>
-        /// The recency dimension type:ACTIVE – Users
+        /// The recency dimension type:ACTIVE - Users
         /// who have used your app within the specified duration are included in the segment.INACTIVE
-        /// – Users who have not used your app within the specified duration are included in the
+        /// - Users who have not used your app within the specified duration are included in the
         /// segment.
         /// </para>
         /// </summary>
@@ -205,6 +219,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("WriteSegmentRequest_Dimensions_Demographic_AppVersion_Values")]
         public System.String[] AppVersion_Value { get; set; }
+        #endregion
+        
+        #region Parameter Channel_Value
+        /// <summary>
+        /// <para>
+        /// The criteria values for the segment dimension.
+        /// Endpoints with matching attribute values are included or excluded from the segment,
+        /// depending on the setting for Type.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteSegmentRequest_Dimensions_Demographic_Channel_Values")]
+        public System.String[] Channel_Value { get; set; }
         #endregion
         
         #region Parameter DeviceType_Value
@@ -316,6 +343,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (this.AppVersion_Value != null)
             {
                 context.WriteSegmentRequest_Dimensions_Demographic_AppVersion_Values = new List<System.String>(this.AppVersion_Value);
+            }
+            context.WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType = this.Channel_DimensionType;
+            if (this.Channel_Value != null)
+            {
+                context.WriteSegmentRequest_Dimensions_Demographic_Channel_Values = new List<System.String>(this.Channel_Value);
             }
             context.WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType = this.DeviceType_DimensionType;
             if (this.DeviceType_Value != null)
@@ -550,6 +582,41 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic.AppVersion = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_AppVersion;
                 requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_DemographicIsNull = false;
             }
+            Amazon.Pinpoint.Model.SetDimension requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel = null;
+            
+             // populate Channel
+            bool requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_ChannelIsNull = true;
+            requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel = new Amazon.Pinpoint.Model.SetDimension();
+            Amazon.Pinpoint.DimensionType requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_DimensionType = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_DimensionType = cmdletContext.WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_DimensionType != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel.DimensionType = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_DimensionType;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_ChannelIsNull = false;
+            }
+            List<System.String> requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_Value = null;
+            if (cmdletContext.WriteSegmentRequest_Dimensions_Demographic_Channel_Values != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_Value = cmdletContext.WriteSegmentRequest_Dimensions_Demographic_Channel_Values;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_Value != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel.Values = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel_channel_Value;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_ChannelIsNull = false;
+            }
+             // determine if requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel should be set to null
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_ChannelIsNull)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel = null;
+            }
+            if (requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel != null)
+            {
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic.Channel = requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_Channel;
+                requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_DemographicIsNull = false;
+            }
             Amazon.Pinpoint.Model.SetDimension requestWriteSegmentRequest_writeSegmentRequest_Dimensions_writeSegmentRequest_Dimensions_Demographic_writeSegmentRequest_Dimensions_Demographic_DeviceType = null;
             
              // populate DeviceType
@@ -773,6 +840,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Amazon.Pinpoint.RecencyType WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType { get; set; }
             public Amazon.Pinpoint.DimensionType WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType { get; set; }
             public List<System.String> WriteSegmentRequest_Dimensions_Demographic_AppVersion_Values { get; set; }
+            public Amazon.Pinpoint.DimensionType WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType { get; set; }
+            public List<System.String> WriteSegmentRequest_Dimensions_Demographic_Channel_Values { get; set; }
             public Amazon.Pinpoint.DimensionType WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType { get; set; }
             public List<System.String> WriteSegmentRequest_Dimensions_Demographic_DeviceType_Values { get; set; }
             public Amazon.Pinpoint.DimensionType WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType { get; set; }

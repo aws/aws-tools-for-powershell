@@ -44,10 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// The action that occurs if the user taps a push
-        /// notification delivered by the campaign:OPEN_APP – Your app launches, or it becomes
+        /// notification delivered by the campaign:OPEN_APP - Your app launches, or it becomes
         /// the foreground app if it has been sent to the background. This is the default action.DEEP_LINK
-        /// – Uses deep linking features in iOS and Android to open your app and display a designated
-        /// user interface within the app.URL – The default mobile browser on the user's device
+        /// - Uses deep linking features in iOS and Android to open your app and display a designated
+        /// user interface within the app.URL - The default mobile browser on the user's device
         /// launches and opens a web page at the URL you specify.
         /// </para>
         /// </summary>
@@ -61,10 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// The action that occurs if the user taps a push
-        /// notification delivered by the campaign:OPEN_APP – Your app launches, or it becomes
+        /// notification delivered by the campaign:OPEN_APP - Your app launches, or it becomes
         /// the foreground app if it has been sent to the background. This is the default action.DEEP_LINK
-        /// – Uses deep linking features in iOS and Android to open your app and display a designated
-        /// user interface within the app.URL – The default mobile browser on the user's device
+        /// - Uses deep linking features in iOS and Android to open your app and display a designated
+        /// user interface within the app.URL - The default mobile browser on the user's device
         /// launches and opens a web page at the URL you specify.
         /// </para>
         /// </summary>
@@ -78,10 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// The action that occurs if the user taps a push
-        /// notification delivered by the campaign:OPEN_APP – Your app launches, or it becomes
+        /// notification delivered by the campaign:OPEN_APP - Your app launches, or it becomes
         /// the foreground app if it has been sent to the background. This is the default action.DEEP_LINK
-        /// – Uses deep linking features in iOS and Android to open your app and display a designated
-        /// user interface within the app.URL – The default mobile browser on the user's device
+        /// - Uses deep linking features in iOS and Android to open your app and display a designated
+        /// user interface within the app.URL - The default mobile browser on the user's device
         /// launches and opens a web page at the URL you specify.
         /// </para>
         /// </summary>
@@ -135,6 +135,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String DefaultMessage_Body { get; set; }
         #endregion
         
+        #region Parameter EmailMessage_Body
+        /// <summary>
+        /// <para>
+        /// The email text body.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_EmailMessage_Body")]
+        public System.String EmailMessage_Body { get; set; }
+        #endregion
+        
         #region Parameter GCMMessage_Body
         /// <summary>
         /// <para>
@@ -144,6 +155,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("WriteCampaignRequest_MessageConfiguration_GCMMessage_Body")]
         public System.String GCMMessage_Body { get; set; }
+        #endregion
+        
+        #region Parameter SMSMessage_Body
+        /// <summary>
+        /// <para>
+        /// The SMS text body.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_SMSMessage_Body")]
+        public System.String SMSMessage_Body { get; set; }
         #endregion
         
         #region Parameter CampaignId
@@ -225,6 +247,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Int32 WriteCampaignRequest_HoldoutPercent { get; set; }
         #endregion
         
+        #region Parameter EmailMessage_HtmlBody
+        /// <summary>
+        /// <para>
+        /// The email html body.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody")]
+        public System.String EmailMessage_HtmlBody { get; set; }
+        #endregion
+        
         #region Parameter APNSMessage_ImageIconUrl
         /// <summary>
         /// <para>
@@ -259,6 +292,42 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageIconUrl")]
         public System.String GCMMessage_ImageIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter APNSMessage_ImageSmallIconUrl
+        /// <summary>
+        /// <para>
+        /// The URL that points to the small icon
+        /// image for the push notification icon, for example, the app icon.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl")]
+        public System.String APNSMessage_ImageSmallIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter DefaultMessage_ImageSmallIconUrl
+        /// <summary>
+        /// <para>
+        /// The URL that points to the small icon
+        /// image for the push notification icon, for example, the app icon.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl")]
+        public System.String DefaultMessage_ImageSmallIconUrl { get; set; }
+        #endregion
+        
+        #region Parameter GCMMessage_ImageSmallIconUrl
+        /// <summary>
+        /// <para>
+        /// The URL that points to the small icon
+        /// image for the push notification icon, for example, the app icon.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl")]
+        public System.String GCMMessage_ImageSmallIconUrl { get; set; }
         #endregion
         
         #region Parameter APNSMessage_ImageUrl
@@ -389,6 +458,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_MediaUrl { get; set; }
         #endregion
         
+        #region Parameter SMSMessage_MessageType
+        /// <summary>
+        /// <para>
+        /// Is this is a transactional SMS message, otherwise
+        /// a promotional message.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType")]
+        [AWSConstantClassSource("Amazon.Pinpoint.MessageType")]
+        public Amazon.Pinpoint.MessageType SMSMessage_MessageType { get; set; }
+        #endregion
+        
         #region Parameter WriteCampaignRequest_Name
         /// <summary>
         /// <para>
@@ -419,6 +501,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 WriteCampaignRequest_SegmentVersion { get; set; }
+        #endregion
+        
+        #region Parameter SMSMessage_SenderId
+        /// <summary>
+        /// <para>
+        /// Sender ID of sent message.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId")]
+        public System.String SMSMessage_SenderId { get; set; }
         #endregion
         
         #region Parameter APNSMessage_SilentPush
@@ -518,6 +611,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title")]
         public System.String DefaultMessage_Title { get; set; }
+        #endregion
+        
+        #region Parameter EmailMessage_Title
+        /// <summary>
+        /// <para>
+        /// The email title (Or subject).
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_MessageConfiguration_EmailMessage_Title")]
+        public System.String EmailMessage_Title { get; set; }
         #endregion
         
         #region Parameter GCMMessage_Title
@@ -648,6 +752,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_Action = this.APNSMessage_Action;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_Body = this.APNSMessage_Body;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageIconUrl = this.APNSMessage_ImageIconUrl;
+            context.WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl = this.APNSMessage_ImageSmallIconUrl;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageUrl = this.APNSMessage_ImageUrl;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_JsonBody = this.APNSMessage_JsonBody;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_MediaUrl = this.APNSMessage_MediaUrl;
@@ -658,6 +763,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action = this.DefaultMessage_Action;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Body = this.DefaultMessage_Body;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageIconUrl = this.DefaultMessage_ImageIconUrl;
+            context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl = this.DefaultMessage_ImageSmallIconUrl;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageUrl = this.DefaultMessage_ImageUrl;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_JsonBody = this.DefaultMessage_JsonBody;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_MediaUrl = this.DefaultMessage_MediaUrl;
@@ -665,9 +771,13 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_SilentPush = this.DefaultMessage_SilentPush;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title = this.DefaultMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_DefaultMessage_Url = this.DefaultMessage_Url;
+            context.WriteCampaignRequest_MessageConfiguration_EmailMessage_Body = this.EmailMessage_Body;
+            context.WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody = this.EmailMessage_HtmlBody;
+            context.WriteCampaignRequest_MessageConfiguration_EmailMessage_Title = this.EmailMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_Action = this.GCMMessage_Action;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_Body = this.GCMMessage_Body;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageIconUrl = this.GCMMessage_ImageIconUrl;
+            context.WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl = this.GCMMessage_ImageSmallIconUrl;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageUrl = this.GCMMessage_ImageUrl;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_JsonBody = this.GCMMessage_JsonBody;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_MediaUrl = this.GCMMessage_MediaUrl;
@@ -675,6 +785,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteCampaignRequest_MessageConfiguration_GCMMessage_SilentPush = this.GCMMessage_SilentPush;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_Title = this.GCMMessage_Title;
             context.WriteCampaignRequest_MessageConfiguration_GCMMessage_Url = this.GCMMessage_Url;
+            context.WriteCampaignRequest_MessageConfiguration_SMSMessage_Body = this.SMSMessage_Body;
+            context.WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType = this.SMSMessage_MessageType;
+            context.WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId = this.SMSMessage_SenderId;
             context.WriteCampaignRequest_Name = this.WriteCampaignRequest_Name;
             context.WriteCampaignRequest_Schedule_EndTime = this.Schedule_EndTime;
             context.WriteCampaignRequest_Schedule_Frequency = this.Schedule_Frequency;
@@ -847,6 +960,96 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate MessageConfiguration
             bool requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = true;
             requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration = new Amazon.Pinpoint.Model.MessageConfiguration();
+            Amazon.Pinpoint.Model.CampaignEmailMessage requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage = null;
+            
+             // populate EmailMessage
+            bool requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessageIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage = new Amazon.Pinpoint.Model.CampaignEmailMessage();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Body = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_EmailMessage_Body != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Body = cmdletContext.WriteCampaignRequest_MessageConfiguration_EmailMessage_Body;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Body != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage.Body = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Body;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessageIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody = cmdletContext.WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage.HtmlBody = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessageIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Title = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_EmailMessage_Title != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Title = cmdletContext.WriteCampaignRequest_MessageConfiguration_EmailMessage_Title;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Title != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage.Title = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage_emailMessage_Title;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessageIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessageIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration.EmailMessage = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_EmailMessage;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignSmsMessage requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage = null;
+            
+             // populate SMSMessage
+            bool requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessageIsNull = true;
+            requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage = new Amazon.Pinpoint.Model.CampaignSmsMessage();
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_Body = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_SMSMessage_Body != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_Body = cmdletContext.WriteCampaignRequest_MessageConfiguration_SMSMessage_Body;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_Body != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage.Body = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_Body;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessageIsNull = false;
+            }
+            Amazon.Pinpoint.MessageType requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType = cmdletContext.WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage.MessageType = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_MessageType;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessageIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_SenderId = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_SenderId = cmdletContext.WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_SenderId != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage.SenderId = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage_sMSMessage_SenderId;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessageIsNull = false;
+            }
+             // determine if requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage should be set to null
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessageIsNull)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage = null;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration.SMSMessage = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_SMSMessage;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfigurationIsNull = false;
+            }
             Amazon.Pinpoint.Model.Message requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage = null;
             
              // populate APNSMessage
@@ -880,6 +1083,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageIconUrl != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage.ImageIconUrl = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageIconUrl;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessageIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageSmallIconUrl = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageSmallIconUrl = cmdletContext.WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageSmallIconUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage.ImageSmallIconUrl = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageSmallIconUrl;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessageIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_APNSMessage_aPNSMessage_ImageUrl = null;
@@ -987,6 +1200,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage.ImageIconUrl = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_ImageIconUrl;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessageIsNull = false;
             }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_ImageSmallIconUrl = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_ImageSmallIconUrl = cmdletContext.WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_ImageSmallIconUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage.ImageSmallIconUrl = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_ImageSmallIconUrl;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessageIsNull = false;
+            }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_DefaultMessage_defaultMessage_ImageUrl = null;
             if (cmdletContext.WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageUrl != null)
             {
@@ -1090,6 +1313,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage.ImageIconUrl = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageIconUrl;
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessageIsNull = false;
+            }
+            System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageSmallIconUrl = null;
+            if (cmdletContext.WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageSmallIconUrl = cmdletContext.WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageSmallIconUrl != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage.ImageSmallIconUrl = requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageSmallIconUrl;
                 requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessageIsNull = false;
             }
             System.String requestWriteCampaignRequest_writeCampaignRequest_MessageConfiguration_writeCampaignRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl = null;
@@ -1340,6 +1573,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_APNSMessage_Action { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_Body { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageIconUrl { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageSmallIconUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_ImageUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_JsonBody { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_MediaUrl { get; set; }
@@ -1349,21 +1583,29 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_Body { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageIconUrl { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageSmallIconUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_ImageUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_JsonBody { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_MediaUrl { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_DefaultMessage_SilentPush { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_DefaultMessage_Url { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_EmailMessage_Body { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_EmailMessage_HtmlBody { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_EmailMessage_Title { get; set; }
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_GCMMessage_Action { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_Body { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageIconUrl { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageSmallIconUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_ImageUrl { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_JsonBody { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_MediaUrl { get; set; }
             public System.Boolean? WriteCampaignRequest_MessageConfiguration_GCMMessage_SilentPush { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_Title { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_GCMMessage_Url { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_SMSMessage_Body { get; set; }
+            public Amazon.Pinpoint.MessageType WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType { get; set; }
+            public System.String WriteCampaignRequest_MessageConfiguration_SMSMessage_SenderId { get; set; }
             public System.String WriteCampaignRequest_Name { get; set; }
             public System.String WriteCampaignRequest_Schedule_EndTime { get; set; }
             public Amazon.Pinpoint.Frequency WriteCampaignRequest_Schedule_Frequency { get; set; }

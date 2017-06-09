@@ -28,16 +28,16 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use to update the APNs channel for an app.
+    /// Update an APNS sandbox channel
     /// </summary>
-    [Cmdlet("Update", "PINApnsChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.APNSChannelResponse")]
-    [AWSCmdlet("Invokes the UpdateApnsChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateApnsChannel"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSChannelResponse",
-        "This cmdlet returns a APNSChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdateApnsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PINApnsSandboxChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Pinpoint.Model.APNSSandboxChannelResponse")]
+    [AWSCmdlet("Invokes the UpdateApnsSandboxChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateApnsSandboxChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSSandboxChannelResponse",
+        "This cmdlet returns a APNSSandboxChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.UpdateApnsSandboxChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdatePINApnsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class UpdatePINApnsSandboxChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
@@ -50,34 +50,34 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter APNSChannelRequest_Certificate
+        #region Parameter APNSSandboxChannelRequest_Certificate
         /// <summary>
         /// <para>
         /// The distribution certificate from Apple.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String APNSChannelRequest_Certificate { get; set; }
+        public System.String APNSSandboxChannelRequest_Certificate { get; set; }
         #endregion
         
-        #region Parameter APNSChannelRequest_Enabled
+        #region Parameter APNSSandboxChannelRequest_Enabled
         /// <summary>
         /// <para>
         /// If the channel is enabled for sending messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Boolean APNSChannelRequest_Enabled { get; set; }
+        public System.Boolean APNSSandboxChannelRequest_Enabled { get; set; }
         #endregion
         
-        #region Parameter APNSChannelRequest_PrivateKey
+        #region Parameter APNSSandboxChannelRequest_PrivateKey
         /// <summary>
         /// <para>
         /// The certificate private key.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String APNSChannelRequest_PrivateKey { get; set; }
+        public System.String APNSSandboxChannelRequest_PrivateKey { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINApnsChannel (UpdateApnsChannel)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINApnsSandboxChannel (UpdateApnsSandboxChannel)"))
             {
                 return;
             }
@@ -109,10 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.APNSChannelRequest_Certificate = this.APNSChannelRequest_Certificate;
-            if (ParameterWasBound("APNSChannelRequest_Enabled"))
-                context.APNSChannelRequest_Enabled = this.APNSChannelRequest_Enabled;
-            context.APNSChannelRequest_PrivateKey = this.APNSChannelRequest_PrivateKey;
+            context.APNSSandboxChannelRequest_Certificate = this.APNSSandboxChannelRequest_Certificate;
+            if (ParameterWasBound("APNSSandboxChannelRequest_Enabled"))
+                context.APNSSandboxChannelRequest_Enabled = this.APNSSandboxChannelRequest_Enabled;
+            context.APNSSandboxChannelRequest_PrivateKey = this.APNSSandboxChannelRequest_PrivateKey;
             context.ApplicationId = this.ApplicationId;
             
             // allow further manipulation of loaded context prior to processing
@@ -128,46 +128,46 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.UpdateApnsChannelRequest();
+            var request = new Amazon.Pinpoint.Model.UpdateApnsSandboxChannelRequest();
             
             
-             // populate APNSChannelRequest
-            bool requestAPNSChannelRequestIsNull = true;
-            request.APNSChannelRequest = new Amazon.Pinpoint.Model.APNSChannelRequest();
-            System.String requestAPNSChannelRequest_aPNSChannelRequest_Certificate = null;
-            if (cmdletContext.APNSChannelRequest_Certificate != null)
+             // populate APNSSandboxChannelRequest
+            bool requestAPNSSandboxChannelRequestIsNull = true;
+            request.APNSSandboxChannelRequest = new Amazon.Pinpoint.Model.APNSSandboxChannelRequest();
+            System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate = null;
+            if (cmdletContext.APNSSandboxChannelRequest_Certificate != null)
             {
-                requestAPNSChannelRequest_aPNSChannelRequest_Certificate = cmdletContext.APNSChannelRequest_Certificate;
+                requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate = cmdletContext.APNSSandboxChannelRequest_Certificate;
             }
-            if (requestAPNSChannelRequest_aPNSChannelRequest_Certificate != null)
+            if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate != null)
             {
-                request.APNSChannelRequest.Certificate = requestAPNSChannelRequest_aPNSChannelRequest_Certificate;
-                requestAPNSChannelRequestIsNull = false;
+                request.APNSSandboxChannelRequest.Certificate = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Certificate;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
-            System.Boolean? requestAPNSChannelRequest_aPNSChannelRequest_Enabled = null;
-            if (cmdletContext.APNSChannelRequest_Enabled != null)
+            System.Boolean? requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled = null;
+            if (cmdletContext.APNSSandboxChannelRequest_Enabled != null)
             {
-                requestAPNSChannelRequest_aPNSChannelRequest_Enabled = cmdletContext.APNSChannelRequest_Enabled.Value;
+                requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled = cmdletContext.APNSSandboxChannelRequest_Enabled.Value;
             }
-            if (requestAPNSChannelRequest_aPNSChannelRequest_Enabled != null)
+            if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled != null)
             {
-                request.APNSChannelRequest.Enabled = requestAPNSChannelRequest_aPNSChannelRequest_Enabled.Value;
-                requestAPNSChannelRequestIsNull = false;
+                request.APNSSandboxChannelRequest.Enabled = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_Enabled.Value;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
-            System.String requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey = null;
-            if (cmdletContext.APNSChannelRequest_PrivateKey != null)
+            System.String requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey = null;
+            if (cmdletContext.APNSSandboxChannelRequest_PrivateKey != null)
             {
-                requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey = cmdletContext.APNSChannelRequest_PrivateKey;
+                requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey = cmdletContext.APNSSandboxChannelRequest_PrivateKey;
             }
-            if (requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey != null)
+            if (requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey != null)
             {
-                request.APNSChannelRequest.PrivateKey = requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey;
-                requestAPNSChannelRequestIsNull = false;
+                request.APNSSandboxChannelRequest.PrivateKey = requestAPNSSandboxChannelRequest_aPNSSandboxChannelRequest_PrivateKey;
+                requestAPNSSandboxChannelRequestIsNull = false;
             }
-             // determine if request.APNSChannelRequest should be set to null
-            if (requestAPNSChannelRequestIsNull)
+             // determine if request.APNSSandboxChannelRequest should be set to null
+            if (requestAPNSSandboxChannelRequestIsNull)
             {
-                request.APNSChannelRequest = null;
+                request.APNSSandboxChannelRequest = null;
             }
             if (cmdletContext.ApplicationId != null)
             {
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.APNSChannelResponse;
+                object pipelineOutput = response.APNSSandboxChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -207,14 +207,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.UpdateApnsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateApnsChannelRequest request)
+        private Amazon.Pinpoint.Model.UpdateApnsSandboxChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateApnsSandboxChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateApnsChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateApnsSandboxChannel");
             #if DESKTOP
-            return client.UpdateApnsChannel(request);
+            return client.UpdateApnsSandboxChannel(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateApnsChannelAsync(request);
+            var task = client.UpdateApnsSandboxChannelAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -225,9 +225,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String APNSChannelRequest_Certificate { get; set; }
-            public System.Boolean? APNSChannelRequest_Enabled { get; set; }
-            public System.String APNSChannelRequest_PrivateKey { get; set; }
+            public System.String APNSSandboxChannelRequest_Certificate { get; set; }
+            public System.Boolean? APNSSandboxChannelRequest_Enabled { get; set; }
+            public System.String APNSSandboxChannelRequest_PrivateKey { get; set; }
             public System.String ApplicationId { get; set; }
         }
         

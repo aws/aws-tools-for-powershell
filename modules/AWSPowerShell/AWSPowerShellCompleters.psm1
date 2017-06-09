@@ -333,7 +333,7 @@ $APS_Completers = {
         # Amazon.AppStream.AuthenticationType
         "Get-APSSessionList/AuthenticationType"
         {
-            $v = "API","SAML"
+            $v = "API","SAML","USERPOOL"
             break
         }
         
@@ -3791,6 +3791,9 @@ $PIN_Completers = {
     {
         # Amazon.Pinpoint.Action
         {
+            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_APNSMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_GCMMessage_Action") -Or
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_APNSMessage_Action") -Or
             ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_APNSMessage_Action") -Or
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action") -Or
@@ -3806,7 +3809,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.ChannelType
         "Update-PINEndpoint/EndpointRequest_ChannelType"
         {
-            $v = "APNS","GCM"
+            $v = "ADM","APNS","APNS_SANDBOX","EMAIL","GCM","SMS"
             break
         }
         
@@ -3814,6 +3817,8 @@ $PIN_Completers = {
         {
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType") -Or
             ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType") -Or
+            ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType") -Or
+            ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType") -Or
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType") -Or
             ($_ -eq "Update-PINSegment/WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType") -Or
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType") -Or
@@ -3857,6 +3862,17 @@ $PIN_Completers = {
             break
         }
         
+        # Amazon.Pinpoint.MessageType
+        {
+            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_SMSMessage_MessageType") -Or
+            ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType") -Or
+            ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType")
+        }
+        {
+            $v = "PROMOTIONAL","TRANSACTIONAL"
+            break
+        }
+        
         # Amazon.Pinpoint.RecencyType
         {
             ($_ -eq "New-PINSegment/WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType") -Or
@@ -3877,13 +3893,19 @@ $PIN_Completers = {
 $PIN_map = @{
     "EndpointRequest_ChannelType"=@("Update-PINEndpoint")
     "ImportJobRequest_Format"=@("New-PINImportJob")
+    "MessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINMessage")
+    "MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action"=@("Send-PINMessage")
+    "MessageRequest_MessageConfiguration_GCMMessage_Action"=@("Send-PINMessage")
+    "MessageRequest_MessageConfiguration_SMSMessage_MessageType"=@("Send-PINMessage")
     "WriteCampaignRequest_MessageConfiguration_APNSMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_GCMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
+    "WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_Schedule_Frequency"=@("New-PINCampaign","Update-PINCampaign")
     "WriteSegmentRequest_Dimensions_Behavior_Recency_Duration"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Behavior_Recency_RecencyType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Demographic_AppVersion_DimensionType"=@("New-PINSegment","Update-PINSegment")
+    "WriteSegmentRequest_Dimensions_Demographic_Channel_DimensionType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Demographic_DeviceType_DimensionType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Demographic_Make_DimensionType"=@("New-PINSegment","Update-PINSegment")
     "WriteSegmentRequest_Dimensions_Demographic_Model_DimensionType"=@("New-PINSegment","Update-PINSegment")

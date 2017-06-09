@@ -32,7 +32,7 @@
         <ServiceOperation MethodName="DeleteThingType" Output="Void"/>
         <ServiceOperation MethodName="DeleteTopicRule" Output="Void"/>
         <ServiceOperation MethodName="DeprecateThingType" Verb="Set" Noun="ThingTypeDeprecation" PipelineParameter="ThingTypeName" Output="Void"/>
-        <ServiceOperation MethodName="DescribeCertificate" />
+        <ServiceOperation MethodName="DescribeCertificate" PipelineParameter="CertificateId" />
         <ServiceOperation MethodName="DescribeEndpoint" />
         <ServiceOperation MethodName="DescribeThing" Output="Response" />
         <ServiceOperation MethodName="DescribeThingType" Output="Response" />

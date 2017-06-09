@@ -17,10 +17,14 @@
     <ServiceOperation MethodName="CreateSegment" />
     <ServiceOperation MethodName="DeleteApnsChannel"/>
     <ServiceOperation MethodName="DeleteCampaign" />
+    <ServiceOperation MethodName="DeleteApnsSandboxChannel" />
+    <ServiceOperation MethodName="DeleteEmailChannel" />
     <ServiceOperation MethodName="DeleteEventStream" />
     <ServiceOperation MethodName="DeleteGcmChannel"/>
     <ServiceOperation MethodName="DeleteSegment" />
+    <ServiceOperation MethodName="DeleteSmsChannel" />
     <ServiceOperation MethodName="GetApnsChannel"/>
+    <ServiceOperation MethodName="GetApnsSandboxChannel" />
     <ServiceOperation MethodName="GetApplicationSettings" Noun="ApplicationSettingList"/>
     <ServiceOperation MethodName="GetCampaign" />
     <ServiceOperation MethodName="GetCampaigns" Noun="CampaignList" />
@@ -32,17 +36,23 @@
     <ServiceOperation MethodName="GetGcmChannel"/>
     <ServiceOperation MethodName="GetImportJob" />
     <ServiceOperation MethodName="GetImportJobs" Noun="ImportJobList" />
+    <ServiceOperation MethodName="GetEmailChannel" />
     <ServiceOperation MethodName="GetSegment" />
     <ServiceOperation MethodName="GetSegmentImportJobs" Noun="SegmentImportJobList" />
     <ServiceOperation MethodName="GetSegments" Noun="SegmentList" />
     <ServiceOperation MethodName="GetSegmentVersion" />
     <ServiceOperation MethodName="GetSegmentVersions" Noun="SegmentVersionList" />
+    <ServiceOperation MethodName="GetSmsChannel" />
     <ServiceOperation MethodName="PutEventStream" />
+    <ServiceOperation MethodName="SendMessages" Noun="Message" />
     <ServiceOperation MethodName="UpdateApnsChannel" />
+    <ServiceOperation MethodName="UpdateApnsSandboxChannel" />
+    <ServiceOperation MethodName="UpdateApplicationSettings" Noun="ApplicationSettingList" />
     <ServiceOperation MethodName="UpdateCampaign" />
     <ServiceOperation MethodName="UpdateEndpoint" />
     <ServiceOperation MethodName="UpdateEndpointsBatch" />
     <ServiceOperation MethodName="UpdateGcmChannel" />
-    <ServiceOperation MethodName="UpdateApplicationSettings" Noun="ApplicationSettingList" />
+    <ServiceOperation MethodName="UpdateEmailChannel" />
+    <ServiceOperation MethodName="UpdateSmsChannel" />
   </ServiceOperations>
 </ConfigModel>

@@ -43,6 +43,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class UpdateAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        #region Parameter AttributesToDelete
+        /// <summary>
+        /// <para>
+        /// <para>Fleet attributes to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] AttributesToDelete { get; set; }
+        #endregion
+        
         #region Parameter DeleteVpcConfig
         /// <summary>
         /// <para>
@@ -151,6 +161,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>Security groups associated with the fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
@@ -191,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AttributesToDelete != null)
+            {
+                context.AttributesToDelete = new List<System.String>(this.AttributesToDelete);
+            }
             if (ParameterWasBound("ComputeCapacity_DesiredInstance"))
                 context.ComputeCapacity_DesiredInstances = this.ComputeCapacity_DesiredInstance;
             if (ParameterWasBound("DeleteVpcConfig"))
@@ -206,6 +231,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (ParameterWasBound("MaxUserDurationInSecond"))
                 context.MaxUserDurationInSeconds = this.MaxUserDurationInSecond;
             context.Name = this.Name;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupIds = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
             if (this.VpcConfig_SubnetId != null)
             {
                 context.VpcConfig_SubnetIds = new List<System.String>(this.VpcConfig_SubnetId);
@@ -226,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.UpdateFleetRequest();
             
+            if (cmdletContext.AttributesToDelete != null)
+            {
+                request.AttributesToDelete = cmdletContext.AttributesToDelete;
+            }
             
              // populate ComputeCapacity
             bool requestComputeCapacityIsNull = true;
@@ -285,6 +318,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
              // populate VpcConfig
             bool requestVpcConfigIsNull = true;
             request.VpcConfig = new Amazon.AppStream.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupIds != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupIds;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
             List<System.String> requestVpcConfig_vpcConfig_SubnetId = null;
             if (cmdletContext.VpcConfig_SubnetIds != null)
             {
@@ -352,6 +395,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> AttributesToDelete { get; set; }
             public System.Int32? ComputeCapacity_DesiredInstances { get; set; }
             public System.Boolean? DeleteVpcConfig { get; set; }
             public System.String Description { get; set; }
@@ -362,6 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String InstanceType { get; set; }
             public System.Int32? MaxUserDurationInSeconds { get; set; }
             public System.String Name { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
             public List<System.String> VpcConfig_SubnetIds { get; set; }
         }
         

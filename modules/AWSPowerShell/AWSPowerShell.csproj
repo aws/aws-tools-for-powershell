@@ -55,7 +55,7 @@
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
-      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.2\lib\net35\AWSSDK.AppStream.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.3\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>..\..\packages\AWSSDK.Athena.3.3.0\lib\net35\AWSSDK.Athena.dll</HintPath>
@@ -91,7 +91,7 @@
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.3.10\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.0.17\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.1\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.1\lib\net35\AWSSDK.Lightsail.dll</HintPath>
@@ -100,10 +100,10 @@
       <HintPath>..\..\packages\AWSSDK.Organizations.3.3.2\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.1.7\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.2\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
-      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.4.1\lib\net35\AWSSDK.Rekognition.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.5\lib\net35\AWSSDK.Rekognition.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Polly">
       <HintPath>..\..\packages\AWSSDK.Polly.3.3.2\lib\net35\AWSSDK.Polly.dll</HintPath>
@@ -142,7 +142,7 @@
       <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.4\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SQS">
-      <HintPath>..\..\packages\AWSSDK.SQS.3.3.2.3\lib\net35\AWSSDK.SQS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SQS.3.3.2.4\lib\net35\AWSSDK.SQS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
@@ -163,7 +163,7 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.2\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.6.2\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.6.3\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.18\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -199,7 +199,7 @@
       <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.2.12\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
-      <HintPath>..\..\packages\AWSSDK.IoT.3.3.1.16\lib\net35\AWSSDK.IoT.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.IoT.3.3.4\lib\net35\AWSSDK.IoT.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector">
       <HintPath>..\..\packages\AWSSDK.Inspector.3.3.1\lib\net35\AWSSDK.Inspector.dll</HintPath>
@@ -307,13 +307,13 @@
       <HintPath>..\..\packages\AWSSDK.CloudHSM.3.3.0.17\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
-      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.4\lib\net35\AWSSDK.CloudFront.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.4.1\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.5.3\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
-      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.2.10\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.2.11\lib\net35\AWSSDK.CertificateManager.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSSupport">
       <HintPath>..\..\packages\AWSSDK.AWSSupport.3.3.0.17\lib\net35\AWSSDK.AWSSupport.dll</HintPath>

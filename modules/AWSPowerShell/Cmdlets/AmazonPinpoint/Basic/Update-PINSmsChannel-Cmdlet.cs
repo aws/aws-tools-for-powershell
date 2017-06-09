@@ -28,16 +28,16 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use to update the APNs channel for an app.
+    /// Update an SMS channel
     /// </summary>
-    [Cmdlet("Update", "PINApnsChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.APNSChannelResponse")]
-    [AWSCmdlet("Invokes the UpdateApnsChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateApnsChannel"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSChannelResponse",
-        "This cmdlet returns a APNSChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdateApnsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PINSmsChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Pinpoint.Model.SMSChannelResponse")]
+    [AWSCmdlet("Invokes the UpdateSmsChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateSmsChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.SMSChannelResponse",
+        "This cmdlet returns a SMSChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.UpdateSmsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdatePINApnsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class UpdatePINSmsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
@@ -50,34 +50,24 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter APNSChannelRequest_Certificate
-        /// <summary>
-        /// <para>
-        /// The distribution certificate from Apple.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String APNSChannelRequest_Certificate { get; set; }
-        #endregion
-        
-        #region Parameter APNSChannelRequest_Enabled
+        #region Parameter SMSChannelRequest_Enabled
         /// <summary>
         /// <para>
         /// If the channel is enabled for sending messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Boolean APNSChannelRequest_Enabled { get; set; }
+        public System.Boolean SMSChannelRequest_Enabled { get; set; }
         #endregion
         
-        #region Parameter APNSChannelRequest_PrivateKey
+        #region Parameter SMSChannelRequest_SenderId
         /// <summary>
         /// <para>
-        /// The certificate private key.
+        /// Sender identifier of your messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String APNSChannelRequest_PrivateKey { get; set; }
+        public System.String SMSChannelRequest_SenderId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINApnsChannel (UpdateApnsChannel)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINSmsChannel (UpdateSmsChannel)"))
             {
                 return;
             }
@@ -109,11 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.APNSChannelRequest_Certificate = this.APNSChannelRequest_Certificate;
-            if (ParameterWasBound("APNSChannelRequest_Enabled"))
-                context.APNSChannelRequest_Enabled = this.APNSChannelRequest_Enabled;
-            context.APNSChannelRequest_PrivateKey = this.APNSChannelRequest_PrivateKey;
             context.ApplicationId = this.ApplicationId;
+            if (ParameterWasBound("SMSChannelRequest_Enabled"))
+                context.SMSChannelRequest_Enabled = this.SMSChannelRequest_Enabled;
+            context.SMSChannelRequest_SenderId = this.SMSChannelRequest_SenderId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -128,50 +117,40 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.UpdateApnsChannelRequest();
+            var request = new Amazon.Pinpoint.Model.UpdateSmsChannelRequest();
             
-            
-             // populate APNSChannelRequest
-            bool requestAPNSChannelRequestIsNull = true;
-            request.APNSChannelRequest = new Amazon.Pinpoint.Model.APNSChannelRequest();
-            System.String requestAPNSChannelRequest_aPNSChannelRequest_Certificate = null;
-            if (cmdletContext.APNSChannelRequest_Certificate != null)
-            {
-                requestAPNSChannelRequest_aPNSChannelRequest_Certificate = cmdletContext.APNSChannelRequest_Certificate;
-            }
-            if (requestAPNSChannelRequest_aPNSChannelRequest_Certificate != null)
-            {
-                request.APNSChannelRequest.Certificate = requestAPNSChannelRequest_aPNSChannelRequest_Certificate;
-                requestAPNSChannelRequestIsNull = false;
-            }
-            System.Boolean? requestAPNSChannelRequest_aPNSChannelRequest_Enabled = null;
-            if (cmdletContext.APNSChannelRequest_Enabled != null)
-            {
-                requestAPNSChannelRequest_aPNSChannelRequest_Enabled = cmdletContext.APNSChannelRequest_Enabled.Value;
-            }
-            if (requestAPNSChannelRequest_aPNSChannelRequest_Enabled != null)
-            {
-                request.APNSChannelRequest.Enabled = requestAPNSChannelRequest_aPNSChannelRequest_Enabled.Value;
-                requestAPNSChannelRequestIsNull = false;
-            }
-            System.String requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey = null;
-            if (cmdletContext.APNSChannelRequest_PrivateKey != null)
-            {
-                requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey = cmdletContext.APNSChannelRequest_PrivateKey;
-            }
-            if (requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey != null)
-            {
-                request.APNSChannelRequest.PrivateKey = requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey;
-                requestAPNSChannelRequestIsNull = false;
-            }
-             // determine if request.APNSChannelRequest should be set to null
-            if (requestAPNSChannelRequestIsNull)
-            {
-                request.APNSChannelRequest = null;
-            }
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
+            }
+            
+             // populate SMSChannelRequest
+            bool requestSMSChannelRequestIsNull = true;
+            request.SMSChannelRequest = new Amazon.Pinpoint.Model.SMSChannelRequest();
+            System.Boolean? requestSMSChannelRequest_sMSChannelRequest_Enabled = null;
+            if (cmdletContext.SMSChannelRequest_Enabled != null)
+            {
+                requestSMSChannelRequest_sMSChannelRequest_Enabled = cmdletContext.SMSChannelRequest_Enabled.Value;
+            }
+            if (requestSMSChannelRequest_sMSChannelRequest_Enabled != null)
+            {
+                request.SMSChannelRequest.Enabled = requestSMSChannelRequest_sMSChannelRequest_Enabled.Value;
+                requestSMSChannelRequestIsNull = false;
+            }
+            System.String requestSMSChannelRequest_sMSChannelRequest_SenderId = null;
+            if (cmdletContext.SMSChannelRequest_SenderId != null)
+            {
+                requestSMSChannelRequest_sMSChannelRequest_SenderId = cmdletContext.SMSChannelRequest_SenderId;
+            }
+            if (requestSMSChannelRequest_sMSChannelRequest_SenderId != null)
+            {
+                request.SMSChannelRequest.SenderId = requestSMSChannelRequest_sMSChannelRequest_SenderId;
+                requestSMSChannelRequestIsNull = false;
+            }
+             // determine if request.SMSChannelRequest should be set to null
+            if (requestSMSChannelRequestIsNull)
+            {
+                request.SMSChannelRequest = null;
             }
             
             CmdletOutput output;
@@ -182,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.APNSChannelResponse;
+                object pipelineOutput = response.SMSChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -207,14 +186,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.UpdateApnsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateApnsChannelRequest request)
+        private Amazon.Pinpoint.Model.UpdateSmsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateSmsChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateApnsChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateSmsChannel");
             #if DESKTOP
-            return client.UpdateApnsChannel(request);
+            return client.UpdateSmsChannel(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateApnsChannelAsync(request);
+            var task = client.UpdateSmsChannelAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -225,10 +204,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String APNSChannelRequest_Certificate { get; set; }
-            public System.Boolean? APNSChannelRequest_Enabled { get; set; }
-            public System.String APNSChannelRequest_PrivateKey { get; set; }
             public System.String ApplicationId { get; set; }
+            public System.Boolean? SMSChannelRequest_Enabled { get; set; }
+            public System.String SMSChannelRequest_SenderId { get; set; }
         }
         
     }

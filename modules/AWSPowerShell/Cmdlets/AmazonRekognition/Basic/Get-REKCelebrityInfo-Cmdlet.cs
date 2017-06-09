@@ -22,43 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.IoT;
-using Amazon.IoT.Model;
+using Amazon.Rekognition;
+using Amazon.Rekognition.Model;
 
-namespace Amazon.PowerShell.Cmdlets.IOT
+namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Gets information about the specified certificate. You may specify the certificate
-    /// using either its ID or PEM.
+    /// Gets the name and additional information about a celebrity based on his or her Rekognition
+    /// ID. The additional information is returned as an array of URLs. If there is no additional
+    /// information about the celebrity, this list is empty. For more information, see <a>celebrity-recognition</a>.
+    /// 
+    ///  
+    /// <para>
+    /// This operation requires permissions to perform the <code>rekognition:GetCelebrityInfo</code>
+    /// action. 
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "IOTCertificate")]
-    [OutputType("Amazon.IoT.Model.CertificateDescription")]
-    [AWSCmdlet("Invokes the DescribeCertificate operation against AWS IoT.", Operation = new[] {"DescribeCertificate"})]
-    [AWSCmdletOutput("Amazon.IoT.Model.CertificateDescription",
-        "This cmdlet returns a CertificateDescription object.",
-        "The service call response (type Amazon.IoT.Model.DescribeCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "REKCelebrityInfo")]
+    [OutputType("Amazon.Rekognition.Model.GetCelebrityInfoResponse")]
+    [AWSCmdlet("Invokes the GetCelebrityInfo operation against Amazon Rekognition.", Operation = new[] {"GetCelebrityInfo"})]
+    [AWSCmdletOutput("Amazon.Rekognition.Model.GetCelebrityInfoResponse",
+        "This cmdlet returns a Amazon.Rekognition.Model.GetCelebrityInfoResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetIOTCertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
+    public partial class GetREKCelebrityInfoCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
         
-        #region Parameter CertificateId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the certificate.</para>
+        /// <para>The ID for the celebrity. You get the celebrity ID from a call to the operation, which
+        /// recognizes celebrities in an image. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CertificateId { get; set; }
-        #endregion
-        
-        #region Parameter CertificatePem
-        /// <summary>
-        /// <para>
-        /// <para>The PEM of the certificate.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CertificatePem { get; set; }
+        public System.String Id { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -74,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CertificateId = this.CertificateId;
-            context.CertificatePem = this.CertificatePem;
+            context.Id = this.Id;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,15 +86,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.IoT.Model.DescribeCertificateRequest();
+            var request = new Amazon.Rekognition.Model.GetCelebrityInfoRequest();
             
-            if (cmdletContext.CertificateId != null)
+            if (cmdletContext.Id != null)
             {
-                request.CertificateId = cmdletContext.CertificateId;
-            }
-            if (cmdletContext.CertificatePem != null)
-            {
-                request.CertificatePem = cmdletContext.CertificatePem;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -109,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CertificateDescription;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -134,14 +126,14 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #region AWS Service Operation Call
         
-        private Amazon.IoT.Model.DescribeCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DescribeCertificateRequest request)
+        private Amazon.Rekognition.Model.GetCelebrityInfoResponse CallAWSServiceOperation(IAmazonRekognition client, Amazon.Rekognition.Model.GetCelebrityInfoRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DescribeCertificate");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Rekognition", "GetCelebrityInfo");
             #if DESKTOP
-            return client.DescribeCertificate(request);
+            return client.GetCelebrityInfo(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeCertificateAsync(request);
+            var task = client.GetCelebrityInfoAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -152,8 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String CertificateId { get; set; }
-            public System.String CertificatePem { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

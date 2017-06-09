@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <para>
     /// To filter images, use the labels returned by <code>DetectModerationLabels</code> to
     /// determine which types of content are appropriate. For information about moderation
-    /// labels, see <a>howitworks-moderateimage</a>.
+    /// labels, see <a>image-moderation</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Find", "REKModerationLabel")]

@@ -36,6 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// the original mail, you can request that the mail be resent within 72 hours of requesting
     /// the ACM Certificate. If more than 72 hours have elapsed since your original request
     /// or since your last attempt to resend validation mail, you must request a new certificate.
+    /// For more information about setting up your contact email addresses, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/setup-email.html">Configure
+    /// Email for your Domain</a>.
     /// </summary>
     [Cmdlet("Send", "ACMValidationEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

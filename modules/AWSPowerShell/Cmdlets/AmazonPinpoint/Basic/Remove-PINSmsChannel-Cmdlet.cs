@@ -28,27 +28,17 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Use to update the GCM channel for an app.
+    /// Delete an SMS channel
     /// </summary>
-    [Cmdlet("Update", "PINGcmChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.GCMChannelResponse")]
-    [AWSCmdlet("Invokes the UpdateGcmChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateGcmChannel"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.GCMChannelResponse",
-        "This cmdlet returns a GCMChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdateGcmChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "PINSmsChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Pinpoint.Model.SMSChannelResponse")]
+    [AWSCmdlet("Invokes the DeleteSmsChannel operation against Amazon Pinpoint.", Operation = new[] {"DeleteSmsChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.SMSChannelResponse",
+        "This cmdlet returns a SMSChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.DeleteSmsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdatePINGcmChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class RemovePINSmsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
-        
-        #region Parameter GCMChannelRequest_ApiKey
-        /// <summary>
-        /// <para>
-        /// Platform credential API key from Google.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String GCMChannelRequest_ApiKey { get; set; }
-        #endregion
         
         #region Parameter ApplicationId
         /// <summary>
@@ -58,16 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ApplicationId { get; set; }
-        #endregion
-        
-        #region Parameter GCMChannelRequest_Enabled
-        /// <summary>
-        /// <para>
-        /// If the channel is enabled for sending messages.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean GCMChannelRequest_Enabled { get; set; }
         #endregion
         
         #region Parameter Force
@@ -85,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINGcmChannel (UpdateGcmChannel)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PINSmsChannel (DeleteSmsChannel)"))
             {
                 return;
             }
@@ -100,9 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
-            context.GCMChannelRequest_ApiKey = this.GCMChannelRequest_ApiKey;
-            if (ParameterWasBound("GCMChannelRequest_Enabled"))
-                context.GCMChannelRequest_Enabled = this.GCMChannelRequest_Enabled;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -117,40 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.UpdateGcmChannelRequest();
+            var request = new Amazon.Pinpoint.Model.DeleteSmsChannelRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            
-             // populate GCMChannelRequest
-            bool requestGCMChannelRequestIsNull = true;
-            request.GCMChannelRequest = new Amazon.Pinpoint.Model.GCMChannelRequest();
-            System.String requestGCMChannelRequest_gCMChannelRequest_ApiKey = null;
-            if (cmdletContext.GCMChannelRequest_ApiKey != null)
-            {
-                requestGCMChannelRequest_gCMChannelRequest_ApiKey = cmdletContext.GCMChannelRequest_ApiKey;
-            }
-            if (requestGCMChannelRequest_gCMChannelRequest_ApiKey != null)
-            {
-                request.GCMChannelRequest.ApiKey = requestGCMChannelRequest_gCMChannelRequest_ApiKey;
-                requestGCMChannelRequestIsNull = false;
-            }
-            System.Boolean? requestGCMChannelRequest_gCMChannelRequest_Enabled = null;
-            if (cmdletContext.GCMChannelRequest_Enabled != null)
-            {
-                requestGCMChannelRequest_gCMChannelRequest_Enabled = cmdletContext.GCMChannelRequest_Enabled.Value;
-            }
-            if (requestGCMChannelRequest_gCMChannelRequest_Enabled != null)
-            {
-                request.GCMChannelRequest.Enabled = requestGCMChannelRequest_gCMChannelRequest_Enabled.Value;
-                requestGCMChannelRequestIsNull = false;
-            }
-             // determine if request.GCMChannelRequest should be set to null
-            if (requestGCMChannelRequestIsNull)
-            {
-                request.GCMChannelRequest = null;
             }
             
             CmdletOutput output;
@@ -161,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.GCMChannelResponse;
+                object pipelineOutput = response.SMSChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -186,14 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.UpdateGcmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateGcmChannelRequest request)
+        private Amazon.Pinpoint.Model.DeleteSmsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteSmsChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateGcmChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteSmsChannel");
             #if DESKTOP
-            return client.UpdateGcmChannel(request);
+            return client.DeleteSmsChannel(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateGcmChannelAsync(request);
+            var task = client.DeleteSmsChannelAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -205,8 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
-            public System.String GCMChannelRequest_ApiKey { get; set; }
-            public System.Boolean? GCMChannelRequest_Enabled { get; set; }
         }
         
     }
