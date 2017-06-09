@@ -6,7 +6,7 @@
   * AWS IoT
     - Updated the Get-IOTCertificate cmdlet with a new parameter -CertificatePem to support retrieving the description of a certificate with the certificate's PEM.  
   * Amazon Pinpoint
-    - Added cmdlets to support SMS Text and Email Messaging support in addition to Mobile Push Notifications.
+    - Added cmdlets to support SMS Text and Email Messaging in addition to Mobile Push Notifications.
   * AWS Rekognition
     - Added cmdlets Get-REKCelebrityInfo (GetCelebrityInfo API) and Find-REKCelebrity (RecognizeCelebrities API).
 
