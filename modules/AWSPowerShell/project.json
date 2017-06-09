@@ -70,7 +70,7 @@
 		"AWSSDK.MachineLearning": "3.3.0.17",
 		"AWSSDK.MarketplaceEntitlementService": "3.3.0.2",
 		"AWSSDK.MTurk": "3.3.0.10",
-		"AWSSDK.OpsWorks": "3.3.1.6",
+		"AWSSDK.OpsWorks": "3.3.2",
 		"AWSSDK.OpsWorksCM": "3.3.3.10",
 		"AWSSDK.Organizations": "3.3.2",
 		"AWSSDK.Pinpoint": "3.3.2",

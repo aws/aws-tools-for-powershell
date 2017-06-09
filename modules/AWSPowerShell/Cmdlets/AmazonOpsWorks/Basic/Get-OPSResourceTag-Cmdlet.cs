@@ -28,60 +28,34 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Describes Amazon ECS clusters that are registered with a stack. If you specify only
-    /// a stack ID, you can use the <code>MaxResults</code> and <code>NextToken</code> parameters
-    /// to paginate the response. However, AWS OpsWorks Stacks currently supports only one
-    /// cluster per layer, so the result set has a maximum of one element.
-    /// 
-    ///  
-    /// <para><b>Required Permissions</b>: To use this action, an IAM user must have a Show, Deploy,
-    /// or Manage permissions level for the stack or an attached policy that explicitly grants
-    /// permission. For more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
-    /// User Permissions</a>.
-    /// </para><para>
-    /// This call accepts only one resource-identifying parameter.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns a list of tags that are applied to the specified stack or layer.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "OPSEcsCluster")]
-    [OutputType("Amazon.OpsWorks.Model.EcsCluster")]
-    [AWSCmdlet("Invokes the DescribeEcsClusters operation against AWS OpsWorks.", Operation = new[] {"DescribeEcsClusters"})]
-    [AWSCmdletOutput("Amazon.OpsWorks.Model.EcsCluster",
-        "This cmdlet returns a collection of EcsCluster objects.",
-        "The service call response (type Amazon.OpsWorks.Model.DescribeEcsClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "OPSResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListTags operation against AWS OpsWorks.", Operation = new[] {"ListTags"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.OpsWorks.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetOPSEcsClusterCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class GetOPSResourceTagCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
-        #region Parameter EcsClusterArn
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>A list of ARNs, one for each cluster to be described.</para>
+        /// <para>The stack or layer's Amazon Resource Number (ARN).</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("EcsClusterArns")]
-        public System.String[] EcsClusterArn { get; set; }
-        #endregion
-        
-        #region Parameter StackId
-        /// <summary>
-        /// <para>
-        /// <para>A stack ID. <code>DescribeEcsClusters</code> returns a description of the cluster
-        /// that is registered with the stack.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String StackId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>To receive a paginated response, use this parameter to specify the maximum number
-        /// of results to be returned with a single call. If the number of available results exceeds
-        /// this maximum, the response includes a <code>NextToken</code> value that you can assign
-        /// to the <code>NextToken</code> request parameter to get the next set of results.</para>
+        /// <para>Do not use. A validation exception occurs if you add a <code>MaxResults</code> parameter
+        /// to a <code>ListTagsRequest</code> call. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,12 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If the previous paginated request did not return all of the remaining results, the
-        /// response object's<code>NextToken</code> parameter value is set to a token. To retrieve
-        /// the next set of results, call <code>DescribeEcsClusters</code> again and assign that
-        /// token to the request object's <code>NextToken</code> parameter. If there are no remaining
-        /// results, the previous response object's <code>NextToken</code> parameter is set to
-        /// <code>null</code>.</para>
+        /// <para>Do not use. A validation exception occurs if you add a <code>NextToken</code> parameter
+        /// to a <code>ListTagsRequest</code> call. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -120,14 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.EcsClusterArn != null)
-            {
-                context.EcsClusterArns = new List<System.String>(this.EcsClusterArn);
-            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.StackId = this.StackId;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -143,14 +109,10 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.OpsWorks.Model.DescribeEcsClustersRequest();
-            if (cmdletContext.EcsClusterArns != null)
+            var request = new Amazon.OpsWorks.Model.ListTagsRequest();
+            if (cmdletContext.ResourceArn != null)
             {
-                request.EcsClusterArns = cmdletContext.EcsClusterArns;
-            }
-            if (cmdletContext.StackId != null)
-            {
-                request.StackId = cmdletContext.StackId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             // Initialize loop variants and commence piping
@@ -186,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.EcsClusters;
+                        object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -195,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.EcsClusters.Count;
+                        int _receivedThisCall = response.Tags.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -238,14 +200,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpsWorks.Model.DescribeEcsClustersResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.DescribeEcsClustersRequest request)
+        private Amazon.OpsWorks.Model.ListTagsResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.ListTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "DescribeEcsClusters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "ListTags");
             #if DESKTOP
-            return client.DescribeEcsClusters(request);
+            return client.ListTags(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeEcsClustersAsync(request);
+            var task = client.ListTagsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -256,10 +218,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<System.String> EcsClusterArns { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public System.String StackId { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

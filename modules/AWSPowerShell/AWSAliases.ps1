@@ -2968,12 +2968,15 @@ Set-Alias -Name List-MTRWorkerBlockList -Value Get-MTRWorkerBlockList
 Set-Alias -Name MTR-ListWorkerBlocks -Value Get-MTRWorkerBlockList
 Set-Alias -Name List-MTRWorkersWithQualificationType -Value Get-MTRWorkersWithQualificationType
 Set-Alias -Name MTR-ListWorkersWithQualificationType -Value Get-MTRWorkersWithQualificationType
+Set-Alias -Name OPS-SetTimeBasedAutoScaling -Value Set-OPSTimeBasedAutoScaling
 Set-Alias -Name OPS-StartInstance -Value Start-OPSInstance
 Set-Alias -Name OPS-StartStack -Value Start-OPSStack
 Set-Alias -Name OPS-StopInstance -Value Stop-OPSInstance
 Set-Alias -Name OPS-StopStack -Value Stop-OPSStack
+Set-Alias -Name OPS-TagResource -Value Add-OPSResourceTag
 Set-Alias -Name OPS-UnassignInstance -Value Unregister-OPSInstanceAssignment
 Set-Alias -Name OPS-UnassignVolume -Value Remove-OPSVolume
+Set-Alias -Name OPS-UntagResource -Value Remove-OPSResourceTag
 Set-Alias -Name OPS-UpdateApp -Value Update-OPSApp
 Set-Alias -Name OPS-UpdateElasticIp -Value Update-OPSElasticIp
 Set-Alias -Name OPS-UpdateInstance -Value Update-OPSInstance
@@ -3016,6 +3019,7 @@ Set-Alias -Name OPS-DetachElasticLoadBalancer -Value Dismount-OPSElasticLoadBala
 Set-Alias -Name OPS-DisassociateElasticIp -Value Remove-OPSElasticIp
 Set-Alias -Name OPS-GetHostnameSuggestion -Value Get-OPSHostnameSuggestion
 Set-Alias -Name OPS-GrantAccess -Value Grant-OPSAccess
+Set-Alias -Name OPS-ListTags -Value Get-OPSResourceTag
 Set-Alias -Name Reboot-OPSInstance -Value Restart-OPSInstance
 Set-Alias -Name OPS-RebootInstance -Value Restart-OPSInstance
 Set-Alias -Name OPS-RegisterEcsCluster -Value Register-OPSEcsCluster
@@ -3025,7 +3029,6 @@ Set-Alias -Name OPS-RegisterRdsDbInstance -Value Register-OPSRdsDbInstance
 Set-Alias -Name OPS-RegisterVolume -Value Register-OPSVolume
 Set-Alias -Name OPS-SetLoadBasedAutoScaling -Value Set-OPSLoadBasedAutoScaling
 Set-Alias -Name OPS-SetPermission -Value Set-OPSPermission
-Set-Alias -Name OPS-SetTimeBasedAutoScaling -Value Set-OPSTimeBasedAutoScaling
 Set-Alias -Name OPS-AssignInstance -Value Register-OPSInstanceAssignment
 Set-Alias -Name OPS-AssignVolume -Value Add-OPSVolume
 Set-Alias -Name OPS-AssociateElasticIp -Value Add-OPSElasticIp

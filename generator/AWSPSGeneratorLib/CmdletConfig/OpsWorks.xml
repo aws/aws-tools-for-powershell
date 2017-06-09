@@ -15,6 +15,7 @@
     <AliasSet Cmdlet="Copy-OPSStack">Clone-OPSStack</AliasSet>
   </CustomAliases>
   
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
   <VerbMappings>
     <Map From="Reboot" To="Restart" />
     <Map From="Clone" To="Copy" />
@@ -106,6 +107,10 @@
     <ServiceOperation MethodName="RegisterEcsCluster" />
     <ServiceOperation MethodName="DeregisterEcsCluster" Output="Void" />
     <ServiceOperation MethodName="DescribeEcsClusters" Noun="EcsCluster" />
+
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceArn" Output="Void" />
+    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceArn" Output="Void" />
+    <ServiceOperation MethodName="ListTags" Verb="Get" Noun="ResourceTag" />
   </ServiceOperations>
   
   <PipelineByValueProperties>

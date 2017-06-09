@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         #region Parameter AppSource_Url
         /// <summary>
         /// <para>
-        /// <para>The source URL.</para>
+        /// <para>The source URL. The following is an example of an Amazon S3 source URL: <code>https://s3.amazonaws.com/opsworks-demo-bucket/opsworks_cookbook_demo.tar.gz</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

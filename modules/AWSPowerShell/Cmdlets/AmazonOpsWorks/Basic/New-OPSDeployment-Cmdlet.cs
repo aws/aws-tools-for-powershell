@@ -66,11 +66,11 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>The arguments of those commands that take arguments. It should be set to a JSON object
         /// with the following format:</para><para><code>{"arg_name1" : ["value1", "value2", ...], "arg_name2" : ["value1", "value2",
         /// ...], ...}</code></para><para>The <code>update_dependencies</code> command takes two arguments:</para><ul><li><para><code>upgrade_os_to</code> - Specifies the desired Amazon Linux version for instances
-        /// whose OS you want to upgrade, such as <code>Amazon Linux 2014.09</code>. You must
+        /// whose OS you want to upgrade, such as <code>Amazon Linux 2016.09</code>. You must
         /// also set the <code>allow_reboot</code> argument to true.</para></li><li><para><code>allow_reboot</code> - Specifies whether to allow AWS OpsWorks Stacks to reboot
         /// the instances if necessary, after installing the updates. This argument can be set
-        /// to either <code>true</code> or <code>false</code>. The default value is <code>false</code>.</para></li></ul><para>For example, to upgrade an instance to Amazon Linux 2014.09, set <code>Args</code>
-        /// to the following.</para><para><code> { "upgrade_os_to":["Amazon Linux 2014.09"], "allow_reboot":["true"] } </code></para>
+        /// to either <code>true</code> or <code>false</code>. The default value is <code>false</code>.</para></li></ul><para>For example, to upgrade an instance to Amazon Linux 2016.09, set <code>Args</code>
+        /// to the following.</para><para><code> { "upgrade_os_to":["Amazon Linux 2016.09"], "allow_reboot":["true"] } </code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,54 +28,46 @@ using Amazon.OpsWorks.Model;
 namespace Amazon.PowerShell.Cmdlets.OPS
 {
     /// <summary>
-    /// Attaches an Elastic Load Balancing load balancer to a specified layer. AWS OpsWorks
-    /// Stacks does not support Application Load Balancer. You can only use Classic Load Balancer
-    /// with AWS OpsWorks Stacks. For more information, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/layers-elb.html">Elastic
-    /// Load Balancing</a>.
-    /// 
-    ///  <note><para>
-    /// You must create the Elastic Load Balancing instance separately, by using the Elastic
-    /// Load Balancing console, API, or CLI. For more information, see <a href="http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/Welcome.html">
-    /// Elastic Load Balancing Developer Guide</a>.
-    /// </para></note><para><b>Required Permissions</b>: To use this action, an IAM user must have a Manage permissions
-    /// level for the stack, or an attached policy that explicitly grants permissions. For
-    /// more information on user permissions, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html">Managing
-    /// User Permissions</a>.
-    /// </para>
+    /// Apply cost-allocation tags to a specified stack or layer in AWS OpsWorks Stacks. For
+    /// more information about how tagging works, see <a href="http://docs.aws.amazon.com/opsworks/latest/userguide/tagging.html">Tags</a>
+    /// in the AWS OpsWorks User Guide.
     /// </summary>
-    [Cmdlet("Add", "OPSElasticLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "OPSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachElasticLoadBalancer operation against AWS OpsWorks.", Operation = new[] {"AttachElasticLoadBalancer"})]
+    [AWSCmdlet("Invokes the TagResource operation against AWS OpsWorks.", Operation = new[] {"TagResource"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ElasticLoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.OpsWorks.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddOPSElasticLoadBalancerCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
+    public partial class AddOPSResourceTagCmdlet : AmazonOpsWorksClientCmdlet, IExecutor
     {
         
-        #region Parameter ElasticLoadBalancerName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The Elastic Load Balancing instance's name.</para>
+        /// <para>The stack or layer's Amazon Resource Number (ARN).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ElasticLoadBalancerName { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
-        #region Parameter LayerId
+        #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>The ID of the layer that the Elastic Load Balancing instance is to be attached to.</para>
+        /// <para>A map that contains tag keys and tag values that are attached to a stack or layer.</para><ul><li><para>The key cannot be empty.</para></li><li><para>The key can be a maximum of 127 characters, and can contain only Unicode letters,
+        /// numbers, or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>The value can be a maximum 255 characters, and contain only Unicode letters, numbers,
+        /// or separators, or the following special characters: <code>+ - = . _ : /</code></para></li><li><para>Leading and trailing white spaces are trimmed from both the key and value.</para></li><li><para>A maximum of 40 tags is allowed for any resource.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        public System.String LayerId { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ElasticLoadBalancerName parameter.
+        /// Returns the value passed to the ResourceArn parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ElasticLoadBalancerName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-OPSElasticLoadBalancer (AttachElasticLoadBalancer)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-OPSResourceTag (TagResource)"))
             {
                 return;
             }
@@ -111,8 +103,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ElasticLoadBalancerName = this.ElasticLoadBalancerName;
-            context.LayerId = this.LayerId;
+            context.ResourceArn = this.ResourceArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +126,15 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.OpsWorks.Model.AttachElasticLoadBalancerRequest();
+            var request = new Amazon.OpsWorks.Model.TagResourceRequest();
             
-            if (cmdletContext.ElasticLoadBalancerName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ElasticLoadBalancerName = cmdletContext.ElasticLoadBalancerName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.LayerId != null)
+            if (cmdletContext.Tags != null)
             {
-                request.LayerId = cmdletContext.LayerId;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -148,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ElasticLoadBalancerName;
+                    pipelineOutput = this.ResourceArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -173,14 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #region AWS Service Operation Call
         
-        private Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.AttachElasticLoadBalancerRequest request)
+        private Amazon.OpsWorks.Model.TagResourceResponse CallAWSServiceOperation(IAmazonOpsWorks client, Amazon.OpsWorks.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "AttachElasticLoadBalancer");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorks", "TagResource");
             #if DESKTOP
-            return client.AttachElasticLoadBalancer(request);
+            return client.TagResource(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AttachElasticLoadBalancerAsync(request);
+            var task = client.TagResourceAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -191,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ElasticLoadBalancerName { get; set; }
-            public System.String LayerId { get; set; }
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }
