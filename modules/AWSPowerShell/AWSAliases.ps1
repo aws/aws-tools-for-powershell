@@ -1386,6 +1386,7 @@ Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name EC2-ResetImageAttribute -Value Reset-EC2ImageAttribute
 Set-Alias -Name EC2-ResetInstanceAttribute -Value Reset-EC2InstanceAttribute
 Set-Alias -Name EC2-ResetNetworkInterfaceAttribute -Value Reset-EC2NetworkInterfaceAttribute
 Set-Alias -Name EC2-ResetSnapshotAttribute -Value Reset-EC2SnapshotAttribute
@@ -1401,6 +1402,8 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
+Set-Alias -Name EC2-ModifyNetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
 Set-Alias -Name Modify-EC2ReservedInstances -Value Edit-EC2ReservedInstance
 Set-Alias -Name EC2-ModifyReservedInstances -Value Edit-EC2ReservedInstance
 Set-Alias -Name Modify-EC2SnapshotAttribute -Value Edit-EC2SnapshotAttribute
@@ -1445,7 +1448,7 @@ Set-Alias -Name EC2-ReportInstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-RequestSpotFleet -Value Request-EC2SpotFleet
 Set-Alias -Name Request-EC2SpotInstances -Value Request-EC2SpotInstance
 Set-Alias -Name EC2-RequestSpotInstances -Value Request-EC2SpotInstance
-Set-Alias -Name EC2-ResetImageAttribute -Value Reset-EC2ImageAttribute
+Set-Alias -Name EC2-DisableVgwRoutePropagation -Value Disable-EC2VgwRoutePropagation
 Set-Alias -Name EC2-DisableVpcClassicLink -Value Disable-EC2VpcClassicLink
 Set-Alias -Name EC2-DisableVpcClassicLinkDnsSupport -Value Disable-EC2VpcClassicLinkDnsSupport
 Set-Alias -Name Disassociate-EC2Address -Value Unregister-EC2Address
@@ -1481,8 +1484,8 @@ Set-Alias -Name Modify-EC2InstanceAttribute -Value Edit-EC2InstanceAttribute
 Set-Alias -Name EC2-ModifyInstanceAttribute -Value Edit-EC2InstanceAttribute
 Set-Alias -Name Modify-EC2InstancePlacement -Value Edit-EC2InstancePlacement
 Set-Alias -Name EC2-ModifyInstancePlacement -Value Edit-EC2InstancePlacement
-Set-Alias -Name Modify-EC2NetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
-Set-Alias -Name EC2-ModifyNetworkInterfaceAttribute -Value Edit-EC2NetworkInterfaceAttribute
+Set-Alias -Name Describe-EC2SpotFleetRequestHistory -Value Get-EC2SpotFleetRequestHistory
+Set-Alias -Name EC2-DescribeSpotFleetRequestHistory -Value Get-EC2SpotFleetRequestHistory
 Set-Alias -Name Describe-EC2SpotFleetRequest -Value Get-EC2SpotFleetRequest
 Set-Alias -Name EC2-DescribeSpotFleetRequests -Value Get-EC2SpotFleetRequest
 Set-Alias -Name Describe-EC2SpotInstanceRequests -Value Get-EC2SpotInstanceRequest
@@ -1531,7 +1534,8 @@ Set-Alias -Name Detach-EC2Volume -Value Dismount-EC2Volume
 Set-Alias -Name EC2-DetachVolume -Value Dismount-EC2Volume
 Set-Alias -Name Detach-EC2VpnGateway -Value Dismount-EC2VpnGateway
 Set-Alias -Name EC2-DetachVpnGateway -Value Dismount-EC2VpnGateway
-Set-Alias -Name EC2-DisableVgwRoutePropagation -Value Disable-EC2VgwRoutePropagation
+Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
+Set-Alias -Name EC2-DescribeInstanceStatus -Value Get-EC2InstanceStatus
 Set-Alias -Name Describe-EC2InternetGateways -Value Get-EC2InternetGateway
 Set-Alias -Name EC2-DescribeInternetGateways -Value Get-EC2InternetGateway
 Set-Alias -Name Describe-EC2KeyPairs -Value Get-EC2KeyPair
@@ -1578,8 +1582,6 @@ Set-Alias -Name Describe-EC2SpotDatafeedSubscription -Value Get-EC2SpotDatafeedS
 Set-Alias -Name EC2-DescribeSpotDatafeedSubscription -Value Get-EC2SpotDatafeedSubscription
 Set-Alias -Name Describe-EC2SpotFleetInstance -Value Get-EC2SpotFleetInstance
 Set-Alias -Name EC2-DescribeSpotFleetInstances -Value Get-EC2SpotFleetInstance
-Set-Alias -Name Describe-EC2SpotFleetRequestHistory -Value Get-EC2SpotFleetRequestHistory
-Set-Alias -Name EC2-DescribeSpotFleetRequestHistory -Value Get-EC2SpotFleetRequestHistory
 Set-Alias -Name Deregister-EC2Image -Value Unregister-EC2Image
 Set-Alias -Name EC2-DeregisterImage -Value Unregister-EC2Image
 Set-Alias -Name Describe-EC2AccountAttribute -Value Get-EC2AccountAttribute
@@ -1602,6 +1604,8 @@ Set-Alias -Name Describe-EC2ExportTask -Value Get-EC2ExportTask
 Set-Alias -Name EC2-DescribeExportTasks -Value Get-EC2ExportTask
 Set-Alias -Name Describe-EC2FlowLog -Value Get-EC2FlowLog
 Set-Alias -Name EC2-DescribeFlowLogs -Value Get-EC2FlowLog
+Set-Alias -Name Describe-EC2FpgaImage -Value Get-EC2FpgaImage
+Set-Alias -Name EC2-DescribeFpgaImages -Value Get-EC2FpgaImage
 Set-Alias -Name Describe-EC2HostReservationOffering -Value Get-EC2HostReservationOffering
 Set-Alias -Name EC2-DescribeHostReservationOfferings -Value Get-EC2HostReservationOffering
 Set-Alias -Name Describe-EC2HostReservation -Value Get-EC2HostReservation
@@ -1624,8 +1628,6 @@ Set-Alias -Name Describe-EC2ImportSnapshotTask -Value Get-EC2ImportSnapshotTask
 Set-Alias -Name EC2-DescribeImportSnapshotTasks -Value Get-EC2ImportSnapshotTask
 Set-Alias -Name Describe-EC2InstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name EC2-DescribeInstanceAttribute -Value Get-EC2InstanceAttribute
-Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
-Set-Alias -Name EC2-DescribeInstanceStatus -Value Get-EC2InstanceStatus
 Set-Alias -Name Create-EC2VpnConnection -Value New-EC2VpnConnection
 Set-Alias -Name EC2-CreateVpnConnection -Value New-EC2VpnConnection
 Set-Alias -Name Create-EC2VpnConnectionRoute -Value New-EC2VpnConnectionRoute
@@ -3686,6 +3688,7 @@ Set-Alias -Name S3-GetBucketLogging -Value Get-S3BucketLogging
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object
+Set-Alias -Name SC-ListPortfoliosForProduct -Value Get-SCProductPortfoliosList
 Set-Alias -Name SC-ListPrincipalsForPortfolio -Value Get-SCPrincipalsForPortfolio
 Set-Alias -Name SC-ListProvisioningArtifacts -Value Get-SCProvisioningArtifactList
 Set-Alias -Name List-SCRecordHistory -Value Get-SCRecordHistory
@@ -3736,6 +3739,8 @@ Set-Alias -Name Describe-SCProductAsAdmin -Value Get-SCProductAsAdmin
 Set-Alias -Name SC-DescribeProductAsAdmin -Value Get-SCProductAsAdmin
 Set-Alias -Name Describe-SCProductView -Value Get-SCProductView
 Set-Alias -Name SC-DescribeProductView -Value Get-SCProductView
+Set-Alias -Name Describe-SCProvisionedProductDetail -Value Get-SCProvisionedProductDetail
+Set-Alias -Name SC-DescribeProvisionedProduct -Value Get-SCProvisionedProductDetail
 Set-Alias -Name Describe-SCProvisioningArtifact -Value Get-SCProvisioningArtifact
 Set-Alias -Name SC-DescribeProvisioningArtifact -Value Get-SCProvisioningArtifact
 Set-Alias -Name Describe-SCProvisioningParameter -Value Get-SCProvisioningParameter
@@ -3752,7 +3757,6 @@ Set-Alias -Name List-SCLaunchPath -Value Get-SCLaunchPath
 Set-Alias -Name SC-ListLaunchPaths -Value Get-SCLaunchPath
 Set-Alias -Name SC-ListPortfolioAccess -Value Get-SCPortfolioAccessList
 Set-Alias -Name SC-ListPortfolios -Value Get-SCPortfolioList
-Set-Alias -Name SC-ListPortfoliosForProduct -Value Get-SCProductPortfoliosList
 Set-Alias -Name List-SESReceiptFilterList -Value Get-SESReceiptFilterList
 Set-Alias -Name SES-ListReceiptFilters -Value Get-SESReceiptFilterList
 Set-Alias -Name List-SESReceiptRuleSetList -Value Get-SESReceiptRuleSetList

@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Deletes the specified product. This operation will not work with a product that has
+    /// Deletes the specified product. This operation does not work with a product that has
     /// been shared with you or is associated with a portfolio.
     /// </summary>
     [Cmdlet("Remove", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

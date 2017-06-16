@@ -94,7 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_Info
         /// <summary>
         /// <para>
-        /// <para>Additional information about the provisioning artifact properties.</para>
+        /// <para>Additional information about the provisioning artifact properties. When using this
+        /// element in a request, you must specify <code>LoadTemplateFromURL</code>. For more
+        /// information, see <a>CreateProvisioningArtifact</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -176,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactParameters_Type
         /// <summary>
         /// <para>
-        /// <para>The type of the provisioning artifact properties.</para>
+        /// <para>The type of the provisioning artifact properties. The following provisioning artifact
+        /// property types are used by AWS Marketplace products:</para><para><code>MARKETPLACE_AMI</code> - AMI products.</para><para><code>MARKETPLACE_CAR</code> - CAR (Cluster and AWS Resources) products.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -359,6 +359,8 @@
     <ServiceOperation MethodName="DisassociateIamInstanceProfile" />
     <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Noun="IamInstanceProfileAssociation"/>
     <ServiceOperation MethodName="AssociateIamInstanceProfile" />
+
+    <ServiceOperation MethodName="DescribeFpgaImages" Noun="FpgaImage" NoPipelineParameter="true" />
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic

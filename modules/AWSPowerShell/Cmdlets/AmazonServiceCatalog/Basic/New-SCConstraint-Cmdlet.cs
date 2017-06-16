@@ -28,7 +28,8 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a new constraint.
+    /// Creates a new constraint. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html">Using
+    /// Constraints</a>.
     /// </summary>
     [Cmdlet("New", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateConstraintResponse")]
@@ -74,7 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The constraint parameters.</para>
+        /// <para>The constraint parameters. Expected values vary depending on which <b>Type</b> is
+        /// specified. For examples, see the bottom of this topic.</para><para>For Type <code>LAUNCH</code>, the <code>RoleArn</code> property is required. </para><para>For Type <code>NOTIFICATION</code>, the <code>NotificationArns</code> property is
+        /// required.</para><para>For Type <code>TEMPLATE</code>, the <code>Rules</code> property is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the constraint.</para>
+        /// <para>The type of the constraint. Case-sensitive valid values are: <code>LAUNCH</code>,
+        /// <code>NOTIFICATION</code>, or <code>TEMPLATE</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

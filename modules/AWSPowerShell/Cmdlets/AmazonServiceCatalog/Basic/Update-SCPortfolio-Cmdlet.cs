@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates the specified portfolio's details. This operation will not work with a product
+    /// Updates the specified portfolio's details. This operation does not work with a product
     /// that has been shared with you.
     /// </summary>
     [Cmdlet("Update", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

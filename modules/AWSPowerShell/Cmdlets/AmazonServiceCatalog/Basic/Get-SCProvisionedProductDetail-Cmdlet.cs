@@ -28,19 +28,16 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Deletes the specified provisioning artifact. This operation does not work on a provisioning
-    /// artifact associated with a product that has been shared with you, or on the last provisioning
-    /// artifact associated with a product (a product must have at least one provisioning
-    /// artifact).
+    /// Retrieve detailed information about the provisioned product.
     /// </summary>
-    [Cmdlet("Remove", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteProvisioningArtifact operation against AWS Service Catalog.", Operation = new[] {"DeleteProvisioningArtifact"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProvisioningArtifactId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SCProvisionedProductDetail")]
+    [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductDetail")]
+    [AWSCmdlet("Invokes the DescribeProvisionedProduct operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisionedProduct"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProvisionedProductDetail",
+        "This cmdlet returns a ProvisionedProductDetail object.",
+        "The service call response (type Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSCProvisioningArtifactCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCProvisionedProductDetailCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -53,55 +50,20 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The product identifier.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProductId { get; set; }
-        #endregion
-        
-        #region Parameter ProvisioningArtifactId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the provisioning artifact for the delete request. This is sometimes
-        /// referred to as the product version.</para>
+        /// <para>The provisioned product identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProvisioningArtifactId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the ProvisioningArtifactId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [Alias("ProductId")]
+        public System.String Id { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProvisioningArtifactId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SCProvisioningArtifact (DeleteProvisioningArtifact)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -113,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.ProductId = this.ProductId;
-            context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            context.Id = this.Id;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -129,19 +90,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactRequest();
+            var request = new Amazon.ServiceCatalog.Model.DescribeProvisionedProductRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.Id != null)
             {
-                request.ProductId = cmdletContext.ProductId;
-            }
-            if (cmdletContext.ProvisioningArtifactId != null)
-            {
-                request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+                request.Id = cmdletContext.Id;
             }
             
             CmdletOutput output;
@@ -152,9 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ProvisioningArtifactId;
+                object pipelineOutput = response.ProvisionedProductDetail;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -179,14 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DeleteProvisioningArtifactRequest request)
+        private Amazon.ServiceCatalog.Model.DescribeProvisionedProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProvisionedProductRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DeleteProvisioningArtifact");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProvisionedProduct");
             #if DESKTOP
-            return client.DeleteProvisioningArtifact(request);
+            return client.DescribeProvisionedProduct(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteProvisioningArtifactAsync(request);
+            var task = client.DescribeProvisionedProductAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -198,8 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String ProductId { get; set; }
-            public System.String ProvisioningArtifactId { get; set; }
+            public System.String Id { get; set; }
         }
         
     }

@@ -28,8 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets information about the specified certificate. You may specify the certificate
-    /// using either its ID or PEM.
+    /// Gets information about the specified certificate.
     /// </summary>
     [Cmdlet("Get", "IOTCertificate")]
     [OutputType("Amazon.IoT.Model.CertificateDescription")]
@@ -51,16 +50,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String CertificateId { get; set; }
         #endregion
         
-        #region Parameter CertificatePem
-        /// <summary>
-        /// <para>
-        /// <para>The PEM of the certificate.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String CertificatePem { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -75,7 +64,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             PreExecutionContextLoad(context);
             
             context.CertificateId = this.CertificateId;
-            context.CertificatePem = this.CertificatePem;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -95,10 +83,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.CertificateId != null)
             {
                 request.CertificateId = cmdletContext.CertificateId;
-            }
-            if (cmdletContext.CertificatePem != null)
-            {
-                request.CertificatePem = cmdletContext.CertificatePem;
             }
             
             CmdletOutput output;
@@ -153,7 +137,6 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal class CmdletContext : ExecutorContext
         {
             public System.String CertificateId { get; set; }
-            public System.String CertificatePem { get; set; }
         }
         
     }

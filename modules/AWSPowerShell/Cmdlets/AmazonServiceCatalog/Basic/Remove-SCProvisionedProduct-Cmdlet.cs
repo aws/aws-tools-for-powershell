@@ -75,9 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the ProvisionedProduct object to terminate. You must specify either
-        /// <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not
-        /// both.</para>
+        /// <para>The identifier of the ProvisionedProduct object to terminate. Specify either <code>ProvisionedProductName</code>
+        /// or <code>ProvisionedProductId</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -87,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductName
         /// <summary>
         /// <para>
-        /// <para>The name of the ProvisionedProduct object to terminate. You must specify either <code>ProvisionedProductName</code>
+        /// <para>The name of the ProvisionedProduct object to terminate. Specify either <code>ProvisionedProductName</code>
         /// or <code>ProvisionedProductId</code>, but not both.</para>
         /// </para>
         /// </summary>

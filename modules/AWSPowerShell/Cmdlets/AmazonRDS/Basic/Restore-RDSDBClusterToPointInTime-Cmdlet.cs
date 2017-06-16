@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// DB cluster will be encrypted with the KMS key identified by the <code>KmsKeyId</code>
         /// parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// will occur:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
-        /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is note encrypted,
+        /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is not encrypted,
         /// then the restore request is rejected.</para>
         /// </para>
         /// </summary>
@@ -124,11 +124,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter RestoreToTime
         /// <summary>
         /// <para>
-        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Cannot be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
+        /// <para>The date and time to restore the DB cluster to.</para><para>Valid Values: Value must be a time in Universal Coordinated Time (UTC) format</para><para>Constraints:</para><ul><li><para>Must be before the latest restorable time for the DB instance</para></li><li><para>Must be specified if <code>UseLatestRestorableTime</code> parameter is not provided</para></li><li><para>Cannot be specified if <code>UseLatestRestorableTime</code> parameter is true</para></li><li><para>Cannot be specified if <code>RestoreType</code> parameter is <code>copy-on-write</code></para></li></ul><para>Example: <code>2015-03-07T23:45:00Z</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.DateTime RestoreToTime { get; set; }
+        #endregion
+        
+        #region Parameter RestoreType
+        /// <summary>
+        /// <para>
+        /// <para>The type of restore to be performed. You can specify one of the following values:</para><ul><li><para><code>full-copy</code> - The new DB cluster is restored as a full copy of the source
+        /// DB cluster.</para></li><li><para><code>copy-on-write</code> - The new DB cluster is restored as a clone of the source
+        /// DB cluster.</para></li></ul><para>Constraints: You cannot specify <code>copy-on-write</code> if the engine version of
+        /// the source DB cluster is earlier than 1.11.</para><para>If you don't specify a <code>RestoreType</code> value, then the new DB cluster is
+        /// restored as a full copy of the source DB cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RestoreType { get; set; }
         #endregion
         
         #region Parameter SourceDBClusterIdentifier
@@ -166,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A lst of VPC security groups that the new DB cluster belongs to.</para>
+        /// <para>A list of VPC security groups that the new DB cluster belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -213,6 +227,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.Port = this.Port;
             if (ParameterWasBound("RestoreToTime"))
                 context.RestoreToTime = this.RestoreToTime;
+            context.RestoreType = this.RestoreType;
             context.SourceDBClusterIdentifier = this.SourceDBClusterIdentifier;
             if (this.Tag != null)
             {
@@ -267,6 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.RestoreToTime != null)
             {
                 request.RestoreToTime = cmdletContext.RestoreToTime.Value;
+            }
+            if (cmdletContext.RestoreType != null)
+            {
+                request.RestoreType = cmdletContext.RestoreType;
             }
             if (cmdletContext.SourceDBClusterIdentifier != null)
             {
@@ -343,6 +362,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String OptionGroupName { get; set; }
             public System.Int32? Port { get; set; }
             public System.DateTime? RestoreToTime { get; set; }
+            public System.String RestoreType { get; set; }
             public System.String SourceDBClusterIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }
             public System.Boolean? UseLatestRestorableTime { get; set; }

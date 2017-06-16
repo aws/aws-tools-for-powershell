@@ -77,7 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>The provisioning artifact identifier for this product. This is sometimes referred
+        /// to as the product version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

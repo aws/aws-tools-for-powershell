@@ -242,10 +242,24 @@ $AAS_Completers = {
             break
         }
         
+        # Amazon.ApplicationAutoScaling.MetricStatistic
+        "Write-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic"
+        {
+            $v = "Average","Maximum","Minimum","SampleCount","Sum"
+            break
+        }
+        
+        # Amazon.ApplicationAutoScaling.MetricType
+        "Write-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
+        {
+            $v = "DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization"
+            break
+        }
+        
         # Amazon.ApplicationAutoScaling.PolicyType
         "Write-AASScalingPolicy/PolicyType"
         {
-            $v = "StepScaling"
+            $v = "StepScaling","TargetTrackingScaling"
             break
         }
         
@@ -260,7 +274,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
+            $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
             break
         }
         
@@ -275,7 +289,7 @@ $AAS_Completers = {
             ($_ -eq "Write-AASScalingPolicy/ServiceNamespace")
         }
         {
-            $v = "appstream","ec2","ecs","elasticmapreduce"
+            $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce"
             break
         }
         
@@ -292,6 +306,8 @@ $AAS_map = @{
     "ServiceNamespace"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Remove-AASScalableTarget","Remove-AASScalingPolicy","Write-AASScalingPolicy")
     "StepScalingPolicyConfiguration_AdjustmentType"=@("Write-AASScalingPolicy")
     "StepScalingPolicyConfiguration_MetricAggregationType"=@("Write-AASScalingPolicy")
+    "TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-AASScalingPolicy")
+    "TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-AASScalingPolicy")
 }
 
 _awsArgumentCompleterRegistration $AAS_Completers $AAS_map
@@ -1578,7 +1594,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::CloudTrail::Trail","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory"
+            $v = "AWS::ACM::Certificate","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory"
             break
         }
         
@@ -4345,7 +4361,7 @@ $SC_Completers = {
         # Amazon.ServiceCatalog.ProductType
         "New-SCProduct/ProductType"
         {
-            $v = "CLOUD_FORMATION_TEMPLATE"
+            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE"
             break
         }
         
@@ -4365,7 +4381,7 @@ $SC_Completers = {
             ($_ -eq "New-SCProduct/ProvisioningArtifactParameters_Type")
         }
         {
-            $v = "CLOUD_FORMATION_TEMPLATE"
+            $v = "CLOUD_FORMATION_TEMPLATE","MARKETPLACE_AMI","MARKETPLACE_CAR"
             break
         }
         

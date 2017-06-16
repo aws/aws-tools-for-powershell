@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false. </para><para> You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
+        /// accounts; otherwise false. </para><para> You can enable IAM database authentication for the following database engines:</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -231,10 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance.</para><para> Valid Values: <code>mysql</code> | <code>mariadb</code> | <code>oracle-se1</code>
-        /// | <code>oracle-se2</code> | <code>oracle-se</code> | <code>oracle-ee</code> | <code>sqlserver-ee</code>
-        /// | <code>sqlserver-se</code> | <code>sqlserver-ex</code> | <code>sqlserver-web</code>
-        /// | <code>postgres</code> | <code>aurora</code></para><para>Not every database engine is available for every AWS region.</para>
+        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every AWS region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -245,28 +242,20 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use.</para><para>The following are the database engines and major and minor versions that are available
-        /// with Amazon RDS. Not every database engine is available for every AWS region.</para><para><b>Amazon Aurora</b></para><ul><li><para><b>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-2, eu-west-1, us-east-1, us-east-2, us-west-2):</b><code> 5.6.10a</code></para></li></ul><para><b>MariaDB</b></para><ul><li><para><b>Version 10.1 (available in these AWS regions: us-east-2):</b><code> 10.1.16</code></para></li><li><para><b>Version 10.1 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
-        /// ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1,
-        /// us-west-1, us-west-2):</b><code> 10.1.14</code></para></li><li><para><b>Version 10.0 (available in all AWS regions):</b><code> 10.0.24</code></para></li><li><para><b>Version 10.0 (available in these AWS regions: ap-northeast-1, ap-northeast-2,
-        /// ap-south-1, ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1,
-        /// us-gov-west-1, us-west-1, us-west-2):</b><code> 10.0.17</code></para></li></ul><para><b>Microsoft SQL Server 2016</b></para><ul><li><para><code>13.00.2164.0.v1</code> (supported for all editions, and all AWS regions except
-        /// sa-east-1)</para></li></ul><para><b>Microsoft SQL Server 2014</b></para><ul><li><para><code>12.00.5000.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.4422.0.v1</code> (supported for all editions except Enterprise Edition,
-        /// and all AWS regions except us-east-2)</para></li></ul><para><b>Microsoft SQL Server 2012</b></para><ul><li><para><code>11.00.6020.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>11.00.5058.0.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2)</para></li><li><para><code>11.00.2100.60.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2)</para></li></ul><para><b>Microsoft SQL Server 2008 R2</b></para><ul><li><para><code>10.50.6529.0.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2)</para></li><li><para><code>10.50.6000.34.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2)</para></li><li><para><code>10.50.2789.0.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><b>Version 5.7 (available in all AWS regions):</b><code> 5.7.11</code></para></li><li><para><b>Version 5.7 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1,
-        /// us-west-1, us-west-2):</b><code> 5.7.10</code></para></li><li><para><b>Version 5.6 (available in all AWS regions):</b><code> 5.6.29</code></para></li><li><para><b>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-1, ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1,
-        /// us-west-1, us-west-2):</b><code> 5.6.27</code></para></li><li><para><b>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-southeast-1,
-        /// ap-southeast-2, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1,
-        /// us-west-2):</b><code> 5.6.23</code></para></li><li><para><b>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-central-1, eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code> 5.6.19a | 5.6.19b | 5.6.21 | 5.6.21b | 5.6.22</code></para></li><li><para><b>Version 5.5 (available in all AWS regions):</b><code> 5.5.46</code></para></li><li><para><b>Version 5.1 (only available in AWS regions ap-northeast-1, ap-southeast-1, ap-southeast-2,
-        /// eu-west-1, sa-east-1, us-east-1, us-gov-west-1, us-west-1, us-west-2):</b><code>
-        /// 5.1.73a | 5.1.73b</code></para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
+        /// with Amazon RDS. Not every database engine is available for every AWS region.</para><para><b>Amazon Aurora</b></para><ul><li><para>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
+        /// ap-southeast-2, eu-west-1, us-east-1, us-east-2, us-west-2): <code> 5.6.10a</code></para></li></ul><para><b>MariaDB</b></para><ul><li><para><code>10.1.19</code> (supported in all AWS regions)</para></li><li><para><code>10.1.14</code> (supported in all regions except us-east-2)</para></li></ul><ul><li><para><code>10.0.28</code> (supported in all AWS regions)</para></li><li><para><code>10.0.24</code> (supported in all AWS regions)</para></li><li><para><code>10.0.17</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2016</b></para><ul><li><para><code>13.00.4422.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>13.00.2164.0.v1</code> (supported for all editions, and all AWS regions)</para></li></ul><para><b>Microsoft SQL Server 2014</b></para><ul><li><para><code>12.00.5546.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.5000.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.4422.0.v1</code> (supported for all editions except Enterprise Edition,
+        /// and all AWS regions except ca-central-1 and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2012</b></para><ul><li><para><code>11.00.6594.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>11.00.6020.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>11.00.5058.0.v1</code> (supported for all editions, and all AWS regions except
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>11.00.2100.60.v1</code> (supported for all editions, and all AWS regions except
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2008 R2</b></para><ul><li><para><code>10.50.6529.0.v1</code> (supported for all editions, and all AWS regions except
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.6000.34.v1</code> (supported for all editions, and all AWS regions except
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.2789.0.v1</code> (supported for all editions, and all AWS regions except
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><code>5.7.17</code> (supported in all AWS regions)</para></li><li><para><code>5.7.16</code> (supported in all AWS regions)</para></li><li><para><code>5.7.11</code> (supported in all AWS regions)</para></li><li><para><code>5.7.10</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.6.35</code> (supported in all AWS regions)</para></li><li><para><code>5.6.34</code> (supported in all AWS regions)</para></li><li><para><code>5.6.29</code> (supported in all AWS regions)</para></li><li><para><code>5.6.27</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li><li><para><code>5.6.23</code> (supported in all regions except us-east-2, ap-south-1, ca-central-1,
+        /// eu-west-2)</para></li><li><para><code>5.6.22</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
+        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.21b</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
+        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.21</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
+        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.19b</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
+        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.19a</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
+        /// ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.5.54</code> (supported in all AWS regions)</para></li><li><para><code>5.5.53</code> (supported in all AWS regions)</para></li><li><para><code>5.5.46</code> (supported in all AWS regions)</para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v7</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v5</code> (supported for EE in all AWS regions, and SE2 in all AWS

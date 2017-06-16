@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates an existing provisioning artifact's information. This operation will not work
+    /// Updates an existing provisioning artifact's information. This operation does not work
     /// on a provisioning artifact associated with a product that has been shared with you.
     /// </summary>
     [Cmdlet("Update", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact for the update request.</para>
+        /// <para>The identifier of the provisioning artifact for the update request. This is sometimes
+        /// referred to as the product version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

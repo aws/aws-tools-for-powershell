@@ -84,9 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the ProvisionedProduct object to update. You must specify either
-        /// <code>ProvisionedProductName</code> or <code>ProvisionedProductId</code>, but not
-        /// both.</para>
+        /// <para>The identifier of the ProvisionedProduct object to update. Specify either <code>ProvisionedProductName</code>
+        /// or <code>ProvisionedProductId</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -96,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductName
         /// <summary>
         /// <para>
-        /// <para>The updated name of the ProvisionedProduct object . You must specify either <code>ProvisionedProductName</code>
+        /// <para>The updated name of the ProvisionedProduct object. Specify either <code>ProvisionedProductName</code>
         /// or <code>ProvisionedProductId</code>, but not both.</para>
         /// </para>
         /// </summary>
@@ -107,7 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product.</para>
+        /// <para>The provisioning artifact identifier for this product. This is sometimes referred
+        /// to as the product version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

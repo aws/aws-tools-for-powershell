@@ -62,11 +62,22 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact.</para>
+        /// <para>The identifier of the provisioning artifact. This is sometimes referred to as the
+        /// product version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ProvisioningArtifactId { get; set; }
+        #endregion
+        
+        #region Parameter Verbose
+        /// <summary>
+        /// <para>
+        /// <para>Selects verbose results. If set to true, the CloudFormation template is returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Verbose { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -85,6 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             context.AcceptLanguage = this.AcceptLanguage;
             context.ProductId = this.ProductId;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
+            if (ParameterWasBound("Verbose"))
+                context.Verbose = this.Verbose;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -112,6 +125,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.ProvisioningArtifactId != null)
             {
                 request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
+            }
+            if (cmdletContext.Verbose != null)
+            {
+                request.Verbose = cmdletContext.Verbose.Value;
             }
             
             CmdletOutput output;
@@ -168,6 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public System.String ProductId { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
+            public System.Boolean? Verbose { get; set; }
         }
         
     }

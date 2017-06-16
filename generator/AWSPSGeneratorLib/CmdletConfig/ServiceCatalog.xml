@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>SC</ServiceNounPrefix>
   <ServiceName>AWS Service Catalog</ServiceName>
@@ -49,6 +49,11 @@
     <ServiceOperation MethodName="DeletePortfolioShare" PipelineParameter="AccountId" Output="Void" />
     <ServiceOperation MethodName="DeleteProduct" Output="Void" />
     <ServiceOperation MethodName="DeleteProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" Output="Void" />
+    <ServiceOperation MethodName="DescribeProvisionedProduct" Noun="ProvisionedProductDetail">
+      <Params>
+        <Param Name="Id" Alias="ProductId" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="DescribeConstraint" Output="Response" />
     <ServiceOperation MethodName="DescribePortfolio" Output="Response" />
     <ServiceOperation MethodName="DescribeProductAsAdmin" Output="Response" />

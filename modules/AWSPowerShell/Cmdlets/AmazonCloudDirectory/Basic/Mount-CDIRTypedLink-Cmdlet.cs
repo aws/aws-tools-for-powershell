@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>An ordered set of attributes that are associated with the typed link.</para>
+        /// <para>A set of attributes that are associated with the typed link.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

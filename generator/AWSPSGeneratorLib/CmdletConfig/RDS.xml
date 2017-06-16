@@ -52,7 +52,7 @@
     <ServiceOperation MethodName="CopyDBClusterParameterGroup" PipelineParameter="SourceDBClusterParameterGroupIdentifier" />
     <ServiceOperation MethodName="CopyDBClusterSnapshot" PipelineParameter="SourceDBClusterSnapshotIdentifier" PositionalParameters="TargetDBClusterSnapshotIdentifier" />
     <ServiceOperation MethodName="CopyDBParameterGroup" PipelineParameter="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription"/>
-    <ServiceOperation MethodName="CopyDBSnapshot" PipelineParameter="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier"/>
+    <ServiceOperation MethodName="CopyDBSnapshot" PipelineParameter="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier" ShouldProcessTarget="SourceDBSnapshotIdentifier"/>
     <ServiceOperation MethodName="CopyOptionGroup" PipelineParameter="SourceOptionGroupIdentifier" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription"/>
     <ServiceOperation MethodName="CreateDBCluster" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier"/>
     <ServiceOperation MethodName="CreateDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" />
@@ -158,7 +158,7 @@
     <Map From="DBClusterSnapshots" To="DBClusterSnapshot" />
     <Map From="EngineDefaultClusterParameters" To="EngineDefaultClusterParameter" />
   </NounMappings>
-  
+
   <PipelineByValueProperties>
     <Property>DBSecurityGroupName</Property>
     <Property>EC2SecurityGroupName</Property>
