@@ -57,7 +57,11 @@
     <ServiceOperation MethodName="DescribeConstraint" Output="Response" />
     <ServiceOperation MethodName="DescribePortfolio" Output="Response" />
     <ServiceOperation MethodName="DescribeProductAsAdmin" Output="Response" />
-    <ServiceOperation MethodName="DescribeProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" Output="Response" />
+    <ServiceOperation MethodName="DescribeProvisioningArtifact" PipelineParameter="ProvisioningArtifactId" Output="Response">
+      <Params>
+        <Param Name="Verbose" NewName="ReturnCloudFormationTemplate" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="DisassociatePrincipalFromPortfolio" PipelineParameter="PrincipalARN" Output="Void" />
     <ServiceOperation MethodName="DisassociateProductFromPortfolio" PipelineParameter="ProductId" Output="Void" />
     <ServiceOperation MethodName="ListAcceptedPortfolioShares" Verb="Get" Noun="AcceptedPortfolioSharesList" />

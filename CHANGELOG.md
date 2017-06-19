@@ -1,3 +1,16 @@
+### 3.3.109.0 (2017-06-19)
+  * Amazon EC2
+    - Added cmdlet Get-EC2FpgaImage to support the new DescribeFpgaImages API. This API enables customers to describe Amazon FPGA Images (AFIs) available to them, which includes public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.
+  * Application AutoScaling
+    - Updated the Write-AASScalingPolicy cmdlet to support automatic scaling of read and write throughput capacity for DynamoDB tables and global secondary indexes.
+  * AWS IoT
+    - [Breaking change] Updated the Get-IOTCertificate cmdlet to remove the parameter -CertificatePem, previously added in v3.3.104.0.  
+  * Amazon Relational Database Service
+    - Updated the Copy-RDSDBSnapshot and Restore-RDSDBClusterToPointInTime cmdlets to support copy-on-write, a new Aurora MySQL Compatible Edition feature that allows users to restore their database, and support copy of TDE enabled snapshot cross region.
+  * AWS Service Catalog
+    - Added cmdlet Get-SCProvisionedProductDetail to support the new DescribeProvisionedProduct API. 
+    - Added parameter -ReturnCloudFormationTemplate to the Get-SCProvisioningArtifact cmdlet. This parameter maps to the 'Verbose' request property in the underlying DescribeProvisioningArtifact API call.
+
 ### 3.3.104.0 (2017-06-09)
   * Amazon S3
     - Fixed issue with the Remove-S3Object cmdlet not correctly binding version data when a collection of Amazon.S3.Model.S3ObjectVersion instances are piped to the -InputObject parameter. The examples for this cmdlet have been updated to illustrate usage scenarios deleting single and multiple objects.

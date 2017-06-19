@@ -70,14 +70,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String ProvisioningArtifactId { get; set; }
         #endregion
         
-        #region Parameter Verbose
+        #region Parameter ReturnCloudFormationTemplate
         /// <summary>
         /// <para>
         /// <para>Selects verbose results. If set to true, the CloudFormation template is returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Boolean Verbose { get; set; }
+        public System.Boolean ReturnCloudFormationTemplate { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             context.AcceptLanguage = this.AcceptLanguage;
             context.ProductId = this.ProductId;
             context.ProvisioningArtifactId = this.ProvisioningArtifactId;
-            if (ParameterWasBound("Verbose"))
-                context.Verbose = this.Verbose;
+            if (ParameterWasBound("ReturnCloudFormationTemplate"))
+                context.ReturnCloudFormationTemplate = this.ReturnCloudFormationTemplate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,9 +126,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 request.ProvisioningArtifactId = cmdletContext.ProvisioningArtifactId;
             }
-            if (cmdletContext.Verbose != null)
+            if (cmdletContext.ReturnCloudFormationTemplate != null)
             {
-                request.Verbose = cmdletContext.Verbose.Value;
+                request.Verbose = cmdletContext.ReturnCloudFormationTemplate.Value;
             }
             
             CmdletOutput output;
@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             public System.String AcceptLanguage { get; set; }
             public System.String ProductId { get; set; }
             public System.String ProvisioningArtifactId { get; set; }
-            public System.Boolean? Verbose { get; set; }
+            public System.Boolean? ReturnCloudFormationTemplate { get; set; }
         }
         
     }
