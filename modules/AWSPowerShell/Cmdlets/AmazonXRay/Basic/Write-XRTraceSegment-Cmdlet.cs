@@ -28,9 +28,7 @@ using Amazon.XRay.Model;
 namespace Amazon.PowerShell.Cmdlets.XR
 {
     /// <summary>
-    /// Uploads segment documents to AWS X-Ray. The X-Ray SDK generates segment documents
-    /// and sends them to the X-Ray daemon, which uploads them in batches. A segment document
-    /// can be a completed segment, an in-progress segment, or an array of subsegments.
+    /// Amazon.XRay.IAmazonXRay.PutTraceSegments
     /// </summary>
     [Cmdlet("Write", "XRTraceSegment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.XRay.Model.UnprocessedTraceSegment")]
@@ -45,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         #region Parameter TraceSegmentDocument
         /// <summary>
         /// <para>
-        /// Amazon.XRay.Model.PutTraceSegmentsRequest.TraceSegmentDocuments
+        /// <para>A string containing a JSON document defining one or more segments or subsegments.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -118,7 +118,7 @@
       <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.1\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.XRay">
-      <HintPath>..\..\packages\AWSSDK.XRay.3.3.0.14\lib\net35\AWSSDK.XRay.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.XRay.3.3.1\lib\net35\AWSSDK.XRay.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServerMigrationService">
       <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.16\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>

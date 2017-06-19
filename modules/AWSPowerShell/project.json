@@ -97,7 +97,7 @@
 		"AWSSDK.WAFRegional": "3.3.0.13",
 		"AWSSDK.WorkDocs": "3.3.1",
 		"AWSSDK.WorkSpaces": "3.3.0.18",
-		"AWSSDK.XRay": "3.3.0.14"
+		"AWSSDK.XRay": "3.3.1"
  	},
 	"buildOptions": {
 		"outputName": "AWSPowerShell.NetCore",
