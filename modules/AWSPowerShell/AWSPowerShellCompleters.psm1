@@ -4706,6 +4706,13 @@ $WAF_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WAF.RateKey
+        "New-WAFRateBasedRule/RateKey"
+        {
+            $v = "IP"
+            break
+        }
+        
         # Amazon.WAF.WafActionType
         {
             ($_ -eq "New-WAFWebACL/DefaultAction_Type") -Or
@@ -4725,6 +4732,7 @@ $WAF_Completers = {
 
 $WAF_map = @{
     "DefaultAction_Type"=@("New-WAFWebACL","Update-WAFWebACL")
+    "RateKey"=@("New-WAFRateBasedRule")
 }
 
 _awsArgumentCompleterRegistration $WAF_Completers $WAF_map
@@ -4736,6 +4744,13 @@ $WAFR_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WAFRegional.RateKey
+        "New-WAFRRateBasedRule/RateKey"
+        {
+            $v = "IP"
+            break
+        }
+        
         # Amazon.WAFRegional.WafActionType
         {
             ($_ -eq "New-WAFRWebACL/DefaultAction_Type") -Or
@@ -4755,6 +4770,7 @@ $WAFR_Completers = {
 
 $WAFR_map = @{
     "DefaultAction_Type"=@("New-WAFRWebACL","Update-WAFRWebACL")
+    "RateKey"=@("New-WAFRRateBasedRule")
 }
 
 _awsArgumentCompleterRegistration $WAFR_Completers $WAFR_map

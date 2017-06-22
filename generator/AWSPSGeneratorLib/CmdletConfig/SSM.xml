@@ -129,6 +129,10 @@
     <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline">
       <AutoIterate ServicePageSize="100" />
     </ServiceOperation>
+
+    <ServiceOperation MethodName="GetParametersByPath" PipelineParameter="Path" />
+    <ServiceOperation MethodName="GetParameter" PipelineParameter="Name" />
+    <ServiceOperation MethodName="DeleteParameters" Noun="ParameterCollection" Output="Response" />
   </ServiceOperations>
 
   <VerbMappings>

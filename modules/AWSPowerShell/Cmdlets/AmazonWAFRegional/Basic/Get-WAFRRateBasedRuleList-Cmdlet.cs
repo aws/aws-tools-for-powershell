@@ -22,71 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.WAFRegional;
+using Amazon.WAFRegional.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
-    /// Get information about a parameter.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returns an array of <a>RuleSummary</a> objects.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SSMParameterList")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.ParameterMetadata")]
-    [AWSCmdlet("Invokes the DescribeParameters operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeParameters"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ParameterMetadata",
-        "This cmdlet returns a collection of ParameterMetadata objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [Cmdlet("Get", "WAFRRateBasedRuleList")]
+    [OutputType("Amazon.WAFRegional.Model.RuleSummary")]
+    [AWSCmdlet("Invokes the ListRateBasedRules operation against AWS WAF Regional.", Operation = new[] {"ListRateBasedRules"})]
+    [AWSCmdletOutput("Amazon.WAFRegional.Model.RuleSummary",
+        "This cmdlet returns a collection of RuleSummary objects.",
+        "The service call response (type Amazon.WAFRegional.Model.ListRateBasedRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextMarker (type System.String)"
     )]
-    public partial class GetSSMParameterListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetWAFRRateBasedRuleListCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
+        #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>Specifies the number of <code>Rules</code> that you want AWS WAF to return for this
+        /// request. If you have more <code>Rules</code> than the number that you specify for
+        /// <code>Limit</code>, the response includes a <code>NextMarker</code> value that you
+        /// can use to get another batch of <code>Rules</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Filters")]
-        public Amazon.SimpleSystemsManagement.Model.ParametersFilter[] Filter { get; set; }
+        [Alias("MaxItems")]
+        public int Limit { get; set; }
         #endregion
         
-        #region Parameter ParameterFilter
+        #region Parameter NextMarker
         /// <summary>
         /// <para>
-        /// <para>Filters to limit the request results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("ParameterFilters")]
-        public Amazon.SimpleSystemsManagement.Model.ParameterStringFilter[] ParameterFilter { get; set; }
-        #endregion
-        
-        #region Parameter MaxResult
-        /// <summary>
-        /// <para>
-        /// <para>The maximum number of items to return for this call. The call also returns a token
-        /// that you can specify in a subsequent call to get the next set of results.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
-        #endregion
-        
-        #region Parameter NextToken
-        /// <summary>
-        /// <para>
-        /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// <para>If you specify a value for <code>Limit</code> and you have more <code>Rules</code>
+        /// than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value
+        /// in the response that allows you to list another group of <code>Rules</code>. For the
+        /// second and subsequent <code>ListRateBasedRules</code> requests, specify the value
+        /// of <code>NextMarker</code> from the previous response to get information about another
+        /// batch of <code>Rules</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
+        [Alias("NextToken")]
+        public System.String NextMarker { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -102,17 +87,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.Filter != null)
-            {
-                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.ParametersFilter>(this.Filter);
-            }
-            if (ParameterWasBound("MaxResult"))
-                context.MaxResults = this.MaxResult;
-            context.NextToken = this.NextToken;
-            if (this.ParameterFilter != null)
-            {
-                context.ParameterFilters = new List<Amazon.SimpleSystemsManagement.Model.ParameterStringFilter>(this.ParameterFilter);
-            }
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
+            context.NextMarker = this.NextMarker;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -128,60 +105,52 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeParametersRequest();
-            if (cmdletContext.Filters != null)
-            {
-                request.Filters = cmdletContext.Filters;
-            }
-            if (cmdletContext.ParameterFilters != null)
-            {
-                request.ParameterFilters = cmdletContext.ParameterFilters;
-            }
+            var request = new Amazon.WAFRegional.Model.ListRateBasedRulesRequest();
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 50;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            int? _pageSize = 100;
+            if (AutoIterationHelpers.HasValue(cmdletContext.NextMarker))
             {
-                _nextMarker = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.NextMarker;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
             {
-                // The service has a maximum page size of 50. If the user has
+                // The service has a maximum page size of 100. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 50 items back. If a page size is set, that will
+                // and giving us 100 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResults;
+                _emitLimit = cmdletContext.Limit;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextMarker) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.NextToken = _nextMarker;
+                    request.NextMarker = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     if (AutoIterationHelpers.HasValue(_pageSize))
                     {
                         int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        if (AutoIterationHelpers.IsSet(request.Limit))
                         {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.Limit);
                         }
                         else
                         {
                             correctPageSize = _pageSize.Value;
                         }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -192,22 +161,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Parameters;
+                        object pipelineOutput = response.Rules;
                         notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
+                        notes["NextMarker"] = response.NextMarker;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Parameters.Count;
+                        int _receivedThisCall = response.Rules.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextMarker));
                         }
                         
-                        _nextMarker = response.NextToken;
+                        _nextMarker = response.NextMarker;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -221,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
+                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
                     // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
                     // what's left to match the user's request.
                     
@@ -253,14 +222,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.DescribeParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeParametersRequest request)
+        private Amazon.WAFRegional.Model.ListRateBasedRulesResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.ListRateBasedRulesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeParameters");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "ListRateBasedRules");
             #if DESKTOP
-            return client.DescribeParameters(request);
+            return client.ListRateBasedRules(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeParametersAsync(request);
+            var task = client.ListRateBasedRulesAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -271,10 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.ParametersFilter> Filters { get; set; }
-            public int? MaxResults { get; set; }
-            public System.String NextToken { get; set; }
-            public List<Amazon.SimpleSystemsManagement.Model.ParameterStringFilter> ParameterFilters { get; set; }
+            public int? Limit { get; set; }
+            public System.String NextMarker { get; set; }
         }
         
     }

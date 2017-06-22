@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter S3Location_OutputS3Region
         /// <summary>
         /// <para>
-        /// <para>The Amazon S3 region where the association information is stored.</para>
+        /// <para>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead,
+        /// Systems Manager automatically determines the Amazon S3 bucket region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

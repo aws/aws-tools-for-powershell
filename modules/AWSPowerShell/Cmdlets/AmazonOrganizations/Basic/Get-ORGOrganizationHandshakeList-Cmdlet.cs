@@ -35,6 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// 
     ///  
     /// <para>
+    /// Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results of this
+    /// API for only 30 days after changing to that state. After that they are deleted and
+    /// no longer accessible.
+    /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

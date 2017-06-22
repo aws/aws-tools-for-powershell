@@ -52,8 +52,6 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// and <code>IPSets</code>) in a <code>Rule</code>, AWS WAF immediately takes the corresponding
     /// action, allow or block, and doesn't evaluate the request against the remaining <code>Rules</code>
     /// in the <code>WebACL</code>, if any. 
-    /// </para></li><li><para>
-    /// The CloudFront distribution that you want to associate with the <code>WebACL</code>.
     /// </para></li></ul><para>
     /// To create and configure a <code>WebACL</code>, perform the following steps:
     /// </para><ol><li><para>
@@ -73,6 +71,11 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// you want to include in the <code>WebACL</code>, to specify the default action, and
     /// to associate the <code>WebACL</code> with a CloudFront distribution. 
     /// </para></li></ol><para>
+    /// Be aware that if you try to add a RATE_BASED rule to a web ACL without setting the
+    /// rule type when first creating the rule, the <a>UpdateWebACL</a> request will fail
+    /// because the request tries to add a REGULAR rule (the default rule type) with the specified
+    /// ID, which does not exist. 
+    /// </para><para>
     /// For more information about how to use the AWS WAF API to allow or block HTTP requests,
     /// see the <a href="http://docs.aws.amazon.com/waf/latest/developerguide/">AWS WAF Developer
     /// Guide</a>.
@@ -117,7 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         /// <summary>
         /// <para>
         /// <para>An array of updates to make to the <a>WebACL</a>.</para><para>An array of <code>WebACLUpdate</code> objects that you want to insert into or delete
-        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></para></li><li><para><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, and <code>RuleId</code></para></li><li><para><a>WafAction</a>: Contains <code>Type</code></para></li></ul>
+        /// from a <a>WebACL</a>. For more information, see the applicable data types:</para><ul><li><para><a>WebACLUpdate</a>: Contains <code>Action</code> and <code>ActivatedRule</code></para></li><li><para><a>ActivatedRule</a>: Contains <code>Action</code>, <code>Priority</code>, <code>RuleId</code>,
+        /// and <code>Type</code></para></li><li><para><a>WafAction</a>: Contains <code>Type</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

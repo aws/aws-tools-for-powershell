@@ -82,7 +82,7 @@ namespace AWSPowerShellGenerator.Analysis
 
         /// <summary>
         /// Returns any autoiteration settings that apply, as a combination
-        /// of settings defined at the global service level, overriden at the 
+        /// of settings defined at the global service level, overridden at the 
         /// operation level if needed.
         /// </summary>
         public AutoIteration AutoIterateSettings

@@ -22,43 +22,33 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Removes a member account from its parent organization. This version of the operation
-    /// is performed by the account that wants to leave. To remove a member account as a user
-    /// in the master account, use <a>RemoveAccountFromOrganization</a> instead.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called only from a member account in the organization.
-    /// </para><important><ul><li><para>
-    /// The master account in an organization with all features enabled can set service control
-    /// policies (SCPs) that can restrict what administrators of member accounts can do, including
-    /// preventing them from successfully calling <code>LeaveOrganization</code> and leaving
-    /// the organization. 
-    /// </para></li><li><para>
-    /// If you created the account using the AWS Organizations console, the Organizations
-    /// API, or the Organizations CLI commands, then you cannot remove the account.
-    /// </para></li><li><para>
-    /// You can leave an organization only after you enable IAM user access to billing in
-    /// your account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-    /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-    /// Management User Guide</i>.
-    /// </para></li></ul></important>
+    /// Delete a list of parameters.
     /// </summary>
-    [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the LeaveOrganization operation against AWS Organizations.", Operation = new[] {"LeaveOrganization"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "SSMParameterCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse")]
+    [AWSCmdlet("Invokes the DeleteParameters operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteParameters"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveORGOrganizationAssociationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class RemoveSSMParameterCollectionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>The names of the parameters to delete.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
+        #endregion
         
         #region Parameter Force
         /// <summary>
@@ -74,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ORGOrganizationAssociation (LeaveOrganization)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMParameterCollection (DeleteParameters)"))
             {
                 return;
             }
@@ -89,6 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Name != null)
+            {
+                context.Names = new List<System.String>(this.Name);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,8 +97,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.LeaveOrganizationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteParametersRequest();
             
+            if (cmdletContext.Names != null)
+            {
+                request.Names = cmdletContext.Names;
+            }
             
             CmdletOutput output;
             
@@ -114,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -139,14 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.LeaveOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.LeaveOrganizationRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteParametersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "LeaveOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DeleteParameters");
             #if DESKTOP
-            return client.LeaveOrganization(request);
+            return client.DeleteParameters(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.LeaveOrganizationAsync(request);
+            var task = client.DeleteParametersAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -157,6 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
+            public List<System.String> Names { get; set; }
         }
         
     }

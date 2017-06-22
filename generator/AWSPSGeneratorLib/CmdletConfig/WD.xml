@@ -52,5 +52,9 @@
     <ServiceOperation MethodName="DeleteLabels" Noun="Label" PipelineParameter="Labels" Output="Void" />
     <ServiceOperation MethodName="DescribeComments" Noun="Comment" PipelineParameter="VersionId" />
 
+    <ServiceOperation MethodName="DescribeActivities" Noun="Activity" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeRootFolders" Noun="RootFolder" />
+    <ServiceOperation MethodName="GetCurrentUser" />
+
   </ServiceOperations>
 </ConfigModel>

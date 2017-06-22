@@ -22,69 +22,74 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the current handshakes that are associated with the account of the requesting
-    /// user.
-    /// 
-    ///  
-    /// <para>
-    /// Handshakes that are ACCEPTED, DECLINED, or CANCELED appear in the results of this
-    /// API for only 30 days after changing to that state. After that they are deleted and
-    /// no longer accessible.
-    /// </para><para>
-    /// This operation can be called from any account in the organization.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieve parameters in a specific hierarchy. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working-path.html">Using
+    /// Parameter Hierarchies</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "ORGAccountHandshakeList")]
-    [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the ListHandshakesForAccount operation against AWS Organizations.", Operation = new[] {"ListHandshakesForAccount"})]
-    [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
-        "This cmdlet returns a collection of Handshake objects.",
-        "The service call response (type Amazon.Organizations.Model.ListHandshakesForAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMParametersByPath")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
+    [AWSCmdlet("Invokes the GetParametersByPath operation against Amazon Simple Systems Management.", Operation = new[] {"GetParametersByPath"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Parameter",
+        "This cmdlet returns a collection of Parameter objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetORGAccountHandshakeListCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetSSMParametersByPathCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter_ActionType
+        #region Parameter ParameterFilter
         /// <summary>
         /// <para>
-        /// <para>Specifies the type of handshake action.</para><para>If you specify <code>ActionType</code>, you cannot also specify <code>ParentHandshakeId</code>.</para>
+        /// <para>Filters to limit the request results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.Organizations.ActionType")]
-        public Amazon.Organizations.ActionType Filter_ActionType { get; set; }
+        [Alias("ParameterFilters")]
+        public Amazon.SimpleSystemsManagement.Model.ParameterStringFilter[] ParameterFilter { get; set; }
         #endregion
         
-        #region Parameter Filter_ParentHandshakeId
+        #region Parameter Path
         /// <summary>
         /// <para>
-        /// <para>Specifies the parent handshake. Only used for handshake types that are a child of
-        /// another type.</para><para>If you specify <code>ParentHandshakeId</code>, you cannot also specify <code>ActionType</code>.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for handshake ID string
-        /// requires "h-" followed by from 8 to 32 lower-case letters or digits.</para>
+        /// <para>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end
+        /// with the parameter name. A hierarchy can have a maximum of five levels. Examples:
+        /// /Environment/Test/DBString003</para><para>/Finance/Prod/IAD/OS/WinServ2016/license15</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Path { get; set; }
+        #endregion
+        
+        #region Parameter Recursive
+        /// <summary>
+        /// <para>
+        /// <para>Retrieve all parameters within a hierarchy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Filter_ParentHandshakeId { get; set; }
+        public System.Boolean Recursive { get; set; }
+        #endregion
+        
+        #region Parameter WithDecryption
+        /// <summary>
+        /// <para>
+        /// <para>Retrieve all parameters in a hierarchy with their value decrypted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean WithDecryption { get; set; }
         #endregion
         
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>(Optional) Use this to limit the number of results you want included in the response.
-        /// If you do not include this parameter, it defaults to a value that is specific to the
-        /// operation. If additional items exist beyond the maximum you specify, the <code>NextToken</code>
-        /// response element is present and has a value (is not null). Include that value as the
-        /// <code>NextToken</code> request parameter in the next call to the operation to get
-        /// the next part of the results. Note that Organizations might return fewer results than
-        /// the maximum even when there are more results available. You should check <code>NextToken</code>
-        /// after every operation to ensure that you receive all of the results.</para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,10 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Use this parameter if you receive a <code>NextToken</code> response in a previous
-        /// request that indicates that there is more output available. Set it to the value of
-        /// the previous call's <code>NextToken</code> response to indicate where the output should
-        /// continue from.</para>
+        /// <para>A token to start the list. Use this token to get the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -121,11 +123,18 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.Filter_ActionType = this.Filter_ActionType;
-            context.Filter_ParentHandshakeId = this.Filter_ParentHandshakeId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.ParameterFilter != null)
+            {
+                context.ParameterFilters = new List<Amazon.SimpleSystemsManagement.Model.ParameterStringFilter>(this.ParameterFilter);
+            }
+            context.Path = this.Path;
+            if (ParameterWasBound("Recursive"))
+                context.Recursive = this.Recursive;
+            if (ParameterWasBound("WithDecryption"))
+                context.WithDecryption = this.WithDecryption;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,47 +150,41 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.Organizations.Model.ListHandshakesForAccountRequest();
-            
-             // populate Filter
-            bool requestFilterIsNull = true;
-            request.Filter = new Amazon.Organizations.Model.HandshakeFilter();
-            Amazon.Organizations.ActionType requestFilter_filter_ActionType = null;
-            if (cmdletContext.Filter_ActionType != null)
+            var request = new Amazon.SimpleSystemsManagement.Model.GetParametersByPathRequest();
+            if (cmdletContext.ParameterFilters != null)
             {
-                requestFilter_filter_ActionType = cmdletContext.Filter_ActionType;
+                request.ParameterFilters = cmdletContext.ParameterFilters;
             }
-            if (requestFilter_filter_ActionType != null)
+            if (cmdletContext.Path != null)
             {
-                request.Filter.ActionType = requestFilter_filter_ActionType;
-                requestFilterIsNull = false;
+                request.Path = cmdletContext.Path;
             }
-            System.String requestFilter_filter_ParentHandshakeId = null;
-            if (cmdletContext.Filter_ParentHandshakeId != null)
+            if (cmdletContext.Recursive != null)
             {
-                requestFilter_filter_ParentHandshakeId = cmdletContext.Filter_ParentHandshakeId;
+                request.Recursive = cmdletContext.Recursive.Value;
             }
-            if (requestFilter_filter_ParentHandshakeId != null)
+            if (cmdletContext.WithDecryption != null)
             {
-                request.Filter.ParentHandshakeId = requestFilter_filter_ParentHandshakeId;
-                requestFilterIsNull = false;
-            }
-             // determine if request.Filter should be set to null
-            if (requestFilterIsNull)
-            {
-                request.Filter = null;
+                request.WithDecryption = cmdletContext.WithDecryption.Value;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 50;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 50. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 50 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -197,6 +200,20 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                    }
+                    
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
                     
@@ -205,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Handshakes;
+                        object pipelineOutput = response.Parameters;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -214,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Handshakes.Count;
+                        int _receivedThisCall = response.Parameters.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -234,6 +251,15 @@ namespace Amazon.PowerShell.Cmdlets.ORG
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -257,14 +283,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.ListHandshakesForAccountResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.ListHandshakesForAccountRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetParametersByPathResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParametersByPathRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "ListHandshakesForAccount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetParametersByPath");
             #if DESKTOP
-            return client.ListHandshakesForAccount(request);
+            return client.GetParametersByPath(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListHandshakesForAccountAsync(request);
+            var task = client.GetParametersByPathAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -275,10 +301,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.Organizations.ActionType Filter_ActionType { get; set; }
-            public System.String Filter_ParentHandshakeId { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.ParameterStringFilter> ParameterFilters { get; set; }
+            public System.String Path { get; set; }
+            public System.Boolean? Recursive { get; set; }
+            public System.Boolean? WithDecryption { get; set; }
         }
         
     }

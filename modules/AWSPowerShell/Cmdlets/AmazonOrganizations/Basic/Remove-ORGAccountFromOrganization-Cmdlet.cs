@@ -39,10 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><para>
     /// This operation can be called only from the organization's master account. Member accounts
     /// can remove themselves with <a>LeaveOrganization</a> instead.
-    /// </para><important><para>
-    /// You can remove only existing accounts that were invited to join the organization.
-    /// You cannot remove accounts that were created by AWS Organizations.
-    /// </para></important>
+    /// </para><important><ul><li><para>
+    /// You can remove only accounts that were created outside your organization and invited
+    /// to join. If you created the account using the AWS Organizations console, the Organizations
+    /// API, or the Organizations CLI commands, then you cannot remove the account.
+    /// </para></li><li><para>
+    /// You can remove a member account only after you enable IAM user access to billing in
+    /// the member account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
+    /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
+    /// Management User Guide</i>.
+    /// </para></li></ul></important>
     /// </summary>
     [Cmdlet("Remove", "ORGAccountFromOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

@@ -1203,14 +1203,14 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// should start returning results from
         /// </summary>
         [XmlAttribute]
-        public string Start = String.Empty;
+        public string Start;
 
         /// <summary>
         /// The field in the response/result class that indicates where the
         /// next 'page' of results starts from
         /// </summary>
         [XmlAttribute]
-        public string Next = String.Empty;
+        public string Next;
 
         /// <summary>
         /// For services that allow the user to set a max number of records
@@ -1218,14 +1218,14 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// (if the service has one)
         /// </summary>
         [XmlAttribute]
-        public string EmitLimit = String.Empty;
+        public string EmitLimit;
 
         /// <summary>
         /// Some services can use a 'IsTruncated' flag to indicate more data;
         /// we prefer to detect a non-empty 'next' marker
         /// </summary>
         [XmlAttribute]
-        public string TruncatedFlag = String.Empty;
+        public string TruncatedFlag;
 
         /// <summary>
         /// The service's max records per call value; not all services have one
@@ -1238,7 +1238,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// autoiteration on. Goal = none :-).  ;-delimited list of operation names.
         /// </summary>
         [XmlAttribute]
-        public string Exclusions = String.Empty;
+        public string Exclusions;
 
         private HashSet<string> _exclusionSet;
         [XmlIgnore]
@@ -1247,7 +1247,11 @@ namespace AWSPowerShellGenerator.CmdletConfig
             get
             {
                 if (_exclusionSet == null)
-                    _exclusionSet = new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries));
+                {
+                    _exclusionSet = !string.IsNullOrEmpty(Exclusions) 
+                        ? new HashSet<string>(Exclusions.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries)) 
+                        : new HashSet<string>();
+                }
                 return _exclusionSet;
             }
         }
@@ -1255,7 +1259,9 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// <summary>
         /// Returns the autoiteration settings, if any, for an operation by combining the service level
         /// settings and any operation-level overrides. For operation level overrides, not all settings
-        /// need to be specified.
+        /// need to be specified. For operations that have less fields than the service level, specify
+        /// an empty string for the non-present fields otherwise the service level setting will be
+        /// assumed.
         /// </summary>
         /// <param name="parentSettings">The service-level autoiteration settings, if any</param>
         /// <param name="childSettings">Service-operation overrides, if any</param>
@@ -1273,12 +1279,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
 
             return new AutoIteration
             {
-                Start = string.IsNullOrEmpty(childSettings.Start) ? parentSettings.Start : childSettings.Start,
-                Next = string.IsNullOrEmpty(childSettings.Next) ? parentSettings.Next : childSettings.Next,
+                Start = childSettings.Start ?? parentSettings.Start,
+                Next = childSettings.Next ?? parentSettings.Next,
                 ServicePageSize = childSettings.ServicePageSize == -1 ? parentSettings.ServicePageSize : childSettings.ServicePageSize,
-                Exclusions = string.IsNullOrEmpty(childSettings.Exclusions) ? parentSettings.Exclusions : childSettings.Exclusions,
-                EmitLimit = string.IsNullOrEmpty(childSettings.EmitLimit) ? parentSettings.EmitLimit : childSettings.EmitLimit,
-                TruncatedFlag = string.IsNullOrEmpty(childSettings.TruncatedFlag) ? parentSettings.TruncatedFlag : childSettings.TruncatedFlag
+                Exclusions = childSettings.Exclusions ?? parentSettings.Exclusions,
+                EmitLimit = childSettings.EmitLimit ?? parentSettings.EmitLimit,
+                TruncatedFlag = childSettings.TruncatedFlag ?? parentSettings.TruncatedFlag
             };
         }
 

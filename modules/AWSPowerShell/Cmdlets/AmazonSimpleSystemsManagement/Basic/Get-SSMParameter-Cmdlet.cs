@@ -22,63 +22,48 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Removes a member account from its parent organization. This version of the operation
-    /// is performed by the account that wants to leave. To remove a member account as a user
-    /// in the master account, use <a>RemoveAccountFromOrganization</a> instead.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called only from a member account in the organization.
-    /// </para><important><ul><li><para>
-    /// The master account in an organization with all features enabled can set service control
-    /// policies (SCPs) that can restrict what administrators of member accounts can do, including
-    /// preventing them from successfully calling <code>LeaveOrganization</code> and leaving
-    /// the organization. 
-    /// </para></li><li><para>
-    /// If you created the account using the AWS Organizations console, the Organizations
-    /// API, or the Organizations CLI commands, then you cannot remove the account.
-    /// </para></li><li><para>
-    /// You can leave an organization only after you enable IAM user access to billing in
-    /// your account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-    /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-    /// Management User Guide</i>.
-    /// </para></li></ul></important>
+    /// Get information about a parameter by using the parameter name.
     /// </summary>
-    [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the LeaveOrganization operation against AWS Organizations.", Operation = new[] {"LeaveOrganization"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMParameter")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
+    [AWSCmdlet("Invokes the GetParameter operation against Amazon Simple Systems Management.", Operation = new[] {"GetParameter"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Parameter",
+        "This cmdlet returns a Parameter object.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParameterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveORGOrganizationAssociationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter Force
+        #region Parameter Name
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>The name of the parameter you want to query.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter WithDecryption
+        /// <summary>
+        /// <para>
+        /// <para>Return decrypted values for secure string parameters. This flag is ignored for String
+        /// and StringList parameter types.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.Boolean WithDecryption { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ORGOrganizationAssociation (LeaveOrganization)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -89,6 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.Name = this.Name;
+            if (ParameterWasBound("WithDecryption"))
+                context.WithDecryption = this.WithDecryption;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,8 +91,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.LeaveOrganizationRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.GetParameterRequest();
             
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.WithDecryption != null)
+            {
+                request.WithDecryption = cmdletContext.WithDecryption.Value;
+            }
             
             CmdletOutput output;
             
@@ -114,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.Parameter;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -139,14 +135,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.LeaveOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.LeaveOrganizationRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetParameterResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetParameterRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "LeaveOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetParameter");
             #if DESKTOP
-            return client.LeaveOrganization(request);
+            return client.GetParameter(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.LeaveOrganizationAsync(request);
+            var task = client.GetParameterAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -157,6 +153,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String Name { get; set; }
+            public System.Boolean? WithDecryption { get; set; }
         }
         
     }

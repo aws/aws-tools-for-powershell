@@ -1,3 +1,15 @@
+###
+  * Amazon Simple Systems Management
+    - Added cmdlets Get-SSMParameter (GetParameter API), Get-SSMParametersByPath (GetParametersByPath API), Remove-SSMParameterCollection (DeleteParameters API).
+    - Updated Get-SSMParameterList with a new parameter, -ParameterFilter, to support filtering of the results.
+    - Updated Write-SSMParameter with a new parameter, -AllowedPattern, to support enforcement of the parameter value by applying a regex.
+  * AWS WAF
+    - Added new cmdlets to support creation, editing, updating, and deleting a new type of WAF rule with a rate tracking component. The new cmdlets are Get-WAFRateBasedRule (GetRateBasedRule API), Get-WAFRateBasedRuleList (ListRateBasedRules API), Get-WAFRateBasedRuleManagedKey (GetRateBasedRuleManagedKeys API), New-WAFRateBasedRule (CreateRateBasedRule API), Remove-WAFRateBasedRule (DeleteRateBasedRule API) and Update-WAFRateBasedRule (UpdateRateBasedRule API).
+  * AWS WAF Regional
+    - Added new cmdlets to support creation, editing, updating, and deleting a new type of WAF rule with a rate tracking component. The new cmdlets are Get-WAFRRateBasedRule (GetRateBasedRule API), Get-WAFRRateBasedRuleList (ListRateBasedRules API), Get-WAFRRateBasedRuleManagedKey (GetRateBasedRuleManagedKeys API), New-WAFRRateBasedRule (CreateRateBasedRule API), Remove-WAFRRateBasedRule (DeleteRateBasedRule API) and Update-WAFRRateBasedRule (UpdateRateBasedRule API).
+  * Amazon WorkDocs
+    - Added cmdlets Get-WDActivity (DescribeActivities API), Get-WDCurrentUser (GetCurrentUser API) and Get-WDRootFolder (DescribeRootFolders API) to retrieve the activities performed by WorkDocs users.
+
 ### 3.3.109.0 (2017-06-19)
   * Amazon EC2
     - Added cmdlet Get-EC2FpgaImage to support the new DescribeFpgaImages API. This API enables customers to describe Amazon FPGA Images (AFIs) available to them, which includes public AFIs, private AFIs that you own, and AFIs owned by other AWS accounts for which you have load permissions.
@@ -8,7 +20,7 @@
   * Amazon Relational Database Service
     - Updated the Copy-RDSDBSnapshot and Restore-RDSDBClusterToPointInTime cmdlets to support copy-on-write, a new Aurora MySQL Compatible Edition feature that allows users to restore their database, and support copy of TDE enabled snapshot cross region.
   * AWS Service Catalog
-    - Added cmdlet Get-SCProvisionedProductDetail to support the new DescribeProvisionedProduct API. 
+    - Added cmdlet Get-SCProvisionedProductDetail to support the new DescribeProvisionedProduct API.
     - Added parameter -ReturnCloudFormationTemplate to the Get-SCProvisioningArtifact cmdlet. This parameter maps to the 'Verbose' request property in the underlying DescribeProvisioningArtifact API call.
 
 ### 3.3.104.0 (2017-06-09)

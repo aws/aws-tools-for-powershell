@@ -45,7 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information about requests to enable all features in the organization, see
     /// <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_org_support-all-features.html">Enabling
     /// All Features in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// After you accept a handshake, it continues to appear in the results of relevant APIs
+    /// for only 30 days. After that it is deleted.
+    /// </para>
     /// </summary>
     [Cmdlet("Confirm", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Handshake")]

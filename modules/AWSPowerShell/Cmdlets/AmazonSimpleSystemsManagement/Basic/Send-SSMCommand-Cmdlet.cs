@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Executes commands on one or more remote instances.
+    /// Executes commands on one or more managed instances.
     /// </summary>
     [Cmdlet("Send", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
@@ -88,7 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>The instance IDs where the command should execute. You can specify a maximum of 50
         /// IDs. If you prefer not to list individual instance IDs, you can instead send commands
-        /// to a fleet of instances using the Targets parameter, which accepts EC2 tags.</para>
+        /// to a fleet of instances using the Targets parameter, which accepts EC2 tags. For more
+        /// information about how to use Targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
+        /// Commands to a Fleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -102,8 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>(Optional) The maximum number of instances that are allowed to execute the command
         /// at the same time. You can specify a number such as 10 or a percentage such as 10%.
         /// The default value is 50. For more information about how to use MaxConcurrency, see
-        /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Executing
-        /// a Command Using Systems Manager Run Command</a>.</para>
+        /// <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-velocity.html">Using
+        /// Concurrency Controls</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -116,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The maximum number of errors allowed without the command failing. When the command
         /// fails one more time beyond the value of MaxErrors, the systems stops sending the command
         /// to additional targets. You can specify a number like 10 or a percentage like 10%.
-        /// The default value is 50. For more information about how to use MaxErrors, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Executing
-        /// a Command Using Systems Manager Run Command</a>.</para>
+        /// The default value is 50. For more information about how to use MaxErrors, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-maxerrors.html">Using
+        /// Error Controls</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -186,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OutputS3Region
         /// <summary>
         /// <para>
-        /// <para>(Optional) The region where the Amazon Simple Storage Service (Amazon S3) output bucket
-        /// is located. The default value is the region where Run Command is being called.</para>
+        /// <para>(Deprecated) You can no longer specify this parameter. The system ignores it. Instead,
+        /// Systems Manager automatically determines the Amazon S3 bucket region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -220,8 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>
         /// <para>(Optional) An array of search criteria that targets instances using a Key,Value combination
         /// that you specify. Targets is required if you don't provide one or more instance IDs
-        /// in the call. For more information about how to use Targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Executing
-        /// a Command Using Systems Manager Run Command</a>.</para>
+        /// in the call. For more information about how to use Targets, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending
+        /// Commands to a Fleet</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

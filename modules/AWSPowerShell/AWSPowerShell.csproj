@@ -97,7 +97,7 @@
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.1\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Organizations">
-      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.2\lib\net35\AWSSDK.Organizations.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.3\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
       <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.2\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
@@ -112,10 +112,10 @@
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAFRegional">
-      <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.0.13\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.1\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
-      <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.1\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.2\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>..\..\packages\AWSSDK.XRay.3.3.1\lib\net35\AWSSDK.XRay.dll</HintPath>
@@ -136,7 +136,7 @@
       <HintPath>..\..\packages\AWSSDK.WorkSpaces.3.3.0.18\lib\net35\AWSSDK.WorkSpaces.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WAF">
-      <HintPath>..\..\packages\AWSSDK.WAF.3.3.1.19\lib\net35\AWSSDK.WAF.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.WAF.3.3.2\lib\net35\AWSSDK.WAF.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StorageGateway">
       <HintPath>..\..\packages\AWSSDK.StorageGateway.3.3.4\lib\net35\AWSSDK.StorageGateway.dll</HintPath>
@@ -148,7 +148,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.3\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.4\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.5\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.17\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>

@@ -22,63 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.WAFRegional;
+using Amazon.WAFRegional.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
-    /// Removes a member account from its parent organization. This version of the operation
-    /// is performed by the account that wants to leave. To remove a member account as a user
-    /// in the master account, use <a>RemoveAccountFromOrganization</a> instead.
-    /// 
-    ///  
-    /// <para>
-    /// This operation can be called only from a member account in the organization.
-    /// </para><important><ul><li><para>
-    /// The master account in an organization with all features enabled can set service control
-    /// policies (SCPs) that can restrict what administrators of member accounts can do, including
-    /// preventing them from successfully calling <code>LeaveOrganization</code> and leaving
-    /// the organization. 
-    /// </para></li><li><para>
-    /// If you created the account using the AWS Organizations console, the Organizations
-    /// API, or the Organizations CLI commands, then you cannot remove the account.
-    /// </para></li><li><para>
-    /// You can leave an organization only after you enable IAM user access to billing in
-    /// your account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-    /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-    /// Management User Guide</i>.
-    /// </para></li></ul></important>
+    /// Returns the <a>RateBasedRule</a> that is specified by the <code>RuleId</code> that
+    /// you included in the <code>GetRateBasedRule</code> request.
     /// </summary>
-    [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the LeaveOrganization operation against AWS Organizations.", Operation = new[] {"LeaveOrganization"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "WAFRRateBasedRule")]
+    [OutputType("Amazon.WAFRegional.Model.RateBasedRule")]
+    [AWSCmdlet("Invokes the GetRateBasedRule operation against AWS WAF Regional.", Operation = new[] {"GetRateBasedRule"})]
+    [AWSCmdletOutput("Amazon.WAFRegional.Model.RateBasedRule",
+        "This cmdlet returns a RateBasedRule object.",
+        "The service call response (type Amazon.WAFRegional.Model.GetRateBasedRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveORGOrganizationAssociationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetWAFRRateBasedRuleCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
         
-        #region Parameter Force
+        #region Parameter RuleId
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to get. <code>RuleId</code>
+        /// is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</para>
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String RuleId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ORGOrganizationAssociation (LeaveOrganization)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -89,6 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.RuleId = this.RuleId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,8 +80,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.LeaveOrganizationRequest();
+            var request = new Amazon.WAFRegional.Model.GetRateBasedRuleRequest();
             
+            if (cmdletContext.RuleId != null)
+            {
+                request.RuleId = cmdletContext.RuleId;
+            }
             
             CmdletOutput output;
             
@@ -114,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.Rule;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -139,14 +120,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.LeaveOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.LeaveOrganizationRequest request)
+        private Amazon.WAFRegional.Model.GetRateBasedRuleResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.GetRateBasedRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "LeaveOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "GetRateBasedRule");
             #if DESKTOP
-            return client.LeaveOrganization(request);
+            return client.GetRateBasedRule(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.LeaveOrganizationAsync(request);
+            var task = client.GetRateBasedRuleAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -157,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String RuleId { get; set; }
         }
         
     }

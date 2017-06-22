@@ -22,43 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.WAFRegional;
+using Amazon.WAFRegional.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.WAFR
 {
     /// <summary>
-    /// Removes a member account from its parent organization. This version of the operation
-    /// is performed by the account that wants to leave. To remove a member account as a user
-    /// in the master account, use <a>RemoveAccountFromOrganization</a> instead.
+    /// Permanently deletes a <a>RateBasedRule</a>. You can't delete a rule if it's still
+    /// used in any <code>WebACL</code> objects or if it still includes any predicates, such
+    /// as <code>ByteMatchSet</code> objects.
     /// 
     ///  
     /// <para>
-    /// This operation can be called only from a member account in the organization.
-    /// </para><important><ul><li><para>
-    /// The master account in an organization with all features enabled can set service control
-    /// policies (SCPs) that can restrict what administrators of member accounts can do, including
-    /// preventing them from successfully calling <code>LeaveOrganization</code> and leaving
-    /// the organization. 
+    /// If you just want to remove a rule from a <code>WebACL</code>, use <a>UpdateWebACL</a>.
+    /// </para><para>
+    /// To permanently delete a <code>RateBasedRule</code> from AWS WAF, perform the following
+    /// steps:
+    /// </para><ol><li><para>
+    /// Update the <code>RateBasedRule</code> to remove predicates, if any. For more information,
+    /// see <a>UpdateRateBasedRule</a>.
     /// </para></li><li><para>
-    /// If you created the account using the AWS Organizations console, the Organizations
-    /// API, or the Organizations CLI commands, then you cannot remove the account.
+    /// Use <a>GetChangeToken</a> to get the change token that you provide in the <code>ChangeToken</code>
+    /// parameter of a <code>DeleteRateBasedRule</code> request.
     /// </para></li><li><para>
-    /// You can leave an organization only after you enable IAM user access to billing in
-    /// your account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating
-    /// Access to the Billing and Cost Management Console</a> in the <i>AWS Billing and Cost
-    /// Management User Guide</i>.
-    /// </para></li></ul></important>
+    /// Submit a <code>DeleteRateBasedRule</code> request.
+    /// </para></li></ol>
     /// </summary>
-    [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the LeaveOrganization operation against AWS Organizations.", Operation = new[] {"LeaveOrganization"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "WAFRRateBasedRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the DeleteRateBasedRule operation against AWS WAF Regional.", Operation = new[] {"DeleteRateBasedRule"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.WAFRegional.Model.DeleteRateBasedRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveORGOrganizationAssociationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class RemoveWAFRRateBasedRuleCmdlet : AmazonWAFRegionalClientCmdlet, IExecutor
     {
+        
+        #region Parameter ChangeToken
+        /// <summary>
+        /// <para>
+        /// <para>The value returned by the most recent call to <a>GetChangeToken</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ChangeToken { get; set; }
+        #endregion
+        
+        #region Parameter RuleId
+        /// <summary>
+        /// <para>
+        /// <para>The <code>RuleId</code> of the <a>RateBasedRule</a> that you want to delete. <code>RuleId</code>
+        /// is returned by <a>CreateRateBasedRule</a> and by <a>ListRateBasedRules</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String RuleId { get; set; }
+        #endregion
         
         #region Parameter Force
         /// <summary>
@@ -74,8 +93,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ORGOrganizationAssociation (LeaveOrganization)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RuleId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WAFRRateBasedRule (DeleteRateBasedRule)"))
             {
                 return;
             }
@@ -89,6 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ChangeToken = this.ChangeToken;
+            context.RuleId = this.RuleId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,8 +124,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.LeaveOrganizationRequest();
+            var request = new Amazon.WAFRegional.Model.DeleteRateBasedRuleRequest();
             
+            if (cmdletContext.ChangeToken != null)
+            {
+                request.ChangeToken = cmdletContext.ChangeToken;
+            }
+            if (cmdletContext.RuleId != null)
+            {
+                request.RuleId = cmdletContext.RuleId;
+            }
             
             CmdletOutput output;
             
@@ -114,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.ChangeToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -139,14 +168,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.LeaveOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.LeaveOrganizationRequest request)
+        private Amazon.WAFRegional.Model.DeleteRateBasedRuleResponse CallAWSServiceOperation(IAmazonWAFRegional client, Amazon.WAFRegional.Model.DeleteRateBasedRuleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "LeaveOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF Regional", "DeleteRateBasedRule");
             #if DESKTOP
-            return client.LeaveOrganization(request);
+            return client.DeleteRateBasedRule(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.LeaveOrganizationAsync(request);
+            var task = client.DeleteRateBasedRuleAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -157,6 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String ChangeToken { get; set; }
+            public System.String RuleId { get; set; }
         }
         
     }

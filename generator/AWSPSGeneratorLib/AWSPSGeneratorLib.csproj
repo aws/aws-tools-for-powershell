@@ -95,7 +95,107 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CmdletConfig\ConfigModel.cs" />
-    <None Include="CmdletConfig\*.xml" />
+    <None Include="CmdletConfig\APIGateway.xml" />
+    <None Include="CmdletConfig\ApplicationAutoScaling.xml" />
+    <None Include="CmdletConfig\ApplicationDiscovery.xml" />
+    <None Include="CmdletConfig\AppStream.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\Athena.xml" />
+    <None Include="CmdletConfig\AutoScaling.xml" />
+    <None Include="CmdletConfig\AWSSupport.xml" />
+    <None Include="CmdletConfig\Batch.xml" />
+    <None Include="CmdletConfig\Beanstalk.xml" />
+    <None Include="CmdletConfig\Budgets.xml" />
+    <None Include="CmdletConfig\CertificateManager.xml" />
+    <None Include="CmdletConfig\CloudDirectory.xml" />
+    <None Include="CmdletConfig\CloudFormation.xml" />
+    <None Include="CmdletConfig\CloudFront.xml" />
+    <None Include="CmdletConfig\CloudSearch.xml" />
+    <None Include="CmdletConfig\CloudSearchDomain.xml" />
+    <None Include="CmdletConfig\CloudTrail.xml" />
+    <None Include="CmdletConfig\CloudWatch.xml" />
+    <None Include="CmdletConfig\CloudWatchEvents.xml" />
+    <None Include="CmdletConfig\CloudWatchLogs.xml" />
+    <None Include="CmdletConfig\CodeBuild.xml" />
+    <None Include="CmdletConfig\CodeCommit.xml" />
+    <None Include="CmdletConfig\CodeDeploy.xml" />
+    <None Include="CmdletConfig\CodePipeline.xml" />
+    <None Include="CmdletConfig\CodeStar.xml" />
+    <None Include="CmdletConfig\CognitoIdentity.xml" />
+    <None Include="CmdletConfig\CognitoIdentityProvider.xml" />
+    <None Include="CmdletConfig\Configs.xml" />
+    <None Include="CmdletConfig\ConfigService.xml" />
+    <None Include="CmdletConfig\CostAndUsageReport.xml" />
+    <None Include="CmdletConfig\DatabaseMigrationService.xml" />
+    <None Include="CmdletConfig\DataPipeline.xml" />
+    <None Include="CmdletConfig\DeviceFarm.xml" />
+    <None Include="CmdletConfig\DirectConnect.xml" />
+    <None Include="CmdletConfig\DirectoryService.xml" />
+    <None Include="CmdletConfig\DynamoDB.xml" />
+    <None Include="CmdletConfig\DynamoDBStreams.xml" />
+    <None Include="CmdletConfig\EC2.xml" />
+    <None Include="CmdletConfig\ECR.xml" />
+    <None Include="CmdletConfig\ECS.xml" />
+    <None Include="CmdletConfig\EFS.xml" />
+    <None Include="CmdletConfig\ElastiCache.xml" />
+    <None Include="CmdletConfig\ELB.xml" />
+    <None Include="CmdletConfig\ELB2.xml" />
+    <None Include="CmdletConfig\EMR.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\ES.xml" />
+    <None Include="CmdletConfig\ETS.xml" />
+    <None Include="CmdletConfig\GML.xml" />
+    <None Include="CmdletConfig\Health.xml" />
+    <None Include="CmdletConfig\HSM.xml" />
+    <None Include="CmdletConfig\IAM.xml" />
+    <None Include="CmdletConfig\ImportExport.xml" />
+    <None Include="CmdletConfig\Inspector.xml" />
+    <None Include="CmdletConfig\IoT.xml" />
+    <None Include="CmdletConfig\Kinesis.xml" />
+    <None Include="CmdletConfig\KinesisAnalytics.xml" />
+    <None Include="CmdletConfig\KinesisFirehose.xml" />
+    <None Include="CmdletConfig\KMS.xml" />
+    <None Include="CmdletConfig\Lambda.xml" />
+    <None Include="CmdletConfig\Lex.xml" />
+    <None Include="CmdletConfig\LexModelBuilder.xml" />
+    <None Include="CmdletConfig\Lightsail.xml" />
+    <None Include="CmdletConfig\MarketplaceEntitlements.xml" />
+    <None Include="CmdletConfig\MarketplaceMetering.xml" />
+    <None Include="CmdletConfig\MCA.xml" />
+    <None Include="CmdletConfig\ML.xml" />
+    <None Include="CmdletConfig\MTR.xml" />
+    <None Include="CmdletConfig\OpsWorks.xml" />
+    <None Include="CmdletConfig\OpsWorksCM.xml" />
+    <None Include="CmdletConfig\Organizations.xml" />
+    <None Include="CmdletConfig\Pinpoint.xml" />
+    <None Include="CmdletConfig\Polly.xml" />
+    <None Include="CmdletConfig\RDS.xml" />
+    <None Include="CmdletConfig\RedShift.xml" />
+    <None Include="CmdletConfig\Rekognition.xml" />
+    <None Include="CmdletConfig\ResourceGroupsTagging.xml" />
+    <None Include="CmdletConfig\Route53.xml" />
+    <None Include="CmdletConfig\Route53Domains.xml" />
+    <None Include="CmdletConfig\S3.xml" />
+    <None Include="CmdletConfig\ServiceCatalog.xml" />
+    <None Include="CmdletConfig\SES.xml" />
+    <None Include="CmdletConfig\SFN.xml" />
+    <None Include="CmdletConfig\Shield.xml" />
+    <None Include="CmdletConfig\SMS.xml" />
+    <None Include="CmdletConfig\Snowball.xml" />
+    <None Include="CmdletConfig\SNS.xml" />
+    <None Include="CmdletConfig\SQS.xml" />
+    <None Include="CmdletConfig\SSM.xml" />
+    <None Include="CmdletConfig\StorageGateway.xml" />
+    <None Include="CmdletConfig\STS.xml" />
+    <None Include="CmdletConfig\WAF.xml" />
+    <None Include="CmdletConfig\WAFRegional.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CmdletConfig\WD.xml" />
+    <None Include="CmdletConfig\WKS.xml" />
+    <None Include="CmdletConfig\XRay.xml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormatConfig\ConfigModel.cs" />

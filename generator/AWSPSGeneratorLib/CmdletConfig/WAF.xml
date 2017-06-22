@@ -9,7 +9,7 @@
   <ServiceClient>AmazonWAFClient</ServiceClient>
 
   <AutoIterate EmitLimit="Limit" Start="NextMarker" Next="NextMarker" ServicePageSize="100"/>
-  
+
   <VerbMappings>
     <Map From="List" To="Get" />
   </VerbMappings>
@@ -53,5 +53,15 @@
     <ServiceOperation MethodName="UpdateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
     <ServiceOperation MethodName="CreateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="Name" Output="Response"/>
     <ServiceOperation MethodName="DeleteXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
+
+    <ServiceOperation MethodName="ListRateBasedRules" Noun="RateBasedRuleList" />
+    <ServiceOperation MethodName="UpdateRateBasedRule" PipelineParameter="RuleId" />
+    <ServiceOperation MethodName="CreateRateBasedRule" Output="Response" PipelineParameter="Name" />
+    <ServiceOperation MethodName="DeleteRateBasedRule" PipelineParameter="RuleId" />
+    <ServiceOperation MethodName="GetRateBasedRule" />
+    <ServiceOperation MethodName="GetRateBasedRuleManagedKeys" Noun="RateBasedRuleManagedKey">
+      <AutoIterate Start="NextMarker" Next="NextMarker" ServicePageSize="100" EmitLimit="" />
+    </ServiceOperation>
+
   </ServiceOperations>
 </ConfigModel>

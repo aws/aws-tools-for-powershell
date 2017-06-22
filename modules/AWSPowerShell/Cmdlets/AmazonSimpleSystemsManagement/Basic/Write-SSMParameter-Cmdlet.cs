@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Add one or more paramaters to the system.
+    /// Add one or more parameters to the system.
     /// </summary>
     [Cmdlet("Write", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     )]
     public partial class WriteSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter AllowedPattern
+        /// <summary>
+        /// <para>
+        /// <para>A regular expression used to validate the parameter value. For example, for String
+        /// types with values restricted to numbers, you can specify the following: AllowedPattern=^\d+$
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AllowedPattern { get; set; }
+        #endregion
         
         #region Parameter Description
         /// <summary>
@@ -53,7 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The parameter key ID that you want to add to the system.</para>
+        /// <para>The KMS Key ID that you want to use to encrypt a parameter when you choose the SecureString
+        /// data type. If you don't specify a key ID, the system uses the default key associated
+        /// with your AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -139,6 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AllowedPattern = this.AllowedPattern;
             context.Description = this.Description;
             context.KeyId = this.KeyId;
             context.Name = this.Name;
@@ -162,6 +177,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.PutParameterRequest();
             
+            if (cmdletContext.AllowedPattern != null)
+            {
+                request.AllowedPattern = cmdletContext.AllowedPattern;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -240,6 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.String AllowedPattern { get; set; }
             public System.String Description { get; set; }
             public System.String KeyId { get; set; }
             public System.String Name { get; set; }
