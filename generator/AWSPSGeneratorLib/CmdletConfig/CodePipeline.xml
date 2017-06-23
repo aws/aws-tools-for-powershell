@@ -8,6 +8,8 @@
   <ServiceClientInterface>IAmazonCodePipeline</ServiceClientInterface>
   <ServiceClient>AmazonCodePipelineClient</ServiceClient>
 
+  <AutoIterate Start="NextToken" Next="NextToken" />
+
   <ServiceOperations>
     <ServiceOperation MethodName="AcknowledgeJob" Verb="Confirm" PipelineParameter="JobId"/>
     <ServiceOperation MethodName="AcknowledgeThirdPartyJob" Verb="Confirm" PipelineParameter="JobId" />
@@ -23,7 +25,10 @@
     <ServiceOperation MethodName="GetPipelineState" Output="Response" />
     <ServiceOperation MethodName="GetThirdPartyJobDetails" PipelineParameter="JobId" Noun="ThirdPartyJobDetail" LegacyAlias="Get-CPThirdPartyJobDetails" />
     <ServiceOperation MethodName="ListActionTypes" Verb="Get" Noun="ActionType" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="ListPipelines" Verb="Get" Noun="PipelineList" />
+    <ServiceOperation MethodName="ListPipelines" Verb="Get" Noun="PipelineList"/>
+    <ServiceOperation MethodName="ListPipelineExecutions" Verb="Get" Noun="PipelineExecutionSummary">
+      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    </ServiceOperation>
     <ServiceOperation MethodName="PollForJobs" Verb="Get" Noun="ActionableJobList" NoPipelineParameter="true" LegacyAlias="Get-CPActionableJobs" />
     <ServiceOperation MethodName="PollForThirdPartyJobs" Verb="Get" Noun="ActionableThirdPartyJobList" NoPipelineParameter="true" LegacyAlias="Get-CPActionableThirdPartyJobs" />
     <ServiceOperation MethodName="PutActionRevision" Output="Response" PipelineParameter="PipelineName" ShouldProcessTarget="ActionName"/>

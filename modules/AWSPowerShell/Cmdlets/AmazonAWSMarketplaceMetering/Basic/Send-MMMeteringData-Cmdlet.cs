@@ -30,6 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// <summary>
     /// API to emit metering records. For identical requests, the API is idempotent. It simply
     /// returns the metering record ID.
+    /// 
+    ///  
+    /// <para>
+    /// MeterUsage is authenticated on the buyer's AWS account, generally when running from
+    /// an EC2 instance on the AWS Marketplace.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "MMMeteringData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -78,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter UsageDimension
         /// <summary>
         /// <para>
-        /// <para>It will be one of the 'fcp dimension name' provided during the publishing of the product.</para>
+        /// <para>It will be one of the fcp dimension name provided during the publishing of the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

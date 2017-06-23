@@ -28,7 +28,10 @@ using Amazon.AWSMarketplaceMetering.Model;
 namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
-    
+    /// ResolveCustomer is called by a SaaS application during the registration process. When
+    /// a buyer visits your website during the registration process, the buyer submits a registration
+    /// token through their browser. The registration token is resolved through this API to
+    /// obtain a CustomerIdentifier and product code.
     /// </summary>
     [Cmdlet("Get", "MMCustomerMetadata")]
     [OutputType("Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse")]
@@ -42,7 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter RegistrationToken
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>When a buyer visits your website during the registration process, the buyer submits
+        /// a registration token through the browser. The registration token is resolved to obtain
+        /// a CustomerIdentifier and product code.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

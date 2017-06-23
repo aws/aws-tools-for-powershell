@@ -59,7 +59,7 @@
     <ServiceOperation MethodName="GetKeyPairs" Noun="KeypairList" />
     <ServiceOperation MethodName="GetOperation" />
     <ServiceOperation MethodName="GetOperations" Noun="OperationList" />
-    <ServiceOperation MethodName="GetOperationsForResource" PipelineParameter="ResourceName" Noun="OperationListForResource" Output="Response" />
+    <ServiceOperation MethodName="GetOperationsForResource" PipelineParameter="ResourceName" Noun="OperationListForResource" />
     <ServiceOperation MethodName="GetRegions" Noun="RegionList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="GetStaticIp" />
     <ServiceOperation MethodName="GetStaticIps" Noun="StaticIpList" />
@@ -75,4 +75,8 @@
     <ServiceOperation MethodName="UnpeerVpc" Verb="Remove" Noun="PeerVpc" AnonymousShouldProcssTarget="true" />
     <ServiceOperation MethodName="UpdateDomainEntry" PipelineParameter="DomainName" />
   </ServiceOperations>
+
+  <MetadataProperties>
+    <Property>NextPageCount</Property>
+  </MetadataProperties>
 </ConfigModel>

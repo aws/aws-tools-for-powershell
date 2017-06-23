@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         public byte[] CertificateWallet { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags associated with the certificate.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.DatabaseMigrationService.Model.Tag[] Tag { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -102,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             context.CertificateIdentifier = this.CertificateIdentifier;
             context.CertificatePem = this.CertificatePem;
             context.CertificateWallet = this.CertificateWallet;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.DatabaseMigrationService.Model.Tag>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
                 {
                     _CertificateWalletStream = new System.IO.MemoryStream(cmdletContext.CertificateWallet);
                     request.CertificateWallet = _CertificateWalletStream;
+                }
+                if (cmdletContext.Tags != null)
+                {
+                    request.Tags = cmdletContext.Tags;
                 }
                 
                 CmdletOutput output;
@@ -198,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             public System.String CertificateIdentifier { get; set; }
             public System.String CertificatePem { get; set; }
             public byte[] CertificateWallet { get; set; }
+            public List<Amazon.DatabaseMigrationService.Model.Tag> Tags { get; set; }
         }
         
     }

@@ -28,35 +28,48 @@ using Amazon.CodePipeline.Model;
 namespace Amazon.PowerShell.Cmdlets.CP
 {
     /// <summary>
-    /// Gets a summary of all AWS CodePipeline action types associated with your account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets a summary of the most recent executions for a pipeline.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "CPActionType")]
-    [OutputType("Amazon.CodePipeline.Model.ActionType")]
-    [AWSCmdlet("Invokes the ListActionTypes operation against AWS CodePipeline.", Operation = new[] {"ListActionTypes"})]
-    [AWSCmdletOutput("Amazon.CodePipeline.Model.ActionType",
-        "This cmdlet returns a collection of ActionType objects.",
-        "The service call response (type Amazon.CodePipeline.Model.ListActionTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CPPipelineExecutionSummary")]
+    [OutputType("Amazon.CodePipeline.Model.PipelineExecutionSummary")]
+    [AWSCmdlet("Invokes the ListPipelineExecutions operation against AWS CodePipeline.", Operation = new[] {"ListPipelineExecutions"})]
+    [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineExecutionSummary",
+        "This cmdlet returns a collection of PipelineExecutionSummary objects.",
+        "The service call response (type Amazon.CodePipeline.Model.ListPipelineExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetCPActionTypeCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
+    public partial class GetCPPipelineExecutionSummaryCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
         
-        #region Parameter ActionOwnerFilter
+        #region Parameter PipelineName
         /// <summary>
         /// <para>
-        /// <para>Filters the list of action types to those created by a specified entity.</para>
+        /// <para>The name of the pipeline for which you want to get execution summary information.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String PipelineName { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of results to return in a single call. To retrieve the remaining
+        /// results, make another call with the returned nextToken value. The available pipeline
+        /// execution history is limited to the most recent 12 months, based on pipeline execution
+        /// start times. Default value is 100.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.CodePipeline.ActionOwner")]
-        public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>An identifier that was returned from the previous list action types call, which can
-        /// be used to return the next set of action types in the list.</para>
+        /// <para>The token that was returned from the previous list pipeline executions call, which
+        /// can be used to return the next set of pipeline executions in the list.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -79,8 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ActionOwnerFilter = this.ActionOwnerFilter;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.PipelineName = this.PipelineName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -96,27 +111,36 @@ namespace Amazon.PowerShell.Cmdlets.CP
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CodePipeline.Model.ListActionTypesRequest();
-            
-            if (cmdletContext.ActionOwnerFilter != null)
+            var request = new Amazon.CodePipeline.Model.ListPipelineExecutionsRequest();
+            if (cmdletContext.PipelineName != null)
             {
-                request.ActionOwnerFilter = cmdletContext.ActionOwnerFilter;
+                request.PipelineName = cmdletContext.PipelineName;
             }
             
-            // Initialize loop variant and commence piping
+            // Initialize loop variants and commence piping
             System.String _nextMarker = null;
-            bool _userControllingPaging = false;
+            int? _emitLimit = null;
+            int _retrievedSoFar = 0;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
-                _userControllingPaging = true;
             }
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            {
+                _emitLimit = cmdletContext.MaxResults;
+            }
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _continueIteration = true;
             
             try
             {
                 do
                 {
                     request.NextToken = _nextMarker;
+                    if (AutoIterationHelpers.HasValue(_emitLimit))
+                    {
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
                     CmdletOutput output;
@@ -125,9 +149,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
                     {
                         
                         var response = CallAWSServiceOperation(client, request);
-                        
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ActionTypes;
+                        object pipelineOutput = response.PipelineExecutionSummaries;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -136,13 +159,19 @@ namespace Amazon.PowerShell.Cmdlets.CP
                             ServiceResponse = response,
                             Notes = notes
                         };
+                        int _receivedThisCall = response.PipelineExecutionSummaries.Count;
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.ActionTypes.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
                         _nextMarker = response.NextToken;
+                        
+                        _retrievedSoFar += _receivedThisCall;
+                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
+                        {
+                            _continueIteration = false;
+                        }
                     }
                     catch (Exception e)
                     {
@@ -150,8 +179,8 @@ namespace Amazon.PowerShell.Cmdlets.CP
                     }
                     
                     ProcessOutput(output);
-                    
-                } while (AutoIterationHelpers.HasValue(_nextMarker));
+                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
+                
             }
             finally
             {
@@ -173,14 +202,14 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #region AWS Service Operation Call
         
-        private Amazon.CodePipeline.Model.ListActionTypesResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListActionTypesRequest request)
+        private Amazon.CodePipeline.Model.ListPipelineExecutionsResponse CallAWSServiceOperation(IAmazonCodePipeline client, Amazon.CodePipeline.Model.ListPipelineExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "ListActionTypes");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodePipeline", "ListPipelineExecutions");
             #if DESKTOP
-            return client.ListActionTypes(request);
+            return client.ListPipelineExecutions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListActionTypesAsync(request);
+            var task = client.ListPipelineExecutionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -191,8 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
+            public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.String PipelineName { get; set; }
         }
         
     }

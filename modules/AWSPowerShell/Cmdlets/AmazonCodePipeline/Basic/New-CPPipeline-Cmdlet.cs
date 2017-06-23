@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         #region Parameter Pipeline
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Represents the structure of actions and stages to be performed in the pipeline. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

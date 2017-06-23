@@ -28,9 +28,8 @@ using Amazon.ImportExport.Model;
 namespace Amazon.PowerShell.Cmdlets.IE
 {
     /// <summary>
-    /// This operation returns information about a job, including where the job is in the
-    /// processing pipeline, the status of the results, and the signature value associated
-    /// with the job. You can only return information about jobs you own.
+    /// This operation generates a pre-paid UPS shipping label that you will use to ship your
+    /// device to AWS for processing.
     /// </summary>
     [Cmdlet("Get", "IEShippingLabel")]
     [OutputType("Amazon.ImportExport.Model.GetShippingLabelResponse")]

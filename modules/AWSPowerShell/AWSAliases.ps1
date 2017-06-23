@@ -863,6 +863,7 @@ Set-Alias -Name CD-ListApplications -Value Get-CDApplicationList
 Set-Alias -Name CD-ListDeploymentConfigs -Value Get-CDDeploymentConfigList
 Set-Alias -Name CD-ListDeploymentGroups -Value Get-CDDeploymentGroupList
 Set-Alias -Name CD-ListDeploymentInstances -Value Get-CDDeploymentInstanceList
+Set-Alias -Name CP-RetryStageExecution -Value Redo-CPStageExecution
 Set-Alias -Name CP-StartPipelineExecution -Value Start-CPPipelineExecution
 Set-Alias -Name CP-UpdatePipeline -Value Update-CPPipeline
 Set-Alias -Name CP-AcknowledgeJob -Value Confirm-CPJob
@@ -883,6 +884,7 @@ Set-Alias -Name CP-GetPipelineExecution -Value Get-CPPipelineExecution
 Set-Alias -Name CP-GetPipelineState -Value Get-CPPipelineState
 Set-Alias -Name CP-GetThirdPartyJobDetails -Value Get-CPThirdPartyJobDetail
 Set-Alias -Name CP-ListActionTypes -Value Get-CPActionType
+Set-Alias -Name CP-ListPipelineExecutions -Value Get-CPPipelineExecutionSummary
 Set-Alias -Name CP-ListPipelines -Value Get-CPPipelineList
 Set-Alias -Name CP-PollForJobs -Value Get-CPActionableJobList
 Set-Alias -Name CP-PollForThirdPartyJobs -Value Get-CPActionableThirdPartyJobList
@@ -898,7 +900,6 @@ Set-Alias -Name Put-CPThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFai
 Set-Alias -Name CP-PutThirdPartyJobFailureResult -Value Write-CPThirdPartyJobFailureResult
 Set-Alias -Name Put-CPThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
 Set-Alias -Name CP-PutThirdPartyJobSuccessResult -Value Write-CPThirdPartyJobSuccessResult
-Set-Alias -Name CP-RetryStageExecution -Value Redo-CPStageExecution
 Set-Alias -Name CST-AssociateTeamMember -Value Add-CSTTeamMember
 Set-Alias -Name Create-CSTProject -Value New-CSTProject
 Set-Alias -Name CST-CreateProject -Value New-CSTProject

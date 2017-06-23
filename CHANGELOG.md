@@ -1,4 +1,4 @@
-###
+### 3.3.113.0 (2017-06-23)
   * Amazon Simple Systems Management
     - Added cmdlets Get-SSMParameter (GetParameter API), Get-SSMParametersByPath (GetParametersByPath API), Remove-SSMParameterCollection (DeleteParameters API).
     - Updated Get-SSMParameterList with a new parameter, -ParameterFilter, to support filtering of the results.
@@ -9,6 +9,13 @@
     - Added new cmdlets to support creation, editing, updating, and deleting a new type of WAF rule with a rate tracking component. The new cmdlets are Get-WAFRRateBasedRule (GetRateBasedRule API), Get-WAFRRateBasedRuleList (ListRateBasedRules API), Get-WAFRRateBasedRuleManagedKey (GetRateBasedRuleManagedKeys API), New-WAFRRateBasedRule (CreateRateBasedRule API), Remove-WAFRRateBasedRule (DeleteRateBasedRule API) and Update-WAFRRateBasedRule (UpdateRateBasedRule API).
   * Amazon WorkDocs
     - Added cmdlets Get-WDActivity (DescribeActivities API), Get-WDCurrentUser (GetCurrentUser API) and Get-WDRootFolder (DescribeRootFolders API) to retrieve the activities performed by WorkDocs users.
+  * AWS CodePipeline
+    - Added cmdlet Get-CDPipelineExecutionSummary to support the new ListPipelineExecutions API. This cmdlet enables you to retrieve summary information about the most recent executions in a pipeline, including pipeline execution ID, status, start time, and last updated time. You can request information for a maximum of 100 executions. Pipeline execution data is available for the most recent 12 months of activity.
+    - Enabled automatic pagination of results for the Get-CPActionType and Get-CDPipelineList cmdlets.
+  * Amazon Lightsail
+    - The Get-LSOperationListForResource cmdlet now supports automatic pagination.
+  * AWS Data Migration Service
+    - Extended the Import-DSMCertificate cmdlet to support tagging.
 
 ### 3.3.109.0 (2017-06-19)
   * Amazon EC2

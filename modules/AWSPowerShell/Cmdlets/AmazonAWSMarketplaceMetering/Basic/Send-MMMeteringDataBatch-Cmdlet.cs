@@ -28,7 +28,19 @@ using Amazon.AWSMarketplaceMetering.Model;
 namespace Amazon.PowerShell.Cmdlets.MM
 {
     /// <summary>
-    
+    /// BatchMeterUsage is called from a SaaS application listed on the AWS Marketplace to
+    /// post metering records for a set of customers.
+    /// 
+    ///  
+    /// <para>
+    /// For identical requests, the API is idempotent; requests can be retried with the same
+    /// records or a subset of the input records.
+    /// </para><para>
+    /// Every request to BatchMeterUsage is for one product. If you need to meter usage for
+    /// multiple products, you must make multiple calls to BatchMeterUsage.
+    /// </para><para>
+    /// BatchMeterUsage can process up to 25 UsageRecords at a time.
+    /// </para>
     /// </summary>
     [Cmdlet("Send", "MMMeteringDataBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse")]
@@ -42,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter ProductCode
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Product code is used to uniquely identify a product in AWS Marketplace. The product
+        /// code should be the same as the one used during the publishing of a new product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -52,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.MM
         #region Parameter UsageRecord
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The set of UsageRecords to submit. BatchMeterUsage accepts up to 25 UsageRecords at
+        /// a time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

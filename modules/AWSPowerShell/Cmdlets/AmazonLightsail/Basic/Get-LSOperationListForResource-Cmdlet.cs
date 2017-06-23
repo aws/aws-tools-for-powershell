@@ -28,13 +28,15 @@ using Amazon.Lightsail.Model;
 namespace Amazon.PowerShell.Cmdlets.LS
 {
     /// <summary>
-    /// Gets operations for a specific resource (e.g., an instance or a static IP).
+    /// Gets operations for a specific resource (e.g., an instance or a static IP).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LSOperationListForResource")]
-    [OutputType("Amazon.Lightsail.Model.GetOperationsForResourceResponse")]
+    [OutputType("Amazon.Lightsail.Model.Operation")]
     [AWSCmdlet("Invokes the GetOperationsForResource operation against Amazon Lightsail.", Operation = new[] {"GetOperationsForResource"})]
-    [AWSCmdletOutput("Amazon.Lightsail.Model.GetOperationsForResourceResponse",
-        "This cmdlet returns a Amazon.Lightsail.Model.GetOperationsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
+        "This cmdlet returns a collection of Operation objects.",
+        "The service call response (type Amazon.Lightsail.Model.GetOperationsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageCount (type System.String), NextPageToken (type System.String)"
     )]
     public partial class GetLSOperationListForResourceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
@@ -89,40 +91,75 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            // create request
+            
+            // create request and set iteration invariants
             var request = new Amazon.Lightsail.Model.GetOperationsForResourceRequest();
             
-            if (cmdletContext.PageToken != null)
-            {
-                request.PageToken = cmdletContext.PageToken;
-            }
             if (cmdletContext.ResourceName != null)
             {
                 request.ResourceName = cmdletContext.ResourceName;
             }
             
-            CmdletOutput output;
+            // Initialize loop variant and commence piping
+            System.String _nextMarker = null;
+            bool _userControllingPaging = false;
+            if (AutoIterationHelpers.HasValue(cmdletContext.PageToken))
+            {
+                _nextMarker = cmdletContext.PageToken;
+                _userControllingPaging = true;
+            }
             
-            // issue call
-            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                var response = CallAWSServiceOperation(client, request);
-                Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
-                output = new CmdletOutput
+                do
                 {
-                    PipelineOutput = pipelineOutput,
-                    ServiceResponse = response,
-                    Notes = notes
-                };
+                    request.PageToken = _nextMarker;
+                    
+                    var client = Client ?? CreateClient(context.Credentials, context.Region);
+                    CmdletOutput output;
+                    
+                    try
+                    {
+                        
+                        var response = CallAWSServiceOperation(client, request);
+                        
+                        Dictionary<string, object> notes = null;
+                        object pipelineOutput = response.Operations;
+                        notes = new Dictionary<string, object>();
+                        notes["NextPageCount"] = response.NextPageCount;
+                        notes["NextPageToken"] = response.NextPageToken;
+                        output = new CmdletOutput
+                        {
+                            PipelineOutput = pipelineOutput,
+                            ServiceResponse = response,
+                            Notes = notes
+                        };
+                        if (_userControllingPaging)
+                        {
+                            int _receivedThisCall = response.Operations.Count;
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
+                        }
+                        
+                        _nextMarker = response.NextPageToken;
+                    }
+                    catch (Exception e)
+                    {
+                        output = new CmdletOutput { ErrorResponse = e };
+                    }
+                    
+                    ProcessOutput(output);
+                    
+                } while (AutoIterationHelpers.HasValue(_nextMarker));
             }
-            catch (Exception e)
+            finally
             {
-                output = new CmdletOutput { ErrorResponse = e };
+                if (_userControllingPaging)
+                {
+                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
+                }
             }
             
-            return output;
+            return null;
         }
         
         public ExecutorContext CreateContext()
