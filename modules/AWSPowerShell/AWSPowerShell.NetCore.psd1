@@ -153,10 +153,14 @@ RequiredAssemblies = @(
 ScriptsToProcess = @()
 
 # Type files (.ps1xml) to be loaded when importing this module
-TypesToProcess = @('AWSPowerShell.TypeExtensions.ps1xml')
+TypesToProcess = @(
+    'AWSPowerShell.TypeExtensions.ps1xml'
+)
 
 # Format files (.ps1xml) to be loaded when importing this module
-FormatsToProcess = @('AWSPowerShell.Format.ps1xml')
+FormatsToProcess = @(
+    'AWSPowerShell.Format.ps1xml'
+)
 
 # Modules to import as nested modules of the module specified in ModuleToProcess
 NestedModules = @(

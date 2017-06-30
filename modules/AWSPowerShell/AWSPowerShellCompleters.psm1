@@ -709,6 +709,17 @@ $CFN_Completers = {
             break
         }
         
+        # Amazon.CloudFormation.StackStatus
+        {
+            ($_ -eq "Test-CFNStack/Status") -Or
+            ($_ -eq "Wait-CFNStack/Status") -Or
+            ($_ -eq "Watch-CFNStackEvent/Status")
+        }
+        {
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","DELETE_COMPLETE","DELETE_FAILED","DELETE_IN_PROGRESS","REVIEW_IN_PROGRESS","ROLLBACK_COMPLETE","ROLLBACK_FAILED","ROLLBACK_IN_PROGRESS","UPDATE_COMPLETE","UPDATE_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_IN_PROGRESS","UPDATE_ROLLBACK_COMPLETE","UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS","UPDATE_ROLLBACK_FAILED","UPDATE_ROLLBACK_IN_PROGRESS"
+            break
+        }
+        
     }
     
     $v |
@@ -718,7 +729,7 @@ $CFN_Completers = {
 
 $CFN_map = @{
     "OnFailure"=@("New-CFNStack")
-    "Status"=@("Send-CFNResourceSignal")
+    "Status"=@("Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack","Watch-CFNStackEvent")
 }
 
 _awsArgumentCompleterRegistration $CFN_Completers $CFN_map

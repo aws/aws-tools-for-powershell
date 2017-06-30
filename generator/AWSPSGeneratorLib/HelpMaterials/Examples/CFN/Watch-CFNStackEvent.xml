@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+    <example>
+        <code>
+PS C:\> Watch-CFNStackEvent -StackName MyStack 
+
+ClientRequestToken   :
+EventId              : RootRole-CREATE_IN_PROGRESS-2017-05-31T22:32:39.313Z
+LogicalResourceId    : RootRole
+PhysicalResourceId   : MyStack-RootRole-AGQIDYB5A1OO
+ResourceProperties   : {"Path":"/","AssumeRolePolicyDocument":{"Statement":[{"Action":["sts:AssumeRole"],"Effect":"Allow","Principal":{"Service":["ec2.amazonaws.com"]}}]}}
+
+ResourceStatus       : CREATE_IN_PROGRESS
+ResourceStatusReason : Resource creation Initiated
+ResourceType         : AWS::IAM::Role
+StackId              : arn:aws:cloudformation:us-west-2:123456789012:stack/MyStack/0aae4d60-4651-11e7-9485-50a68a0e32ba
+StackName            : MyStack
+Timestamp            : 5/31/2017 3:32:39 PM
+
+...
+
+ResourceStatus       : CREATE_COMPLETE
+ResourceStatusReason :
+ResourceType         : AWS::IAM::Role
+StackId              : arn:aws:cloudformation:us-west-2:123456789012:stack/MyStack/0aae4d60-4651-11e7-9485-50a68a0e32ba
+StackName            : MyStack
+Timestamp            : 5/31/2017 3:32:55 PM
+
+ClientRequestToken   :
+EventId              : RolePolicies-CREATE_COMPLETE-2017-05-31T22:32:58.758Z
+LogicalResourceId    : RolePolicies
+PhysicalResourceId   : MyStack-Role-1VOIPPHGY397F
+ResourceProperties   : {"PolicyName":"root","PolicyDocument":{"Statement":[{"Action":"*","Resource":"*","Effect":"Allow"}]},"Roles":["MyStack-RootRole-AGQIDYB5A1OO"]}
+
+...
+
+ClientRequestToken   :
+EventId              : 6d962060-4651-11e7-af30-503f2a2ceeae
+LogicalResourceId    : MyStack
+PhysicalResourceId   : arn:aws:cloudformation:us-west-2:123456789012:stack/MyStack/0aae4d60-4651-11e7-9485-50a68a0e32ba
+ResourceProperties   :
+ResourceStatus       : CREATE_COMPLETE
+ResourceStatusReason :
+ResourceType         : AWS::CloudFormation::Stack
+StackId              : arn:aws:cloudformation:us-west-2:123456789012:stack/MyStack/0aae4d60-4651-11e7-9485-50a68a0e32ba
+StackName            : MyStack
+Timestamp            : 5/31/2017 3:35:20 PM        
+        </code>
+        <description>This command outputs events that have occurred so far for the specified stack and then tests to determine if the stack has reached any of the states UPDATE_ROLLBACK_COMPLETE, CREATE_COMPLETE, ROLLBACK_COMPLETE or UPDATE_COMPLETE. If the stack is not at one of the desired states the command sleeps for 5 seconds before obtaining all of the events that have occurred since the last query and outputting them to the pipeline. The status of the stack is then retested. This poll/sleep behavior continues until the stack reaches one of the states.</description>
+    </example>
+    <example>
+        <code>Watch-CFNStackEvent -StackName MyStack -Interval 10 -Status CREATE_COMPLETE,ROLLBACK_COMPLETE</code>
+        <description>In this example the command sleeps for 10 seconds between event polls, waiting for the specified stack to reach either the state CREATE_COMPLETE or ROLLBACK_COMPLETE.</description>
+    </example>
+</examples>

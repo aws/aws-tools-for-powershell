@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<examples>
+    <example>
+        <code>
+PS C:\> Test-CFNStack -StackName MyStack
+False        
+        </code>
+        <description>Tests if the stack has reached one of the states UPDATE_ROLLBACK_COMPLETE, CREATE_COMPLETE, ROLLBACK_COMPLETE or UPDATE_COMPLETE.</description>
+    </example>
+    <example>
+        <code>
+PS C:\> Test-CFNStack -StackName MyStack -Status UPDATE_COMPLETE,UPDATE_ROLLBACK_COMPLETE
+True       
+        </code>
+        <description>Tests if the stack has reached a status of either UPDATE_COMPLETE or UPDATE_ROLLBACK_COMPLETE.</description>
+    </example>>
+</examples>

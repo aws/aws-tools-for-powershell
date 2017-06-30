@@ -8,7 +8,7 @@
 ModuleToProcess = 'AWSPowerShell.dll'
 
 # Version number of this module.
-ModuleVersion = '3.0.0.0'
+ModuleVersion = '3.3.99.2'
 
 # ID used to uniquely identify this module
 GUID = '21f083f2-4c41-4b5d-88ec-7d24c9e88769'
@@ -151,10 +151,14 @@ RequiredAssemblies = @(
 ScriptsToProcess = @()
 
 # Type files (.ps1xml) to be loaded when importing this module
-TypesToProcess = @('AWSPowerShell.TypeExtensions.ps1xml')
+TypesToProcess = @(
+    'AWSPowerShell.TypeExtensions.ps1xml'
+)
 
 # Format files (.ps1xml) to be loaded when importing this module
-FormatsToProcess = @('AWSPowerShell.Format.ps1xml')
+FormatsToProcess = @(
+    'AWSPowerShell.Format.ps1xml'
+)
 
 # Modules to import as nested modules of the module specified in ModuleToProcess
 NestedModules = @(

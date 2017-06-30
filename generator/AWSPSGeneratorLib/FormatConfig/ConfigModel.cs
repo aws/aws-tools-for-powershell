@@ -99,33 +99,29 @@ namespace AWSPowerShellGenerator.FormatConfig
             }
         }
 
-        /// <summary>
-        /// The names of custom format files to include in the final master set.
-        /// Any type names found in a custom formats file are added to the TypesToExclude
-        /// set so that no duplication occurs. Custom format files should be standalone
-        /// ps1xml files, added as embedded resources from the .\FormatConfig\CustomFormats
-        /// folder.
-        /// </summary>
-        [XmlArray]
-        [XmlArrayItem("CustomFormat")]
-        public List<string> CustomFormats { get; set; }
-
         private List<XmlDocument> _customFormatDocuments; 
         internal IEnumerable<XmlDocument> CustomFormatDocuments
         {
             get { return _customFormatDocuments; }
         }
 
+        /// <summary>
+        /// Loads custom format files to include in the final master set. Any type names found 
+        /// in a custom formats file are added to the TypesToExclude set so that no duplication 
+        /// occurs. Custom format files should be standalone ps1xml files located in the 
+        /// .\FormatConfig\CustomFormats folder.
+        /// </summary>
         internal IEnumerable<XmlDocument> LoadCustomFormatDocuments(string configurationsFolderRoot)
         {
             if (_customFormatDocuments == null)
             {
                 _customFormatDocuments = new List<XmlDocument>();
-                foreach (var customFormatResource in CustomFormats)
+                var customFormatsFolder = Path.Combine(configurationsFolderRoot, "CustomFormats");
+                var customFormatFiles = Directory.GetFiles(customFormatsFolder, "*.ps1xml", SearchOption.AllDirectories);
+                foreach (var customFormatFile in customFormatFiles)
                 {
-                    var filename = Path.Combine(configurationsFolderRoot, "CustomFormats", customFormatResource);
                     var doc = new XmlDocument();
-                    doc.Load(filename);
+                    doc.Load(customFormatFile);
                     _customFormatDocuments.Add(doc);
                 }
             }
@@ -170,7 +166,6 @@ namespace AWSPowerShellGenerator.FormatConfig
             NamespacesToExclude = new List<string>();
             TypesToInclude = new List<string>();
             TypesToExclude = new List<string>();
-            CustomFormats = new List<string>();
         }
     }
 
