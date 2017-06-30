@@ -29,17 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Creates a new Amazon GameLift build from a set of game server binary files stored
-    /// in an Amazon Simple Storage Service (Amazon S3) location. When using this API call,
-    /// you must create a <code>.zip</code> file containing all of the build files and store
-    /// it in an Amazon S3 bucket under your AWS account. For help on packaging your build
-    /// files and creating a build, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
+    /// in an Amazon Simple Storage Service (Amazon S3) location. To use this API call, create
+    /// a <code>.zip</code> file containing all of the files for the build and store it in
+    /// an Amazon S3 bucket under your AWS account. For help on packaging your build files
+    /// and creating a build, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-build-intro.html">Uploading
     /// Your Game to Amazon GameLift</a>.
     /// 
     ///  <important><para>
     /// Use this API action ONLY if you are storing your game build files in an Amazon S3
-    /// bucket in your AWS account. To create a build using files stored in a directory, use
-    /// the CLI command <a href="http://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html"><code>upload-build</code></a>, which uploads the build files from a file location
-    /// you specify and creates a build.
+    /// bucket. To create a build using files stored locally, use the CLI command <a href="http://docs.aws.amazon.com/cli/latest/reference/gamelift/upload-build.html"><code>upload-build</code></a>, which uploads the build files from a file location
+    /// you specify.
     /// </para></important><para>
     /// To create a new build using <code>CreateBuild</code>, identify the storage location
     /// and operating system of your game build. You also have the option of specifying a
@@ -47,7 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// an unique build ID and in <code>INITIALIZED</code> status. Use the API call <a>DescribeBuild</a>
     /// to check the status of your build. A build must be in <code>READY</code> status before
     /// it can be used to create fleets to host your game.
-    /// </para>
+    /// </para><para>
+    /// Build-related operations include:
+    /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.CreateBuildResponse")]

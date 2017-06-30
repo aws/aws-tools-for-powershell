@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ReturnCloudFormationTemplate
         /// <summary>
         /// <para>
-        /// <para>Selects verbose results. If set to true, the CloudFormation template is returned.</para>
+        /// <para>Enable a verbose level of details for the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

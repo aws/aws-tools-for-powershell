@@ -22,39 +22,24 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.CloudWatchEvents;
+using Amazon.CloudWatchEvents.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Retrieves properties for a build. To get a build record, specify a build ID. If successful,
-    /// an object containing the build properties is returned.
-    /// 
-    ///  
-    /// <para>
-    /// Build-related operations include:
-    /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul>
+    /// Displays the external AWS accounts that are permitted to write events to your account
+    /// using your account's event bus, and the associated policy. To enable your account
+    /// to receive events from other accounts, use <a>PutPermission</a>.
     /// </summary>
-    [Cmdlet("Get", "GMLBuildDetail")]
-    [OutputType("Amazon.GameLift.Model.Build")]
-    [AWSCmdlet("Invokes the DescribeBuild operation against Amazon GameLift Service.", Operation = new[] {"DescribeBuild"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Build",
-        "This cmdlet returns a Build object.",
-        "The service call response (type Amazon.GameLift.Model.DescribeBuildResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CWEEventBus")]
+    [OutputType("Amazon.CloudWatchEvents.Model.DescribeEventBusResponse")]
+    [AWSCmdlet("Invokes the DescribeEventBus operation against Amazon CloudWatch Events.", Operation = new[] {"DescribeEventBus"})]
+    [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.DescribeEventBusResponse",
+        "This cmdlet returns a Amazon.CloudWatchEvents.Model.DescribeEventBusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLBuildDetailCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetCWEEventBusCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
-        
-        #region Parameter BuildId
-        /// <summary>
-        /// <para>
-        /// <para>Unique identifier for a build to retrieve properties for.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String BuildId { get; set; }
-        #endregion
         
         protected override void ProcessRecord()
         {
@@ -69,7 +54,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.BuildId = this.BuildId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -84,12 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DescribeBuildRequest();
+            var request = new Amazon.CloudWatchEvents.Model.DescribeEventBusRequest();
             
-            if (cmdletContext.BuildId != null)
-            {
-                request.BuildId = cmdletContext.BuildId;
-            }
             
             CmdletOutput output;
             
@@ -99,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Build;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -124,14 +104,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeBuildResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeBuildRequest request)
+        private Amazon.CloudWatchEvents.Model.DescribeEventBusResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.DescribeEventBusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeBuild");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Events", "DescribeEventBus");
             #if DESKTOP
-            return client.DescribeBuild(request);
+            return client.DescribeEventBus(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeBuildAsync(request);
+            var task = client.DescribeEventBusAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -142,7 +122,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String BuildId { get; set; }
         }
         
     }

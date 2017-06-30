@@ -46,7 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// view a fleet's current capacity information by calling <a>DescribeFleetCapacity</a>.
     /// If the desired instance count is higher than the instance type's limit, the "Limit
     /// Exceeded" exception occurs.
-    /// </para>
+    /// </para><para>
+    /// Fleet-related operations include:
+    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
+    /// Describe fleets:
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// Update fleets:
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
+    /// Manage fleet capacity:
+    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
+    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLFleetCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

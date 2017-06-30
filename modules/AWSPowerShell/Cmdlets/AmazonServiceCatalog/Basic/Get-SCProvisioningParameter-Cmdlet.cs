@@ -32,6 +32,18 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
     /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
     /// product.
+    /// 
+    ///  
+    /// <para>
+    /// If the output contains a TagOption key with an empty list of values, there is a TagOption
+    /// conflict for that key. The end user cannot take action to fix the conflict, and launch
+    /// is not blocked. In subsequent calls to the <code>ProvisionProduct</code> operation,
+    /// do not include conflicted TagOption keys as tags. Calls to <code>ProvisionProduct</code>
+    /// with empty TagOption values cause the error "Parameter validation failed: Missing
+    /// required parameter in Tags[<i>N</i>]:<i>Value</i> ". Calls to <code>ProvisionProduct</code>
+    /// with conflicted TagOption keys automatically tag the provisioned product with the
+    /// conflicted keys with the value "<code>sc-tagoption-conflict-portfolioId-productId</code>".
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SCProvisioningParameter")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]

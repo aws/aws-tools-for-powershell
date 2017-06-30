@@ -29,8 +29,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Updates fleet properties, including name and description, for a fleet. To update metadata,
-    /// specify the fleet ID and the property values you want to change. If successful, the
-    /// fleet ID for the updated fleet is returned.
+    /// specify the fleet ID and the property values that you want to change. If successful,
+    /// the fleet ID for the updated fleet is returned.
+    /// 
+    ///  
+    /// <para>
+    /// Fleet-related operations include:
+    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
+    /// Describe fleets:
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// Update fleets:
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
+    /// Manage fleet capacity:
+    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
+    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLFleetAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -65,10 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter MetricGroup
         /// <summary>
         /// <para>
-        /// <para>Names of metric groups to include this fleet with. A fleet metric group is used in
-        /// Amazon CloudWatch to aggregate metrics from multiple fleets. Use an existing metric
-        /// group name to add this fleet to the group, or use a new name to create a new metric
-        /// group. Currently, a fleet can only be included in one metric group at a time.</para>
+        /// <para>Names of metric groups to include this fleet in. Amazon CloudWatch uses a fleet metric
+        /// group is to aggregate metrics from multiple fleets. Use an existing metric group name
+        /// to add this fleet to the group. Or use a new name to create a new metric group. A
+        /// fleet can only be included in one metric group at a time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

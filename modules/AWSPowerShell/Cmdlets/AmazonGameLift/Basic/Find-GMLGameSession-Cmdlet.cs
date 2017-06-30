@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
     /// Retrieves a set of game sessions that match a set of search criteria and sorts them
-    /// in a specified order. Currently a game session search is limited to a single fleet.
-    /// Search results include only game sessions that are in <code>ACTIVE</code> status.
-    /// If you need to retrieve game sessions with a status other than active, use <a>DescribeGameSessions</a>.
+    /// in a specified order. A game session search is limited to a single fleet. Search results
+    /// include only game sessions that are in <code>ACTIVE</code> status. If you need to
+    /// retrieve game sessions with a status other than active, use <a>DescribeGameSessions</a>.
     /// If you need to retrieve the protection policy for each game session, use <a>DescribeGameSessionDetails</a>.
     /// 
     ///  
@@ -49,9 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para><b>maximumSessions</b> -- Maximum number of player sessions allowed for a game session.
     /// This value is set when requesting a new game session with <a>CreateGameSession</a>
     /// or updating with <a>UpdateGameSession</a>.
-    /// </para></li><li><para><b>hasAvailablePlayerSessions</b> -- Boolean value indicating whether or not a game
-    /// session has reached its maximum number of players. When searching with this attribute,
-    /// the search value must be <code>true</code> or <code>false</code>. It is highly recommended
+    /// </para></li><li><para><b>hasAvailablePlayerSessions</b> -- Boolean value indicating whether a game session
+    /// has reached its maximum number of players. When searching with this attribute, the
+    /// search value must be <code>true</code> or <code>false</code>. It is highly recommended
     /// that all search requests include this filter attribute to optimize search performance
     /// and return only sessions that players can join. 
     /// </para></li></ul><para>
@@ -64,7 +64,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// change quickly as players join sessions and others drop out. Results should be considered
     /// a snapshot in time. Be sure to refresh search results often, and handle sessions that
     /// fill up before a player can join. 
-    /// </para></note><para><i>Available in Amazon GameLift Local.</i></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para></note><para>
+    /// Game-session-related operations include:
+    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
+    /// Game session placements
+    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Find", "GMLGameSession")]
     [OutputType("Amazon.GameLift.Model.GameSession")]

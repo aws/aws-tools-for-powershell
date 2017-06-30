@@ -36,7 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
     /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
     /// are not saved.
-    /// </para></note>
+    /// </para></note><para>
+    /// Game-session-related operations include:
+    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
+    /// Game session placements
+    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLGameSessionLogUrl")]
     [OutputType("System.String")]

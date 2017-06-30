@@ -36,6 +36,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
     ///  
     /// <para>
     /// You can check the status of this request using the <a>DescribeRecord</a> operation.
+    /// The error "Parameter validation failed: Missing required parameter in Tags[<i>N</i>]:<i>Value</i>"
+    /// indicates that your request contains a tag which has a tag key but no corresponding
+    /// tag value (value is empty or null). Your call may have included values returned from
+    /// a <code>DescribeProvisioningParameters</code> call that resulted in a TagOption key
+    /// with an empty list. This happens when TagOption keys are in conflict. For more information,
+    /// see <a>DescribeProvisioningParameters</a>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

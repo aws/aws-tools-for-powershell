@@ -31,6 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Deletes a game session queue. This action means that any <a>StartGameSessionPlacement</a>
     /// requests that reference this queue will fail. To delete a queue, specify the queue
     /// name.
+    /// 
+    ///  
+    /// <para>
+    /// Queue-related operations include:
+    /// </para><ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
     /// </summary>
     [Cmdlet("Remove", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

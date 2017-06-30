@@ -34,6 +34,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// remove in <code>InboundPermissionRevocations</code>. Permissions to be removed must
     /// match existing fleet permissions. If successful, the fleet ID for the updated fleet
     /// is returned.
+    /// 
+    ///  
+    /// <para>
+    /// Fleet-related operations include:
+    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
+    /// Describe fleets:
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// Update fleets:
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
+    /// Manage fleet capacity:
+    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
+    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLFleetPortSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -40,7 +40,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// fleet ID, or alias ID. You can filter this request by game session status. Use the
     /// pagination parameters to retrieve results as a set of sequential pages. If successful,
     /// a <a>GameSessionDetail</a> object is returned for each session matching the request.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><para>
+    /// Game-session-related operations include:
+    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
+    /// Game session placements
+    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLGameSessionDetail")]
     [OutputType("Amazon.GameLift.Model.GameSessionDetail")]
@@ -87,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter StatusFilter
         /// <summary>
         /// <para>
-        /// <para>Game session status to filter results on. Possible game session statuses include ACTIVE,
+        /// <para>Game session status to filter results on. Possible game session statuses include <code>ACTIVE</code>,
         /// <code>TERMINATED</code>, <code>ACTIVATING</code> and <code>TERMINATING</code> (the
         /// last two are transitory). </para>
         /// </para>

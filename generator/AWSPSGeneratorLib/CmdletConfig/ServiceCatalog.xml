@@ -11,7 +11,7 @@
   <PipelineParameter>Id</PipelineParameter>
   
   <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="NextPageToken" Exclusions="DescribeRecord;SearchProducts" />
-  
+
   <ServiceOperations>
     <ServiceOperation MethodName="DescribeProduct" Output="Response" />
     <ServiceOperation MethodName="DescribeProductView" Output="Response">
@@ -69,6 +69,18 @@
     <ServiceOperation MethodName="ListPortfolioAccess" Verb="Get" Noun="PortfolioAccessList" PipelineParameter="PortfolioId" />
     <ServiceOperation MethodName="ListPortfolios" Verb="Get" Noun="PortfolioList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="ListPortfoliosForProduct" Verb="Get" Noun="ProductPortfoliosList" PipelineParameter="ProductId" />
+    <ServiceOperation MethodName="ListResourcesForTagOption" Verb="Get" PipelineParameter="TagOptionId">
+      <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="PageToken" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListTagOptions" Verb="Get" Noun="Option" NoPipelineParameter="true">
+      <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="PageToken" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="UpdateTagOption" PipelineParameter="Value" />
+
+    <ServiceOperation MethodName="AssociateTagOptionWithResource" Verb="Add" Noun="TagOptionToResource" PipelineParameter="TagOptionId" Output="Void" />
+    <ServiceOperation MethodName="CreateTagOption" PipelineParameter="Value" />
+    <ServiceOperation MethodName="DescribeTagOption" />
+    <ServiceOperation MethodName="DisassociateTagOptionFromResource" Verb="Remove" PipelineParameter="TagOptionId" Output="Void" />
   </ServiceOperations>
 
   <VerbMappings>

@@ -4679,6 +4679,13 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.ResourceDataSyncS3Format
+        "New-SSMResourceDataSync/S3Destination_SyncFormat"
+        {
+            $v = "JsonSerDe"
+            break
+        }
+        
         # Amazon.SimpleSystemsManagement.ResourceTypeForTagging
         {
             ($_ -eq "Add-SSMResourceTag/ResourceType") -Or
@@ -4704,6 +4711,7 @@ $SSM_map = @{
     "NotificationConfig_NotificationType"=@("Send-SSMCommand")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
+    "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
     "Type"=@("Write-SSMParameter")
 }

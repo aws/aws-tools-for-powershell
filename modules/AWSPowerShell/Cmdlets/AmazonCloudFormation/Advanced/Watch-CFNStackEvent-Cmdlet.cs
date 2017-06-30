@@ -26,6 +26,7 @@ using Amazon.CloudFormation.Model;
 
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
+    /* not yet ready for release
     /// <summary>
     /// Pauses execution of the script until the desired CloudFormation Stack status has been reached and prints 
     /// out new events while waiting.
@@ -217,4 +218,5 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         }
 
     }
+    */
 }

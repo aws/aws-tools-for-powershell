@@ -22,64 +22,40 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes a fleet scaling policy. This action means that the policy is no longer in
-    /// force and removes all record of it. To delete a scaling policy, specify both the scaling
-    /// policy name and the fleet ID it is associated with.
-    /// 
-    ///  
-    /// <para>
-    /// Fleet-related operations include:
-    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
-    /// Manage fleet capacity:
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
+    /// Deletes a Resource Data Sync configuration. After the configuration is deleted, changes
+    /// to inventory data on managed instances are no longer synced with the target Amazon
+    /// S3 bucket. Deleting a sync configuration does not delete data in the target Amazon
+    /// S3 bucket.
     /// </summary>
-    [Cmdlet("Remove", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteScalingPolicy operation against Amazon GameLift Service.", Operation = new[] {"DeleteScalingPolicy"})]
+    [AWSCmdlet("Invokes the DeleteResourceDataSync operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteResourceDataSync"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.GameLift.Model.DeleteScalingPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SyncName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveGMLScalingPolicyCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class RemoveSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetId
+        #region Parameter SyncName
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to be deleted.</para>
+        /// <para>The name of the configuration to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String FleetId { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
-        /// to be unique.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public System.String SyncName { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the FleetId parameter.
+        /// Returns the value passed to the SyncName parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLScalingPolicy (DeleteScalingPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SyncName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SSMResourceDataSync (DeleteResourceDataSync)"))
             {
                 return;
             }
@@ -115,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FleetId = this.FleetId;
-            context.Name = this.Name;
+            context.SyncName = this.SyncName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,15 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteScalingPolicyRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.SyncName != null)
             {
-                request.FleetId = cmdletContext.FleetId;
-            }
-            if (cmdletContext.Name != null)
-            {
-                request.Name = cmdletContext.Name;
+                request.SyncName = cmdletContext.SyncName;
             }
             
             CmdletOutput output;
@@ -152,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.FleetId;
+                    pipelineOutput = this.SyncName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -177,14 +148,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteScalingPolicyRequest request)
+        private Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DeleteResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteScalingPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DeleteResourceDataSync");
             #if DESKTOP
-            return client.DeleteScalingPolicy(request);
+            return client.DeleteResourceDataSync(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteScalingPolicyAsync(request);
+            var task = client.DeleteResourceDataSyncAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -195,8 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.String Name { get; set; }
+            public System.String SyncName { get; set; }
         }
         
     }

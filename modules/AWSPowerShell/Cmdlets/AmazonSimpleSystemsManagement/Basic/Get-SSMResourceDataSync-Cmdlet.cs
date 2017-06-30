@@ -22,67 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves build records for all builds associated with the AWS account in use. You
-    /// can limit results to builds that are in a specific status by using the <code>Status</code>
-    /// parameter. Use the pagination parameters to retrieve results in a set of sequential
-    /// pages. 
+    /// Lists your resource data sync configurations. Includes information about the last
+    /// time a sync attempted to start, the last sync status, and the last time a sync successfully
+    /// completed.
     /// 
-    ///  <note><para>
-    /// Build records are not listed in any particular order.
-    /// </para></note><para>
-    /// Build-related operations include:
-    /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    ///  
+    /// <para>
+    /// The number of sync configurations might be too large to return using a single call
+    /// to <code>ListResourceDataSync</code>. You can limit the number of sync configurations
+    /// returned by using the <code>MaxResults</code> parameter. To determine whether there
+    /// are more sync configurations to list, check the value of <code>NextToken</code> in
+    /// the output. If there are more sync configurations to list, you can request them by
+    /// specifying the <code>NextToken</code> returned in the call to the parameter of a subsequent
+    /// call. 
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLBuild")]
-    [OutputType("Amazon.GameLift.Model.Build")]
-    [AWSCmdlet("Invokes the ListBuilds operation against Amazon GameLift Service.", Operation = new[] {"ListBuilds"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Build",
-        "This cmdlet returns a collection of Build objects.",
-        "The service call response (type Amazon.GameLift.Model.ListBuildsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMResourceDataSync")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem")]
+    [AWSCmdlet("Invokes the ListResourceDataSync operation against Amazon Simple Systems Management.", Operation = new[] {"ListResourceDataSync"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem",
+        "This cmdlet returns a collection of ResourceDataSyncItem objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter Status
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Build status to filter results by. To retrieve all builds, leave this parameter empty.</para><para>Possible build statuses include the following:</para><ul><li><para><b>INITIALIZED</b> – A new build has been defined, but no files have been uploaded.
-        /// You cannot create fleets for builds that are in this status. When a build is successfully
-        /// created, the build status is set to this value. </para></li><li><para><b>READY</b> – The game build has been successfully uploaded. You can now create
-        /// new fleets for this build.</para></li><li><para><b>FAILED</b> – The game build upload failed. You cannot create new fleets for this
-        /// build. </para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.GameLift.BuildStatus")]
-        public Amazon.GameLift.BuildStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter Limit
-        /// <summary>
-        /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages.</para>
+        /// <para>The maximum number of items to return for this call. The call also returns a token
+        /// that you can specify in a subsequent call to get the next set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int Limit { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To specify the start of the
-        /// result set, do not specify a value.</para>
+        /// <para>A token to start the list. Use this token to get the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -105,10 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.Status = this.Status;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,25 +110,28 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListBuildsRequest();
-            if (cmdletContext.Status != null)
-            {
-                request.Status = cmdletContext.Status;
-            }
+            var request = new Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncRequest();
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 50;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                _emitLimit = cmdletContext.Limit;
+                // The service has a maximum page size of 50. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 50 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
+                _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
             bool _continueIteration = true;
             
             try
@@ -152,7 +141,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     request.NextToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -163,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Builds;
+                        object pipelineOutput = response.ResourceDataSyncItems;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -172,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Builds.Count;
+                        int _receivedThisCall = response.ResourceDataSyncItems.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -192,6 +195,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -215,14 +227,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ListBuildsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListBuildsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListBuilds");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListResourceDataSync");
             #if DESKTOP
-            return client.ListBuilds(request);
+            return client.ListResourceDataSync(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListBuildsAsync(request);
+            var task = client.ListResourceDataSyncAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -233,9 +245,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public int? Limit { get; set; }
+            public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.GameLift.BuildStatus Status { get; set; }
         }
         
     }

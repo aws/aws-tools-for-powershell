@@ -28,13 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves a collection of alias records for this AWS account. You can filter the result
-    /// set by alias name and/or routing strategy type. Use the pagination parameters to retrieve
-    /// results in sequential pages.
+    /// Retrieves all aliases for this AWS account. You can filter the result set by alias
+    /// name and/or routing strategy type. Use the pagination parameters to retrieve results
+    /// in sequential pages.
     /// 
     ///  <note><para>
-    /// Aliases are not listed in any particular order.
-    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Returned aliases are not listed in any particular order.
+    /// </para></note><para>
+    /// Alias-related operations include:
+    /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLAlias")]
     [OutputType("Amazon.GameLift.Model.Alias")]

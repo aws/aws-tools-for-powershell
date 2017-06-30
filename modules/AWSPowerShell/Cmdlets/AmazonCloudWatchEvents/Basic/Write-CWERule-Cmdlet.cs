@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         #region Parameter ScheduleExpression
         /// <summary>
         /// <para>
-        /// <para>The scheduling expression. For example, "cron(0 20 * * ? *)", "rate(5 minutes)".</para>
+        /// <para>The scheduling expression. For example, "cron(0 20 * * ? *)" or "rate(5 minutes)".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

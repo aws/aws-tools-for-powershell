@@ -28,29 +28,37 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Returns a paginated list of all paths to a specified product. A path is how the user
-    /// has access to a specified product, and is necessary when provisioning a product. A
-    /// path also determines the constraints put on the product.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists detailed TagOptions information.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SCLaunchPath")]
-    [OutputType("Amazon.ServiceCatalog.Model.LaunchPathSummary")]
-    [AWSCmdlet("Invokes the ListLaunchPaths operation against AWS Service Catalog.", Operation = new[] {"ListLaunchPaths"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.LaunchPathSummary",
-        "This cmdlet returns a collection of LaunchPathSummary objects.",
-        "The service call response (type Amazon.ServiceCatalog.Model.ListLaunchPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextPageToken (type System.String)"
+    [Cmdlet("Get", "SCOption")]
+    [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
+    [AWSCmdlet("Invokes the ListTagOptions operation against AWS Service Catalog.", Operation = new[] {"ListTagOptions"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.TagOptionDetail",
+        "This cmdlet returns a collection of TagOptionDetail objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ListTagOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: PageToken (type System.String)"
     )]
-    public partial class GetSCLaunchPathCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter AcceptLanguage
+        #region Parameter Filters_Active
         /// <summary>
         /// <para>
-        /// <para>The language code to use for this operation. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
+        /// <para>The ListTagOptionsFilters active state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String AcceptLanguage { get; set; }
+        public System.Boolean Filters_Active { get; set; }
+        #endregion
+        
+        #region Parameter Filters_Key
+        /// <summary>
+        /// <para>
+        /// <para>The ListTagOptionsFilters key.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Filters_Key { get; set; }
         #endregion
         
         #region Parameter PageSize
@@ -66,15 +74,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public int PageSize { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter Filters_Value
         /// <summary>
         /// <para>
-        /// <para>The product identifier. Identifies the product for which to retrieve <code>LaunchPathSummaries</code>
-        /// information.</para>
+        /// <para>The ListTagOptionsFilters value.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProductId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String Filters_Value { get; set; }
         #endregion
         
         #region Parameter PageToken
@@ -82,6 +89,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <para>
         /// <para>The page token of the first page retrieved. If null, this retrieves the first page
         /// of size <code>PageSize</code>.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,11 +112,13 @@ namespace Amazon.PowerShell.Cmdlets.SC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AcceptLanguage = this.AcceptLanguage;
+            if (ParameterWasBound("Filters_Active"))
+                context.Filters_Active = this.Filters_Active;
+            context.Filters_Key = this.Filters_Key;
+            context.Filters_Value = this.Filters_Value;
             if (ParameterWasBound("PageSize"))
                 context.PageSize = this.PageSize;
             context.PageToken = this.PageToken;
-            context.ProductId = this.ProductId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,14 +134,45 @@ namespace Amazon.PowerShell.Cmdlets.SC
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ServiceCatalog.Model.ListLaunchPathsRequest();
-            if (cmdletContext.AcceptLanguage != null)
+            var request = new Amazon.ServiceCatalog.Model.ListTagOptionsRequest();
+            
+             // populate Filters
+            bool requestFiltersIsNull = true;
+            request.Filters = new Amazon.ServiceCatalog.Model.ListTagOptionsFilters();
+            System.Boolean? requestFilters_filters_Active = null;
+            if (cmdletContext.Filters_Active != null)
             {
-                request.AcceptLanguage = cmdletContext.AcceptLanguage;
+                requestFilters_filters_Active = cmdletContext.Filters_Active.Value;
             }
-            if (cmdletContext.ProductId != null)
+            if (requestFilters_filters_Active != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.Filters.Active = requestFilters_filters_Active.Value;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_Key = null;
+            if (cmdletContext.Filters_Key != null)
+            {
+                requestFilters_filters_Key = cmdletContext.Filters_Key;
+            }
+            if (requestFilters_filters_Key != null)
+            {
+                request.Filters.Key = requestFilters_filters_Key;
+                requestFiltersIsNull = false;
+            }
+            System.String requestFilters_filters_Value = null;
+            if (cmdletContext.Filters_Value != null)
+            {
+                requestFilters_filters_Value = cmdletContext.Filters_Value;
+            }
+            if (requestFilters_filters_Value != null)
+            {
+                request.Filters.Value = requestFilters_filters_Value;
+                requestFiltersIsNull = false;
+            }
+             // determine if request.Filters should be set to null
+            if (requestFiltersIsNull)
+            {
+                request.Filters = null;
             }
             
             // Initialize loop variants and commence piping
@@ -165,22 +208,22 @@ namespace Amazon.PowerShell.Cmdlets.SC
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.LaunchPathSummaries;
+                        object pipelineOutput = response.TagOptionDetails;
                         notes = new Dictionary<string, object>();
-                        notes["NextPageToken"] = response.NextPageToken;
+                        notes["PageToken"] = response.PageToken;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.LaunchPathSummaries.Count;
+                        int _receivedThisCall = response.TagOptionDetails.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
                         }
                         
-                        _nextMarker = response.NextPageToken;
+                        _nextMarker = response.PageToken;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -217,14 +260,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.ListLaunchPathsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListLaunchPathsRequest request)
+        private Amazon.ServiceCatalog.Model.ListTagOptionsResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListTagOptionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListLaunchPaths");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListTagOptions");
             #if DESKTOP
-            return client.ListLaunchPaths(request);
+            return client.ListTagOptions(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListLaunchPathsAsync(request);
+            var task = client.ListTagOptionsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -235,10 +278,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AcceptLanguage { get; set; }
+            public System.Boolean? Filters_Active { get; set; }
+            public System.String Filters_Key { get; set; }
+            public System.String Filters_Value { get; set; }
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }
-            public System.String ProductId { get; set; }
         }
         
     }

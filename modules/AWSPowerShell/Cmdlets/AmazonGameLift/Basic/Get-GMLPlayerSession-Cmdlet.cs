@@ -41,7 +41,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// status. Use the pagination parameters to retrieve results as a set of sequential pages.
     /// If successful, a <a>PlayerSession</a> object is returned for each session matching
     /// the request.
-    /// </para><para><i>Available in Amazon GameLift Local.</i></para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><para><i>Available in Amazon GameLift Local.</i></para><para>
+    /// Player-session-related operations include:
+    /// </para><ul><li><para><a>CreatePlayerSession</a></para></li><li><para><a>CreatePlayerSessions</a></para></li><li><para><a>DescribePlayerSessions</a></para></li><li><para>
+    /// Game session placements
+    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLPlayerSession")]
     [OutputType("Amazon.GameLift.Model.PlayerSession")]

@@ -133,6 +133,10 @@
     <ServiceOperation MethodName="GetParametersByPath" PipelineParameter="Path" />
     <ServiceOperation MethodName="GetParameter" PipelineParameter="Name" />
     <ServiceOperation MethodName="DeleteParameters" Noun="ParameterCollection" Output="Response" />
+
+    <ServiceOperation MethodName="ListResourceDataSync" />
+    <ServiceOperation MethodName="CreateResourceDataSync" PipelineParameter="SyncName" Output="Void" />
+    <ServiceOperation MethodName="DeleteResourceDataSync" Output="Void" />
   </ServiceOperations>
 
   <VerbMappings>

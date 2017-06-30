@@ -22,40 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Cancels a game session placement that is in Pending status. To stop a placement, provide
-    /// the placement ID values. If successful, the placement is moved to Cancelled status.
-    /// 
-    ///  
-    /// <para>
-    /// Game-session-related operations include:
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
+    /// Updates an existing TagOption.
     /// </summary>
-    [Cmdlet("Stop", "GMLGameSessionPlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.GameLift.Model.GameSessionPlacement")]
-    [AWSCmdlet("Invokes the StopGameSessionPlacement operation against Amazon GameLift Service.", Operation = new[] {"StopGameSessionPlacement"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.GameSessionPlacement",
-        "This cmdlet returns a GameSessionPlacement object.",
-        "The service call response (type Amazon.GameLift.Model.StopGameSessionPlacementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SCTagOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
+    [AWSCmdlet("Invokes the UpdateTagOption operation against AWS Service Catalog.", Operation = new[] {"UpdateTagOption"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.TagOptionDetail",
+        "This cmdlet returns a TagOptionDetail object.",
+        "The service call response (type Amazon.ServiceCatalog.Model.UpdateTagOptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopGMLGameSessionPlacementCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class UpdateSCTagOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter PlacementId
+        #region Parameter Active
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a game session placement to cancel.</para>
+        /// <para>The updated active state.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Active { get; set; }
+        #endregion
+        
+        #region Parameter Id
+        /// <summary>
+        /// <para>
+        /// <para>The identifier of the constraint to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter Value
+        /// <summary>
+        /// <para>
+        /// <para>The updated value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String PlacementId { get; set; }
+        public System.String Value { get; set; }
         #endregion
         
         #region Parameter Force
@@ -72,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PlacementId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-GMLGameSessionPlacement (StopGameSessionPlacement)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Id", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SCTagOption (UpdateTagOption)"))
             {
                 return;
             }
@@ -87,7 +99,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.PlacementId = this.PlacementId;
+            if (ParameterWasBound("Active"))
+                context.Active = this.Active;
+            context.Id = this.Id;
+            context.Value = this.Value;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -102,11 +117,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.StopGameSessionPlacementRequest();
+            var request = new Amazon.ServiceCatalog.Model.UpdateTagOptionRequest();
             
-            if (cmdletContext.PlacementId != null)
+            if (cmdletContext.Active != null)
             {
-                request.PlacementId = cmdletContext.PlacementId;
+                request.Active = cmdletContext.Active.Value;
+            }
+            if (cmdletContext.Id != null)
+            {
+                request.Id = cmdletContext.Id;
+            }
+            if (cmdletContext.Value != null)
+            {
+                request.Value = cmdletContext.Value;
             }
             
             CmdletOutput output;
@@ -117,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.GameSessionPlacement;
+                object pipelineOutput = response.TagOptionDetail;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -142,14 +165,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.StopGameSessionPlacementResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.StopGameSessionPlacementRequest request)
+        private Amazon.ServiceCatalog.Model.UpdateTagOptionResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.UpdateTagOptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "StopGameSessionPlacement");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "UpdateTagOption");
             #if DESKTOP
-            return client.StopGameSessionPlacement(request);
+            return client.UpdateTagOption(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StopGameSessionPlacementAsync(request);
+            var task = client.UpdateTagOptionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -160,7 +183,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String PlacementId { get; set; }
+            public System.Boolean? Active { get; set; }
+            public System.String Id { get; set; }
+            public System.String Value { get; set; }
         }
         
     }

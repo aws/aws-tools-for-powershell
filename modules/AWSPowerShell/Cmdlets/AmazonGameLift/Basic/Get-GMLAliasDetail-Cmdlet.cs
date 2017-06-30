@@ -28,15 +28,16 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves properties for a fleet alias. This operation returns all alias metadata
-    /// and settings. To get just the fleet ID an alias is currently pointing to, use <a>ResolveAlias</a>.
-    /// 
+    /// Retrieves properties for an alias. This operation returns all alias metadata and settings.
+    /// To get an alias's target fleet ID only, use <code>ResolveAlias</code>. 
     /// 
     ///  
     /// <para>
-    /// To get alias properties, specify the alias ID. If successful, an <a>Alias</a> object
-    /// is returned.
-    /// </para>
+    /// To get alias properties, specify the alias ID. If successful, the requested alias
+    /// record is returned.
+    /// </para><para>
+    /// Alias-related operations include:
+    /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
     /// </summary>
     [Cmdlet("Get", "GMLAliasDetail")]
     [OutputType("Amazon.GameLift.Model.Alias")]

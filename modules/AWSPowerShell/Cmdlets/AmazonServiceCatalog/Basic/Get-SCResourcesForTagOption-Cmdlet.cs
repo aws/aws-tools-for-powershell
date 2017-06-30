@@ -22,74 +22,71 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.ServiceCatalog;
+using Amazon.ServiceCatalog.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves build records for all builds associated with the AWS account in use. You
-    /// can limit results to builds that are in a specific status by using the <code>Status</code>
-    /// parameter. Use the pagination parameters to retrieve results in a set of sequential
-    /// pages. 
-    /// 
-    ///  <note><para>
-    /// Build records are not listed in any particular order.
-    /// </para></note><para>
-    /// Build-related operations include:
-    /// </para><ul><li><para><a>CreateBuild</a></para></li><li><para><a>ListBuilds</a></para></li><li><para><a>DescribeBuild</a></para></li><li><para><a>UpdateBuild</a></para></li><li><para><a>DeleteBuild</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists resources associated with a TagOption.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLBuild")]
-    [OutputType("Amazon.GameLift.Model.Build")]
-    [AWSCmdlet("Invokes the ListBuilds operation against Amazon GameLift Service.", Operation = new[] {"ListBuilds"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Build",
-        "This cmdlet returns a collection of Build objects.",
-        "The service call response (type Amazon.GameLift.Model.ListBuildsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [Cmdlet("Get", "SCResourcesForTagOption")]
+    [OutputType("Amazon.ServiceCatalog.Model.ResourceDetail")]
+    [AWSCmdlet("Invokes the ListResourcesForTagOption operation against AWS Service Catalog.", Operation = new[] {"ListResourcesForTagOption"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ResourceDetail",
+        "This cmdlet returns a collection of ResourceDetail objects.",
+        "The service call response (type Amazon.ServiceCatalog.Model.ListResourcesForTagOptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: PageToken (type System.String)"
     )]
-    public partial class GetGMLBuildCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetSCResourcesForTagOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
-        #region Parameter Status
+        #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>Build status to filter results by. To retrieve all builds, leave this parameter empty.</para><para>Possible build statuses include the following:</para><ul><li><para><b>INITIALIZED</b> – A new build has been defined, but no files have been uploaded.
-        /// You cannot create fleets for builds that are in this status. When a build is successfully
-        /// created, the build status is set to this value. </para></li><li><para><b>READY</b> – The game build has been successfully uploaded. You can now create
-        /// new fleets for this build.</para></li><li><para><b>FAILED</b> – The game build upload failed. You cannot create new fleets for this
-        /// build. </para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [AWSConstantClassSource("Amazon.GameLift.BuildStatus")]
-        public Amazon.GameLift.BuildStatus Status { get; set; }
-        #endregion
-        
-        #region Parameter Limit
-        /// <summary>
-        /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages.</para>
+        /// <para>The maximum number of items to return in the results. If more results exist than fit
+        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
+        /// the response is non-null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public int PageSize { get; set; }
         #endregion
         
-        #region Parameter NextToken
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To specify the start of the
-        /// result set, do not specify a value.</para>
+        /// <para>Resource type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceType { get; set; }
+        #endregion
+        
+        #region Parameter TagOptionId
+        /// <summary>
+        /// <para>
+        /// <para>Identifier of the TagOption.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String TagOptionId { get; set; }
+        #endregion
+        
+        #region Parameter PageToken
+        /// <summary>
+        /// <para>
+        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
+        /// of size <code>PageSize</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String NextToken { get; set; }
+        [Alias("NextToken")]
+        public System.String PageToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -105,10 +102,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
-            context.NextToken = this.NextToken;
-            context.Status = this.Status;
+            if (ParameterWasBound("PageSize"))
+                context.PageSize = this.PageSize;
+            context.PageToken = this.PageToken;
+            context.ResourceType = this.ResourceType;
+            context.TagOptionId = this.TagOptionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -124,35 +122,39 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListBuildsRequest();
-            if (cmdletContext.Status != null)
+            var request = new Amazon.ServiceCatalog.Model.ListResourcesForTagOptionRequest();
+            if (cmdletContext.ResourceType != null)
             {
-                request.Status = cmdletContext.Status;
+                request.ResourceType = cmdletContext.ResourceType;
+            }
+            if (cmdletContext.TagOptionId != null)
+            {
+                request.TagOptionId = cmdletContext.TagOptionId;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (AutoIterationHelpers.HasValue(cmdletContext.PageToken))
             {
-                _nextMarker = cmdletContext.NextToken;
+                _nextMarker = cmdletContext.PageToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (AutoIterationHelpers.HasValue(cmdletContext.PageSize))
             {
-                _emitLimit = cmdletContext.Limit;
+                _emitLimit = cmdletContext.PageSize;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.PageToken) || AutoIterationHelpers.HasValue(cmdletContext.PageSize);
             bool _continueIteration = true;
             
             try
             {
                 do
                 {
-                    request.NextToken = _nextMarker;
+                    request.PageToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.PageSize = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -163,22 +165,22 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Builds;
+                        object pipelineOutput = response.ResourceDetails;
                         notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
+                        notes["PageToken"] = response.PageToken;
                         output = new CmdletOutput
                         {
                             PipelineOutput = pipelineOutput,
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Builds.Count;
+                        int _receivedThisCall = response.ResourceDetails.Count;
                         if (_userControllingPaging)
                         {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
+                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.PageToken));
                         }
                         
-                        _nextMarker = response.NextToken;
+                        _nextMarker = response.PageToken;
                         
                         _retrievedSoFar += _receivedThisCall;
                         if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
@@ -215,14 +217,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ListBuildsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListBuildsRequest request)
+        private Amazon.ServiceCatalog.Model.ListResourcesForTagOptionResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.ListResourcesForTagOptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListBuilds");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "ListResourcesForTagOption");
             #if DESKTOP
-            return client.ListBuilds(request);
+            return client.ListResourcesForTagOption(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListBuildsAsync(request);
+            var task = client.ListResourcesForTagOptionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -233,9 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public int? Limit { get; set; }
-            public System.String NextToken { get; set; }
-            public Amazon.GameLift.BuildStatus Status { get; set; }
+            public int? PageSize { get; set; }
+            public System.String PageToken { get; set; }
+            public System.String ResourceType { get; set; }
+            public System.String TagOptionId { get; set; }
         }
         
     }

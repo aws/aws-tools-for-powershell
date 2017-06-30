@@ -56,7 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para><para>
     /// To create a new queue, provide a name, timeout value, a list of destinations and,
     /// if desired, a set of latency policies. If successful, a new queue object is returned.
-    /// </para>
+    /// </para><para>
+    /// Queue-related operations include:
+    /// </para><ul><li><para><a>CreateGameSessionQueue</a></para></li><li><para><a>DescribeGameSessionQueues</a></para></li><li><para><a>UpdateGameSessionQueue</a></para></li><li><para><a>DeleteGameSessionQueue</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.GameSessionQueue")]

@@ -22,68 +22,70 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.CloudWatchEvents;
+using Amazon.CloudWatchEvents.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.CWE
 {
     /// <summary>
-    /// Deletes a fleet scaling policy. This action means that the policy is no longer in
-    /// force and removes all record of it. To delete a scaling policy, specify both the scaling
-    /// policy name and the fleet ID it is associated with.
+    /// Running <code>PutPermission</code> permits the specified AWS account to put events
+    /// to your account's default <i>event bus</i>. CloudWatch Events rules in your account
+    /// are triggered by these events arriving to your default event bus. 
     /// 
     ///  
     /// <para>
-    /// Fleet-related operations include:
-    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
-    /// Manage fleet capacity:
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
+    /// For another account to send events to your account, that external account must have
+    /// a CloudWatch Events rule with your account's default event bus as a target.
+    /// </para><para>
+    /// To enable multiple AWS accounts to put events to your default event bus, run <code>PutPermission</code>
+    /// once for each of these accounts.
+    /// </para>
     /// </summary>
-    [Cmdlet("Remove", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteScalingPolicy operation against Amazon GameLift Service.", Operation = new[] {"DeleteScalingPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.GameLift.Model.DeleteScalingPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Write", "CWEPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the PutPermission operation against Amazon CloudWatch Events.", Operation = new[] {"PutPermission"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type Amazon.CloudWatchEvents.Model.PutPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveGMLScalingPolicyCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class WriteCWEPermissionCmdlet : AmazonCloudWatchEventsClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetId
+        #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet to be deleted.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String FleetId { get; set; }
-        #endregion
-        
-        #region Parameter Name
-        /// <summary>
-        /// <para>
-        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
-        /// to be unique.</para>
+        /// <para>The action that you are enabling the other account to perform. Currently, this must
+        /// be <code>events:PutEvents</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Name { get; set; }
+        public System.String Action { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Principal
         /// <summary>
-        /// Returns the value passed to the FleetId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The 12-digit AWS account ID that you are permitting to put events to your default
+        /// event bus. Specify "*" to permit any account to put events to your default event bus.</para><para>If you specify "*", avoid creating rules that may match undesirable events. To create
+        /// more secure rules, make sure that the event pattern for each rule contains an <code>account</code>
+        /// field with a specific account ID from which to receive events. Rules with an account
+        /// field do not match any events sent from other accounts.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String Principal { get; set; }
+        #endregion
+        
+        #region Parameter StatementId
+        /// <summary>
+        /// <para>
+        /// <para>An identifier string for the external account that you are granting permissions to.
+        /// If you later want to revoke the permission for this external account, specify this
+        /// <code>StatementId</code> when you run <a>RemovePermission</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StatementId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLScalingPolicy (DeleteScalingPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StatementId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-CWEPermission (PutPermission)"))
             {
                 return;
             }
@@ -115,8 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FleetId = this.FleetId;
-            context.Name = this.Name;
+            context.Action = this.Action;
+            context.Principal = this.Principal;
+            context.StatementId = this.StatementId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,15 +134,19 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteScalingPolicyRequest();
+            var request = new Amazon.CloudWatchEvents.Model.PutPermissionRequest();
             
-            if (cmdletContext.FleetId != null)
+            if (cmdletContext.Action != null)
             {
-                request.FleetId = cmdletContext.FleetId;
+                request.Action = cmdletContext.Action;
             }
-            if (cmdletContext.Name != null)
+            if (cmdletContext.Principal != null)
             {
-                request.Name = cmdletContext.Name;
+                request.Principal = cmdletContext.Principal;
+            }
+            if (cmdletContext.StatementId != null)
+            {
+                request.StatementId = cmdletContext.StatementId;
             }
             
             CmdletOutput output;
@@ -151,8 +158,6 @@ namespace Amazon.PowerShell.Cmdlets.GML
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.FleetId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -177,14 +182,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteScalingPolicyRequest request)
+        private Amazon.CloudWatchEvents.Model.PutPermissionResponse CallAWSServiceOperation(IAmazonCloudWatchEvents client, Amazon.CloudWatchEvents.Model.PutPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteScalingPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch Events", "PutPermission");
             #if DESKTOP
-            return client.DeleteScalingPolicy(request);
+            return client.PutPermission(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteScalingPolicyAsync(request);
+            var task = client.PutPermissionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -195,8 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
-            public System.String Name { get; set; }
+            public System.String Action { get; set; }
+            public System.String Principal { get; set; }
+            public System.String StatementId { get; set; }
         }
         
     }

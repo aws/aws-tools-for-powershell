@@ -33,10 +33,28 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// 
     ///  
     /// <para>
-    /// Targets are the resources that are invoked when a rule is triggered. Example targets
-    /// include EC2 instances, AWS Lambda functions, Amazon Kinesis streams, Amazon ECS tasks,
-    /// AWS Step Functions state machines, and built-in targets. Note that creating rules
-    /// with built-in targets is supported only in the AWS Management Console.
+    /// Targets are the resources that are invoked when a rule is triggered.
+    /// </para><para>
+    /// You can configure the following as targets for CloudWatch Events:
+    /// </para><ul><li><para>
+    /// EC2 instances
+    /// </para></li><li><para>
+    /// AWS Lambda functions
+    /// </para></li><li><para>
+    /// Streams in Amazon Kinesis Streams
+    /// </para></li><li><para>
+    /// Delivery streams in Amazon Kinesis Firehose
+    /// </para></li><li><para>
+    /// Amazon ECS tasks
+    /// </para></li><li><para>
+    /// AWS Step Functions state machines
+    /// </para></li><li><para>
+    /// Amazon SNS topics
+    /// </para></li><li><para>
+    /// Amazon SQS queues
+    /// </para></li></ul><para>
+    /// Note that creating rules with built-in targets is supported only in the AWS Management
+    /// Console.
     /// </para><para>
     /// For some target types, <code>PutTargets</code> provides target-specific parameters.
     /// If the target is an Amazon Kinesis stream, you can optionally specify which shard
@@ -48,9 +66,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// Events needs the appropriate permissions. For AWS Lambda and Amazon SNS resources,
     /// CloudWatch Events relies on resource-based policies. For EC2 instances, Amazon Kinesis
     /// streams, and AWS Step Functions state machines, CloudWatch Events relies on IAM roles
-    /// that you specify in the <code>RoleARN</code> argument in <code>PutTarget</code>. For
-    /// more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">Authentication
+    /// that you specify in the <code>RoleARN</code> argument in <code>PutTargets</code>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/events/auth-and-access-control-cwe.html">Authentication
     /// and Access Control</a> in the <i>Amazon CloudWatch Events User Guide</i>.
+    /// </para><para>
+    /// If another AWS account is in the same region and has granted you permission (using
+    /// <code>PutPermission</code>), you can set that account's event bus as a target of the
+    /// rules in your account. To send the matched events to the other account, specify that
+    /// account's event bus as the <code>Arn</code> when you run <code>PutTargets</code>.
+    /// For more information about enabling cross-account events, see <a>PutPermission</a>.
     /// </para><para><b>Input</b>, <b>InputPath</b> and <b>InputTransformer</b> are mutually exclusive
     /// and optional parameters of a target. When a rule is triggered due to a matched event:
     /// </para><ul><li><para>

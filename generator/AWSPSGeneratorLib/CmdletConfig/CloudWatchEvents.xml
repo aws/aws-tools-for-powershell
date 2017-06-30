@@ -18,6 +18,7 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteRule" Output="Void"/>
+    <ServiceOperation MethodName="DescribeEventBus" Output="Response" />
     <ServiceOperation MethodName="DescribeRule" Noun="RuleDetail" Output="Response"/>
     <ServiceOperation MethodName="DisableRule" Output="Void"/>
     <ServiceOperation MethodName="EnableRule" Output="Void"/>
@@ -25,8 +26,10 @@
     <ServiceOperation MethodName="ListRules" Verb="Get" Noun="Rule" PipelineParameter="NamePrefix"/>
     <ServiceOperation MethodName="ListTargetsByRule" Verb="Get" />
     <ServiceOperation MethodName="PutEvents" Output="Response" Noun="Event"/>
+    <ServiceOperation MethodName="PutPermission" PipelineParameter="PrincipalId" Output="Void" />
     <ServiceOperation MethodName="PutRule" PipelineParameter="Name"/>
     <ServiceOperation MethodName="PutTargets" Noun="Target" />
+    <ServiceOperation MethodName="RemovePermission" Output="Void" />
     <ServiceOperation MethodName="RemoveTargets" Noun="Target" />
     <ServiceOperation MethodName="TestEventPattern" PipelineParameter="Event"/>
   </ServiceOperations>

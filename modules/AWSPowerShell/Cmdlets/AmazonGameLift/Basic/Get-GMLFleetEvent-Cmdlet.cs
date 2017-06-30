@@ -31,7 +31,21 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Retrieves entries from the specified fleet's event log. You can specify a time range
     /// to limit the result set. Use the pagination parameters to retrieve results as a set
     /// of sequential pages. If successful, a collection of event log entries matching the
-    /// request are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// request are returned.
+    /// 
+    ///  
+    /// <para>
+    /// Fleet-related operations include:
+    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
+    /// Describe fleets:
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// Update fleets:
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
+    /// Manage fleet capacity:
+    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
+    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "GMLFleetEvent")]
     [OutputType("Amazon.GameLift.Model.Event")]

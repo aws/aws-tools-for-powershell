@@ -28,10 +28,15 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates properties for a fleet alias. To update properties, specify the alias ID to
-    /// be updated and provide the information to be changed. To reassign an alias to another
+    /// Updates properties for an alias. To update properties, specify the alias ID to be
+    /// updated and provide the information to be changed. To reassign an alias to another
     /// fleet, provide an updated routing strategy. If successful, the updated alias record
     /// is returned.
+    /// 
+    ///  
+    /// <para>
+    /// Alias-related operations include:
+    /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul>
     /// </summary>
     [Cmdlet("Update", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Alias")]

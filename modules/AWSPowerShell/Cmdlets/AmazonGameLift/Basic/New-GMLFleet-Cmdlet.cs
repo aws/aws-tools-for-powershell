@@ -39,23 +39,32 @@ namespace Amazon.PowerShell.Cmdlets.GML
     ///  
     /// <para>
     /// To create a new fleet, you must specify the following: (1) fleet name, (2) build ID
-    /// of an uploaded game build, (3) an EC2 instance type, and (4) a runtime configuration
+    /// of an uploaded game build, (3) an EC2 instance type, and (4) a run-time configuration
     /// that describes which server processes to run on each instance in the fleet. (Although
-    /// the runtime configuration is not a required parameter, the fleet cannot be successfully
-    /// created without it.) You can also configure the new fleet with the following settings:
-    /// fleet description, access permissions for inbound traffic, fleet-wide game session
-    /// protection, and resource creation limit. If you use Amazon CloudWatch for metrics,
-    /// you can add the new fleet to a metric group, which allows you to view aggregated metrics
-    /// for a set of fleets. Once you specify a metric group, the new fleet's metrics are
-    /// included in the metric group's data.
+    /// the run-time configuration is not a required parameter, the fleet cannot be successfully
+    /// activated without it.)
+    /// </para><para>
+    /// You can also configure the new fleet with the following settings:
+    /// </para><ul><li><para>
+    /// Fleet description
+    /// </para></li><li><para>
+    /// Access permissions for inbound traffic
+    /// </para></li><li><para>
+    /// Fleetwide game session protection
+    /// </para></li><li><para>
+    /// Resource creation limit
+    /// </para></li></ul><para>
+    /// If you use Amazon CloudWatch for metrics, you can add the new fleet to a metric group.
+    /// This allows you to view aggregated metrics for a set of fleets. Once you specify a
+    /// metric group, the new fleet's metrics are included in the metric group's data.
     /// </para><para>
     /// If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
     /// </para><ul><li><para>
     /// Creates a fleet record and sets the status to <code>NEW</code> (followed by other
     /// statuses as the fleet is activated).
     /// </para></li><li><para>
-    /// Sets the fleet's capacity to 1 "desired", which causes Amazon GameLift to start one
-    /// new EC2 instance.
+    /// Sets the fleet's target capacity to 1 (desired instances), which causes Amazon GameLift
+    /// to start one new EC2 instance.
     /// </para></li><li><para>
     /// Starts launching server processes on the instance. If the fleet is configured to run
     /// multiple server processes per instance, Amazon GameLift staggers each launch by a
@@ -64,22 +73,20 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// Begins writing events to the fleet event log, which can be accessed in the Amazon
     /// GameLift console.
     /// </para></li><li><para>
-    /// Sets the fleet's status to <code>ACTIVE</code> once one server process in the fleet
-    /// is ready to host a game session.
+    /// Sets the fleet's status to <code>ACTIVE</code> as soon as one server process in the
+    /// fleet is ready to host a game session.
     /// </para></li></ul><para>
-    /// After a fleet is created, use the following actions to change fleet properties and
-    /// configuration:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a> -- Update fleet metadata, including name and description.
-    /// </para></li><li><para><a>UpdateFleetCapacity</a> -- Increase or decrease the number of instances you want
-    /// the fleet to maintain.
-    /// </para></li><li><para><a>UpdateFleetPortSettings</a> -- Change the IP address and port ranges that allow
-    /// access to incoming traffic.
-    /// </para></li><li><para><a>UpdateRuntimeConfiguration</a> -- Change how server processes are launched in
-    /// the fleet, including launch path, launch parameters, and the number of concurrent
-    /// processes.
-    /// </para></li><li><para><a>PutScalingPolicy</a> -- Create or update rules that are used to set the fleet's
-    /// capacity (autoscaling).
-    /// </para></li></ul>
+    /// Fleet-related operations include:
+    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
+    /// Describe fleets:
+    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
+    /// Update fleets:
+    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
+    /// Manage fleet capacity:
+    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
+    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
+    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
     /// </summary>
     [Cmdlet("New", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.FleetAttributes")]
@@ -145,9 +152,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_GameSessionActivationTimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>Maximum amount of time (in seconds) that a game session can remain in status ACTIVATING.
+        /// <para>Maximum amount of time (in seconds) that a game session can remain in status <code>ACTIVATING</code>.
         /// If the game session is not active before the timeout, activation is terminated and
-        /// the game session status is changed to TERMINATED.</para>
+        /// the game session status is changed to <code>TERMINATED</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -173,9 +180,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter RuntimeConfiguration_MaxConcurrentGameSessionActivation
         /// <summary>
         /// <para>
-        /// <para>Maximum number of game sessions with status ACTIVATING to allow on an instance simultaneously.
-        /// This setting limits the amount of instance resources that can be used for new game
-        /// activations at any one time.</para>
+        /// <para>Maximum number of game sessions with status <code>ACTIVATING</code> to allow on an
+        /// instance simultaneously. This setting limits the amount of instance resources that
+        /// can be used for new game activations at any one time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,8 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Names of metric groups to add this fleet to. Use an existing metric group name to
-        /// add this fleet to the group, or use a new name to create a new metric group. Currently,
-        /// a fleet can only be included in one metric group at a time.</para>
+        /// add this fleet to the group. Or use a new name to create a new metric group. A fleet
+        /// can only be included in one metric group at a time.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -249,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>This parameter is no longer used. Instead, specify server launch parameters in the
         /// <code>RuntimeConfiguration</code> parameter. (Requests that specify a server launch
-        /// path and launch parameters instead of a runtime configuration will continue to work.)</para>
+        /// path and launch parameters instead of a run-time configuration will continue to work.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -262,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>This parameter is no longer used. Instead, specify a server launch path using the
         /// <code>RuntimeConfiguration</code> parameter. (Requests that specify a server launch
-        /// path and launch parameters instead of a runtime configuration will continue to work.)</para>
+        /// path and launch parameters instead of a run-time configuration will continue to work.)</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
