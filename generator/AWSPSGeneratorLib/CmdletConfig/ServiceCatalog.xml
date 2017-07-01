@@ -72,7 +72,7 @@
     <ServiceOperation MethodName="ListResourcesForTagOption" Verb="Get" PipelineParameter="TagOptionId">
       <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="PageToken" />
     </ServiceOperation>
-    <ServiceOperation MethodName="ListTagOptions" Verb="Get" Noun="Option" NoPipelineParameter="true">
+    <ServiceOperation MethodName="ListTagOptions" Verb="Get" Noun="TagOptionList" NoPipelineParameter="true">
       <AutoIterate EmitLimit="PageSize" Start="PageToken" Next="PageToken" />
     </ServiceOperation>
     <ServiceOperation MethodName="UpdateTagOption" PipelineParameter="Value" />

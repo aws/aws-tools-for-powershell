@@ -3738,7 +3738,7 @@ Set-Alias -Name SC-ListProvisioningArtifacts -Value Get-SCProvisioningArtifactLi
 Set-Alias -Name List-SCRecordHistory -Value Get-SCRecordHistory
 Set-Alias -Name SC-ListRecordHistory -Value Get-SCRecordHistory
 Set-Alias -Name SC-ListResourcesForTagOption -Value Get-SCResourcesForTagOption
-Set-Alias -Name SC-ListTagOptions -Value Get-SCOption
+Set-Alias -Name SC-ListTagOptions -Value Get-SCTagOptionList
 Set-Alias -Name SC-ProvisionProduct -Value New-SCProvisionedProduct
 Set-Alias -Name SC-RejectPortfolioShare -Value Deny-SCPortfolioShare
 Set-Alias -Name SC-ScanProvisionedProducts -Value Get-SCProvisionedProduct

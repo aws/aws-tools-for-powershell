@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <summary>
     /// Lists detailed TagOptions information.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SCOption")]
+    [Cmdlet("Get", "SCTagOptionList")]
     [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
     [AWSCmdlet("Invokes the ListTagOptions operation against AWS Service Catalog.", Operation = new[] {"ListTagOptions"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.TagOptionDetail",
@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         "The service call response (type Amazon.ServiceCatalog.Model.ListTagOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: PageToken (type System.String)"
     )]
-    public partial class GetSCOptionCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCTagOptionListCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter Filters_Active
