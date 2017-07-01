@@ -166,7 +166,7 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.2.1\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.7.1\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.8\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.19\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -325,7 +325,7 @@
       <HintPath>..\..\packages\AWSSDK.AWSMarketplaceMetering.3.3.1.16\lib\net35\AWSSDK.AWSMarketplaceMetering.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AWSMarketplaceCommerceAnalytics">
-      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.3.8\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AWSMarketplaceCommerceAnalytics.3.3.3.9\lib\net35\AWSSDK.AWSMarketplaceCommerceAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AutoScaling">
       <HintPath>..\..\packages\AWSSDK.AutoScaling.3.3.0.20\lib\net35\AWSSDK.AutoScaling.dll</HintPath>
