@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>DAX</ServiceNounPrefix>
+  <ServiceName>Amazon DynamoDB Accelerator (DAX)</ServiceName>
+  <ServiceClientInterface>IAmazonDAX</ServiceClientInterface>
+  <ServiceClient>AmazonDAXClient</ServiceClient>
+  <ServiceNamespace>Amazon.DAX</ServiceNamespace>
+
+  <PipelineParameter>ClusterName</PipelineParameter>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <PipelineByValueProperties>
+    <Property>ParameterGroupName</Property>
+    <Property>SubnetGroupName</Property>
+    <Property>NodeId</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateCluster" />
+    <ServiceOperation MethodName="CreateParameterGroup" PipelineParameter="ParameterGroupName" />
+    <ServiceOperation MethodName="CreateSubnetGroup" PipelineParameter="SubnetGroupName" />
+    <ServiceOperation MethodName="DecreaseReplicationFactor" Verb="Set" Noun="ReplicationFactorDecrease" />
+    <ServiceOperation MethodName="DeleteCluster" />
+    <ServiceOperation MethodName="DeleteParameterGroup" />
+    <ServiceOperation MethodName="DeleteSubnetGroup" />
+    <ServiceOperation MethodName="DescribeClusters" Noun="Cluster" />
+    <ServiceOperation MethodName="DescribeDefaultParameters" Noun="DefaultParameter" />
+    <ServiceOperation MethodName="DescribeEvents" Noun="Event" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeParameterGroups" Noun="ParameterGroup" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeParameters" Noun="Parameter" PipelineParameter="ParameterGroupName" />
+    <ServiceOperation MethodName="DescribeSubnetGroups" Noun="SubnetGroup"  NoPipelineParameter="true" />
+    <ServiceOperation MethodName="IncreaseReplicationFactor" Verb="Set" Noun="ReplicationFactorIncrease" />
+    <ServiceOperation MethodName="ListTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceName">
+      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="RebootNode" Verb="Restart" PipelineParameter="NodeId" />
+    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceName" />
+    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="TagKeys" />
+    <ServiceOperation MethodName="UpdateCluster" />
+    <ServiceOperation MethodName="UpdateParameterGroup" PipelineParameter="ParameterGroupName" />
+    <ServiceOperation MethodName="UpdateSubnetGroup" PipelineParameter="SubnetGroupName" />
+  </ServiceOperations>
+</ConfigModel>

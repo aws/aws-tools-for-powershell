@@ -32,6 +32,7 @@
     <Path>CostAndUsageReport.xml</Path>
     <Path>DatabaseMigrationService.xml</Path>
     <Path>DataPipeline.xml</Path>
+    <Path>DAX.xml</Path>
     <Path>DeviceFarm.xml</Path>
     <Path>DirectConnect.xml</Path>
     <Path>DirectoryService.xml</Path>

@@ -1818,6 +1818,33 @@ $DP_map = @{
 _awsArgumentCompleterRegistration $DP_Completers $DP_map
 
 
+# Argument completions for service Amazon DynamoDB Accelerator (DAX)
+$DAX_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.DAX.SourceType
+        "Get-DAXEvent/SourceType"
+        {
+            $v = "CLUSTER","PARAMETER_GROUP","SUBNET_GROUP"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$DAX_map = @{
+    "SourceType"=@("Get-DAXEvent")
+}
+
+_awsArgumentCompleterRegistration $DAX_Completers $DAX_map
+
+
 # Argument completions for service AWS Device Farm
 $DF_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

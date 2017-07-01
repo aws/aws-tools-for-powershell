@@ -39,6 +39,7 @@
 		"AWSSDK.CostAndUsageReport": "3.3.0.12",
 		"AWSSDK.DatabaseMigrationService": "3.3.3.1",
 		"AWSSDK.DataPipeline": "3.3.0.18",
+		"AWSSDK.DAX": "3.3.0.1",
 		"AWSSDK.DeviceFarm": "3.3.2.6",
 		"AWSSDK.DirectConnect": "3.3.4.9",
 		"AWSSDK.DirectoryService": "3.3.1.17",
