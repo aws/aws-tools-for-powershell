@@ -96,6 +96,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Content { get; set; }
         #endregion
 
+        #region Parameter TagSet
+
+        /// <summary>
+        /// One or more tags to apply to the object.
+        /// </summary>
+        [Parameter(ParameterSetName = ParamSet_FromLocalFile)]
+        [Parameter(ParameterSetName = ParamSet_FromContent)]
+        [Parameter(ParameterSetName = ParamSet_FromStream)]
+        public Tag[] TagSet { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Upload Stream Params
@@ -501,6 +513,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
+            if (cmdletContext.TagSet != null)
+                request.TagSet.AddRange(cmdletContext.TagSet);
 
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
@@ -554,6 +568,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
+            if (cmdletContext.TagSet != null)
+                request.TagSet.AddRange(cmdletContext.TagSet);
 
             var transferUtilityConfig = new TransferUtilityConfig();
             if (cmdletContext.ConcurrentServiceRequests.HasValue)
@@ -667,6 +683,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             public Hashtable Metadata { get; set; }
             public Hashtable Headers { get; set; }
+
+            public Tag[] TagSet { get; set; }
 
             public int? ConcurrentServiceRequests { get; set; }
         }

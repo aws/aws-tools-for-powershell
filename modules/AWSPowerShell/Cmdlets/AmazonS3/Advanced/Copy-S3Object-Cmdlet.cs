@@ -224,6 +224,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Collections.Hashtable HeaderCollection { get; set; }
         #endregion
 
+        #region Parameter TagSet
+
+        /// <summary>
+        /// One or more tags to apply to the object.
+        /// </summary>
+        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        public Tag[] TagSet { get; set; }
+
+        #endregion
+
         #endregion
 
         #region Copy to Local File Parameters
@@ -529,6 +539,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
             request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
 
+            if (cmdletContext.TagSet != null)
+                request.TagSet.AddRange(cmdletContext.TagSet);
+
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
             // issue call
@@ -639,6 +652,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public Hashtable Headers { get; set; }
 
             public String WebsiteRedirectLocation { get; set; }
+
+            public Tag[] TagSet { get; set; }
         }
     }
 }

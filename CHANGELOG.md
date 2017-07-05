@@ -1,4 +1,3 @@
-### 3.3.117.0 (2017-06-30)
   * AWS CloudFormation
     - Added new helper cmdlets Test-CFNStack, which tests a CloudFormation stack to determine if it's in a certain status and Wait-CFNStack which Pauses execution of the script until the desired CloudFormation Stack status has been reached or timeout occurs.
   * Added new format definitions for several types to improve output usability. The new formats take effect on objects of type:
@@ -21,6 +20,8 @@
     - Added cmdlet support for the new Amazon DynamoDB Accelerator (DAX) service. DAX is a managed caching service engineered for Amazon DynamoDB. DAX dramatically speeds up database reads by caching frequently-accessed data from DynamoDB, so applications can access that data with sub-millisecond latency. You can create a DAX cluster easily, using the AWS Management Console. With a few simple modifications to your code, your application can begin taking advantage of the DAX cluster and realize significant improvements in read performance. Cmdlets for the new service have the noun prefix 'DAX' and can be listed with the command 'Get-AWSCmdletName -Service DAX'.
   * Amazon CloudWatch Events
     - CloudWatch Events now allows different AWS accounts to share events with each other through a new resource called event bus. Event buses accept events from AWS services, other AWS accounts and Write-CWEEvent (PutEvents API) calls. Currently all AWS accounts have one default event bus. To send events to another account, customers simply write rules to match the events of interest and attach an event bus in the receiving account as the target to the rule. The new cmdlets are Get-CWEEventBus (DescribeEventBus API), Write-CWEPermission (PutPermission API) and Remove-CWEPermission (RemovePermission).
+  * Amazon S3
+    - Added new parameter -TagSet to the Write-S3Object and Copy-S3Object cmdlets to support specifying tags when uploading files to a bucket or copying objects within S3.
 
 ### 3.3.113.0 (2017-06-23)
   * Amazon Simple Systems Management
