@@ -2853,6 +2853,33 @@ $GML_map = @{
 _awsArgumentCompleterRegistration $GML_Completers $GML_map
 
 
+# Argument completions for service AWS Greengrass
+$GG_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Greengrass.DeploymentType
+        "New-GGDeployment/DeploymentType"
+        {
+            $v = "NewDeployment","Redeployment"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GG_map = @{
+    "DeploymentType"=@("New-GGDeployment")
+}
+
+_awsArgumentCompleterRegistration $GG_Completers $GG_map
+
+
 # Argument completions for service AWS Health
 $HLTH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

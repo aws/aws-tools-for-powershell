@@ -78,6 +78,9 @@
     <Reference Include="AWSSDK.DAX">
       <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.1\lib\net35\AWSSDK.DAX.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Greengrass">
+      <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.0.1\lib\net35\AWSSDK.Greengrass.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lex">
       <HintPath>..\..\packages\AWSSDK.Lex.3.3.1.7\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>

@@ -56,6 +56,7 @@
 		"AWSSDK.Elasticsearch": "3.3.1.11",
 		"AWSSDK.ElasticTranscoder": "3.3.1.15",
 		"AWSSDK.GameLift": "3.3.6",
+		"AWSSDK.Greengrass": "3.3.0.1",
 		"AWSSDK.IdentityManagement": "3.3.4.1",
 		"AWSSDK.ImportExport": "3.3.0.19",
 		"AWSSDK.Inspector": "3.3.1.1",

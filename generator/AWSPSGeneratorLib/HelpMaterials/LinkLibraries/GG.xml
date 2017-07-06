@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="User Guide">https://docs.aws.amazon.com/greengrass/latest/userguide/</link>
+	<link name="Developer Guide">https://docs.aws.amazon.com/greengrass/latest/developerguide/</link>
+    <link name="Service API Reference">https://docs.aws.amazon.com/greengrass/latest/apireference/</link>
+  </set>
+</links>

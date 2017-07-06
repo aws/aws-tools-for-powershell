@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>GG</ServiceNounPrefix>
+  <ServiceName>AWS Greengrass</ServiceName>
+  <ServiceNamespace>Amazon.Greengrass</ServiceNamespace>
+  <ServiceClientInterface>IAmazonGreengrass</ServiceClientInterface>
+  <ServiceClient>AmazonGreengrassClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+
+  <PipelineByValueProperties>
+    <Property>GroupId</Property>
+    <Property>RoleArn</Property>
+    <Property>CertificateArn</Property>
+    <Property>ThingArn</Property>
+    <Property>DeploymentArn</Property>
+    <Property>DeploymentId</Property>
+    <Property>GroupArn</Property>
+    <Property>FunctionArn</Property>
+  </PipelineByValueProperties>
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="AssociateRoleToGroup" Verb="Add" PipelineParameter="RoleArn" />
+    <ServiceOperation MethodName="AssociateServiceRoleToAccount" Verb="Add"  />
+    <ServiceOperation MethodName="CreateCoreDefinition" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateCoreDefinitionVersion" PipelineParameter="CoreDefinitionId" Output="Response" />
+    <ServiceOperation MethodName="CreateDeployment" PipelineParameter="GroupId" Output="Response" />
+    <ServiceOperation MethodName="CreateDeviceDefinition" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateDeviceDefinitionVersion" PipelineParameter="DeviceDefinitionId" Output="Response" />
+    <ServiceOperation MethodName="CreateFunctionDefinition" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateFunctionDefinitionVersion" PipelineParameter="FunctionDefinitionId" Output="Response" />
+    <ServiceOperation MethodName="CreateGroup" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateGroupCertificateAuthority" PipelineParameter="GroupId" />
+    <ServiceOperation MethodName="CreateGroupVersion" PipelineParameter="GroupId" Output="Response" />
+    <ServiceOperation MethodName="CreateLoggerDefinition" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateLoggerDefinitionVersion" PipelineParameter="LoggerDefinitionId" Output="Response" />
+    <ServiceOperation MethodName="CreateSubscriptionDefinition" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateSubscriptionDefinitionVersion" PipelineParameter="SubscriptionDefinitionId" Output="Response" />
+    <ServiceOperation MethodName="DeleteCoreDefinition" Output="Void" />
+    <ServiceOperation MethodName="DeleteDeviceDefinition" Output="Void" />
+    <ServiceOperation MethodName="DeleteFunctionDefinition" Output="Void" />
+    <ServiceOperation MethodName="DeleteGroup" Output="Void" />
+    <ServiceOperation MethodName="DeleteLoggerDefinition" Output="Void" />
+    <ServiceOperation MethodName="DeleteSubscriptionDefinition" Output="Void" />
+    <ServiceOperation MethodName="DisassociateRoleFromGroup" Verb="Remove" />
+    <ServiceOperation MethodName="DisassociateServiceRoleFromAccount" Verb="Remove" />
+    <ServiceOperation MethodName="GetAssociatedRole" Output="Response" />
+    <ServiceOperation MethodName="GetConnectivityInfo" Output="Response" />
+    <ServiceOperation MethodName="GetCoreDefinition" Output="Response" />
+    <ServiceOperation MethodName="GetCoreDefinitionVersion" PipelineParameter="CoreDefinitionVersionId" Output="Response" />
+    <ServiceOperation MethodName="GetDeploymentStatus" PipelineParameter="DeploymentId" Output="Response" />
+    <ServiceOperation MethodName="GetDeviceDefinition" Output="Response" />
+    <ServiceOperation MethodName="GetDeviceDefinitionVersion" PipelineParameter="DeviceDefinitionVersionId" Output="Response" />
+    <ServiceOperation MethodName="GetFunctionDefinition" Output="Response" />
+    <ServiceOperation MethodName="GetFunctionDefinitionVersion" PipelineParameter="FunctionDefinitionVersionId" Output="Response" />
+    <ServiceOperation MethodName="GetGroup" Output="Response" />
+    <ServiceOperation MethodName="GetGroupCertificateAuthority" PipelineParameter="CertificateAuthorityId" Output="Response" />
+    <ServiceOperation MethodName="GetGroupCertificateConfiguration" Output="Response" />
+    <ServiceOperation MethodName="GetGroupVersion" PipelineParameter="GroupVersionId" Output="Response" />
+    <ServiceOperation MethodName="GetLoggerDefinition" Output="Response" />
+    <ServiceOperation MethodName="GetLoggerDefinitionVersion" PipelineParameter="LoggerDefinitionVersionId" Output="Response" />
+    <ServiceOperation MethodName="GetServiceRoleForAccount" Output="Response" />
+    <ServiceOperation MethodName="GetSubscriptionDefinition" Output="Response" />
+    <ServiceOperation MethodName="GetSubscriptionDefinitionVersion" PipelineParameter="SubscriptionDefinitionVersionId" Output="Response" />
+    <ServiceOperation MethodName="ListCoreDefinitionVersions" Noun="CoreDefinitionVersionList" />
+    <ServiceOperation MethodName="ListCoreDefinitions" Noun="CoreDefinitionList" />
+    <ServiceOperation MethodName="ListDeployments" Noun="DeploymentList" />
+    <ServiceOperation MethodName="ListDeviceDefinitionVersions" Noun="DeviceDefinitionVersionList" />
+    <ServiceOperation MethodName="ListDeviceDefinitions" Noun="DeviceDefinitionList" />
+    <ServiceOperation MethodName="ListFunctionDefinitionVersions" Noun="FunctionDefinitionVersionList" />
+    <ServiceOperation MethodName="ListFunctionDefinitions" Noun="FunctionDefinitionList" />
+    <ServiceOperation MethodName="ListGroupCertificateAuthorities" Noun="GroupCertificateAuthorityList" />
+    <ServiceOperation MethodName="ListGroupVersions" Noun="GroupVersionList" />
+    <ServiceOperation MethodName="ListGroups" Noun="GroupList" />
+    <ServiceOperation MethodName="ListLoggerDefinitionVersions" Noun="LoggerDefinitionVersionList" />
+    <ServiceOperation MethodName="ListLoggerDefinitions" Noun="LoggerDefinitionList" />
+    <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" Noun="SubscriptionDefinitionVersionList" />
+    <ServiceOperation MethodName="ListSubscriptionDefinitions" Noun="SubscriptionDefinitionList" />
+    <ServiceOperation MethodName="UpdateConnectivityInfo" PipelineParameter="ThingName" Output="Response" />
+    <ServiceOperation MethodName="UpdateCoreDefinition" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="UpdateDeviceDefinition" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="UpdateFunctionDefinition" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="UpdateGroup" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="UpdateGroupCertificateConfiguration" PipelineParameter="CertificateExpiryInMilliseconds" Output="Response" />
+    <ServiceOperation MethodName="UpdateLoggerDefinition" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="UpdateSubscriptionDefinition" PipelineParameter="Name" Output="Void" />
+  </ServiceOperations>
+</ConfigModel>
