@@ -15,27 +15,21 @@
  *
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Management.Automation;
-using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.S3;
-using Amazon.S3.Model;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
-    public abstract partial class AmazonS3ClientCmdlet : ServiceCmdlet
+    public abstract partial class AmazonS3ClientCmdlet
     {        
         protected override void CustomizeClientConfig(ClientConfig config)
         {
             base.CustomizeClientConfig(config);
 
             var s3Config = (AmazonS3Config)config;
-            var useAccelerateEndpoint = this.ParameterWasBound("UseAccelerateEndpoint");
-            var useDualstackEndpoint = this.ParameterWasBound("UseDualstackEndpoint");
+            var useAccelerateEndpoint = ParameterWasBound("UseAccelerateEndpoint");
+            var useDualstackEndpoint = ParameterWasBound("UseDualstackEndpoint");
             s3Config.ResignRetries = true;
 
             // let the underlying sdk determine if using these together is allowed
@@ -44,6 +38,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (useDualstackEndpoint)
                 s3Config.UseDualstackEndpoint = true;
+
+            // github issue #670 request - like the aws cli, if a specific endpoint is
+            // given then switch to path style addressing
+            if (ParameterWasBound("EndpointUrl"))
+                s3Config.ForcePathStyle = true;
         }
     }
 }
