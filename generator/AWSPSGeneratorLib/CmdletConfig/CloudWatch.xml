@@ -18,13 +18,10 @@
     <Map From="List" To="Get" />
   </VerbMappings>
   
-  <!-- this works for most paging calls, but ListMetrics has no MaxRecords
-       member, so that one is done manually
-  -->
   <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" />
-  
+
   <PositionalParameters>AlarmNames</PositionalParameters>
-  
+
   <PipelineParameter>AlarmNames</PipelineParameter>
   
   <!-- legacy aliases to original plural-noun named hand-maintained cmdlets, 
@@ -36,13 +33,22 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteAlarms" Output="Void"/>
+    <ServiceOperation MethodName="DeleteDashboards" Noun="Dashboard" Output="Void" />
     <ServiceOperation MethodName="DescribeAlarmHistory" PipelineParameter="AlarmName" PositionalParameters="HistoryItemType;StartDate;EndDate"/>
     <ServiceOperation MethodName="DescribeAlarms"/>
     <ServiceOperation MethodName="DescribeAlarmsForMetric" PipelineParameter="MetricName" PositionalParameters="Namespace;Statistic"/>
     <ServiceOperation MethodName="DisableAlarmActions" Output="Void"/>
     <ServiceOperation MethodName="EnableAlarmActions" Output="Void"/>
+    <ServiceOperation MethodName="GetDashboard" Output="Response" />
     <ServiceOperation MethodName="GetMetricStatistics" Output="Response" PipelineParameter="Namespace" PositionalParameters="MetricName;Dimensions;StartDate;EndDate" Noun="MetricStatistic" LegacyAlias="Get-CWMetricStatistics" />
-    <ServiceOperation MethodName="ListMetrics" Exclude="true"/>
+    <ServiceOperation MethodName="ListDashboards" Noun="DashboardList">
+      <AutoIterate EmitLimit="" Start="NextToken" Next="NextToken" />
+    </ServiceOperation>
+    <!-- even though we can now handle api-specific autoiteration settings, this cmdlet had a 'NoAutoIteration' flag
+         added at some stage, so we cannot re-enable generation yet as we'd lose it and incur a breaking change
+    -->
+    <ServiceOperation MethodName="ListMetrics" Exclude="true" />
+    <ServiceOperation MethodName="PutDashboard" PipelineParameter="DashboardBody" />
     <ServiceOperation MethodName="PutMetricAlarm" Output="Void" PipelineParameter="AlarmName" PositionalParameters="AlarmDescription"/>
     <ServiceOperation MethodName="PutMetricData" Output="Void" PipelineParameter="Namespace" PositionalParameters="MetricData"/>
     <ServiceOperation MethodName="SetAlarmState" Output="Void" PipelineParameter="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData"/>

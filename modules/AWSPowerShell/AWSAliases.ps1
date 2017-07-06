@@ -701,6 +701,8 @@ Set-Alias -Name CT-StopLogging -Value Stop-CTLogging
 Set-Alias -Name CT-UpdateTrail -Value Update-CTTrail
 Set-Alias -Name Delete-CWAlarms -Value Remove-CWAlarm
 Set-Alias -Name CW-DeleteAlarms -Value Remove-CWAlarm
+Set-Alias -Name Delete-CWDashboard -Value Remove-CWDashboard
+Set-Alias -Name CW-DeleteDashboards -Value Remove-CWDashboard
 Set-Alias -Name Describe-CWAlarmHistory -Value Get-CWAlarmHistory
 Set-Alias -Name CW-DescribeAlarmHistory -Value Get-CWAlarmHistory
 Set-Alias -Name Describe-CWAlarms -Value Get-CWAlarm
@@ -711,7 +713,12 @@ Set-Alias -Name Disable-CWAlarmActions -Value Disable-CWAlarmAction
 Set-Alias -Name CW-DisableAlarmActions -Value Disable-CWAlarmAction
 Set-Alias -Name Enable-CWAlarmActions -Value Enable-CWAlarmAction
 Set-Alias -Name CW-EnableAlarmActions -Value Enable-CWAlarmAction
+Set-Alias -Name CW-GetDashboard -Value Get-CWDashboard
 Set-Alias -Name CW-GetMetricStatistics -Value Get-CWMetricStatistic
+Set-Alias -Name List-CWDashboardList -Value Get-CWDashboardList
+Set-Alias -Name CW-ListDashboards -Value Get-CWDashboardList
+Set-Alias -Name Put-CWDashboard -Value Write-CWDashboard
+Set-Alias -Name CW-PutDashboard -Value Write-CWDashboard
 Set-Alias -Name Put-CWMetricAlarm -Value Write-CWMetricAlarm
 Set-Alias -Name CW-PutMetricAlarm -Value Write-CWMetricAlarm
 Set-Alias -Name Put-CWMetricData -Value Write-CWMetricData

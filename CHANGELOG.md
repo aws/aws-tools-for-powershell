@@ -22,9 +22,11 @@
     - CloudWatch Events now allows different AWS accounts to share events with each other through a new resource called event bus. Event buses accept events from AWS services, other AWS accounts and Write-CWEEvent (PutEvents API) calls. Currently all AWS accounts have one default event bus. To send events to another account, customers simply write rules to match the events of interest and attach an event bus in the receiving account as the target to the rule. The new cmdlets are Get-CWEEventBus (DescribeEventBus API), Write-CWEPermission (PutPermission API) and Remove-CWEPermission (RemovePermission).
   * Amazon S3
     - Added new parameter -TagSet to the Write-S3Object and Copy-S3Object cmdlets to support specifying tags when uploading individual files to a bucket or copying objects within S3.
-    - Updated cmdlets to switch to force use of path style addressing if the -EndpointUrl parameter is used. The default behavior without the parameter is to prefer virtual host style addressing unless the bucket name is not DNS compatible.
+    - Updated cmdlets to switch to using path style addressing if the -EndpointUrl parameter is used. The default behavior without the parameter is to prefer virtual host style addressing unless the bucket name is not DNS compatible.
   * AWS Greengrass
     - Added cmdlet support for the new AWS Greengrass service. AWS Greengrass seamlessly extends AWS onto physical devices so they can act locally on the data they generate, while still using the cloud for management, analytics, and durable storage. AWS Greengrass ensures your devices can respond quickly to local events and operate with intermittent connectivity. AWS Greengrass minimizes the cost of transmitting data to the cloud by allowing you to author AWS Lambda functions that execute locally. Cmdlets for the service have the noun prefix 'GG' and can be listed with the command 'Get-AWSCmdletName -Service GG'.
+  * AWS CloudWatch
+    - Added cmdlets to support the new functionality for dynamically building and maintaining dashboards to monitor your infrastructure and applications. The new cmdlets are Get-CWDashboard (GetDashboard API), Get-CWDashboardList (ListDashboards API), Remove-CWDashboard (DeleteDashboard API) and Write-CWDashboard (PutDashboard API).
 
 ### 3.3.113.0 (2017-06-23)
   * Amazon Simple Systems Management

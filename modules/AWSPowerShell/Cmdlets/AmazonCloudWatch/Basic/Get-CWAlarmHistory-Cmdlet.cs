@@ -34,8 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// 
     ///  
     /// <para>
-    /// Note that Amazon CloudWatch retains the history of an alarm even if you delete the
-    /// alarm.
+    /// CloudWatch retains the history of an alarm even if you delete the alarm.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CWAlarmHistory")]

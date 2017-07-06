@@ -28,8 +28,8 @@ using Amazon.CloudWatch.Model;
 namespace Amazon.PowerShell.Cmdlets.CW
 {
     /// <summary>
-    /// Retrieves the alarms for the specified metric. Specify a statistic, period, or unit
-    /// to filter the results.
+    /// Retrieves the alarms for the specified metric. To filter the results, specify a statistic,
+    /// period, or unit.
     /// </summary>
     [Cmdlet("Get", "CWAlarmForMetric")]
     [OutputType("Amazon.CloudWatch.Model.MetricAlarm")]

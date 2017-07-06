@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter AlarmNamePrefix
         /// <summary>
         /// <para>
-        /// <para>The alarm name prefix. You cannot specify <code>AlarmNames</code> if this parameter
-        /// is specified.</para>
+        /// <para>The alarm name prefix. If this parameter is specified, you cannot specify <code>AlarmNames</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -34,36 +34,34 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// <para>
     /// Amazon CloudWatch retains metric data as follows:
     /// </para><ul><li><para>
-    /// Data points with a period of 60 seconds (1 minute) are available for 15 days
+    /// Data points with a period of 60 seconds (1-minute) are available for 15 days
     /// </para></li><li><para>
-    /// Data points with a period of 300 seconds (5 minute) are available for 63 days
+    /// Data points with a period of 300 seconds (5-minute) are available for 63 days
     /// </para></li><li><para>
     /// Data points with a period of 3600 seconds (1 hour) are available for 455 days (15
     /// months)
     /// </para></li></ul><para>
-    /// Note that CloudWatch started retaining 5-minute and 1-hour metric data as of 9 July
-    /// 2016.
+    /// CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
     /// </para><para>
     /// The maximum number of data points returned from a single call is 1,440. If you request
-    /// more than 1,440 data points, Amazon CloudWatch returns an error. To reduce the number
-    /// of data points, you can narrow the specified time range and make multiple requests
-    /// across adjacent time ranges, or you can increase the specified period. A period can
-    /// be as short as one minute (60 seconds). Note that data points are not returned in
-    /// chronological order.
+    /// more than 1,440 data points, CloudWatch returns an error. To reduce the number of
+    /// data points, you can narrow the specified time range and make multiple requests across
+    /// adjacent time ranges, or you can increase the specified period. A period can be as
+    /// short as one minute (60 seconds). Data points are not returned in chronological order.
     /// </para><para>
-    /// Amazon CloudWatch aggregates data points based on the length of the period that you
-    /// specify. For example, if you request statistics with a one-hour period, Amazon CloudWatch
-    /// aggregates all data points with time stamps that fall within each one-hour period.
-    /// Therefore, the number of values aggregated by CloudWatch is larger than the number
-    /// of data points returned.
+    /// CloudWatch aggregates data points based on the length of the period that you specify.
+    /// For example, if you request statistics with a one-hour period, CloudWatch aggregates
+    /// all data points with time stamps that fall within each one-hour period. Therefore,
+    /// the number of values aggregated by CloudWatch is larger than the number of data points
+    /// returned.
     /// </para><para>
     /// CloudWatch needs raw data points to calculate percentile statistics. If you publish
-    /// data using a statistic set instead, you cannot retrieve percentile statistics for
-    /// this data unless one of the following conditions is true:
+    /// data using a statistic set instead, you can only retrieve percentile statistics for
+    /// this data if one of the following conditions is true:
     /// </para><ul><li><para>
-    /// The SampleCount of the statistic set is 1
+    /// The SampleCount value of the statistic set is 1.
     /// </para></li><li><para>
-    /// The Min and the Max of the statistic set are equal
+    /// The Min and the Max values of the statistic set are equal.
     /// </para></li></ul><para>
     /// For a list of metrics and dimensions supported by AWS services, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon
     /// CloudWatch Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User Guide</i>.
@@ -83,11 +81,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The dimensions. If the metric contains multiple dimensions, you must include a value
         /// for each dimension. CloudWatch treats each unique combination of dimensions as a separate
-        /// metric. You can't retrieve statistics using combinations of dimensions that were not
-        /// specially published. You must specify the same dimensions that were used when the
-        /// metrics were created. For an example, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension
+        /// metric. If a specific combination of dimensions was not published, you can't retrieve
+        /// statistics for it. You must specify the same dimensions that were used when the metrics
+        /// were created. For an example, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#dimension-combinations">Dimension
         /// Combinations</a> in the <i>Amazon CloudWatch User Guide</i>. For more information
-        /// on specifying dimensions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
+        /// about specifying dimensions, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/publishingMetrics.html">Publishing
         /// Metrics</a> in the <i>Amazon CloudWatch User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -99,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The time stamp that determines the last data point to return.</para><para>The value specified is exclusive; results will include data points up to the specified
+        /// <para>The time stamp that determines the last data point to return.</para><para>The value specified is exclusive; results include data points up to the specified
         /// time stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-10T23:00:00Z).</para>
         /// </para>
         /// </summary>
@@ -110,7 +108,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter ExtendedStatistic
         /// <summary>
         /// <para>
-        /// <para>The percentile statistics. Specify values between p0.0 and p100.</para>
+        /// <para>The percentile statistics. Specify values between p0.0 and p100. When calling <code>GetMetricStatistics</code>,
+        /// you must specify either <code>Statistics</code> or <code>ExtendedStatistics</code>,
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The granularity, in seconds, of the returned data points. A period can be as short
-        /// as one minute (60 seconds) and must be a multiple of 60. The default value is 60.</para><para>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
+        /// as one minute (60 seconds) and must be a multiple of 60. </para><para>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
         /// 15 days ago, you must specify the period as follows or no data points in that time
         /// range is returned:</para><ul><li><para>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</para></li><li><para>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</para></li></ul>
         /// </para>
@@ -154,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The time stamp that determines the first data point to return. Note that start times
-        /// are evaluated relative to the time that CloudWatch receives the request.</para><para>The value specified is inclusive; results include data points with the specified time
+        /// <para>The time stamp that determines the first data point to return. Start times are evaluated
+        /// relative to the time that CloudWatch receives the request.</para><para>The value specified is inclusive; results include data points with the specified time
         /// stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
@@ -169,7 +169,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Statistic
         /// <summary>
         /// <para>
-        /// <para>The metric statistics, other than percentile. For percentile statistics, use <code>ExtendedStatistic</code>.</para>
+        /// <para>The metric statistics, other than percentile. For percentile statistics, use <code>ExtendedStatistics</code>.
+        /// When calling <code>GetMetricStatistics</code>, you must specify either <code>Statistics</code>
+        /// or <code>ExtendedStatistics</code>, but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

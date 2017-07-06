@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// When you update an existing alarm, its state is left unchanged, but the update completely
     /// overwrites the previous configuration of the alarm.
     /// </para><para>
-    /// If you are an AWS Identity and Access Management (IAM) user, you must have Amazon
-    /// EC2 permissions for some operations:
+    /// If you are an IAM user, you must have Amazon EC2 permissions for some operations:
     /// </para><ul><li><para><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code> for
     /// all alarms on EC2 instance status metrics
     /// </para></li><li><para><code>ec2:StopInstances</code> for alarms with stop actions
@@ -50,23 +49,22 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// for alarms with recover actions
     /// </para></li></ul><para>
     /// If you have read/write permissions for Amazon CloudWatch but not for Amazon EC2, you
-    /// can still create an alarm, but the stop or terminate actions won't be performed. However,
+    /// can still create an alarm, but the stop or terminate actions are not performed. However,
     /// if you are later granted the required permissions, the alarm actions that you created
-    /// earlier will be performed.
+    /// earlier are performed.
     /// </para><para>
-    /// If you are using an IAM role (for example, an Amazon EC2 instance profile), you cannot
-    /// stop or terminate the instance using alarm actions. However, you can still see the
-    /// alarm state and perform any other actions such as Amazon SNS notifications or Auto
-    /// Scaling policies.
+    /// If you are using an IAM role (for example, an EC2 instance profile), you cannot stop
+    /// or terminate the instance using alarm actions. However, you can still see the alarm
+    /// state and perform any other actions such as Amazon SNS notifications or Auto Scaling
+    /// policies.
     /// </para><para>
-    /// If you are using temporary security credentials granted using the AWS Security Token
-    /// Service (AWS STS), you cannot stop or terminate an Amazon EC2 instance using alarm
-    /// actions.
+    /// If you are using temporary security credentials granted using AWS STS, you cannot
+    /// stop or terminate an EC2 instance using alarm actions.
     /// </para><para>
-    /// Note that you must create at least one stop, terminate, or reboot alarm using the
-    /// Amazon EC2 or CloudWatch console to create the <b>EC2ActionsAccess</b> IAM role. After
-    /// this IAM role is created, you can create stop, terminate, or reboot alarms using a
-    /// command-line interface or an API.
+    /// You must create at least one stop, terminate, or reboot alarm using either the Amazon
+    /// EC2 or CloudWatch consoles to create the <b>EC2ActionsAccess</b> IAM role. After this
+    /// IAM role is created, you can create stop, terminate, or reboot alarms using a command-line
+    /// interface or API.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWMetricAlarm", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -151,10 +149,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para> Used only for alarms based on percentiles. If you specify <code>ignore</code>, the
-        /// alarm state will not change during periods with too few data points to be statistically
+        /// alarm state does not change during periods with too few data points to be statistically
         /// significant. If you specify <code>evaluate</code> or omit this parameter, the alarm
-        /// will always be evaluated and possibly change state no matter how many data points
-        /// are available. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
+        /// is always evaluated and possibly changes state no matter how many data points are
+        /// available. For more information, see <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/AlarmThatSendsEmail.html#percentiles-with-low-samples">Percentile-Based
         /// CloudWatch Alarms and Low Data Samples</a>.</para><para>Valid Values: <code>evaluate | ignore</code></para>
         /// </para>
         /// </summary>
@@ -165,7 +163,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter EvaluationPeriod
         /// <summary>
         /// <para>
-        /// <para>The number of periods over which data is compared to the specified threshold.</para>
+        /// <para>The number of periods over which data is compared to the specified threshold. An alarm's
+        /// total current evaluation period can be no longer than one day, so this number multiplied
+        /// by <code>Period</code> must be 86,400 or less.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,7 +237,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The period, in seconds, over which the specified statistic is applied.</para>
+        /// <para>The period, in seconds, over which the specified statistic is applied. An alarm's
+        /// total current evaluation period can be no longer than one day, so this number multiplied
+        /// by <code>EvaluationPeriods</code> must be 86,400 or less.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -287,8 +289,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// on all network interfaces. You can also specify a unit when you create a custom metric.
         /// Units help provide conceptual meaning to your data. Metric data points that specify
         /// a unit of measure, such as Percent, are aggregated separately.</para><para>If you specify a unit, you must use a unit that is appropriate for the metric. Otherwise,
-        /// the Amazon CloudWatch alarm can get stuck in the <code>INSUFFICIENT DATA</code> state.
-        /// </para>
+        /// the CloudWatch alarm can get stuck in the <code>INSUFFICIENT DATA</code> state. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
