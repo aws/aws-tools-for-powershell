@@ -1,3 +1,4 @@
+### 3.3.119.0 (2017-07-07)
   * AWS CloudFormation
     - Added new helper cmdlets Test-CFNStack, which tests a CloudFormation stack to determine if it's in a certain status and Wait-CFNStack which Pauses execution of the script until the desired CloudFormation Stack status has been reached or timeout occurs.
   * Added new format definitions for several types to improve output usability. The new formats take effect on objects of type:
