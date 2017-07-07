@@ -51,6 +51,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] ApprovedPatch { get; set; }
         #endregion
         
+        #region Parameter ApprovedPatchesComplianceLevel
+        /// <summary>
+        /// <para>
+        /// <para>Defines the compliance level for approved patches. This means that if an approved
+        /// patch is reported as missing, this is the severity of the compliance violation. Valid
+        /// compliance severity levels include the following: CRITICAL, HIGH, MEDIUM, LOW, INFORMATIONAL,
+        /// UNSPECIFIED. The default value is UNSPECIFIED.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchComplianceLevel")]
+        public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -79,6 +93,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter OperatingSystem
+        /// <summary>
+        /// <para>
+        /// <para>Defines the operating system the patch baseline applies to. Supported operating systems
+        /// include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value
+        /// is WINDOWS.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.OperatingSystem")]
+        public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
         #endregion
         
         #region Parameter GlobalFilters_PatchFilter
@@ -151,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.ApprovedPatches = new List<System.String>(this.ApprovedPatch);
             }
+            context.ApprovedPatchesComplianceLevel = this.ApprovedPatchesComplianceLevel;
             context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             if (this.GlobalFilters_PatchFilter != null)
@@ -158,6 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 context.GlobalFilters_PatchFilters = new List<Amazon.SimpleSystemsManagement.Model.PatchFilter>(this.GlobalFilters_PatchFilter);
             }
             context.Name = this.Name;
+            context.OperatingSystem = this.OperatingSystem;
             if (this.RejectedPatch != null)
             {
                 context.RejectedPatches = new List<System.String>(this.RejectedPatch);
@@ -201,6 +230,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.ApprovedPatches = cmdletContext.ApprovedPatches;
             }
+            if (cmdletContext.ApprovedPatchesComplianceLevel != null)
+            {
+                request.ApprovedPatchesComplianceLevel = cmdletContext.ApprovedPatchesComplianceLevel;
+            }
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
@@ -231,6 +264,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.OperatingSystem != null)
+            {
+                request.OperatingSystem = cmdletContext.OperatingSystem;
             }
             if (cmdletContext.RejectedPatches != null)
             {
@@ -290,10 +327,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public List<Amazon.SimpleSystemsManagement.Model.PatchRule> ApprovalRules_PatchRules { get; set; }
             public List<System.String> ApprovedPatches { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
             public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilters { get; set; }
             public System.String Name { get; set; }
+            public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
             public List<System.String> RejectedPatches { get; set; }
         }
         

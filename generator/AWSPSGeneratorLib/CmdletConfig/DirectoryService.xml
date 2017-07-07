@@ -23,6 +23,7 @@
 		<ServiceOperation MethodName="DeleteSnapshot" />
 		<ServiceOperation MethodName="DescribeConditionalForwarders" Noun="ConditionalForwarder" PipelineParameter="DirectoryId"/>
 		<ServiceOperation MethodName="DescribeDirectories" Noun="Directory" />
+		<ServiceOperation MethodName="DescribeDomainControllers" Noun="DomainControllerList" PipelineParameter="DirectoryId" />
 		<ServiceOperation MethodName="DescribeSnapshots" Noun="Snapshot" PipelineParameter="DirectoryId"/>
 		<ServiceOperation MethodName="DisableRadius" Output="Void" />
 		<ServiceOperation MethodName="DisableSso" PipelineParameter="DirectoryId" ShouldProcessTarget="DirectoryId" Output="Void" />
@@ -50,5 +51,6 @@
 		<ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
 		<ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
 		<ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceId" />
+		<ServiceOperation MethodName="UpdateNumberOfDomainControllers" Verb="Set" Noun="DomainControllerCount" PipelineParameter="DesiredNumber" Output="Void" />
 	</ServiceOperations>
 </ConfigModel>

@@ -28,17 +28,29 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the default patch baseline.
+    /// Retrieves the default patch baseline. Note that Systems Manager supports creating
+    /// multiple default patch baselines. For example, you can create a default patch baseline
+    /// for each operating system.
     /// </summary>
     [Cmdlet("Get", "SSMDefaultPatchBaseline")]
-    [OutputType("System.String")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse")]
     [AWSCmdlet("Invokes the GetDefaultPatchBaseline operation against Amazon Simple Systems Management.", Operation = new[] {"GetDefaultPatchBaseline"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetSSMDefaultPatchBaselineCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
+        
+        #region Parameter OperatingSystem
+        /// <summary>
+        /// <para>
+        /// <para>Returns the default patch baseline for the specified operating system.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.OperatingSystem")]
+        public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
+        #endregion
         
         protected override void ProcessRecord()
         {
@@ -53,6 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.OperatingSystem = this.OperatingSystem;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -69,6 +82,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineRequest();
             
+            if (cmdletContext.OperatingSystem != null)
+            {
+                request.OperatingSystem = cmdletContext.OperatingSystem;
+            }
             
             CmdletOutput output;
             
@@ -78,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.BaselineId;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -121,6 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
         }
         
     }

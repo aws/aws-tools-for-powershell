@@ -1361,6 +1361,7 @@ Set-Alias -Name Describe-DCInterconnects -Value Get-DCInterconnect
 Set-Alias -Name DC-DescribeInterconnects -Value Get-DCInterconnect
 Set-Alias -Name Describe-DCLag -Value Get-DCLag
 Set-Alias -Name DC-DescribeLags -Value Get-DCLag
+Set-Alias -Name DS-ListIpRoutes -Value Get-DSIpRouteList
 Set-Alias -Name DS-ListSchemaExtensions -Value Get-DSSchemaExtension
 Set-Alias -Name DS-ListTagsForResource -Value Get-DSResourceTag
 Set-Alias -Name DS-RegisterEventTopic -Value Register-DSEventTopic
@@ -1369,6 +1370,7 @@ Set-Alias -Name DS-RemoveTagsFromResource -Value Remove-DSResourceTag
 Set-Alias -Name DS-RestoreFromSnapshot -Value Restore-DSFromSnapshot
 Set-Alias -Name DS-StartSchemaExtension -Value Start-DSSchemaExtension
 Set-Alias -Name DS-UpdateConditionalForwarder -Value Update-DSConditionalForwarder
+Set-Alias -Name DS-UpdateNumberOfDomainControllers -Value Set-DSDomainControllerCount
 Set-Alias -Name DS-UpdateRadius -Value Update-DSRadius
 Set-Alias -Name DS-VerifyTrust -Value Approve-DSTrust
 Set-Alias -Name DS-AddIpRoutes -Value Add-DSIpRoute
@@ -1403,6 +1405,8 @@ Set-Alias -Name Describe-DSConditionalForwarder -Value Get-DSConditionalForwarde
 Set-Alias -Name DS-DescribeConditionalForwarders -Value Get-DSConditionalForwarder
 Set-Alias -Name Describe-DSDirectory -Value Get-DSDirectory
 Set-Alias -Name DS-DescribeDirectories -Value Get-DSDirectory
+Set-Alias -Name Describe-DSDomainControllerList -Value Get-DSDomainControllerList
+Set-Alias -Name DS-DescribeDomainControllers -Value Get-DSDomainControllerList
 Set-Alias -Name Describe-DSEventTopic -Value Get-DSEventTopic
 Set-Alias -Name DS-DescribeEventTopics -Value Get-DSEventTopic
 Set-Alias -Name Describe-DSSnapshot -Value Get-DSSnapshot
@@ -1414,7 +1418,6 @@ Set-Alias -Name DS-EnableRadius -Value Enable-DSRadius
 Set-Alias -Name DS-EnableSso -Value Enable-DSSso
 Set-Alias -Name DS-GetDirectoryLimits -Value Get-DSDirectoryLimit
 Set-Alias -Name DS-GetSnapshotLimits -Value Get-DSSnapshotLimit
-Set-Alias -Name DS-ListIpRoutes -Value Get-DSIpRouteList
 Set-Alias -Name Delete-DDBTable -Value Remove-DDBTable
 Set-Alias -Name DDB-DeleteTable -Value Remove-DDBTable
 Set-Alias -Name Describe-DDBProvisionLimit -Value Get-DDBProvisionLimit
@@ -2779,6 +2782,8 @@ Set-Alias -Name Put-KINMultipleRecord -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-PutRecords -Value Write-KINMultipleRecord
 Set-Alias -Name KIN-RemoveTagsFromStream -Value Remove-KINTagsFromStream
 Set-Alias -Name KIN-SplitShard -Value Split-KINShard
+Set-Alias -Name KIN-StartStreamEncryption -Value Start-KINStreamEncryption
+Set-Alias -Name KIN-StopStreamEncryption -Value Stop-KINStreamEncryption
 Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KINA-AddApplicationCloudWatchLoggingOption -Value Add-KINAApplicationCloudWatchLoggingOption
 Set-Alias -Name KINA-AddApplicationInput -Value Add-KINAApplicationInput

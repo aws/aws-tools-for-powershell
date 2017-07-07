@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Retrieves the current snapshot for the patch baseline the instance uses. This API
-    /// is primarily used by the AWS-ApplyPatchBaseline Systems Manager document.
+    /// is primarily used by the AWS-RunPatchBaseline Systems Manager document.
     /// </summary>
     [Cmdlet("Get", "SSMDeployablePatchSnapshotForInstance")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse")]

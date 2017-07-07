@@ -39,13 +39,24 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMPatchBaselineForPatchGroupCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter OperatingSystem
+        /// <summary>
+        /// <para>
+        /// <para>Returns he operating system rule specified for patch groups using the patch baseline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.OperatingSystem")]
+        public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
+        #endregion
+        
         #region Parameter PatchGroup
         /// <summary>
         /// <para>
         /// <para>The name of the patch group whose patch baseline should be retrieved.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String PatchGroup { get; set; }
         #endregion
         
@@ -62,6 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.OperatingSystem = this.OperatingSystem;
             context.PatchGroup = this.PatchGroup;
             
             // allow further manipulation of loaded context prior to processing
@@ -79,6 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.GetPatchBaselineForPatchGroupRequest();
             
+            if (cmdletContext.OperatingSystem != null)
+            {
+                request.OperatingSystem = cmdletContext.OperatingSystem;
+            }
             if (cmdletContext.PatchGroup != null)
             {
                 request.PatchGroup = cmdletContext.PatchGroup;
@@ -135,6 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.SimpleSystemsManagement.OperatingSystem OperatingSystem { get; set; }
             public System.String PatchGroup { get; set; }
         }
         

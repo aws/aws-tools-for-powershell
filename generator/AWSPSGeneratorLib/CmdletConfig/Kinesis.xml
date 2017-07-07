@@ -44,5 +44,8 @@
     <ServiceOperation MethodName="SplitShard" Output="Void" PositionalParameters="ShardToSplit;NewStartingHashKey" PipelineParameter="StreamName"/>
     <ServiceOperation MethodName="DisableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
     <ServiceOperation MethodName="EnableEnhancedMonitoring" PipelineParameter="StreamName" Output="Response" />
+
+    <ServiceOperation MethodName="StartStreamEncryption" Output="Void" PipelineParameter="StreamName" />
+    <ServiceOperation MethodName="StopStreamEncryption" Output="Void" PipelineParameter="StreamName" />
   </ServiceOperations>
 </ConfigModel>

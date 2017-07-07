@@ -3153,6 +3153,16 @@ $KIN_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Kinesis.EncryptionType
+        {
+            ($_ -eq "Start-KINStreamEncryption/EncryptionType") -Or
+            ($_ -eq "Stop-KINStreamEncryption/EncryptionType")
+        }
+        {
+            $v = "KMS","NONE"
+            break
+        }
+        
         # Amazon.Kinesis.ScalingType
         "Update-KINShardCount/ScalingType"
         {
@@ -3175,6 +3185,7 @@ $KIN_Completers = {
 }
 
 $KIN_map = @{
+    "EncryptionType"=@("Start-KINStreamEncryption","Stop-KINStreamEncryption")
     "ScalingType"=@("Update-KINShardCount")
     "ShardIteratorType"=@("Get-KINShardIterator")
 }
@@ -4726,10 +4737,31 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.OperatingSystem
+        {
+            ($_ -eq "Get-SSMDefaultPatchBaseline/OperatingSystem") -Or
+            ($_ -eq "Get-SSMPatchBaselineForPatchGroup/OperatingSystem") -Or
+            ($_ -eq "New-SSMPatchBaseline/OperatingSystem")
+        }
+        {
+            $v = "AMAZON_LINUX","REDHAT_ENTERPRISE_LINUX","UBUNTU","WINDOWS"
+            break
+        }
+        
         # Amazon.SimpleSystemsManagement.ParameterType
         "Write-SSMParameter/Type"
         {
             $v = "SecureString","String","StringList"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.PatchComplianceLevel
+        {
+            ($_ -eq "New-SSMPatchBaseline/ApprovedPatchesComplianceLevel") -Or
+            ($_ -eq "Update-SSMPatchBaseline/ApprovedPatchesComplianceLevel")
+        }
+        {
+            $v = "CRITICAL","HIGH","INFORMATIONAL","LOW","MEDIUM","UNSPECIFIED"
             break
         }
         
@@ -4759,10 +4791,12 @@ $SSM_Completers = {
 }
 
 $SSM_map = @{
+    "ApprovedPatchesComplianceLevel"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
     "AssociationStatus_Name"=@("Update-SSMAssociationStatus")
     "DocumentHashType"=@("Send-SSMCommand")
     "DocumentType"=@("New-SSMDocument")
     "NotificationConfig_NotificationType"=@("Send-SSMCommand")
+    "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","New-SSMPatchBaseline")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")

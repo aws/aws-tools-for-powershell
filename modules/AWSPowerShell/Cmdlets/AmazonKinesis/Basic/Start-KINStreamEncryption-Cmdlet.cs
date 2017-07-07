@@ -28,81 +28,79 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Updates the shard count of the specified stream to the specified number of shards.
+    /// Enables or updates server-side encryption using an AWS KMS key for a specified stream.
+    /// 
     /// 
     ///  
     /// <para>
-    /// Updating the shard count is an asynchronous operation. Upon receiving the request,
-    /// Amazon Kinesis returns immediately and sets the status of the stream to <code>UPDATING</code>.
+    /// Starting encryption is an asynchronous operation. Upon receiving the request, Amazon
+    /// Kinesis returns immediately and sets the status of the stream to <code>UPDATING</code>.
     /// After the update is complete, Amazon Kinesis sets the status of the stream back to
-    /// <code>ACTIVE</code>. Depending on the size of the stream, the scaling action could
-    /// take a few minutes to complete. You can continue to read and write data to your stream
-    /// while its status is <code>UPDATING</code>.
+    /// <code>ACTIVE</code>. Updating or applying encryption normally takes a few seconds
+    /// to complete but it can take minutes. You can continue to read and write data to your
+    /// stream while its status is <code>UPDATING</code>. Once the status of the stream is
+    /// <code>ACTIVE</code>, records written to the stream will begin to be encrypted. 
     /// </para><para>
-    /// To update the shard count, Amazon Kinesis performs splits or merges on individual
-    /// shards. This can cause short-lived shards to be created, in addition to the final
-    /// shards. We recommend that you double or halve the shard count, as this results in
-    /// the fewest number of splits or merges.
+    /// API Limits: You can successfully apply a new AWS KMS key for server-side encryption
+    /// 25 times in a rolling 24 hour period.
     /// </para><para>
-    /// This operation has the following limits, which are per region per account unless otherwise
-    /// noted:
-    /// </para><ul><li><para>
-    /// scale more than twice per rolling 24 hour period
-    /// </para></li><li><para>
-    /// scale up above double your current shard count
-    /// </para></li><li><para>
-    /// scale down below half your current shard count
-    /// </para></li><li><para>
-    /// scale up above 200 shards in a stream
-    /// </para></li><li><para>
-    /// scale a stream with more than 200 shards down unless the result is less than 200 shards
-    /// </para></li><li><para>
-    /// scale up above the shard limits for your account
-    /// </para></li><li></li></ul><para>
-    /// For the default limits for an AWS account, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
-    /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>. If you need to increase
-    /// a limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
-    /// AWS Support</a>.
+    /// Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
+    /// before all records written to the stream are encrypted. After you’ve enabled encryption,
+    /// you can verify encryption was applied by inspecting the API response from <code>PutRecord</code>
+    /// or <code>PutRecords</code>.
     /// </para>
     /// </summary>
-    [Cmdlet("Update", "KINShardCount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Kinesis.Model.UpdateShardCountResponse")]
-    [AWSCmdlet("Invokes the UpdateShardCount operation against Amazon Kinesis.", Operation = new[] {"UpdateShardCount"})]
-    [AWSCmdletOutput("Amazon.Kinesis.Model.UpdateShardCountResponse",
-        "This cmdlet returns a Amazon.Kinesis.Model.UpdateShardCountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Start", "KINStreamEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the StartStreamEncryption operation against Amazon Kinesis.", Operation = new[] {"StartStreamEncryption"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.Kinesis.Model.StartStreamEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateKINShardCountCmdlet : AmazonKinesisClientCmdlet, IExecutor
+    public partial class StartKINStreamEncryptionCmdlet : AmazonKinesisClientCmdlet, IExecutor
     {
         
-        #region Parameter ScalingType
+        #region Parameter EncryptionType
         /// <summary>
         /// <para>
-        /// <para>The scaling type. Uniform scaling creates shards of equal size.</para>
+        /// <para>The encryption type to use. This parameter can be one of the following values:</para><ul><li><para><code>NONE</code>: Not valid for this operation. An <code>InvalidOperationException</code>
+        /// will be thrown.</para></li><li><para><code>KMS</code>: Use server-side encryption on the records in the stream using a
+        /// customer-managed KMS key.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
-        [AWSConstantClassSource("Amazon.Kinesis.ScalingType")]
-        public Amazon.Kinesis.ScalingType ScalingType { get; set; }
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Kinesis.EncryptionType")]
+        public Amazon.Kinesis.EncryptionType EncryptionType { get; set; }
+        #endregion
+        
+        #region Parameter KeyId
+        /// <summary>
+        /// <para>
+        /// <para>The GUID for the customer-managed KMS key to use for encryption. You can also use
+        /// a Kinesis-owned master key by specifying the alias <code>aws/kinesis</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KeyId { get; set; }
         #endregion
         
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the stream.</para>
+        /// <para>The name of the stream for which to start encrypting records.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String StreamName { get; set; }
         #endregion
         
-        #region Parameter TargetShardCount
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>The new number of shards.</para>
-        /// </para>
+        /// Returns the value passed to the StreamName parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Int32 TargetShardCount { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -120,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-KINShardCount (UpdateShardCount)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-KINStreamEncryption (StartStreamEncryption)"))
             {
                 return;
             }
@@ -134,10 +132,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ScalingType = this.ScalingType;
+            context.EncryptionType = this.EncryptionType;
+            context.KeyId = this.KeyId;
             context.StreamName = this.StreamName;
-            if (ParameterWasBound("TargetShardCount"))
-                context.TargetShardCount = this.TargetShardCount;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -152,19 +149,19 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Kinesis.Model.UpdateShardCountRequest();
+            var request = new Amazon.Kinesis.Model.StartStreamEncryptionRequest();
             
-            if (cmdletContext.ScalingType != null)
+            if (cmdletContext.EncryptionType != null)
             {
-                request.ScalingType = cmdletContext.ScalingType;
+                request.EncryptionType = cmdletContext.EncryptionType;
+            }
+            if (cmdletContext.KeyId != null)
+            {
+                request.KeyId = cmdletContext.KeyId;
             }
             if (cmdletContext.StreamName != null)
             {
                 request.StreamName = cmdletContext.StreamName;
-            }
-            if (cmdletContext.TargetShardCount != null)
-            {
-                request.TargetShardCount = cmdletContext.TargetShardCount.Value;
             }
             
             CmdletOutput output;
@@ -175,7 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.StreamName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -200,14 +199,14 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Kinesis.Model.UpdateShardCountResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.UpdateShardCountRequest request)
+        private Amazon.Kinesis.Model.StartStreamEncryptionResponse CallAWSServiceOperation(IAmazonKinesis client, Amazon.Kinesis.Model.StartStreamEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "UpdateShardCount");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis", "StartStreamEncryption");
             #if DESKTOP
-            return client.UpdateShardCount(request);
+            return client.StartStreamEncryption(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateShardCountAsync(request);
+            var task = client.StartStreamEncryptionAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -218,9 +217,9 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public Amazon.Kinesis.ScalingType ScalingType { get; set; }
+            public Amazon.Kinesis.EncryptionType EncryptionType { get; set; }
+            public System.String KeyId { get; set; }
             public System.String StreamName { get; set; }
-            public System.Int32? TargetShardCount { get; set; }
         }
         
     }

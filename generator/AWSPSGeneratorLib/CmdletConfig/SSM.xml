@@ -117,7 +117,7 @@
       <AutoIterate ServicePageSize="100" />
     </ServiceOperation>
     <ServiceOperation MethodName="DescribePatchGroupState" Output="Response" />
-    <ServiceOperation MethodName="GetDefaultPatchBaseline" />
+    <ServiceOperation MethodName="GetDefaultPatchBaseline" Output="Response" />
     <ServiceOperation MethodName="GetDeployablePatchSnapshotForInstance" PipelineParameter="SnapshotId" Output="Response" />
     <ServiceOperation MethodName="GetPatchBaseline" Noun="PatchBaselineDetail" Output="Response" />
     <ServiceOperation MethodName="CreatePatchBaseline" NoPipelineParameter="true" />

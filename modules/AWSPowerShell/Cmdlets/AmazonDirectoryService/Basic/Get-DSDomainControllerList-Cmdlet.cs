@@ -22,52 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.DirectoryService;
+using Amazon.DirectoryService.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.DS
 {
     /// <summary>
-    /// Lists all patch groups that have been registered with patch baselines.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Provides information about any domain controllers in your directory.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SSMPatchGroup")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.PatchGroupPatchBaselineMapping")]
-    [AWSCmdlet("Invokes the DescribePatchGroups operation against Amazon Simple Systems Management.", Operation = new[] {"DescribePatchGroups"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.PatchGroupPatchBaselineMapping",
-        "This cmdlet returns a collection of PatchGroupPatchBaselineMapping objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "DSDomainControllerList")]
+    [OutputType("Amazon.DirectoryService.Model.DomainController")]
+    [AWSCmdlet("Invokes the DescribeDomainControllers operation against AWS Directory Service.", Operation = new[] {"DescribeDomainControllers"})]
+    [AWSCmdletOutput("Amazon.DirectoryService.Model.DomainController",
+        "This cmdlet returns a collection of DomainController objects.",
+        "The service call response (type Amazon.DirectoryService.Model.DescribeDomainControllersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSSMPatchGroupCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetDSDomainControllerListCmdlet : AmazonDirectoryServiceClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
+        #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// <para>Identifier of the directory for which to retrieve the domain controller information.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("Filters")]
-        public Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter[] Filter { get; set; }
+        public System.String DirectoryId { get; set; }
         #endregion
         
-        #region Parameter MaxResult
+        #region Parameter DomainControllerId
         /// <summary>
         /// <para>
-        /// <para>The maximum number of patch groups to return (per page).</para>
+        /// <para>A list of identifiers for the domain controllers whose information will be provided.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        [Alias("DomainControllerIds")]
+        public System.String[] DomainControllerId { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of items to return.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxItems")]
+        public int Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// <para>The <i>DescribeDomainControllers.NextToken</i> value from a previous call to <a>DescribeDomainControllers</a>.
+        /// Pass null if this is the first call. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -90,12 +100,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.Filter != null)
+            context.DirectoryId = this.DirectoryId;
+            if (this.DomainControllerId != null)
             {
-                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter>(this.Filter);
+                context.DomainControllerIds = new List<System.String>(this.DomainControllerId);
             }
-            if (ParameterWasBound("MaxResult"))
-                context.MaxResults = this.MaxResult;
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -112,32 +123,29 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsRequest();
-            if (cmdletContext.Filters != null)
+            var request = new Amazon.DirectoryService.Model.DescribeDomainControllersRequest();
+            if (cmdletContext.DirectoryId != null)
             {
-                request.Filters = cmdletContext.Filters;
+                request.DirectoryId = cmdletContext.DirectoryId;
+            }
+            if (cmdletContext.DomainControllerIds != null)
+            {
+                request.DomainControllerIds = cmdletContext.DomainControllerIds;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
             {
-                // The service has a maximum page size of 100. If the user has
-                // asked for more items than page max, and there is no page size
-                // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
-                // be used to configure the pagination.
-                // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxResults;
+                _emitLimit = cmdletContext.Limit;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
             bool _continueIteration = true;
             
             try
@@ -147,21 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     request.NextToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    if (AutoIterationHelpers.HasValue(_pageSize))
-                    {
-                        int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxResults))
-                        {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
-                        }
-                        else
-                        {
-                            correctPageSize = _pageSize.Value;
-                        }
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -172,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Mappings;
+                        object pipelineOutput = response.DomainControllers;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -181,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Mappings.Count;
+                        int _receivedThisCall = response.DomainControllers.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -201,15 +195,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
-                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
-                    // what's left to match the user's request.
-                    
-                    var _remainingItems = _emitLimit - _retrievedSoFar;
-                    if (_remainingItems < _pageSize)
-                    {
-                        _emitLimit = _remainingItems;
-                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -233,14 +218,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribePatchGroupsRequest request)
+        private Amazon.DirectoryService.Model.DescribeDomainControllersResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.DescribeDomainControllersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribePatchGroups");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "DescribeDomainControllers");
             #if DESKTOP
-            return client.DescribePatchGroups(request);
+            return client.DescribeDomainControllers(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribePatchGroupsAsync(request);
+            var task = client.DescribeDomainControllersAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -251,8 +236,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.PatchOrchestratorFilter> Filters { get; set; }
-            public int? MaxResults { get; set; }
+            public System.String DirectoryId { get; set; }
+            public List<System.String> DomainControllerIds { get; set; }
+            public int? Limit { get; set; }
             public System.String NextToken { get; set; }
         }
         

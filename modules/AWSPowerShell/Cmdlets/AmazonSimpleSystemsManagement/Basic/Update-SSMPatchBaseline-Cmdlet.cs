@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String[] ApprovedPatch { get; set; }
         #endregion
         
+        #region Parameter ApprovedPatchesComplianceLevel
+        /// <summary>
+        /// <para>
+        /// <para>Assigns a new compliance severity level to an existing patch baseline.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.PatchComplianceLevel")]
+        public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
+        #endregion
+        
         #region Parameter BaselineId
         /// <summary>
         /// <para>
@@ -151,6 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.ApprovedPatches = new List<System.String>(this.ApprovedPatch);
             }
+            context.ApprovedPatchesComplianceLevel = this.ApprovedPatchesComplianceLevel;
             context.BaselineId = this.BaselineId;
             context.Description = this.Description;
             if (this.GlobalFilters_PatchFilter != null)
@@ -200,6 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ApprovedPatches != null)
             {
                 request.ApprovedPatches = cmdletContext.ApprovedPatches;
+            }
+            if (cmdletContext.ApprovedPatchesComplianceLevel != null)
+            {
+                request.ApprovedPatchesComplianceLevel = cmdletContext.ApprovedPatchesComplianceLevel;
             }
             if (cmdletContext.BaselineId != null)
             {
@@ -290,6 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public List<Amazon.SimpleSystemsManagement.Model.PatchRule> ApprovalRules_PatchRules { get; set; }
             public List<System.String> ApprovedPatches { get; set; }
+            public Amazon.SimpleSystemsManagement.PatchComplianceLevel ApprovedPatchesComplianceLevel { get; set; }
             public System.String BaselineId { get; set; }
             public System.String Description { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.PatchFilter> GlobalFilters_PatchFilters { get; set; }
