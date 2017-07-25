@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Describes the status of one or more instances. By default, only running instances
-    /// are described, unless specified otherwise.
+    /// are described, unless you specifically indicate to return the status of all instances.
     /// 
     ///  
     /// <para>

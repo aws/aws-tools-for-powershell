@@ -79,33 +79,18 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         #region Parameter DataSetType
         /// <summary>
         /// <para>
-        /// <para>The desired data set type.</para><para><ul><li><i>customer_subscriber_hourly_monthly_subscriptions</i> - Available daily
-        /// by 5:00 PM Pacific Time since 2014-07-21.</li><li><i>customer_subscriber_annual_subscriptions</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2014-07-21.</li><li><i>daily_business_usage_by_instance_type</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_fees</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_free_trial_conversions</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_new_instances</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_new_product_subscribers</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>daily_business_canceled_product_subscribers</i>
-        /// - Available daily by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>monthly_revenue_billing_and_revenue_data</i>
-        /// - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2015-02.</li><li><i>monthly_revenue_annual_subscriptions</i> - Available monthly on the 4th day
-        /// of the month by 5:00 PM Pacific Time since 2015-02.</li><li><i>disbursed_amount_by_product</i>
-        /// - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>disbursed_amount_by_product_with_uncollected_funds</i>
-        /// -This data set is only available from 2012-04-19 until 2015-01-25. After 2015-01-25,
-        /// this data set was split into three data sets: disbursed_amount_by_product, disbursed_amount_by_age_of_uncollected_funds,
-        /// and disbursed_amount_by_age_of_disbursed_funds. </li><li><i>disbursed_amount_by_instance_hours</i>
-        /// - Available every 30 days by 5:00 PM Pacific Time since 2012-09-04.</li><li><i>disbursed_amount_by_customer_geo</i>
-        /// - Available every 30 days by 5:00 PM Pacific Time since 2012-04-19.</li><li><i>disbursed_amount_by_age_of_uncollected_funds</i>
-        /// - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>disbursed_amount_by_age_of_disbursed_funds</i>
-        /// - Available every 30 days by 5:00 PM Pacific Time since 2015-01-26.</li><li><i>customer_profile_by_industry</i>
-        /// - Available daily by 5:00 PM Pacific Time from 2015-10-01 to 2017-06-29. After 2017-06-29
-        /// this data set will no longer be published.</li><li><i>customer_profile_by_revenue</i>
-        /// - Available daily by 5:00 PM Pacific Time from 2015-10-01 to 2017-06-29. After 2017-06-29
-        /// this data set will no longer be published.</li><li><i>customer_profile_by_geography</i>
-        /// - Available daily by 5:00 PM Pacific Time from 2015-10-01 to 2017-06-29. After 2017-06-29
-        /// this data set will no longer be published.</li><li><i>sales_compensation_billed_revenue</i>
-        /// - Available monthly on the 4th day of the month by 5:00 PM Pacific Time since 2016-12.</li><li><i>us_sales_and_use_tax_records</i> - Available monthly on the 15th day of the
-        /// month by 5:00 PM Pacific Time since 2017-02-15.</li></ul></para>
+        /// <para>The desired data set type.</para><para><ul><li><strong>customer_subscriber_hourly_monthly_subscriptions</strong><para>From 2014-07-21 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>customer_subscriber_annual_subscriptions</strong><para>From 2014-07-21 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>daily_business_usage_by_instance_type</strong><para>From 2015-01-26 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>daily_business_fees</strong><para>From 2015-01-26 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>daily_business_free_trial_conversions</strong><para>From 2015-01-26 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>daily_business_new_instances</strong><para>From 2015-01-26 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>daily_business_new_product_subscribers</strong><para>From 2015-01-26 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>daily_business_canceled_product_subscribers</strong><para>From 2015-01-26 to present: Available daily by 5:00 PM Pacific Time.</para></li><li><strong>monthly_revenue_billing_and_revenue_data</strong><para>From 2015-02 to 2017-06: Available monthly on the 4th day of the month by 5:00pm Pacific
+        /// Time. Data includes metered transactions (e.g. hourly) from two months prior.</para><para>From 2017-07 to present: Available monthly on the 15th day of the month by 5:00pm
+        /// Pacific Time. Data includes metered transactions (e.g. hourly) from one month prior.</para></li><li><strong>monthly_revenue_annual_subscriptions</strong><para>From 2015-02 to 2017-06: Available monthly on the 4th day of the month by 5:00pm Pacific
+        /// Time. Data includes up-front software charges (e.g. annual) from one month prior.</para><para>From 2017-07 to present: Available monthly on the 15th day of the month by 5:00pm
+        /// Pacific Time. Data includes up-front software charges (e.g. annual) from one month
+        /// prior.</para></li><li><strong>disbursed_amount_by_product</strong><para>From 2015-01-26 to present: Available every 30 days by 5:00 PM Pacific Time.</para></li><li><strong>disbursed_amount_by_product_with_uncollected_funds</strong><para>From 2012-04-19 to 2015-01-25: Available every 30 days by 5:00 PM Pacific Time.</para><para>From 2015-01-26 to present: This data set was split into three data sets: disbursed_amount_by_product,
+        /// disbursed_amount_by_age_of_uncollected_funds, and disbursed_amount_by_age_of_disbursed_funds.</para></li><li><strong>disbursed_amount_by_instance_hours</strong><para>From 2012-09-04 to present: Available every 30 days by 5:00 PM Pacific Time.</para></li><li><strong>disbursed_amount_by_customer_geo</strong><para>From 2012-04-19 to present: Available every 30 days by 5:00 PM Pacific Time.</para></li><li><strong>disbursed_amount_by_age_of_uncollected_funds</strong><para>From 2015-01-26 to present: Available every 30 days by 5:00 PM Pacific Time.</para></li><li><strong>disbursed_amount_by_age_of_disbursed_funds</strong><para>From 2015-01-26 to present: Available every 30 days by 5:00 PM Pacific Time.</para></li><li><strong>customer_profile_by_industry</strong><para>From 2015-10-01 to 2017-06-29: Available daily by 5:00 PM Pacific Time.</para><para>From 2017-06-30 to present: This data set is no longer available.</para></li><li><strong>customer_profile_by_revenue</strong><para>From 2015-10-01 to 2017-06-29: Available daily by 5:00 PM Pacific Time.</para><para>From 2017-06-30 to present: This data set is no longer available.</para></li><li><strong>customer_profile_by_geography</strong><para>From 2015-10-01 to 2017-06-29: Available daily by 5:00 PM Pacific Time.</para><para>From 2017-06-30 to present: This data set is no longer available.</para></li><li><strong>sales_compensation_billed_revenue</strong><para>From 2016-12 to 2017-06: Available monthly on the 4th day of the month by 5:00pm Pacific
+        /// Time. Data includes metered transactions (e.g. hourly) from two months prior, and
+        /// up-front software charges (e.g. annual) from one month prior.</para><para>From 2017-06 to present: Available monthly on the 15th day of the month by 5:00pm
+        /// Pacific Time. Data includes metered transactions (e.g. hourly) from one month prior,
+        /// and up-front software charges (e.g. annual) from one month prior.</para></li><li><strong>us_sales_and_use_tax_records</strong><para>From 2017-02-15 to present: Available monthly on the 15th day of the month by 5:00
+        /// PM Pacific Time.</para></li></ul></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

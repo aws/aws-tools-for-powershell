@@ -45,7 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The PUT request body containing external API definitions. Currently, only Swagger
-        /// definition JSON files are supported.</para>
+        /// definition JSON files are supported. The maximum size of the API definition file is
+        /// 2MB.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,7 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>Custom headers supplied as part of the request. </para>
+        /// <para>Custom header parameters as part of the request. For example, to exclude <a>DocumentationParts</a>
+        /// from an imported API, set <code>ignore=documentation</code> as a <code>parameters</code>
+        /// value, as in the AWS CLI command of <code>aws apigateway import-rest-api --parameters
+        /// ignore=documentation --body 'file:///path/to/imported-api-body.json</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -90,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <a>RestApi</a> to be updated. </para>
+        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

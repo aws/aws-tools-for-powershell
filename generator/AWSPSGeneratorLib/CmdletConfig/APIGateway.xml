@@ -27,7 +27,7 @@
   <MetadataProperties>
     <Property>Position</Property>
   </MetadataProperties>
-  
+
   <ServiceOperations>
     <ServiceOperation MethodName="CreateApiKey" Output="Response" ShouldProcessTarget="Value" />
     <ServiceOperation MethodName="CreateBasePathMapping" Output="Response" ShouldProcessTarget="DomainName"/>
@@ -140,5 +140,12 @@
     <ServiceOperation MethodName="GetRequestValidators" Noun="ValidatorList" />
     <ServiceOperation MethodName="CreateRequestValidator" PipelineParameter="Name" Output="Response" />
     <ServiceOperation MethodName="DeleteRequestValidator" PipelineParameter="RequestValidatorId" Output="Void" />
+
+    <ServiceOperation MethodName="UpdateGatewayResponse" Output="Response" />
+    <ServiceOperation MethodName="PutGatewayResponse" Output="Response" />
+    <ServiceOperation MethodName="GetGatewayResponse" Output="Response" />
+    <ServiceOperation MethodName="GetGatewayResponses" Noun="GatewayResponseList" />
+    <ServiceOperation MethodName="DeleteGatewayResponse" Output="Void" />
+
   </ServiceOperations>
 </ConfigModel>

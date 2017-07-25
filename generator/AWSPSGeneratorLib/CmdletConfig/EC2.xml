@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EC2</ServiceNounPrefix>
   <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
@@ -11,11 +11,13 @@
   <Params>
     <Param Name="DryRun" Exclude="true" />
   </Params>
-  
+
   <PositionalParameters>InstanceId</PositionalParameters>
-  
+
   <PipelineParameter>InstanceId</PipelineParameter>
-  
+
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory" />
+
   <ParamEmitters>
     <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
   </ParamEmitters>
@@ -361,6 +363,14 @@
     <ServiceOperation MethodName="AssociateIamInstanceProfile" />
 
     <ServiceOperation MethodName="DescribeFpgaImages" Noun="FpgaImage" NoPipelineParameter="true" />
+
+    <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" Noun="NetworkInterfacePermission" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteNetworkInterfacePermission">
+      <Params>
+        <Param Name="Force" NewName="IgnoreAttachedStatus" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateNetworkInterfacePermission" PipelineParameter="NetworkInterfaceId"  />
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic
@@ -389,9 +399,7 @@
   <MetadataProperties>
     <Property>SpotFleetRequestId</Property>
   </MetadataProperties>
-  
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory" />
-  
+
   <!-- noun mappings contains service-specific noun remaps, augmenting the global map
   -->
   <NounMappings>

@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Grants a temporary extension to the reamining quota of a usage plan associated with
+    /// Grants a temporary extension to the remaining quota of a usage plan associated with
     /// a specified API key.
     /// </summary>
     [Cmdlet("Update", "AGUsage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

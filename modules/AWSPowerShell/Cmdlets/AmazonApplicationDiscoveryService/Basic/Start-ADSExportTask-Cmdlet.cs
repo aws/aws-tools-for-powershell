@@ -28,8 +28,20 @@ using Amazon.ApplicationDiscoveryService.Model;
 namespace Amazon.PowerShell.Cmdlets.ADS
 {
     /// <summary>
-    /// Export the configuration data about discovered configuration items and relationships
-    /// to an S3 bucket in a specified format.
+    /// Begins the export of discovered data to an S3 bucket.
+    /// 
+    ///  
+    /// <para>
+    ///  If you specify <code>agentId</code> in a filter, the task exports up to 72 hours
+    /// of detailed data collected by the identified Application Discovery Agent, including
+    /// network, process, and performance details. A time range for exported agent data may
+    /// be set by using <code>startTime</code> and <code>endTime</code>. Export of detailed
+    /// agent data is limited to five concurrently running exports. 
+    /// </para><para>
+    ///  If you do not include an <code>agentId</code> filter, summary data is exported that
+    /// includes both AWS Agentless Discovery Connector data and summary data from AWS Discovery
+    /// Agents. Export of summary data is limited to two exports per day. 
+    /// </para>
     /// </summary>
     [Cmdlet("Start", "ADSExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -41,6 +53,18 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     public partial class StartADSExportTaskCmdlet : AmazonApplicationDiscoveryServiceClientCmdlet, IExecutor
     {
         
+        #region Parameter EndTime
+        /// <summary>
+        /// <para>
+        /// <para>The end timestamp for exported data from the single Application Discovery Agent selected
+        /// in the filters. If no value is specified, exported data includes the most recent data
+        /// collected by the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime EndTime { get; set; }
+        #endregion
+        
         #region Parameter ExportDataFormat
         /// <summary>
         /// <para>
@@ -49,6 +73,34 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String[] ExportDataFormat { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>If a filter is present, it selects the single <code>agentId</code> of the Application
+        /// Discovery Agent for which data is exported. The <code>agentId</code> can be found
+        /// in the results of the <code>DescribeAgents</code> API or CLI. If no filter is present,
+        /// <code>startTime</code> and <code>endTime</code> are ignored and exported data includes
+        /// both Agentless Discovery Connector data and summary data from Application Discovery
+        /// agents. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.ApplicationDiscoveryService.Model.ExportFilter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter StartTime
+        /// <summary>
+        /// <para>
+        /// <para>The start timestamp for exported data from the single Application Discovery Agent
+        /// selected in the filters. If no value is specified, data is exported starting from
+        /// the first data collected by the agent.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.DateTime StartTime { get; set; }
         #endregion
         
         #region Parameter Force
@@ -65,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ExportDataFormat", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = string.Empty;
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Start-ADSExportTask (StartExportTask)"))
             {
                 return;
@@ -80,10 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("EndTime"))
+                context.EndTime = this.EndTime;
             if (this.ExportDataFormat != null)
             {
                 context.ExportDataFormat = new List<System.String>(this.ExportDataFormat);
             }
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.ApplicationDiscoveryService.Model.ExportFilter>(this.Filter);
+            }
+            if (ParameterWasBound("StartTime"))
+                context.StartTime = this.StartTime;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,9 +160,21 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             // create request
             var request = new Amazon.ApplicationDiscoveryService.Model.StartExportTaskRequest();
             
+            if (cmdletContext.EndTime != null)
+            {
+                request.EndTime = cmdletContext.EndTime.Value;
+            }
             if (cmdletContext.ExportDataFormat != null)
             {
                 request.ExportDataFormat = cmdletContext.ExportDataFormat;
+            }
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
+            if (cmdletContext.StartTime != null)
+            {
+                request.StartTime = cmdletContext.StartTime.Value;
             }
             
             CmdletOutput output;
@@ -156,7 +228,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         internal class CmdletContext : ExecutorContext
         {
+            public System.DateTime? EndTime { get; set; }
             public List<System.String> ExportDataFormat { get; set; }
+            public List<Amazon.ApplicationDiscoveryService.Model.ExportFilter> Filters { get; set; }
+            public System.DateTime? StartTime { get; set; }
         }
         
     }

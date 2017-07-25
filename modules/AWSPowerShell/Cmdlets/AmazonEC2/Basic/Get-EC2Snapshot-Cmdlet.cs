@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more filters.</para><ul><li><para><code>description</code> - A description of the snapshot.</para></li><li><para><code>owner-alias</code> - Value from an Amazon-maintained list (<code>amazon</code>
         /// | <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to
         /// be confused with the user-configured AWS account alias, which is set from the IAM
-        /// consolew.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the snapshot.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
+        /// console.</para></li><li><para><code>owner-id</code> - The ID of the AWS account that owns the snapshot.</para></li><li><para><code>progress</code> - The progress of the snapshot, as a percentage (for example,
         /// 80%).</para></li><li><para><code>snapshot-id</code> - The snapshot ID.</para></li><li><para><code>start-time</code> - The time stamp when the snapshot was initiated.</para></li><li><para><code>status</code> - The status of the snapshot (<code>pending</code> | <code>completed</code>
         /// | <code>error</code>).</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource. Specify the key of the tag in the filter name and the value of the

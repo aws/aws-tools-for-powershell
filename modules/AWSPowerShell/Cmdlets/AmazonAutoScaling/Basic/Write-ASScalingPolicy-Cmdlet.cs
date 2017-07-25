@@ -41,11 +41,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </para>
     /// </summary>
     [Cmdlet("Write", "ASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
+    [OutputType("Amazon.AutoScaling.Model.PutScalingPolicyResponse")]
     [AWSCmdlet("Invokes the PutScalingPolicy operation against Auto Scaling.", Operation = new[] {"PutScalingPolicy"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.AutoScaling.Model.PutScalingPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.AutoScaling.Model.PutScalingPolicyResponse",
+        "This cmdlet returns a Amazon.AutoScaling.Model.PutScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class WriteASScalingPolicyCmdlet : AmazonAutoScalingClientCmdlet, IExecutor
     {
@@ -53,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AdjustmentType
         /// <summary>
         /// <para>
-        /// <para>The adjustment type. Valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
-        /// and <code>PercentChangeInCapacity</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html">Dynamic
+        /// <para>The adjustment type. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>,
+        /// and <code>PercentChangeInCapacity</code>.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/as-scale-based-on-demand.html">Dynamic
         /// Scaling</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -77,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The amount of time, in seconds, after a scaling activity completes and before the
         /// next scaling activity can start. If this parameter is not specified, the default cooldown
-        /// period for the group applies.</para><para>This parameter is not supported unless the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
+        /// period for the group applies.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/Cooldown.html">Auto
         /// Scaling Cooldowns</a> in the <i>Auto Scaling User Guide</i>.</para>
         /// </para>
         /// </summary>
@@ -85,12 +84,35 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32 Cooldown { get; set; }
         #endregion
         
+        #region Parameter CustomizedMetricSpecification_Dimension
+        /// <summary>
+        /// <para>
+        /// <para>The dimensions of the metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_CustomizedMetricSpecification_Dimensions")]
+        public Amazon.AutoScaling.Model.MetricDimension[] CustomizedMetricSpecification_Dimension { get; set; }
+        #endregion
+        
+        #region Parameter TargetTrackingConfiguration_DisableScaleIn
+        /// <summary>
+        /// <para>
+        /// <para>If the parameter is true, then scale-in will be disabled for the target tracking policy,
+        /// i.e. the target tracking policy will not scale in the Auto Scaling group. The default
+        /// value is false.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean TargetTrackingConfiguration_DisableScaleIn { get; set; }
+        #endregion
+        
         #region Parameter EstimatedInstanceWarmup
         /// <summary>
         /// <para>
         /// <para>The estimated time, in seconds, until a newly launched instance can contribute to
         /// the CloudWatch metrics. The default is to use the value specified for the default
-        /// cooldown period for the group.</para><para>This parameter is not supported if the policy type is <code>SimpleScaling</code>.</para>
+        /// cooldown period for the group.</para><para>This parameter is supported if the policy type is <code>StepScaling</code> or <code>TargetTrackingScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,13 +122,24 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter MetricAggregationType
         /// <summary>
         /// <para>
-        /// <para>The aggregation type for the CloudWatch metrics. Valid values are <code>Minimum</code>,
+        /// <para>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
         /// <code>Maximum</code>, and <code>Average</code>. If the aggregation type is null, the
-        /// value is treated as <code>Average</code>.</para><para>This parameter is not supported if the policy type is <code>SimpleScaling</code>.</para>
+        /// value is treated as <code>Average</code>.</para><para>This parameter is supported if the policy type is <code>StepScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String MetricAggregationType { get; set; }
+        #endregion
+        
+        #region Parameter CustomizedMetricSpecification_MetricName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_CustomizedMetricSpecification_MetricName")]
+        public System.String CustomizedMetricSpecification_MetricName { get; set; }
         #endregion
         
         #region Parameter MinAdjustmentMagnitude
@@ -115,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>The minimum number of instances to scale. If the value of <code>AdjustmentType</code>
         /// is <code>PercentChangeInCapacity</code>, the scaling policy changes the <code>DesiredCapacity</code>
         /// of the Auto Scaling group by at least this many instances. Otherwise, the error is
-        /// <code>ValidationError</code>.</para>
+        /// <code>ValidationError</code>.</para><para>This parameter is supported if the policy type is <code>SimpleScaling</code> or <code>StepScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,6 +165,17 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32 MinAdjustmentStep { get; set; }
         #endregion
         
+        #region Parameter CustomizedMetricSpecification_Namespace
+        /// <summary>
+        /// <para>
+        /// <para>The namespace of the metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_CustomizedMetricSpecification_Namespace")]
+        public System.String CustomizedMetricSpecification_Namespace { get; set; }
+        #endregion
+        
         #region Parameter PolicyName
         /// <summary>
         /// <para>
@@ -145,12 +189,42 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PolicyType
         /// <summary>
         /// <para>
-        /// <para>The policy type. Valid values are <code>SimpleScaling</code> and <code>StepScaling</code>.
-        /// If the policy type is null, the value is treated as <code>SimpleScaling</code>.</para>
+        /// <para>The policy type. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>,
+        /// and <code>TargetTrackingScaling</code>. If the policy type is null, the value is treated
+        /// as <code>SimpleScaling</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyType { get; set; }
+        #endregion
+        
+        #region Parameter PredefinedMetricSpecification_PredefinedMetricType
+        /// <summary>
+        /// <para>
+        /// <para>The metric type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType")]
+        [AWSConstantClassSource("Amazon.AutoScaling.MetricType")]
+        public Amazon.AutoScaling.MetricType PredefinedMetricSpecification_PredefinedMetricType { get; set; }
+        #endregion
+        
+        #region Parameter PredefinedMetricSpecification_ResourceLabel
+        /// <summary>
+        /// <para>
+        /// <para>Identifies the resource associated with the metric type. For predefined metric types
+        /// <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code> and <code>ASGAverageNetworkOut</code>,
+        /// the parameter must not be specified as the resource associated with the metric type
+        /// is the Auto Scaling group. For predefined metric type <code>ALBRequestCountPerTarget</code>,
+        /// the parameter must be specified in the format <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code>
+        /// is the final portion of the load balancer ARN, and <code>targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code> is the final portion of the target group ARN. The target group must be attached
+        /// to the Auto Scaling group.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_PredefinedMetricSpecification_ResourceLabel")]
+        public System.String PredefinedMetricSpecification_ResourceLabel { get; set; }
         #endregion
         
         #region Parameter ScalingAdjustment
@@ -165,6 +239,18 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.Int32 ScalingAdjustment { get; set; }
         #endregion
         
+        #region Parameter CustomizedMetricSpecification_Statistic
+        /// <summary>
+        /// <para>
+        /// <para>The statistic of the metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic")]
+        [AWSConstantClassSource("Amazon.AutoScaling.MetricStatistic")]
+        public Amazon.AutoScaling.MetricStatistic CustomizedMetricSpecification_Statistic { get; set; }
+        #endregion
+        
         #region Parameter StepAdjustment
         /// <summary>
         /// <para>
@@ -175,6 +261,27 @@ namespace Amazon.PowerShell.Cmdlets.AS
         [System.Management.Automation.Parameter]
         [Alias("StepAdjustments")]
         public Amazon.AutoScaling.Model.StepAdjustment[] StepAdjustment { get; set; }
+        #endregion
+        
+        #region Parameter TargetTrackingConfiguration_TargetValue
+        /// <summary>
+        /// <para>
+        /// <para>The target value for the metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Double TargetTrackingConfiguration_TargetValue { get; set; }
+        #endregion
+        
+        #region Parameter CustomizedMetricSpecification_Unit
+        /// <summary>
+        /// <para>
+        /// <para>The unit of the metric.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TargetTrackingConfiguration_CustomizedMetricSpecification_Unit")]
+        public System.String CustomizedMetricSpecification_Unit { get; set; }
         #endregion
         
         #region Parameter Force
@@ -225,6 +332,20 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 context.StepAdjustments = new List<Amazon.AutoScaling.Model.StepAdjustment>(this.StepAdjustment);
             }
+            if (this.CustomizedMetricSpecification_Dimension != null)
+            {
+                context.TargetTrackingConfiguration_CustomizedMetricSpecification_Dimensions = new List<Amazon.AutoScaling.Model.MetricDimension>(this.CustomizedMetricSpecification_Dimension);
+            }
+            context.TargetTrackingConfiguration_CustomizedMetricSpecification_MetricName = this.CustomizedMetricSpecification_MetricName;
+            context.TargetTrackingConfiguration_CustomizedMetricSpecification_Namespace = this.CustomizedMetricSpecification_Namespace;
+            context.TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic = this.CustomizedMetricSpecification_Statistic;
+            context.TargetTrackingConfiguration_CustomizedMetricSpecification_Unit = this.CustomizedMetricSpecification_Unit;
+            if (ParameterWasBound("TargetTrackingConfiguration_DisableScaleIn"))
+                context.TargetTrackingConfiguration_DisableScaleIn = this.TargetTrackingConfiguration_DisableScaleIn;
+            context.TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType = this.PredefinedMetricSpecification_PredefinedMetricType;
+            context.TargetTrackingConfiguration_PredefinedMetricSpecification_ResourceLabel = this.PredefinedMetricSpecification_ResourceLabel;
+            if (ParameterWasBound("TargetTrackingConfiguration_TargetValue"))
+                context.TargetTrackingConfiguration_TargetValue = this.TargetTrackingConfiguration_TargetValue;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -286,6 +407,135 @@ namespace Amazon.PowerShell.Cmdlets.AS
                 request.StepAdjustments = cmdletContext.StepAdjustments;
             }
             
+             // populate TargetTrackingConfiguration
+            bool requestTargetTrackingConfigurationIsNull = true;
+            request.TargetTrackingConfiguration = new Amazon.AutoScaling.Model.TargetTrackingConfiguration();
+            System.Boolean? requestTargetTrackingConfiguration_targetTrackingConfiguration_DisableScaleIn = null;
+            if (cmdletContext.TargetTrackingConfiguration_DisableScaleIn != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_DisableScaleIn = cmdletContext.TargetTrackingConfiguration_DisableScaleIn.Value;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_DisableScaleIn != null)
+            {
+                request.TargetTrackingConfiguration.DisableScaleIn = requestTargetTrackingConfiguration_targetTrackingConfiguration_DisableScaleIn.Value;
+                requestTargetTrackingConfigurationIsNull = false;
+            }
+            System.Double? requestTargetTrackingConfiguration_targetTrackingConfiguration_TargetValue = null;
+            if (cmdletContext.TargetTrackingConfiguration_TargetValue != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_TargetValue = cmdletContext.TargetTrackingConfiguration_TargetValue.Value;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_TargetValue != null)
+            {
+                request.TargetTrackingConfiguration.TargetValue = requestTargetTrackingConfiguration_targetTrackingConfiguration_TargetValue.Value;
+                requestTargetTrackingConfigurationIsNull = false;
+            }
+            Amazon.AutoScaling.Model.PredefinedMetricSpecification requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification = null;
+            
+             // populate PredefinedMetricSpecification
+            bool requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecificationIsNull = true;
+            requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification = new Amazon.AutoScaling.Model.PredefinedMetricSpecification();
+            Amazon.AutoScaling.MetricType requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_PredefinedMetricType = null;
+            if (cmdletContext.TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_PredefinedMetricType = cmdletContext.TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_PredefinedMetricType != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification.PredefinedMetricType = requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_PredefinedMetricType;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecificationIsNull = false;
+            }
+            System.String requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_ResourceLabel = null;
+            if (cmdletContext.TargetTrackingConfiguration_PredefinedMetricSpecification_ResourceLabel != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_ResourceLabel = cmdletContext.TargetTrackingConfiguration_PredefinedMetricSpecification_ResourceLabel;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_ResourceLabel != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification.ResourceLabel = requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification_predefinedMetricSpecification_ResourceLabel;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecificationIsNull = false;
+            }
+             // determine if requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification should be set to null
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecificationIsNull)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification = null;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification != null)
+            {
+                request.TargetTrackingConfiguration.PredefinedMetricSpecification = requestTargetTrackingConfiguration_targetTrackingConfiguration_PredefinedMetricSpecification;
+                requestTargetTrackingConfigurationIsNull = false;
+            }
+            Amazon.AutoScaling.Model.CustomizedMetricSpecification requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification = null;
+            
+             // populate CustomizedMetricSpecification
+            bool requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = true;
+            requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification = new Amazon.AutoScaling.Model.CustomizedMetricSpecification();
+            List<Amazon.AutoScaling.Model.MetricDimension> requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Dimension = null;
+            if (cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Dimensions != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Dimension = cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Dimensions;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Dimension != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.Dimensions = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Dimension;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
+            System.String requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_MetricName = null;
+            if (cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_MetricName != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_MetricName = cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_MetricName;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_MetricName != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.MetricName = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_MetricName;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
+            System.String requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Namespace = null;
+            if (cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Namespace != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Namespace = cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Namespace;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Namespace != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.Namespace = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Namespace;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
+            Amazon.AutoScaling.MetricStatistic requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Statistic = null;
+            if (cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Statistic = cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Statistic != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.Statistic = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Statistic;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
+            System.String requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Unit = null;
+            if (cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Unit != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Unit = cmdletContext.TargetTrackingConfiguration_CustomizedMetricSpecification_Unit;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Unit != null)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification.Unit = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification_customizedMetricSpecification_Unit;
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull = false;
+            }
+             // determine if requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification should be set to null
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecificationIsNull)
+            {
+                requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification = null;
+            }
+            if (requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification != null)
+            {
+                request.TargetTrackingConfiguration.CustomizedMetricSpecification = requestTargetTrackingConfiguration_targetTrackingConfiguration_CustomizedMetricSpecification;
+                requestTargetTrackingConfigurationIsNull = false;
+            }
+             // determine if request.TargetTrackingConfiguration should be set to null
+            if (requestTargetTrackingConfigurationIsNull)
+            {
+                request.TargetTrackingConfiguration = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -294,7 +544,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PolicyARN;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -348,6 +598,15 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String PolicyType { get; set; }
             public System.Int32? ScalingAdjustment { get; set; }
             public List<Amazon.AutoScaling.Model.StepAdjustment> StepAdjustments { get; set; }
+            public List<Amazon.AutoScaling.Model.MetricDimension> TargetTrackingConfiguration_CustomizedMetricSpecification_Dimensions { get; set; }
+            public System.String TargetTrackingConfiguration_CustomizedMetricSpecification_MetricName { get; set; }
+            public System.String TargetTrackingConfiguration_CustomizedMetricSpecification_Namespace { get; set; }
+            public Amazon.AutoScaling.MetricStatistic TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic { get; set; }
+            public System.String TargetTrackingConfiguration_CustomizedMetricSpecification_Unit { get; set; }
+            public System.Boolean? TargetTrackingConfiguration_DisableScaleIn { get; set; }
+            public Amazon.AutoScaling.MetricType TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType { get; set; }
+            public System.String TargetTrackingConfiguration_PredefinedMetricSpecification_ResourceLabel { get; set; }
+            public System.Double? TargetTrackingConfiguration_TargetValue { get; set; }
         }
         
     }

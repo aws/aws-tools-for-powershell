@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>If the value is <code>true</code>, you can't terminate the instance using the Amazon
-        /// EC2 console, CLI, or API; otherwise, you can. You cannot use this paramater for Spot
+        /// EC2 console, CLI, or API; otherwise, you can. You cannot use this parameter for Spot
         /// Instances.</para>
         /// </para>
         /// </summary>

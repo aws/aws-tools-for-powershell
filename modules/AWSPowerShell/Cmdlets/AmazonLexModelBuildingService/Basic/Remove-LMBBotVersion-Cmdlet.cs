@@ -28,8 +28,8 @@ using Amazon.LexModelBuildingService.Model;
 namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
-    /// Deletes a specific version of a bot. To delete all versions of a bot, use the operation.
-    /// 
+    /// Deletes a specific version of a bot. To delete all versions of a bot, use the <a>DeleteBot</a>
+    /// operation. 
     /// 
     ///  
     /// <para>
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>The version of the bot to delete. You cannot delete the <code>$LATEST</code> version
-        /// of the bot. To delete the <code>$LATEST</code> version, use the operation.</para>
+        /// of the bot. To delete the <code>$LATEST</code> version, use the <a>DeleteBot</a> operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

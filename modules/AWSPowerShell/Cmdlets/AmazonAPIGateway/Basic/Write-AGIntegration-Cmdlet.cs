@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Represents a put integration.
+    /// Sets up a method's integration.
     /// </summary>
     [Cmdlet("Write", "AGIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.PutIntegrationResponse")]
@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>Specifies a put integration request's API identifier.</para>
+        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -189,10 +189,15 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Uri
         /// <summary>
         /// <para>
-        /// <para>Specifies a put integration input's Uniform Resource Identifier (URI). When the integration
-        /// type is HTTP or AWS, this field is required. For integration with Lambda as an AWS
-        /// service proxy, this value is of the 'arn:aws:apigateway:&lt;region&gt;:lambda:path/2015-03-31/functions/&lt;functionArn&gt;/invocations'
-        /// format.</para>
+        /// <para>Specifies the integration's Uniform Resource Identifier (URI). For HTTP integrations,
+        /// the URI must be a fully formed, encoded HTTP(S) URL according to the <a href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier" target="_blank">RFC-3986 specification</a>. For AWS integrations, the URI should be
+        /// of the form <code>arn:aws:apigateway:{region}:{subdomain.service|service}:{path|action}/{service_api}</code>.
+        /// <code>Region</code>, <code>subdomain</code> and <code>service</code> are used to determine
+        /// the right endpoint. For AWS services that use the <code>Action=</code> query string
+        /// parameter, <code>service_api</code> should be a valid action for the desired service.
+        /// For RESTful AWS service APIs, <code>path</code> is used to indicate that the remaining
+        /// substring in the URI should be treated as the path to the resource, including the
+        /// initial <code>/</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

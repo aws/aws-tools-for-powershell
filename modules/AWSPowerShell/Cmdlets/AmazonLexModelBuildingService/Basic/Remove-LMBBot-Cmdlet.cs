@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Deletes all versions of the bot, including the <code>$LATEST</code> version. To delete
-    /// a specific version of the bot, use the operation.
+    /// a specific version of the bot, use the <a>DeleteBotVersion</a> operation.
     /// 
     ///  
     /// <para>

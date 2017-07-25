@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter FollowUpPrompt_RejectionStatement
         /// <summary>
         /// <para>
-        /// <para>If the user answers "no" to the question defined in <code>confirmationPrompt</code>,
+        /// <para>If the user answers "no" to the question defined in the <code>prompt</code> field,
         /// Amazon Lex responds with this statement to acknowledge that the intent was canceled.
         /// </para>
         /// </para>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Deletes a specific version of a slot type. To delete all versions of a slot type,
-    /// use the operation. 
+    /// use the <a>DeleteSlotType</a> operation. 
     /// 
     ///  
     /// <para>
@@ -61,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>The version of the slot type to delete. You cannot delete the <code>$LATEST</code>
-        /// version of the slot type. To delete the <code>$LATEST</code> version, use the operation.</para>
+        /// version of the slot type. To delete the <code>$LATEST</code> version, use the <a>DeleteSlotType</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

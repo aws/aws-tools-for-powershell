@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// <para>
     /// Amazon Lex stores the utterances that users send to your bot unless the <code>childDirected</code>
     /// field in the bot is set to <code>true</code>. Utterances are stored for 15 days for
-    /// use with the operation, and then stored indefinately for use in improving the ability
-    /// of your bot to respond to user input.
+    /// use with the <a>GetUtterancesView</a> operation, and then stored indefinately for
+    /// use in improving the ability of your bot to respond to user input.
     /// </para><para>
     /// Use the <code>DeleteStoredUtterances</code> operation to manually delete stored utterances
     /// for a specific user.
@@ -67,7 +67,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para> The unique identifier for the user that made the utterances. This is the user ID
-        /// that was sent in the or operation request that contained the utterance.</para>
+        /// that was sent in the <a href="http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostContent.html">PostContent</a>
+        /// or <a href="http://docs.aws.amazon.com/lex/latest/dg/API_runtime_PostText.html">PostText</a>
+        /// operation request that contained the utterance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

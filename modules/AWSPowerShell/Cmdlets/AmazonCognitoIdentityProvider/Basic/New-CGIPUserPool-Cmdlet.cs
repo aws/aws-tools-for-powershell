@@ -383,6 +383,18 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32 AdminCreateUserConfig_UnusedAccountValidityDay { get; set; }
         #endregion
         
+        #region Parameter UsernameAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether email addresses or phone numbers can be specified as usernames when
+        /// a user signs up.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("UsernameAttributes")]
+        public System.String[] UsernameAttribute { get; set; }
+        #endregion
+        
         #region Parameter UserPoolTag
         /// <summary>
         /// <para>
@@ -485,6 +497,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
             context.SmsVerificationMessage = this.SmsVerificationMessage;
+            if (this.UsernameAttribute != null)
+            {
+                context.UsernameAttributes = new List<System.String>(this.UsernameAttribute);
+            }
             if (this.UserPoolTag != null)
             {
                 context.UserPoolTags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -869,6 +885,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 request.SmsVerificationMessage = cmdletContext.SmsVerificationMessage;
             }
+            if (cmdletContext.UsernameAttributes != null)
+            {
+                request.UsernameAttributes = cmdletContext.UsernameAttributes;
+            }
             if (cmdletContext.UserPoolTags != null)
             {
                 request.UserPoolTags = cmdletContext.UserPoolTags;
@@ -958,6 +978,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String SmsConfiguration_ExternalId { get; set; }
             public System.String SmsConfiguration_SnsCallerArn { get; set; }
             public System.String SmsVerificationMessage { get; set; }
+            public List<System.String> UsernameAttributes { get; set; }
             public Dictionary<System.String, System.String> UserPoolTags { get; set; }
         }
         

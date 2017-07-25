@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Deletes a specific version of an intent. To delete all versions of a intent, use the
-    /// operation. 
+    /// <a>DeleteIntent</a> operation. 
     /// 
     ///  
     /// <para>
@@ -60,7 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>The version of the intent to delete. You cannot delete the <code>$LATEST</code> version
-        /// of the intent. To delete the <code>$LATEST</code> version, use the operation.</para>
+        /// of the intent. To delete the <code>$LATEST</code> version, use the <a>DeleteIntent</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

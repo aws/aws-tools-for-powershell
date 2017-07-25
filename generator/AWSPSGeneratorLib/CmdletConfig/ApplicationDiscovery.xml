@@ -40,7 +40,7 @@
     <ServiceOperation MethodName="ListConfigurations" Verb="Get" Noun="ConfigurationList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="ListServerNeighbors" Verb="Get" Noun="ServerNeighborList" Output="Response"/>
     <ServiceOperation MethodName="StartDataCollectionByAgentIds" Noun="DataCollectionByAgentId" />
-    <ServiceOperation MethodName="StartExportTask" />
+    <ServiceOperation MethodName="StartExportTask" AnonymousShouldProcessTarget="true" PipelineParameter="ExportDataFormat" />
     <ServiceOperation MethodName="StopDataCollectionByAgentIds" Noun="DataCollectionByAgentId" />
     <ServiceOperation MethodName="UpdateApplication" PipelineParameter="ConfigurationId" Output="Void"/>
   </ServiceOperations>

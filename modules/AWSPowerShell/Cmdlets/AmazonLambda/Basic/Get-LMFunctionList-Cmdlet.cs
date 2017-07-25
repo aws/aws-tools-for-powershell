@@ -36,9 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <para>
     /// This operation requires permission for the <code>lambda:ListFunctions</code> action.
     /// </para><para>
-    /// If you are using versioning feature, the response returns list of $LATEST versions
-    /// of your functions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS
-    /// Lambda Function Versioning and Aliases</a>. 
+    /// If you are using the versioning feature, you can list all of your functions or only
+    /// <code>$LATEST</code> versions. For information about the versioning feature, see <a href="http://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">AWS Lambda
+    /// Function Versioning and Aliases</a>. 
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "LMFunctionList")]
@@ -51,6 +51,32 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class GetLMFunctionListCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
+        
+        #region Parameter FunctionVersion
+        /// <summary>
+        /// <para>
+        /// <para>Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource
+        /// Names) will be returned.</para><para>Valid value:</para><para><code>ALL</code> _ Will return all versions, including <code>$LATEST</code> which
+        /// will have fully qualified ARNs (Amazon Resource Names).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Lambda.FunctionVersion")]
+        public Amazon.Lambda.FunctionVersion FunctionVersion { get; set; }
+        #endregion
+        
+        #region Parameter MasterRegion
+        /// <summary>
+        /// <para>
+        /// <para>Optional string. If not specified, will return only regular function versions (i.e.,
+        /// non-replicated versions).</para><para>Valid values are:</para><para>The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>,
+        /// only functions replicated from that region will be returned.</para><para><code>ALL</code> _ Will return all functions from any region. If specified, you also
+        /// must specify a valid FunctionVersion parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MasterRegion { get; set; }
+        #endregion
         
         #region Parameter Marker
         /// <summary>
@@ -89,7 +115,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.FunctionVersion = this.FunctionVersion;
             context.Marker = this.Marker;
+            context.MasterRegion = this.MasterRegion;
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             
@@ -108,6 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
             
             // create request and set iteration invariants
             var request = new Amazon.Lambda.Model.ListFunctionsRequest();
+            if (cmdletContext.FunctionVersion != null)
+            {
+                request.FunctionVersion = cmdletContext.FunctionVersion;
+            }
+            if (cmdletContext.MasterRegion != null)
+            {
+                request.MasterRegion = cmdletContext.MasterRegion;
+            }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
@@ -212,7 +248,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         internal class CmdletContext : ExecutorContext
         {
+            public Amazon.Lambda.FunctionVersion FunctionVersion { get; set; }
             public System.String Marker { get; set; }
+            public System.String MasterRegion { get; set; }
             public int? MaxItems { get; set; }
         }
         

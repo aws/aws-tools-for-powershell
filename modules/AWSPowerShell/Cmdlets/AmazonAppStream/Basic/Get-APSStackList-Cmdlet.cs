@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
     /// If stack names are not provided, this operation describes the specified stacks; otherwise,
-    /// all stacks in the account are described. Pass the <code>nextToken</code> value in
-    /// a subsequent call to this operation to retrieve the next set of items.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// all stacks in the account are described. To retrieve the next set of items, pass the
+    /// <code>nextToken</code> value in a subsequent call to this operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSStackList")]
     [OutputType("Amazon.AppStream.Model.Stack")]

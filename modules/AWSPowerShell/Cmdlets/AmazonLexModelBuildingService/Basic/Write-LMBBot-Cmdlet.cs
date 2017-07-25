@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
 {
     /// <summary>
     /// Creates an Amazon Lex conversational bot or replaces an existing bot. When you create
-    /// or update a bot you only required to specify a name. You can use this to add intents
+    /// or update a bot you are only required to specify a name. You can use this to add intents
     /// later, or to remove intents from an existing bot. When you create a bot with a name
     /// only, the bot is created or updated but Amazon Lex returns the <code /> response <code>FAILED</code>.
     /// You can build the bot after you add one or more intents. For more information about
@@ -234,8 +234,8 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <para>
         /// <para>The Amazon Polly voice ID that you want Amazon Lex to use for voice interactions with
         /// the user. The locale configured for the voice must match the locale of the bot. For
-        /// more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/API_Voice.html">Voice</a>
-        /// in the <i>Amazon Polly Developer Guide</i>.</para>
+        /// more information, see <a href="http://docs.aws.amazon.com/polly/latest/dg/voicelist.html">Available
+        /// Voices</a> in the <i>Amazon Polly Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

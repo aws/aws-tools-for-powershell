@@ -89,8 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The number of EC2 instances that should be running in the group. This number must
         /// be greater than or equal to the minimum size of the group and less than or equal to
-        /// the maximum size of the group. If you do not specify a desired capacity, the default
-        /// is the minimum size of the group.</para>
+        /// the maximum size of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

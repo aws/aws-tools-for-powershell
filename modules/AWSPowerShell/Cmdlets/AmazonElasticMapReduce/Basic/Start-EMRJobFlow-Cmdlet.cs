@@ -102,14 +102,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter AmiVersion
         /// <summary>
         /// <para>
-        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
-        /// ReleaseLabel.</para></note><para>The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
-        /// in the job flow. The following values are valid:</para><ul><li><para>The version number of the AMI to use, for example, "2.0."</para></li></ul><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
-        /// Hadoop 0.18 and 0.20) you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
-        /// parameter to modify the version of Hadoop from the defaults shown above.</para><para>For details about the AMI versions currently supported by Amazon Elastic MapReduce,
-        /// see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/EnvironmentConfig_AMIVersion.html#ami-versions-supported">AMI
-        /// Versions Supported in Elastic MapReduce</a> in the <i>Amazon Elastic MapReduce Developer
-        /// Guide.</i></para><note><para>Previously, the EMR AMI version API parameter options allowed you to use latest for
+        /// <para>For Amazon EMR AMI versions 3.x and 2.x. For Amazon EMR releases 4.0 and later, the
+        /// Linux AMI is determined by the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>.
+        /// The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
+        /// in the job flow. For details about the AMI versions currently supported in EMR version
+        /// 3.x and 2.x, see <a href="ElasticMapReduce/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
+        /// Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide</i>. </para><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
+        /// Hadoop 0.18 and 0.20), you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
+        /// parameter to modify the version of Hadoop from the defaults shown above.</para><note><para>Previously, the EMR AMI version API parameter options allowed you to use latest for
         /// the latest AMI version rather than specify a numerical value. Some regions no longer
         /// support this deprecated option as they only have a newer release label version of
         /// EMR, which requires you to specify an EMR release label release (EMR 4.x or later).</para></note>
@@ -122,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Application
         /// <summary>
         /// <para>
-        /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>A list of applications for the cluster. Valid values are: "Hadoop", "Hive", "Mahout",
-        /// "Pig", and "Spark." They are case insensitive.</para>
+        /// <para>For Amazon EMR releases 4.0 and later. A list of applications for the cluster. Valid
+        /// values are: "Hadoop", "Hive", "Mahout", "Pig", and "Spark." They are case insensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,12 +183,42 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter Configuration
         /// <summary>
         /// <para>
-        /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The list of configurations supplied for the EMR cluster you are creating.</para>
+        /// <para>For Amazon EMR releases 4.0 and later. The list of configurations supplied for the
+        /// EMR cluster you are creating.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Configurations")]
         public Amazon.ElasticMapReduce.Model.Configuration[] Configuration { get; set; }
+        #endregion
+        
+        #region Parameter CustomAmiId
+        /// <summary>
+        /// <para>
+        /// <para>Available only in Amazon EMR version 5.7.0 and later. The ID of a custom Amazon EBS-backed
+        /// Linux AMI. If specified, Amazon EMR uses this AMI when it launches cluster EC2 instances.
+        /// For more information about custom AMIs in Amazon EMR, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-custom-ami.html">Using
+        /// a Custom AMI</a> in the <i>Amazon EMR Management Guide</i>. If omitted, the cluster
+        /// uses the base Linux AMI for the <code>ReleaseLabel</code> specified. For Amazon EMR
+        /// versions 2.x and 3.x, use <code>AmiVersion</code> instead.</para><para>For information about creating a custom AMI, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami-ebs.html">Creating
+        /// an Amazon EBS-Backed Linux AMI</a> in the <i>Amazon Elastic Compute Cloud User Guide
+        /// for Linux Instances</i>. For information about finding an AMI ID, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html">Finding
+        /// a Linux AMI</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CustomAmiId { get; set; }
+        #endregion
+        
+        #region Parameter EbsRootVolumeSize
+        /// <summary>
+        /// <para>
+        /// <para>The size, in GiB, of the EBS root device volume of the Linux AMI that is used for
+        /// each EC2 instance. Available in Amazon EMR version 4.x and later.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 EbsRootVolumeSize { get; set; }
         #endregion
         
         #region Parameter Instances_Ec2KeyName
@@ -357,8 +387,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter NewSupportedProduct
         /// <summary>
         /// <para>
-        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
-        /// Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
         /// accepts a user argument list. EMR accepts and forwards the argument list to the corresponding
         /// installation script as bootstrap action arguments. For more information, see "Launch
         /// a Job Flow on the MapR Distribution for Hadoop" in the <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
@@ -374,12 +403,27 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter ReleaseLabel
         /// <summary>
         /// <para>
-        /// <note><para>Amazon EMR releases 4.x or later.</para></note><para>The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
-        /// amiVersion instead instead of ReleaseLabel.</para>
+        /// <para> The release label for the Amazon EMR release. For Amazon EMR 3.x and 2.x AMIs, use
+        /// <code>AmiVersion</code> instead.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ReleaseLabel { get; set; }
+        #endregion
+        
+        #region Parameter RepoUpgradeOnBoot
+        /// <summary>
+        /// <para>
+        /// <para>Applies only when <code>CustomAmiID</code> is used. Specifies which updates from the
+        /// Amazon Linux AMI package repositories to apply automatically when the instance boots
+        /// using the AMI. If omitted, the default is <code>SECURITY</code>, which indicates that
+        /// only security updates are applied. If <code>NONE</code> is specified, no updates are
+        /// applied, and all updates must be applied manually.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticMapReduce.RepoUpgradeOnBoot")]
+        public Amazon.ElasticMapReduce.RepoUpgradeOnBoot RepoUpgradeOnBoot { get; set; }
         #endregion
         
         #region Parameter ScaleDownBehavior
@@ -459,8 +503,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         #region Parameter SupportedProduct
         /// <summary>
         /// <para>
-        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and greater, use
-        /// Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
+        /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
         /// see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
         /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
         /// </para>
@@ -551,6 +594,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 context.Configurations = new List<Amazon.ElasticMapReduce.Model.Configuration>(this.Configuration);
             }
+            context.CustomAmiId = this.CustomAmiId;
+            if (ParameterWasBound("EbsRootVolumeSize"))
+                context.EbsRootVolumeSize = this.EbsRootVolumeSize;
             if (this.Instances_AdditionalMasterSecurityGroup != null)
             {
                 context.Instances_AdditionalMasterSecurityGroups = new List<System.String>(this.Instances_AdditionalMasterSecurityGroup);
@@ -598,6 +644,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
                 context.NewSupportedProducts = new List<Amazon.ElasticMapReduce.Model.SupportedProductConfig>(this.NewSupportedProduct);
             }
             context.ReleaseLabel = this.ReleaseLabel;
+            context.RepoUpgradeOnBoot = this.RepoUpgradeOnBoot;
             context.ScaleDownBehavior = this.ScaleDownBehavior;
             context.SecurityConfiguration = this.SecurityConfiguration;
             context.ServiceRole = this.ServiceRole;
@@ -654,6 +701,14 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (cmdletContext.Configurations != null)
             {
                 request.Configurations = cmdletContext.Configurations;
+            }
+            if (cmdletContext.CustomAmiId != null)
+            {
+                request.CustomAmiId = cmdletContext.CustomAmiId;
+            }
+            if (cmdletContext.EbsRootVolumeSize != null)
+            {
+                request.EbsRootVolumeSize = cmdletContext.EbsRootVolumeSize.Value;
             }
             
              // populate Instances
@@ -879,6 +934,10 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.ReleaseLabel = cmdletContext.ReleaseLabel;
             }
+            if (cmdletContext.RepoUpgradeOnBoot != null)
+            {
+                request.RepoUpgradeOnBoot = cmdletContext.RepoUpgradeOnBoot;
+            }
             if (cmdletContext.ScaleDownBehavior != null)
             {
                 request.ScaleDownBehavior = cmdletContext.ScaleDownBehavior;
@@ -965,6 +1024,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String AutoScalingRole { get; set; }
             public List<Amazon.ElasticMapReduce.Model.BootstrapActionConfig> BootstrapActions { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Configuration> Configurations { get; set; }
+            public System.String CustomAmiId { get; set; }
+            public System.Int32? EbsRootVolumeSize { get; set; }
             public List<System.String> Instances_AdditionalMasterSecurityGroups { get; set; }
             public List<System.String> Instances_AdditionalSlaveSecurityGroups { get; set; }
             public System.String Instances_Ec2KeyName { get; set; }
@@ -988,6 +1049,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProducts { get; set; }
             public System.String ReleaseLabel { get; set; }
+            public Amazon.ElasticMapReduce.RepoUpgradeOnBoot RepoUpgradeOnBoot { get; set; }
             public Amazon.ElasticMapReduce.ScaleDownBehavior ScaleDownBehavior { get; set; }
             public System.String SecurityConfiguration { get; set; }
             public System.String ServiceRole { get; set; }

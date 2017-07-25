@@ -84,6 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Int32 ComputeCapacity_DesiredInstance { get; set; }
         #endregion
         
+        #region Parameter DomainJoinInfo_DirectoryName
+        /// <summary>
+        /// <para>
+        /// <para>The fully qualified name of the directory, such as corp.example.com</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DomainJoinInfo_DirectoryName { get; set; }
+        #endregion
+        
         #region Parameter DisconnectTimeoutInSecond
         /// <summary>
         /// <para>
@@ -111,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter EnableDefaultInternetAccess
         /// <summary>
         /// <para>
-        /// <para>Enables or disables default Internet access for the fleet.</para>
+        /// <para>Enables or disables default internet access for the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The instance type of compute resources for the fleet. Fleet instances are launched
-        /// from this instance type.</para>
+        /// from this instance type. Available instance types are:</para><ul><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -159,6 +169,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter DomainJoinInfo_OrganizationalUnitDistinguishedName
+        /// <summary>
+        /// <para>
+        /// <para>The distinguished name of the organizational unit to place the computer account in.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
         #endregion
         
         #region Parameter VpcConfig_SecurityGroupId
@@ -224,6 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (ParameterWasBound("DisconnectTimeoutInSecond"))
                 context.DisconnectTimeoutInSeconds = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
+            context.DomainJoinInfo_DirectoryName = this.DomainJoinInfo_DirectoryName;
+            context.DomainJoinInfo_OrganizationalUnitDistinguishedName = this.DomainJoinInfo_OrganizationalUnitDistinguishedName;
             if (ParameterWasBound("EnableDefaultInternetAccess"))
                 context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
             context.ImageName = this.ImageName;
@@ -293,6 +315,35 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.DisplayName != null)
             {
                 request.DisplayName = cmdletContext.DisplayName;
+            }
+            
+             // populate DomainJoinInfo
+            bool requestDomainJoinInfoIsNull = true;
+            request.DomainJoinInfo = new Amazon.AppStream.Model.DomainJoinInfo();
+            System.String requestDomainJoinInfo_domainJoinInfo_DirectoryName = null;
+            if (cmdletContext.DomainJoinInfo_DirectoryName != null)
+            {
+                requestDomainJoinInfo_domainJoinInfo_DirectoryName = cmdletContext.DomainJoinInfo_DirectoryName;
+            }
+            if (requestDomainJoinInfo_domainJoinInfo_DirectoryName != null)
+            {
+                request.DomainJoinInfo.DirectoryName = requestDomainJoinInfo_domainJoinInfo_DirectoryName;
+                requestDomainJoinInfoIsNull = false;
+            }
+            System.String requestDomainJoinInfo_domainJoinInfo_OrganizationalUnitDistinguishedName = null;
+            if (cmdletContext.DomainJoinInfo_OrganizationalUnitDistinguishedName != null)
+            {
+                requestDomainJoinInfo_domainJoinInfo_OrganizationalUnitDistinguishedName = cmdletContext.DomainJoinInfo_OrganizationalUnitDistinguishedName;
+            }
+            if (requestDomainJoinInfo_domainJoinInfo_OrganizationalUnitDistinguishedName != null)
+            {
+                request.DomainJoinInfo.OrganizationalUnitDistinguishedName = requestDomainJoinInfo_domainJoinInfo_OrganizationalUnitDistinguishedName;
+                requestDomainJoinInfoIsNull = false;
+            }
+             // determine if request.DomainJoinInfo should be set to null
+            if (requestDomainJoinInfoIsNull)
+            {
+                request.DomainJoinInfo = null;
             }
             if (cmdletContext.EnableDefaultInternetAccess != null)
             {
@@ -401,6 +452,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String Description { get; set; }
             public System.Int32? DisconnectTimeoutInSeconds { get; set; }
             public System.String DisplayName { get; set; }
+            public System.String DomainJoinInfo_DirectoryName { get; set; }
+            public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
             public System.Boolean? EnableDefaultInternetAccess { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }

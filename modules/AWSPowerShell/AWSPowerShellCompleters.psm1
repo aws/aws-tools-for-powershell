@@ -178,6 +178,18 @@ $AG_Completers = {
             break
         }
         
+        # Amazon.APIGateway.GatewayResponseType
+        {
+            ($_ -eq "Get-AGGatewayResponse/ResponseType") -Or
+            ($_ -eq "Remove-AGGatewayResponse/ResponseType") -Or
+            ($_ -eq "Update-AGGatewayResponse/ResponseType") -Or
+            ($_ -eq "Write-AGGatewayResponse/ResponseType")
+        }
+        {
+            $v = "ACCESS_DENIED","API_CONFIGURATION_ERROR","AUTHORIZER_CONFIGURATION_ERROR","AUTHORIZER_FAILURE","BAD_REQUEST_BODY","BAD_REQUEST_PARAMETERS","DEFAULT_4XX","DEFAULT_5XX","EXPIRED_TOKEN","INTEGRATION_FAILURE","INTEGRATION_TIMEOUT","INVALID_API_KEY","INVALID_SIGNATURE","MISSING_AUTHENTICATION_TOKEN","QUOTA_EXCEEDED","REQUEST_TOO_LARGE","RESOURCE_NOT_FOUND","THROTTLED","UNAUTHORIZED","UNSUPPORTED_MEDIA_TYPE"
+            break
+        }
+        
         # Amazon.APIGateway.IntegrationType
         "Write-AGIntegration/Type"
         {
@@ -216,6 +228,7 @@ $AG_map = @{
     "Location_Type"=@("New-AGDocumentationPart")
     "Mode"=@("Import-AGDocumentationPartList","Write-AGRestApi")
     "Quota_Period"=@("New-AGUsagePlan")
+    "ResponseType"=@("Get-AGGatewayResponse","Remove-AGGatewayResponse","Update-AGGatewayResponse","Write-AGGatewayResponse")
     "Type"=@("Get-AGDocumentationPartList","New-AGAuthorizer","Write-AGIntegration")
 }
 
@@ -394,6 +407,41 @@ $ATH_map = @{
 _awsArgumentCompleterRegistration $ATH_Completers $ATH_map
 
 
+# Argument completions for service Auto Scaling
+$AS_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AutoScaling.MetricStatistic
+        "Write-ASScalingPolicy/TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"
+        {
+            $v = "Average","Maximum","Minimum","SampleCount","Sum"
+            break
+        }
+        
+        # Amazon.AutoScaling.MetricType
+        "Write-ASScalingPolicy/TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
+        {
+            $v = "ALBRequestCountPerTarget","ASGAverageCPUUtilization","ASGAverageNetworkIn","ASGAverageNetworkOut"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$AS_map = @{
+    "TargetTrackingConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-ASScalingPolicy")
+    "TargetTrackingConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-ASScalingPolicy")
+}
+
+_awsArgumentCompleterRegistration $AS_Completers $AS_map
+
+
 # Argument completions for service AWS Batch
 $BAT_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -547,7 +595,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/NewBudget_BudgetType")
         }
         {
-            $v = "COST","USAGE"
+            $v = "COST","RI_UTILIZATION","USAGE"
             break
         }
         
@@ -601,7 +649,7 @@ $BGT_Completers = {
             ($_ -eq "Update-BGTBudget/NewBudget_TimeUnit")
         }
         {
-            $v = "ANNUALLY","MONTHLY","QUARTERLY"
+            $v = "ANNUALLY","DAILY","MONTHLY","QUARTERLY"
             break
         }
         
@@ -2232,7 +2280,14 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge"
+            break
+        }
+        
+        # Amazon.EC2.InterfacePermissionType
+        "New-EC2NetworkInterfacePermission/Permission"
+        {
+            $v = "EIP-ASSOCIATE","INSTANCE-ATTACH"
             break
         }
         
@@ -2406,6 +2461,7 @@ $EC2_map = @{
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OperationType"=@("Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
+    "Permission"=@("New-EC2NetworkInterfacePermission")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
     "ResourceType"=@("New-EC2FlowLog")
     "RuleAction"=@("New-EC2NetworkAclEntry","Set-EC2NetworkAclEntry")
@@ -2664,6 +2720,13 @@ $EMR_Completers = {
             break
         }
         
+        # Amazon.ElasticMapReduce.RepoUpgradeOnBoot
+        "Start-EMRJobFlow/RepoUpgradeOnBoot"
+        {
+            $v = "NONE","SECURITY"
+            break
+        }
+        
         # Amazon.ElasticMapReduce.ScaleDownBehavior
         "Start-EMRJobFlow/ScaleDownBehavior"
         {
@@ -2689,6 +2752,7 @@ $EMR_map = @{
     "InstanceFleet_InstanceFleetType"=@("Add-EMRInstanceFleet")
     "InstanceFleet_LaunchSpecifications_SpotSpecification_TimeoutAction"=@("Add-EMRInstanceFleet")
     "InstanceFleetType"=@("Get-EMRInstanceList")
+    "RepoUpgradeOnBoot"=@("Start-EMRJobFlow")
     "ScaleDownBehavior"=@("Start-EMRJobFlow")
 }
 
@@ -3356,6 +3420,13 @@ $LM_Completers = {
             break
         }
         
+        # Amazon.Lambda.FunctionVersion
+        "Get-LMFunctionList/FunctionVersion"
+        {
+            $v = "ALL"
+            break
+        }
+        
         # Amazon.Lambda.InvocationType
         "Invoke-LMFunction/InvocationType"
         {
@@ -3395,6 +3466,7 @@ $LM_Completers = {
 }
 
 $LM_map = @{
+    "FunctionVersion"=@("Get-LMFunctionList")
     "InvocationType"=@("Invoke-LMFunction")
     "LogType"=@("Invoke-LMFunction")
     "Runtime"=@("Publish-LMFunction","Update-LMFunctionConfiguration")

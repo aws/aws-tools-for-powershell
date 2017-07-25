@@ -95,7 +95,7 @@
     <ServiceOperation MethodName="ExitStandby" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName"/>
     <ServiceOperation MethodName="PutLifecycleHook" Output="Void"/>
     <ServiceOperation MethodName="PutNotificationConfiguration" Output="Void" PositionalParameters="TopicARN;NotificationTypes"/>
-    <ServiceOperation MethodName="PutScalingPolicy" PositionalParameters="PolicyName" ShouldProcessTarget="AutoScalingGroupName"/>
+    <ServiceOperation MethodName="PutScalingPolicy" PositionalParameters="PolicyName" ShouldProcessTarget="AutoScalingGroupName" Output="Response" />
     <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Output="Void" PositionalParameters="ScheduledActionName;StartTime;EndTime"/>
     <ServiceOperation MethodName="RecordLifecycleActionHeartbeat" Output="Void"/>
     <ServiceOperation MethodName="ResumeProcesses" Output="Void" PositionalParameters="ScalingProcesses"/>

@@ -48,9 +48,20 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>One or more unique identifiers used to query the status of an export request.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("ExportIds")]
         public System.String[] ExportId { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters.</para><ul><li><para><code>AgentId</code> - ID of the agent whose collected data will be exported</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.ApplicationDiscoveryService.Model.ExportFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -101,6 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             {
                 context.ExportIds = new List<System.String>(this.ExportId);
             }
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.ApplicationDiscoveryService.Model.ExportFilter>(this.Filter);
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -123,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.ADS
             if (cmdletContext.ExportIds != null)
             {
                 request.ExportIds = cmdletContext.ExportIds;
+            }
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
             }
             
             // Initialize loop variants and commence piping
@@ -259,6 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         internal class CmdletContext : ExecutorContext
         {
             public List<System.String> ExportIds { get; set; }
+            public List<Amazon.ApplicationDiscoveryService.Model.ExportFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

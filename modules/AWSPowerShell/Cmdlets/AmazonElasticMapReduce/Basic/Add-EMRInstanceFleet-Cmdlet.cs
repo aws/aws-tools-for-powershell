@@ -154,7 +154,9 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <para>The action to take when <code>TargetSpotCapacity</code> has not been fulfilled when
         /// the <code>TimeoutDurationMinutes</code> has expired. Spot instances are not uprovisioned
         /// within the Spot provisioining timeout. Valid values are <code>TERMINATE_CLUSTER</code>
-        /// and <code>SWITCH_TO_ON_DEMAND</code> to fulfill the remaining capacity.</para>
+        /// and <code>SWITCH_TO_ON_DEMAND</code>. SWITCH_TO_ON_DEMAND specifies that if no Spot
+        /// instances are available, On-Demand Instances should be provisioned to fulfill any
+        /// remaining Spot capacity.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

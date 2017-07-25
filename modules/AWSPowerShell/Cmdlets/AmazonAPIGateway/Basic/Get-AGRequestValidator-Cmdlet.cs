@@ -52,8 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter RestApiId
         /// <summary>
         /// <para>
-        /// <para>[Required] The identifier of the <a>RestApi</a> to which the specified <a>RequestValidator</a>
-        /// belongs.</para>
+        /// <para>The string identifier of the associated <a>RestApi</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
