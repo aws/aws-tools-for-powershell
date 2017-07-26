@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// <para>
         /// <para>The set of attributes that distinguish links made from this facet from each other,
         /// in the order of significance. Listing typed links can filter on the values of these
-        /// attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypeLinks</a> for
+        /// attributes. See <a>ListOutgoingTypedLinks</a> and <a>ListIncomingTypedLinks</a> for
         /// details.</para>
         /// </para>
         /// </summary>

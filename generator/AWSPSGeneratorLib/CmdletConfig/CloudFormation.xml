@@ -21,7 +21,7 @@
   </CustomAliases>
   
   <AutoIterate Start="NextToken" Next="NextToken" Exclusions="DescribeChangeSet" />
-  
+
   <PositionalParameters>StackName</PositionalParameters>
   
   <PipelineParameter>StackName</PipelineParameter>
@@ -32,7 +32,11 @@
     <Map From="Stacks" To="Stack" />
     <Map From="StackSummaries" To="StackSummary" />
   </NounMappings>
-  
+
+  <VerbMappings>
+    <Map From="List" To="Get" />
+  </VerbMappings>
+
   <ServiceOperations>
     <ServiceOperation MethodName="CancelUpdateStack" Output="Void"/>
     <ServiceOperation MethodName="CreateStack">
@@ -55,20 +59,56 @@
     <ServiceOperation MethodName="GetStackPolicy"/>
     <ServiceOperation MethodName="GetTemplate" Exclude="true"/>
     <ServiceOperation MethodName="GetTemplateSummary" Output="Response"/>
-    <ServiceOperation MethodName="ListImports" Verb="Get" Noun="ImportList"/>
-    <ServiceOperation MethodName="ListChangeSets" Verb="Get" Noun="ChangeSetList" />
-    <ServiceOperation MethodName="ListStackResources" Verb="Get" Noun="StackResourceSummary" LegacyAlias="Get-CFNStackResourceSummaries" />
-    <ServiceOperation MethodName="ListStacks" Verb="Get" Noun="StackSummary" PipelineParameter="StackStatusFilter" LegacyAlias="Get-CFNStackSummaries" />
+    <ServiceOperation MethodName="ListImports" Noun="ImportList"/>
+    <ServiceOperation MethodName="ListChangeSets" Noun="ChangeSetList" />
+    <ServiceOperation MethodName="ListExports" Noun="Export"/>
+    <ServiceOperation MethodName="ListStackResources" Noun="StackResourceSummary" LegacyAlias="Get-CFNStackResourceSummaries" />
+    <ServiceOperation MethodName="ListStacks" Noun="StackSummary" PipelineParameter="StackStatusFilter" LegacyAlias="Get-CFNStackSummaries" />
     <ServiceOperation MethodName="SetStackPolicy" Output="Void"/>
+    <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" Output="Void"/>
     <ServiceOperation MethodName="UpdateStack"/>
     <ServiceOperation MethodName="ValidateTemplate" Output="Response" PipelineParameter="TemplateBody"/>
-    <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" Output="Void"/>
-    <ServiceOperation MethodName="ListExports" Verb="Get" Noun="Export"/>
+
+    <ServiceOperation MethodName="ListStackSetOperationResults" Noun="StackSetOperationResultList" PipelineParameter="OperationId">
+      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListStackSetOperations" Noun="StackSetOperationList">
+      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListStackSets" Noun="StackSetList">
+      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="StopStackSetOperation" PipelineParameter="StackSetName" Output="Void" />
+    <ServiceOperation MethodName="UpdateStackSet" PipelineParameter="StackSetName" />
+    <ServiceOperation MethodName="CreateStackInstances" Noun="StackInstance" PipelineParameter="StackSetName">
+      <Params>
+        <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="CreateStackSet" PipelineParameter="StackSetName" />
+    <ServiceOperation MethodName="DeleteStackInstances" Noun="StackInstance" PipelineParameter="StackSetName">
+      <Params>
+        <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteStackSet" Output="Void" />
+    <ServiceOperation MethodName="DescribeStackInstance" PipelineParameter="StackSetName" />
+    <ServiceOperation MethodName="DescribeStackSet" />
+    <ServiceOperation MethodName="DescribeStackSetOperation" PipelineParameter="OperationId" />
+    <ServiceOperation MethodName="ListStackInstances" Noun="StackInstanceList" PipelineParameter="StackSetName">
+      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+    </ServiceOperation>
+
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>StackName</Property>
     <Property>LogicalResourceId</Property>
     <Property>PhysicalResourceId</Property>
+    <Property>OperationId</Property>
   </PipelineByValueProperties>
+
+  <TypesNotToFlatten>
+    <Type>Amazon.CloudFormation.Model.StackSetOperationPreferences</Type>
+  </TypesNotToFlatten>
 </ConfigModel>

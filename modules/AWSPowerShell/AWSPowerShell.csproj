@@ -67,7 +67,7 @@
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.2.9\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.3.4\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.4\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeStar">
       <HintPath>..\..\packages\AWSSDK.CodeStar.3.3.0.9\lib\net35\AWSSDK.CodeStar.dll</HintPath>
@@ -316,7 +316,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.4.4\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
-      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.5.6\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.6\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
       <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.2.14\lib\net35\AWSSDK.CertificateManager.dll</HintPath>

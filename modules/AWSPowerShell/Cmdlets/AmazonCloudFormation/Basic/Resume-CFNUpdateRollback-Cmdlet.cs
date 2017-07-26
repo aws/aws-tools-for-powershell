@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// continue update rollback operation. You can specify only resources that are in the
         /// <code>UPDATE_FAILED</code> state because a rollback failed. You can't specify resources
         /// that are in the <code>UPDATE_FAILED</code> state for other reasons, for example, because
-        /// an update was canceled. To check why a resource update failed, use the <a>DescribeStackResources</a>
+        /// an update was cancelled. To check why a resource update failed, use the <a>DescribeStackResources</a>
         /// action, and view the resource status reason. </para><important><para>Specify this property to skip rolling back resources that AWS CloudFormation can't
         /// successfully roll back. We recommend that you <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/troubleshooting.html#troubleshooting-errors-update-rollback-failed">
         /// troubleshoot</a> resources before skipping them. AWS CloudFormation sets the status
@@ -87,10 +87,14 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// each other. If you don't, subsequent stack updates might fail, and the stack will
         /// become unrecoverable. </para></important><para>Specify the minimum number of resources required to successfully roll back your stack.
         /// For example, a failed resource update might cause dependent resources to fail. In
-        /// this case, it might not be necessary to skip the dependent resources. </para><para>To specify resources in a nested stack, use the following format: <code>NestedStackName.ResourceLogicalID</code>.
-        /// If the <code>ResourceLogicalID</code> is a stack resource (<code>Type: AWS::CloudFormation::Stack</code>),
-        /// it must be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>,
-        /// or <code>DELETE_FAILED</code>. </para>
+        /// this case, it might not be necessary to skip the dependent resources. </para><para>To skip resources that are part of nested stacks, use the following format: <code>NestedStackName.ResourceLogicalID</code>.
+        /// If you want to specify the logical ID of a stack resource (<code>Type: AWS::CloudFormation::Stack</code>)
+        /// in the <code>ResourcesToSkip</code> list, then its corresponding embedded stack must
+        /// be in one of the following states: <code>DELETE_IN_PROGRESS</code>, <code>DELETE_COMPLETE</code>,
+        /// or <code>DELETE_FAILED</code>. </para><note><para>Don't confuse a child stack's name with its corresponding logical ID defined in the
+        /// parent stack. For an example of a continue update rollback operation with nested stacks,
+        /// see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-updating-stacks-continueupdaterollback.html#nested-stacks">Using
+        /// ResourcesToSkip to recover a nested stacks hierarchy</a>. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

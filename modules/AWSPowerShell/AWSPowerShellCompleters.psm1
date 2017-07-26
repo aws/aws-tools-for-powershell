@@ -757,6 +757,13 @@ $CFN_Completers = {
             break
         }
         
+        # Amazon.CloudFormation.StackSetStatus
+        "Get-CFNStackSetList/Status"
+        {
+            $v = "ACTIVE","DELETED"
+            break
+        }
+        
         # Amazon.CloudFormation.StackStatus
         {
             ($_ -eq "Test-CFNStack/Status") -Or
@@ -777,7 +784,7 @@ $CFN_Completers = {
 
 $CFN_map = @{
     "OnFailure"=@("New-CFNStack")
-    "Status"=@("Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack","Watch-CFNStackEvent")
+    "Status"=@("Get-CFNStackSetList","Send-CFNResourceSignal","Test-CFNStack","Wait-CFNStack","Watch-CFNStackEvent")
 }
 
 _awsArgumentCompleterRegistration $CFN_Completers $CFN_map

@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.String StackName { get; set; }
         #endregion
         
+        #region Parameter StackSetName
+        /// <summary>
+        /// <para>
+        /// <para>The name or unique ID of the stack set from which the stack was created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String StackSetName { get; set; }
+        #endregion
+        
         #region Parameter TemplateBody
         /// <summary>
         /// <para>
@@ -105,6 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             PreExecutionContextLoad(context);
             
             context.StackName = this.StackName;
+            context.StackSetName = this.StackSetName;
             context.TemplateBody = this.TemplateBody;
             context.TemplateURL = this.TemplateURL;
             
@@ -126,6 +137,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.StackName != null)
             {
                 request.StackName = cmdletContext.StackName;
+            }
+            if (cmdletContext.StackSetName != null)
+            {
+                request.StackSetName = cmdletContext.StackSetName;
             }
             if (cmdletContext.TemplateBody != null)
             {
@@ -188,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         internal class CmdletContext : ExecutorContext
         {
             public System.String StackName { get; set; }
+            public System.String StackSetName { get; set; }
             public System.String TemplateBody { get; set; }
             public System.String TemplateURL { get; set; }
         }
