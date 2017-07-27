@@ -32,22 +32,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// 
     ///  
     /// <para>
-    /// Amazon CloudWatch retains metric data as follows:
-    /// </para><ul><li><para>
-    /// Data points with a period of 60 seconds (1-minute) are available for 15 days
-    /// </para></li><li><para>
-    /// Data points with a period of 300 seconds (5-minute) are available for 63 days
-    /// </para></li><li><para>
-    /// Data points with a period of 3600 seconds (1 hour) are available for 455 days (15
-    /// months)
-    /// </para></li></ul><para>
-    /// CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
-    /// </para><para>
     /// The maximum number of data points returned from a single call is 1,440. If you request
     /// more than 1,440 data points, CloudWatch returns an error. To reduce the number of
     /// data points, you can narrow the specified time range and make multiple requests across
-    /// adjacent time ranges, or you can increase the specified period. A period can be as
-    /// short as one minute (60 seconds). Data points are not returned in chronological order.
+    /// adjacent time ranges, or you can increase the specified period. Data points are not
+    /// returned in chronological order.
     /// </para><para>
     /// CloudWatch aggregates data points based on the length of the period that you specify.
     /// For example, if you request statistics with a one-hour period, CloudWatch aggregates
@@ -63,7 +52,29 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </para></li><li><para>
     /// The Min and the Max values of the statistic set are equal.
     /// </para></li></ul><para>
-    /// For a list of metrics and dimensions supported by AWS services, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon
+    /// Amazon CloudWatch retains metric data as follows:
+    /// </para><ul><li><para>
+    /// Data points with a period of less than 60 seconds are available for 3 hours. These
+    /// data points are high-resolution metrics and are available only for custom metrics
+    /// that have been defined with a <code>StorageResolution</code> of 1.
+    /// </para></li><li><para>
+    /// Data points with a period of 60 seconds (1-minute) are available for 15 days.
+    /// </para></li><li><para>
+    /// Data points with a period of 300 seconds (5-minute) are available for 63 days.
+    /// </para></li><li><para>
+    /// Data points with a period of 3600 seconds (1 hour) are available for 455 days (15
+    /// months).
+    /// </para></li></ul><para>
+    /// Data points that are initially published with a shorter period are aggregated together
+    /// for long-term storage. For example, if you collect data using a period of 1 minute,
+    /// the data remains available for 15 days with 1-minute resolution. After 15 days, this
+    /// data is still available, but is aggregated and retrievable only with a resolution
+    /// of 5 minutes. After 63 days, the data is further aggregated and is available with
+    /// a resolution of 1 hour.
+    /// </para><para>
+    /// CloudWatch started retaining 5-minute and 1-hour metric data as of July 9, 2016.
+    /// </para><para>
+    /// For information about metrics and dimensions supported by AWS services, see the <a href="http://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CW_Support_For_AWS.html">Amazon
     /// CloudWatch Metrics and Dimensions Reference</a> in the <i>Amazon CloudWatch User Guide</i>.
     /// </para>
     /// </summary>
@@ -141,10 +152,14 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The granularity, in seconds, of the returned data points. A period can be as short
-        /// as one minute (60 seconds) and must be a multiple of 60. </para><para>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
-        /// 15 days ago, you must specify the period as follows or no data points in that time
-        /// range is returned:</para><ul><li><para>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</para></li><li><para>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</para></li></ul>
+        /// <para>The granularity, in seconds, of the returned data points. For metrics with regular
+        /// resolution, a period can be as short as one minute (60 seconds) and must be a multiple
+        /// of 60. For high-resolution metrics that are collected at intervals of less than one
+        /// minute, the period can be 1, 5, 10, 30, 60, or any multiple of 60. High-resolution
+        /// metrics are those metrics stored by a <code>PutMetricData</code> call that includes
+        /// a <code>StorageResolution</code> of 1 second.</para><para>If the <code>StartTime</code> parameter specifies a time stamp that is greater than
+        /// 3 hours ago, you must specify the period as follows or no data points in that time
+        /// range is returned:</para><ul><li><para>Start time between 3 hours and 15 days ago - Use a multiple of 60 seconds (1 minute).</para></li><li><para>Start time between 15 and 63 days ago - Use a multiple of 300 seconds (5 minutes).</para></li><li><para>Start time greater than 63 days ago - Use a multiple of 3600 seconds (1 hour).</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -159,7 +174,13 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// stamp. The time stamp must be in ISO 8601 UTC format (for example, 2016-10-03T23:00:00Z).</para><para>CloudWatch rounds the specified time stamp as follows:</para><ul><li><para>Start time less than 15 days ago - Round down to the nearest whole minute. For example,
         /// 12:32:34 is rounded down to 12:32:00.</para></li><li><para>Start time between 15 and 63 days ago - Round down to the nearest 5-minute clock interval.
         /// For example, 12:32:34 is rounded down to 12:30:00.</para></li><li><para>Start time greater than 63 days ago - Round down to the nearest 1-hour clock interval.
-        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul>
+        /// For example, 12:32:34 is rounded down to 12:00:00.</para></li></ul><para>If you set <code>Period</code> to 5, 10, or 30, the start time of your request is
+        /// rounded down to the nearest time that corresponds to even 5-, 10-, or 30-second divisions
+        /// of a minute. For example, if you make a query at (HH:mm:ss) 01:05:23 for the previous
+        /// 10-second period, the start time of your request is rounded down and you receive data
+        /// from 01:05:10 to 01:05:20. If you make a query at 15:07:17 for the previous 5 minutes
+        /// of data, using a period of 5 seconds, you receive data timestamped between 15:02:15
+        /// and 15:07:15. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -37,9 +37,18 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// You can have up to 500 dashboards per account. All dashboards in your account are
     /// global, not region-specific.
     /// </para><para>
-    /// To copy an existing dashboard, use <code>GetDashboard</code>, and then use the data
-    /// returned within <code>DashboardBody</code> as the template for the new dashboard when
-    /// you call <code>PutDashboard</code> to create the copy.
+    /// A simple way to create a dashboard using <code>PutDashboard</code> is to copy an existing
+    /// dashboard. To copy an existing dashboard using the console, you can load the dashboard
+    /// and then use the View/edit source command in the Actions menu to display the JSON
+    /// block for that dashboard. Another way to copy a dashboard is to use <code>GetDashboard</code>,
+    /// and then use the data returned within <code>DashboardBody</code> as the template for
+    /// the new dashboard when you call <code>PutDashboard</code>.
+    /// </para><para>
+    /// When you create a dashboard with <code>PutDashboard</code>, a good practice is to
+    /// add a text widget at the top of the dashboard with a message that the dashboard was
+    /// created by script and should not be changed in the console. This message could also
+    /// point console users to the location of the <code>DashboardBody</code> script or the
+    /// CloudFormation template used to create the dashboard.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -68,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The name of the dashboard. If a dashboard with this name already exists, this call
         /// modifies that dashboard, replacing its current contents. Otherwise, a new dashboard
-        /// is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, ".",
-        /// "-", and "_".</para>
+        /// is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-",
+        /// and "_".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

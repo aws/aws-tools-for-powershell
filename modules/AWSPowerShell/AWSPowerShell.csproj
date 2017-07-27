@@ -250,10 +250,10 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.15\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.17\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.18\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
-      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.4.16\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.4.17\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DirectoryService">
       <HintPath>..\..\packages\AWSSDK.DirectoryService.3.3.2\lib\net35\AWSSDK.DirectoryService.dll</HintPath>
@@ -298,7 +298,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.2.2\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
-      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.3.1\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.4\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
       <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.19\lib\net35\AWSSDK.CloudTrail.dll</HintPath>
@@ -313,7 +313,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudHSM.3.3.0.20\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
-      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.4.4\lib\net35\AWSSDK.CloudFront.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.5\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.6\lib\net35\AWSSDK.CloudFormation.dll</HintPath>

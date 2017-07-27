@@ -1478,6 +1478,8 @@ Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name Replace-EC2RouteTableAssociation -Value Set-EC2RouteTableAssociation
+Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name Report-EC2InstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-ReportInstanceStatus -Value Send-EC2InstanceStatus
 Set-Alias -Name EC2-RequestSpotFleet -Value Request-EC2SpotFleet
@@ -1499,6 +1501,8 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name Modify-EC2IdFormat -Value Edit-EC2IdFormat
+Set-Alias -Name EC2-ModifyIdFormat -Value Edit-EC2IdFormat
 Set-Alias -Name Modify-EC2ImageAttribute -Value Edit-EC2ImageAttribute
 Set-Alias -Name EC2-ModifyImageAttribute -Value Edit-EC2ImageAttribute
 Set-Alias -Name Modify-EC2InstanceAttribute -Value Edit-EC2InstanceAttribute
@@ -1544,8 +1548,8 @@ Set-Alias -Name Replace-EC2NetworkAclEntry -Value Set-EC2NetworkAclEntry
 Set-Alias -Name EC2-ReplaceNetworkAclEntry -Value Set-EC2NetworkAclEntry
 Set-Alias -Name Replace-EC2Route -Value Set-EC2Route
 Set-Alias -Name EC2-ReplaceRoute -Value Set-EC2Route
-Set-Alias -Name Replace-EC2RouteTableAssociation -Value Set-EC2RouteTableAssociation
-Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssociation
+Set-Alias -Name Detach-EC2InternetGateway -Value Dismount-EC2InternetGateway
+Set-Alias -Name EC2-DetachInternetGateway -Value Dismount-EC2InternetGateway
 Set-Alias -Name Detach-EC2NetworkInterface -Value Dismount-EC2NetworkInterface
 Set-Alias -Name EC2-DetachNetworkInterface -Value Dismount-EC2NetworkInterface
 Set-Alias -Name Detach-EC2Volume -Value Dismount-EC2Volume
@@ -1580,8 +1584,8 @@ Set-Alias -Name Modify-EC2Host -Value Edit-EC2Host
 Set-Alias -Name EC2-ModifyHosts -Value Edit-EC2Host
 Set-Alias -Name Modify-EC2IdentityIdFormat -Value Edit-EC2IdentityIdFormat
 Set-Alias -Name EC2-ModifyIdentityIdFormat -Value Edit-EC2IdentityIdFormat
-Set-Alias -Name Modify-EC2IdFormat -Value Edit-EC2IdFormat
-Set-Alias -Name EC2-ModifyIdFormat -Value Edit-EC2IdFormat
+Set-Alias -Name Describe-EC2SnapshotAttribute -Value Get-EC2SnapshotAttribute
+Set-Alias -Name EC2-DescribeSnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name Describe-EC2Snapshots -Value Get-EC2Snapshot
 Set-Alias -Name EC2-DescribeSnapshots -Value Get-EC2Snapshot
 Set-Alias -Name Describe-EC2SpotDatafeedSubscription -Value Get-EC2SpotDatafeedSubscription
@@ -1630,8 +1634,8 @@ Set-Alias -Name Describe-EC2VpnGateways -Value Get-EC2VpnGateway
 Set-Alias -Name EC2-DescribeVpnGateways -Value Get-EC2VpnGateway
 Set-Alias -Name Detach-EC2ClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
 Set-Alias -Name EC2-DetachClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
-Set-Alias -Name Detach-EC2InternetGateway -Value Dismount-EC2InternetGateway
-Set-Alias -Name EC2-DetachInternetGateway -Value Dismount-EC2InternetGateway
+Set-Alias -Name Describe-EC2InstanceAttribute -Value Get-EC2InstanceAttribute
+Set-Alias -Name EC2-DescribeInstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
 Set-Alias -Name EC2-DescribeInstanceStatus -Value Get-EC2InstanceStatus
 Set-Alias -Name Describe-EC2InternetGateways -Value Get-EC2InternetGateway
@@ -1674,8 +1678,6 @@ Set-Alias -Name Describe-EC2SecurityGroupReference -Value Get-EC2SecurityGroupRe
 Set-Alias -Name EC2-DescribeSecurityGroupReferences -Value Get-EC2SecurityGroupReference
 Set-Alias -Name Describe-EC2SecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name EC2-DescribeSecurityGroups -Value Get-EC2SecurityGroup
-Set-Alias -Name Describe-EC2SnapshotAttribute -Value Get-EC2SnapshotAttribute
-Set-Alias -Name EC2-DescribeSnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name Delete-EC2VpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
 Set-Alias -Name EC2-DeleteVpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
 Set-Alias -Name Delete-EC2VpnGateway -Value Remove-EC2VpnGateway
@@ -1698,6 +1700,8 @@ Set-Alias -Name Describe-EC2DhcpOptions -Value Get-EC2DhcpOption
 Set-Alias -Name EC2-DescribeDhcpOptions -Value Get-EC2DhcpOption
 Set-Alias -Name Describe-EC2EgressOnlyInternetGatewayList -Value Get-EC2EgressOnlyInternetGatewayList
 Set-Alias -Name EC2-DescribeEgressOnlyInternetGateways -Value Get-EC2EgressOnlyInternetGatewayList
+Set-Alias -Name Describe-EC2ElasticGpu -Value Get-EC2ElasticGpu
+Set-Alias -Name EC2-DescribeElasticGpus -Value Get-EC2ElasticGpu
 Set-Alias -Name Describe-EC2ExportTask -Value Get-EC2ExportTask
 Set-Alias -Name EC2-DescribeExportTasks -Value Get-EC2ExportTask
 Set-Alias -Name Describe-EC2FlowLog -Value Get-EC2FlowLog
@@ -1724,8 +1728,6 @@ Set-Alias -Name Describe-EC2ImportImageTask -Value Get-EC2ImportImageTask
 Set-Alias -Name EC2-DescribeImportImageTasks -Value Get-EC2ImportImageTask
 Set-Alias -Name Describe-EC2ImportSnapshotTask -Value Get-EC2ImportSnapshotTask
 Set-Alias -Name EC2-DescribeImportSnapshotTasks -Value Get-EC2ImportSnapshotTask
-Set-Alias -Name Describe-EC2InstanceAttribute -Value Get-EC2InstanceAttribute
-Set-Alias -Name EC2-DescribeInstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name Create-EC2VpcPeeringConnection -Value New-EC2VpcPeeringConnection
 Set-Alias -Name EC2-CreateVpcPeeringConnection -Value New-EC2VpcPeeringConnection
 Set-Alias -Name Create-EC2VpnConnection -Value New-EC2VpnConnection

@@ -362,6 +362,7 @@
     <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Noun="IamInstanceProfileAssociation"/>
     <ServiceOperation MethodName="AssociateIamInstanceProfile" />
 
+    <ServiceOperation MethodName="DescribeElasticGpus" Noun="ElasticGpu" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeFpgaImages" Noun="FpgaImage" NoPipelineParameter="true" />
 
     <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" Noun="NetworkInterfacePermission" NoPipelineParameter="true" />

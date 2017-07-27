@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The number of periods over which data is compared to the specified threshold. An alarm's
         /// total current evaluation period can be no longer than one day, so this number multiplied
-        /// by <code>Period</code> must be 86,400 or less.</para>
+        /// by <code>Period</code> cannot be more than 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,9 +237,17 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter Period
         /// <summary>
         /// <para>
-        /// <para>The period, in seconds, over which the specified statistic is applied. An alarm's
-        /// total current evaluation period can be no longer than one day, so this number multiplied
-        /// by <code>EvaluationPeriods</code> must be 86,400 or less.</para>
+        /// <para>The period, in seconds, over which the specified statistic is applied. Valid values
+        /// are 10, 30, and any multiple of 60.</para><para>Be sure to specify 10 or 30 only for metrics that are stored by a <code>PutMetricData</code>
+        /// call with a <code>StorageResolution</code> of 1. If you specify a Period of 10 or
+        /// 30 for a metric that does not have sub-minute resolution, the alarm still attempts
+        /// to gather data at the period rate that you specify. In this case, it does not receive
+        /// data for the attempts that do not correspond to a one-minute data resolution, and
+        /// the alarm may often lapse into INSUFFICENT_DATA status. Specifying 10 or 30 also sets
+        /// this alarm as a high-resolution alarm, which has a higher charge than other alarms.
+        /// For more information about pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon
+        /// CloudWatch Pricing</a>.</para><para>An alarm's total current evaluation period can be no longer than one day, so <code>Period</code>
+        /// multiplied by <code>EvaluationPeriods</code> cannot be more than 86,400 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
