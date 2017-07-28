@@ -372,6 +372,8 @@
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateNetworkInterfacePermission" PipelineParameter="NetworkInterfaceId"  />
+
+    <ServiceOperation MethodName="CreateDefaultVpc" />
   </ServiceOperations>
 
   <!-- define zero or more custom aliases here; these are emitted in addition to automatic

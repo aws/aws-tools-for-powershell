@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
     /// Deletes a CloudWatch log stream from an application. For more information about using
-    /// CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-monitor-configuration.html">Monitoring
-    /// Configuration Errors</a>.
+    /// CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working
+    /// with Amazon CloudWatch Logs</a>.
     /// </summary>
     [Cmdlet("Remove", "KINAApplicationCloudWatchLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Kinesis Analytics application name.</para>
+        /// <para>The Kinesis Analytics application name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// <para>The version ID of the Amazon Kinesis Analytics application.</para>
+        /// <para>The version ID of the Kinesis Analytics application.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

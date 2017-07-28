@@ -1478,6 +1478,8 @@ Set-Alias -Name DDB-UpdateTimeToLive -Value Update-DDBTimeToLive
 Set-Alias -Name Describe-DDBStream -Value Get-DDBStream
 Set-Alias -Name DDB-DescribeStream -Value Get-DDBStream
 Set-Alias -Name DDB-ListStreams -Value Get-DDBStreamList
+Set-Alias -Name Replace-EC2Route -Value Set-EC2Route
+Set-Alias -Name EC2-ReplaceRoute -Value Set-EC2Route
 Set-Alias -Name Replace-EC2RouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name EC2-ReplaceRouteTableAssociation -Value Set-EC2RouteTableAssociation
 Set-Alias -Name Report-EC2InstanceStatus -Value Send-EC2InstanceStatus
@@ -1501,6 +1503,8 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name Modify-EC2IdentityIdFormat -Value Edit-EC2IdentityIdFormat
+Set-Alias -Name EC2-ModifyIdentityIdFormat -Value Edit-EC2IdentityIdFormat
 Set-Alias -Name Modify-EC2IdFormat -Value Edit-EC2IdFormat
 Set-Alias -Name EC2-ModifyIdFormat -Value Edit-EC2IdFormat
 Set-Alias -Name Modify-EC2ImageAttribute -Value Edit-EC2ImageAttribute
@@ -1546,8 +1550,8 @@ Set-Alias -Name Replace-EC2NetworkAclAssociation -Value Set-EC2NetworkAclAssocia
 Set-Alias -Name EC2-ReplaceNetworkAclAssociation -Value Set-EC2NetworkAclAssociation
 Set-Alias -Name Replace-EC2NetworkAclEntry -Value Set-EC2NetworkAclEntry
 Set-Alias -Name EC2-ReplaceNetworkAclEntry -Value Set-EC2NetworkAclEntry
-Set-Alias -Name Replace-EC2Route -Value Set-EC2Route
-Set-Alias -Name EC2-ReplaceRoute -Value Set-EC2Route
+Set-Alias -Name Detach-EC2ClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
+Set-Alias -Name EC2-DetachClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
 Set-Alias -Name Detach-EC2InternetGateway -Value Dismount-EC2InternetGateway
 Set-Alias -Name EC2-DetachInternetGateway -Value Dismount-EC2InternetGateway
 Set-Alias -Name Detach-EC2NetworkInterface -Value Dismount-EC2NetworkInterface
@@ -1582,8 +1586,8 @@ Set-Alias -Name EC2-ImportKeyPair -Value Import-EC2KeyPair
 Set-Alias -Name EC2-ImportSnapshot -Value Import-EC2Snapshot
 Set-Alias -Name Modify-EC2Host -Value Edit-EC2Host
 Set-Alias -Name EC2-ModifyHosts -Value Edit-EC2Host
-Set-Alias -Name Modify-EC2IdentityIdFormat -Value Edit-EC2IdentityIdFormat
-Set-Alias -Name EC2-ModifyIdentityIdFormat -Value Edit-EC2IdentityIdFormat
+Set-Alias -Name Describe-EC2SecurityGroups -Value Get-EC2SecurityGroup
+Set-Alias -Name EC2-DescribeSecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name Describe-EC2SnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name EC2-DescribeSnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name Describe-EC2Snapshots -Value Get-EC2Snapshot
@@ -1632,8 +1636,8 @@ Set-Alias -Name Describe-EC2VpnConnections -Value Get-EC2VpnConnection
 Set-Alias -Name EC2-DescribeVpnConnections -Value Get-EC2VpnConnection
 Set-Alias -Name Describe-EC2VpnGateways -Value Get-EC2VpnGateway
 Set-Alias -Name EC2-DescribeVpnGateways -Value Get-EC2VpnGateway
-Set-Alias -Name Detach-EC2ClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
-Set-Alias -Name EC2-DetachClassicLinkVpc -Value Dismount-EC2ClassicLinkVpc
+Set-Alias -Name Describe-EC2ImportSnapshotTask -Value Get-EC2ImportSnapshotTask
+Set-Alias -Name EC2-DescribeImportSnapshotTasks -Value Get-EC2ImportSnapshotTask
 Set-Alias -Name Describe-EC2InstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name EC2-DescribeInstanceAttribute -Value Get-EC2InstanceAttribute
 Set-Alias -Name Describe-EC2InstanceStatus -Value Get-EC2InstanceStatus
@@ -1676,8 +1680,8 @@ Set-Alias -Name Describe-EC2ScheduledInstance -Value Get-EC2ScheduledInstance
 Set-Alias -Name EC2-DescribeScheduledInstances -Value Get-EC2ScheduledInstance
 Set-Alias -Name Describe-EC2SecurityGroupReference -Value Get-EC2SecurityGroupReference
 Set-Alias -Name EC2-DescribeSecurityGroupReferences -Value Get-EC2SecurityGroupReference
-Set-Alias -Name Describe-EC2SecurityGroups -Value Get-EC2SecurityGroup
-Set-Alias -Name EC2-DescribeSecurityGroups -Value Get-EC2SecurityGroup
+Set-Alias -Name Delete-EC2VpnConnection -Value Remove-EC2VpnConnection
+Set-Alias -Name EC2-DeleteVpnConnection -Value Remove-EC2VpnConnection
 Set-Alias -Name Delete-EC2VpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
 Set-Alias -Name EC2-DeleteVpnConnectionRoute -Value Remove-EC2VpnConnectionRoute
 Set-Alias -Name Delete-EC2VpnGateway -Value Remove-EC2VpnGateway
@@ -1726,8 +1730,8 @@ Set-Alias -Name Describe-EC2Images -Value Get-EC2Image
 Set-Alias -Name EC2-DescribeImages -Value Get-EC2Image
 Set-Alias -Name Describe-EC2ImportImageTask -Value Get-EC2ImportImageTask
 Set-Alias -Name EC2-DescribeImportImageTasks -Value Get-EC2ImportImageTask
-Set-Alias -Name Describe-EC2ImportSnapshotTask -Value Get-EC2ImportSnapshotTask
-Set-Alias -Name EC2-DescribeImportSnapshotTasks -Value Get-EC2ImportSnapshotTask
+Set-Alias -Name Create-EC2VpcEndpoint -Value New-EC2VpcEndpoint
+Set-Alias -Name EC2-CreateVpcEndpoint -Value New-EC2VpcEndpoint
 Set-Alias -Name Create-EC2VpcPeeringConnection -Value New-EC2VpcPeeringConnection
 Set-Alias -Name EC2-CreateVpcPeeringConnection -Value New-EC2VpcPeeringConnection
 Set-Alias -Name Create-EC2VpnConnection -Value New-EC2VpnConnection
@@ -1782,12 +1786,12 @@ Set-Alias -Name Delete-EC2VpcEndpoint -Value Remove-EC2VpcEndpoint
 Set-Alias -Name EC2-DeleteVpcEndpoints -Value Remove-EC2VpcEndpoint
 Set-Alias -Name Delete-EC2VpcPeeringConnection -Value Remove-EC2VpcPeeringConnection
 Set-Alias -Name EC2-DeleteVpcPeeringConnection -Value Remove-EC2VpcPeeringConnection
-Set-Alias -Name Delete-EC2VpnConnection -Value Remove-EC2VpnConnection
-Set-Alias -Name EC2-DeleteVpnConnection -Value Remove-EC2VpnConnection
 Set-Alias -Name EC2-CopyImage -Value Copy-EC2Image
 Set-Alias -Name EC2-CopySnapshot -Value Copy-EC2Snapshot
 Set-Alias -Name Create-EC2CustomerGateway -Value New-EC2CustomerGateway
 Set-Alias -Name EC2-CreateCustomerGateway -Value New-EC2CustomerGateway
+Set-Alias -Name Create-EC2DefaultVpc -Value New-EC2DefaultVpc
+Set-Alias -Name EC2-CreateDefaultVpc -Value New-EC2DefaultVpc
 Set-Alias -Name Create-EC2DhcpOptions -Value New-EC2DhcpOption
 Set-Alias -Name EC2-CreateDhcpOptions -Value New-EC2DhcpOption
 Set-Alias -Name Create-EC2EgressOnlyInternetGateway -Value New-EC2EgressOnlyInternetGateway
@@ -1836,8 +1840,6 @@ Set-Alias -Name Create-EC2Volume -Value New-EC2Volume
 Set-Alias -Name EC2-CreateVolume -Value New-EC2Volume
 Set-Alias -Name Create-EC2Vpc -Value New-EC2Vpc
 Set-Alias -Name EC2-CreateVpc -Value New-EC2Vpc
-Set-Alias -Name Create-EC2VpcEndpoint -Value New-EC2VpcEndpoint
-Set-Alias -Name EC2-CreateVpcEndpoint -Value New-EC2VpcEndpoint
 Set-Alias -Name EC2-AcceptReservedInstancesExchangeQuote -Value Confirm-EC2ReservedInstancesExchangeQuote
 Set-Alias -Name EC2-AcceptVpcPeeringConnection -Value Approve-EC2VpcPeeringConnection
 Set-Alias -Name Allocate-EC2Address -Value New-EC2Address

@@ -112,8 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>Use this parameter to configure a CloudWatch log stream to monitor application configuration
-        /// errors. For more information, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-monitor-configuration.html">Monitoring
-        /// Configuration Errors</a>.</para>
+        /// errors. For more information, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working
+        /// with Amazon CloudWatch Logs</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
