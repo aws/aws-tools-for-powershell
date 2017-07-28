@@ -1,3 +1,33 @@
+### 3.3.130.0 (2017-07-28)
+  * Fixed issue using Kerberos authentication when obtaining SAML federated credentials. The authentication process failed for some users with a '401 unauthorized' exception.
+  * Added new output format templates for the LogGroup and LogStream types for Amazon CloudWatch Logs.
+  * AWS Directory Service
+    - You can now improve the resilience and performance of your Microsoft AD directory by deploying additional domain controllers with the new Set-DSDomainControllerCount cmdlet (UpdateNumberofDomainControllers API). This cmdlet enables you to update the number of domain controllers you want for your directory. The new Get-DSDomainControllerList cmdlet (DescribeDomainControllers API) enables you to describe the detailed information of each domain controller of your directory. The output of the Get-Directory cmdlet was also extended to contain a new field,  'DesiredNumberOfDomainControllers'.
+  * Amazon Kinesis
+    - You can now encrypt your data at rest within an Amazon Kinesis Stream using server-side encryption using new cmdlets Start-KINStreamEncryption (StartStreamEncryption API) and Stop-KINStreamEncryption (StopStreamEncryption API). Server-side encryption via AWS KMS makes it easy for customers to meet strict data management requirements by encrypting their data at rest within the Amazon Kinesis Streams, a fully managed real-time data processing service.
+  * Amazon EC2 Simple Systems Management
+    - Added parameters to support patching for Amazon Linux, Red Hat and Ubuntu systems.  
+  * Amazon API Gateway
+    - Added new cmdlets Get-AGGatewayResponse (GetGatewayResponse API), Get-AG-GatewayResponseList (GetGatewayResponses API), Update-AGGatewayResponse(UpdateGatewayResponse API), Remove-AGGatewayResponse (DeleteGatewayResponse API) and Write-AGGatewayResponse (PutGatewayResponse API) to support management of gateway responses.
+  * AWS AppStream
+    - Amazon AppStream 2.0 image builders and fleets can now access applications and network resources that rely on Microsoft Active Directory (AD) for authentication and permissions. This new feature allows you to join your streaming instances to your AD, so you can use your existing AD user management tools. New cmdlets to support this feature are Get-APSDirectoryConfigList (DescribeDirectoryConfigs API), New-APSDirectoryConfig (CreateDirectoryConfig API), Remove-APSDirectoryConfig (DeleteDirectoryConfig API) and Update-APSDirectoryConfig (UpdateDirectoryConfig API). New-APSFleet was updated with new parameters to support specifying domain information.
+  * Application Discovery Service
+    - Updated the Get-ADSExportTask and Start-ADSExportTask cmdlets to support filters, allow export based on per agent id.
+  * Auto Scaling
+    - Updated the Write-ASScalingPolicy to support a new type of scaling policy called target tracking scaling policies that you can use to set up dynamic scaling for your application.
+  * Amazon Cognito Identity Provider
+    - Updated the New-CGIPUserPool cmdlet to support configuration of user pools for email/phone based signup and sign-in.
+  * Amazon EC2
+    - X-ENI (or Cross-Account ENI) is a new feature that allows the attachment or association of Elastic Network Interfaces (ENI) between VPCs in different AWS accounts located in the same availability zone. With this new capability, service providers and partners can deliver managed solutions in a variety of new architectural patterns where the provider and consumer of the service are in different AWS accounts. To support this new feature the cmdlets Get-EC2NetworkInterfacePermission (DescribeNetworkInterfacePermissions API), New-EC2NetworkInterfacePermission (CreateNetworkInterfacePermission API) and Remove-EC2NetworkInterfacePermission (DeleteNetworkInterfacePermission) were added.
+    - Added cmdlet Get-EC2ElasticGpu (DescribeElasticGpus API). Amazon EC2 Elastic GPUs allow you to easily attach low-cost graphics acceleration to current generation EC2 instances. With Amazon EC2 Elastic GPUs, you can configure the right amount of graphics acceleration to your particular workload without being constrained by fixed hardware configurations and limited GPU selection.
+    - Added cmdlet New-EC2DefaultVpc (CreateDefaultVpc API). You no longer need to contact AWS support, if your default VPC has been deleted.
+  * Amazon Elastic MapReduce
+    - Added support for the ability to use a custom Amazon Linux AMI and adjustable root volume size when launching a cluster.
+  * Amazon Lambda
+    - Updated the Get-LMFunctionList cmdlet to support the latest Lambda@Edge enhancements.
+  * AWS CloudFormation
+    - Added and updated cmdlets to support StackSets, enabling users to manage stacks across multiple accounts and regions. 
+
 ### 3.3.119.0 (2017-07-07)
   * AWS CloudFormation
     - Added new helper cmdlets Test-CFNStack, which tests a CloudFormation stack to determine if it's in a certain status and Wait-CFNStack which Pauses execution of the script until the desired CloudFormation Stack status has been reached or timeout occurs.
