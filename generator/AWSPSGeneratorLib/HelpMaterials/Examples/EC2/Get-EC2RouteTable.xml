@@ -1,18 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2RouteTable -VpcId vpc-12345678
-    
-Associations    : {rtbassoc-12345678}
-PropagatingVgws : {}
-Routes          : {, }
-RouteTableId    : rtb-1a2b3c4d
-Tags            : {}
-VpcId           : vpc-12345678</code>
-    <description>This example describes the specified route table.</description>
-  </example>
-  <example>
-    <code>PS C:\> Get-EC2RouteTable
+    <code>Get-EC2RouteTable
     
 DestinationCidrBlock    : 10.0.0.0/16
 DestinationPrefixListId :
@@ -33,10 +22,21 @@ NetworkInterfaceId      :
 Origin                  : CreateRoute
 State                   : active
 VpcPeeringConnectionId  :</code>
-    <description>This example describes the routes for the specified route table.</description>
+    <description>This example describes all your route tables.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2RouteTable</code>
-    <description>This example describes all your route tables.</description>
+    <code>Get-EC2RouteTable -RouteTableId rtb-1a2b3c4d</code>
+    <description>This example returns details for the specified route table.</description>
+  </example>
+  <example>
+    <code>Get-EC2RouteTable -Filter @{ Name="vpc-id"; Value="vpc-1a2b3c4d" }
+    
+Associations    : {rtbassoc-12345678}
+PropagatingVgws : {}
+Routes          : {, }
+RouteTableId    : rtb-1a2b3c4d
+Tags            : {}
+VpcId           : vpc-1a2b3c4d</code>
+    <description>This example describes the route tables for the specified VPC.</description>
   </example>
 </examples>
