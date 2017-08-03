@@ -28,33 +28,22 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Returns information about your campaigns.
+    /// Returns information about your apps.
     /// </summary>
-    [Cmdlet("Get", "PINCampaignList")]
-    [OutputType("Amazon.Pinpoint.Model.CampaignsResponse")]
-    [AWSCmdlet("Invokes the GetCampaigns operation against Amazon Pinpoint.", Operation = new[] {"GetCampaigns"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.CampaignsResponse",
-        "This cmdlet returns a CampaignsResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetCampaignsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINAppList")]
+    [OutputType("Amazon.Pinpoint.Model.ApplicationsResponse")]
+    [AWSCmdlet("Invokes the GetApps operation against Amazon Pinpoint.", Operation = new[] {"GetApps"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.ApplicationsResponse",
+        "This cmdlet returns a ApplicationsResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetAppsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPINCampaignListCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class GetPINAppListCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
-        
-        #region Parameter ApplicationId
-        /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ApplicationId { get; set; }
-        #endregion
         
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// The number of entries you want on each page in
-        /// the response.
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,8 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter Token
         /// <summary>
         /// <para>
-        /// The NextToken string returned on a previous page
-        /// that you use to get the next page of results in a paginated response.
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -85,7 +73,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationId = this.ApplicationId;
             context.PageSize = this.PageSize;
             context.Token = this.Token;
             
@@ -102,12 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.GetCampaignsRequest();
+            var request = new Amazon.Pinpoint.Model.GetAppsRequest();
             
-            if (cmdletContext.ApplicationId != null)
-            {
-                request.ApplicationId = cmdletContext.ApplicationId;
-            }
             if (cmdletContext.PageSize != null)
             {
                 request.PageSize = cmdletContext.PageSize;
@@ -125,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CampaignsResponse;
+                object pipelineOutput = response.ApplicationsResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,14 +133,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.GetCampaignsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetCampaignsRequest request)
+        private Amazon.Pinpoint.Model.GetAppsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetAppsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetCampaigns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetApps");
             #if DESKTOP
-            return client.GetCampaigns(request);
+            return client.GetApps(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetCampaignsAsync(request);
+            var task = client.GetAppsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -168,7 +151,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
             public System.String PageSize { get; set; }
             public System.String Token { get; set; }
         }

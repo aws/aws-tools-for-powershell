@@ -1660,7 +1660,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory"
+            $v = "AWS::ACM::Certificate","AWS::CloudFormation::Stack","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory"
             break
         }
         
@@ -3147,6 +3147,13 @@ $INS_Completers = {
             break
         }
         
+        # Amazon.Inspector.StopAction
+        "Stop-INSAssessmentRun/StopAction"
+        {
+            $v = "SKIP_EVALUATION","START_EVALUATION"
+            break
+        }
+        
     }
     
     $v |
@@ -3159,6 +3166,7 @@ $INS_map = @{
     "Locale"=@("Get-INSFinding","Get-INSRulesPackage")
     "ReportFileFormat"=@("Get-INSAssessmentReport")
     "ReportType"=@("Get-INSAssessmentReport")
+    "StopAction"=@("Stop-INSAssessmentRun")
 }
 
 _awsArgumentCompleterRegistration $INS_Completers $INS_map
@@ -4862,6 +4870,13 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.SignalType
+        "Send-SSMAutomationSignal/SignalType"
+        {
+            $v = "Approve","Reject"
+            break
+        }
+        
     }
     
     $v |
@@ -4879,6 +4894,7 @@ $SSM_map = @{
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
     "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
+    "SignalType"=@("Send-SSMAutomationSignal")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
     "Type"=@("Write-SSMParameter")
 }

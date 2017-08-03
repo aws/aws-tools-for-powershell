@@ -24,9 +24,18 @@
     <ServiceOperation MethodName="BatchGetDeployments" Verb="Get" Noun="DeploymentBatch" LegacyAlias="Get-CDDeployments" />
     <ServiceOperation MethodName="ContinueDeployment" Verb="Resume" Output="Void"/>
     <ServiceOperation MethodName="CreateApplication" />
-    <ServiceOperation MethodName="CreateDeployment"/>
+    <ServiceOperation MethodName="CreateDeployment" Exclude="true">
+      <Params>
+        <Param Name="TargetInstances_Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="CreateDeploymentConfig" />
-    <ServiceOperation MethodName="CreateDeploymentGroup" />
+    <ServiceOperation MethodName="CreateDeploymentGroup" Exclude="true">
+      <Params>
+        <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoApplyAlias="false"/>
+        <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="DeleteApplication" Output="Void" />
     <ServiceOperation MethodName="DeleteDeploymentConfig" Output="Void" />
     <ServiceOperation MethodName="DeleteDeploymentGroup" ShouldProcessTarget="DeploymentGroupName" />
@@ -47,7 +56,12 @@
     <ServiceOperation MethodName="SkipWaitTimeForInstanceTermination" Output="Void"/>
     <ServiceOperation MethodName="StopDeployment" Output="Response" />
     <ServiceOperation MethodName="UpdateApplication" Output="Void" />
-    <ServiceOperation MethodName="UpdateDeploymentGroup" />
+    <ServiceOperation MethodName="UpdateDeploymentGroup" Exclude="true">
+      <Params>
+        <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoApplyAlias="false"/>
+        <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
     <!-- On Premises operations -->
     <ServiceOperation MethodName="AddTagsToOnPremisesInstances" Verb="Add" Noun="OnPremiseInstanceTag" Output="Void" />
     <ServiceOperation MethodName="BatchGetOnPremisesInstances" Verb="Get" Noun="OnPremiseInstanceBatch"/>

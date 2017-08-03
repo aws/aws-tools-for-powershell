@@ -28,53 +28,48 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Returns information about your campaigns.
+    /// Used to create an app.
     /// </summary>
-    [Cmdlet("Get", "PINCampaignList")]
-    [OutputType("Amazon.Pinpoint.Model.CampaignsResponse")]
-    [AWSCmdlet("Invokes the GetCampaigns operation against Amazon Pinpoint.", Operation = new[] {"GetCampaigns"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.CampaignsResponse",
-        "This cmdlet returns a CampaignsResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetCampaignsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "PINApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Pinpoint.Model.ApplicationResponse")]
+    [AWSCmdlet("Invokes the CreateApp operation against Amazon Pinpoint.", Operation = new[] {"CreateApp"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.ApplicationResponse",
+        "This cmdlet returns a ApplicationResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPINCampaignListCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class NewPINAppCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationId
+        #region Parameter CreateApplicationRequest_Name
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// The display name of the application. Used in the
+        /// Amazon Pinpoint console.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ApplicationId { get; set; }
+        public System.String CreateApplicationRequest_Name { get; set; }
         #endregion
         
-        #region Parameter PageSize
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// The number of entries you want on each page in
-        /// the response.
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PageSize { get; set; }
-        #endregion
-        
-        #region Parameter Token
-        /// <summary>
-        /// <para>
-        /// The NextToken string returned on a previous page
-        /// that you use to get the next page of results in a paginated response.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Token { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CreateApplicationRequest_Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PINApp (CreateApp)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -85,9 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationId = this.ApplicationId;
-            context.PageSize = this.PageSize;
-            context.Token = this.Token;
+            context.CreateApplicationRequest_Name = this.CreateApplicationRequest_Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -102,19 +95,26 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.GetCampaignsRequest();
+            var request = new Amazon.Pinpoint.Model.CreateAppRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            
+             // populate CreateApplicationRequest
+            bool requestCreateApplicationRequestIsNull = true;
+            request.CreateApplicationRequest = new Amazon.Pinpoint.Model.CreateApplicationRequest();
+            System.String requestCreateApplicationRequest_createApplicationRequest_Name = null;
+            if (cmdletContext.CreateApplicationRequest_Name != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
+                requestCreateApplicationRequest_createApplicationRequest_Name = cmdletContext.CreateApplicationRequest_Name;
             }
-            if (cmdletContext.PageSize != null)
+            if (requestCreateApplicationRequest_createApplicationRequest_Name != null)
             {
-                request.PageSize = cmdletContext.PageSize;
+                request.CreateApplicationRequest.Name = requestCreateApplicationRequest_createApplicationRequest_Name;
+                requestCreateApplicationRequestIsNull = false;
             }
-            if (cmdletContext.Token != null)
+             // determine if request.CreateApplicationRequest should be set to null
+            if (requestCreateApplicationRequestIsNull)
             {
-                request.Token = cmdletContext.Token;
+                request.CreateApplicationRequest = null;
             }
             
             CmdletOutput output;
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CampaignsResponse;
+                object pipelineOutput = response.ApplicationResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,14 +150,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.GetCampaignsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetCampaignsRequest request)
+        private Amazon.Pinpoint.Model.CreateAppResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.CreateAppRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetCampaigns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "CreateApp");
             #if DESKTOP
-            return client.GetCampaigns(request);
+            return client.CreateApp(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetCampaignsAsync(request);
+            var task = client.CreateAppAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -168,9 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.String PageSize { get; set; }
-            public System.String Token { get; set; }
+            public System.String CreateApplicationRequest_Name { get; set; }
         }
         
     }

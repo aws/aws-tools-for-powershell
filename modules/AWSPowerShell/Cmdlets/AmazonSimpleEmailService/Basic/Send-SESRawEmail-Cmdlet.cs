@@ -45,6 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// The total size of the message cannot exceed 10 MB. This includes any attachments that
     /// are part of the message.
     /// </para></li><li><para>
+    /// You must provide at least one recipient email address. The recipient address can be
+    /// a To: address, a CC: address, or a BCC: address. If any email address you provide
+    /// is invalid, Amazon SES rejects the entire email.
+    /// </para></li><li><para>
     /// Amazon SES has a limit on the total number of recipients per message. The combined
     /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
     /// an email message to a larger audience, you can divide your recipient list into groups
@@ -102,9 +106,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter RawMessage_Data
         /// <summary>
         /// <para>
-        /// <para>The raw data of the message. The client must ensure that the message format complies
-        /// with Internet email standards regarding email header fields, MIME types, MIME encoding,
-        /// and base64 encoding.</para><para>The To:, CC:, and BCC: headers in the raw message can contain a group list.</para><para>If you are using <code>SendRawEmail</code> with sending authorization, you can include
+        /// <para>The raw data of the message. This data needs to base64-encoded if you are accessing
+        /// Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using
+        /// an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the
+        /// client must ensure that the message format complies with Internet email standards
+        /// regarding email header fields, MIME types, and MIME encoding.</para><para>The To:, CC:, and BCC: headers in the raw message can contain a group list.</para><para>If you are using <code>SendRawEmail</code> with sending authorization, you can include
         /// X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses.
         /// For more information, see the documentation for <code>SendRawEmail</code>. </para><important><para>Do not include these X-headers in the DKIM signature, because they are removed by
         /// Amazon SES before sending the email.</para></important><para>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon

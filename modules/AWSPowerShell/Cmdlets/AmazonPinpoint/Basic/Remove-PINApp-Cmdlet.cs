@@ -28,16 +28,16 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Returns information about your campaigns.
+    /// Deletes an app.
     /// </summary>
-    [Cmdlet("Get", "PINCampaignList")]
-    [OutputType("Amazon.Pinpoint.Model.CampaignsResponse")]
-    [AWSCmdlet("Invokes the GetCampaigns operation against Amazon Pinpoint.", Operation = new[] {"GetCampaigns"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.CampaignsResponse",
-        "This cmdlet returns a CampaignsResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.GetCampaignsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "PINApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Pinpoint.Model.ApplicationResponse")]
+    [AWSCmdlet("Invokes the DeleteApp operation against Amazon Pinpoint.", Operation = new[] {"DeleteApp"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.ApplicationResponse",
+        "This cmdlet returns a ApplicationResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.DeleteAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetPINCampaignListCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class RemovePINAppCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
@@ -50,31 +50,25 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter PageSize
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// The number of entries you want on each page in
-        /// the response.
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PageSize { get; set; }
-        #endregion
-        
-        #region Parameter Token
-        /// <summary>
-        /// <para>
-        /// The NextToken string returned on a previous page
-        /// that you use to get the next page of results in a paginated response.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String Token { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PINApp (DeleteApp)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -86,8 +80,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
-            context.PageSize = this.PageSize;
-            context.Token = this.Token;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -102,19 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.GetCampaignsRequest();
+            var request = new Amazon.Pinpoint.Model.DeleteAppRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            if (cmdletContext.PageSize != null)
-            {
-                request.PageSize = cmdletContext.PageSize;
-            }
-            if (cmdletContext.Token != null)
-            {
-                request.Token = cmdletContext.Token;
             }
             
             CmdletOutput output;
@@ -125,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CampaignsResponse;
+                object pipelineOutput = response.ApplicationResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,14 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.GetCampaignsResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetCampaignsRequest request)
+        private Amazon.Pinpoint.Model.DeleteAppResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteAppRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetCampaigns");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteApp");
             #if DESKTOP
-            return client.GetCampaigns(request);
+            return client.DeleteApp(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetCampaignsAsync(request);
+            var task = client.DeleteAppAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -169,8 +153,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
-            public System.String PageSize { get; set; }
-            public System.String Token { get; set; }
         }
         
     }

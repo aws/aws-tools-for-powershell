@@ -31,6 +31,7 @@
     <ServiceOperation MethodName="GetComplianceDetailsByResource"/>
     <ServiceOperation MethodName="GetComplianceSummaryByConfigRule"/>
     <ServiceOperation MethodName="GetComplianceSummaryByResourceType"/>
+    <ServiceOperation MethodName="GetDiscoveredResourceCounts" Noun="DiscoveredResourceCount" NoPipelineParameter="true" />
     <ServiceOperation MethodName="GetResourceConfigHistory"/>
     <ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName"/>
     <ServiceOperation MethodName="PutConfigRule" PipelineParameter="ConfigRule_ConfigRuleName" Output="Void"/>
@@ -49,4 +50,8 @@
     <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" />
     <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
   </ServiceOperations>
+
+  <MetadataProperties>
+    <Property>TotalDiscoveredResources</Property>
+  </MetadataProperties>
 </ConfigModel>

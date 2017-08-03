@@ -32,7 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  <note><para>
     /// When you create or update an event destination, you must provide one, and only one,
-    /// destination. The destination can be either Amazon CloudWatch or Amazon Kinesis Firehose.
+    /// destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose, or
+    /// Amazon Simple Notification Service (Amazon SNS).
     /// </para></note><para>
     /// An event destination is the AWS service to which Amazon SES publishes the email sending
     /// events associated with a configuration set. For information about using configuration
@@ -131,6 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.SES
         public System.String EventDestination_Name { get; set; }
         #endregion
         
+        #region Parameter SNSDestination_TopicARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the Amazon SNS topic to which you want to publish email sending events.
+        /// An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
+        /// For more information about Amazon SNS topics, see the <a href="http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html"><i>Amazon SNS Developer Guide</i></a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EventDestination_SNSDestination_TopicARN")]
+        public System.String SNSDestination_TopicARN { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the ConfigurationSetName parameter.
@@ -183,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 context.EventDestination_MatchingEventTypes = new List<System.String>(this.EventDestination_MatchingEventType);
             }
             context.EventDestination_Name = this.EventDestination_Name;
+            context.EventDestination_SNSDestination_TopicARN = this.SNSDestination_TopicARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -260,6 +275,31 @@ namespace Amazon.PowerShell.Cmdlets.SES
             if (requestEventDestination_eventDestination_CloudWatchDestination != null)
             {
                 request.EventDestination.CloudWatchDestination = requestEventDestination_eventDestination_CloudWatchDestination;
+                requestEventDestinationIsNull = false;
+            }
+            Amazon.SimpleEmail.Model.SNSDestination requestEventDestination_eventDestination_SNSDestination = null;
+            
+             // populate SNSDestination
+            bool requestEventDestination_eventDestination_SNSDestinationIsNull = true;
+            requestEventDestination_eventDestination_SNSDestination = new Amazon.SimpleEmail.Model.SNSDestination();
+            System.String requestEventDestination_eventDestination_SNSDestination_sNSDestination_TopicARN = null;
+            if (cmdletContext.EventDestination_SNSDestination_TopicARN != null)
+            {
+                requestEventDestination_eventDestination_SNSDestination_sNSDestination_TopicARN = cmdletContext.EventDestination_SNSDestination_TopicARN;
+            }
+            if (requestEventDestination_eventDestination_SNSDestination_sNSDestination_TopicARN != null)
+            {
+                requestEventDestination_eventDestination_SNSDestination.TopicARN = requestEventDestination_eventDestination_SNSDestination_sNSDestination_TopicARN;
+                requestEventDestination_eventDestination_SNSDestinationIsNull = false;
+            }
+             // determine if requestEventDestination_eventDestination_SNSDestination should be set to null
+            if (requestEventDestination_eventDestination_SNSDestinationIsNull)
+            {
+                requestEventDestination_eventDestination_SNSDestination = null;
+            }
+            if (requestEventDestination_eventDestination_SNSDestination != null)
+            {
+                request.EventDestination.SNSDestination = requestEventDestination_eventDestination_SNSDestination;
                 requestEventDestinationIsNull = false;
             }
             Amazon.SimpleEmail.Model.KinesisFirehoseDestination requestEventDestination_eventDestination_KinesisFirehoseDestination = null;
@@ -363,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             public System.String EventDestination_KinesisFirehoseDestination_IAMRoleARN { get; set; }
             public List<System.String> EventDestination_MatchingEventTypes { get; set; }
             public System.String EventDestination_Name { get; set; }
+            public System.String EventDestination_SNSDestination_TopicARN { get; set; }
         }
         
     }

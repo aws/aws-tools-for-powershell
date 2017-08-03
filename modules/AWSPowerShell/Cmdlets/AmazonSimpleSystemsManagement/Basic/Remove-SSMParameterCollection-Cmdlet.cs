@@ -28,7 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Delete a list of parameters.
+    /// Delete a list of parameters. This API is used to delete parameters by using the Amazon
+    /// EC2 console.
     /// </summary>
     [Cmdlet("Remove", "SSMParameterCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse")]

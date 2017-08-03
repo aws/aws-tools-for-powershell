@@ -29,7 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Retrieve parameters in a specific hierarchy. For more information, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-working.html">Working
-    /// with Systems Manager Parameters</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// with Systems Manager Parameters</a>. 
+    /// 
+    ///  
+    /// <para>
+    /// Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
+    /// in the request, the response includes information up to the limit specified. The number
+    /// of items returned, however, can be between zero and the value of <code>MaxResults</code>.
+    /// If the service reaches an internal limit while processing the results, it stops the
+    /// operation and returns the matching values up to that point and a <code>NextToken</code>.
+    /// You can specify the <code>NextToken</code> in a subsequent call to get the next set
+    /// of results.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]

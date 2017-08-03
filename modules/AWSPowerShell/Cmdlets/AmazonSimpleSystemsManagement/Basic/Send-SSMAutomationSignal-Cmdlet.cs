@@ -22,51 +22,61 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Inspector;
-using Amazon.Inspector.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.INS
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Stops the assessment run that is specified by the ARN of the assessment run.
+    /// Sends a signal to an Automation execution to change the current behavior or status
+    /// of the execution.
     /// </summary>
-    [Cmdlet("Stop", "INSAssessmentRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Send", "SSMAutomationSignal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopAssessmentRun operation against Amazon Inspector.", Operation = new[] {"StopAssessmentRun"})]
+    [AWSCmdlet("Invokes the SendAutomationSignal operation against Amazon Simple Systems Management.", Operation = new[] {"SendAutomationSignal"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssessmentRunArn parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.Inspector.Model.StopAssessmentRunResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutomationExecutionId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class StopINSAssessmentRunCmdlet : AmazonInspectorClientCmdlet, IExecutor
+    public partial class SendSSMAutomationSignalCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter AssessmentRunArn
+        #region Parameter AutomationExecutionId
         /// <summary>
         /// <para>
-        /// <para>The ARN of the assessment run that you want to stop.</para>
+        /// <para>The unique identifier for an existing Automation execution that you want to send the
+        /// signal to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String AssessmentRunArn { get; set; }
+        public System.String AutomationExecutionId { get; set; }
         #endregion
         
-        #region Parameter StopAction
+        #region Parameter Payload
         /// <summary>
         /// <para>
-        /// <para>An input option that can be set to either START_EVALUATION or SKIP_EVALUATION. START_EVALUATION
-        /// (the default value), stops the AWS agent from collecting data and begins the results
-        /// evaluation and the findings generation process. SKIP_EVALUATION cancels the assessment
-        /// run immediately, after which no findings are generated.</para>
+        /// <para>The data sent with the signal. The data schema depends on the type of signal used
+        /// in the request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.Inspector.StopAction")]
-        public Amazon.Inspector.StopAction StopAction { get; set; }
+        public System.Collections.Hashtable Payload { get; set; }
+        #endregion
+        
+        #region Parameter SignalType
+        /// <summary>
+        /// <para>
+        /// <para>The type of signal. Valid signal types include the following: Approve and Reject </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.SignalType")]
+        public Amazon.SimpleSystemsManagement.SignalType SignalType { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the AssessmentRunArn parameter.
+        /// Returns the value passed to the AutomationExecutionId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AssessmentRunArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Stop-INSAssessmentRun (StopAssessmentRun)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("AutomationExecutionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Send-SSMAutomationSignal (SendAutomationSignal)"))
             {
                 return;
             }
@@ -102,8 +112,28 @@ namespace Amazon.PowerShell.Cmdlets.INS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AssessmentRunArn = this.AssessmentRunArn;
-            context.StopAction = this.StopAction;
+            context.AutomationExecutionId = this.AutomationExecutionId;
+            if (this.Payload != null)
+            {
+                context.Payload = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Payload.Keys)
+                {
+                    object hashValue = this.Payload[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.Payload.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<String>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((String)s);
+                    }
+                    context.Payload.Add((String)hashKey, valueSet);
+                }
+            }
+            context.SignalType = this.SignalType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -118,15 +148,19 @@ namespace Amazon.PowerShell.Cmdlets.INS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Inspector.Model.StopAssessmentRunRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.SendAutomationSignalRequest();
             
-            if (cmdletContext.AssessmentRunArn != null)
+            if (cmdletContext.AutomationExecutionId != null)
             {
-                request.AssessmentRunArn = cmdletContext.AssessmentRunArn;
+                request.AutomationExecutionId = cmdletContext.AutomationExecutionId;
             }
-            if (cmdletContext.StopAction != null)
+            if (cmdletContext.Payload != null)
             {
-                request.StopAction = cmdletContext.StopAction;
+                request.Payload = cmdletContext.Payload;
+            }
+            if (cmdletContext.SignalType != null)
+            {
+                request.SignalType = cmdletContext.SignalType;
             }
             
             CmdletOutput output;
@@ -139,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.AssessmentRunArn;
+                    pipelineOutput = this.AutomationExecutionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -164,14 +198,14 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #region AWS Service Operation Call
         
-        private Amazon.Inspector.Model.StopAssessmentRunResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.StopAssessmentRunRequest request)
+        private Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.SendAutomationSignalRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "StopAssessmentRun");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "SendAutomationSignal");
             #if DESKTOP
-            return client.StopAssessmentRun(request);
+            return client.SendAutomationSignal(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StopAssessmentRunAsync(request);
+            var task = client.SendAutomationSignalAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -182,8 +216,9 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         internal class CmdletContext : ExecutorContext
         {
-            public System.String AssessmentRunArn { get; set; }
-            public Amazon.Inspector.StopAction StopAction { get; set; }
+            public System.String AutomationExecutionId { get; set; }
+            public Dictionary<System.String, List<System.String>> Payload { get; set; }
+            public Amazon.SimpleSystemsManagement.SignalType SignalType { get; set; }
         }
         
     }

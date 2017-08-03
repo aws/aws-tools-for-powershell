@@ -57,7 +57,7 @@
         <ServiceOperation MethodName="RemoveAttributesFromFindings" Noun="FindingAttribute" NoPipelineParameter="true" />
         <ServiceOperation MethodName="SetTagsForResource" Output="Void" Noun="ResourceTag" PipelineParameter="ResourceArn" />
         <ServiceOperation MethodName="StartAssessmentRun" NoPipelineParameter="true" ShouldProcessTarget="AssessmentTemplateArn" />
-        <ServiceOperation MethodName="StopAssessmentRun" Output="Void" />
+        <ServiceOperation MethodName="StopAssessmentRun" Output="Void" PipelineParameter="AssessmentRunArn" />
         <ServiceOperation MethodName="SubscribeToEvent" Output="Void" Noun="EventSubscription" Verb="Add" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
         <ServiceOperation MethodName="UnsubscribeFromEvent" Output="Void" Noun="EventSubscription" Verb="Remove" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
         <ServiceOperation MethodName="UpdateAssessmentTarget" Output="Void" PipelineParameter="AssessmentTargetArn" />

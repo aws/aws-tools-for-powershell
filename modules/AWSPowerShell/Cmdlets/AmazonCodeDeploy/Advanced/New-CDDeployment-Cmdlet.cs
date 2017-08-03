@@ -131,6 +131,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String Description { get; set; }
         #endregion
         
+        #region Parameter Ec2TagSetList
+        /// <summary>
+        /// <para>
+        /// <para>A list containing other lists of EC2 instance tag groups. In order for an instance
+        /// to be included in the deployment group, it must be identified by all the tag groups
+        /// in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.EC2TagFilter[][] Ec2TagSetList { get; set; }
+        #endregion
+        
         #region Parameter AutoRollbackConfiguration_Enabled
         /// <summary>
         /// <para>
@@ -222,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement
-        /// environment for a blue/green deployment.</para>
+        /// environment for a blue/green deployment. Cannot be used in the same call as ec2TagSet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -319,6 +331,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (this.TargetInstances_AutoScalingGroup != null)
             {
                 context.TargetInstances_AutoScalingGroups = new List<System.String>(this.TargetInstances_AutoScalingGroup);
+            }
+            if (this.Ec2TagSetList != null)
+            {
+                context.Ec2TagSetList = new List<List<Amazon.CodeDeploy.Model.EC2TagFilter>>();
+                foreach (var innerList in this.Ec2TagSetList)
+                {
+                    context.Ec2TagSetList.Add(new List<EC2TagFilter>(innerList));
+                }
             }
             if (this.TargetInstances_TagFilter != null)
             {
@@ -538,6 +558,31 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.TargetInstances.TagFilters = requestTargetInstances_targetInstances_TagFilter;
                 requestTargetInstancesIsNull = false;
             }
+            Amazon.CodeDeploy.Model.EC2TagSet requestTargetInstances_targetInstances_Ec2TagSet = null;
+            
+             // populate Ec2TagSet
+            bool requestTargetInstances_targetInstances_Ec2TagSetIsNull = true;
+            requestTargetInstances_targetInstances_Ec2TagSet = new Amazon.CodeDeploy.Model.EC2TagSet();
+            List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList = null;
+            if (cmdletContext.Ec2TagSetList != null)
+            {
+                requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList = cmdletContext.Ec2TagSetList;
+            }
+            if (requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList != null)
+            {
+                requestTargetInstances_targetInstances_Ec2TagSet.Ec2TagSetList = requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList;
+                requestTargetInstances_targetInstances_Ec2TagSetIsNull = false;
+            }
+             // determine if requestTargetInstances_targetInstances_Ec2TagSet should be set to null
+            if (requestTargetInstances_targetInstances_Ec2TagSetIsNull)
+            {
+                requestTargetInstances_targetInstances_Ec2TagSet = null;
+            }
+            if (requestTargetInstances_targetInstances_Ec2TagSet != null)
+            {
+                request.TargetInstances.Ec2TagSet = requestTargetInstances_targetInstances_Ec2TagSet;
+                requestTargetInstancesIsNull = false;
+            }
              // determine if request.TargetInstances should be set to null
             if (requestTargetInstancesIsNull)
             {
@@ -616,6 +661,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String Revision_S3Location_Key { get; set; }
             public System.String Revision_S3Location_Version { get; set; }
             public List<System.String> TargetInstances_AutoScalingGroups { get; set; }
+            public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> TargetInstances_TagFilters { get; set; }
             public System.Boolean? UpdateOutdatedInstancesOnly { get; set; }
         }

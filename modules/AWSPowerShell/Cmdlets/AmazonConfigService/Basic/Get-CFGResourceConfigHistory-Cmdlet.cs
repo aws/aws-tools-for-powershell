@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// 
     ///  
     /// <para>
-    /// The response is paginated, and by default, AWS Config returns a limit of 10 configuration
+    /// The response is paginated. By default, AWS Config returns a limit of 10 configuration
     /// items per page. You can customize this number with the <code>limit</code> parameter.
-    /// The response includes a <code>nextToken</code> string, and to get the next page of
-    /// results, run the request again and enter this string for the <code>nextToken</code>
-    /// parameter.
+    /// The response includes a <code>nextToken</code> string. To get the next page of results,
+    /// run the request again and specify the string for the <code>nextToken</code> parameter.
     /// </para><note><para>
     /// Each call to the API is limited to span a duration of seven days. It is likely that
     /// the number of records returned is smaller than the specified <code>limit</code>. In

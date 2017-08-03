@@ -89,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         #region Parameter EndpointRequest_ChannelType
         /// <summary>
         /// <para>
-        /// The channel type.Valid values: APNS, GCM
+        /// The channel type.Valid values: GCM | APNS
+        /// | SMS | EMAIL
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -239,8 +240,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// <summary>
         /// <para>
         /// Indicates whether a user has opted out of receiving
-        /// messages with one of the following values:ALL – User receives all messages.NONE –
-        /// User receives no messages.
+        /// messages with one of the following values:ALL - User has opted out of all messages.NONE
+        /// - Users has not opted out and receives all messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

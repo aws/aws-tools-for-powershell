@@ -1084,6 +1084,7 @@ Set-Alias -Name Create-CGIPUserImportJob -Value New-CGIPUserImportJob
 Set-Alias -Name CGIP-CreateUserImportJob -Value New-CGIPUserImportJob
 Set-Alias -Name Create-CGIPUserPool -Value New-CGIPUserPool
 Set-Alias -Name CGIP-CreateUserPool -Value New-CGIPUserPool
+Set-Alias -Name CFG-StopConfigurationRecorder -Value Stop-CFGConfigurationRecorder
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder
@@ -1113,6 +1114,7 @@ Set-Alias -Name CFG-GetComplianceDetailsByConfigRule -Value Get-CFGComplianceDet
 Set-Alias -Name CFG-GetComplianceDetailsByResource -Value Get-CFGComplianceDetailsByResource
 Set-Alias -Name CFG-GetComplianceSummaryByConfigRule -Value Get-CFGComplianceSummaryByConfigRule
 Set-Alias -Name CFG-GetComplianceSummaryByResourceType -Value Get-CFGComplianceSummaryByResourceType
+Set-Alias -Name CFG-GetDiscoveredResourceCounts -Value Get-CFGDiscoveredResourceCount
 Set-Alias -Name CFG-GetResourceConfigHistory -Value Get-CFGResourceConfigHistory
 Set-Alias -Name CFG-ListDiscoveredResources -Value Get-CFGDiscoveredResource
 Set-Alias -Name Put-CFGConfigRule -Value Write-CFGConfigRule
@@ -1125,7 +1127,6 @@ Set-Alias -Name Put-CFGEvaluation -Value Write-CFGEvaluation
 Set-Alias -Name CFG-PutEvaluations -Value Write-CFGEvaluation
 Set-Alias -Name CFG-StartConfigRulesEvaluation -Value Start-CFGConfigRulesEvaluation
 Set-Alias -Name CFG-StartConfigurationRecorder -Value Start-CFGConfigurationRecorder
-Set-Alias -Name CFG-StopConfigurationRecorder -Value Stop-CFGConfigurationRecorder
 Set-Alias -Name Delete-CURReportDefinition -Value Remove-CURReportDefinition
 Set-Alias -Name CUR-DeleteReportDefinition -Value Remove-CURReportDefinition
 Set-Alias -Name Describe-CURReportDefinition -Value Get-CURReportDefinition
@@ -3362,6 +3363,10 @@ Set-Alias -Name ORG-ListChildren -Value Get-ORGChild
 Set-Alias -Name ORG-ListCreateAccountStatus -Value Get-ORGAccountCreationStatusList
 Set-Alias -Name ORG-ListHandshakesForAccount -Value Get-ORGAccountHandshakeList
 Set-Alias -Name ORG-ListHandshakesForOrganization -Value Get-ORGOrganizationHandshakeList
+Set-Alias -Name PIN-GetSegment -Value Get-PINSegment
+Set-Alias -Name PIN-GetSegmentImportJobs -Value Get-PINSegmentImportJobList
+Set-Alias -Name PIN-GetSegments -Value Get-PINSegmentList
+Set-Alias -Name PIN-GetSegmentVersion -Value Get-PINSegmentVersion
 Set-Alias -Name PIN-GetSegmentVersions -Value Get-PINSegmentVersionList
 Set-Alias -Name PIN-GetSmsChannel -Value Get-PINSmsChannel
 Set-Alias -Name Put-PINEventStream -Value Write-PINEventStream
@@ -3377,6 +3382,8 @@ Set-Alias -Name PIN-UpdateEndpointsBatch -Value Update-PINEndpointsBatch
 Set-Alias -Name PIN-UpdateGcmChannel -Value Update-PINGcmChannel
 Set-Alias -Name PIN-UpdateSegment -Value Update-PINSegment
 Set-Alias -Name PIN-UpdateSmsChannel -Value Update-PINSmsChannel
+Set-Alias -Name Create-PINApp -Value New-PINApp
+Set-Alias -Name PIN-CreateApp -Value New-PINApp
 Set-Alias -Name Create-PINCampaign -Value New-PINCampaign
 Set-Alias -Name PIN-CreateCampaign -Value New-PINCampaign
 Set-Alias -Name Create-PINImportJob -Value New-PINImportJob
@@ -3387,6 +3394,8 @@ Set-Alias -Name Delete-PINApnsChannel -Value Remove-PINApnsChannel
 Set-Alias -Name PIN-DeleteApnsChannel -Value Remove-PINApnsChannel
 Set-Alias -Name Delete-PINApnsSandboxChannel -Value Remove-PINApnsSandboxChannel
 Set-Alias -Name PIN-DeleteApnsSandboxChannel -Value Remove-PINApnsSandboxChannel
+Set-Alias -Name Delete-PINApp -Value Remove-PINApp
+Set-Alias -Name PIN-DeleteApp -Value Remove-PINApp
 Set-Alias -Name Delete-PINCampaign -Value Remove-PINCampaign
 Set-Alias -Name PIN-DeleteCampaign -Value Remove-PINCampaign
 Set-Alias -Name Delete-PINEmailChannel -Value Remove-PINEmailChannel
@@ -3401,7 +3410,9 @@ Set-Alias -Name Delete-PINSmsChannel -Value Remove-PINSmsChannel
 Set-Alias -Name PIN-DeleteSmsChannel -Value Remove-PINSmsChannel
 Set-Alias -Name PIN-GetApnsChannel -Value Get-PINApnsChannel
 Set-Alias -Name PIN-GetApnsSandboxChannel -Value Get-PINApnsSandboxChannel
+Set-Alias -Name PIN-GetApp -Value Get-PINApp
 Set-Alias -Name PIN-GetApplicationSettings -Value Get-PINApplicationSettingList
+Set-Alias -Name PIN-GetApps -Value Get-PINAppList
 Set-Alias -Name PIN-GetCampaign -Value Get-PINCampaign
 Set-Alias -Name PIN-GetCampaignActivities -Value Get-PINCampaignActivityList
 Set-Alias -Name PIN-GetCampaigns -Value Get-PINCampaignList
@@ -3413,10 +3424,6 @@ Set-Alias -Name PIN-GetEventStream -Value Get-PINEventStream
 Set-Alias -Name PIN-GetGcmChannel -Value Get-PINGcmChannel
 Set-Alias -Name PIN-GetImportJob -Value Get-PINImportJob
 Set-Alias -Name PIN-GetImportJobs -Value Get-PINImportJobList
-Set-Alias -Name PIN-GetSegment -Value Get-PINSegment
-Set-Alias -Name PIN-GetSegmentImportJobs -Value Get-PINSegmentImportJobList
-Set-Alias -Name PIN-GetSegments -Value Get-PINSegmentList
-Set-Alias -Name PIN-GetSegmentVersion -Value Get-PINSegmentVersion
 Set-Alias -Name Delete-POLLexicon -Value Remove-POLLexicon
 Set-Alias -Name POL-DeleteLexicon -Value Remove-POLLexicon
 Set-Alias -Name Describe-POLVoice -Value Get-POLVoice
@@ -4201,6 +4208,7 @@ Set-Alias -Name SQS-SendMessage -Value Send-SQSMessage
 Set-Alias -Name SQS-SendMessageBatch -Value Send-SQSMessageBatch
 Set-Alias -Name Set-SQSQueueAttributes -Value Set-SQSQueueAttribute
 Set-Alias -Name SQS-SetQueueAttributes -Value Set-SQSQueueAttribute
+Set-Alias -Name SSM-UpdateAssociation -Value Update-SSMAssociation
 Set-Alias -Name SSM-UpdateAssociationStatus -Value Update-SSMAssociationStatus
 Set-Alias -Name SSM-UpdateDocument -Value Update-SSMDocument
 Set-Alias -Name SSM-UpdateDocumentDefaultVersion -Value Update-SSMDocumentDefaultVersion
@@ -4235,10 +4243,10 @@ Set-Alias -Name SSM-RegisterPatchBaselineForPatchGroup -Value Register-SSMPatchB
 Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow
 Set-Alias -Name SSM-RegisterTaskWithMaintenanceWindow -Value Register-SSMTaskWithMaintenanceWindow
 Set-Alias -Name SSM-RemoveTagsFromResource -Value Remove-SSMResourceTag
+Set-Alias -Name SSM-SendAutomationSignal -Value Send-SSMAutomationSignal
 Set-Alias -Name SSM-SendCommand -Value Send-SSMCommand
 Set-Alias -Name SSM-StartAutomationExecution -Value Start-SSMAutomationExecution
 Set-Alias -Name SSM-StopAutomationExecution -Value Stop-SSMAutomationExecution
-Set-Alias -Name SSM-UpdateAssociation -Value Update-SSMAssociation
 Set-Alias -Name Describe-SSMDocumentPermission -Value Get-SSMDocumentPermission
 Set-Alias -Name SSM-DescribeDocumentPermission -Value Get-SSMDocumentPermission
 Set-Alias -Name Describe-SSMEffectiveInstanceAssociationList -Value Get-SSMEffectiveInstanceAssociationList

@@ -44,6 +44,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// The total size of the message cannot exceed 10 MB. This includes any attachments that
     /// are part of the message.
     /// </para></li><li><para>
+    /// You must provide at least one recipient email address. The recipient address can be
+    /// a To: address, a CC: address, or a BCC: address. If any email address you provide
+    /// is invalid, Amazon SES rejects the entire email.
+    /// </para></li><li><para>
     /// Amazon SES has a limit on the total number of recipients per message. The combined
     /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
     /// an email message to a larger audience, you can divide your recipient list into groups

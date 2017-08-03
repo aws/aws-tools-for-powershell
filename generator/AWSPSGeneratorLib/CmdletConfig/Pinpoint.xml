@@ -12,9 +12,11 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="UpdateSegment" />
+    <ServiceOperation MethodName="CreateApp" />
     <ServiceOperation MethodName="CreateCampaign" />
     <ServiceOperation MethodName="CreateImportJob" />
     <ServiceOperation MethodName="CreateSegment" />
+    <ServiceOperation MethodName="DeleteApp" />
     <ServiceOperation MethodName="DeleteApnsChannel"/>
     <ServiceOperation MethodName="DeleteCampaign" />
     <ServiceOperation MethodName="DeleteApnsSandboxChannel" />
@@ -23,6 +25,8 @@
     <ServiceOperation MethodName="DeleteGcmChannel"/>
     <ServiceOperation MethodName="DeleteSegment" />
     <ServiceOperation MethodName="DeleteSmsChannel" />
+    <ServiceOperation MethodName="GetApp" />
+    <ServiceOperation MethodName="GetApps" Noun="AppList" />
     <ServiceOperation MethodName="GetApnsChannel"/>
     <ServiceOperation MethodName="GetApnsSandboxChannel" />
     <ServiceOperation MethodName="GetApplicationSettings" Noun="ApplicationSettingList"/>

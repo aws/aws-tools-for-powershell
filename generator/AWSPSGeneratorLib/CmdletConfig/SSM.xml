@@ -137,6 +137,8 @@
     <ServiceOperation MethodName="ListResourceDataSync" />
     <ServiceOperation MethodName="CreateResourceDataSync" PipelineParameter="SyncName" Output="Void" />
     <ServiceOperation MethodName="DeleteResourceDataSync" Output="Void" />
+
+    <ServiceOperation MethodName="SendAutomationSignal" PipelineParameter="AutomationExecutionId" Output="Void" />
   </ServiceOperations>
 
   <VerbMappings>

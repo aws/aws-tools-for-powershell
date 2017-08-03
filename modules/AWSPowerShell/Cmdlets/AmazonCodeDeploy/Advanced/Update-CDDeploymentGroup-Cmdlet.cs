@@ -173,6 +173,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.EC2TagFilter[] Ec2TagFilter { get; set; }
         #endregion
         
+        #region Parameter Ec2TagSetList
+        /// <summary>
+        /// <para>
+        /// <para>A list containing other lists of EC2 instance tag groups. In order for an instance
+        /// to be included in the deployment group, it must be identified by all the tag groups
+        /// in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.EC2TagFilter[][] Ec2TagSetList { get; set; }
+        #endregion
+        
         #region Parameter LoadBalancerInfo_ElbInfoList
         /// <summary>
         /// <para>
@@ -249,6 +261,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("OnPremisesInstanceTagFilters")]
         public Amazon.CodeDeploy.Model.TagFilter[] OnPremisesInstanceTagFilter { get; set; }
+        #endregion
+        
+        #region Parameter OnPremisesTagSetList
+        /// <summary>
+        /// <para>
+        /// <para>A list containing other lists of on-premises instance tag groups. In order for an
+        /// instance to be included in the deployment group, it must be identified by all the
+        /// tag groups in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.TagFilter[][] OnPremisesTagSetList { get; set; }
         #endregion
         
         #region Parameter ServiceRoleArn
@@ -362,6 +386,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
             {
                 context.Ec2TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.Ec2TagFilter);
             }
+            if (this.Ec2TagSetList != null)
+            {
+                context.Ec2TagSetList = new List<List<Amazon.CodeDeploy.Model.EC2TagFilter>>();
+                foreach (var innerList in this.Ec2TagSetList)
+                {
+                    context.Ec2TagSetList.Add(new List<EC2TagFilter>(innerList));
+                }
+            }
             if (this.LoadBalancerInfo_ElbInfoList != null)
             {
                 context.LoadBalancerInfo_ElbInfoList = new List<Amazon.CodeDeploy.Model.ELBInfo>(this.LoadBalancerInfo_ElbInfoList);
@@ -370,6 +402,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (this.OnPremisesInstanceTagFilter != null)
             {
                 context.OnPremisesInstanceTagFilters = new List<Amazon.CodeDeploy.Model.TagFilter>(this.OnPremisesInstanceTagFilter);
+            }
+            if (this.OnPremisesTagSetList != null)
+            {
+                context.OnPremisesTagSetList = new List<List<Amazon.CodeDeploy.Model.TagFilter>>();
+                foreach (var innerList in this.OnPremisesTagSetList)
+                {
+                    context.OnPremisesTagSetList.Add(new List<TagFilter>(innerList));
+                }
             }
             context.ServiceRoleArn = this.ServiceRoleArn;
             if (this.TriggerConfiguration != null)
@@ -614,6 +654,25 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.Ec2TagFilters = cmdletContext.Ec2TagFilters;
             }
             
+             // populate Ec2TagSet
+            bool requestEc2TagSetIsNull = true;
+            request.Ec2TagSet = new Amazon.CodeDeploy.Model.EC2TagSet();
+            List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> requestEc2TagSet_ec2TagSetList = null;
+            if (cmdletContext.Ec2TagSetList != null)
+            {
+                requestEc2TagSet_ec2TagSetList = cmdletContext.Ec2TagSetList;
+            }
+            if (requestEc2TagSet_ec2TagSetList != null)
+            {
+                request.Ec2TagSet.Ec2TagSetList = requestEc2TagSet_ec2TagSetList;
+                requestEc2TagSetIsNull = false;
+            }
+             // determine if request.Ec2TagSet should be set to null
+            if (requestEc2TagSetIsNull)
+            {
+                request.Ec2TagSet = null;
+            }
+            
              // populate LoadBalancerInfo
             bool requestLoadBalancerInfoIsNull = true;
             request.LoadBalancerInfo = new Amazon.CodeDeploy.Model.LoadBalancerInfo();
@@ -639,6 +698,25 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.OnPremisesInstanceTagFilters != null)
             {
                 request.OnPremisesInstanceTagFilters = cmdletContext.OnPremisesInstanceTagFilters;
+            }
+            
+             // populate OnPremisesTagSet
+            bool requestOnPremisesTagSetIsNull = true;
+            request.OnPremisesTagSet = new Amazon.CodeDeploy.Model.OnPremisesTagSet();
+            List<List<Amazon.CodeDeploy.Model.TagFilter>> requestOnPremisesTagSet_onPremisesTagSetList = null;
+            if (cmdletContext.OnPremisesTagSetList != null)
+            {
+                requestOnPremisesTagSet_onPremisesTagSetList = cmdletContext.OnPremisesTagSetList;
+            }
+            if (requestOnPremisesTagSet_onPremisesTagSetList != null)
+            {
+                request.OnPremisesTagSet.OnPremisesTagSetList = requestOnPremisesTagSet_onPremisesTagSetList;
+                requestOnPremisesTagSetIsNull = false;
+            }
+             // determine if request.OnPremisesTagSet should be set to null
+            if (requestOnPremisesTagSetIsNull)
+            {
+                request.OnPremisesTagSet = null;
             }
             if (cmdletContext.ServiceRoleArn != null)
             {
@@ -717,9 +795,11 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public Amazon.CodeDeploy.DeploymentOption DeploymentStyle_DeploymentOption { get; set; }
             public Amazon.CodeDeploy.DeploymentType DeploymentStyle_DeploymentType { get; set; }
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
+            public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
             public List<Amazon.CodeDeploy.Model.ELBInfo> LoadBalancerInfo_ElbInfoList { get; set; }
             public System.String NewDeploymentGroupName { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
+            public List<List<Amazon.CodeDeploy.Model.TagFilter>> OnPremisesTagSetList { get; set; }
             public System.String ServiceRoleArn { get; set; }
             public List<Amazon.CodeDeploy.Model.TriggerConfig> TriggerConfigurations { get; set; }
         }
