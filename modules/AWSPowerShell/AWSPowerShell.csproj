@@ -117,6 +117,9 @@
     <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1.3\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SimpleWorkflow">
+      <HintPath>..\..\packages\AWSSDK.SimpleWorkflow.3.3.0.21\lib\net35\AWSSDK.SimpleWorkflow.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.WAFRegional">
       <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.1.3\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
     </Reference>

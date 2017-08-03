@@ -1003,9 +1003,10 @@ namespace AWSPowerShellGenerator.Generators
         /// </summary>
         private void LoadSpecialServiceAssemblies()
         {
-            string[] specialAssemblies = new[]
-            {
-                "AWSSDK.CloudSearchDomain"
+            string[] specialAssemblies = {
+                "AWSSDK.CloudSearchDomain",
+                // no cmdlets for swf but internal teams want the dll available to script against
+                "AWSSDK.SimpleWorkflow"      
             };
 
             Assembly assembly;

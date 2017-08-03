@@ -91,6 +91,7 @@
 		"AWSSDK.SimpleEmail": "3.3.2",
 		"AWSSDK.SimpleNotificationService": "3.3.0.21",
 		"AWSSDK.SimpleSystemsManagement": "3.3.8",
+		"AWSSDK.SimpleWorkflow": "3.3.0.21",
 		"AWSSDK.Snowball": "3.3.2.6",
 		"AWSSDK.SQS": "3.3.2.7",
 		"AWSSDK.StepFunctions": "3.3.0.18",

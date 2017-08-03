@@ -138,6 +138,7 @@ RequiredAssemblies = @(
   "AWSSDK.SimpleEmail.dll",
   "AWSSDK.SimpleNotificationService.dll",
   "AWSSDK.SimpleSystemsManagement.dll",
+  "AWSSDK.SimpleWorkflow.dll",
   "AWSSDK.Snowball.dll",
   "AWSSDK.SQS.dll",
   "AWSSDK.StepFunctions.dll",
