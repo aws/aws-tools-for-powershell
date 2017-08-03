@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String BotAlias { get; set; }
             public System.String BotName { get; set; }

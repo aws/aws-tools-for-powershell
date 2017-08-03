@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Organizations.PolicyType Filter { get; set; }
             public int? MaxResults { get; set; }

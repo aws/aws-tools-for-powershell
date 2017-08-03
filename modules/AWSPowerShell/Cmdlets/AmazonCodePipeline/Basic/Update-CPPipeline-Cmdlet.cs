@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CodePipeline.Model.PipelineDeclaration Pipeline { get; set; }
         }

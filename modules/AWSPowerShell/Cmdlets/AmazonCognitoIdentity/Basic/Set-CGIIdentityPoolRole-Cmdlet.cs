@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String IdentityPoolId { get; set; }
             public Dictionary<System.String, Amazon.CognitoIdentity.Model.RoleMapping> RoleMappings { get; set; }

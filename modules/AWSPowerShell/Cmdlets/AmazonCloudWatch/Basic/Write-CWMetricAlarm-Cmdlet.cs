@@ -517,7 +517,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ActionsEnabled { get; set; }
             public List<System.String> AlarmActions { get; set; }

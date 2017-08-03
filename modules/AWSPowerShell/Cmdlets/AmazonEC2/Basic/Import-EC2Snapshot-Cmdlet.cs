@@ -407,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientData_Comment { get; set; }
             public System.DateTime? ClientData_UploadEnd { get; set; }

@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? BackupRetentionPeriod { get; set; }
             public System.String DBInstanceIdentifier { get; set; }

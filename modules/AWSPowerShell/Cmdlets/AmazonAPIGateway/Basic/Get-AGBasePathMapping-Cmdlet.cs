@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String BasePath { get; set; }
             public System.String DomainName { get; set; }

@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Inspector.InspectorEvent Event { get; set; }
             public System.String ResourceArn { get; set; }

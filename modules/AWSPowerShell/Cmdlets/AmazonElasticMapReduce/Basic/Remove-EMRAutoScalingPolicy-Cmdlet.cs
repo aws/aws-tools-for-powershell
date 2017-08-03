@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClusterId { get; set; }
             public System.String InstanceGroupId { get; set; }

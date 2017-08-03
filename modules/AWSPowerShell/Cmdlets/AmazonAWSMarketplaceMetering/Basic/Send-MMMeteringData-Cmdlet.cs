@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DryRun { get; set; }
             public System.String ProductCode { get; set; }

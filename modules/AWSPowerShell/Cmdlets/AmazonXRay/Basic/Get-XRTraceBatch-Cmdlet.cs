@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NextToken { get; set; }
             public List<System.String> TraceIds { get; set; }

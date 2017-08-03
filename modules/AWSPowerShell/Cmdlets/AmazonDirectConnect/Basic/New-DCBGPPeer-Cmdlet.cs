@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.DirectConnect.AddressFamily NewBGPPeer_AddressFamily { get; set; }
             public System.String NewBGPPeer_AmazonAddress { get; set; }

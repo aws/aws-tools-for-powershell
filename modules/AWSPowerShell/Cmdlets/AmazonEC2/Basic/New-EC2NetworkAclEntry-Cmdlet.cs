@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CidrBlock { get; set; }
             public System.Boolean? Egress { get; set; }

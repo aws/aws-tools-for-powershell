@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Limit { get; set; }
             public System.String Marker { get; set; }

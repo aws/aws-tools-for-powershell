@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ElasticBeanstalk.Model.PlatformFilter> Filters { get; set; }
             public int? MaxRecords { get; set; }

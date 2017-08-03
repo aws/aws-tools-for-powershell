@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ActivityIds { get; set; }
             public System.String AutoScalingGroupName { get; set; }

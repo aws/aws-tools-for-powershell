@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowUnassociatedTargets { get; set; }
             public System.Int32? Cutoff { get; set; }

@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AttributePayload_Attributes { get; set; }
             public System.Boolean? AttributePayload_Merge { get; set; }

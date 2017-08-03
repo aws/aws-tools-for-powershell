@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? BatchSize { get; set; }
             public System.Boolean? Enabled { get; set; }

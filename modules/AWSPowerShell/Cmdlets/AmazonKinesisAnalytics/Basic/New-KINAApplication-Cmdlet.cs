@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationCode { get; set; }
             public System.String ApplicationDescription { get; set; }

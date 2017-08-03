@@ -249,7 +249,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String EnvironmentName { get; set; }
             public List<Amazon.ElasticBeanstalk.Model.ConfigurationOptionSetting> OptionSettings { get; set; }

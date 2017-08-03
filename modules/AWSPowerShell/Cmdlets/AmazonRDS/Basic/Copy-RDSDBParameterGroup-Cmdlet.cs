@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceDBParameterGroupIdentifier { get; set; }
             public List<Amazon.RDS.Model.Tag> Tags { get; set; }

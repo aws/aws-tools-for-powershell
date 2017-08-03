@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobDefinitionName { get; set; }
             public List<System.String> JobDefinitions { get; set; }

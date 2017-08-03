@@ -149,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> RegistryIds { get; set; }
         }

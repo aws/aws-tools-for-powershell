@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChangeToken { get; set; }
             public List<Amazon.WAF.Model.XssMatchSetUpdate> Updates { get; set; }

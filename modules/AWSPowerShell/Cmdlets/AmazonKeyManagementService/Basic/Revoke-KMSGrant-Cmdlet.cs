@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String GrantId { get; set; }
             public System.String KeyId { get; set; }

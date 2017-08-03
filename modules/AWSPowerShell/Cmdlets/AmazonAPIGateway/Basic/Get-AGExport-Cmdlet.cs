@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Accepts { get; set; }
             public System.String ExportType { get; set; }

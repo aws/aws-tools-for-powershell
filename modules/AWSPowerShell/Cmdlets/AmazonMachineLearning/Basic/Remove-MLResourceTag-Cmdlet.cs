@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceId { get; set; }
             public Amazon.MachineLearning.TaggableResourceType ResourceType { get; set; }

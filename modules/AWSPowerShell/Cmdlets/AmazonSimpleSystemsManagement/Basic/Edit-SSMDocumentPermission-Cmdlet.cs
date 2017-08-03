@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AccountIdsToAdd { get; set; }
             public List<System.String> AccountIdsToRemove { get; set; }

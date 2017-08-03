@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> LexiconNames { get; set; }
             public Amazon.Polly.OutputFormat OutputFormat { get; set; }

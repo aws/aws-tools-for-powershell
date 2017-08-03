@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.SimpleEmail.IdentityType IdentityType { get; set; }
             public int? MaxItems { get; set; }

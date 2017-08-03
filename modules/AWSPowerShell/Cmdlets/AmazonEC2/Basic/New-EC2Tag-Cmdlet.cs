@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Resources { get; set; }
             public List<Amazon.EC2.Model.Tag> Tags { get; set; }

@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectionId { get; set; }
             public Amazon.DirectConnect.AddressFamily NewPublicVirtualInterfaceAllocation_AddressFamily { get; set; }

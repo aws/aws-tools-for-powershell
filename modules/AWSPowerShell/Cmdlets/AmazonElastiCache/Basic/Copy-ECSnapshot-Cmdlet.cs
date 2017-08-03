@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceSnapshotName { get; set; }
             public System.String TargetBucket { get; set; }

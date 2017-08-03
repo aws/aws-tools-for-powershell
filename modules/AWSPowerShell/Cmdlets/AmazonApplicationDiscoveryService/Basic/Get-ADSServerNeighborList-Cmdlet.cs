@@ -206,7 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationId { get; set; }
             public System.Int32? MaxResults { get; set; }

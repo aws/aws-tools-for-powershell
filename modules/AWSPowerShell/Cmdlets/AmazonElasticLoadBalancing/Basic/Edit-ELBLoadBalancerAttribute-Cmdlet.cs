@@ -443,7 +443,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? LoadBalancerAttributes_AccessLog_EmitInterval { get; set; }
             public System.Boolean? LoadBalancerAttributes_AccessLog_Enabled { get; set; }

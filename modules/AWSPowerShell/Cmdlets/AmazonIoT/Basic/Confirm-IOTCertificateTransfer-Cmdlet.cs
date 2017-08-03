@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateId { get; set; }
             public System.Boolean? SetAsActive { get; set; }

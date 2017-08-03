@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> DomainNames { get; set; }
         }

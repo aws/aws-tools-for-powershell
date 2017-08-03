@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AppIds { get; set; }
             public System.String StackId { get; set; }

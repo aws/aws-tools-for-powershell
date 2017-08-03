@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ResourceARNList { get; set; }
             public List<System.String> TagKeys { get; set; }

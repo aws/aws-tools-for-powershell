@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? ExpectedVersion { get; set; }
             public System.String ThingName { get; set; }

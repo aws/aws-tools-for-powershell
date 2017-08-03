@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AlarmName { get; set; }
             public System.DateTime? EndDate { get; set; }

@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AdditionalContext { get; set; }
             public System.String AuthorizerId { get; set; }

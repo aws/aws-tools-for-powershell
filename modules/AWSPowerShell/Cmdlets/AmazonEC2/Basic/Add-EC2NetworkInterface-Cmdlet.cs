@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DeviceIndex { get; set; }
             public System.String InstanceId { get; set; }

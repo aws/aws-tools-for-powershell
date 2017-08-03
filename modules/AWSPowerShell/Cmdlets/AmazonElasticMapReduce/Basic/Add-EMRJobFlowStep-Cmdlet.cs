@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobFlowId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.StepConfig> Steps { get; set; }

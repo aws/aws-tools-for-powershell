@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public byte[] Certificate { get; set; }
             public System.String CertificateArn { get; set; }

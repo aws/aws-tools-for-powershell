@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.IoT.LogLevel LoggingOptionsPayload_LogLevel { get; set; }
             public System.String LoggingOptionsPayload_RoleArn { get; set; }

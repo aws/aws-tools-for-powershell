@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AliasId { get; set; }
             public System.String Description { get; set; }

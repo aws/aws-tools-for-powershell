@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateIdentifier { get; set; }
             public System.String CertificatePem { get; set; }

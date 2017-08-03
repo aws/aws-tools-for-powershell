@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> InstanceNames { get; set; }
             public List<Amazon.CodeDeploy.Model.Tag> Tags { get; set; }

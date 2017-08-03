@@ -157,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.WorkSpaces.Model.WorkspaceRequest> Workspaces { get; set; }
         }

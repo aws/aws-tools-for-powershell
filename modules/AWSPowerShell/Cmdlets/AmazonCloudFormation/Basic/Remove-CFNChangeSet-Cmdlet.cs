@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChangeSetName { get; set; }
             public System.String StackName { get; set; }

@@ -462,7 +462,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessPolicies { get; set; }
             public Dictionary<System.String, System.String> AdvancedOptions { get; set; }

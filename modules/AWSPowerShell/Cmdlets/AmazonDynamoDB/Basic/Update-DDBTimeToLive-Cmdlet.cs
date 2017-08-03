@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String TableName { get; set; }
             public System.String TimeToLiveSpecification_AttributeName { get; set; }

@@ -694,7 +694,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AgentVersion { get; set; }
             public Dictionary<System.String, System.String> Attributes { get; set; }

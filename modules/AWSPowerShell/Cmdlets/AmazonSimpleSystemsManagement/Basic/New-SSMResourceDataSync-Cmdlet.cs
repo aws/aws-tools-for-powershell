@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String S3Destination_BucketName { get; set; }
             public System.String S3Destination_Prefix { get; set; }

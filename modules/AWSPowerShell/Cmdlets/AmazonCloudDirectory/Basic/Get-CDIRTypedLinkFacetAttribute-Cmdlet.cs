@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxResults { get; set; }
             public System.String Name { get; set; }

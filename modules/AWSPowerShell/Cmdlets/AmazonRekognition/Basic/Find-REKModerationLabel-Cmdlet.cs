@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public byte[] Image_Bytes { get; set; }
             public System.String Image_S3Object_Bucket { get; set; }

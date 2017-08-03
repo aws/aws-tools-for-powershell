@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudWatch.Model.MetricDatum> MetricData { get; set; }
             public System.String Namespace { get; set; }

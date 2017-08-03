@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ConfigService.Model.Evaluation> Evaluations { get; set; }
             public System.String ResultToken { get; set; }

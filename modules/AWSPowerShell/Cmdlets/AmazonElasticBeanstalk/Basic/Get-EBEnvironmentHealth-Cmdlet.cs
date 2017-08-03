@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AttributeNames { get; set; }
             public System.String EnvironmentId { get; set; }

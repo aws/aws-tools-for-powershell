@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
             public System.String DevicePoolArn { get; set; }

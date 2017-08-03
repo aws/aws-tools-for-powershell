@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FleetId { get; set; }
             public List<Amazon.GameLift.Model.IpPermission> InboundPermissionAuthorizations { get; set; }

@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public int? PageSize { get; set; }
             public System.String PageToken { get; set; }

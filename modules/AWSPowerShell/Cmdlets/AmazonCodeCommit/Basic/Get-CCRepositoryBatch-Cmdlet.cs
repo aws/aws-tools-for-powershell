@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> RepositoryNames { get; set; }
         }

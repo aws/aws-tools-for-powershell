@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FunctionName { get; set; }
             public System.String Marker { get; set; }

@@ -1406,7 +1406,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.AddressConfiguration> MessageRequest_Addresses { get; set; }

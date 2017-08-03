@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBSecurityGroupDescription { get; set; }
             public System.String DBSecurityGroupName { get; set; }

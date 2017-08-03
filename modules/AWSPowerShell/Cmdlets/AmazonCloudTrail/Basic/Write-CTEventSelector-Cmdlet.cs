@@ -201,7 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudTrail.Model.EventSelector> EventSelectors { get; set; }
             public System.String TrailName { get; set; }

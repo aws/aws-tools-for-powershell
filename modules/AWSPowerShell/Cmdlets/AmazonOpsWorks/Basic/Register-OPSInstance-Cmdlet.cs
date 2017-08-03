@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Hostname { get; set; }
             public System.String InstanceIdentity_Document { get; set; }

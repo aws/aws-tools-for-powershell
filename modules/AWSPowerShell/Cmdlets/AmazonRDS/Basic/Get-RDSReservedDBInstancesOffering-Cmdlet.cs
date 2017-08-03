@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DBInstanceCount { get; set; }
             public System.String ReservedDBInstanceId { get; set; }

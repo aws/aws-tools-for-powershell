@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ExclusiveStartShardId { get; set; }
             public System.Int32? Limit { get; set; }

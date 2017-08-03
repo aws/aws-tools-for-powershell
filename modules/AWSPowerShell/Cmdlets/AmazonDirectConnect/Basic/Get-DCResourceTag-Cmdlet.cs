@@ -138,7 +138,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ResourceArns { get; set; }
         }

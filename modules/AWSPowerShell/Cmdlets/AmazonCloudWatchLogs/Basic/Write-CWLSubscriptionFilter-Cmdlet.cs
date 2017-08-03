@@ -270,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DestinationArn { get; set; }
             public Amazon.CloudWatchLogs.Distribution Distribution { get; set; }

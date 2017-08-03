@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? CreatedAfter { get; set; }
             public System.DateTime? CreatedBefore { get; set; }

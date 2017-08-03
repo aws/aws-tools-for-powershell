@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudWatchEvents.Model.PutEventsRequestEntry> Entries { get; set; }
         }

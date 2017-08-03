@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DisplayName { get; set; }
             public System.String EmailAddress { get; set; }

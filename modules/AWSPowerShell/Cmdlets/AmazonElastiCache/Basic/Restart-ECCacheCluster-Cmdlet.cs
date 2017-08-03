@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CacheClusterId { get; set; }
             public List<System.String> CacheNodeIdsToReboot { get; set; }

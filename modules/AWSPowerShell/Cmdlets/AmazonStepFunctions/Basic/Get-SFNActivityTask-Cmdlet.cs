@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ActivityArn { get; set; }
             public System.String WorkerName { get; set; }

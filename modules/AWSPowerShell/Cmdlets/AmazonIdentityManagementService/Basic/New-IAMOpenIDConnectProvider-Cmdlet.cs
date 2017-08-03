@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ClientIDList { get; set; }
             public List<System.String> ThumbprintList { get; set; }

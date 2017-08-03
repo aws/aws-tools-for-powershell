@@ -1252,7 +1252,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdminContact_AddressLine1 { get; set; }
             public System.String AdminContact_AddressLine2 { get; set; }

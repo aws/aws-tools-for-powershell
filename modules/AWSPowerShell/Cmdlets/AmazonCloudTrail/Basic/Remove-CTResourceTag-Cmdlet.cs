@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceId { get; set; }
             public List<Amazon.CloudTrail.Model.Tag> TagsList { get; set; }

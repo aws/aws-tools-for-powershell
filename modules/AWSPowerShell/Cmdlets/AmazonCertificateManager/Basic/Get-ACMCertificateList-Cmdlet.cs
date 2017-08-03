@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CertificateStatuses { get; set; }
             public int? MaxItems { get; set; }

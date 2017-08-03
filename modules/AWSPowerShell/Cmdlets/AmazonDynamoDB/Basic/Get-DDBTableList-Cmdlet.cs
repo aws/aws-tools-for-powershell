@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ExclusiveStartTableName { get; set; }
             public int? Limit { get; set; }

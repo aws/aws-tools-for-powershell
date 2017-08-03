@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
             public List<Amazon.S3.Model.LifecycleRule> Configuration_Rules { get; set; }

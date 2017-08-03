@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String PolicyId { get; set; }
             public System.String TargetId { get; set; }

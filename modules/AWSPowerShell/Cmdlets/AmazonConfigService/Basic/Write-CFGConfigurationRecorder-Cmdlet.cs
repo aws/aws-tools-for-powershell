@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationRecorderName { get; set; }
             public System.Boolean? ConfigurationRecorder_RecordingGroup_AllSupported { get; set; }

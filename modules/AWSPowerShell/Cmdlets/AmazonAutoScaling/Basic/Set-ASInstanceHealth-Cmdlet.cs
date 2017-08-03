@@ -203,7 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String HealthStatus { get; set; }
             public System.String InstanceId { get; set; }

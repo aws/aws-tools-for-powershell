@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Ids { get; set; }
         }

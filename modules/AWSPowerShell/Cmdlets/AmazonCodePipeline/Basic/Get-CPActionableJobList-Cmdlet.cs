@@ -265,7 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CodePipeline.ActionCategory ActionTypeId_Category { get; set; }
             public Amazon.CodePipeline.ActionOwner ActionTypeId_Owner { get; set; }

@@ -381,7 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CacheKeyParameters { get; set; }
             public System.String CacheNamespace { get; set; }

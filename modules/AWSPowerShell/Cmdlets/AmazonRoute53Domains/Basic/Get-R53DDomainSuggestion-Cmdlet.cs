@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
             public System.Boolean? OnlyAvailable { get; set; }

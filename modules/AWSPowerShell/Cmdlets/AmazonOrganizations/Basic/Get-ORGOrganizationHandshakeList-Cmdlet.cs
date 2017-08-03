@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Organizations.ActionType Filter_ActionType { get; set; }
             public System.String Filter_ParentHandshakeId { get; set; }

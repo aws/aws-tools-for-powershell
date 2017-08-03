@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? CdcStartTime { get; set; }
             public System.String ReplicationTaskArn { get; set; }

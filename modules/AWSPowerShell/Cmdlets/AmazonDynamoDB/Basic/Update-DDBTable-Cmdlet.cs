@@ -331,7 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.DynamoDBv2.Model.AttributeDefinition> AttributeDefinitions { get; set; }
             public List<Amazon.DynamoDBv2.Model.GlobalSecondaryIndexUpdate> GlobalSecondaryIndexUpdates { get; set; }

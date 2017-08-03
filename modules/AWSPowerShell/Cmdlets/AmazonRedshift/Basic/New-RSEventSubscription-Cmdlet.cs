@@ -301,7 +301,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Enabled { get; set; }
             public List<System.String> EventCategories { get; set; }

@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.EC2.Model.Filter> Filter { get; set; }
             public int? MaxResults { get; set; }

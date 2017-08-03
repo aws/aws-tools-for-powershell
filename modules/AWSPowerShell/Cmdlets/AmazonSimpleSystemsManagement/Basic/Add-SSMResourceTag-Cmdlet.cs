@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceId { get; set; }
             public Amazon.SimpleSystemsManagement.ResourceTypeForTagging ResourceType { get; set; }

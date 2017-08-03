@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> LoadBalancerNames { get; set; }
             public System.String Marker { get; set; }

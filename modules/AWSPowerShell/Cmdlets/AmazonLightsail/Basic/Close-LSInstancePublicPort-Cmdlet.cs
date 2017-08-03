@@ -225,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceName { get; set; }
             public System.Int32? PortInfo_FromPort { get; set; }

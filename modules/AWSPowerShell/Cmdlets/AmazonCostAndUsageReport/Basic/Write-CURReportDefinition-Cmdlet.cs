@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ReportDefinition_AdditionalArtifacts { get; set; }
             public List<System.String> ReportDefinition_AdditionalSchemaElements { get; set; }

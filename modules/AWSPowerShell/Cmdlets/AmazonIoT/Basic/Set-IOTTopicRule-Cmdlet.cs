@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String RuleName { get; set; }
             public List<Amazon.IoT.Model.Action> TopicRulePayload_Actions { get; set; }

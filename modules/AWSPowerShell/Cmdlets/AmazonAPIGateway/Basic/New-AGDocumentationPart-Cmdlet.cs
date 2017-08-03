@@ -310,7 +310,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Location_Method { get; set; }
             public System.String Location_Name { get; set; }

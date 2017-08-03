@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConnectorId { get; set; }
         }

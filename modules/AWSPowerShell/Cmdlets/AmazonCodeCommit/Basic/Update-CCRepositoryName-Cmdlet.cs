@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NewName { get; set; }
             public System.String OldName { get; set; }

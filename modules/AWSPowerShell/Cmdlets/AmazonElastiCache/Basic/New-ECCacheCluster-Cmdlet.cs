@@ -567,7 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthToken { get; set; }
             public System.Boolean? AutoMinorVersionUpgrade { get; set; }

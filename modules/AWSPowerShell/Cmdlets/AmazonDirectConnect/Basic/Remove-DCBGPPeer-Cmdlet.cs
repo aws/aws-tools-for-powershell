@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Asn { get; set; }
             public System.String CustomerAddress { get; set; }

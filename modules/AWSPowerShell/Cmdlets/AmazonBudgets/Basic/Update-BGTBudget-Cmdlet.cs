@@ -616,7 +616,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountId { get; set; }
             public System.Decimal? NewBudget_BudgetLimit_Amount { get; set; }

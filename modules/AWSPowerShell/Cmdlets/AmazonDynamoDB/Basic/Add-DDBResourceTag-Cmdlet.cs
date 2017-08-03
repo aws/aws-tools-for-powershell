@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceArn { get; set; }
             public List<Amazon.DynamoDBv2.Model.Tag> Tags { get; set; }

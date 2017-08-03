@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NewPassword { get; set; }
             public System.String OldPassword { get; set; }

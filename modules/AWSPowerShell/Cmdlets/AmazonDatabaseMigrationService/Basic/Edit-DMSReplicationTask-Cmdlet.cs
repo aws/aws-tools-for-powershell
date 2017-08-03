@@ -239,7 +239,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? CdcStartTime { get; set; }
             public Amazon.DatabaseMigrationService.MigrationTypeValue MigrationType { get; set; }

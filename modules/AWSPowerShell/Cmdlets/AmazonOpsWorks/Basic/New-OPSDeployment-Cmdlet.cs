@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppId { get; set; }
             public Dictionary<System.String, List<System.String>> Command_Args { get; set; }

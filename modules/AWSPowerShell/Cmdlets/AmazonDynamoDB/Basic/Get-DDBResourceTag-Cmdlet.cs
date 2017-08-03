@@ -162,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NextToken { get; set; }
             public System.String ResourceArn { get; set; }

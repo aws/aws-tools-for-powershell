@@ -283,7 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Attributes { get; set; }
             public byte[] ImageContent { get; set; }

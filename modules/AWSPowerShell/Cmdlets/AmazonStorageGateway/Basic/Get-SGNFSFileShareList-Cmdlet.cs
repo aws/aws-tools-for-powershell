@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> FileShareARNList { get; set; }
         }

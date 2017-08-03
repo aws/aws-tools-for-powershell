@@ -375,7 +375,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AutoScalingSchedule_Friday { get; set; }
             public Dictionary<System.String, System.String> AutoScalingSchedule_Monday { get; set; }

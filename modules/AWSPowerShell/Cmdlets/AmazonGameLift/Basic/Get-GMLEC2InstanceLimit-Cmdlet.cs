@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.GameLift.EC2InstanceType EC2InstanceType { get; set; }
         }

@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.IO.MemoryStream Body { get; set; }
             public System.Boolean? FailOnWarnings { get; set; }

@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CreationToken { get; set; }
             public System.String FileSystemId { get; set; }

@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ConfigService.MaximumExecutionFrequency DeliveryChannel_ConfigSnapshotDeliveryProperties_DeliveryFrequency { get; set; }
             public System.String DeliveryChannelName { get; set; }

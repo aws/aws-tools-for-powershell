@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NextToken { get; set; }
             public Amazon.CodeDeploy.RegistrationStatus RegistrationStatus { get; set; }

@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? HealthCheck_HealthyThreshold { get; set; }
             public System.Int32? HealthCheck_Interval { get; set; }

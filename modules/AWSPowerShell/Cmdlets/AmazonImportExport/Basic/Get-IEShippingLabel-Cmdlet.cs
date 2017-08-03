@@ -303,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String APIVersion { get; set; }
             public System.String City { get; set; }

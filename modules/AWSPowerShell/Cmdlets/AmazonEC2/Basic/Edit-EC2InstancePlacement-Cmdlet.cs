@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.EC2.Affinity Affinity { get; set; }
             public System.String HostId { get; set; }

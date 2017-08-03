@@ -898,7 +898,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AdminCreateUserConfig_AllowAdminCreateUserOnly { get; set; }
             public System.String AdminCreateUserConfig_InviteMessageTemplate_EmailMessage { get; set; }

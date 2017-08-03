@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String HandshakeId { get; set; }
         }

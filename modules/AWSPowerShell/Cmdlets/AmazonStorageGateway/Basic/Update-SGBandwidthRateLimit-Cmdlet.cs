@@ -194,7 +194,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? AverageDownloadRateLimitInBitsPerSec { get; set; }
             public System.Int64? AverageUploadRateLimitInBitsPerSec { get; set; }

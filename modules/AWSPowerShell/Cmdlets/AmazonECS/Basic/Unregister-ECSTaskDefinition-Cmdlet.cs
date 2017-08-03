@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String TaskDefinition { get; set; }
         }

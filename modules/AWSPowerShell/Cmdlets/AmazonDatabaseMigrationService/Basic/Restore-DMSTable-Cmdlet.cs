@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ReplicationTaskArn { get; set; }
             public List<Amazon.DatabaseMigrationService.Model.TableToReload> TablesToReload { get; set; }

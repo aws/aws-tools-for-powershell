@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobId { get; set; }
         }

@@ -368,7 +368,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? HealthCheckIntervalSeconds { get; set; }
             public System.String HealthCheckPath { get; set; }

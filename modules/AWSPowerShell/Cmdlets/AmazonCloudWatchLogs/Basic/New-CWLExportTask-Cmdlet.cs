@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Destination { get; set; }
             public System.String DestinationPrefix { get; set; }

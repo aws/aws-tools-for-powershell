@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CreationToken { get; set; }
             public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }

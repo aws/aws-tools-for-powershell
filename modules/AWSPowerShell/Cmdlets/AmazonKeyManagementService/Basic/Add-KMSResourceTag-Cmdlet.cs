@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String KeyId { get; set; }
             public List<Amazon.KeyManagementService.Model.Tag> Tags { get; set; }

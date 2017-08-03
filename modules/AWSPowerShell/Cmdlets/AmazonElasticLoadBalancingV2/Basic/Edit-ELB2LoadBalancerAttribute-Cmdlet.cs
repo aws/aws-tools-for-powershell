@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute> Attributes { get; set; }
             public System.String LoadBalancerArn { get; set; }

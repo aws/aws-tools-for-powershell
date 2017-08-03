@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientId { get; set; }
             public System.String SecretHash { get; set; }

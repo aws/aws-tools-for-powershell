@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowReassignment { get; set; }
             public System.String NetworkInterfaceId { get; set; }

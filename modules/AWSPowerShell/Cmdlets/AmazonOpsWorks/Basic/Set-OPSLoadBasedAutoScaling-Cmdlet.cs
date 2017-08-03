@@ -553,7 +553,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> DownScaling_Alarms { get; set; }
             public System.Double? DownScaling_CpuThreshold { get; set; }

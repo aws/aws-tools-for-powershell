@@ -185,7 +185,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigurationSet_Name { get; set; }
         }

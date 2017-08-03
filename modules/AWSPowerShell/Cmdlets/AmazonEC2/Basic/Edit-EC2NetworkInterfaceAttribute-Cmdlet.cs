@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Attachment_AttachmentId { get; set; }
             public System.Boolean? Attachment_DeleteOnTermination { get; set; }

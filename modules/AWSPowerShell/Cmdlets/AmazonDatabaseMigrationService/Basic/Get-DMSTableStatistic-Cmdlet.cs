@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Marker { get; set; }
             public System.Int32? MaxRecords { get; set; }

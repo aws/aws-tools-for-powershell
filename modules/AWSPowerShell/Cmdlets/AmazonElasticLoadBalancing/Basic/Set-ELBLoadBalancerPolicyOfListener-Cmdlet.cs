@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String LoadBalancerName { get; set; }
             public System.Int32? LoadBalancerPort { get; set; }

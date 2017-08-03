@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConfigRuleNames { get; set; }
             public System.Int32? Limit { get; set; }

@@ -881,6 +881,7 @@ Set-Alias -Name CD-RemoveTagsFromOnPremisesInstances -Value Remove-CDOnPremiseIn
 Set-Alias -Name CD-SkipWaitTimeForInstanceTermination -Value Skip-CDWaitTimeForInstanceTermination
 Set-Alias -Name CD-StopDeployment -Value Stop-CDDeployment
 Set-Alias -Name CD-UpdateApplication -Value Update-CDApplication
+Set-Alias -Name CD-UpdateDeploymentGroup -Value Update-CDDeploymentGroup
 Set-Alias -Name CD-AddTagsToOnPremisesInstances -Value Add-CDOnPremiseInstanceTag
 Set-Alias -Name CD-BatchGetApplicationRevisions -Value Get-CDApplicationRevisionBatch
 Set-Alias -Name CD-BatchGetApplications -Value Get-CDApplicationBatch
@@ -891,8 +892,12 @@ Set-Alias -Name CD-BatchGetOnPremisesInstances -Value Get-CDOnPremiseInstanceBat
 Set-Alias -Name CD-ContinueDeployment -Value Resume-CDDeployment
 Set-Alias -Name Create-CDApplication -Value New-CDApplication
 Set-Alias -Name CD-CreateApplication -Value New-CDApplication
+Set-Alias -Name Create-CDDeployment -Value New-CDDeployment
+Set-Alias -Name CD-CreateDeployment -Value New-CDDeployment
 Set-Alias -Name Create-CDDeploymentConfig -Value New-CDDeploymentConfig
 Set-Alias -Name CD-CreateDeploymentConfig -Value New-CDDeploymentConfig
+Set-Alias -Name Create-CDDeploymentGroup -Value New-CDDeploymentGroup
+Set-Alias -Name CD-CreateDeploymentGroup -Value New-CDDeploymentGroup
 Set-Alias -Name Delete-CDApplication -Value Remove-CDApplication
 Set-Alias -Name CD-DeleteApplication -Value Remove-CDApplication
 Set-Alias -Name Delete-CDDeploymentConfig -Value Remove-CDDeploymentConfig

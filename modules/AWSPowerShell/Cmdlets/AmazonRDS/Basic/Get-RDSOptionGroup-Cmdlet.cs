@@ -271,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String EngineName { get; set; }
             public List<Amazon.RDS.Model.Filter> Filters { get; set; }

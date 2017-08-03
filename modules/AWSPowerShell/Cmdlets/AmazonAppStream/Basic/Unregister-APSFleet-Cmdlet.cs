@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FleetName { get; set; }
             public System.String StackName { get; set; }

@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SQS.Model.DeleteMessageBatchRequestEntry> Entries { get; set; }
             public System.String QueueUrl { get; set; }

@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChangeToken { get; set; }
             public Amazon.WAFRegional.WafActionType DefaultAction_Type { get; set; }

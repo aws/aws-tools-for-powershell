@@ -669,7 +669,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Checksum { get; set; }
             public Amazon.LexModelBuildingService.Model.Statement ConclusionStatement { get; set; }

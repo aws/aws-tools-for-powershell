@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ElasticLoadBalancingV2.IpAddressType IpAddressType { get; set; }
             public System.String Name { get; set; }

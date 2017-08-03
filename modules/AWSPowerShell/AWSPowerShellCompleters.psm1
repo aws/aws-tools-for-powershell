@@ -1324,8 +1324,8 @@ $CD_Completers = {
         # Amazon.CodeDeploy.BundleType
         {
             ($_ -eq "Get-CDApplicationRevision/Revision_S3Location_BundleType") -Or
-            ($_ -eq "Register-CDApplicationRevision/Revision_S3Location_BundleType") -Or
-            ($_ -eq "New-CDDeployment/S3Location_BundleType")
+            ($_ -eq "New-CDDeployment/Revision_S3Location_BundleType") -Or
+            ($_ -eq "Register-CDApplicationRevision/Revision_S3Location_BundleType")
         }
         {
             $v = "tar","tgz","zip"
@@ -1344,8 +1344,8 @@ $CD_Completers = {
         
         # Amazon.CodeDeploy.DeploymentReadyAction
         {
-            ($_ -eq "New-CDDeploymentGroup/DeploymentReadyOption_ActionOnTimeout") -Or
-            ($_ -eq "Update-CDDeploymentGroup/DeploymentReadyOption_ActionOnTimeout")
+            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout") -Or
+            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout")
         }
         {
             $v = "CONTINUE_DEPLOYMENT","STOP_DEPLOYMENT"
@@ -1371,8 +1371,8 @@ $CD_Completers = {
         
         # Amazon.CodeDeploy.GreenFleetProvisioningAction
         {
-            ($_ -eq "New-CDDeploymentGroup/GreenFleetProvisioningOption_Action") -Or
-            ($_ -eq "Update-CDDeploymentGroup/GreenFleetProvisioningOption_Action")
+            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action") -Or
+            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action")
         }
         {
             $v = "COPY_AUTO_SCALING_GROUP","DISCOVER_EXISTING"
@@ -1381,8 +1381,8 @@ $CD_Completers = {
         
         # Amazon.CodeDeploy.InstanceAction
         {
-            ($_ -eq "New-CDDeploymentGroup/TerminateBlueInstancesOnDeploymentSuccess_Action") -Or
-            ($_ -eq "Update-CDDeploymentGroup/TerminateBlueInstancesOnDeploymentSuccess_Action")
+            ($_ -eq "New-CDDeploymentGroup/BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action") -Or
+            ($_ -eq "Update-CDDeploymentGroup/BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action")
         }
         {
             $v = "KEEP_ALIVE","TERMINATE"
@@ -1436,20 +1436,19 @@ $CD_Completers = {
 }
 
 $CD_map = @{
+    "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "Deployed"=@("Get-CDApplicationRevisionList")
-    "DeploymentReadyOption_ActionOnTimeout"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyle_DeploymentOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyle_DeploymentType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "FileExistsBehavior"=@("New-CDDeployment")
-    "GreenFleetProvisioningOption_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "MinimumHealthyHosts_Type"=@("New-CDDeploymentConfig")
     "RegistrationStatus"=@("Get-CDOnPremiseInstanceList")
     "Revision_RevisionType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
-    "Revision_S3Location_BundleType"=@("Get-CDApplicationRevision","Register-CDApplicationRevision")
-    "S3Location_BundleType"=@("New-CDDeployment")
+    "Revision_S3Location_BundleType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
     "SortBy"=@("Get-CDApplicationRevisionList")
     "SortOrder"=@("Get-CDApplicationRevisionList")
-    "TerminateBlueInstancesOnDeploymentSuccess_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
 }
 
 _awsArgumentCompleterRegistration $CD_Completers $CD_map

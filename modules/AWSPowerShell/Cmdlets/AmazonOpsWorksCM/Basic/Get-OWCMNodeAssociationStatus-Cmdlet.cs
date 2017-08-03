@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NodeAssociationStatusToken { get; set; }
             public System.String ServerName { get; set; }

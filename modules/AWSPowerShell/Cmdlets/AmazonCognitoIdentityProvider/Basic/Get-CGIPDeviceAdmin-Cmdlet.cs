@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeviceKey { get; set; }
             public System.String Username { get; set; }

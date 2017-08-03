@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ComputeEnvironment { get; set; }
             public System.Int32? ComputeResources_DesiredvCpus { get; set; }

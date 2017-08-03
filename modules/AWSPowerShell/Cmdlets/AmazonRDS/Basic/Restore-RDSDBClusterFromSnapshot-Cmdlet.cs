@@ -363,7 +363,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AvailabilityZones { get; set; }
             public System.String DatabaseName { get; set; }

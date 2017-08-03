@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String NextToken { get; set; }
             public System.String RepositoryName { get; set; }

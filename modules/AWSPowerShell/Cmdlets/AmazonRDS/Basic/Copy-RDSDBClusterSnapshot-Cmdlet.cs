@@ -335,7 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String SourceRegion { get; set; }
             public System.Boolean? CopyTags { get; set; }

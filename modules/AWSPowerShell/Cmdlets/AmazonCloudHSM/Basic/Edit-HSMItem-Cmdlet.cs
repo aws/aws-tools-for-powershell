@@ -235,7 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String EniIp { get; set; }
             public System.String ExternalId { get; set; }

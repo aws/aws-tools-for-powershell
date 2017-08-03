@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String StartContinentCode { get; set; }
             public System.String StartCountryCode { get; set; }

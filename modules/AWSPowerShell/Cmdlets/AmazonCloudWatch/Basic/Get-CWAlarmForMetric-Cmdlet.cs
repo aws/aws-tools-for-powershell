@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
             public System.String ExtendedStatistic { get; set; }

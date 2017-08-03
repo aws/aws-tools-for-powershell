@@ -673,7 +673,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AppArn { get; set; }
             public List<System.String> Configuration_AuxiliaryApps { get; set; }

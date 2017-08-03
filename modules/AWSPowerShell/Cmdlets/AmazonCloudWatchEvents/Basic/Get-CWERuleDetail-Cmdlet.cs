@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
         }

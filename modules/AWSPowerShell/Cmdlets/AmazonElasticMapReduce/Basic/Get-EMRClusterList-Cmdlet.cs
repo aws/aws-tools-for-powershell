@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ClusterStates { get; set; }
             public System.DateTime? CreatedAfter { get; set; }

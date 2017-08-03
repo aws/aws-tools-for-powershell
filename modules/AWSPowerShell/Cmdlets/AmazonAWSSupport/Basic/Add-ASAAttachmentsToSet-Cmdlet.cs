@@ -184,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.AWSSupport.Model.Attachment> Attachments { get; set; }
             public System.String AttachmentSetId { get; set; }

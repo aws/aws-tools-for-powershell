@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceId { get; set; }
             public List<System.String> RaidArrayIds { get; set; }

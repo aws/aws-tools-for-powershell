@@ -137,7 +137,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String OpenIDConnectProviderArn { get; set; }
         }

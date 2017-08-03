@@ -345,7 +345,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AssessmentTargetArns { get; set; }
             public System.Int32? Filter_DurationRange_MaxSeconds { get; set; }

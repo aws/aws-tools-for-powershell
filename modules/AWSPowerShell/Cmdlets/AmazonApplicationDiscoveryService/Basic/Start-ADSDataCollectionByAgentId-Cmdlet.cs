@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AgentIds { get; set; }
         }

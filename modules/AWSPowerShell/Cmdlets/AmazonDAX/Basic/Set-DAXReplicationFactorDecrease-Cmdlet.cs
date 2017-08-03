@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AvailabilityZones { get; set; }
             public System.String ClusterName { get; set; }

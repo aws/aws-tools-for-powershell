@@ -302,7 +302,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SimpleSystemsManagement.Model.PatchRule> ApprovalRules_PatchRules { get; set; }
             public List<System.String> ApprovedPatches { get; set; }

@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AssignmentStatuses { get; set; }
             public System.String HITId { get; set; }

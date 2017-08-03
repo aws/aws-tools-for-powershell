@@ -317,7 +317,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String PaginationToken { get; set; }
             public System.Int32? ResourcesPerPage { get; set; }

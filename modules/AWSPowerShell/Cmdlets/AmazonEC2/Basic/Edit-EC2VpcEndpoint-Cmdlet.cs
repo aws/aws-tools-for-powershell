@@ -232,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AddRouteTableIds { get; set; }
             public System.String PolicyDocument { get; set; }

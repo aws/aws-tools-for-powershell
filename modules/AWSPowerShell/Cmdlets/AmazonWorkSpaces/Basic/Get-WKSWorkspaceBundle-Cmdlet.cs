@@ -221,7 +221,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> BundleIds { get; set; }
             public System.String NextToken { get; set; }

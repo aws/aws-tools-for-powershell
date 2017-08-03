@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String PhoneNumber { get; set; }
         }

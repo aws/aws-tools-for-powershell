@@ -311,7 +311,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SimpleEmail.Model.ReceiptAction> Rule_Actions { get; set; }
             public System.Boolean? Rule_Enabled { get; set; }

@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DocumentationVersion { get; set; }
             public System.String RestApiId { get; set; }

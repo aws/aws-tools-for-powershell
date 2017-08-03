@@ -241,7 +241,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccountName { get; set; }
             public System.String Email { get; set; }

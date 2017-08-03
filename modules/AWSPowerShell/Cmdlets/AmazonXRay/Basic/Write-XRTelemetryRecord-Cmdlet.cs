@@ -210,7 +210,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String EC2InstanceId { get; set; }
             public System.String Hostname { get; set; }

@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String APNSChannelRequest_Certificate { get; set; }
             public System.Boolean? APNSChannelRequest_Enabled { get; set; }

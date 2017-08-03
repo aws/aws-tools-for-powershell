@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? EndTime { get; set; }
             public System.String FilterPattern { get; set; }

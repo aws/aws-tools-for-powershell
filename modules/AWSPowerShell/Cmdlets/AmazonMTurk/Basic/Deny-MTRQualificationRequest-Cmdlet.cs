@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String QualificationRequestId { get; set; }
             public System.String Reason { get; set; }

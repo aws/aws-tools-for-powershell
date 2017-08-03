@@ -284,7 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DelayInSeconds { get; set; }
             public Dictionary<System.String, Amazon.SQS.Model.MessageAttributeValue> MessageAttributes { get; set; }

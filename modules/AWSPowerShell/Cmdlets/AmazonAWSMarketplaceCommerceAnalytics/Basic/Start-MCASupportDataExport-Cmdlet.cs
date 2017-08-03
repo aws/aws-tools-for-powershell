@@ -262,7 +262,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> CustomerDefinedValues { get; set; }
             public Amazon.AWSMarketplaceCommerceAnalytics.SupportDataSetType DataSetType { get; set; }

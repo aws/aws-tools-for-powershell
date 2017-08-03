@@ -351,7 +351,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CloudSearch.AlgorithmicStemming AnalysisScheme_AnalysisOptions_AlgorithmicStemming { get; set; }
             public System.String AnalysisScheme_AnalysisOptions_JapaneseTokenizationDictionary { get; set; }

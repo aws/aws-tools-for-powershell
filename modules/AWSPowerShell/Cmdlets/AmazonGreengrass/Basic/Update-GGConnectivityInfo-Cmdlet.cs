@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.Greengrass.Model.ConnectivityInfo> ConnectivityInfo { get; set; }
             public System.String ThingName { get; set; }

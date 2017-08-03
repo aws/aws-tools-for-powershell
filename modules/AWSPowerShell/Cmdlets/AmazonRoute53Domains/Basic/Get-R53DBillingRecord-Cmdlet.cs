@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? End { get; set; }
             public System.String Marker { get; set; }

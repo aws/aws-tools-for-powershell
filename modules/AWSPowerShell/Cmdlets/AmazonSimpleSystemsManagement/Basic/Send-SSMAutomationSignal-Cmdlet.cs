@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutomationExecutionId { get; set; }
             public Dictionary<System.String, List<System.String>> Payload { get; set; }

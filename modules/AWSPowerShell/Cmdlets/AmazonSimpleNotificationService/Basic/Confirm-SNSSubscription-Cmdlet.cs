@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthenticateOnUnsubscribe { get; set; }
             public System.String Token { get; set; }

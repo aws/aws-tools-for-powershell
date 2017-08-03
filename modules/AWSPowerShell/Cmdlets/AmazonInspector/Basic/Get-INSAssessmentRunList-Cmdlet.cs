@@ -554,7 +554,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AssessmentTemplateArns { get; set; }
             public System.DateTime? Filter_CompletionTimeRange_BeginDate { get; set; }

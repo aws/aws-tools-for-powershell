@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String LogGroupName { get; set; }
             public Dictionary<System.String, System.String> Tags { get; set; }

@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudDirectory.Model.ObjectAttributeUpdate> AttributeUpdates { get; set; }
             public System.String DirectoryArn { get; set; }

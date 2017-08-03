@@ -444,7 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AttributesToDelete { get; set; }
             public System.Int32? ComputeCapacity_DesiredInstances { get; set; }

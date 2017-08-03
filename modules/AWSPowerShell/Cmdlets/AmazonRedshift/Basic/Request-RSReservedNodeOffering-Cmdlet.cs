@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? NodeCount { get; set; }
             public System.String ReservedNodeOfferingId { get; set; }

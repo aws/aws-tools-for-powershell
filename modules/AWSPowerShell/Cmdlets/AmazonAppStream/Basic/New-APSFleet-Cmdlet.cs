@@ -407,7 +407,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? ComputeCapacity_DesiredInstances { get; set; }
             public System.String Description { get; set; }

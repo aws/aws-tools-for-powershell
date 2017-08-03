@@ -224,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeliveryStreamName { get; set; }
             public List<Amazon.KinesisFirehose.Model.Record> Records { get; set; }

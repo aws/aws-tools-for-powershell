@@ -370,7 +370,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? DurationInSeconds { get; set; }
             public System.String ExternalId { get; set; }

@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeviceKey { get; set; }
             public Amazon.CognitoIdentityProvider.DeviceRememberedStatusType DeviceRememberedStatus { get; set; }

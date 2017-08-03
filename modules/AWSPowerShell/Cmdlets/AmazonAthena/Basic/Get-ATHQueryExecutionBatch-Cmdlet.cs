@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> QueryExecutionIds { get; set; }
         }

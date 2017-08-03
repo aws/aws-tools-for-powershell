@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
             public System.String ResourceArn { get; set; }

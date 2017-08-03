@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CustomerGatewayId { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }

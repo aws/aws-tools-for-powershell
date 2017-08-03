@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
             public List<System.String> Names { get; set; }

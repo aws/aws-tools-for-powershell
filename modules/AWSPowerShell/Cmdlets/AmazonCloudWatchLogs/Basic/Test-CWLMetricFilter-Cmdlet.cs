@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FilterPattern { get; set; }
             public List<System.String> LogEventMessages { get; set; }

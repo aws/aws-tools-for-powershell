@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConfigurationIds { get; set; }
             public List<Amazon.ApplicationDiscoveryService.Model.Tag> Tags { get; set; }

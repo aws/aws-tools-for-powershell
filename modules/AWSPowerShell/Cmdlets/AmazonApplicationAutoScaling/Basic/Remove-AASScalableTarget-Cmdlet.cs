@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceId { get; set; }
             public Amazon.ApplicationAutoScaling.ScalableDimension ScalableDimension { get; set; }

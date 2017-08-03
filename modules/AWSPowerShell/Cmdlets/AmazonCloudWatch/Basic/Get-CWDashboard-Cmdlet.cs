@@ -140,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DashboardName { get; set; }
         }

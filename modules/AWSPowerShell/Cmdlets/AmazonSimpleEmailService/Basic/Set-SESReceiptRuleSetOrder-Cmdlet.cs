@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> RuleNames { get; set; }
             public System.String RuleSetName { get; set; }

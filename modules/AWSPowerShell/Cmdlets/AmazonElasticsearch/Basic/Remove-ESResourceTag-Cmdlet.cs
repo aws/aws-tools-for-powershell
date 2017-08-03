@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ARN { get; set; }
             public List<System.String> TagKeys { get; set; }

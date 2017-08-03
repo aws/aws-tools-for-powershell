@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> AttributeMapping { get; set; }
             public List<System.String> IdpIdentifiers { get; set; }

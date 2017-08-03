@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.MES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, List<System.String>> Filter { get; set; }
             public int? MaxResults { get; set; }

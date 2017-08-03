@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssessmentRunArn { get; set; }
             public List<System.String> Filter_AgentHealthCodes { get; set; }

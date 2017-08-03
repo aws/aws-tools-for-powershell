@@ -263,7 +263,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FleetId { get; set; }
             public System.Int32? RuntimeConfiguration_GameSessionActivationTimeoutSeconds { get; set; }

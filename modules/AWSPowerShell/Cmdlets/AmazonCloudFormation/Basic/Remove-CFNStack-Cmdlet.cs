@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
             public List<System.String> RetainResources { get; set; }

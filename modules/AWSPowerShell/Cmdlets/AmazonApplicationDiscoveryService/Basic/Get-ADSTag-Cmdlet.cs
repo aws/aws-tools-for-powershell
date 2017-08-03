@@ -252,7 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ApplicationDiscoveryService.Model.TagFilter> Filters { get; set; }
             public int? MaxResults { get; set; }

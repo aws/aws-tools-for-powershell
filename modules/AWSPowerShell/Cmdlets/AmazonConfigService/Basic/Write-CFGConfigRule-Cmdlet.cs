@@ -555,7 +555,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ConfigRule_ConfigRuleArn { get; set; }
             public System.String ConfigRule_ConfigRuleId { get; set; }

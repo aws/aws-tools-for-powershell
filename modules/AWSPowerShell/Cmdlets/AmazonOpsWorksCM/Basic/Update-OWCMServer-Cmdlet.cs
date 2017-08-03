@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? BackupRetentionCount { get; set; }
             public System.Boolean? DisableAutomatedBackup { get; set; }

@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.DataPipeline.Model.Field> Fields { get; set; }
             public System.String TaskId { get; set; }

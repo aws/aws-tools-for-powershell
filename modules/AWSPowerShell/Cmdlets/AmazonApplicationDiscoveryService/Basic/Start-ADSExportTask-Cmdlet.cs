@@ -226,7 +226,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
             public List<System.String> ExportDataFormat { get; set; }

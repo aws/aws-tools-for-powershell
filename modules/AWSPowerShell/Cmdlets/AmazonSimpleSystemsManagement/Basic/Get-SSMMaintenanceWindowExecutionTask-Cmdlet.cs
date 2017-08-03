@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String TaskId { get; set; }
             public System.String WindowExecutionId { get; set; }

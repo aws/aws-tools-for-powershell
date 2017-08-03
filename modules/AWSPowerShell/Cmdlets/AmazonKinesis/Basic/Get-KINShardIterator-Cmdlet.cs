@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ShardId { get; set; }
             public Amazon.Kinesis.ShardIteratorType ShardIteratorType { get; set; }

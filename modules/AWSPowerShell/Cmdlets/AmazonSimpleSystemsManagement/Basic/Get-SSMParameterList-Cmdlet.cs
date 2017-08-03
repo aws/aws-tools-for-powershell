@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SimpleSystemsManagement.Model.ParametersFilter> Filters { get; set; }
             public int? MaxResults { get; set; }

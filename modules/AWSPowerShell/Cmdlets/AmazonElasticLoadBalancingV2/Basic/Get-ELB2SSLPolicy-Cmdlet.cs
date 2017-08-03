@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Marker { get; set; }
             public List<System.String> Names { get; set; }

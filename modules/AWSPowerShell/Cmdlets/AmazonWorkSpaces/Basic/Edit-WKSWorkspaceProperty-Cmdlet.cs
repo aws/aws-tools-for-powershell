@@ -218,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String WorkspaceId { get; set; }
             public Amazon.WorkSpaces.RunningMode WorkspaceProperties_RunningMode { get; set; }

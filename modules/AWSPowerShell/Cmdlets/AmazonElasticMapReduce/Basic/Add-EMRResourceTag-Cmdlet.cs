@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceId { get; set; }
             public List<Amazon.ElasticMapReduce.Model.Tag> Tags { get; set; }

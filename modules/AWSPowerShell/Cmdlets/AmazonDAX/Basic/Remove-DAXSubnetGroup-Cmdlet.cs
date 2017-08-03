@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String SubnetGroupName { get; set; }
         }

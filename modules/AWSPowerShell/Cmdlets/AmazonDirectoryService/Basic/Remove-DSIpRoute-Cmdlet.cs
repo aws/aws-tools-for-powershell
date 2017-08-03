@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CidrIps { get; set; }
             public System.String DirectoryId { get; set; }

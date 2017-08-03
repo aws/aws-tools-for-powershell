@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBInstanceIdentifier { get; set; }
             public System.Boolean? ForceFailover { get; set; }

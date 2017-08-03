@@ -179,7 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DirectoryId { get; set; }
             public System.String SchemaExtensionId { get; set; }

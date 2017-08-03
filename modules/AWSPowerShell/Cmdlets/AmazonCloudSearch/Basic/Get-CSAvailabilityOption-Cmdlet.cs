@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? Deployed { get; set; }
             public System.String DomainName { get; set; }

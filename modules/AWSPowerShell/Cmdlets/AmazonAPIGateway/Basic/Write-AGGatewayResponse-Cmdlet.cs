@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> ResponseParameters { get; set; }
             public Dictionary<System.String, System.String> ResponseTemplates { get; set; }

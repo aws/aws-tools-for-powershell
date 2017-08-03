@@ -144,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CheckIds { get; set; }
         }

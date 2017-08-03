@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Filter_IpFilter_Cidr { get; set; }
             public Amazon.SimpleEmail.ReceiptFilterPolicy Filter_IpFilter_Policy { get; set; }

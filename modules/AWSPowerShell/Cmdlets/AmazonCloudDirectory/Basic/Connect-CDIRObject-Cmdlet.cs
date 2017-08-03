@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChildReference_Selector { get; set; }
             public System.String DirectoryArn { get; set; }

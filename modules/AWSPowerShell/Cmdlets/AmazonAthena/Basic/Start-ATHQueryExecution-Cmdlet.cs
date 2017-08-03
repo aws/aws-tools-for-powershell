@@ -298,7 +298,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientRequestToken { get; set; }
             public System.String QueryExecutionContext_Database { get; set; }

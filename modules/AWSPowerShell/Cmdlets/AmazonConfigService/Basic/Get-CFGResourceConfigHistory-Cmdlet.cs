@@ -251,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ConfigService.ChronologicalOrder ChronologicalOrder { get; set; }
             public System.DateTime? EarlierTime { get; set; }

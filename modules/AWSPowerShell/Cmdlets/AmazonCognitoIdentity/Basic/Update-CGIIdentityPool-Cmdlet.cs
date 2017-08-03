@@ -279,7 +279,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowUnauthenticatedIdentities { get; set; }
             public List<Amazon.CognitoIdentity.Model.CognitoIdentityProviderInfo> CognitoIdentityProviders { get; set; }

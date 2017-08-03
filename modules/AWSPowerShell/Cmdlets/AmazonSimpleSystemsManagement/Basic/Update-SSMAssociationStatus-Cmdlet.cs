@@ -260,7 +260,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssociationStatus_AdditionalInfo { get; set; }
             public System.DateTime? AssociationStatus_Date { get; set; }

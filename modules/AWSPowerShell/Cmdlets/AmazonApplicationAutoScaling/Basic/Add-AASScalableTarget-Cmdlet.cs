@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? MaxCapacity { get; set; }
             public System.Int32? MinCapacity { get; set; }

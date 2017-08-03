@@ -306,7 +306,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.GameLift.Model.DesiredPlayerSession> DesiredPlayerSessions { get; set; }
             public List<Amazon.GameLift.Model.GameProperty> GameProperties { get; set; }

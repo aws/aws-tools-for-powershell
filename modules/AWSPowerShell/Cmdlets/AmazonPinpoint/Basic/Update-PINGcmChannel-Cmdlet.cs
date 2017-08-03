@@ -202,7 +202,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
             public System.String GCMChannelRequest_ApiKey { get; set; }

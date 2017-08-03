@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String PolicyName { get; set; }
             public System.String PolicyVersionId { get; set; }

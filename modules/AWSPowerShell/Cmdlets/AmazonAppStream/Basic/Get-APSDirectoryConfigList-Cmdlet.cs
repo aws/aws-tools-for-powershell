@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> DirectoryNames { get; set; }
             public int? MaxResults { get; set; }

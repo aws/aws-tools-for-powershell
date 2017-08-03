@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.IO.MemoryStream CiphertextBlob { get; set; }
             public Dictionary<System.String, System.String> EncryptionContext { get; set; }

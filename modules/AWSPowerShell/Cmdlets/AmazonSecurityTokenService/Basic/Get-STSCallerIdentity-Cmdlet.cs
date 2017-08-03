@@ -118,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
         }
         

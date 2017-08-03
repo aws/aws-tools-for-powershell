@@ -383,7 +383,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AllowedOAuthFlows { get; set; }
             public System.Boolean? AllowedOAuthFlowsUserPoolClient { get; set; }

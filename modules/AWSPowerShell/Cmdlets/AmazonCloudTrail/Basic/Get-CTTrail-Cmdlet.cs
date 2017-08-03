@@ -164,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? IncludeShadowTrails { get; set; }
             public List<System.String> TrailNameList { get; set; }

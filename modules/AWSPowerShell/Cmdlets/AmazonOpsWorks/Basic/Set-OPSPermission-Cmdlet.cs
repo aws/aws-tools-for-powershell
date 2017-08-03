@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowSsh { get; set; }
             public System.Boolean? AllowSudo { get; set; }

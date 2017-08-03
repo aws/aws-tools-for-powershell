@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Ids { get; set; }
             public System.String Rule { get; set; }

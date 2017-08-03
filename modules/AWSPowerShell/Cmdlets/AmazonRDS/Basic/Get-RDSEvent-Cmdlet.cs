@@ -334,7 +334,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? Duration { get; set; }
             public System.DateTime? EndTime { get; set; }

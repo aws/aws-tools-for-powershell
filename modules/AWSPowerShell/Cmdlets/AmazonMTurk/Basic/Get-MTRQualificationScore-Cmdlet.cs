@@ -160,7 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String QualificationTypeId { get; set; }
             public System.String WorkerId { get; set; }

@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessPolicies { get; set; }
             public System.String DomainName { get; set; }

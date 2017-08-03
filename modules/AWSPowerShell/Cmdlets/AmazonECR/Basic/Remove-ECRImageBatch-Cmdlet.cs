@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ECR.Model.ImageIdentifier> ImageIds { get; set; }
             public System.String RegistryId { get; set; }

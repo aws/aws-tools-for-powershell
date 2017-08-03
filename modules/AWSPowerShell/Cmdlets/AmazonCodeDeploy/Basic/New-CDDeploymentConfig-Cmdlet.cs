@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeploymentConfigName { get; set; }
             public Amazon.CodeDeploy.MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }

@@ -199,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }

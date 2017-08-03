@@ -219,7 +219,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DefaultInstanceName { get; set; }
             public System.String Description { get; set; }

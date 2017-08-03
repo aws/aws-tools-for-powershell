@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
             public System.String Marker { get; set; }

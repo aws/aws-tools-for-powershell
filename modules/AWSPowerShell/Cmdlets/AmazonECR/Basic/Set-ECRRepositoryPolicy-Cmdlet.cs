@@ -198,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? OverridePolicy { get; set; }
             public System.String PolicyText { get; set; }

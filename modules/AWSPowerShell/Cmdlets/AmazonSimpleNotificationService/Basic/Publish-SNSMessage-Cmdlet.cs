@@ -285,7 +285,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Message { get; set; }
             public Dictionary<System.String, Amazon.SimpleNotificationService.Model.MessageAttributeValue> MessageAttributes { get; set; }

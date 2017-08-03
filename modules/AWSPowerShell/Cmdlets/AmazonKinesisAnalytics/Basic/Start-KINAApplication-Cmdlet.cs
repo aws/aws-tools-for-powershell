@@ -200,7 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
             public List<Amazon.KinesisAnalytics.Model.InputConfiguration> InputConfigurations { get; set; }

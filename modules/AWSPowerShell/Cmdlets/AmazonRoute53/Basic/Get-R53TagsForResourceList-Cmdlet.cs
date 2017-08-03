@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Route53.TagResourceType ResourceType { get; set; }
             public List<System.String> ResourceIds { get; set; }

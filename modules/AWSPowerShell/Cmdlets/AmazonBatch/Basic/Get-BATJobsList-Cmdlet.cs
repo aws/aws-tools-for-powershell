@@ -242,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String JobQueue { get; set; }
             public Amazon.Batch.JobStatus JobStatus { get; set; }

@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ReportName { get; set; }
         }

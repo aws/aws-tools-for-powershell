@@ -388,7 +388,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ArtifactsOverride_Location { get; set; }
             public System.String ArtifactsOverride_Name { get; set; }

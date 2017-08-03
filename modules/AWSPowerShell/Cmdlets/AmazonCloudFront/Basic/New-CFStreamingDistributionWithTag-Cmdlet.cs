@@ -607,7 +607,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> StreamingDistributionConfigWithTags_StreamingDistributionConfig_Aliases_Items { get; set; }
             public System.Int32? StreamingDistributionConfigWithTags_StreamingDistributionConfig_Aliases_Quantity { get; set; }

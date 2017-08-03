@@ -269,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthenticationToken { get; set; }
             public System.DateTime? ContentCreatedTimestamp { get; set; }

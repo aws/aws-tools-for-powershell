@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ARN { get; set; }
             public List<Amazon.Elasticsearch.Model.Tag> TagList { get; set; }

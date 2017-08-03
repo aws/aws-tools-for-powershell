@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
             public System.String LogGroupNamePrefix { get; set; }

@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FilterNamePrefix { get; set; }
             public int? Limit { get; set; }

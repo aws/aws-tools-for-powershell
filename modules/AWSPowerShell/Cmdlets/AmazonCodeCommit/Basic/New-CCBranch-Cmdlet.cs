@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String BranchName { get; set; }
             public System.String CommitId { get; set; }

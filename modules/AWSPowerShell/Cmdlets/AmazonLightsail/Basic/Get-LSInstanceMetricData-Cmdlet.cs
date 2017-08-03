@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? EndTime { get; set; }
             public System.String InstanceName { get; set; }

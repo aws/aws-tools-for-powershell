@@ -469,7 +469,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AssociatePublicIpAddress { get; set; }
             public System.String BackupId { get; set; }

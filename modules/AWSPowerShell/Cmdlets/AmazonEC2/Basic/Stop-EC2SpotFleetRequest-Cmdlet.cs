@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> SpotFleetRequestIds { get; set; }
             public System.Boolean? TerminateInstances { get; set; }

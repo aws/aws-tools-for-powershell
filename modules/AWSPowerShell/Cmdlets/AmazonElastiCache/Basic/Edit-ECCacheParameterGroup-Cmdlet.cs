@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CacheParameterGroupName { get; set; }
             public List<Amazon.ElastiCache.Model.ParameterNameValue> ParameterNameValues { get; set; }

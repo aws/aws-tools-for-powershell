@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }

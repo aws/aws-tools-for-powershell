@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Kinesis.ScalingType ScalingType { get; set; }
             public System.String StreamName { get; set; }

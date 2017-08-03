@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Name { get; set; }
             public System.Int32? Version { get; set; }

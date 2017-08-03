@@ -216,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DeleteStorageConnectors { get; set; }
             public System.String Description { get; set; }

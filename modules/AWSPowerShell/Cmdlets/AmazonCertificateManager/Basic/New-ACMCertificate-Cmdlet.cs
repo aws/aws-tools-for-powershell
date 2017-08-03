@@ -228,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainName { get; set; }
             public List<Amazon.CertificateManager.Model.DomainValidationOption> DomainValidationOptions { get; set; }

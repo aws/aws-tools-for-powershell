@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.MTurk.Model.PolicyParameter> AssignmentReviewPolicy_Parameters { get; set; }
             public System.String AssignmentReviewPolicy_PolicyName { get; set; }

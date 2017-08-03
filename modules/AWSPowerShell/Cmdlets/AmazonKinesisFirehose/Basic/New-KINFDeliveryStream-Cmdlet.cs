@@ -666,7 +666,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeliveryStreamName { get; set; }
             public System.Int32? ElasticsearchDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }

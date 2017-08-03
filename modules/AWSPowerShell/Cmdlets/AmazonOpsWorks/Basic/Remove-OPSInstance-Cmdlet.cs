@@ -205,7 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? DeleteElasticIp { get; set; }
             public System.Boolean? DeleteVolumes { get; set; }

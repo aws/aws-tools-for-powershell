@@ -151,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String HsmArn { get; set; }
             public System.String HsmSerialNumber { get; set; }

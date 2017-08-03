@@ -322,7 +322,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ConnectSettings_CustomerDnsIps { get; set; }
             public System.String ConnectSettings_CustomerUserName { get; set; }

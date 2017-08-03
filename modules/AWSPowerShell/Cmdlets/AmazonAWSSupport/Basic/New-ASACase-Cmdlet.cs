@@ -314,7 +314,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AttachmentSetId { get; set; }
             public System.String CategoryCode { get; set; }

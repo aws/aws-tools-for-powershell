@@ -295,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthorizerCredentials { get; set; }
             public System.Int32? AuthorizerResultTtlInSeconds { get; set; }

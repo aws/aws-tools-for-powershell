@@ -274,7 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
             public System.String PathId { get; set; }

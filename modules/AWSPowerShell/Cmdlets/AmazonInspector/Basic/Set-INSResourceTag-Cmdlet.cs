@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceArn { get; set; }
             public List<Amazon.Inspector.Model.Tag> Tags { get; set; }

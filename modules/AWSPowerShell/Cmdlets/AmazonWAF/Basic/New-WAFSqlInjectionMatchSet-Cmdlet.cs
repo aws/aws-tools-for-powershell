@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ChangeToken { get; set; }
             public System.String Name { get; set; }

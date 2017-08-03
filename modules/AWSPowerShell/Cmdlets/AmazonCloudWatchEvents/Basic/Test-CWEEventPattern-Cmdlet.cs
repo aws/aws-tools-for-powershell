@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Event { get; set; }
             public System.String EventPattern { get; set; }

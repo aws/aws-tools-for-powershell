@@ -273,7 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> EncryptionContext { get; set; }
             public List<System.String> GrantTokens { get; set; }

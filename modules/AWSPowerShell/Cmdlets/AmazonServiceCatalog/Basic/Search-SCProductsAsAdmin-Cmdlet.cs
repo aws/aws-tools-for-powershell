@@ -332,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
             public Dictionary<System.String, List<System.String>> Filters { get; set; }

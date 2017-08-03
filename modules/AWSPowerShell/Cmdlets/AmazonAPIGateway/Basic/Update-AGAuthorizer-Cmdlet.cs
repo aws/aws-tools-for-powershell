@@ -187,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthorizerId { get; set; }
             public List<Amazon.APIGateway.Model.PatchOperation> PatchOperations { get; set; }

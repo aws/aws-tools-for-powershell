@@ -181,7 +181,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String HsmClientCertificateIdentifier { get; set; }
             public List<Amazon.Redshift.Model.Tag> Tags { get; set; }

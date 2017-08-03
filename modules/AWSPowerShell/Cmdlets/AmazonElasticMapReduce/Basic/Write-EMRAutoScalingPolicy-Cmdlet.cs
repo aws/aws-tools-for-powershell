@@ -266,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int32? AutoScalingPolicy_Constraints_MaxCapacity { get; set; }
             public System.Int32? AutoScalingPolicy_Constraints_MinCapacity { get; set; }

@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CodePipeline.ActionOwner ActionOwnerFilter { get; set; }
             public System.String NextToken { get; set; }

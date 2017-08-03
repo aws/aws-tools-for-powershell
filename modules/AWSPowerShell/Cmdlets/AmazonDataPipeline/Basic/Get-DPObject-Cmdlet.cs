@@ -230,7 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? EvaluateExpressions { get; set; }
             public System.String Marker { get; set; }

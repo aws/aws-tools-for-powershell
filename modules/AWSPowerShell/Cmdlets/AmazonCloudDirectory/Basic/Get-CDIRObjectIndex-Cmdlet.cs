@@ -257,7 +257,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CloudDirectory.ConsistencyLevel ConsistencyLevel { get; set; }
             public System.String DirectoryArn { get; set; }

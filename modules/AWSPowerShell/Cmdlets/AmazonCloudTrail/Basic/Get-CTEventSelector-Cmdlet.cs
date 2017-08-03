@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String TrailName { get; set; }
         }

@@ -243,7 +243,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.LexModelBuildingService.Locale Locale { get; set; }
             public int? MaxResults { get; set; }

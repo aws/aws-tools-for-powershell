@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String InstanceName { get; set; }
         }

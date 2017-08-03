@@ -254,7 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ActionName { get; set; }
             public System.DateTime? ActionRevision_Created { get; set; }

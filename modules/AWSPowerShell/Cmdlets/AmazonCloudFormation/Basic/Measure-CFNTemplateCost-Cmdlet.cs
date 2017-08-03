@@ -192,7 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public System.String TemplateBody { get; set; }

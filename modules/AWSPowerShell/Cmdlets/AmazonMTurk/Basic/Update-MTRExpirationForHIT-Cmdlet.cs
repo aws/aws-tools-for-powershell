@@ -168,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.DateTime? ExpireAt { get; set; }
             public System.String HITId { get; set; }

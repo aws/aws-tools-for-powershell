@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AllowSelfManagement { get; set; }
             public System.String IamUserArn { get; set; }

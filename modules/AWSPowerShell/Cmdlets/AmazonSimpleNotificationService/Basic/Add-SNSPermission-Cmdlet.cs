@@ -217,7 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ActionName { get; set; }
             public List<System.String> AWSAccountId { get; set; }

@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
             public System.String Name { get; set; }

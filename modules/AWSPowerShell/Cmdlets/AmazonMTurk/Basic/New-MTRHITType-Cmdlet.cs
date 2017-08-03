@@ -267,7 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Int64? AssignmentDurationInSeconds { get; set; }
             public System.Int64? AutoApprovalDelayInSeconds { get; set; }

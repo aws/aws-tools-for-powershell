@@ -491,7 +491,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
             public System.String InventoryId { get; set; }

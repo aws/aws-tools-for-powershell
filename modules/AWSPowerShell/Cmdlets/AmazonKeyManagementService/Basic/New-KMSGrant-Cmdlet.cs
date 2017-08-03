@@ -333,7 +333,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> Constraints_EncryptionContextEquals { get; set; }
             public Dictionary<System.String, System.String> Constraints_EncryptionContextSubset { get; set; }

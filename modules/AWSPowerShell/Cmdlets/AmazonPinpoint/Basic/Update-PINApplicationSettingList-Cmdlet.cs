@@ -282,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_Daily { get; set; }

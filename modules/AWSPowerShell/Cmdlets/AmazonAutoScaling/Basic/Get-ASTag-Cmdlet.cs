@@ -231,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.AutoScaling.Model.Filter> Filters { get; set; }
             public int? MaxRecords { get; set; }

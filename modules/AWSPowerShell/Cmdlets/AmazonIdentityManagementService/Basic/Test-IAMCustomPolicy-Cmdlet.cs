@@ -413,7 +413,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> ActionNames { get; set; }
             public System.String CallerArn { get; set; }

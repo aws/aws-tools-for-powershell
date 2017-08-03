@@ -154,7 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Marker { get; set; }
             public System.String MaxItems { get; set; }

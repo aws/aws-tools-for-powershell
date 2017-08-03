@@ -223,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.CognitoIdentityProvider.AuthFlowType AuthFlow { get; set; }
             public Dictionary<System.String, System.String> AuthParameters { get; set; }

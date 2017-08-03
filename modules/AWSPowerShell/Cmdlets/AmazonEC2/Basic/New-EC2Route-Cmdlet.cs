@@ -293,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DestinationCidrBlock { get; set; }
             public System.String DestinationIpv6CidrBlock { get; set; }

@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CommandId { get; set; }
             public List<System.String> InstanceIds { get; set; }

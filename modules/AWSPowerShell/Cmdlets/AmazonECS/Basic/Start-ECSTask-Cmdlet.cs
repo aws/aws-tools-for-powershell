@@ -290,7 +290,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
             public List<System.String> ContainerInstances { get; set; }

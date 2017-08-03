@@ -196,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String FinalSnapshotIdentifier { get; set; }
             public System.String ReplicationGroupId { get; set; }

@@ -937,7 +937,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
 
         private void WriteContextClass(IndentedTextWriter writer, IEnumerable<SimplePropertyInfo> properties)
         {
-            writer.WriteLine("internal class CmdletContext : ExecutorContext");
+            writer.WriteLine("internal partial class CmdletContext : ExecutorContext");
             writer.OpenRegion();
 
             // Note that the context class member types match the inner SDK request field types - remapping

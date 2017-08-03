@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String TaskToken { get; set; }
         }

@@ -195,7 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.OpsWorksCM.Model.EngineAttribute> EngineAttributes { get; set; }
             public System.String NodeName { get; set; }

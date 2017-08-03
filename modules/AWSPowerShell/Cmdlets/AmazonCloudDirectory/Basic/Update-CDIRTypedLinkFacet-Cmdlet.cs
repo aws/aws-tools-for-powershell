@@ -222,7 +222,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudDirectory.Model.TypedLinkFacetAttributeUpdate> AttributeUpdates { get; set; }
             public List<System.String> IdentityAttributeOrder { get; set; }

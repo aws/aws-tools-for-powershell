@@ -463,7 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Capabilities { get; set; }
             public System.String ClientRequestToken { get; set; }

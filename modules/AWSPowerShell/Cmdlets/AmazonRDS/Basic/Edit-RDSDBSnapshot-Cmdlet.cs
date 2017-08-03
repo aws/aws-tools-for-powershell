@@ -172,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DBSnapshotIdentifier { get; set; }
             public System.String EngineVersion { get; set; }

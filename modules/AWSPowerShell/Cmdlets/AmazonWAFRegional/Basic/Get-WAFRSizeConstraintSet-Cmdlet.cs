@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String SizeConstraintSetId { get; set; }
         }

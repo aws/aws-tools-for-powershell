@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Dictionary<System.String, System.String> Attributes { get; set; }
             public System.String QueueName { get; set; }

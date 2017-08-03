@@ -177,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ParameterGroupName { get; set; }
             public List<Amazon.Redshift.Model.Parameter> Parameters { get; set; }

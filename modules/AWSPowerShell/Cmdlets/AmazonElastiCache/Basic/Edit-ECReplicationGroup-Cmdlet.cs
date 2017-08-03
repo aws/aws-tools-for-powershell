@@ -451,7 +451,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ApplyImmediately { get; set; }
             public System.Boolean? AutomaticFailoverEnabled { get; set; }

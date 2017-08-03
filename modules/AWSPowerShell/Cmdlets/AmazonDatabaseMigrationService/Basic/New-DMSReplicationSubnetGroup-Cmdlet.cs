@@ -204,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ReplicationSubnetGroupDescription { get; set; }
             public System.String ReplicationSubnetGroupIdentifier { get; set; }

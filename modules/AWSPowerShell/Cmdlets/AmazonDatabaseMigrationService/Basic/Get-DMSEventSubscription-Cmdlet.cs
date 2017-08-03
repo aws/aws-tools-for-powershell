@@ -277,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.DatabaseMigrationService.Model.Filter> Filters { get; set; }
             public System.String Marker { get; set; }

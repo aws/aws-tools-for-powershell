@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.ECS.Model.ContainerDefinition> ContainerDefinitions { get; set; }
             public System.String Family { get; set; }

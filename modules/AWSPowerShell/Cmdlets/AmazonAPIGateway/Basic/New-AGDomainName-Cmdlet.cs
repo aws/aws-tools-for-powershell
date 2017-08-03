@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateArn { get; set; }
             public System.String CertificateBody { get; set; }

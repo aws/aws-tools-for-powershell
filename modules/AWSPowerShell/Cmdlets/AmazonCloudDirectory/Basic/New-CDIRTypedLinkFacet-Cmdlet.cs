@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.CloudDirectory.Model.TypedLinkAttributeDefinition> Facet_Attributes { get; set; }
             public List<System.String> Facet_IdentityAttributeOrder { get; set; }

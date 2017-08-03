@@ -171,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String DirectoryArn { get; set; }
             public List<Amazon.CloudDirectory.Model.BatchWriteOperation> Operations { get; set; }

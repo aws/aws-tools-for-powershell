@@ -655,7 +655,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String CurrentDeliveryStreamVersionId { get; set; }
             public System.String DeliveryStreamName { get; set; }

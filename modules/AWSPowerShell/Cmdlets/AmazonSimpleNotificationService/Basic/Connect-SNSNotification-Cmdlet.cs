@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String Endpoint { get; set; }
             public System.String Protocol { get; set; }

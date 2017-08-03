@@ -399,7 +399,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
             public System.String Description { get; set; }

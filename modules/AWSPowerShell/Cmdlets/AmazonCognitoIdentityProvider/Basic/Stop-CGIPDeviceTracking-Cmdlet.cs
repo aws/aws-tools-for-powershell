@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String AccessToken { get; set; }
             public System.String DeviceKey { get; set; }

@@ -214,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.Kinesis.EncryptionType EncryptionType { get; set; }
             public System.String KeyId { get; set; }

@@ -183,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? IgnoreExistingImages { get; set; }
             public System.String RegistryId { get; set; }

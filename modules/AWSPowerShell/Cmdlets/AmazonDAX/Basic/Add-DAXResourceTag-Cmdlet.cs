@@ -170,7 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public System.String ResourceName { get; set; }
             public List<Amazon.DAX.Model.Tag> Tags { get; set; }

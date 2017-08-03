@@ -165,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.AutoScaling.Model.Tag> Tags { get; set; }
         }

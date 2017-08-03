@@ -291,7 +291,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.ApplicationDiscoveryService.ConfigurationItemType ConfigurationType { get; set; }
             public List<Amazon.ApplicationDiscoveryService.Model.Filter> Filters { get; set; }

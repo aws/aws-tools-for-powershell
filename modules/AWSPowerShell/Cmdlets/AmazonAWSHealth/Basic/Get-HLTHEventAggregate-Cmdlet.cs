@@ -567,7 +567,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         
         #endregion
         
-        internal class CmdletContext : ExecutorContext
+        internal partial class CmdletContext : ExecutorContext
         {
             public Amazon.AWSHealth.EventAggregateField AggregateField { get; set; }
             public List<System.String> Filter_AvailabilityZones { get; set; }
