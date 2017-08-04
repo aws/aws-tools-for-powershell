@@ -1,3 +1,14 @@
+### 3.3.133.0 (2017-08-04)
+  * AWS CodeDeploy
+    - Updated the New-CDDeployment, New-CDDeploymentGroup and Update-CDDeploymentGroup with parameters to support the use of multiple tag groups in a single deployment group (an intersection of tags) to identify the instances for a deployment. When you create or update a deployment group, use the new -Ec2TagSetList and -OnPremisesTagSetList parameters to specify up to three groups of tags. Only instances that are identified by at least one tag in each of the tag groups are included in the deployment group.
+    - Revised some parameter names in the New-CDDeployment, New-CDDeploymentGroup and Update-CDDeploymentGroup to improve usability. Backwards compatible aliases were also applied to the affected parameters.
+  * Amazon Pinpoint
+    - Added support for the new app management APIs with new cmdlets Get-PINApp (GetApp API), Get-PINAppList (GetApps API), New-PINApp (CreateApp API) and Remove-PINApp (DeleteApp API).
+  * AWS Config Service
+    - Added new cmdlet, Get-CFGDiscoveredResourceCount (GetDiscoveredResourceCounts API), to returns the resource types and the number of each resource type in your AWS account.
+  * Amazon Simple Systems Management
+    - Added new cmdlet, Send-SSMAutomationSignal (SendAutomationSignal API). This API is used to send a signal to an automation execution to change the current behavior or status of the execution. 
+
 ### 3.3.130.0 (2017-07-28)
   * Fixed issue using Kerberos authentication when obtaining SAML federated credentials. The authentication process failed for some users with a '401 unauthorized' exception.
   * Added new output format templates for the LogGroup and LogStream types for Amazon CloudWatch Logs.
