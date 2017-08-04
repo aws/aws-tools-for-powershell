@@ -104,10 +104,12 @@ namespace AWSPowerShellGenerator.Analysis
                     if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`", StringComparison.Ordinal))
                     {
                         var innerCollectionType = property.PropertyType.GetGenericArguments();
-                        if (innerCollectionType[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
+                        if (innerCollectionType[0].Name.StartsWith("List`", StringComparison.Ordinal))
+                            SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                        else if (innerCollectionType[0].Name.StartsWith("Dictionary`", StringComparison.Ordinal))
                             SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary;
                         else
-                        SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
+                            SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
                     }
                     else if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("Dictionary`", StringComparison.Ordinal))
                         SingleResultProperty.CollectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericDictionary;

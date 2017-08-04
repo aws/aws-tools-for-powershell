@@ -556,6 +556,11 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("public System.Collections.Hashtable {0} {{ get; set; }}", property.CmdletParameterName);
                         }
                         break;
+                    case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList:
+                        {
+                            writer.WriteLine("public {0}[][] {1} {{ get; set; }}", property.GenericCollectionTypes[0].FullName, property.CmdletParameterName);
+                        }
+                        break;
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary:
                         {
                             writer.WriteLine("public System.Collections.Hashtable[] {0} {{ get; set; }}", property.CmdletParameterName);
@@ -840,6 +845,33 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                                                                     property.ContextParameterName,
                                                                     property.GenericCollectionTypes[0].Name);
                                             }
+                                        }
+                                        writer.CloseRegion();
+                                    }
+                                    writer.CloseRegion();
+                                }
+                                break;
+
+                            case SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList:
+                                {
+                                    /* generates code pattern of:
+                                        context.PROPERTY = new List<List<T>>();
+                                        foreach (var innerList in this.PROPERTY)
+                                        {
+                                            context.PROPERTY.Add(new List<T>(innerList));
+                                        }
+                                    */
+                                    writer.WriteLine("if (this.{0} != null)", property.CmdletParameterName);
+                                    writer.OpenRegion();
+                                    {
+                                        // simple property info ctor has already dived down to get the inner types for us
+                                        var innerDictionaryTypes = property.GenericCollectionTypes;
+
+                                        writer.WriteLine("context.{0} = new {1}();", property.ContextParameterName, property.PropertyTypeName);
+                                        writer.WriteLine("foreach (var innerList in this.{0})", property.CmdletParameterName);
+                                        writer.OpenRegion();
+                                        {
+                                            writer.WriteLine("context.{0}.Add(new List<{1}>(innerList));", property.ContextParameterName, innerDictionaryTypes[0].FullName);                                            
                                         }
                                         writer.CloseRegion();
                                     }

@@ -273,6 +273,10 @@ namespace AWSPowerShellGenerator.Analysis
 
                     case SimplePropertyInfo.PropertyCollectionType.IsGenericDictionary:
                         return passThruParameter.PropertyType.FullName;
+
+                    default:
+                        Logger.LogError("{0} - PassThru indicated for operation but collection types of ListOfGenericList and ListOfGenericDictionary are not supported", CurrentOperation.MethodName);
+                        break;
                 }
 
                 return string.Empty;
@@ -501,6 +505,8 @@ namespace AWSPowerShellGenerator.Analysis
                 // more in line with PS convention, to remap it here to an array type - something
                 // to consider. The change would affect the parameter but not the inner context
                 // and (of course) the request object property. It would affect help though.
+                // Note that some services also employ List<List<T>>, so we have to detect inner
+                // case too.
                 if (property.PropertyType.GetGenericTypeDefinition().Name.StartsWith("List`"))
                 {
                     genericCollectionTypes = property.PropertyType.GetGenericArguments();
@@ -509,7 +515,12 @@ namespace AWSPowerShellGenerator.Analysis
                         genericCollectionTypes = genericCollectionTypes[0].GetGenericArguments();
                         collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericDictionary;
                     }
-                    else
+                    else if (genericCollectionTypes[0].Name.StartsWith("List`", StringComparison.Ordinal))
+                    {
+                        genericCollectionTypes = genericCollectionTypes[0].GetGenericArguments();
+                        collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericListOfGenericList;
+                    }
+                    else 
                     {
                         collectionType = SimplePropertyInfo.PropertyCollectionType.IsGenericList;
                     }

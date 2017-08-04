@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String ApplicationName { get; set; }
         #endregion
         
-        #region Parameter TargetInstances_AutoScalingGroup
+        #region Parameter TargetInstancesAutoScalingGroup
         /// <summary>
         /// <para>
         /// <para>The names of one or more Auto Scaling groups to identify a replacement environment
@@ -59,8 +59,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetInstances_AutoScalingGroups")]
-        public System.String[] TargetInstances_AutoScalingGroup { get; set; }
+        [Alias("TargetInstances_AutoScalingGroup","TargetInstances_AutoScalingGroups")]
+        public System.String[] TargetInstancesAutoScalingGroup { get; set; }
         #endregion
         
         #region Parameter S3Location_Bucket
@@ -129,6 +129,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Ec2TagSetList
+        /// <summary>
+        /// <para>
+        /// <para>A list containing other lists of EC2 instance tag groups. In order for an instance
+        /// to be included in the deployment group, it must be identified by all the tag groups
+        /// in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.EC2TagFilter[][] Ec2TagSetList { get; set; }
         #endregion
         
         #region Parameter AutoRollbackConfiguration_Enabled
@@ -207,18 +219,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String GitHubLocation_Repository { get; set; }
         #endregion
         
-        #region Parameter Revision_RevisionType
+        #region Parameter RevisionType
         /// <summary>
         /// <para>
         /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("Revision_RevisionType")]
         [AWSConstantClassSource("Amazon.CodeDeploy.RevisionLocationType")]
-        public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
+        public Amazon.CodeDeploy.RevisionLocationType RevisionType { get; set; }
         #endregion
         
-        #region Parameter TargetInstances_TagFilter
+        #region Parameter TargetInstancesTagFilter
         /// <summary>
         /// <para>
         /// <para>The tag filter key, type, and value used to identify Amazon EC2 instances in a replacement
@@ -226,8 +239,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TargetInstances_TagFilters")]
-        public Amazon.CodeDeploy.Model.EC2TagFilter[] TargetInstances_TagFilter { get; set; }
+        [Alias("TargetInstances_TagFilter","TargetInstances_TagFilters")]
+        public Amazon.CodeDeploy.Model.EC2TagFilter[] TargetInstancesTagFilter { get; set; }
         #endregion
         
         #region Parameter UpdateOutdatedInstancesOnly
@@ -310,19 +323,27 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 context.IgnoreApplicationStopFailures = this.IgnoreApplicationStopFailure;
             context.Revision_GitHubLocation_CommitId = this.GitHubLocation_CommitId;
             context.Revision_GitHubLocation_Repository = this.GitHubLocation_Repository;
-            context.Revision_RevisionType = this.Revision_RevisionType;
+            context.RevisionType = this.RevisionType;
             context.Revision_S3Location_Bucket = this.S3Location_Bucket;
             context.Revision_S3Location_BundleType = this.S3Location_BundleType;
             context.Revision_S3Location_ETag = this.S3Location_ETag;
             context.Revision_S3Location_Key = this.S3Location_Key;
             context.Revision_S3Location_Version = this.S3Location_Version;
-            if (this.TargetInstances_AutoScalingGroup != null)
+            if (this.TargetInstancesAutoScalingGroup != null)
             {
-                context.TargetInstances_AutoScalingGroups = new List<System.String>(this.TargetInstances_AutoScalingGroup);
+                context.TargetInstancesAutoScalingGroup = new List<System.String>(this.TargetInstancesAutoScalingGroup);
             }
-            if (this.TargetInstances_TagFilter != null)
+            if (this.Ec2TagSetList != null)
             {
-                context.TargetInstances_TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.TargetInstances_TagFilter);
+                context.Ec2TagSetList = new List<List<Amazon.CodeDeploy.Model.EC2TagFilter>>();
+                foreach (var innerList in this.Ec2TagSetList)
+                {
+                    context.Ec2TagSetList.Add(new List<Amazon.CodeDeploy.Model.EC2TagFilter>(innerList));
+                }
+            }
+            if (this.TargetInstancesTagFilter != null)
+            {
+                context.TargetInstancesTagFilter = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.TargetInstancesTagFilter);
             }
             if (ParameterWasBound("UpdateOutdatedInstancesOnly"))
                 context.UpdateOutdatedInstancesOnly = this.UpdateOutdatedInstancesOnly;
@@ -399,14 +420,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate Revision
             bool requestRevisionIsNull = true;
             request.Revision = new Amazon.CodeDeploy.Model.RevisionLocation();
-            Amazon.CodeDeploy.RevisionLocationType requestRevision_revision_RevisionType = null;
-            if (cmdletContext.Revision_RevisionType != null)
+            Amazon.CodeDeploy.RevisionLocationType requestRevision_revisionType = null;
+            if (cmdletContext.RevisionType != null)
             {
-                requestRevision_revision_RevisionType = cmdletContext.Revision_RevisionType;
+                requestRevision_revisionType = cmdletContext.RevisionType;
             }
-            if (requestRevision_revision_RevisionType != null)
+            if (requestRevision_revisionType != null)
             {
-                request.Revision.RevisionType = requestRevision_revision_RevisionType;
+                request.Revision.RevisionType = requestRevision_revisionType;
                 requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.GitHubLocation requestRevision_revision_GitHubLocation = null;
@@ -518,24 +539,24 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate TargetInstances
             bool requestTargetInstancesIsNull = true;
             request.TargetInstances = new Amazon.CodeDeploy.Model.TargetInstances();
-            List<System.String> requestTargetInstances_targetInstances_AutoScalingGroup = null;
-            if (cmdletContext.TargetInstances_AutoScalingGroups != null)
+            List<System.String> requestTargetInstances_targetInstancesAutoScalingGroup = null;
+            if (cmdletContext.TargetInstancesAutoScalingGroup != null)
             {
-                requestTargetInstances_targetInstances_AutoScalingGroup = cmdletContext.TargetInstances_AutoScalingGroups;
+                requestTargetInstances_targetInstancesAutoScalingGroup = cmdletContext.TargetInstancesAutoScalingGroup;
             }
-            if (requestTargetInstances_targetInstances_AutoScalingGroup != null)
+            if (requestTargetInstances_targetInstancesAutoScalingGroup != null)
             {
-                request.TargetInstances.AutoScalingGroups = requestTargetInstances_targetInstances_AutoScalingGroup;
+                request.TargetInstances.AutoScalingGroups = requestTargetInstances_targetInstancesAutoScalingGroup;
                 requestTargetInstancesIsNull = false;
             }
-            List<Amazon.CodeDeploy.Model.EC2TagFilter> requestTargetInstances_targetInstances_TagFilter = null;
-            if (cmdletContext.TargetInstances_TagFilters != null)
+            List<Amazon.CodeDeploy.Model.EC2TagFilter> requestTargetInstances_targetInstancesTagFilter = null;
+            if (cmdletContext.TargetInstancesTagFilter != null)
             {
-                requestTargetInstances_targetInstances_TagFilter = cmdletContext.TargetInstances_TagFilters;
+                requestTargetInstances_targetInstancesTagFilter = cmdletContext.TargetInstancesTagFilter;
             }
-            if (requestTargetInstances_targetInstances_TagFilter != null)
+            if (requestTargetInstances_targetInstancesTagFilter != null)
             {
-                request.TargetInstances.TagFilters = requestTargetInstances_targetInstances_TagFilter;
+                request.TargetInstances.TagFilters = requestTargetInstances_targetInstancesTagFilter;
                 requestTargetInstancesIsNull = false;
             }
             Amazon.CodeDeploy.Model.EC2TagSet requestTargetInstances_targetInstances_Ec2TagSet = null;
@@ -543,10 +564,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate Ec2TagSet
             bool requestTargetInstances_targetInstances_Ec2TagSetIsNull = true;
             requestTargetInstances_targetInstances_Ec2TagSet = new Amazon.CodeDeploy.Model.EC2TagSet();
-            List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> requestTargetInstances_targetInstances_Ec2TagSet_targetInstances_Ec2TagSet_Ec2TagSetList = null;
-            if (requestTargetInstances_targetInstances_Ec2TagSet_targetInstances_Ec2TagSet_Ec2TagSetList != null)
+            List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList = null;
+            if (cmdletContext.Ec2TagSetList != null)
             {
-                requestTargetInstances_targetInstances_Ec2TagSet.Ec2TagSetList = requestTargetInstances_targetInstances_Ec2TagSet_targetInstances_Ec2TagSet_Ec2TagSetList;
+                requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList = cmdletContext.Ec2TagSetList;
+            }
+            if (requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList != null)
+            {
+                requestTargetInstances_targetInstances_Ec2TagSet.Ec2TagSetList = requestTargetInstances_targetInstances_Ec2TagSet_ec2TagSetList;
                 requestTargetInstances_targetInstances_Ec2TagSetIsNull = false;
             }
              // determine if requestTargetInstances_targetInstances_Ec2TagSet should be set to null
@@ -630,14 +655,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.Boolean? IgnoreApplicationStopFailures { get; set; }
             public System.String Revision_GitHubLocation_CommitId { get; set; }
             public System.String Revision_GitHubLocation_Repository { get; set; }
-            public Amazon.CodeDeploy.RevisionLocationType Revision_RevisionType { get; set; }
+            public Amazon.CodeDeploy.RevisionLocationType RevisionType { get; set; }
             public System.String Revision_S3Location_Bucket { get; set; }
             public Amazon.CodeDeploy.BundleType Revision_S3Location_BundleType { get; set; }
             public System.String Revision_S3Location_ETag { get; set; }
             public System.String Revision_S3Location_Key { get; set; }
             public System.String Revision_S3Location_Version { get; set; }
-            public List<System.String> TargetInstances_AutoScalingGroups { get; set; }
-            public List<Amazon.CodeDeploy.Model.EC2TagFilter> TargetInstances_TagFilters { get; set; }
+            public List<System.String> TargetInstancesAutoScalingGroup { get; set; }
+            public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
+            public List<Amazon.CodeDeploy.Model.EC2TagFilter> TargetInstancesTagFilter { get; set; }
             public System.Boolean? UpdateOutdatedInstancesOnly { get; set; }
         }
         

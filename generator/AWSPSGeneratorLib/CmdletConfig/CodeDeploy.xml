@@ -26,15 +26,31 @@
     <ServiceOperation MethodName="CreateApplication" />
     <ServiceOperation MethodName="CreateDeployment">
       <Params>
-        <Param Name="TargetInstances_Ec2TagSet_Ec2TagSetList" Exclude="true" />
-        <Param Name="TargetInstances_TagFilter" NewName="InstanceTagFilter" />
+        <Param Name="TargetInstances_Ec2TagSet_Ec2TagSetList"
+               NewName="Ec2TagSetList"
+               AutoApplyAlias="false" />
+        <Param Name="TargetInstances_TagFilters"
+               NewName="TargetInstancesTagFilter"
+               Alias="TargetInstances_TagFilter" />
+        <Param Name="Revision_RevisionType"
+               NewName="RevisionType" />
+        <Param Name="TargetInstances_AutoScalingGroups"
+               NewName="TargetInstancesAutoScalingGroup"
+               Alias="TargetInstances_AutoScalingGroup" />
       </Params>
     </ServiceOperation>
     <ServiceOperation MethodName="CreateDeploymentConfig" />
     <ServiceOperation MethodName="CreateDeploymentGroup">
       <Params>
-        <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" Exclude="true" />
-        <Param Name="OnPremisesTagSet_OnPremisesTagSetList" Exclude="true" />
+        <Param Name="Ec2TagSet_Ec2TagSetList"
+               NewName="Ec2TagSetList"
+               AutoApplyAlias="false"  />
+        <Param Name="OnPremisesTagSet_OnPremisesTagSetList"
+               NewName="OnPremisesTagSetList"
+               AutoApplyAlias="false" />
+        <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
+              NewName="GreenFleetProvisioningOptionAction"
+              Alias="GreenFleetProvisioningOption_Action" />
         <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
                NewName="OnSuccessBlueInstanceTerminationWaitTime"
                Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"
@@ -50,6 +66,15 @@
         <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
                NewName="DeploymentReadyOptionTimeoutAction"
                Alias="DeploymentReadyOption_ActionOnTimeout"
+               />
+        <Param Name="DeploymentStyle_DeploymentOption"
+               NewName="DeploymentStyleOption"
+               />
+        <Param Name="DeploymentStyle_DeploymentType"
+               NewName="DeploymentStyleType"
+               />
+        <Param Name="LoadBalancerInfo_ElbInfoList"
+               NewName="LoadBalancerInfoList"
                />
       </Params>
     </ServiceOperation>
@@ -75,11 +100,19 @@
     <ServiceOperation MethodName="UpdateApplication" Output="Void" />
     <ServiceOperation MethodName="UpdateDeploymentGroup">
       <Params>
-        <Param Name="Ec2TagSet_Ec2TagSetList" Exclude="true" />
-        <Param Name="OnPremisesTagSet_OnPremisesTagSetList" Exclude="true" />
+        <Param Name="Ec2TagSet_Ec2TagSetList"
+               NewName="Ec2TagSetList"
+               AutoApplyAlias="false"  />
+        <Param Name="OnPremisesTagSet_OnPremisesTagSetList"
+               NewName="OnPremisesTagSetList"
+               AutoApplyAlias="false" />
+        <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"
+              NewName="GreenFleetProvisioningOptionAction"
+              Alias="GreenFleetProvisioningOption_Action" />
         <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes"
                NewName="OnSuccessBlueInstanceTerminationWaitTime"
-               Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" />
+               Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute"
+               />
         <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"
                NewName="OnSuccessBlueInstanceTerminationAction"
                Alias="TerminateBlueInstancesOnDeploymentSuccess_Action"
@@ -91,6 +124,15 @@
         <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"
                NewName="DeploymentReadyOptionTimeoutAction"
                Alias="DeploymentReadyOption_ActionOnTimeout"
+               />
+        <Param Name="DeploymentStyle_DeploymentOption"
+               NewName="DeploymentStyleOption"
+               />
+        <Param Name="DeploymentStyle_DeploymentType"
+               NewName="DeploymentStyleType"
+               />
+        <Param Name="LoadBalancerInfo_ElbInfoList"
+               NewName="LoadBalancerInfoList"
                />
       </Params>
     </ServiceOperation>

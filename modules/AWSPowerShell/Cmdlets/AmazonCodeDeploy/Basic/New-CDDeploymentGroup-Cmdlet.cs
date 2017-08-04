@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class NewCDDeploymentGroupCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
-        #region Parameter GreenFleetProvisioningOption_Action
+        #region Parameter GreenFleetProvisioningOptionAction
         /// <summary>
         /// <para>
         /// <para>The method used to add instances to a replacement environment.</para><ul><li><para>DISCOVER_EXISTING: Use instances that already exist or will be created manually.</para></li><li><para>COPY_AUTO_SCALING_GROUP: Use settings from a specified Auto Scaling group to define
@@ -48,9 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action")]
+        [Alias("BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action","GreenFleetProvisioningOption_Action")]
         [AWSConstantClassSource("Amazon.CodeDeploy.GreenFleetProvisioningAction")]
-        public Amazon.CodeDeploy.GreenFleetProvisioningAction GreenFleetProvisioningOption_Action { get; set; }
+        public Amazon.CodeDeploy.GreenFleetProvisioningAction GreenFleetProvisioningOptionAction { get; set; }
         #endregion
         
         #region Parameter OnSuccessBlueInstanceTerminationAction
@@ -142,26 +142,28 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String DeploymentGroupName { get; set; }
         #endregion
         
-        #region Parameter DeploymentStyle_DeploymentOption
+        #region Parameter DeploymentStyleOption
         /// <summary>
         /// <para>
         /// <para>Indicates whether to route deployment traffic behind a load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("DeploymentStyle_DeploymentOption")]
         [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentOption")]
-        public Amazon.CodeDeploy.DeploymentOption DeploymentStyle_DeploymentOption { get; set; }
+        public Amazon.CodeDeploy.DeploymentOption DeploymentStyleOption { get; set; }
         #endregion
         
-        #region Parameter DeploymentStyle_DeploymentType
+        #region Parameter DeploymentStyleType
         /// <summary>
         /// <para>
         /// <para>Indicates whether to run an in-place deployment or a blue/green deployment.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
+        [Alias("DeploymentStyle_DeploymentType")]
         [AWSConstantClassSource("Amazon.CodeDeploy.DeploymentType")]
-        public Amazon.CodeDeploy.DeploymentType DeploymentStyle_DeploymentType { get; set; }
+        public Amazon.CodeDeploy.DeploymentType DeploymentStyleType { get; set; }
         #endregion
         
         #region Parameter Ec2TagFilter
@@ -176,7 +178,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public Amazon.CodeDeploy.Model.EC2TagFilter[] Ec2TagFilter { get; set; }
         #endregion
         
-        #region Parameter LoadBalancerInfo_ElbInfoList
+        #region Parameter Ec2TagSetList
+        /// <summary>
+        /// <para>
+        /// <para>A list containing other lists of EC2 instance tag groups. In order for an instance
+        /// to be included in the deployment group, it must be identified by all the tag groups
+        /// in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.EC2TagFilter[][] Ec2TagSetList { get; set; }
+        #endregion
+        
+        #region Parameter LoadBalancerInfoList
         /// <summary>
         /// <para>
         /// <para>An array containing information about the load balancer in Elastic Load Balancing
@@ -184,7 +198,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public Amazon.CodeDeploy.Model.ELBInfo[] LoadBalancerInfo_ElbInfoList { get; set; }
+        [Alias("LoadBalancerInfo_ElbInfoList")]
+        public Amazon.CodeDeploy.Model.ELBInfo[] LoadBalancerInfoList { get; set; }
         #endregion
         
         #region Parameter AlarmConfiguration_Enabled
@@ -242,6 +257,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [Alias("OnPremisesInstanceTagFilters")]
         public Amazon.CodeDeploy.Model.TagFilter[] OnPremisesInstanceTagFilter { get; set; }
+        #endregion
+        
+        #region Parameter OnPremisesTagSetList
+        /// <summary>
+        /// <para>
+        /// <para>A list containing other lists of on-premises instance tag groups. In order for an
+        /// instance to be included in the deployment group, it must be identified by all the
+        /// tag groups in the list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.TagFilter[][] OnPremisesTagSetList { get; set; }
         #endregion
         
         #region Parameter ServiceRoleArn
@@ -344,25 +371,41 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.DeploymentReadyOptionTimeoutAction = this.DeploymentReadyOptionTimeoutAction;
             if (ParameterWasBound("DeploymentReadyOptionWaitTime"))
                 context.DeploymentReadyOptionWaitTime = this.DeploymentReadyOptionWaitTime;
-            context.BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action = this.GreenFleetProvisioningOption_Action;
+            context.GreenFleetProvisioningOptionAction = this.GreenFleetProvisioningOptionAction;
             context.OnSuccessBlueInstanceTerminationAction = this.OnSuccessBlueInstanceTerminationAction;
             if (ParameterWasBound("OnSuccessBlueInstanceTerminationWaitTime"))
                 context.OnSuccessBlueInstanceTerminationWaitTime = this.OnSuccessBlueInstanceTerminationWaitTime;
             context.DeploymentConfigName = this.DeploymentConfigName;
             context.DeploymentGroupName = this.DeploymentGroupName;
-            context.DeploymentStyle_DeploymentOption = this.DeploymentStyle_DeploymentOption;
-            context.DeploymentStyle_DeploymentType = this.DeploymentStyle_DeploymentType;
+            context.DeploymentStyleOption = this.DeploymentStyleOption;
+            context.DeploymentStyleType = this.DeploymentStyleType;
             if (this.Ec2TagFilter != null)
             {
                 context.Ec2TagFilters = new List<Amazon.CodeDeploy.Model.EC2TagFilter>(this.Ec2TagFilter);
             }
-            if (this.LoadBalancerInfo_ElbInfoList != null)
+            if (this.Ec2TagSetList != null)
             {
-                context.LoadBalancerInfo_ElbInfoList = new List<Amazon.CodeDeploy.Model.ELBInfo>(this.LoadBalancerInfo_ElbInfoList);
+                context.Ec2TagSetList = new List<List<Amazon.CodeDeploy.Model.EC2TagFilter>>();
+                foreach (var innerList in this.Ec2TagSetList)
+                {
+                    context.Ec2TagSetList.Add(new List<Amazon.CodeDeploy.Model.EC2TagFilter>(innerList));
+                }
+            }
+            if (this.LoadBalancerInfoList != null)
+            {
+                context.LoadBalancerInfoList = new List<Amazon.CodeDeploy.Model.ELBInfo>(this.LoadBalancerInfoList);
             }
             if (this.OnPremisesInstanceTagFilter != null)
             {
                 context.OnPremisesInstanceTagFilters = new List<Amazon.CodeDeploy.Model.TagFilter>(this.OnPremisesInstanceTagFilter);
+            }
+            if (this.OnPremisesTagSetList != null)
+            {
+                context.OnPremisesTagSetList = new List<List<Amazon.CodeDeploy.Model.TagFilter>>();
+                foreach (var innerList in this.OnPremisesTagSetList)
+                {
+                    context.OnPremisesTagSetList.Add(new List<Amazon.CodeDeploy.Model.TagFilter>(innerList));
+                }
             }
             context.ServiceRoleArn = this.ServiceRoleArn;
             if (this.TriggerConfiguration != null)
@@ -470,14 +513,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate GreenFleetProvisioningOption
             bool requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOptionIsNull = true;
             requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption = new Amazon.CodeDeploy.Model.GreenFleetProvisioningOption();
-            Amazon.CodeDeploy.GreenFleetProvisioningAction requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action = null;
-            if (cmdletContext.BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action != null)
+            Amazon.CodeDeploy.GreenFleetProvisioningAction requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOptionAction = null;
+            if (cmdletContext.GreenFleetProvisioningOptionAction != null)
             {
-                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action = cmdletContext.BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOptionAction = cmdletContext.GreenFleetProvisioningOptionAction;
             }
-            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action != null)
+            if (requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOptionAction != null)
             {
-                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption.Action = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOption_Action;
+                requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption.Action = requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption_greenFleetProvisioningOptionAction;
                 requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOptionIsNull = false;
             }
              // determine if requestBlueGreenDeploymentConfiguration_blueGreenDeploymentConfiguration_GreenFleetProvisioningOption should be set to null
@@ -577,24 +620,24 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate DeploymentStyle
             bool requestDeploymentStyleIsNull = true;
             request.DeploymentStyle = new Amazon.CodeDeploy.Model.DeploymentStyle();
-            Amazon.CodeDeploy.DeploymentOption requestDeploymentStyle_deploymentStyle_DeploymentOption = null;
-            if (cmdletContext.DeploymentStyle_DeploymentOption != null)
+            Amazon.CodeDeploy.DeploymentOption requestDeploymentStyle_deploymentStyleOption = null;
+            if (cmdletContext.DeploymentStyleOption != null)
             {
-                requestDeploymentStyle_deploymentStyle_DeploymentOption = cmdletContext.DeploymentStyle_DeploymentOption;
+                requestDeploymentStyle_deploymentStyleOption = cmdletContext.DeploymentStyleOption;
             }
-            if (requestDeploymentStyle_deploymentStyle_DeploymentOption != null)
+            if (requestDeploymentStyle_deploymentStyleOption != null)
             {
-                request.DeploymentStyle.DeploymentOption = requestDeploymentStyle_deploymentStyle_DeploymentOption;
+                request.DeploymentStyle.DeploymentOption = requestDeploymentStyle_deploymentStyleOption;
                 requestDeploymentStyleIsNull = false;
             }
-            Amazon.CodeDeploy.DeploymentType requestDeploymentStyle_deploymentStyle_DeploymentType = null;
-            if (cmdletContext.DeploymentStyle_DeploymentType != null)
+            Amazon.CodeDeploy.DeploymentType requestDeploymentStyle_deploymentStyleType = null;
+            if (cmdletContext.DeploymentStyleType != null)
             {
-                requestDeploymentStyle_deploymentStyle_DeploymentType = cmdletContext.DeploymentStyle_DeploymentType;
+                requestDeploymentStyle_deploymentStyleType = cmdletContext.DeploymentStyleType;
             }
-            if (requestDeploymentStyle_deploymentStyle_DeploymentType != null)
+            if (requestDeploymentStyle_deploymentStyleType != null)
             {
-                request.DeploymentStyle.DeploymentType = requestDeploymentStyle_deploymentStyle_DeploymentType;
+                request.DeploymentStyle.DeploymentType = requestDeploymentStyle_deploymentStyleType;
                 requestDeploymentStyleIsNull = false;
             }
              // determine if request.DeploymentStyle should be set to null
@@ -610,10 +653,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate Ec2TagSet
             bool requestEc2TagSetIsNull = true;
             request.Ec2TagSet = new Amazon.CodeDeploy.Model.EC2TagSet();
-            List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> requestEc2TagSet_ec2TagSet_Ec2TagSetList = null;
-            if (requestEc2TagSet_ec2TagSet_Ec2TagSetList != null)
+            List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> requestEc2TagSet_ec2TagSetList = null;
+            if (cmdletContext.Ec2TagSetList != null)
             {
-                request.Ec2TagSet.Ec2TagSetList = requestEc2TagSet_ec2TagSet_Ec2TagSetList;
+                requestEc2TagSet_ec2TagSetList = cmdletContext.Ec2TagSetList;
+            }
+            if (requestEc2TagSet_ec2TagSetList != null)
+            {
+                request.Ec2TagSet.Ec2TagSetList = requestEc2TagSet_ec2TagSetList;
                 requestEc2TagSetIsNull = false;
             }
              // determine if request.Ec2TagSet should be set to null
@@ -625,14 +672,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate LoadBalancerInfo
             bool requestLoadBalancerInfoIsNull = true;
             request.LoadBalancerInfo = new Amazon.CodeDeploy.Model.LoadBalancerInfo();
-            List<Amazon.CodeDeploy.Model.ELBInfo> requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList = null;
-            if (cmdletContext.LoadBalancerInfo_ElbInfoList != null)
+            List<Amazon.CodeDeploy.Model.ELBInfo> requestLoadBalancerInfo_loadBalancerInfoList = null;
+            if (cmdletContext.LoadBalancerInfoList != null)
             {
-                requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList = cmdletContext.LoadBalancerInfo_ElbInfoList;
+                requestLoadBalancerInfo_loadBalancerInfoList = cmdletContext.LoadBalancerInfoList;
             }
-            if (requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList != null)
+            if (requestLoadBalancerInfo_loadBalancerInfoList != null)
             {
-                request.LoadBalancerInfo.ElbInfoList = requestLoadBalancerInfo_loadBalancerInfo_ElbInfoList;
+                request.LoadBalancerInfo.ElbInfoList = requestLoadBalancerInfo_loadBalancerInfoList;
                 requestLoadBalancerInfoIsNull = false;
             }
              // determine if request.LoadBalancerInfo should be set to null
@@ -648,10 +695,14 @@ namespace Amazon.PowerShell.Cmdlets.CD
              // populate OnPremisesTagSet
             bool requestOnPremisesTagSetIsNull = true;
             request.OnPremisesTagSet = new Amazon.CodeDeploy.Model.OnPremisesTagSet();
-            List<List<Amazon.CodeDeploy.Model.TagFilter>> requestOnPremisesTagSet_onPremisesTagSet_OnPremisesTagSetList = null;
-            if (requestOnPremisesTagSet_onPremisesTagSet_OnPremisesTagSetList != null)
+            List<List<Amazon.CodeDeploy.Model.TagFilter>> requestOnPremisesTagSet_onPremisesTagSetList = null;
+            if (cmdletContext.OnPremisesTagSetList != null)
             {
-                request.OnPremisesTagSet.OnPremisesTagSetList = requestOnPremisesTagSet_onPremisesTagSet_OnPremisesTagSetList;
+                requestOnPremisesTagSet_onPremisesTagSetList = cmdletContext.OnPremisesTagSetList;
+            }
+            if (requestOnPremisesTagSet_onPremisesTagSetList != null)
+            {
+                request.OnPremisesTagSet.OnPremisesTagSetList = requestOnPremisesTagSet_onPremisesTagSetList;
                 requestOnPremisesTagSetIsNull = false;
             }
              // determine if request.OnPremisesTagSet should be set to null
@@ -728,16 +779,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public List<System.String> AutoScalingGroups { get; set; }
             public Amazon.CodeDeploy.DeploymentReadyAction DeploymentReadyOptionTimeoutAction { get; set; }
             public System.Int32? DeploymentReadyOptionWaitTime { get; set; }
-            public Amazon.CodeDeploy.GreenFleetProvisioningAction BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action { get; set; }
+            public Amazon.CodeDeploy.GreenFleetProvisioningAction GreenFleetProvisioningOptionAction { get; set; }
             public Amazon.CodeDeploy.InstanceAction OnSuccessBlueInstanceTerminationAction { get; set; }
             public System.Int32? OnSuccessBlueInstanceTerminationWaitTime { get; set; }
             public System.String DeploymentConfigName { get; set; }
             public System.String DeploymentGroupName { get; set; }
-            public Amazon.CodeDeploy.DeploymentOption DeploymentStyle_DeploymentOption { get; set; }
-            public Amazon.CodeDeploy.DeploymentType DeploymentStyle_DeploymentType { get; set; }
+            public Amazon.CodeDeploy.DeploymentOption DeploymentStyleOption { get; set; }
+            public Amazon.CodeDeploy.DeploymentType DeploymentStyleType { get; set; }
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
-            public List<Amazon.CodeDeploy.Model.ELBInfo> LoadBalancerInfo_ElbInfoList { get; set; }
+            public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
+            public List<Amazon.CodeDeploy.Model.ELBInfo> LoadBalancerInfoList { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
+            public List<List<Amazon.CodeDeploy.Model.TagFilter>> OnPremisesTagSetList { get; set; }
             public System.String ServiceRoleArn { get; set; }
             public List<Amazon.CodeDeploy.Model.TriggerConfig> TriggerConfigurations { get; set; }
         }
