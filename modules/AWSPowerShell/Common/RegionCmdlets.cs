@@ -28,7 +28,8 @@ namespace Amazon.PowerShell.Common
     /// Sets a default AWS region into the shell environment, accessible as $StoredAWSRegion.
     /// </summary>
     [Cmdlet("Set", "DefaultAWSRegion")]
-    [AWSCmdlet("Sets a default AWS region system name (e.g. us-west-2, eu-west-1 etc) into the shell variable $StoredAWSRegion.")]
+    [AWSCmdlet("Sets a default AWS region system name (e.g. us-west-2, eu-west-1 etc) into the shell variable $StoredAWSRegion. "
+                + "AWS cmdlets will use the value of this variable to satisfy their -Region parameter if the parameter is not specified.")]
     [OutputType("None")]
     [AWSCmdletOutput("None", "This cmdlet does not generate any output.")]
     public class SetDefaultRegionCmdlet : PSCmdlet, IDynamicParameters

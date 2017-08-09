@@ -564,9 +564,15 @@ namespace Amazon.PowerShell.Common
 
         #region Parameter Region
         /// <summary>
+        /// <para>
         /// The system name of an AWS region or an AWSRegion instance. This governs
         /// the endpoint that will be used when calling service operations. Note that 
         /// the AWS resources referenced in a call are usually region-specific.
+        /// </para>
+        /// <para>
+        /// If the Region parameter is supplied the cmdlet ignores the ProfileLocation
+        /// parameter.
+        /// </para>
         /// </summary>
         [Parameter(Mandatory = false,
                    ValueFromPipeline=true,
@@ -579,7 +585,8 @@ namespace Amazon.PowerShell.Common
         /// <summary>
         /// <para>
         /// Used to specify the name and location of the ini-format credential file (shared with
-        /// the AWS CLI and other AWS SDKs)
+        /// the AWS CLI and other AWS SDKs). When supplied the cmdlet will attempt to read the
+        /// default region to be used from the credential file's default profile.
         /// </para>
         /// <para>
         /// If this optional parameter is omitted this cmdlet will search the encrypted credential
