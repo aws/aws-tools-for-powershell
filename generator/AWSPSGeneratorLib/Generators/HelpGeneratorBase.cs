@@ -45,10 +45,10 @@ namespace AWSPowerShellGenerator.Generators
 
         private List<string> _dynamicParameterCmdlets = new List<string>
         {
-            "Amazon.PowerShell.Common.SetCredentialsCmdlet",
-            "Amazon.PowerShell.Common.NewCredentialsCmdlet",
+            "Amazon.PowerShell.Common.SetCredentialCmdlet",
+            "Amazon.PowerShell.Common.NewCredentialCmdlet",
             "Amazon.PowerShell.Common.SetDefaultRegionCmdlet",
-            "Amazon.PowerShell.Common.InitializeDefaultsCmdlet",
+            "Amazon.PowerShell.Common.InitializeDefaultConfigurationCmdlet",
         };
 
         // Some of our cmdlets belong to a service but don't make service calls (eg the DynamoDB
