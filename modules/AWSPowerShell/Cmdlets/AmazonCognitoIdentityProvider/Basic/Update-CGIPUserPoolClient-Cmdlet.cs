@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
-        /// <para>A list ofallowed logout URLs for the identity providers.</para>
+        /// <para>A list of allowed logout URLs for the identity providers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

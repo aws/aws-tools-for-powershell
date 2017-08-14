@@ -1,3 +1,13 @@
+###
+  * AWS CodeDeploy
+    - Updated the New-CDDeploymentGroup and Update-CDDeploymentGroup cmdlets with parameters to support specifying Application Load Balancers in deployment groups, for both in-place and blue/green deployments.
+  * Amazon Cognito Identity Provider
+    - Updated and added cmdlets to support new features for Amazon Cognito User Pools that enable application developers to easily add and customize a sign-up and sign-in user experience, use OAuth 2.0, and integrate with Facebook, Google, Login with Amazon, and SAML-based identity providers.
+  * Amazon EC2
+    - Updated the New-EC2Address cmdlet with a new parameter, -Address, to support the new service feature enabling recovery of an elastic IP address (EIP) that was released.
+  * AWS Elastic Beanstalk
+    - Updated the Get-EBEnvironment cmdlet to support automatic pagination now that the underlying service API, DescribeEnvironments, can paginate output.
+
 ### 3.3.133.0 (2017-08-04)
   * AWS CodeDeploy
     - Updated the New-CDDeployment, New-CDDeploymentGroup and Update-CDDeploymentGroup with parameters to support the use of multiple tag groups in a single deployment group (an intersection of tags) to identify the instances for a deployment. When you create or update a deployment group, use the new -Ec2TagSetList and -OnPremisesTagSetList parameters to specify up to three groups of tags. Only instances that are identified by at least one tag in each of the tag groups are included in the deployment group.

@@ -28,45 +28,58 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows the developer to delete the user pool client.
+    /// Creates a new OAuth2.0 resource server and defines custom scopes in it.
     /// </summary>
-    [Cmdlet("Remove", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteUserPoolClient operation against Amazon Cognito Identity Provider.", Operation = new[] {"DeleteUserPoolClient"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClientId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
+    [AWSCmdlet("Invokes the CreateResourceServer operation against Amazon Cognito Identity Provider.", Operation = new[] {"CreateResourceServer"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ResourceServerType",
+        "This cmdlet returns a ResourceServerType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.CreateResourceServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class NewCGIPResourceServerCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter ClientId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>The app client ID of the app associated with the user pool.</para>
+        /// <para>A unique resource server identifier for the resource server. This could be an HTTPS
+        /// endpoint where the resource server is located. For example, <code>https://my-weather-api.example.com</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ClientId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Identifier { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>A friendly name for the resource server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>A list of scopes. Each scope is map, where the keys are <code>name</code> and <code>description</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Scopes")]
+        public Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType[] Scope { get; set; }
         #endregion
         
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to delete the client.</para>
+        /// <para>The user pool ID for the user pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String UserPoolId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the ClientId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -83,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CGIPUserPoolClient (DeleteUserPoolClient)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Identifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-CGIPResourceServer (CreateResourceServer)"))
             {
                 return;
             }
@@ -98,7 +111,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ClientId = this.ClientId;
+            context.Identifier = this.Identifier;
+            context.Name = this.Name;
+            if (this.Scope != null)
+            {
+                context.Scopes = new List<Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType>(this.Scope);
+            }
             context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
@@ -114,11 +132,19 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.CreateResourceServerRequest();
             
-            if (cmdletContext.ClientId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.ClientId = cmdletContext.ClientId;
+                request.Identifier = cmdletContext.Identifier;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Scopes != null)
+            {
+                request.Scopes = cmdletContext.Scopes;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -133,9 +159,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ClientId;
+                object pipelineOutput = response.ResourceServer;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -160,14 +184,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientRequest request)
+        private Amazon.CognitoIdentityProvider.Model.CreateResourceServerResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.CreateResourceServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DeleteUserPoolClient");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "CreateResourceServer");
             #if DESKTOP
-            return client.DeleteUserPoolClient(request);
+            return client.CreateResourceServer(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteUserPoolClientAsync(request);
+            var task = client.CreateResourceServerAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -178,7 +202,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientId { get; set; }
+            public System.String Identifier { get; set; }
+            public System.String Name { get; set; }
+            public List<Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType> Scopes { get; set; }
             public System.String UserPoolId { get; set; }
         }
         

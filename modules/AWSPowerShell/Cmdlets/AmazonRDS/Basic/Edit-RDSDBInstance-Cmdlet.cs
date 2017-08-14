@@ -124,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// value or from a non-zero value to 0. These changes are applied during the next maintenance
         /// window unless the <code>ApplyImmediately</code> parameter is set to <code>true</code>
         /// for this request. If you change the parameter from one non-zero value to another non-zero
-        /// value, the change is asynchronously applied as soon as possible.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
+        /// value, the change is asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
+        /// For more information, see <a>ModifyDBCluster</a>.</para><para>Default: Uses existing setting</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Can be specified for a MySQL Read Replica only if the source is running MySQL 5.6</para></li><li><para>Can be specified for a PostgreSQL Read Replica only if the source is running PostgreSQL
         /// 9.3.5</para></li><li><para>Cannot be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
         /// </para>
         /// </summary>
@@ -267,7 +268,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false.</para><para> You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
+        /// accounts; otherwise false.</para><para> You can enable IAM database authentication for the following database engines</para><para><b>Amazon Aurora</b></para><para>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
+        /// cluster. For more information, see <a>ModifyDBCluster</a>.</para><para><b>MySQL</b></para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -280,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The version number of the database engine to upgrade to. Changing this parameter
         /// results in an outage and the change is applied during the next maintenance window
         /// unless the <code>ApplyImmediately</code> parameter is set to <code>true</code> for
-        /// this request. </para><para>For major version upgrades, if a non-default DB parameter group is currently in use,
+        /// this request. </para><para>For major version upgrades, if a nondefault DB parameter group is currently in use,
         /// a new DB parameter group in the DB parameter group family for the new engine version
         /// must be specified. The new DB parameter group can be the default for that DB parameter
         /// group family.</para><para>For a list of valid engine versions, see <a>CreateDBInstance</a>.</para>
@@ -331,11 +333,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The new password for the DB instance master user. Can be any printable ASCII character
-        /// except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
+        /// <para>The new password for the master user. Can be any printable ASCII character except
+        /// "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
-        /// element of the operation response. </para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora),
+        /// element of the operation response. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
+        /// more information, see <a>ModifyDBCluster</a>.</para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora),
         /// 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
         /// Server).</para><note><para>Amazon RDS API actions never return the password, so this action provides a way to
         /// regain access to a primary instance user if the password is lost. This includes restoring
@@ -424,7 +427,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
         /// this parameter does not result in an outage and the change is asynchronously applied
-        /// as soon as possible. </para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Times should be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
+        /// as soon as possible. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
+        /// the DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Times should be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -513,7 +517,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of EC2 VPC security groups to authorize on this DB instance. This change is
-        /// asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
+        /// cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

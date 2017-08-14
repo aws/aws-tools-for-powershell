@@ -28,7 +28,7 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows a user to delete one's self.
+    /// Allows a user to delete himself or herself.
     /// </summary>
     [Cmdlet("Remove", "CGIPUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

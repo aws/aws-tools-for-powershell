@@ -45,8 +45,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The identifier or ARN for the source option group. For information about creating
         /// an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing an RDS Amazon Resource Name (ARN)</a>. </para><para>Constraints:</para><ul><li><para>Must specify a valid option group.</para></li><li><para>If the source option group is in the same region as the copy, specify a valid option
-        /// group identifier, for example <code>my-option-group</code>, or a valid ARN.</para></li><li><para>If the source option group is in a different region than the copy, specify a valid
+        /// Constructing an RDS Amazon Resource Name (ARN)</a>. </para><para>Constraints:</para><ul><li><para>Must specify a valid option group.</para></li><li><para>If the source option group is in the same AWS Region as the copy, specify a valid
+        /// option group identifier, for example <code>my-option-group</code>, or a valid ARN.</para></li><li><para>If the source option group is in a different AWS Region than the copy, specify a valid
         /// option group ARN, for example <code>arn:aws:rds:us-west-2:123456789012:og:special-options</code>.</para></li></ul>
         /// </para>
         /// </summary>

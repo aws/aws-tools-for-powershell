@@ -28,12 +28,20 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Acquires an Elastic IP address.
+    /// Allocates an Elastic IP address.
     /// 
     ///  
     /// <para>
-    /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. For
-    /// more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
+    /// An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By
+    /// default, you can allocate 5 Elastic IP addresses for EC2-Classic per region and 5
+    /// Elastic IP addresses for EC2-VPC per region.
+    /// </para><para>
+    /// If you release an Elastic IP address for use in a VPC, you might be able to recover
+    /// it. To recover an Elastic IP address that you released, specify it in the <code>Address</code>
+    /// parameter. Note that you cannot recover an Elastic IP address that you released after
+    /// it is allocated to another AWS account.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html">Elastic
     /// IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
@@ -46,13 +54,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     public partial class NewEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
         
+        #region Parameter Address
+        /// <summary>
+        /// <para>
+        /// <para>[EC2-VPC] The Elastic IP address to recover.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Address { get; set; }
+        #endregion
+        
         #region Parameter Domain
         /// <summary>
         /// <para>
         /// <para>Set to <code>vpc</code> to allocate the address for use with instances in a VPC.</para><para>Default: The address is for use with instances in EC2-Classic.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.EC2.DomainType")]
         public Amazon.EC2.DomainType Domain { get; set; }
         #endregion
@@ -71,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Domain", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = string.Empty;
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-EC2Address (AllocateAddress)"))
             {
                 return;
@@ -86,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.Address = this.Address;
             context.Domain = this.Domain;
             
             // allow further manipulation of loaded context prior to processing
@@ -103,6 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.AllocateAddressRequest();
             
+            if (cmdletContext.Address != null)
+            {
+                request.Address = cmdletContext.Address;
+            }
             if (cmdletContext.Domain != null)
             {
                 request.Domain = cmdletContext.Domain;
@@ -159,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String Address { get; set; }
             public Amazon.EC2.DomainType Domain { get; set; }
         }
         

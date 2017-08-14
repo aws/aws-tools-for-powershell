@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The identifier or Amazon Resource Name (ARN) for the source DB cluster parameter group.
         /// For information about creating an ARN, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
-        /// Constructing an RDS Amazon Resource Name (ARN)</a>. </para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li><li><para>If the source DB cluster parameter group is in the same region as the copy, specify
+        /// Constructing an RDS Amazon Resource Name (ARN)</a>. </para><para>Constraints:</para><ul><li><para>Must specify a valid DB cluster parameter group.</para></li><li><para>If the source DB cluster parameter group is in the same AWS Region as the copy, specify
         /// a valid DB parameter group identifier, for example <code>my-db-cluster-param-group</code>,
-        /// or a valid ARN.</para></li><li><para>If the source DB parameter group is in a different region than the copy, specify a
-        /// valid DB cluster parameter group ARN, for example <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</para></li></ul>
+        /// or a valid ARN.</para></li><li><para>If the source DB parameter group is in a different AWS Region than the copy, specify
+        /// a valid DB cluster parameter group ARN, for example <code>arn:aws:rds:us-east-1:123456789012:cluster-pg:custom-cluster-group1</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Creates a new DB subnet group. DB subnet groups must contain at least one subnet in
-    /// at least two AZs in the region.
+    /// at least two AZs in the AWS Region.
     /// </summary>
     [Cmdlet("New", "RDSDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSubnetGroup")]

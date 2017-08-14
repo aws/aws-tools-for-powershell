@@ -22,71 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticBeanstalk;
-using Amazon.ElasticBeanstalk.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EB
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Retrieve a list of application versions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the resource servers for a user pool.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EBApplicationVersion")]
-    [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
-    [AWSCmdlet("Invokes the DescribeApplicationVersions operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeApplicationVersions"}, LegacyAlias="Get-EBApplicationVersions")]
-    [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
-        "This cmdlet returns a collection of ApplicationVersionDescription objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CGIPResourceServerList")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
+    [AWSCmdlet("Invokes the ListResourceServers operation against Amazon Cognito Identity Provider.", Operation = new[] {"ListResourceServers"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ResourceServerType",
+        "This cmdlet returns a collection of ResourceServerType objects.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.ListResourceServersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetEBApplicationVersionCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
+    public partial class GetCGIPResourceServerListCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationName
+        #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>Specify an application name to show only application versions for that application.</para>
+        /// <para>The user pool ID for the user pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ApplicationName { get; set; }
+        public System.String UserPoolId { get; set; }
         #endregion
         
-        #region Parameter VersionLabel
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Specify a version label to show a specific application version.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
-        [Alias("VersionLabels")]
-        public System.String[] VersionLabel { get; set; }
-        #endregion
-        
-        #region Parameter MaxRecord
-        /// <summary>
-        /// <para>
-        /// <para>For a paginated request. Specify a maximum number of application versions to include
-        /// in each response.</para><para>If no <code>MaxRecords</code> is specified, all available application versions are
-        /// retrieved in a single response.</para>
+        /// <para>The maximum number of resource servers to return.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("MaxItems","MaxRecords")]
-        public int MaxRecord { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>For a paginated request. Specify a token from a previous response page to retrieve
-        /// the next response page. All other parameter values must be identical to the ones specified
-        /// in the initial request.</para><para>If no <code>NextToken</code> is specified, the first page is retrieved.</para>
+        /// <para>A pagination token.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter]
         public System.String NextToken { get; set; }
         #endregion
         
@@ -103,14 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.EB
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationName = this.ApplicationName;
-            if (ParameterWasBound("MaxRecord"))
-                context.MaxRecords = this.MaxRecord;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.VersionLabel != null)
-            {
-                context.VersionLabels = new List<System.String>(this.VersionLabel);
-            }
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,36 +107,32 @@ namespace Amazon.PowerShell.Cmdlets.EB
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsRequest();
-            if (cmdletContext.ApplicationName != null)
+            var request = new Amazon.CognitoIdentityProvider.Model.ListResourceServersRequest();
+            if (cmdletContext.UserPoolId != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
-            }
-            if (cmdletContext.VersionLabels != null)
-            {
-                request.VersionLabels = cmdletContext.VersionLabels;
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 1000;
+            int? _pageSize = 60;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxRecords))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 1000. If the user has
+                // The service has a maximum page size of 60. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 1000 items back. If a page size is set, that will
+                // and giving us 60 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
-                _emitLimit = cmdletContext.MaxRecords;
+                _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxRecords);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
             bool _continueIteration = true;
             
             try
@@ -165,21 +142,21 @@ namespace Amazon.PowerShell.Cmdlets.EB
                     request.NextToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     if (AutoIterationHelpers.HasValue(_pageSize))
                     {
                         int correctPageSize;
-                        if (AutoIterationHelpers.IsSet(request.MaxRecords))
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
                         {
-                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxRecords);
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
                         }
                         else
                         {
                             correctPageSize = _pageSize.Value;
                         }
-                        request.MaxRecords = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -190,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ApplicationVersions;
+                        object pipelineOutput = response.ResourceServers;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -199,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ApplicationVersions.Count;
+                        int _receivedThisCall = response.ResourceServers.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -219,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 1000 and the user has set a retrieval limit.
+                    // The service has a maximum page size of 60 and the user has set a retrieval limit.
                     // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
                     // what's left to match the user's request.
                     
@@ -251,14 +228,14 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsResponse CallAWSServiceOperation(IAmazonElasticBeanstalk client, Amazon.ElasticBeanstalk.Model.DescribeApplicationVersionsRequest request)
+        private Amazon.CognitoIdentityProvider.Model.ListResourceServersResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.ListResourceServersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Elastic Beanstalk", "DescribeApplicationVersions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "ListResourceServers");
             #if DESKTOP
-            return client.DescribeApplicationVersions(request);
+            return client.ListResourceServers(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeApplicationVersionsAsync(request);
+            var task = client.ListResourceServersAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -269,10 +246,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public int? MaxRecords { get; set; }
+            public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> VersionLabels { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

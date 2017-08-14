@@ -40,7 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
     [AWSCmdlet("Invokes the ComposeEnvironments operation against AWS Elastic Beanstalk.", Operation = new[] {"ComposeEnvironments"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentDescription",
         "This cmdlet returns a collection of EnvironmentDescription objects.",
-        "The service call response (type Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
     public partial class GroupEBEnvironmentCmdlet : AmazonElasticBeanstalkClientCmdlet, IExecutor
     {
@@ -155,6 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = response.Environments;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -24,7 +24,7 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Verb="Confirm" />
-    <ServiceOperation MethodName="AllocateAddress" Output="Response" />
+    <ServiceOperation MethodName="AllocateAddress" Output="Response" AnonymousShouldProcessTarget="true" />
     <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
     <ServiceOperation MethodName="AssociateAddress" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId"/>
     <ServiceOperation MethodName="AssociateDhcpOptions" Output="Void" PipelineParameter="VpcId" PositionalParameters="DhcpOptionsId"/>

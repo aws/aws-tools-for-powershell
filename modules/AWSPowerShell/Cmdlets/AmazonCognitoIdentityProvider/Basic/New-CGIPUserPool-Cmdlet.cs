@@ -105,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String LambdaConfig_CustomMessage { get; set; }
         #endregion
         
+        #region Parameter VerificationMessageTemplate_DefaultEmailOption
+        /// <summary>
+        /// <para>
+        /// <para>The default email option.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.DefaultEmailOptionType")]
+        public Amazon.CognitoIdentityProvider.DefaultEmailOptionType VerificationMessageTemplate_DefaultEmailOption { get; set; }
+        #endregion
+        
         #region Parameter LambdaConfig_DefineAuthChallenge
         /// <summary>
         /// <para>
@@ -136,6 +147,26 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String InviteMessageTemplate_EmailMessage { get; set; }
         #endregion
         
+        #region Parameter VerificationMessageTemplate_EmailMessage
+        /// <summary>
+        /// <para>
+        /// <para>The email message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VerificationMessageTemplate_EmailMessage { get; set; }
+        #endregion
+        
+        #region Parameter VerificationMessageTemplate_EmailMessageByLink
+        /// <summary>
+        /// <para>
+        /// <para>The email message template for sending a confirmation link to the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VerificationMessageTemplate_EmailMessageByLink { get; set; }
+        #endregion
+        
         #region Parameter InviteMessageTemplate_EmailSubject
         /// <summary>
         /// <para>
@@ -145,6 +176,27 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter]
         [Alias("AdminCreateUserConfig_InviteMessageTemplate_EmailSubject")]
         public System.String InviteMessageTemplate_EmailSubject { get; set; }
+        #endregion
+        
+        #region Parameter VerificationMessageTemplate_EmailSubject
+        /// <summary>
+        /// <para>
+        /// <para>The subject line for the email message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VerificationMessageTemplate_EmailSubject { get; set; }
+        #endregion
+        
+        #region Parameter VerificationMessageTemplate_EmailSubjectByLink
+        /// <summary>
+        /// <para>
+        /// <para>The subject line for the email message template for sending a confirmation link to
+        /// the user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VerificationMessageTemplate_EmailSubjectByLink { get; set; }
         #endregion
         
         #region Parameter EmailVerificationMessage
@@ -328,6 +380,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String SmsAuthenticationMessage { get; set; }
         #endregion
         
+        #region Parameter VerificationMessageTemplate_SmsMessage
+        /// <summary>
+        /// <para>
+        /// <para>The SMS message template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VerificationMessageTemplate_SmsMessage { get; set; }
+        #endregion
+        
         #region Parameter InviteMessageTemplate_SMSMessage
         /// <summary>
         /// <para>
@@ -509,6 +571,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     context.UserPoolTags.Add((String)hashKey, (String)(this.UserPoolTag[hashKey]));
                 }
             }
+            context.VerificationMessageTemplate_DefaultEmailOption = this.VerificationMessageTemplate_DefaultEmailOption;
+            context.VerificationMessageTemplate_EmailMessage = this.VerificationMessageTemplate_EmailMessage;
+            context.VerificationMessageTemplate_EmailMessageByLink = this.VerificationMessageTemplate_EmailMessageByLink;
+            context.VerificationMessageTemplate_EmailSubject = this.VerificationMessageTemplate_EmailSubject;
+            context.VerificationMessageTemplate_EmailSubjectByLink = this.VerificationMessageTemplate_EmailSubjectByLink;
+            context.VerificationMessageTemplate_SmsMessage = this.VerificationMessageTemplate_SmsMessage;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -894,6 +962,75 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.UserPoolTags = cmdletContext.UserPoolTags;
             }
             
+             // populate VerificationMessageTemplate
+            bool requestVerificationMessageTemplateIsNull = true;
+            request.VerificationMessageTemplate = new Amazon.CognitoIdentityProvider.Model.VerificationMessageTemplateType();
+            Amazon.CognitoIdentityProvider.DefaultEmailOptionType requestVerificationMessageTemplate_verificationMessageTemplate_DefaultEmailOption = null;
+            if (cmdletContext.VerificationMessageTemplate_DefaultEmailOption != null)
+            {
+                requestVerificationMessageTemplate_verificationMessageTemplate_DefaultEmailOption = cmdletContext.VerificationMessageTemplate_DefaultEmailOption;
+            }
+            if (requestVerificationMessageTemplate_verificationMessageTemplate_DefaultEmailOption != null)
+            {
+                request.VerificationMessageTemplate.DefaultEmailOption = requestVerificationMessageTemplate_verificationMessageTemplate_DefaultEmailOption;
+                requestVerificationMessageTemplateIsNull = false;
+            }
+            System.String requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessage = null;
+            if (cmdletContext.VerificationMessageTemplate_EmailMessage != null)
+            {
+                requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessage = cmdletContext.VerificationMessageTemplate_EmailMessage;
+            }
+            if (requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessage != null)
+            {
+                request.VerificationMessageTemplate.EmailMessage = requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessage;
+                requestVerificationMessageTemplateIsNull = false;
+            }
+            System.String requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessageByLink = null;
+            if (cmdletContext.VerificationMessageTemplate_EmailMessageByLink != null)
+            {
+                requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessageByLink = cmdletContext.VerificationMessageTemplate_EmailMessageByLink;
+            }
+            if (requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessageByLink != null)
+            {
+                request.VerificationMessageTemplate.EmailMessageByLink = requestVerificationMessageTemplate_verificationMessageTemplate_EmailMessageByLink;
+                requestVerificationMessageTemplateIsNull = false;
+            }
+            System.String requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubject = null;
+            if (cmdletContext.VerificationMessageTemplate_EmailSubject != null)
+            {
+                requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubject = cmdletContext.VerificationMessageTemplate_EmailSubject;
+            }
+            if (requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubject != null)
+            {
+                request.VerificationMessageTemplate.EmailSubject = requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubject;
+                requestVerificationMessageTemplateIsNull = false;
+            }
+            System.String requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubjectByLink = null;
+            if (cmdletContext.VerificationMessageTemplate_EmailSubjectByLink != null)
+            {
+                requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubjectByLink = cmdletContext.VerificationMessageTemplate_EmailSubjectByLink;
+            }
+            if (requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubjectByLink != null)
+            {
+                request.VerificationMessageTemplate.EmailSubjectByLink = requestVerificationMessageTemplate_verificationMessageTemplate_EmailSubjectByLink;
+                requestVerificationMessageTemplateIsNull = false;
+            }
+            System.String requestVerificationMessageTemplate_verificationMessageTemplate_SmsMessage = null;
+            if (cmdletContext.VerificationMessageTemplate_SmsMessage != null)
+            {
+                requestVerificationMessageTemplate_verificationMessageTemplate_SmsMessage = cmdletContext.VerificationMessageTemplate_SmsMessage;
+            }
+            if (requestVerificationMessageTemplate_verificationMessageTemplate_SmsMessage != null)
+            {
+                request.VerificationMessageTemplate.SmsMessage = requestVerificationMessageTemplate_verificationMessageTemplate_SmsMessage;
+                requestVerificationMessageTemplateIsNull = false;
+            }
+             // determine if request.VerificationMessageTemplate should be set to null
+            if (requestVerificationMessageTemplateIsNull)
+            {
+                request.VerificationMessageTemplate = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -980,6 +1117,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String SmsVerificationMessage { get; set; }
             public List<System.String> UsernameAttributes { get; set; }
             public Dictionary<System.String, System.String> UserPoolTags { get; set; }
+            public Amazon.CognitoIdentityProvider.DefaultEmailOptionType VerificationMessageTemplate_DefaultEmailOption { get; set; }
+            public System.String VerificationMessageTemplate_EmailMessage { get; set; }
+            public System.String VerificationMessageTemplate_EmailMessageByLink { get; set; }
+            public System.String VerificationMessageTemplate_EmailSubject { get; set; }
+            public System.String VerificationMessageTemplate_EmailSubjectByLink { get; set; }
+            public System.String VerificationMessageTemplate_SmsMessage { get; set; }
         }
         
     }

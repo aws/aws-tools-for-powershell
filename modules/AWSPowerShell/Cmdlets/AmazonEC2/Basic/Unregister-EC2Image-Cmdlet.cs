@@ -29,11 +29,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch
-    /// new instances.
+    /// new instances; however, it doesn't affect any instances that you've already launched
+    /// from the AMI. You'll continue to incur usage costs for those instances until you terminate
+    /// them.
     /// 
     ///  
     /// <para>
-    /// This command does not delete the AMI.
+    /// When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that
+    /// was created for the root volume of the instance during the AMI creation process. When
+    /// you deregister an instance store-backed AMI, it doesn't affect the files that you
+    /// uploaded to Amazon S3 when you created the AMI.
     /// </para>
     /// </summary>
     [Cmdlet("Unregister", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

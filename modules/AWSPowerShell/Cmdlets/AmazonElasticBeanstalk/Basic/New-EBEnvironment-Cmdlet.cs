@@ -77,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>A unique name for the deployment environment. Used in the application URL.</para><para>Constraint: Must be from 4 to 40 characters in length. The name can contain only letters,
         /// numbers, and hyphens. It cannot start or end with a hyphen. This name must be unique
-        /// in your account. If the specified name already exists, AWS Elastic Beanstalk returns
-        /// an <code>InvalidParameterValue</code> error. </para><para>Default: If the CNAME parameter is not specified, the environment name becomes part
+        /// within a region in your account. If the specified name already exists in the region,
+        /// AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </para><para>Default: If the CNAME parameter is not specified, the environment name becomes part
         /// of the CNAME, and therefore part of the visible URL for your application.</para>
         /// </para>
         /// </summary>
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the custom platform.</para>
+        /// <para>The ARN of the platform.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

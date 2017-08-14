@@ -34,8 +34,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// as the original DB cluster, except that the new DB cluster is created with the default
     /// DB security group. 
     /// 
-    ///  
-    /// <para>
+    ///  <note><para>
+    /// This action only restores the DB cluster, not the DB instances for that DB cluster.
+    /// You must invoke the <a>CreateDBInstance</a> action to create DB instances for the
+    /// restored DB cluster, specifying the identifier of the restored DB cluster in <code>DBClusterIdentifier</code>.
+    /// You can create DB instances only after the <code>RestoreDBClusterToPointInTime</code>
+    /// action has completed and the DB cluster is available.
+    /// </para></note><para>
     /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
     /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>

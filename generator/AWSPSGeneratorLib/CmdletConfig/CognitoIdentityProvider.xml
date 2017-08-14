@@ -123,5 +123,16 @@
     <ServiceOperation MethodName="GetIdentityProviderByIdentifier" PipelineParameter="IdpIdentifier" />
     <ServiceOperation MethodName="ListIdentityProviders" Verb="Get" Noun="IdentityProviderList"  />
     <ServiceOperation MethodName="CreateIdentityProvider" PipelineParameter="ProviderName" />
+
+    <ServiceOperation MethodName="ListResourceServers" Verb="Get" Noun="ResourceServerList" />
+    <ServiceOperation MethodName="SetUICustomization" />
+    <ServiceOperation MethodName="UpdateResourceServer" PipelineParameter="Identifier" ShouldProcessTarget="Identifier" />
+    <ServiceOperation MethodName="CreateResourceServer" PipelineParameter="Identifier" ShouldProcessTarget="Identifier" />
+    <ServiceOperation MethodName="DeleteResourceServer" PipelineParameter="Identifier" Output="Void" />
+    <ServiceOperation MethodName="DescribeResourceServer" PipelineParameter="Identifier" />
+    <ServiceOperation MethodName="GetUICustomization" />
+    <ServiceOperation MethodName="AdminDisableProviderForUser" Verb="Disable" Noun="ProviderForUserAdmin" Output="Void" />
+    <ServiceOperation MethodName="AdminLinkProviderForUser" Verb="Connect" Noun="ProviderForUserAdmin" Output="Void" />
+
   </ServiceOperations>
 </ConfigModel>

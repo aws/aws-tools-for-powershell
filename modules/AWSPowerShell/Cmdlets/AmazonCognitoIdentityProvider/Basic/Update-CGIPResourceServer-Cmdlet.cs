@@ -22,70 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.EC2;
-using Amazon.EC2.Model;
+using Amazon.CognitoIdentityProvider;
+using Amazon.CognitoIdentityProvider.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC2
+namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Releases the specified Elastic IP address.
-    /// 
-    ///  
-    /// <para>
-    /// [EC2-Classic, default VPC] Releasing an Elastic IP address automatically disassociates
-    /// it from any instance that it's associated with. To disassociate an Elastic IP address
-    /// without releasing it, use <a>DisassociateAddress</a>.
-    /// </para><para>
-    /// [Nondefault VPC] You must use <a>DisassociateAddress</a> to disassociate the Elastic
-    /// IP address before you can release it. Otherwise, Amazon EC2 returns an error (<code>InvalidIPAddress.InUse</code>).
-    /// </para><para>
-    /// After releasing an Elastic IP address, it is released to the IP address pool. Be sure
-    /// to update your DNS records and any servers or devices that communicate with the address.
-    /// If you attempt to release an Elastic IP address that you already released, you'll
-    /// get an <code>AuthFailure</code> error if the address is already allocated to another
-    /// AWS account.
-    /// </para><para>
-    /// [EC2-VPC] After you release an Elastic IP address for use in a VPC, you might be able
-    /// to recover it. For more information, see <a>AllocateAddress</a>.
-    /// </para>
+    /// Updates the name and scopes of resource server. All other fields are read-only.
     /// </summary>
-    [Cmdlet("Remove", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ReleaseAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReleaseAddress"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PublicIp parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.EC2.Model.ReleaseAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
+    [AWSCmdlet("Invokes the UpdateResourceServer operation against Amazon Cognito Identity Provider.", Operation = new[] {"UpdateResourceServer"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ResourceServerType",
+        "This cmdlet returns a ResourceServerType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveEC2AddressCmdlet : AmazonEC2ClientCmdlet, IExecutor
+    public partial class UpdateCGIPResourceServerCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
-        #region Parameter AllocationId
+        #region Parameter Identifier
         /// <summary>
         /// <para>
-        /// <para>[EC2-VPC] The allocation ID. Required for EC2-VPC.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String AllocationId { get; set; }
-        #endregion
-        
-        #region Parameter PublicIp
-        /// <summary>
-        /// <para>
-        /// <para>[EC2-Classic] The Elastic IP address. Required for EC2-Classic.</para>
+        /// <para>The identifier for the resource server.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String PublicIp { get; set; }
+        public System.String Identifier { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Name
         /// <summary>
-        /// Returns the value passed to the PublicIp parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The name of the resource server.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Scope
+        /// <summary>
+        /// <para>
+        /// <para>The scope values to be set for the resource server.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Scopes")]
+        public Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType[] Scope { get; set; }
+        #endregion
+        
+        #region Parameter UserPoolId
+        /// <summary>
+        /// <para>
+        /// <para>The user pool ID for the user pool.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String UserPoolId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -102,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PublicIp", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-EC2Address (ReleaseAddress)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Identifier", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CGIPResourceServer (UpdateResourceServer)"))
             {
                 return;
             }
@@ -117,8 +110,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AllocationId = this.AllocationId;
-            context.PublicIp = this.PublicIp;
+            context.Identifier = this.Identifier;
+            context.Name = this.Name;
+            if (this.Scope != null)
+            {
+                context.Scopes = new List<Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType>(this.Scope);
+            }
+            context.UserPoolId = this.UserPoolId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -133,15 +131,23 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.EC2.Model.ReleaseAddressRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.UpdateResourceServerRequest();
             
-            if (cmdletContext.AllocationId != null)
+            if (cmdletContext.Identifier != null)
             {
-                request.AllocationId = cmdletContext.AllocationId;
+                request.Identifier = cmdletContext.Identifier;
             }
-            if (cmdletContext.PublicIp != null)
+            if (cmdletContext.Name != null)
             {
-                request.PublicIp = cmdletContext.PublicIp;
+                request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.Scopes != null)
+            {
+                request.Scopes = cmdletContext.Scopes;
+            }
+            if (cmdletContext.UserPoolId != null)
+            {
+                request.UserPoolId = cmdletContext.UserPoolId;
             }
             
             CmdletOutput output;
@@ -152,9 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.PublicIp;
+                object pipelineOutput = response.ResourceServer;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -179,14 +183,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         #region AWS Service Operation Call
         
-        private Amazon.EC2.Model.ReleaseAddressResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.ReleaseAddressRequest request)
+        private Amazon.CognitoIdentityProvider.Model.UpdateResourceServerResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.UpdateResourceServerRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elastic Compute Cloud", "ReleaseAddress");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "UpdateResourceServer");
             #if DESKTOP
-            return client.ReleaseAddress(request);
+            return client.UpdateResourceServer(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ReleaseAddressAsync(request);
+            var task = client.UpdateResourceServerAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -197,8 +201,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AllocationId { get; set; }
-            public System.String PublicIp { get; set; }
+            public System.String Identifier { get; set; }
+            public System.String Name { get; set; }
+            public List<Amazon.CognitoIdentityProvider.Model.ResourceServerScopeType> Scopes { get; set; }
+            public System.String UserPoolId { get; set; }
         }
         
     }

@@ -1244,7 +1244,7 @@ $CB_Completers = {
             ($_ -eq "Update-CBProject/Source_Type")
         }
         {
-            $v = "CODECOMMIT","CODEPIPELINE","GITHUB","S3"
+            $v = "BITBUCKET","CODECOMMIT","CODEPIPELINE","GITHUB","S3"
             break
         }
         
@@ -1564,6 +1564,16 @@ $CGIP_Completers = {
             break
         }
         
+        # Amazon.CognitoIdentityProvider.DefaultEmailOptionType
+        {
+            ($_ -eq "New-CGIPUserPool/VerificationMessageTemplate_DefaultEmailOption") -Or
+            ($_ -eq "Update-CGIPUserPool/VerificationMessageTemplate_DefaultEmailOption")
+        }
+        {
+            $v = "CONFIRM_WITH_CODE","CONFIRM_WITH_LINK"
+            break
+        }
+        
         # Amazon.CognitoIdentityProvider.DeviceRememberedStatusType
         {
             ($_ -eq "Edit-CGIPDeviceStatus/DeviceRememberedStatus") -Or
@@ -1577,7 +1587,7 @@ $CGIP_Completers = {
         # Amazon.CognitoIdentityProvider.IdentityProviderTypeType
         "New-CGIPIdentityProvider/ProviderType"
         {
-            $v = "SAML"
+            $v = "Facebook","Google","LoginWithAmazon","SAML"
             break
         }
         
@@ -1612,6 +1622,7 @@ $CGIP_map = @{
     "MessageAction"=@("New-CGIPUserAdmin")
     "MfaConfiguration"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "ProviderType"=@("New-CGIPIdentityProvider")
+    "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
 }
 
 _awsArgumentCompleterRegistration $CGIP_Completers $CGIP_map

@@ -28,66 +28,44 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Allows the developer to delete the user pool client.
+    /// Gets the UI Customization information for a particular app client's app UI, if there
+    /// is something set. If nothing is set for the particular client, but there is an existing
+    /// pool level customization (app <code>clientId</code> will be <code>ALL</code>), then
+    /// that is returned. If nothing is present, then an empty shape is returned.
     /// </summary>
-    [Cmdlet("Remove", "CGIPUserPoolClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteUserPoolClient operation against Amazon Cognito Identity Provider.", Operation = new[] {"DeleteUserPoolClient"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClientId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CGIPUICustomization")]
+    [OutputType("Amazon.CognitoIdentityProvider.Model.UICustomizationType")]
+    [AWSCmdlet("Invokes the GetUICustomization operation against Amazon Cognito Identity Provider.", Operation = new[] {"GetUICustomization"})]
+    [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UICustomizationType",
+        "This cmdlet returns a UICustomizationType object.",
+        "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUICustomizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveCGIPUserPoolClientCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
+    public partial class GetCGIPUICustomizationCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The app client ID of the app associated with the user pool.</para>
+        /// <para>The client ID for the client app.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientId { get; set; }
         #endregion
         
         #region Parameter UserPoolId
         /// <summary>
         /// <para>
-        /// <para>The user pool ID for the user pool where you want to delete the client.</para>
+        /// <para>The user pool ID for the user pool.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String UserPoolId { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the ClientId parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CGIPUserPoolClient (DeleteUserPoolClient)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -114,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientRequest();
+            var request = new Amazon.CognitoIdentityProvider.Model.GetUICustomizationRequest();
             
             if (cmdletContext.ClientId != null)
             {
@@ -133,9 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ClientId;
+                object pipelineOutput = response.UICustomization;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -160,14 +136,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         #region AWS Service Operation Call
         
-        private Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.DeleteUserPoolClientRequest request)
+        private Amazon.CognitoIdentityProvider.Model.GetUICustomizationResponse CallAWSServiceOperation(IAmazonCognitoIdentityProvider client, Amazon.CognitoIdentityProvider.Model.GetUICustomizationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "DeleteUserPoolClient");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Cognito Identity Provider", "GetUICustomization");
             #if DESKTOP
-            return client.DeleteUserPoolClient(request);
+            return client.GetUICustomization(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteUserPoolClientAsync(request);
+            var task = client.GetUICustomizationAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"

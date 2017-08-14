@@ -69,9 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The EC2 Availability Zone that the database instance will be created in. For information
         /// on regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
-        /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter
-        /// is set to <code>true</code>. The specified Availability Zone must be in the same region
-        /// as the current endpoint. </para>
+        /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter
+        /// is set to <code>true</code>. The specified Availability Zone must be in the same AWS
+        /// Region as the current endpoint. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The number of days for which automated backups are retained. Setting this parameter
         /// to a positive number enables backups. Setting this parameter to 0 disables automated
-        /// backups.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Cannot be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
+        /// backups.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The retention period for automated backups is managed by the DB cluster.
+        /// For more information, see <a>CreateDBCluster</a>.</para><para>Default: 1</para><para>Constraints:</para><ul><li><para>Must be a value from 0 to 35</para></li><li><para>Cannot be set to 0 if the DB instance is a source to Read Replicas</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>For supported engines, indicates that the DB instance should be associated with the
-        /// specified CharacterSet.</para>
+        /// specified CharacterSet.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The character set is managed by the DB cluster. For more information,
+        /// see <a>CreateDBCluster</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens (1 to 15 for SQL Server).</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
+        /// <para>The DB instance identifier. This parameter is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
@@ -221,7 +223,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false. </para><para> You can enable IAM database authentication for the following database engines:</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
+        /// accounts; otherwise false. </para><para> You can enable IAM database authentication for the following database engines:</para><para><b>Amazon Aurora</b></para><para>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
+        /// cluster. For more information, see <a>CreateDBCluster</a>.</para><para><b>MySQL</b></para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -231,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every AWS region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// <para>The name of the database engine to be used for this instance. </para><para>Not every database engine is available for every AWS Region. </para><para>Valid Values: </para><ul><li><para><code>aurora</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -242,20 +245,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The version number of the database engine to use.</para><para>The following are the database engines and major and minor versions that are available
-        /// with Amazon RDS. Not every database engine is available for every AWS region.</para><para><b>Amazon Aurora</b></para><ul><li><para>Version 5.6 (available in these AWS regions: ap-northeast-1, ap-northeast-2, ap-south-1,
-        /// ap-southeast-2, eu-west-1, us-east-1, us-east-2, us-west-2): <code> 5.6.10a</code></para></li></ul><para><b>MariaDB</b></para><ul><li><para><code>10.1.19</code> (supported in all AWS regions)</para></li><li><para><code>10.1.14</code> (supported in all regions except us-east-2)</para></li></ul><ul><li><para><code>10.0.28</code> (supported in all AWS regions)</para></li><li><para><code>10.0.24</code> (supported in all AWS regions)</para></li><li><para><code>10.0.17</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2016</b></para><ul><li><para><code>13.00.4422.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>13.00.2164.0.v1</code> (supported for all editions, and all AWS regions)</para></li></ul><para><b>Microsoft SQL Server 2014</b></para><ul><li><para><code>12.00.5546.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.5000.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.4422.0.v1</code> (supported for all editions except Enterprise Edition,
+        /// with Amazon RDS. Not every database engine is available for every AWS Region.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The version number of the database engine to be used by the DB instance
+        /// is managed by the DB cluster. For more information, see <a>CreateDBCluster</a>.</para><para><b>MariaDB</b></para><ul><li><para><code>10.1.19</code> (supported in all AWS regions)</para></li><li><para><code>10.1.14</code> (supported in all regions except us-east-2)</para></li></ul><ul><li><para><code>10.0.28</code> (supported in all AWS regions)</para></li><li><para><code>10.0.24</code> (supported in all AWS regions)</para></li><li><para><code>10.0.17</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2016</b></para><ul><li><para><code>13.00.4422.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>13.00.2164.0.v1</code> (supported for all editions, and all AWS regions)</para></li></ul><para><b>Microsoft SQL Server 2014</b></para><ul><li><para><code>12.00.5546.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.5000.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>12.00.4422.0.v1</code> (supported for all editions except Enterprise Edition,
         /// and all AWS regions except ca-central-1 and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2012</b></para><ul><li><para><code>11.00.6594.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>11.00.6020.0.v1</code> (supported for all editions, and all AWS regions)</para></li><li><para><code>11.00.5058.0.v1</code> (supported for all editions, and all AWS regions except
         /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>11.00.2100.60.v1</code> (supported for all editions, and all AWS regions except
         /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2008 R2</b></para><ul><li><para><code>10.50.6529.0.v1</code> (supported for all editions, and all AWS regions except
         /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.6000.34.v1</code> (supported for all editions, and all AWS regions except
         /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.2789.0.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><code>5.7.17</code> (supported in all AWS regions)</para></li><li><para><code>5.7.16</code> (supported in all AWS regions)</para></li><li><para><code>5.7.11</code> (supported in all AWS regions)</para></li><li><para><code>5.7.10</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.6.35</code> (supported in all AWS regions)</para></li><li><para><code>5.6.34</code> (supported in all AWS regions)</para></li><li><para><code>5.6.29</code> (supported in all AWS regions)</para></li><li><para><code>5.6.27</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li><li><para><code>5.6.23</code> (supported in all regions except us-east-2, ap-south-1, ca-central-1,
-        /// eu-west-2)</para></li><li><para><code>5.6.22</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
-        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.21b</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
-        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.21</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
-        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.19b</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
-        /// ca-central-1, eu-west-2)</para></li><li><para><code>5.6.19a</code> (supported in all regions except us-east-2, ap-south-1, ap-northeast-2,
-        /// ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.5.54</code> (supported in all AWS regions)</para></li><li><para><code>5.5.53</code> (supported in all AWS regions)</para></li><li><para><code>5.5.46</code> (supported in all AWS regions)</para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><code>5.7.17</code> (supported in all AWS regions)</para></li><li><para><code>5.7.16</code> (supported in all AWS regions)</para></li><li><para><code>5.7.11</code> (supported in all AWS regions)</para></li></ul><ul><li><para><code>5.6.35</code> (supported in all AWS regions)</para></li><li><para><code>5.6.34</code> (supported in all AWS regions)</para></li><li><para><code>5.6.29</code> (supported in all AWS regions)</para></li><li><para><code>5.6.27</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.5.54</code> (supported in all AWS regions)</para></li><li><para><code>5.5.53</code> (supported in all AWS regions)</para></li><li><para><code>5.5.46</code> (supported in all AWS regions)</para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v7</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v5</code> (supported for EE in all AWS regions, and SE2 in all AWS
@@ -290,10 +287,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The KMS key identifier for an encrypted DB instance.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB instance with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB instance, then you can use the KMS key alias instead
-        /// of the ARN for the KM encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
+        /// of the ARN for the KM encryption key.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The KMS key identifier is managed by the DB cluster. For more information,
+        /// see <a>CreateDBCluster</a>.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
         /// for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default encryption
         /// key. AWS KMS creates the default encryption key for your AWS account. Your AWS account
-        /// has a different default encryption key for each AWS region.</para>
+        /// has a different default encryption key for each AWS Region.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -314,8 +312,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUsername
         /// <summary>
         /// <para>
-        /// <para>The name for the master database user.</para><para><b>Amazon Aurora</b></para><para>Not applicable. You specify the name for the master database user when you create
-        /// your DB cluster. </para><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Microsoft SQL Server</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 128 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 30 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 63 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
+        /// <para>The name for the master user.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The name for the master user is managed by the DB cluster. For more
+        /// information, see <a>CreateDBCluster</a>.</para><para><b>MariaDB</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Microsoft SQL Server</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 128 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>MySQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 16 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>Oracle</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 30 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul><para><b>PostgreSQL</b></para><para>Constraints:</para><ul><li><para>Must be 1 to 63 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot be a reserved word for the chosen database engine.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -325,9 +323,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the master database user. Can be any printable ASCII character except
-        /// "/", """, or "@".</para><para><b>Amazon Aurora</b></para><para>Not applicable. You specify the password for the master database user when you create
-        /// your DB cluster. </para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para>
+        /// <para>The password for the master user. Can be any printable ASCII character except "/",
+        /// """, or "@".</para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
+        /// more information, see <a>CreateDBCluster</a>.</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -402,8 +400,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para> The daily time range during which automated backups are created if automated backups
         /// are enabled, using the <code>BackupRetentionPeriod</code> parameter. For more information,
         /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.BackingUpAndRestoringAmazonRDSInstances.html">DB
-        /// Instance Backups</a>. </para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region.
-        /// To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow">
+        /// Instance Backups</a>. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
+        /// the DB cluster. For more information, see <a>CreateDBCluster</a>.</para><para> Default: A 30-minute window selected at random from an 8-hour block of time per AWS
+        /// Region. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html#AdjustingTheMaintenanceWindow">
         /// Adjusting the Preferred DB Instance Maintenance Window</a>. </para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Times should be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
@@ -416,8 +415,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The weekly time range during which system maintenance can occur, in Universal Coordinated
         /// Time (UTC). For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBMaintenance.html">DB
-        /// Instance Maintenance</a>. </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per region,
-        /// occurring on a random day of the week. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+        /// Instance Maintenance</a>. </para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para> Default: A 30-minute window selected at random from an 8-hour block of time per AWS
+        /// Region, occurring on a random day of the week. To see the time blocks available, see
+        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
         /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
@@ -458,7 +458,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageEncrypted
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the DB instance is encrypted.</para><para>Default: false</para>
+        /// <para>Specifies whether the DB instance is encrypted.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The encryption for DB instances is managed by the DB cluster. For
+        /// more information, see <a>CreateDBCluster</a>.</para><para>Default: false</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -523,7 +524,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter VpcSecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 VPC security groups to associate with this DB instance.</para><para>Default: The default EC2 VPC security group for the DB subnet group's VPC.</para>
+        /// <para>A list of EC2 VPC security groups to associate with this DB instance.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
+        /// cluster. For more information, see <a>CreateDBCluster</a>.</para><para>Default: The default EC2 VPC security group for the DB subnet group's VPC.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

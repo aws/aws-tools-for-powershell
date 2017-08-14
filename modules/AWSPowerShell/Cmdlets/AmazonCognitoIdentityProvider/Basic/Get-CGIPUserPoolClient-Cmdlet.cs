@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ClientId
         /// <summary>
         /// <para>
-        /// <para>The ID of the client associated with the user pool.</para>
+        /// <para>The app client ID of the app associated with the user pool.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

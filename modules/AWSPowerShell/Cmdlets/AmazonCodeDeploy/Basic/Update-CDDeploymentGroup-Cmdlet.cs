@@ -190,8 +190,9 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter LoadBalancerInfoList
         /// <summary>
         /// <para>
-        /// <para>An array containing information about the load balancer in Elastic Load Balancing
-        /// to use in a deployment.</para>
+        /// <para>An array containing information about the load balancer to use for load balancing
+        /// in a deployment. In Elastic Load Balancing, load balancers are used with Classic Load
+        /// Balancers.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -286,6 +287,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRoleArn { get; set; }
+        #endregion
+        
+        #region Parameter LoadBalancerInfo_TargetGroupInfoList
+        /// <summary>
+        /// <para>
+        /// <para>An array containing information about the target group to use for load balancing in
+        /// a deployment. In Elastic Load Balancing, target groups are used with Application Load
+        /// Balancers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.CodeDeploy.Model.TargetGroupInfo[] LoadBalancerInfo_TargetGroupInfoList { get; set; }
         #endregion
         
         #region Parameter OnSuccessBlueInstanceTerminationWaitTime
@@ -400,6 +413,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (this.LoadBalancerInfoList != null)
             {
                 context.LoadBalancerInfoList = new List<Amazon.CodeDeploy.Model.ELBInfo>(this.LoadBalancerInfoList);
+            }
+            if (this.LoadBalancerInfo_TargetGroupInfoList != null)
+            {
+                context.LoadBalancerInfo_TargetGroupInfoList = new List<Amazon.CodeDeploy.Model.TargetGroupInfo>(this.LoadBalancerInfo_TargetGroupInfoList);
             }
             context.NewDeploymentGroupName = this.NewDeploymentGroupName;
             if (this.OnPremisesInstanceTagFilter != null)
@@ -689,6 +706,16 @@ namespace Amazon.PowerShell.Cmdlets.CD
                 request.LoadBalancerInfo.ElbInfoList = requestLoadBalancerInfo_loadBalancerInfoList;
                 requestLoadBalancerInfoIsNull = false;
             }
+            List<Amazon.CodeDeploy.Model.TargetGroupInfo> requestLoadBalancerInfo_loadBalancerInfo_TargetGroupInfoList = null;
+            if (cmdletContext.LoadBalancerInfo_TargetGroupInfoList != null)
+            {
+                requestLoadBalancerInfo_loadBalancerInfo_TargetGroupInfoList = cmdletContext.LoadBalancerInfo_TargetGroupInfoList;
+            }
+            if (requestLoadBalancerInfo_loadBalancerInfo_TargetGroupInfoList != null)
+            {
+                request.LoadBalancerInfo.TargetGroupInfoList = requestLoadBalancerInfo_loadBalancerInfo_TargetGroupInfoList;
+                requestLoadBalancerInfoIsNull = false;
+            }
              // determine if request.LoadBalancerInfo should be set to null
             if (requestLoadBalancerInfoIsNull)
             {
@@ -800,6 +827,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> Ec2TagFilters { get; set; }
             public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
             public List<Amazon.CodeDeploy.Model.ELBInfo> LoadBalancerInfoList { get; set; }
+            public List<Amazon.CodeDeploy.Model.TargetGroupInfo> LoadBalancerInfo_TargetGroupInfoList { get; set; }
             public System.String NewDeploymentGroupName { get; set; }
             public List<Amazon.CodeDeploy.Model.TagFilter> OnPremisesInstanceTagFilters { get; set; }
             public List<List<Amazon.CodeDeploy.Model.TagFilter>> OnPremisesTagSetList { get; set; }
