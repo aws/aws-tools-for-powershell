@@ -17,13 +17,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
-using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Athena;
-using Amazon.Athena.Model;
 
 namespace Amazon.PowerShell.Cmdlets.ATH
 {
@@ -205,15 +202,29 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         private Amazon.Athena.Model.GetQueryResultsResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.GetQueryResultsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "GetQueryResults");
-            #if DESKTOP
-            return client.GetQueryResults(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetQueryResultsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+
+            try
+            {
+#if DESKTOP
+                return client.GetQueryResults(request);
+#elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetQueryResultsAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
         
         #endregion

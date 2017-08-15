@@ -19,7 +19,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
-using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.DynamoDBv2;
@@ -299,15 +298,29 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         private Amazon.DynamoDBv2.Model.CreateTableResponse CallAWSServiceOperation(IAmazonDynamoDB client, Amazon.DynamoDBv2.Model.CreateTableRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon DynamoDB", "CreateTable");
+
+            try
+            {
 #if DESKTOP
-            return client.CreateTable(request);
+                return client.CreateTable(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateTableAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateTableAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

@@ -20,6 +20,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
+using Amazon.Runtime;
 using Amazon.S3.Model;
 using Amazon.S3;
 
@@ -129,15 +130,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private Amazon.S3.Model.ListBucketsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListBucketsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "ListBuckets");
+
+            try
+            {
 #if DESKTOP
-            return client.ListBuckets(request);
+                return client.ListBuckets(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListBucketsAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListBucketsAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

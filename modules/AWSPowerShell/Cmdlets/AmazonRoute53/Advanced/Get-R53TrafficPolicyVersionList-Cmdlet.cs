@@ -17,13 +17,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
-using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Route53;
-using Amazon.Route53.Model;
 
 namespace Amazon.PowerShell.Cmdlets.R53
 {
@@ -268,15 +265,29 @@ namespace Amazon.PowerShell.Cmdlets.R53
         private Amazon.Route53.Model.ListTrafficPolicyVersionsResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListTrafficPolicyVersionsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route 53", "ListTrafficPolicyVersions");
+
+            try
+            {
 #if DESKTOP
-            return client.ListTrafficPolicyVersions(request);
+                return client.ListTrafficPolicyVersions(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListTrafficPolicyVersionsAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListTrafficPolicyVersionsAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

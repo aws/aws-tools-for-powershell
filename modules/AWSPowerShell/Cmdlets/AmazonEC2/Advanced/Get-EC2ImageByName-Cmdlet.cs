@@ -23,6 +23,7 @@ using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
 using Amazon.EC2.Util;
 using Amazon.EC2;
+using Amazon.Runtime;
 
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
@@ -324,15 +325,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         private Amazon.EC2.Model.DescribeImagesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeImagesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "DescribeImages");
+
+            try
+            {
 #if DESKTOP
-            return client.DescribeImages(request);
+                return client.DescribeImages(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeImagesAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DescribeImagesAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

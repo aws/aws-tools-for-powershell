@@ -24,6 +24,7 @@ using Amazon.S3.Transfer;
 using System.IO;
 using Amazon.PowerShell.Utils;
 using System.Collections;
+using Amazon.Runtime;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -608,15 +609,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
         {
+            try
+            {
 #if DESKTOP
-            return client.CopyObject(request);
+                return client.CopyObject(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CopyObjectAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CopyObjectAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

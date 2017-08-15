@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
+using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -304,15 +305,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private Amazon.S3.Model.PutACLResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutACLRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutACL");
+
+            try
+            {
 #if DESKTOP
-            return client.PutACL(request);
+                return client.PutACL(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.PutACLAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.PutACLAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

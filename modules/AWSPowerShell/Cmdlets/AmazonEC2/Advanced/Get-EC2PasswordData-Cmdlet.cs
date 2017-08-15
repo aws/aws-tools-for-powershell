@@ -19,14 +19,11 @@ using System;
 using System.Linq;
 using System.Management.Automation;
 using System.IO;
-
 using Amazon.PowerShell.Common;
 using Amazon.EC2.Model;
 using Amazon.Runtime.Internal.Settings;
 using Amazon.EC2;
-using Amazon.Util;
-using Amazon.Runtime.Internal;
-using Amazon.PowerShell.Utils;
+using Amazon.Runtime;
 using Amazon.Runtime.CredentialManagement.Internal;
 using Amazon.Runtime.CredentialManagement;
 
@@ -259,15 +256,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         private Amazon.EC2.Model.GetPasswordDataResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.GetPasswordDataRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2", "GetPasswordData");
+
+            try
+            {
 #if DESKTOP
-            return client.GetPasswordData(request);
+                return client.GetPasswordData(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetPasswordDataAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetPasswordDataAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         private Amazon.EC2.Model.DescribeInstancesResponse CallAWSServiceOperation(IAmazonEC2 client, Amazon.EC2.Model.DescribeInstancesRequest request)

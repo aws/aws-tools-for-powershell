@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
+using Amazon.Runtime;
 using Amazon.S3.Model;
 using Amazon.S3;
 
@@ -380,29 +381,57 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private Amazon.S3.Model.DeleteObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "DeleteObject");
+
+            try
+            {
 #if DESKTOP
-            return client.DeleteObject(request);
+                return client.DeleteObject(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteObjectAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeleteObjectAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         private Amazon.S3.Model.DeleteObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteObjectsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "DeleteObject");
+
+            try
+            {
 #if DESKTOP
-            return client.DeleteObjects(request);
+                return client.DeleteObjects(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteObjectsAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeleteObjectsAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

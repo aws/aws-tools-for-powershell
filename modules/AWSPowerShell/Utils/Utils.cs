@@ -166,5 +166,31 @@ namespace Amazon.PowerShell.Utils
                     : string.Format("Invoking {0} against undetermined endpoint or region.", operationMessage));
             }
         }
+
+        public static string FormatNameResolutionFailureMessage(IClientConfig clientConfig, string exceptionMessage)
+        {
+            var serviceUrl = clientConfig.ServiceURL;
+            if (!string.IsNullOrEmpty(serviceUrl))
+            {
+                return string.Format("Name resolution failure attempting to reach service endpoint {0}.\n"
+                                     + "The endpoint may be incorrect or the service may not be available at that endpoint."
+                                     + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
+                                     serviceUrl);
+            }
+
+            var serviceRegion = clientConfig.RegionEndpoint;
+            if (serviceRegion != null)
+            {
+                return string.Format(
+                    "Name resolution failure attempting to reach service in region {0} (as supplied to the -Region parameter or from configured shell default).\n"
+                    + "{1}.\n" 
+                    + "The region may be incorrectly specified (did you specify an availability zone?) or the service may not be available in the region.\n"
+                    + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
+                    serviceRegion.SystemName,
+                    exceptionMessage);
+            }
+
+            return string.Format("Name resolution failure attempting to reach service.\n{0}.", exceptionMessage);
+        }
     }
 }

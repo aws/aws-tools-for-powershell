@@ -190,15 +190,29 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         private Amazon.WorkSpaces.Model.RebuildWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.RebuildWorkspacesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "RebuildWorkspaces");
-            #if DESKTOP
-            return client.RebuildWorkspaces(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RebuildWorkspacesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+
+            try
+            {
+#if DESKTOP
+                return client.RebuildWorkspaces(request);
+#elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.RebuildWorkspacesAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
         
         #endregion

@@ -17,13 +17,10 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
-using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.KeyManagementService;
-using Amazon.KeyManagementService.Model;
 using System.IO;
 
 namespace Amazon.PowerShell.Cmdlets.KMS
@@ -254,15 +251,29 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         private Amazon.KeyManagementService.Model.ImportKeyMaterialResponse CallAWSServiceOperation(IAmazonKeyManagementService client, Amazon.KeyManagementService.Model.ImportKeyMaterialRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Key Management Service", "ImportKeyMaterial");
+
+            try
+            {
 #if DESKTOP
-            return client.ImportKeyMaterial(request);
+                return client.ImportKeyMaterial(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ImportKeyMaterialAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ImportKeyMaterialAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

@@ -17,9 +17,7 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Management.Automation;
-using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
 using Amazon.Route53;
@@ -232,15 +230,29 @@ namespace Amazon.PowerShell.Cmdlets.R53
         private Amazon.Route53.Model.ListHostedZonesByNameResponse CallAWSServiceOperation(IAmazonRoute53 client, Amazon.Route53.Model.ListHostedZonesByNameRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Route 53", "ListHostedZonesByName");
+
+            try
+            {
 #if DESKTOP
-            return client.ListHostedZonesByName(request);
+                return client.ListHostedZonesByName(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListHostedZonesByNameAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListHostedZonesByNameAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

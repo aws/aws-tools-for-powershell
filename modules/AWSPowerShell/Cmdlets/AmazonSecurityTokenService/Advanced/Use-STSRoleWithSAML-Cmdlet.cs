@@ -317,15 +317,29 @@ namespace Amazon.PowerShell.Cmdlets.STS
         private Amazon.SecurityToken.Model.AssumeRoleWithSAMLResponse CallAWSServiceOperation(IAmazonSecurityTokenService client, Amazon.SecurityToken.Model.AssumeRoleWithSAMLRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Security Token Service", "AssumeRoleWithSAML");
-            #if DESKTOP
-            return client.AssumeRoleWithSAML(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AssumeRoleWithSAMLAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+
+            try
+            {
+#if DESKTOP
+                return client.AssumeRoleWithSAML(request);
+#elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.AssumeRoleWithSAMLAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
         
         #endregion

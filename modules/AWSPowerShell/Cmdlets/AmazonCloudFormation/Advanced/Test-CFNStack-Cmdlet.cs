@@ -22,6 +22,7 @@ using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.CloudFormation;
 using Amazon.CloudFormation.Model;
+using Amazon.Runtime;
 
 namespace Amazon.PowerShell.Cmdlets.CFN
 {
@@ -147,6 +148,16 @@ namespace Amazon.PowerShell.Cmdlets.CFN
 #endif
 
                 return IsStackInState(response.Stacks[0].StackStatus, desiredStates);
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
             }
             catch (Exception)
             {

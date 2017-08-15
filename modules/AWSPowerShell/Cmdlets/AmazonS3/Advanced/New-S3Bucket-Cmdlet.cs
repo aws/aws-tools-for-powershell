@@ -18,6 +18,7 @@
 using System;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
+using Amazon.Runtime;
 using Amazon.S3;
 using Amazon.S3.Model;
 
@@ -187,15 +188,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         private Amazon.S3.Model.PutBucketResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon S3", "PutBucket");
+
+            try
+            {
 #if DESKTOP
-            return client.PutBucket(request);
+                return client.PutBucket(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.PutBucketAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.PutBucketAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

@@ -18,6 +18,7 @@
 using System;
 using System.Management.Automation;
 using Amazon.PowerShell.Common;
+using Amazon.Runtime;
 using Amazon.S3.Model;
 using Amazon.S3.Util;
 using Amazon.S3.Transfer;
@@ -140,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 try
                 {
                     tu.AbortMultipartUploads(cmdletContext.BucketName, cmdletContext.InitiatedDate);
+                }
+                catch (AmazonServiceException exc)
+                {
+                    var webException = exc.InnerException as System.Net.WebException;
+                    if (webException != null)
+                    {
+                        throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(Client.Config, webException.Message), webException);
+                    }
+
+                    throw;
                 }
                 catch (Exception e)
                 {

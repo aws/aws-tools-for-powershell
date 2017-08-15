@@ -169,15 +169,24 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         private Amazon.WorkSpaces.Model.StopWorkspacesResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.StopWorkspacesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "StopWorkspaces");
-            #if DESKTOP
-            return client.StopWorkspaces(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StopWorkspacesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+
+            try
+            {
+#if DESKTOP
+                return client.StopWorkspaces(request);
+#elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.StopWorkspacesAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
         #endregion
         
