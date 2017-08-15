@@ -38,6 +38,14 @@ namespace AWSPowerShellGenerator
         public bool BreakOnOutputMismatchError { get; set; }
 
         /// <summary>
+        /// If true (the default) the generator throws a build break if it encounters
+        /// operations in an SDK client that have no ServiceOperation configuration.
+        /// Set false to enable builds for emergency patch releases, allowing builds
+        /// to skip unconfigured operations.
+        /// </summary>
+        public bool BreakOnUnknownOperationError { get; set; }
+
+        /// <summary>
         /// Optional log file used to contain results of the generator's
         /// analysis of sdk operations and the settings it chose as a result.
         /// </summary>
@@ -150,6 +158,7 @@ namespace AWSPowerShellGenerator
             WaitOnExit = false;
             Verbose = false;
             BreakOnOutputMismatchError = true;
+            BreakOnUnknownOperationError = true;
             AnalysisLog = string.Empty; // no logging by default
             Services = null; // process all
 
@@ -170,6 +179,7 @@ namespace AWSPowerShellGenerator
             WaitOnExit = rhs.WaitOnExit;
             Verbose = rhs.Verbose;
             BreakOnOutputMismatchError = rhs.BreakOnOutputMismatchError;
+            BreakOnUnknownOperationError = rhs.BreakOnUnknownOperationError;
             AnalysisLog = rhs.AnalysisLog;
             Services = rhs.Services;
             Tasks = rhs.Tasks;

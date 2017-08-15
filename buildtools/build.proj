@@ -41,6 +41,9 @@
         <!-- default to build break if analysis of cmdlet output does not match service operation configuration -->
         <BreakOnOutputMismatchError Condition="'$(BreakOnOutputMismatchError)'==''">true</BreakOnOutputMismatchError>
         
+        <!-- default to build break if we see unconfigured sdk client operations -->
+        <BreakOnUnknownOperations Condition="'$(BreakOnUnknownOp)' == ''">true</BreakOnUnknownOperations>
+        
         <!-- default location for artifacts consolidation -->
         <Deployment Condition="'$(Deployment)'==''">$(RootPath)\Deployment</Deployment>
         <DesktopDeploymentArtifacts>$(Deployment)\AWSPowerShell\</DesktopDeploymentArtifacts>
@@ -80,7 +83,7 @@
     
 	<Target Name="create-cmdlets" DependsOnTargets="build-generator;get-references">
 		<Message Text="Generating cmdlets for all services"/>
-		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog)" />
+		<Exec Command="$(GeneratorPath)\$(Generator) -sdk $(SDKAssembliesFolder)\net35 -rp $(RootPath) -t cmdlets -al $(CmdletAnalysisLog) -bu $(BreakOnUnknownOperations)" />
 	</Target>
 
 	<Target Name="build-modules" DependsOnTargets="build-desktop-module;build-netcore-module" />

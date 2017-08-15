@@ -213,6 +213,14 @@ namespace AWSPowerShellGenerator
             },
             new ArgDeclaration
             {
+                OptionName = "breakonunknownop",
+                ShortName = "bu",
+                HasValue = true,
+                Parse = (arguments, argValue) => arguments.ParsedOptions.BreakOnUnknownOperationError = bool.Parse(argValue),
+                HelpText = "If true (default), a build break occurs if the generator finds an unconfigured service operations. Set false to perform emergency maintenance releases without needing to configure new service operations changes first."
+            },
+            new ArgDeclaration
+            {
                 OptionName = "moduleslocation",
                 ShortName = "ml",
                 HasValue = true,

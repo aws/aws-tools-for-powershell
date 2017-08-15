@@ -481,8 +481,19 @@ namespace AWSPowerShellGenerator.Generators
 
             foreach (var so in configModel.ServiceOperationsList)
             {
-                if (!so.Processed)
-                    Logger.LogError(configModel.ServiceName + ": no SDK client method found for ServiceOperation " + so.MethodName);
+                if (so.Processed)
+                    continue;
+
+                if (Options.BreakOnUnknownOperationError)
+                {
+                    Logger.LogError("{0}: no SDK client method found for ServiceOperation {1}", configModel.ServiceName, so.MethodName);
+                }
+                else
+                {
+                    Logger.Log("Warning - {0}: no SDK client method found for ServiceOperation {1}. Skipping as BreakOnUnknownOperationError set false.",
+                                configModel.ServiceName, 
+                                so.MethodName);
+                }
             }
 
             // fuse the manually-declared custom aliases with the automatic set to go into awsaliases.ps1 
@@ -936,8 +947,16 @@ namespace AWSPowerShellGenerator.Generators
                 return (parameters.Count() == 1 && parameters[0].ParameterType.IsSubclassOf(SdkBaseRequestType));
             }
 
-            Logger.LogError("Method name {0} has no corresponding ServiceOperation definition in the current model {1}, INVESTIGATE", method.Name, CurrentModel.ServiceNamespace);
-            return false; // not sure if we shouldn't throw instead
+            if (Options.BreakOnUnknownOperationError)
+            {
+                Logger.LogError("Method name {0} has no corresponding ServiceOperation definition in the current model {1}, INVESTIGATE", method.Name, CurrentModel.ServiceNamespace);
+            }
+            else
+            {
+                Logger.Log("Method name {0} has no corresponding ServiceOperation definition in the current model {1}, SKIPPING as BreakOnUnknownOperationError FALSE", method.Name, CurrentModel.ServiceNamespace);
+            }
+
+            return false; 
         }
 
         #endregion
