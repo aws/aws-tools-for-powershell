@@ -97,6 +97,34 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         public System.String CreationToken { get; set; }
         #endregion
         
+        #region Parameter Encrypted
+        /// <summary>
+        /// <para>
+        /// <para>A boolean value that, if true, creates an encrypted file system. When creating an
+        /// encrypted file system, you have the option of specifying a <a>CreateFileSystemRequest$KmsKeyId</a>
+        /// for an existing AWS Key Management Service (AWS KMS) customer master key (CMK). If
+        /// you don't specify a CMK, then the default CMK for Amazon EFS, <code>/aws/elasticfilesystem</code>,
+        /// is used to protect the encrypted file system. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Encrypted { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The id of the AWS KMS CMK that will be used to protect the encrypted file system.
+        /// This parameter is only required if you want to use a non-default CMK. If this parameter
+        /// is not specified, the default CMK for Amazon EFS is used. This id can be in one of
+        /// the following formats:</para><ul><li><para>Key ID - A unique identifier of the key. For example, <code>1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>ARN - An Amazon Resource Name for the key. For example, <code>arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code>.</para></li><li><para>Key alias - A previously created display name for a key. For example, <code>alias/projectKey1</code>.</para></li><li><para>Key alias ARN - An Amazon Resource Name for a key alias. For example, <code>arn:aws:kms:us-west-2:444455556666:alias/projectKey1</code>.</para></li></ul><para>Note that if the KmsKeyId is specified, the <a>CreateFileSystemRequest$Encrypted</a>
+        /// parameter must be set to true.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
         #region Parameter PerformanceMode
         /// <summary>
         /// <para>
@@ -142,6 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             PreExecutionContextLoad(context);
             
             context.CreationToken = this.CreationToken;
+            if (ParameterWasBound("Encrypted"))
+                context.Encrypted = this.Encrypted;
+            context.KmsKeyId = this.KmsKeyId;
             context.PerformanceMode = this.PerformanceMode;
             
             // allow further manipulation of loaded context prior to processing
@@ -162,6 +193,14 @@ namespace Amazon.PowerShell.Cmdlets.EFS
             if (cmdletContext.CreationToken != null)
             {
                 request.CreationToken = cmdletContext.CreationToken;
+            }
+            if (cmdletContext.Encrypted != null)
+            {
+                request.Encrypted = cmdletContext.Encrypted.Value;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
             }
             if (cmdletContext.PerformanceMode != null)
             {
@@ -220,6 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CreationToken { get; set; }
+            public System.Boolean? Encrypted { get; set; }
+            public System.String KmsKeyId { get; set; }
             public Amazon.ElasticFileSystem.PerformanceMode PerformanceMode { get; set; }
         }
         

@@ -28,16 +28,37 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Adds a new task to a Maintenance Window.
+    /// Modifies a task assigned to a Maintenance Window. You can't change the task type,
+    /// but you can change the following:
+    /// 
+    ///  
+    /// <para>
+    /// The Task Arn. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript
+    /// to AWS-RunShellScript.
+    /// </para><para>
+    /// The service role ARN.
+    /// </para><para>
+    /// The task parameters.
+    /// </para><para>
+    /// The task priority.
+    /// </para><para>
+    /// The task MaxConcurrency and MaxErrors.
+    /// </para><para>
+    /// The log location.
+    /// </para><para>
+    /// If a parameter is null, then the corresponding field is not modified. Also, if you
+    /// set Replace to true, then all fields required by the RegisterTaskWithMaintenanceWindow
+    /// operation are required for this request. Optional fields that aren't specified are
+    /// be set to null.
+    /// </para>
     /// </summary>
-    [Cmdlet("Register", "SSMTaskWithMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RegisterTaskWithMaintenanceWindow operation against Amazon Simple Systems Management.", Operation = new[] {"RegisterTaskWithMaintenanceWindow"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.RegisterTaskWithMaintenanceWindowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SSMMaintenanceWindowTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse")]
+    [AWSCmdlet("Invokes the UpdateMaintenanceWindowTask operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateMaintenanceWindowTask"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterSSMTaskWithMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateSSMMaintenanceWindowTaskCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter Lambda_ClientContext
@@ -51,16 +72,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("TaskInvocationParameters_Lambda_ClientContext")]
         public System.String Lambda_ClientContext { get; set; }
-        #endregion
-        
-        #region Parameter ClientToken
-        /// <summary>
-        /// <para>
-        /// <para>User-provided idempotency token.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ClientToken { get; set; }
         #endregion
         
         #region Parameter RunCommand_Comment
@@ -77,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description for the task.</para>
+        /// <para>The new task description that you want to specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,7 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxConcurrency
         /// <summary>
         /// <para>
-        /// <para>The maximum number of targets this task can be run for in parallel.</para>
+        /// <para>The new <code>MaxConcurrency</code> value you want to specify. <code>MaxConcurrency</code>
+        /// is the number of targets that are allowed to run this task in parallel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,7 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxError
         /// <summary>
         /// <para>
-        /// <para>The maximum number of errors allowed before this task stops being scheduled.</para>
+        /// <para>The new <code>MaxErrors</code> value you want to specify. <code>MaxErrors</code> is
+        /// the maximum number of errors that are allowed before the task stops being scheduled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -154,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>An optional name for the task.</para>
+        /// <para>The new task name that you want to specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -270,9 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The priority of the task in the Maintenance Window, the lower the number the higher
-        /// the priority. Tasks in a Maintenance Window are scheduled in priority order with tasks
-        /// that have the same priority scheduled in parallel.</para>
+        /// <para>The new task priority that you want to specify. The lower the number, the higher the
+        /// priority. Tasks that have the same priority are scheduled in parallel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -291,6 +303,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("TaskInvocationParameters_Lambda_Qualifier")]
         public System.String Lambda_Qualifier { get; set; }
+        #endregion
+        
+        #region Parameter Replace
+        /// <summary>
+        /// <para>
+        /// <para>If you specify True, then all fields that are required by the RegisterTaskWithMaintenanceWndow
+        /// API are also required for this API request. Optional fields that are not specified
+        /// will be set to null.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Replace { get; set; }
         #endregion
         
         #region Parameter LoggingInfo_S3BucketName
@@ -326,7 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The role that should be assumed when executing the task.</para>
+        /// <para>The IAM service role ARN that you want to modify. The system assumes this role during
+        /// task exectuion. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -347,8 +372,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or tags). Instances are specified using Key=instanceids,Values=&lt;instanceid1&gt;,&lt;instanceid2&gt;.
-        /// Tags are specified using Key=&lt;tag name&gt;,Values=&lt;tag value&gt;.</para>
+        /// <para>The targets (either instances or tags) that you want to modify. Instances are specified
+        /// using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -359,33 +385,22 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the task to execute </para>
+        /// <para>The task ARN that you want to modify.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String TaskArn { get; set; }
         #endregion
         
         #region Parameter TaskParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that should be passed to the task when it is executed.</para>
+        /// <para>The parameters that you want to modify. The map has the following format:</para><para>Key: string, between 1 and 255 characters</para><para>Value: an array of strings, each string is between 1 and 255 characters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("TaskParameters")]
         public System.Collections.Hashtable TaskParameter { get; set; }
-        #endregion
-        
-        #region Parameter TaskType
-        /// <summary>
-        /// <para>
-        /// <para>The type of task being registered.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType")]
-        public Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType TaskType { get; set; }
         #endregion
         
         #region Parameter RunCommand_TimeoutSecond
@@ -403,11 +418,21 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WindowId
         /// <summary>
         /// <para>
-        /// <para>The id of the Maintenance Window the task should be added to.</para>
+        /// <para>The Maintenance Window ID that contains the task that you want to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String WindowId { get; set; }
+        #endregion
+        
+        #region Parameter WindowTaskId
+        /// <summary>
+        /// <para>
+        /// <para>The task ID that you want to modify.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String WindowTaskId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -424,8 +449,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TaskArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-SSMTaskWithMaintenanceWindow (RegisterTaskWithMaintenanceWindow)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("WindowTaskId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMMaintenanceWindowTask (UpdateMaintenanceWindowTask)"))
             {
                 return;
             }
@@ -439,7 +464,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ClientToken = this.ClientToken;
             context.Description = this.Description;
             context.LoggingInfo_S3BucketName = this.LoggingInfo_S3BucketName;
             context.LoggingInfo_S3KeyPrefix = this.LoggingInfo_S3KeyPrefix;
@@ -449,6 +473,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.Name = this.Name;
             if (ParameterWasBound("Priority"))
                 context.Priority = this.Priority;
+            if (ParameterWasBound("Replace"))
+                context.Replace = this.Replace;
             context.ServiceRoleArn = this.ServiceRoleArn;
             if (this.Target != null)
             {
@@ -523,8 +549,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     context.TaskParameters.Add((String)hashKey, (MaintenanceWindowTaskParameterValueExpression)(this.TaskParameter[hashKey]));
                 }
             }
-            context.TaskType = this.TaskType;
             context.WindowId = this.WindowId;
+            context.WindowTaskId = this.WindowTaskId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -543,12 +569,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var cmdletContext = context as CmdletContext;
                 // create request
-                var request = new Amazon.SimpleSystemsManagement.Model.RegisterTaskWithMaintenanceWindowRequest();
+                var request = new Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskRequest();
                 
-                if (cmdletContext.ClientToken != null)
-                {
-                    request.ClientToken = cmdletContext.ClientToken;
-                }
                 if (cmdletContext.Description != null)
                 {
                     request.Description = cmdletContext.Description;
@@ -607,6 +629,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 if (cmdletContext.Priority != null)
                 {
                     request.Priority = cmdletContext.Priority.Value;
+                }
+                if (cmdletContext.Replace != null)
+                {
+                    request.Replace = cmdletContext.Replace.Value;
                 }
                 if (cmdletContext.ServiceRoleArn != null)
                 {
@@ -889,13 +915,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 {
                     request.TaskParameters = cmdletContext.TaskParameters;
                 }
-                if (cmdletContext.TaskType != null)
-                {
-                    request.TaskType = cmdletContext.TaskType;
-                }
                 if (cmdletContext.WindowId != null)
                 {
                     request.WindowId = cmdletContext.WindowId;
+                }
+                if (cmdletContext.WindowTaskId != null)
+                {
+                    request.WindowTaskId = cmdletContext.WindowTaskId;
                 }
                 
                 CmdletOutput output;
@@ -906,7 +932,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 {
                     var response = CallAWSServiceOperation(client, request);
                     Dictionary<string, object> notes = null;
-                    object pipelineOutput = response.WindowTaskId;
+                    object pipelineOutput = response;
                     output = new CmdletOutput
                     {
                         PipelineOutput = pipelineOutput,
@@ -939,14 +965,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.RegisterTaskWithMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.RegisterTaskWithMaintenanceWindowRequest request)
+        private Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "RegisterTaskWithMaintenanceWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "UpdateMaintenanceWindowTask");
             #if DESKTOP
-            return client.RegisterTaskWithMaintenanceWindow(request);
+            return client.UpdateMaintenanceWindowTask(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RegisterTaskWithMaintenanceWindowAsync(request);
+            var task = client.UpdateMaintenanceWindowTaskAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -957,7 +983,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ClientToken { get; set; }
             public System.String Description { get; set; }
             public System.String LoggingInfo_S3BucketName { get; set; }
             public System.String LoggingInfo_S3KeyPrefix { get; set; }
@@ -966,6 +991,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String MaxErrors { get; set; }
             public System.String Name { get; set; }
             public System.Int32? Priority { get; set; }
+            public System.Boolean? Replace { get; set; }
             public System.String ServiceRoleArn { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
             public System.String TaskArn { get; set; }
@@ -988,8 +1014,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String TaskInvocationParameters_StepFunctions_Input { get; set; }
             public System.String TaskInvocationParameters_StepFunctions_Name { get; set; }
             public Dictionary<System.String, Amazon.SimpleSystemsManagement.Model.MaintenanceWindowTaskParameterValueExpression> TaskParameters { get; set; }
-            public Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType TaskType { get; set; }
             public System.String WindowId { get; set; }
+            public System.String WindowTaskId { get; set; }
         }
         
     }

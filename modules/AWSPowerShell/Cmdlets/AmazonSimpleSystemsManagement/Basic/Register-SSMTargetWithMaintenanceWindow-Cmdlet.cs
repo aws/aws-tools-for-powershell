@@ -50,6 +50,26 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String ClientToken { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>An optional description for the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// <para>An optional name for the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
         #region Parameter OwnerInformation
         /// <summary>
         /// <para>
@@ -124,6 +144,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.ClientToken = this.ClientToken;
+            context.Description = this.Description;
+            context.Name = this.Name;
             context.OwnerInformation = this.OwnerInformation;
             context.ResourceType = this.ResourceType;
             if (this.Target != null)
@@ -150,6 +172,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.ClientToken != null)
             {
                 request.ClientToken = cmdletContext.ClientToken;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
+            }
+            if (cmdletContext.Name != null)
+            {
+                request.Name = cmdletContext.Name;
             }
             if (cmdletContext.OwnerInformation != null)
             {
@@ -220,6 +250,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ClientToken { get; set; }
+            public System.String Description { get; set; }
+            public System.String Name { get; set; }
             public System.String OwnerInformation { get; set; }
             public Amazon.SimpleSystemsManagement.MaintenanceWindowResourceType ResourceType { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }

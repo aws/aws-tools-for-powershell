@@ -73,6 +73,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.Int32 Cutoff { get; set; }
         #endregion
         
+        #region Parameter Description
+        /// <summary>
+        /// <para>
+        /// <para>An optional description for the Maintenance Window. We recommend specifying a description
+        /// to help your organize your Maintenance Windows. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Description { get; set; }
+        #endregion
+        
         #region Parameter Duration
         /// <summary>
         /// <para>
@@ -137,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.ClientToken = this.ClientToken;
             if (ParameterWasBound("Cutoff"))
                 context.Cutoff = this.Cutoff;
+            context.Description = this.Description;
             if (ParameterWasBound("Duration"))
                 context.Duration = this.Duration;
             context.Name = this.Name;
@@ -168,6 +180,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Cutoff != null)
             {
                 request.Cutoff = cmdletContext.Cutoff.Value;
+            }
+            if (cmdletContext.Description != null)
+            {
+                request.Description = cmdletContext.Description;
             }
             if (cmdletContext.Duration != null)
             {
@@ -236,6 +252,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.Boolean? AllowUnassociatedTargets { get; set; }
             public System.String ClientToken { get; set; }
             public System.Int32? Cutoff { get; set; }
+            public System.String Description { get; set; }
             public System.Int32? Duration { get; set; }
             public System.String Name { get; set; }
             public System.String Schedule { get; set; }

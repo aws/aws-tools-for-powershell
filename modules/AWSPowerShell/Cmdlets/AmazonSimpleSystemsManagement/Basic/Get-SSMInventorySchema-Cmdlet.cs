@@ -42,6 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMInventorySchemaCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter SubType
+        /// <summary>
+        /// <para>
+        /// <para>Returns the sub-type schema for a specified inventory type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean SubType { get; set; }
+        #endregion
+        
         #region Parameter TypeName
         /// <summary>
         /// <para>
@@ -94,6 +104,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (ParameterWasBound("SubType"))
+                context.SubType = this.SubType;
             context.TypeName = this.TypeName;
             
             // allow further manipulation of loaded context prior to processing
@@ -111,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             // create request and set iteration invariants
             var request = new Amazon.SimpleSystemsManagement.Model.GetInventorySchemaRequest();
+            if (cmdletContext.SubType != null)
+            {
+                request.SubType = cmdletContext.SubType.Value;
+            }
             if (cmdletContext.TypeName != null)
             {
                 request.TypeName = cmdletContext.TypeName;
@@ -251,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.Boolean? SubType { get; set; }
             public System.String TypeName { get; set; }
         }
         

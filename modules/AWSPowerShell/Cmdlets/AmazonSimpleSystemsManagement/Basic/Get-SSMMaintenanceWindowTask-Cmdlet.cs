@@ -22,66 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.StorageGateway;
-using Amazon.StorageGateway.Model;
+using Amazon.SimpleSystemsManagement;
+using Amazon.SimpleSystemsManagement.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SG
+namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Deletes a file share from a file gateway. This operation is only supported in the
-    /// file gateway architecture.
+    /// Lists the tasks in a Maintenance Window.
     /// </summary>
-    [Cmdlet("Remove", "SGFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteFileShare operation against AWS Storage Gateway.", Operation = new[] {"DeleteFileShare"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.StorageGateway.Model.DeleteFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SSMMaintenanceWindowTask")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskResponse")]
+    [AWSCmdlet("Invokes the GetMaintenanceWindowTask operation against Amazon Simple Systems Management.", Operation = new[] {"GetMaintenanceWindowTask"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveSGFileShareCmdlet : AmazonStorageGatewayClientCmdlet, IExecutor
+    public partial class GetSSMMaintenanceWindowTaskCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter FileShareARN
+        #region Parameter WindowId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the file share to be deleted. </para>
+        /// <para>The Maintenance Window ID that includes the task to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String FileShareARN { get; set; }
+        public System.String WindowId { get; set; }
         #endregion
         
-        #region Parameter ForceDelete
+        #region Parameter WindowTaskId
         /// <summary>
         /// <para>
-        /// <para>If set to true, deletes a file share immediately and aborts all data uploads to AWS.
-        /// Otherwise the file share is not deleted until all data is uploaded to AWS. This process
-        /// aborts the data upload process and the file share enters the FORCE_DELETING status.</para>
+        /// <para>The Maintenance Window task ID to retrieve.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean ForceDelete { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String WindowTaskId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FileShareARN", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-SGFileShare (DeleteFileShare)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -92,9 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FileShareARN = this.FileShareARN;
-            if (ParameterWasBound("ForceDelete"))
-                context.ForceDelete = this.ForceDelete;
+            context.WindowId = this.WindowId;
+            context.WindowTaskId = this.WindowTaskId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +88,15 @@ namespace Amazon.PowerShell.Cmdlets.SG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.StorageGateway.Model.DeleteFileShareRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskRequest();
             
-            if (cmdletContext.FileShareARN != null)
+            if (cmdletContext.WindowId != null)
             {
-                request.FileShareARN = cmdletContext.FileShareARN;
+                request.WindowId = cmdletContext.WindowId;
             }
-            if (cmdletContext.ForceDelete != null)
+            if (cmdletContext.WindowTaskId != null)
             {
-                request.ForceDelete = cmdletContext.ForceDelete.Value;
+                request.WindowTaskId = cmdletContext.WindowTaskId;
             }
             
             CmdletOutput output;
@@ -128,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.FileShareARN;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,14 +132,14 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         #region AWS Service Operation Call
         
-        private Amazon.StorageGateway.Model.DeleteFileShareResponse CallAWSServiceOperation(IAmazonStorageGateway client, Amazon.StorageGateway.Model.DeleteFileShareRequest request)
+        private Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.GetMaintenanceWindowTaskRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Storage Gateway", "DeleteFileShare");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "GetMaintenanceWindowTask");
             #if DESKTOP
-            return client.DeleteFileShare(request);
+            return client.GetMaintenanceWindowTask(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteFileShareAsync(request);
+            var task = client.GetMaintenanceWindowTaskAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -171,8 +150,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FileShareARN { get; set; }
-            public System.Boolean? ForceDelete { get; set; }
+            public System.String WindowId { get; set; }
+            public System.String WindowTaskId { get; set; }
         }
         
     }

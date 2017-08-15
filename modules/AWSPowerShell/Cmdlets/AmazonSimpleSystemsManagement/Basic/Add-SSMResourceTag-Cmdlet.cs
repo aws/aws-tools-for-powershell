@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The resource ID you want to tag.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
         #endregion
         

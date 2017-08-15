@@ -4791,7 +4791,11 @@ $SSM_Completers = {
         }
         
         # Amazon.SimpleSystemsManagement.DocumentHashType
-        "Send-SSMCommand/DocumentHashType"
+        {
+            ($_ -eq "Send-SSMCommand/DocumentHashType") -Or
+            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/TaskInvocationParameters_RunCommand_DocumentHashType") -Or
+            ($_ -eq "Update-SSMMaintenanceWindowTask/TaskInvocationParameters_RunCommand_DocumentHashType")
+        }
         {
             $v = "Sha1","Sha256"
             break
@@ -4824,12 +4828,16 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.MaintenanceWindowTaskType
         "Register-SSMTaskWithMaintenanceWindow/TaskType"
         {
-            $v = "RUN_COMMAND"
+            $v = "AUTOMATION","LAMBDA","RUN_COMMAND","STEP_FUNCTIONS"
             break
         }
         
         # Amazon.SimpleSystemsManagement.NotificationType
-        "Send-SSMCommand/NotificationConfig_NotificationType"
+        {
+            ($_ -eq "Send-SSMCommand/NotificationConfig_NotificationType") -Or
+            ($_ -eq "Register-SSMTaskWithMaintenanceWindow/TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType") -Or
+            ($_ -eq "Update-SSMMaintenanceWindowTask/TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType")
+        }
         {
             $v = "Command","Invocation"
             break
@@ -4906,6 +4914,8 @@ $SSM_map = @{
     "ResourceType"=@("Add-SSMResourceTag","Get-SSMResourceTag","Register-SSMTargetWithMaintenanceWindow","Remove-SSMResourceTag")
     "S3Destination_SyncFormat"=@("New-SSMResourceDataSync")
     "SignalType"=@("Send-SSMAutomationSignal")
+    "TaskInvocationParameters_RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
+    "TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
     "Type"=@("Write-SSMParameter")
 }

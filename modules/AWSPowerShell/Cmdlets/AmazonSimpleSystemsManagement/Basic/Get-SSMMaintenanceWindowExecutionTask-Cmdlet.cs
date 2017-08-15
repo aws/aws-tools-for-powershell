@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// retrieved.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String TaskId { get; set; }
         #endregion
         

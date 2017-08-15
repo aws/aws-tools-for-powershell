@@ -28,110 +28,107 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Updates an existing Maintenance Window. Only specified parameters are modified.
+    /// Modifies the target of an existing Maintenance Window. You can't change the target
+    /// type, but you can change the following:
+    /// 
+    ///  
+    /// <para>
+    /// The target from being an ID target to a Tag target, or a Tag target to an ID target.
+    /// </para><para>
+    /// The IDs of an ID target.
+    /// </para><para>
+    /// The tags of a Tag target.
+    /// </para><para>
+    /// The Owner.
+    /// </para><para>
+    /// The Name.
+    /// </para><para>
+    /// The Description.
+    /// </para><para>
+    /// Also note that if a parameter is null, then the corresponding field is not modified.
+    /// </para>
     /// </summary>
-    [Cmdlet("Update", "SSMMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowResponse")]
-    [AWSCmdlet("Invokes the UpdateMaintenanceWindow operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateMaintenanceWindow"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowResponse",
-        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "SSMMaintenanceWindowTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse")]
+    [AWSCmdlet("Invokes the UpdateMaintenanceWindowTarget operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateMaintenanceWindowTarget"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse",
+        "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateSSMMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class UpdateSSMMaintenanceWindowTargetCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
-        
-        #region Parameter AllowUnassociatedTarget
-        /// <summary>
-        /// <para>
-        /// <para>Whether targets must be registered with the Maintenance Window before tasks can be
-        /// defined for those targets.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("AllowUnassociatedTargets")]
-        public System.Boolean AllowUnassociatedTarget { get; set; }
-        #endregion
-        
-        #region Parameter Cutoff
-        /// <summary>
-        /// <para>
-        /// <para>The number of hours before the end of the Maintenance Window that Systems Manager
-        /// stops scheduling new tasks for execution.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 Cutoff { get; set; }
-        #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>An optional description for the update request.</para>
+        /// <para>An optional description for the update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
         #endregion
         
-        #region Parameter Duration
-        /// <summary>
-        /// <para>
-        /// <para>The duration of the Maintenance Window in hours.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 Duration { get; set; }
-        #endregion
-        
-        #region Parameter Enabled
-        /// <summary>
-        /// <para>
-        /// <para>Whether the Maintenance Window is enabled.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean Enabled { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the Maintenance Window.</para>
+        /// <para>A name for the update.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter OwnerInformation
+        /// <summary>
+        /// <para>
+        /// <para>User-provided value that will be included in any CloudWatch events raised while running
+        /// tasks for these targets in this Maintenance Window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String OwnerInformation { get; set; }
+        #endregion
+        
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If you specify True, then all fields that are required by the CreateMaintenanceWindow
+        /// <para>If you specify True, then all fields that are required by the RegisterTargetWithMaintenanceWindow
         /// API are also required for this API request. Optional fields that are not specified
-        /// will be set to null. </para>
+        /// will be set to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean Replace { get; set; }
         #endregion
         
-        #region Parameter Schedule
+        #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The schedule of the Maintenance Window in the form of a cron or rate expression.</para>
+        /// <para>The targets that you want to add or replace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Schedule { get; set; }
+        [Alias("Targets")]
+        public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
         
         #region Parameter WindowId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Maintenance Window to update.</para>
+        /// <para>The Maintenance Window ID for which you want to modify the target.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String WindowId { get; set; }
+        #endregion
+        
+        #region Parameter WindowTargetId
+        /// <summary>
+        /// <para>
+        /// <para>The target ID that you want to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String WindowId { get; set; }
+        public System.String WindowTargetId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -148,8 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("WindowId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMMaintenanceWindow (UpdateMaintenanceWindow)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("WindowTargetId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-SSMMaintenanceWindowTarget (UpdateMaintenanceWindowTarget)"))
             {
                 return;
             }
@@ -163,20 +160,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("AllowUnassociatedTarget"))
-                context.AllowUnassociatedTargets = this.AllowUnassociatedTarget;
-            if (ParameterWasBound("Cutoff"))
-                context.Cutoff = this.Cutoff;
             context.Description = this.Description;
-            if (ParameterWasBound("Duration"))
-                context.Duration = this.Duration;
-            if (ParameterWasBound("Enabled"))
-                context.Enabled = this.Enabled;
             context.Name = this.Name;
+            context.OwnerInformation = this.OwnerInformation;
             if (ParameterWasBound("Replace"))
                 context.Replace = this.Replace;
-            context.Schedule = this.Schedule;
+            if (this.Target != null)
+            {
+                context.Targets = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
+            }
             context.WindowId = this.WindowId;
+            context.WindowTargetId = this.WindowTargetId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -191,43 +185,35 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetRequest();
             
-            if (cmdletContext.AllowUnassociatedTargets != null)
-            {
-                request.AllowUnassociatedTargets = cmdletContext.AllowUnassociatedTargets.Value;
-            }
-            if (cmdletContext.Cutoff != null)
-            {
-                request.Cutoff = cmdletContext.Cutoff.Value;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.Duration != null)
-            {
-                request.Duration = cmdletContext.Duration.Value;
-            }
-            if (cmdletContext.Enabled != null)
-            {
-                request.Enabled = cmdletContext.Enabled.Value;
             }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
             }
+            if (cmdletContext.OwnerInformation != null)
+            {
+                request.OwnerInformation = cmdletContext.OwnerInformation;
+            }
             if (cmdletContext.Replace != null)
             {
                 request.Replace = cmdletContext.Replace.Value;
             }
-            if (cmdletContext.Schedule != null)
+            if (cmdletContext.Targets != null)
             {
-                request.Schedule = cmdletContext.Schedule;
+                request.Targets = cmdletContext.Targets;
             }
             if (cmdletContext.WindowId != null)
             {
                 request.WindowId = cmdletContext.WindowId;
+            }
+            if (cmdletContext.WindowTargetId != null)
+            {
+                request.WindowTargetId = cmdletContext.WindowTargetId;
             }
             
             CmdletOutput output;
@@ -263,14 +249,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowRequest request)
+        private Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "UpdateMaintenanceWindow");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "UpdateMaintenanceWindowTarget");
             #if DESKTOP
-            return client.UpdateMaintenanceWindow(request);
+            return client.UpdateMaintenanceWindowTarget(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateMaintenanceWindowAsync(request);
+            var task = client.UpdateMaintenanceWindowTargetAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -281,15 +267,13 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.Boolean? AllowUnassociatedTargets { get; set; }
-            public System.Int32? Cutoff { get; set; }
             public System.String Description { get; set; }
-            public System.Int32? Duration { get; set; }
-            public System.Boolean? Enabled { get; set; }
             public System.String Name { get; set; }
+            public System.String OwnerInformation { get; set; }
             public System.Boolean? Replace { get; set; }
-            public System.String Schedule { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
             public System.String WindowId { get; set; }
+            public System.String WindowTargetId { get; set; }
         }
         
     }

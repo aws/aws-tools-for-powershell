@@ -139,6 +139,22 @@
     <ServiceOperation MethodName="DeleteResourceDataSync" Output="Void" />
 
     <ServiceOperation MethodName="SendAutomationSignal" PipelineParameter="AutomationExecutionId" Output="Void" />
+
+    <ServiceOperation MethodName="UpdateMaintenanceWindowTarget" PipelineParameter="WindowTargetId" Output="Response" />
+    <ServiceOperation MethodName="UpdateMaintenanceWindowTask" PipelineParameter="WindowTaskId" Output="Response" />
+    <ServiceOperation MethodName="GetMaintenanceWindowExecutionTaskInvocation" PipelineParameter="TaskId" Output="Response" />
+    <ServiceOperation MethodName="GetMaintenanceWindowTask" PipelineParameter="WindowTaskId" Output="Response" />
+    <ServiceOperation MethodName="ListComplianceItems" Noun="ComplianceItemsList" NoPipelineParameter="true">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListComplianceSummaries" Noun="ComplianceSummariesList" NoPipelineParameter="true">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListResourceComplianceSummaries" Noun="ResourceComplianceSummariesList" NoPipelineParameter="true">
+      <AutoIterate ServicePageSize="100" />
+    </ServiceOperation>
+    <ServiceOperation MethodName="PutComplianceItems" Noun="ComplianceItem" PipelineParameter="ResourceId" Output="Void" />
+
   </ServiceOperations>
 
   <VerbMappings>
@@ -164,5 +180,10 @@
     <Property>BaselineId</Property>
     <Property>PatchGroup</Property>
     <Property>SnapshotId</Property>
+    <Property>TaskId</Property>
+    <Property>MaintenanceWindowId</Property>
+    <Property>MaintenanceWindowTargetId</Property>
+    <Property>MaintenanceWindowTaskId</Property>
+    <Property>ResourceId</Property>
   </PipelineByValueProperties>
 </ConfigModel>

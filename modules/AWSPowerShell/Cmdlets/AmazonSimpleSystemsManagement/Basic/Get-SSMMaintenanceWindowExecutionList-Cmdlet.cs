@@ -28,9 +28,9 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Lists the executions of a Maintenance Window (meaning, information about when the
-    /// Maintenance Window was scheduled to be active and information about tasks registered
-    /// and run with the Maintenance Window).<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the executions of a Maintenance Window. This includes information about when
+    /// the Maintenance Window was scheduled to be active, and information about tasks registered
+    /// and run with the Maintenance Window.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowExecutionList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecution")]

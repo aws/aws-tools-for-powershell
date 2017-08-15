@@ -54,7 +54,7 @@
     <ServiceOperation MethodName="CreateTapeWithBarcode" PositionalParameters="TapeBarcode"/>
     <ServiceOperation MethodName="DeleteBandwidthRateLimit" ShouldProcessTarget="BandwidthType" PositionalParameters="BandwidthType"/>
     <ServiceOperation MethodName="DeleteChapCredentials" Output="Response" ShouldProcessTarget="InitiatorName" PipelineParameter="TargetARN" PositionalParameters="InitiatorName" Noun="ChapCredential" LegacyAlias="Remove-SGChapCredentials"/>
-    <ServiceOperation MethodName="DeleteFileShare"/>
+    <ServiceOperation MethodName="DeleteFileShare" ShouldProcessTarget="FileShareARN"/>
     <ServiceOperation MethodName="DeleteGateway"/>
     <ServiceOperation MethodName="DeleteSnapshotSchedule" />
     <ServiceOperation MethodName="DeleteVolume" />
@@ -114,7 +114,7 @@
     <ServiceOperation MethodName="ResetCache" MetadataProperties="GatewayARN" Output="Void" />
     <ServiceOperation MethodName="UpdateVTLDeviceType" MetadataProperties="VTLDeviceARN" Output="Void" ShouldProcessTarget="VTLDeviceARN"/>
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>GatewayARN</Property>
     <Property>FileShareARN</Property>

@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class UnregisterSSMTargetFromMaintenanceWindowCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Safe
+        /// <summary>
+        /// <para>
+        /// <para>The system checks if the target is being referenced by a task. If the target is being
+        /// referenced, the system returns and error and does not deregister the target from the
+        /// Maintenance Window.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Safe { get; set; }
+        #endregion
+        
         #region Parameter WindowId
         /// <summary>
         /// <para>
@@ -88,6 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("Safe"))
+                context.Safe = this.Safe;
             context.WindowId = this.WindowId;
             context.WindowTargetId = this.WindowTargetId;
             
@@ -106,6 +120,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.DeregisterTargetFromMaintenanceWindowRequest();
             
+            if (cmdletContext.Safe != null)
+            {
+                request.Safe = cmdletContext.Safe.Value;
+            }
             if (cmdletContext.WindowId != null)
             {
                 request.WindowId = cmdletContext.WindowId;
@@ -166,6 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Safe { get; set; }
             public System.String WindowId { get; set; }
             public System.String WindowTargetId { get; set; }
         }

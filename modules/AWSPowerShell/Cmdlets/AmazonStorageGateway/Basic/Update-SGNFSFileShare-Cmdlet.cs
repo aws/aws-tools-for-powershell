@@ -161,8 +161,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
         #region Parameter ReadOnly
         /// <summary>
         /// <para>
-        /// <para>Sets the write status of a file share: "true" if the write status is read-only, and
-        /// otherwise "false".</para>
+        /// <para>Sets the write status of a file share: "true" if the write status is read-only, otherwise
+        /// "false".</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

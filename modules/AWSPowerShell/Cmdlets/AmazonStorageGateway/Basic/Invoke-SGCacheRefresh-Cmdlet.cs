@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Refreshes the cache for the specified file share. This operation finds objects in
-    /// the Amazon S3 bucket that were added or removed since the gateway last listed the
-    /// bucket's contents and cached the results.
+    /// the Amazon S3 bucket that were added, removed or replaced since the gateway last listed
+    /// the bucket's contents and cached the results.
     /// </summary>
     [Cmdlet("Invoke", "SGCacheRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

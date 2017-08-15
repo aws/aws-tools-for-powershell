@@ -28,51 +28,54 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Retrieves the individual task executions (one per target) for a particular task executed
-    /// as part of a Maintenance Window execution.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// For a specified resource ID, this API returns a list of compliance statuses for different
+    /// resource types. Currently, you can only specify one resource ID per call. List results
+    /// depend on the criteria specified in the filter.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SSMMaintenanceWindowExecutionTaskInvocationList")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskInvocationIdentity")]
-    [AWSCmdlet("Invokes the DescribeMaintenanceWindowExecutionTaskInvocations operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeMaintenanceWindowExecutionTaskInvocations"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowExecutionTaskInvocationIdentity",
-        "This cmdlet returns a collection of MaintenanceWindowExecutionTaskInvocationIdentity objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMComplianceItemsList")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.ComplianceItem")]
+    [AWSCmdlet("Invokes the ListComplianceItems operation against Amazon Simple Systems Management.", Operation = new[] {"ListComplianceItems"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ComplianceItem",
+        "This cmdlet returns a collection of ComplianceItem objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSSMMaintenanceWindowExecutionTaskInvocationListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMComplianceItemsListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>Optional filters used to scope down the returned task invocations. The supported filter
-        /// key is STATUS with the corresponding values PENDING, IN_PROGRESS, SUCCESS, FAILED,
-        /// TIMED_OUT, CANCELLING, and CANCELLED.</para>
+        /// <para>One or more compliance filters. Use a filter to return a more specific list of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Filters")]
-        public Amazon.SimpleSystemsManagement.Model.MaintenanceWindowFilter[] Filter { get; set; }
+        public Amazon.SimpleSystemsManagement.Model.ComplianceStringFilter[] Filter { get; set; }
         #endregion
         
-        #region Parameter TaskId
+        #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the specific task in the Maintenance Window task that should be retrieved.</para>
+        /// <para>The ID for the resources from which you want to get compliance information. Currently,
+        /// you can only specify one resource ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String TaskId { get; set; }
+        [Alias("ResourceIds")]
+        public System.String[] ResourceId { get; set; }
         #endregion
         
-        #region Parameter WindowExecutionId
+        #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>The ID of the Maintenance Window execution the task is part of.</para>
+        /// <para>The type of resource from which you want to get compliance information. Currently,
+        /// the only supported resource type is <code>ManagedInstance</code>.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String WindowExecutionId { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("ResourceTypes")]
+        public System.String[] ResourceType { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -90,8 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of items to return. (You received this token from a previous
-        /// call.)</para>
+        /// <para>A token to start the list. Use this token to get the next set of results. </para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -116,13 +118,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             if (this.Filter != null)
             {
-                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.MaintenanceWindowFilter>(this.Filter);
+                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.ComplianceStringFilter>(this.Filter);
             }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.TaskId = this.TaskId;
-            context.WindowExecutionId = this.WindowExecutionId;
+            if (this.ResourceId != null)
+            {
+                context.ResourceIds = new List<System.String>(this.ResourceId);
+            }
+            if (this.ResourceType != null)
+            {
+                context.ResourceTypes = new List<System.String>(this.ResourceType);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -138,18 +146,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsRequest();
+            var request = new Amazon.SimpleSystemsManagement.Model.ListComplianceItemsRequest();
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
             }
-            if (cmdletContext.TaskId != null)
+            if (cmdletContext.ResourceIds != null)
             {
-                request.TaskId = cmdletContext.TaskId;
+                request.ResourceIds = cmdletContext.ResourceIds;
             }
-            if (cmdletContext.WindowExecutionId != null)
+            if (cmdletContext.ResourceTypes != null)
             {
-                request.WindowExecutionId = cmdletContext.WindowExecutionId;
+                request.ResourceTypes = cmdletContext.ResourceTypes;
             }
             
             // Initialize loop variants and commence piping
@@ -206,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.WindowExecutionTaskInvocationIdentities;
+                        object pipelineOutput = response.ComplianceItems;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -215,7 +223,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.WindowExecutionTaskInvocationIdentities.Count;
+                        int _receivedThisCall = response.ComplianceItems.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -267,14 +275,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowExecutionTaskInvocationsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListComplianceItemsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "DescribeMaintenanceWindowExecutionTaskInvocations");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListComplianceItems");
             #if DESKTOP
-            return client.DescribeMaintenanceWindowExecutionTaskInvocations(request);
+            return client.ListComplianceItems(request);
             #elif CORECLR
             // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeMaintenanceWindowExecutionTaskInvocationsAsync(request);
+            var task = client.ListComplianceItemsAsync(request);
             return task.Result;
             #else
                     #error "Unknown build edition"
@@ -285,11 +293,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.MaintenanceWindowFilter> Filters { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.ComplianceStringFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public System.String TaskId { get; set; }
-            public System.String WindowExecutionId { get; set; }
+            public List<System.String> ResourceIds { get; set; }
+            public List<System.String> ResourceTypes { get; set; }
         }
         
     }
