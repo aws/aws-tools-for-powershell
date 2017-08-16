@@ -120,15 +120,27 @@ namespace Amazon.PowerShell.Cmdlets.GG
         private Amazon.Greengrass.Model.GetLoggerDefinitionResponse CallAWSServiceOperation(IAmazonGreengrass client, Amazon.Greengrass.Model.GetLoggerDefinitionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Greengrass", "GetLoggerDefinition");
-            #if DESKTOP
-            return client.GetLoggerDefinition(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetLoggerDefinitionAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetLoggerDefinition(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetLoggerDefinitionAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

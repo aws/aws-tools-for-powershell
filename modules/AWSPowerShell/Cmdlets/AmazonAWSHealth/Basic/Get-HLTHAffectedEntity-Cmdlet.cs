@@ -386,15 +386,27 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
         private Amazon.AWSHealth.Model.DescribeAffectedEntitiesResponse CallAWSServiceOperation(IAmazonAWSHealth client, Amazon.AWSHealth.Model.DescribeAffectedEntitiesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Health", "DescribeAffectedEntities");
-            #if DESKTOP
-            return client.DescribeAffectedEntities(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeAffectedEntitiesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DescribeAffectedEntities(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DescribeAffectedEntitiesAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

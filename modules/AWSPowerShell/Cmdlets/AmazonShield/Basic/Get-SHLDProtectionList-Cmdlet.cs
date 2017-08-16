@@ -188,15 +188,27 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         private Amazon.Shield.Model.ListProtectionsResponse CallAWSServiceOperation(IAmazonShield client, Amazon.Shield.Model.ListProtectionsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Shield", "ListProtections");
-            #if DESKTOP
-            return client.ListProtections(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListProtectionsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ListProtections(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListProtectionsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

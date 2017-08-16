@@ -153,15 +153,27 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         private Amazon.CloudDirectory.Model.UpdateSchemaResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpdateSchemaRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpdateSchema");
-            #if DESKTOP
-            return client.UpdateSchema(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateSchemaAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.UpdateSchema(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.UpdateSchemaAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

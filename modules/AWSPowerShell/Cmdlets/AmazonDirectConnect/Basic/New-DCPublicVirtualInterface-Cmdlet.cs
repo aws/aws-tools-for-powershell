@@ -329,15 +329,27 @@ namespace Amazon.PowerShell.Cmdlets.DC
         private Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreatePublicVirtualInterfaceRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "CreatePublicVirtualInterface");
-            #if DESKTOP
-            return client.CreatePublicVirtualInterface(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreatePublicVirtualInterfaceAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CreatePublicVirtualInterface(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreatePublicVirtualInterfaceAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

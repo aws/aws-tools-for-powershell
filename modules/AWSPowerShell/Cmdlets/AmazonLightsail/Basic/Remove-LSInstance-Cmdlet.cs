@@ -137,15 +137,27 @@ namespace Amazon.PowerShell.Cmdlets.LS
         private Amazon.Lightsail.Model.DeleteInstanceResponse CallAWSServiceOperation(IAmazonLightsail client, Amazon.Lightsail.Model.DeleteInstanceRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lightsail", "DeleteInstance");
-            #if DESKTOP
-            return client.DeleteInstance(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteInstanceAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DeleteInstance(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeleteInstanceAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

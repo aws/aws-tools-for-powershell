@@ -225,15 +225,27 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         private Amazon.WAF.Model.ListXssMatchSetsResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.ListXssMatchSetsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "ListXssMatchSets");
-            #if DESKTOP
-            return client.ListXssMatchSets(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListXssMatchSetsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ListXssMatchSets(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListXssMatchSetsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

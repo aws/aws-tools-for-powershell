@@ -216,15 +216,27 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         private Amazon.WAF.Model.UpdateSizeConstraintSetResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.UpdateSizeConstraintSetRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "UpdateSizeConstraintSet");
-            #if DESKTOP
-            return client.UpdateSizeConstraintSet(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.UpdateSizeConstraintSetAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.UpdateSizeConstraintSet(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.UpdateSizeConstraintSetAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

@@ -394,15 +394,27 @@ namespace Amazon.PowerShell.Cmdlets.APS
         private Amazon.AppStream.Model.CreateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateFleetRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "CreateFleet");
-            #if DESKTOP
-            return client.CreateFleet(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateFleetAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CreateFleet(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateFleetAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

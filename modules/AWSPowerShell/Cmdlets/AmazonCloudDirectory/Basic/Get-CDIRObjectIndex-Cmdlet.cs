@@ -244,15 +244,27 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         private Amazon.CloudDirectory.Model.ListAttachedIndicesResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.ListAttachedIndicesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "ListAttachedIndices");
-            #if DESKTOP
-            return client.ListAttachedIndices(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListAttachedIndicesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ListAttachedIndices(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListAttachedIndicesAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

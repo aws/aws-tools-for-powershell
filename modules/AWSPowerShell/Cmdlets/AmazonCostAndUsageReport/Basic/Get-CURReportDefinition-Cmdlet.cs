@@ -141,15 +141,27 @@ namespace Amazon.PowerShell.Cmdlets.CUR
         private Amazon.CostAndUsageReport.Model.DescribeReportDefinitionsResponse CallAWSServiceOperation(IAmazonCostAndUsageReport client, Amazon.CostAndUsageReport.Model.DescribeReportDefinitionsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cost and Usage Report", "DescribeReportDefinitions");
-            #if DESKTOP
-            return client.DescribeReportDefinitions(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeReportDefinitionsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DescribeReportDefinitions(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DescribeReportDefinitionsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

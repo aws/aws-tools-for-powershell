@@ -563,15 +563,27 @@ namespace Amazon.PowerShell.Cmdlets.CF
         private Amazon.CloudFront.Model.CreateStreamingDistributionResponse CallAWSServiceOperation(IAmazonCloudFront client, Amazon.CloudFront.Model.CreateStreamingDistributionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudFront", "CreateStreamingDistribution");
-            #if DESKTOP
-            return client.CreateStreamingDistribution(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateStreamingDistributionAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CreateStreamingDistribution(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateStreamingDistributionAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

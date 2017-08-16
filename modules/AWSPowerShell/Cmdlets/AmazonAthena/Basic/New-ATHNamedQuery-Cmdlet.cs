@@ -208,15 +208,27 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         private Amazon.Athena.Model.CreateNamedQueryResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.CreateNamedQueryRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "CreateNamedQuery");
-            #if DESKTOP
-            return client.CreateNamedQuery(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateNamedQueryAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CreateNamedQuery(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateNamedQueryAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

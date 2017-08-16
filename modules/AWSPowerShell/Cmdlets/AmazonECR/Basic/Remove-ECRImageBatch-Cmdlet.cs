@@ -182,15 +182,27 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         private Amazon.ECR.Model.BatchDeleteImageResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchDeleteImageRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchDeleteImage");
-            #if DESKTOP
-            return client.BatchDeleteImage(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.BatchDeleteImageAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.BatchDeleteImage(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.BatchDeleteImageAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

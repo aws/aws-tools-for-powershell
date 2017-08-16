@@ -182,15 +182,27 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         private Amazon.OpsWorksCM.Model.DisassociateNodeResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.DisassociateNodeRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "DisassociateNode");
-            #if DESKTOP
-            return client.DisassociateNode(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DisassociateNodeAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DisassociateNode(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DisassociateNodeAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

@@ -121,15 +121,27 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         private Amazon.WAF.Model.GetChangeTokenResponse CallAWSServiceOperation(IAmazonWAF client, Amazon.WAF.Model.GetChangeTokenRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS WAF", "GetChangeToken");
-            #if DESKTOP
-            return client.GetChangeToken(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetChangeTokenAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetChangeToken(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetChangeTokenAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

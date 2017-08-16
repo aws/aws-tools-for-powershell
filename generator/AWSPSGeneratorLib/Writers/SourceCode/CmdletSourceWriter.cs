@@ -255,26 +255,40 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                              MethodAnalysis.RequestType);
             writer.OpenRegion();
 
-            writer.WriteLine("Utils.Common.WriteVerboseEndpointMessage(this, client.Config, \"{0}\", \"{1}\");", 
-                             MethodAnalysis.CurrentModel.ServiceName,
-                             MethodAnalysis.CurrentOperation.MethodName);
+                writer.WriteLine("Utils.Common.WriteVerboseEndpointMessage(this, client.Config, \"{0}\", \"{1}\");", 
+                                 MethodAnalysis.CurrentModel.ServiceName,
+                                 MethodAnalysis.CurrentOperation.MethodName);
 
-            writer.WriteLine("#if DESKTOP");
+                writer.WriteLine("try");
+                writer.OpenRegion();
 
-            writer.WriteLine("return client.{0}(request);", MethodAnalysis.CurrentOperation.MethodName);
+                    writer.WriteLine("#if DESKTOP");
 
-            writer.WriteLine("#elif CORECLR");
+                    writer.WriteLine("return client.{0}(request);", MethodAnalysis.CurrentOperation.MethodName);
 
-            writer.WriteLine("// todo: handle AggregateException and extract true service exception for rethrow");
-            writer.WriteLine("var task = client.{0}Async(request);", MethodAnalysis.CurrentOperation.MethodName);
-            writer.WriteLine("return task.Result;");
+                    writer.WriteLine("#elif CORECLR");
+
+                    writer.WriteLine("// todo: handle AggregateException and extract true service exception for rethrow");
+                    writer.WriteLine("var task = client.{0}Async(request);", MethodAnalysis.CurrentOperation.MethodName);
+                    writer.WriteLine("return task.Result;");
             
-            writer.WriteLine("#else");
+                    writer.WriteLine("#else");
             
-            writer.WriteLine("        #error \"Unknown build edition\"");
+                    writer.WriteLine("        #error \"Unknown build edition\"");
             
-            writer.WriteLine("#endif");
+                    writer.WriteLine("#endif");
 
+                writer.CloseRegion();
+                writer.WriteLine("catch (AmazonServiceException exc)");
+                writer.OpenRegion();
+                    writer.WriteLine("var webException = exc.InnerException as System.Net.WebException;");
+                    writer.WriteLine("if (webException != null)");
+                    writer.OpenRegion();
+                        writer.WriteLine(
+                            "throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);");
+                    writer.CloseRegion();
+                    writer.WriteLine("throw;");
+                writer.CloseRegion();
             writer.CloseRegion();
 
             writer.WriteLine();

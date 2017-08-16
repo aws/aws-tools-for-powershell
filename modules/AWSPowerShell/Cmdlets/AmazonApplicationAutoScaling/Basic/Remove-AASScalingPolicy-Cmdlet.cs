@@ -219,15 +219,27 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         private Amazon.ApplicationAutoScaling.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DeleteScalingPolicyRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Auto Scaling", "DeleteScalingPolicy");
-            #if DESKTOP
-            return client.DeleteScalingPolicy(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteScalingPolicyAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DeleteScalingPolicy(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeleteScalingPolicyAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

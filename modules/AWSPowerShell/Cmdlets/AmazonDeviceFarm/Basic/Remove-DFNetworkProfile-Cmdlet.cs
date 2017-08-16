@@ -148,15 +148,27 @@ namespace Amazon.PowerShell.Cmdlets.DF
         private Amazon.DeviceFarm.Model.DeleteNetworkProfileResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.DeleteNetworkProfileRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "DeleteNetworkProfile");
-            #if DESKTOP
-            return client.DeleteNetworkProfile(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteNetworkProfileAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DeleteNetworkProfile(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeleteNetworkProfileAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

@@ -142,15 +142,27 @@ namespace Amazon.PowerShell.Cmdlets.GML
         private Amazon.GameLift.Model.ResolveAliasResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ResolveAliasRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ResolveAlias");
-            #if DESKTOP
-            return client.ResolveAlias(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ResolveAliasAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ResolveAlias(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ResolveAliasAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

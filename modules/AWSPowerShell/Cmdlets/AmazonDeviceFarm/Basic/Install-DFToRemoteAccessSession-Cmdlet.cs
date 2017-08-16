@@ -154,15 +154,27 @@ namespace Amazon.PowerShell.Cmdlets.DF
         private Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse CallAWSServiceOperation(IAmazonDeviceFarm client, Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Device Farm", "InstallToRemoteAccessSession");
-            #if DESKTOP
-            return client.InstallToRemoteAccessSession(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.InstallToRemoteAccessSessionAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.InstallToRemoteAccessSession(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.InstallToRemoteAccessSessionAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

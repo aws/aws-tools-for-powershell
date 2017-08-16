@@ -154,15 +154,27 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         private Amazon.DatabaseMigrationService.Model.RefreshSchemasResponse CallAWSServiceOperation(IAmazonDatabaseMigrationService client, Amazon.DatabaseMigrationService.Model.RefreshSchemasRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Database Migration Service", "RefreshSchemas");
-            #if DESKTOP
-            return client.RefreshSchemas(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RefreshSchemasAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.RefreshSchemas(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.RefreshSchemasAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

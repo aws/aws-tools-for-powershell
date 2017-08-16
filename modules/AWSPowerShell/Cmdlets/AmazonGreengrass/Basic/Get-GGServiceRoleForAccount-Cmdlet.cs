@@ -105,15 +105,27 @@ namespace Amazon.PowerShell.Cmdlets.GG
         private Amazon.Greengrass.Model.GetServiceRoleForAccountResponse CallAWSServiceOperation(IAmazonGreengrass client, Amazon.Greengrass.Model.GetServiceRoleForAccountRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Greengrass", "GetServiceRoleForAccount");
-            #if DESKTOP
-            return client.GetServiceRoleForAccount(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetServiceRoleForAccountAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetServiceRoleForAccount(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetServiceRoleForAccountAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

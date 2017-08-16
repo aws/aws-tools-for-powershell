@@ -212,15 +212,27 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         private Amazon.OpsWorksCM.Model.RestoreServerResponse CallAWSServiceOperation(IAmazonOpsWorksCM client, Amazon.OpsWorksCM.Model.RestoreServerRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS OpsWorksCM", "RestoreServer");
-            #if DESKTOP
-            return client.RestoreServer(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RestoreServerAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.RestoreServer(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.RestoreServerAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

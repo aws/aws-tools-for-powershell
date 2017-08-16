@@ -143,15 +143,27 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         private Amazon.IoT.Model.CreateKeysAndCertificateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.CreateKeysAndCertificateRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "CreateKeysAndCertificate");
-            #if DESKTOP
-            return client.CreateKeysAndCertificate(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateKeysAndCertificateAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CreateKeysAndCertificate(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateKeysAndCertificateAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

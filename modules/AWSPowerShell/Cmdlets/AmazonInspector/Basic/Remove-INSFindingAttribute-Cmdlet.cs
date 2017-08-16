@@ -161,15 +161,27 @@ namespace Amazon.PowerShell.Cmdlets.INS
         private Amazon.Inspector.Model.RemoveAttributesFromFindingsResponse CallAWSServiceOperation(IAmazonInspector client, Amazon.Inspector.Model.RemoveAttributesFromFindingsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Inspector", "RemoveAttributesFromFindings");
-            #if DESKTOP
-            return client.RemoveAttributesFromFindings(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RemoveAttributesFromFindingsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.RemoveAttributesFromFindings(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.RemoveAttributesFromFindingsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

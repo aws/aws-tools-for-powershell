@@ -198,15 +198,27 @@ namespace Amazon.PowerShell.Cmdlets.ASA
         private Amazon.AWSSupport.Model.AddCommunicationToCaseResponse CallAWSServiceOperation(IAmazonAWSSupport client, Amazon.AWSSupport.Model.AddCommunicationToCaseRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Support API", "AddCommunicationToCase");
-            #if DESKTOP
-            return client.AddCommunicationToCase(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AddCommunicationToCaseAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.AddCommunicationToCase(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.AddCommunicationToCaseAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

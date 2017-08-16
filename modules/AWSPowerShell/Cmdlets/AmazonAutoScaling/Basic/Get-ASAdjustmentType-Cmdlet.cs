@@ -106,15 +106,27 @@ namespace Amazon.PowerShell.Cmdlets.AS
         private Amazon.AutoScaling.Model.DescribeAdjustmentTypesResponse CallAWSServiceOperation(IAmazonAutoScaling client, Amazon.AutoScaling.Model.DescribeAdjustmentTypesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Auto Scaling", "DescribeAdjustmentTypes");
-            #if DESKTOP
-            return client.DescribeAdjustmentTypes(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DescribeAdjustmentTypesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DescribeAdjustmentTypes(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DescribeAdjustmentTypesAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

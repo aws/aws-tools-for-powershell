@@ -174,15 +174,27 @@ namespace Amazon.PowerShell.Cmdlets.DP
         private Amazon.DataPipeline.Model.DeactivatePipelineResponse CallAWSServiceOperation(IAmazonDataPipeline client, Amazon.DataPipeline.Model.DeactivatePipelineRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Data Pipeline", "DeactivatePipeline");
-            #if DESKTOP
-            return client.DeactivatePipeline(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeactivatePipelineAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DeactivatePipeline(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeactivatePipelineAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

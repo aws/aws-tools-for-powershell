@@ -166,15 +166,27 @@ namespace Amazon.PowerShell.Cmdlets.DS
         private Amazon.DirectoryService.Model.CancelSchemaExtensionResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CancelSchemaExtensionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CancelSchemaExtension");
-            #if DESKTOP
-            return client.CancelSchemaExtension(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CancelSchemaExtensionAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CancelSchemaExtension(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CancelSchemaExtensionAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

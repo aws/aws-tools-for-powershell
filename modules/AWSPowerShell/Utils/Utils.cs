@@ -173,7 +173,10 @@ namespace Amazon.PowerShell.Utils
             if (!string.IsNullOrEmpty(serviceUrl))
             {
                 return string.Format("Name resolution failure attempting to reach service endpoint {0}.\n"
-                                     + "The endpoint may be incorrect or the service may not be available at that endpoint."
+                                     + "Possible causes:\n"
+                                     + "\t- The endpoint may be incorrect.\n"
+                                     + "\t- The service may not be available at that endpoint.\n"
+                                     + "\t- No network connectivity."
                                      + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
                                      serviceUrl);
             }
@@ -183,8 +186,11 @@ namespace Amazon.PowerShell.Utils
             {
                 return string.Format(
                     "Name resolution failure attempting to reach service in region {0} (as supplied to the -Region parameter or from configured shell default).\n"
-                    + "{1}.\n" 
-                    + "The region may be incorrectly specified (did you specify an availability zone?) or the service may not be available in the region.\n"
+                    + "{1}.\n"
+                    + "Possible causes:\n"
+                    + "\t- The region may be incorrectly specified (did you specify an availability zone?).\n"
+                    + "\t- The service may not be available in the region.\n"
+                    + "\t- No network connectivity."
                     + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
                     serviceRegion.SystemName,
                     exceptionMessage);

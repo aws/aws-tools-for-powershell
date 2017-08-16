@@ -185,15 +185,27 @@ namespace Amazon.PowerShell.Cmdlets.DS
         private Amazon.DirectoryService.Model.CreateConditionalForwarderResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.CreateConditionalForwarderRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "CreateConditionalForwarder");
-            #if DESKTOP
-            return client.CreateConditionalForwarder(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CreateConditionalForwarderAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CreateConditionalForwarder(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateConditionalForwarderAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

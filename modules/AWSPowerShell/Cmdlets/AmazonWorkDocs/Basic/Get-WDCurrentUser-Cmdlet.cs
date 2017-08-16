@@ -122,15 +122,27 @@ namespace Amazon.PowerShell.Cmdlets.WD
         private Amazon.WorkDocs.Model.GetCurrentUserResponse CallAWSServiceOperation(IAmazonWorkDocs client, Amazon.WorkDocs.Model.GetCurrentUserRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkDocs", "GetCurrentUser");
-            #if DESKTOP
-            return client.GetCurrentUser(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetCurrentUserAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetCurrentUser(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetCurrentUserAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

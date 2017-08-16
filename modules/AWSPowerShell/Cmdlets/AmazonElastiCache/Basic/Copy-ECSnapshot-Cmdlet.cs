@@ -174,15 +174,27 @@ namespace Amazon.PowerShell.Cmdlets.EC
         private Amazon.ElastiCache.Model.CopySnapshotResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.CopySnapshotRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "CopySnapshot");
-            #if DESKTOP
-            return client.CopySnapshot(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.CopySnapshotAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.CopySnapshot(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CopySnapshotAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

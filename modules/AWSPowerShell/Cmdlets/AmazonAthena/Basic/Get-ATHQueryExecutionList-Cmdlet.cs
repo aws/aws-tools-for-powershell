@@ -192,15 +192,27 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         private Amazon.Athena.Model.ListQueryExecutionsResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.ListQueryExecutionsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "ListQueryExecutions");
-            #if DESKTOP
-            return client.ListQueryExecutions(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListQueryExecutionsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ListQueryExecutions(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListQueryExecutionsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

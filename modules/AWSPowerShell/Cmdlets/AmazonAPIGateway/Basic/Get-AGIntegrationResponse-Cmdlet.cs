@@ -165,15 +165,27 @@ namespace Amazon.PowerShell.Cmdlets.AG
         private Amazon.APIGateway.Model.GetIntegrationResponseResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetIntegrationResponseRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetIntegrationResponse");
-            #if DESKTOP
-            return client.GetIntegrationResponse(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetIntegrationResponseAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetIntegrationResponse(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetIntegrationResponseAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

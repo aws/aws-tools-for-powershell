@@ -290,15 +290,27 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         private Amazon.Budgets.Model.DeleteSubscriberResponse CallAWSServiceOperation(IAmazonBudgets client, Amazon.Budgets.Model.DeleteSubscriberRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Budgets", "DeleteSubscriber");
-            #if DESKTOP
-            return client.DeleteSubscriber(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeleteSubscriberAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DeleteSubscriber(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeleteSubscriberAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

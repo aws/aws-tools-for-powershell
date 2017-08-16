@@ -127,15 +127,27 @@ namespace Amazon.PowerShell.Cmdlets.ATH
         private Amazon.Athena.Model.BatchGetQueryExecutionResponse CallAWSServiceOperation(IAmazonAthena client, Amazon.Athena.Model.BatchGetQueryExecutionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Athena", "BatchGetQueryExecution");
-            #if DESKTOP
-            return client.BatchGetQueryExecution(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.BatchGetQueryExecutionAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.BatchGetQueryExecution(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.BatchGetQueryExecutionAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

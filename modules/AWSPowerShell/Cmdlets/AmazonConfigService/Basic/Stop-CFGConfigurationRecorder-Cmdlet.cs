@@ -139,15 +139,27 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         private Amazon.ConfigService.Model.StopConfigurationRecorderResponse CallAWSServiceOperation(IAmazonConfigService client, Amazon.ConfigService.Model.StopConfigurationRecorderRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Config", "StopConfigurationRecorder");
-            #if DESKTOP
-            return client.StopConfigurationRecorder(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.StopConfigurationRecorderAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.StopConfigurationRecorder(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.StopConfigurationRecorderAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

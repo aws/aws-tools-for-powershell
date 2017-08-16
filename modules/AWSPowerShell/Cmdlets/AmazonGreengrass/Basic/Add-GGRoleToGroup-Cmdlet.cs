@@ -154,15 +154,27 @@ namespace Amazon.PowerShell.Cmdlets.GG
         private Amazon.Greengrass.Model.AssociateRoleToGroupResponse CallAWSServiceOperation(IAmazonGreengrass client, Amazon.Greengrass.Model.AssociateRoleToGroupRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Greengrass", "AssociateRoleToGroup");
-            #if DESKTOP
-            return client.AssociateRoleToGroup(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.AssociateRoleToGroupAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.AssociateRoleToGroup(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.AssociateRoleToGroupAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

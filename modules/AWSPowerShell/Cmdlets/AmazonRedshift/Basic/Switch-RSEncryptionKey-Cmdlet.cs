@@ -137,15 +137,27 @@ namespace Amazon.PowerShell.Cmdlets.RS
         private Amazon.Redshift.Model.RotateEncryptionKeyResponse CallAWSServiceOperation(IAmazonRedshift client, Amazon.Redshift.Model.RotateEncryptionKeyRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Redshift", "RotateEncryptionKey");
-            #if DESKTOP
-            return client.RotateEncryptionKey(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RotateEncryptionKeyAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.RotateEncryptionKey(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.RotateEncryptionKeyAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

@@ -163,15 +163,27 @@ namespace Amazon.PowerShell.Cmdlets.SC
         private Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.RejectPortfolioShareRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "RejectPortfolioShare");
-            #if DESKTOP
-            return client.RejectPortfolioShare(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.RejectPortfolioShareAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.RejectPortfolioShare(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.RejectPortfolioShareAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

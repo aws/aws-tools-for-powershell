@@ -231,15 +231,27 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         private Amazon.IoT.Model.ListOutgoingCertificatesResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListOutgoingCertificatesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListOutgoingCertificates");
-            #if DESKTOP
-            return client.ListOutgoingCertificates(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListOutgoingCertificatesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ListOutgoingCertificates(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListOutgoingCertificatesAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

@@ -121,15 +121,27 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         private Amazon.IoT.Model.ListThingPrincipalsResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListThingPrincipalsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListThingPrincipals");
-            #if DESKTOP
-            return client.ListThingPrincipals(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ListThingPrincipalsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ListThingPrincipals(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListThingPrincipalsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

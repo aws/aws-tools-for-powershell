@@ -166,15 +166,27 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         private Amazon.IoT.Model.DeletePolicyVersionResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeletePolicyVersionRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeletePolicyVersion");
-            #if DESKTOP
-            return client.DeletePolicyVersion(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.DeletePolicyVersionAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.DeletePolicyVersion(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.DeletePolicyVersionAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

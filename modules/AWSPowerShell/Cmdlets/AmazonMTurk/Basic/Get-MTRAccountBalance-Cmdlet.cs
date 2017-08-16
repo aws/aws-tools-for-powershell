@@ -106,15 +106,27 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         private Amazon.MTurk.Model.GetAccountBalanceResponse CallAWSServiceOperation(IAmazonMTurk client, Amazon.MTurk.Model.GetAccountBalanceRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon MTurk Service", "GetAccountBalance");
-            #if DESKTOP
-            return client.GetAccountBalance(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetAccountBalanceAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetAccountBalance(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetAccountBalanceAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

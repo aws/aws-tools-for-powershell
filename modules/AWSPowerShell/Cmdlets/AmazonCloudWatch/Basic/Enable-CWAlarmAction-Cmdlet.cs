@@ -152,15 +152,27 @@ namespace Amazon.PowerShell.Cmdlets.CW
         private Amazon.CloudWatch.Model.EnableAlarmActionsResponse CallAWSServiceOperation(IAmazonCloudWatch client, Amazon.CloudWatch.Model.EnableAlarmActionsRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon CloudWatch", "EnableAlarmActions");
-            #if DESKTOP
-            return client.EnableAlarmActions(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.EnableAlarmActionsAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.EnableAlarmActions(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.EnableAlarmActionsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

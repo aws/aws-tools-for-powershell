@@ -200,15 +200,27 @@ namespace Amazon.PowerShell.Cmdlets.XR
         private Amazon.XRay.Model.GetTraceSummariesResponse CallAWSServiceOperation(IAmazonXRay client, Amazon.XRay.Model.GetTraceSummariesRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS X-Ray", "GetTraceSummaries");
-            #if DESKTOP
-            return client.GetTraceSummaries(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.GetTraceSummariesAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.GetTraceSummaries(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetTraceSummariesAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

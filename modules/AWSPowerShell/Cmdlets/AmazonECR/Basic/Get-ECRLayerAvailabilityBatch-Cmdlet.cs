@@ -161,15 +161,27 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         private Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse CallAWSServiceOperation(IAmazonECR client, Amazon.ECR.Model.BatchCheckLayerAvailabilityRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon EC2 Container Registry", "BatchCheckLayerAvailability");
-            #if DESKTOP
-            return client.BatchCheckLayerAvailability(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.BatchCheckLayerAvailabilityAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.BatchCheckLayerAvailability(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.BatchCheckLayerAvailabilityAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion

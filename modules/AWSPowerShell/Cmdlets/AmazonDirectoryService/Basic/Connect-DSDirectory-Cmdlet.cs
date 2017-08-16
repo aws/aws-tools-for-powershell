@@ -309,15 +309,27 @@ namespace Amazon.PowerShell.Cmdlets.DS
         private Amazon.DirectoryService.Model.ConnectDirectoryResponse CallAWSServiceOperation(IAmazonDirectoryService client, Amazon.DirectoryService.Model.ConnectDirectoryRequest request)
         {
             Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Directory Service", "ConnectDirectory");
-            #if DESKTOP
-            return client.ConnectDirectory(request);
-            #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.ConnectDirectoryAsync(request);
-            return task.Result;
-            #else
-                    #error "Unknown build edition"
-            #endif
+            try
+            {
+                #if DESKTOP
+                return client.ConnectDirectory(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ConnectDirectoryAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
         }
         
         #endregion
