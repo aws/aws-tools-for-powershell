@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>R53</ServiceNounPrefix>
   <ServiceName>Amazon Route 53</ServiceName>
@@ -37,7 +37,11 @@
   </LegacyAliases>
   
   <ServiceOperations>
-    <ServiceOperation MethodName="ChangeResourceRecordSets" PipelineParameter="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes"/>
+    <ServiceOperation MethodName="ChangeResourceRecordSets" PipelineParameter="HostedZoneId" PositionalParameters="ChangeBatch_Comment;ChangeBatch_Changes">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="ChangeTagsForResource" Output="Void" PipelineParameter="ResourceId"/>
     <ServiceOperation MethodName="CreateHealthCheck" Output="Response" PipelineParameter="CallerReference" IgnoreSupportsShouldProcess="true" />
     <ServiceOperation MethodName="CreateHostedZone" Output="Response" PipelineParameter="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment"/>
@@ -58,29 +62,53 @@
     <ServiceOperation MethodName="GetTrafficPolicyInstance" />
     <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" />
     <ServiceOperation MethodName="ListGeoLocations" Output="Response" NoPipelineParameter="true" Noun="GeoLocationList" LegacyAlias="Get-R53GeoLocations"/>
-    <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" PipelineParameter="HostedZoneId" PositionalParameters="StartRecordName;StartRecordType"/>
+    <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" PipelineParameter="HostedZoneId" PositionalParameters="StartRecordName;StartRecordType">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceId"/>
     <ServiceOperation MethodName="ListTagsForResources" PipelineParameter="ResourceId" Noun="TagsForResourceList" LegacyAlias="Get-R53TagsForResources"/>
     <ServiceOperation MethodName="ListTrafficPolicies" Exclude="true"/>
     <ServiceOperation MethodName="ListTrafficPolicyInstances" Output="Response" NoPipelineParameter="true" Noun="TrafficPolicyInstanceList" LegacyAlias="Get-R53TrafficPolicyInstances"/>
-    <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" Output="Response" PipelineParameter="HostedZoneId"/>
+    <ServiceOperation MethodName="ListTrafficPolicyInstancesByHostedZone" Output="Response" PipelineParameter="HostedZoneId">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="ListTrafficPolicyInstancesByPolicy" Output="Response" PipelineParameter="TrafficPolicyId"/>
     <ServiceOperation MethodName="ListTrafficPolicyVersions" Exclude="true"/>
     <ServiceOperation MethodName="UpdateHostedZoneComment" PipelineParameter="Id"/>
     <ServiceOperation MethodName="UpdateTrafficPolicyComment" PipelineParameter="Id"/>
     <ServiceOperation MethodName="UpdateTrafficPolicyInstance" PipelineParameter="Id"/>
-    <ServiceOperation MethodName="CreateReusableDelegationSet" Output="Response" PipelineParameter="HostedZoneId" />
+    <ServiceOperation MethodName="CreateReusableDelegationSet" Output="Response" PipelineParameter="HostedZoneId">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="DeleteReusableDelegationSet" Output="Void" />
     <ServiceOperation MethodName="GetHealthCheckStatus" />
     <ServiceOperation MethodName="GetHealthCheckLastFailureReason" />
     <ServiceOperation MethodName="GetReusableDelegationSet" />
     <ServiceOperation MethodName="ListReusableDelegationSets" Noun="ReusableDelegationSetList" LegacyAlias="Get-R53ReusableDelegationSets" />
-    <ServiceOperation MethodName="AssociateVPCWithHostedZone" Verb="Register" PipelineParameter="HostedZoneId" />
-    <ServiceOperation MethodName="DisassociateVPCFromHostedZone" Verb="Unregister" PipelineParameter="HostedZoneId" />
+    <ServiceOperation MethodName="AssociateVPCWithHostedZone" Verb="Register" PipelineParameter="HostedZoneId">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DisassociateVPCFromHostedZone" Verb="Unregister" PipelineParameter="HostedZoneId">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="GetHostedZoneCount" />
     <ServiceOperation MethodName="ListHealthChecks" Noun="HealthCheckList" LegacyAlias="Get-R53HealthChecks"/>
     <ServiceOperation MethodName="ListHostedZones" Noun="HostedZoneList" LegacyAlias="Get-R53HostedZones" />
-    <ServiceOperation MethodName="ListVPCAssociationAuthorizations" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" Output="Response"/>
+    <ServiceOperation MethodName="ListVPCAssociationAuthorizations" Verb="Get" Noun="VPCAssociationAuthorizationList" PipelineParameter="HostedZoneId" Output="Response">
+      <Params>
+        <Param Name="HostedZoneId" Alias="Id" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="CreateVPCAssociationAuthorization" PipelineParameter="VPC" Output="Response" ShouldProcessTarget="VPC_VPCId"/>
     <ServiceOperation MethodName="DeleteVPCAssociationAuthorization" PipelineParameter="VPC" Output="Void" ShouldProcessTarget="VPC_VPCId"/>
     <ServiceOperation MethodName="ListHostedZonesByName" Exclude="true" />

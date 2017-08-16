@@ -24,4 +24,12 @@
     <code>Write-S3Object -BucketName test-files -Key "sample.txt" -Content "object contents"</code>
     <description>This command creates a new S3 object containing the specified content string with key 'sample.txt'.</description>
   </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -File "sample.txt" -TagSet @{Key="key1";Value="value1"},@{Key="key2",Value="value2"}</code>
+    <description>This command uploads the specified file (the filename is used as the key) and applies the specified tags to the new object.</description>
+  </example>
+  <example>
+    <code>Write-S3Object -BucketName test-files -Folder . -KeyPrefix "TaggedFiles" -Recurse -TagSet @{Key="key1";Value="value1"},@{Key="key2",Value="value2"}</code>
+    <description>This command recursively uploads the specified folder and applies the specified tags to all the new objects.</description>
+  </example>
 </examples>

@@ -15,6 +15,10 @@
     - Updated the New-EC2Address cmdlet with a new parameter, -Address, to support the new service feature enabling recovery of an elastic IP address (EIP) that was released.
   * AWS Elastic Beanstalk
     - Updated the Get-EBEnvironment cmdlet to support automatic pagination now that the underlying service API, DescribeEnvironments, can paginate output.
+  * Amazon Route 53
+    - Applied parameter alias "Id" to all cmdlets that accept a -HostedZoneId parameter to make pipeline scenarios more convenient, for example Get-R53HostedZoneList | Get-R53ResourceRecordSet. The change avoids the need for an intermediate 'Select-Object -ExpandProperty Id' clause in the pipeline to extract the zone ID from the output of Get-R53ResourceRecordSet to pass to Get-R53ResourceRecordSet.
+  * Amazon S3
+    - Extended the Write-S3Object cmdlet to accept tags for all operating modes. Previously tags could only be specified for single file or object uploads, now they can also be specified when uploading multiple objects from a folder hierarchy. The specified tags will be applied to all uploaded objects.
 
 ### 3.3.133.0 (2017-08-04)
   * AWS CodeDeploy

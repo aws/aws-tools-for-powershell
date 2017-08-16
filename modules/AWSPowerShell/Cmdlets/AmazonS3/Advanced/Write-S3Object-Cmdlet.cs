@@ -28,6 +28,7 @@ using Amazon.S3.Transfer;
 using Amazon.S3.Model;
 using Amazon.Runtime;
 using System.Collections;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
@@ -334,6 +335,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// One or more tags to apply to the object.
         /// </summary>
+        [Parameter]
         public Tag[] TagSet { get; set; }
 
         #endregion
@@ -446,8 +448,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 context.ConcurrentServiceRequests = this.ConcurrentServiceRequest.Value;
             }
 
-            context.Metadata = Metadata;
-            context.Headers = HeaderCollection;
+            context.Metadata = this.Metadata;
+            context.Headers = this.HeaderCollection;
+            context.TagSet = this.TagSet;
 
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -511,7 +514,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
             if (cmdletContext.TagSet != null)
-                request.TagSet.AddRange(cmdletContext.TagSet);
+                request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
             AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
 
@@ -566,7 +569,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
             if (cmdletContext.TagSet != null)
-                request.TagSet.AddRange(cmdletContext.TagSet);
+                request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
             var transferUtilityConfig = new TransferUtilityConfig();
             if (cmdletContext.ConcurrentServiceRequests.HasValue)
@@ -616,7 +619,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
             if (cmdletContext.TagSet != null)
-                request.TagSet.AddRange(cmdletContext.TagSet);
+                request.TagSet = new List<Tag>(cmdletContext.TagSet);
 
             AmazonS3Helper.SetExtraRequestFields(request, cmdletContext);
 

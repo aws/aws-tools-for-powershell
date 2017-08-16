@@ -73,6 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// to get the next page of results.
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Id")]
         public System.String HostedZoneId { get; set; }
         #endregion
 
