@@ -38,8 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// To create a game session, specify either fleet ID or alias ID and indicate a maximum
     /// number of players to allow in the game session. You can also provide a name and game-specific
     /// properties for this game session. If successful, a <a>GameSession</a> object is returned
-    /// containing game session properties, including a game session ID with the custom string
-    /// you provided.
+    /// containing the game session properties and other settings you specified.
     /// </para><para><b>Idempotency tokens.</b> You can add a token that uniquely identifies game session
     /// requests. This is useful for ensuring that game session requests are idempotent. Multiple
     /// requests with the same idempotency token are processed only once; subsequent requests
@@ -49,9 +48,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// a resource creation limit policy in force, then you must specify a creator ID. Without
     /// this ID, Amazon GameLift has no way to evaluate the policy for this new game session
     /// request.
-    /// </para><para>
-    ///  By default, newly created game sessions allow new players to join. Use <a>UpdateGameSession</a>
+    /// </para><para><b>Player acceptance policy.</b> By default, newly created game sessions are open
+    /// to new players. You can restrict new player access by using <a>UpdateGameSession</a>
     /// to change the game session's player session creation policy.
+    /// </para><para><b>Game session logs.</b> Logs are retained for all active game sessions for 14 days.
+    /// To access the logs, call <a>GetGameSessionLogUrl</a> to download the log files.
     /// </para><para><i>Available in Amazon GameLift Local.</i></para><para>
     /// Game-session-related operations include:
     /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
@@ -105,13 +106,28 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameProperty
         /// <summary>
         /// <para>
-        /// <para>Set of developer-defined properties for a game session. These properties are passed
-        /// to the server process hosting the game session.</para>
+        /// <para>Set of developer-defined properties for a game session, formatted as a set of type:value
+        /// pairs. These properties are included in the <a>GameSession</a> object, which is passed
+        /// to the game server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("GameProperties")]
         public Amazon.GameLift.Model.GameProperty[] GameProperty { get; set; }
+        #endregion
+        
+        #region Parameter GameSessionData
+        /// <summary>
+        /// <para>
+        /// <para>Set of developer-defined game session properties, formatted as a single string value.
+        /// This data is included in the <a>GameSession</a> object, which is passed to the game
+        /// server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GameSessionData { get; set; }
         #endregion
         
         #region Parameter GameSessionId
@@ -134,7 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Custom string that uniquely identifies a request for a new game session. Maximum token
         /// length is 48 characters. If provided, this string is included in the new game session's
         /// ID. (A game session ID has the following format: <code>arn:aws:gamelift:&lt;region&gt;::gamesession/&lt;fleet
-        /// ID&gt;/&lt;custom ID string or idempotency token&gt;</code>.) </para>
+        /// ID&gt;/&lt;custom ID string or idempotency token&gt;</code>.) Idempotency tokens remain
+        /// in use for 30 days after a game session has ended; game session objects are retained
+        /// for this time period and then deleted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -158,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// to be unique.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         
@@ -198,6 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.GameProperties = new List<Amazon.GameLift.Model.GameProperty>(this.GameProperty);
             }
+            context.GameSessionData = this.GameSessionData;
             context.GameSessionId = this.GameSessionId;
             context.IdempotencyToken = this.IdempotencyToken;
             if (ParameterWasBound("MaximumPlayerSessionCount"))
@@ -234,6 +253,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.GameProperties != null)
             {
                 request.GameProperties = cmdletContext.GameProperties;
+            }
+            if (cmdletContext.GameSessionData != null)
+            {
+                request.GameSessionData = cmdletContext.GameSessionData;
             }
             if (cmdletContext.GameSessionId != null)
             {
@@ -319,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public System.String CreatorId { get; set; }
             public System.String FleetId { get; set; }
             public List<Amazon.GameLift.Model.GameProperty> GameProperties { get; set; }
+            public System.String GameSessionData { get; set; }
             public System.String GameSessionId { get; set; }
             public System.String IdempotencyToken { get; set; }
             public System.Int32? MaximumPlayerSessionCount { get; set; }

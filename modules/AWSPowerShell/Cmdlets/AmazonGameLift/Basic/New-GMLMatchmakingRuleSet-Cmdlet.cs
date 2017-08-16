@@ -28,62 +28,62 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes a fleet scaling policy. This action means that the policy is no longer in
-    /// force and removes all record of it. To delete a scaling policy, specify both the scaling
-    /// policy name and the fleet ID it is associated with.
+    /// Creates a new rule set for FlexMatch matchmaking. A rule set describes the type of
+    /// match to create, such as the number and size of teams, and sets the parameters for
+    /// acceptable player matches, such as minimum skill level or character type. Rule sets
+    /// are used in matchmaking configurations, which define how matchmaking requests are
+    /// handled. Each <a>MatchmakingConfiguration</a> uses one rule set; you can set up multiple
+    /// rule sets to handle the scenarios that suit your game (such as for different game
+    /// modes), and create a separate matchmaking configuration for each rule set. See additional
+    /// information on rule set content in the <a>MatchmakingRuleSet</a> structure. For help
+    /// creating rule sets, including useful examples, see the topic <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/match-intro.html">
+    /// Adding FlexMatch to Your Game</a>.
     /// 
     ///  
     /// <para>
-    /// Fleet-related operations include:
-    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
-    /// Manage fleet capacity:
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul>
+    /// Once created, matchmaking rule sets cannot be changed or deleted, so we recommend
+    /// checking the rule set syntax using <a>ValidateMatchmakingRuleSet</a>before creating
+    /// the rule set.
+    /// </para><para>
+    /// To create a matchmaking rule set, provide the set of rules and a unique name. Rule
+    /// sets must be defined in the same region as the matchmaking configuration they will
+    /// be used with. Rule sets cannot be edited or deleted. If you need to change a rule
+    /// set, create a new one with the necessary edits and then update matchmaking configurations
+    /// to use the new rule set.
+    /// </para><para>
+    /// Operations related to match configurations and rule sets include:
+    /// </para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteScalingPolicy operation against Amazon GameLift Service.", Operation = new[] {"DeleteScalingPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.GameLift.Model.DeleteScalingPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "GMLMatchmakingRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.GameLift.Model.MatchmakingRuleSet")]
+    [AWSCmdlet("Invokes the CreateMatchmakingRuleSet operation against Amazon GameLift Service.", Operation = new[] {"CreateMatchmakingRuleSet"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingRuleSet",
+        "This cmdlet returns a MatchmakingRuleSet object.",
+        "The service call response (type Amazon.GameLift.Model.CreateMatchmakingRuleSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveGMLScalingPolicyCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class NewGMLMatchmakingRuleSetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
-        
-        #region Parameter FleetId
-        /// <summary>
-        /// <para>
-        /// <para>Unique identifier for a fleet to be deleted.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String FleetId { get; set; }
-        #endregion
         
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with a scaling policy. Policy names do not need
-        /// to be unique.</para>
+        /// <para>Unique identifier for a matchmaking rule set. This name is used to identify the rule
+        /// set associated with a matchmaking configuration.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter RuleSetBody
         /// <summary>
-        /// Returns the value passed to the FleetId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>Collection of matchmaking rules, formatted as a JSON string. (Note that comments are
+        /// not allowed in JSON, but most elements support a description field.)</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String RuleSetBody { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +100,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLScalingPolicy (DeleteScalingPolicy)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-GMLMatchmakingRuleSet (CreateMatchmakingRuleSet)"))
             {
                 return;
             }
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.FleetId = this.FleetId;
             context.Name = this.Name;
+            context.RuleSetBody = this.RuleSetBody;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,15 +131,15 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.DeleteScalingPolicyRequest();
+            var request = new Amazon.GameLift.Model.CreateMatchmakingRuleSetRequest();
             
-            if (cmdletContext.FleetId != null)
-            {
-                request.FleetId = cmdletContext.FleetId;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.RuleSetBody != null)
+            {
+                request.RuleSetBody = cmdletContext.RuleSetBody;
             }
             
             CmdletOutput output;
@@ -150,9 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.FleetId;
+                object pipelineOutput = response.RuleSet;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -177,16 +175,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DeleteScalingPolicyResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteScalingPolicyRequest request)
+        private Amazon.GameLift.Model.CreateMatchmakingRuleSetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.CreateMatchmakingRuleSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteScalingPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "CreateMatchmakingRuleSet");
             try
             {
                 #if DESKTOP
-                return client.DeleteScalingPolicy(request);
+                return client.CreateMatchmakingRuleSet(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteScalingPolicyAsync(request);
+                var task = client.CreateMatchmakingRuleSetAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -207,8 +205,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String FleetId { get; set; }
             public System.String Name { get; set; }
+            public System.String RuleSetBody { get; set; }
         }
         
     }

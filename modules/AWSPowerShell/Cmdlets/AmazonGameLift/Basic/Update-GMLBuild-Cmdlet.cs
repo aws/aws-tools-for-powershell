@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         

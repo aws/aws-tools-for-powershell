@@ -1,4 +1,4 @@
-###
+### 3.3.140.0 (2017-08-16)
   * All services
     - Improved error messaging for 'name resolution failure' errors. The cmdlets now detail the endpoint they attempted to access and list some possible causes (for example, use of an availability zone instead of a region code).
   * Amazon Simple Systems Management
@@ -19,6 +19,8 @@
     - Applied parameter alias "Id" to all cmdlets that accept a -HostedZoneId parameter to make pipeline scenarios more convenient, for example Get-R53HostedZoneList | Get-R53ResourceRecordSet. The change avoids the need for an intermediate 'Select-Object -ExpandProperty Id' clause in the pipeline to extract the zone ID from the output of Get-R53ResourceRecordSet to pass to Get-R53ResourceRecordSet.
   * Amazon S3
     - Extended the Write-S3Object cmdlet to accept tags for all operating modes. Previously tags could only be specified for single file or object uploads, now they can also be specified when uploading multiple objects from a folder hierarchy. The specified tags will be applied to all uploaded objects.
+  * Amazon GameLift
+    - New and updated cmdlets to support the Matchmaking Grouping Service, a new feature that groups player match requests for a given game together into game sessions based on developer configured rules.
 
 ### 3.3.133.0 (2017-08-04)
   * AWS CodeDeploy

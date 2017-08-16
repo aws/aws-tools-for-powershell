@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </para></li><li><para>
     /// Access permissions for inbound traffic
     /// </para></li><li><para>
-    /// Fleetwide game session protection
+    /// Fleet-wide game session protection
     /// </para></li><li><para>
     /// Resource creation limit
     /// </para></li></ul><para>
@@ -209,7 +209,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Descriptive label that is associated with a fleet. Fleet names do not need to be unique.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         

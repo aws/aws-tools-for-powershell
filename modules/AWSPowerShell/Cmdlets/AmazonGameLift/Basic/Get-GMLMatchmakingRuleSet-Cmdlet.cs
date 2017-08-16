@@ -28,58 +28,44 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves utilization statistics for one or more fleets. You can request utilization
-    /// data for all fleets, or specify a list of one or more fleet IDs. When requesting multiple
-    /// fleets, use the pagination parameters to retrieve results as a set of sequential pages.
-    /// If successful, a <a>FleetUtilization</a> object is returned for each requested fleet
-    /// ID. When specifying a list of fleet IDs, utilization objects are returned only for
-    /// fleets that currently exist. 
+    /// Retrieves the details for FlexMatch matchmaking rule sets. You can request all existing
+    /// rule sets for the region, or provide a list of one or more rule set names. When requesting
+    /// multiple items, use the pagination parameters to retrieve results as a set of sequential
+    /// pages. If successful, a rule set is returned for each requested name. 
     /// 
-    ///  <note><para>
-    /// Some API actions may limit the number of fleet IDs allowed in one request. If a request
-    /// exceeds this limit, the request fails and the error message includes the maximum allowed.
-    /// </para></note><para>
-    /// Fleet-related operations include:
-    /// </para><ul><li><para><a>CreateFleet</a></para></li><li><para><a>ListFleets</a></para></li><li><para>
-    /// Describe fleets:
-    /// </para><ul><li><para><a>DescribeFleetAttributes</a></para></li><li><para><a>DescribeFleetPortSettings</a></para></li><li><para><a>DescribeFleetUtilization</a></para></li><li><para><a>DescribeRuntimeConfiguration</a></para></li><li><para><a>DescribeFleetEvents</a></para></li></ul></li><li><para>
-    /// Update fleets:
-    /// </para><ul><li><para><a>UpdateFleetAttributes</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>UpdateFleetPortSettings</a></para></li><li><para><a>UpdateRuntimeConfiguration</a></para></li></ul></li><li><para>
-    /// Manage fleet capacity:
-    /// </para><ul><li><para><a>DescribeFleetCapacity</a></para></li><li><para><a>UpdateFleetCapacity</a></para></li><li><para><a>PutScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeScalingPolicies</a> (automatic scaling)
-    /// </para></li><li><para><a>DeleteScalingPolicy</a> (automatic scaling)
-    /// </para></li><li><para><a>DescribeEC2InstanceLimits</a></para></li></ul></li><li><para><a>DeleteFleet</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    ///  
+    /// <para>
+    /// Operations related to match configurations and rule sets include:
+    /// </para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLFleetUtilization")]
-    [OutputType("Amazon.GameLift.Model.FleetUtilization")]
-    [AWSCmdlet("Invokes the DescribeFleetUtilization operation against Amazon GameLift Service.", Operation = new[] {"DescribeFleetUtilization"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.FleetUtilization",
-        "This cmdlet returns a collection of FleetUtilization objects.",
-        "The service call response (type Amazon.GameLift.Model.DescribeFleetUtilizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "GMLMatchmakingRuleSet")]
+    [OutputType("Amazon.GameLift.Model.MatchmakingRuleSet")]
+    [AWSCmdlet("Invokes the DescribeMatchmakingRuleSets operation against Amazon GameLift Service.", Operation = new[] {"DescribeMatchmakingRuleSets"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingRuleSet",
+        "This cmdlet returns a collection of MatchmakingRuleSet objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeMatchmakingRuleSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetGMLFleetUtilizationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLMatchmakingRuleSetCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter FleetId
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for a fleet(s) to retrieve utilization data for. To request utilization
-        /// data for all fleets, leave this parameter empty.</para>
+        /// <para>Unique identifier for a matchmaking rule set. This name is used to identify the rule
+        /// set associated with a matchmaking configuration.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        [Alias("FleetIds")]
-        public System.String[] FleetId { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
         #endregion
         
         #region Parameter Limit
         /// <summary>
         /// <para>
         /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages. This parameter is ignored when the request
-        /// specifies one or a list of fleet IDs.</para>
+        /// to get results as a set of sequential pages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,8 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>
         /// <para>Token that indicates the start of the next sequential page of results. Use the token
         /// that is returned with a previous call to this action. To start at the beginning of
-        /// the result set, do not specify a value. This parameter is ignored when the request
-        /// specifies one or a list of fleet IDs.</para>
+        /// the result set, do not specify a value.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -116,12 +101,12 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.FleetId != null)
-            {
-                context.FleetIds = new List<System.String>(this.FleetId);
-            }
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            if (this.Name != null)
+            {
+                context.Names = new List<System.String>(this.Name);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -138,10 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.DescribeFleetUtilizationRequest();
-            if (cmdletContext.FleetIds != null)
+            var request = new Amazon.GameLift.Model.DescribeMatchmakingRuleSetsRequest();
+            if (cmdletContext.Names != null)
             {
-                request.FleetIds = cmdletContext.FleetIds;
+                request.Names = cmdletContext.Names;
             }
             
             // Initialize loop variants and commence piping
@@ -177,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.FleetUtilization;
+                        object pipelineOutput = response.RuleSets;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -186,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.FleetUtilization.Count;
+                        int _receivedThisCall = response.RuleSets.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -229,16 +214,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.DescribeFleetUtilizationResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeFleetUtilizationRequest request)
+        private Amazon.GameLift.Model.DescribeMatchmakingRuleSetsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeMatchmakingRuleSetsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeFleetUtilization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeMatchmakingRuleSets");
             try
             {
                 #if DESKTOP
-                return client.DescribeFleetUtilization(request);
+                return client.DescribeMatchmakingRuleSets(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeFleetUtilizationAsync(request);
+                var task = client.DescribeMatchmakingRuleSetsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -259,8 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> FleetIds { get; set; }
             public int? Limit { get; set; }
+            public List<System.String> Names { get; set; }
             public System.String NextToken { get; set; }
         }
         

@@ -28,38 +28,44 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the location of stored game session logs for a specified game session. When
-    /// a game session is terminated, Amazon GameLift automatically stores the logs in Amazon
-    /// S3 and retains them for 14 days. Use this URL to download the logs.
+    /// Retrieves a set of one or more matchmaking tickets. Use this operation to retrieve
+    /// ticket information, including status and--once a successful match is made--acquire
+    /// connection information for the resulting new game session. 
     /// 
-    ///  <note><para>
-    /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
-    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
-    /// are not saved.
-    /// </para></note><para>
-    /// Game-session-related operations include:
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
+    ///  
+    /// <para>
+    /// You can use this operation to track the progress of matchmaking requests (through
+    /// polling) as an alternative to using event notifications. See more details on tracking
+    /// matchmaking requests through polling or notifications in <a>StartMatchmaking</a>.
+    /// 
+    /// </para><para>
+    /// You can request data for a one or a list of ticket IDs. If the request is successful,
+    /// a ticket object is returned for each requested ID. When specifying a list of ticket
+    /// IDs, objects are returned only for tickets that currently exist. 
+    /// </para><para>
+    /// Matchmaking-related operations include:
+    /// </para><ul><li><para><a>StartMatchmaking</a></para></li><li><para><a>DescribeMatchmaking</a></para></li><li><para><a>StopMatchmaking</a></para></li><li><para><a>AcceptMatch</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "GMLGameSessionLogUrl")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetGameSessionLogUrl operation against Amazon GameLift Service.", Operation = new[] {"GetGameSessionLogUrl"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GMLMatchmaking")]
+    [OutputType("Amazon.GameLift.Model.MatchmakingTicket")]
+    [AWSCmdlet("Invokes the DescribeMatchmaking operation against Amazon GameLift Service.", Operation = new[] {"DescribeMatchmaking"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingTicket",
+        "This cmdlet returns a collection of MatchmakingTicket objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeMatchmakingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetGMLMatchmakingCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter GameSessionId
+        #region Parameter TicketId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to get logs for.</para>
+        /// <para>Unique identifier for a matchmaking ticket. To request all existing tickets, leave
+        /// this parameter empty.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GameSessionId { get; set; }
+        [Alias("TicketIds")]
+        public System.String[] TicketId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -75,7 +81,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GameSessionId = this.GameSessionId;
+            if (this.TicketId != null)
+            {
+                context.TicketIds = new List<System.String>(this.TicketId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.GetGameSessionLogUrlRequest();
+            var request = new Amazon.GameLift.Model.DescribeMatchmakingRequest();
             
-            if (cmdletContext.GameSessionId != null)
+            if (cmdletContext.TicketIds != null)
             {
-                request.GameSessionId = cmdletContext.GameSessionId;
+                request.TicketIds = cmdletContext.TicketIds;
             }
             
             CmdletOutput output;
@@ -105,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PreSignedUrl;
+                object pipelineOutput = response.TicketList;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -130,16 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.GetGameSessionLogUrlResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetGameSessionLogUrlRequest request)
+        private Amazon.GameLift.Model.DescribeMatchmakingResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeMatchmakingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "GetGameSessionLogUrl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeMatchmaking");
             try
             {
                 #if DESKTOP
-                return client.GetGameSessionLogUrl(request);
+                return client.DescribeMatchmaking(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetGameSessionLogUrlAsync(request);
+                var task = client.DescribeMatchmakingAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -160,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GameSessionId { get; set; }
+            public List<System.String> TicketIds { get; set; }
         }
         
     }

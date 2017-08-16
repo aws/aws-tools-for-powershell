@@ -133,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// to be unique. A fleet can have only one scaling policy with the same name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
         #endregion
         

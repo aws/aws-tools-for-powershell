@@ -2829,6 +2829,13 @@ $GML_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.GameLift.AcceptanceType
+        "Confirm-GMLMatch/AcceptanceType"
+        {
+            $v = "ACCEPT","REJECT"
+            break
+        }
+        
         # Amazon.GameLift.BuildStatus
         "Get-GMLBuild/Status"
         {
@@ -2918,6 +2925,7 @@ $GML_Completers = {
 }
 
 $GML_map = @{
+    "AcceptanceType"=@("Confirm-GMLMatch")
     "ComparisonOperator"=@("Write-GMLScalingPolicy")
     "EC2InstanceType"=@("Get-GMLEC2InstanceLimit","New-GMLFleet")
     "MetricName"=@("Write-GMLScalingPolicy")

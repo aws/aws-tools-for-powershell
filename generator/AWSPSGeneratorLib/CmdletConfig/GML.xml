@@ -65,12 +65,28 @@
     <ServiceOperation MethodName="UpdateRuntimeConfiguration" PipelineParameter="FleetId" />
     <!-- NEWP! -->
     <ServiceOperation MethodName="CreatePlayerSession" ShouldProcessTarget="PlayerId" Exclude="true" />
+
+    <ServiceOperation MethodName="UpdateMatchmakingConfiguration" PipelineParameter="Name" />
+    <ServiceOperation MethodName="ValidateMatchmakingRuleSet" Verb="Test" Noun="MatchmakingRuleSetValidity" />
+    <ServiceOperation MethodName="DescribeMatchmaking" />
+    <ServiceOperation MethodName="DescribeMatchmakingConfigurations" Noun="MatchmakingConfiguration" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DescribeMatchmakingRuleSets" Noun="MatchmakingRuleSet" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="StartMatchmaking" PipelineParameter="ConfigurationName" />
+    <ServiceOperation MethodName="StopMatchmaking" Output="Void" />
+    <ServiceOperation MethodName="AcceptMatch" PipelineParameter="TicketId" Output="Void" Verb="Confirm" />
+    <ServiceOperation MethodName="CreateMatchmakingConfiguration" PipelineParameter="RuleSetName" />
+    <ServiceOperation MethodName="CreateMatchmakingRuleSet" PipelineParameter="Name" />
+    <ServiceOperation MethodName="DeleteMatchmakingConfiguration" PipelineParameter="Name" Output="Void" />
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>BuildId</Property>
     <Property>AliasId</Property>
     <Property>GameSessionId</Property>
     <Property>PlayerId</Property>
+    <Property>Name</Property>
+    <Property>RuleSetName</Property>
+    <Property>TicketId</Property>
+    <Property>ConfigurationName</Property>
   </PipelineByValueProperties>
 </ConfigModel>

@@ -65,11 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with queue. Queue names must be unique within
-        /// each region.</para>
+        /// <para>Descriptive label that is associated with game session queue. Queue names must be
+        /// unique within each region.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String Name { get; set; }
         #endregion
         
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <summary>
         /// <para>
         /// <para>Maximum time, in seconds, that a new game session placement request remains in the
-        /// queue. When a request exceeds this time, the game session placement changes to a TIMED_OUT
+        /// queue. When a request exceeds this time, the game session placement changes to a <code>TIMED_OUT</code>
         /// status.</para>
         /// </para>
         /// </summary>

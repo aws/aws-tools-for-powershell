@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// If successful, a new game session placement is created.
     /// </para><para>
     /// To track the status of a placement request, call <a>DescribeGameSessionPlacement</a>
-    /// and check the request's status. If the status is <code>Fulfilled</code>, a new game
+    /// and check the request's status. If the status is <code>FULFILLED</code>, a new game
     /// session has been created and a game session ARN and region are referenced. If the
     /// placement request times out, you can resubmit the request or retry it with a different
     /// queue. 
@@ -100,13 +100,28 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter GameProperty
         /// <summary>
         /// <para>
-        /// <para>Set of developer-defined properties for a game session. These properties are passed
-        /// to the server process hosting the game session.</para>
+        /// <para>Set of developer-defined properties for a game session, formatted as a set of type:value
+        /// pairs. These properties are included in the <a>GameSession</a> object, which is passed
+        /// to the game server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("GameProperties")]
         public Amazon.GameLift.Model.GameProperty[] GameProperty { get; set; }
+        #endregion
+        
+        #region Parameter GameSessionData
+        /// <summary>
+        /// <para>
+        /// <para>Set of developer-defined game session properties, formatted as a single string value.
+        /// This data is included in the <a>GameSession</a> object, which is passed to the game
+        /// server with a request to start a new game session (see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/gamelift-sdk-server-api.html#gamelift-sdk-server-startsession">Start
+        /// a Game Session</a>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String GameSessionData { get; set; }
         #endregion
         
         #region Parameter GameSessionName
@@ -155,9 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter PlayerLatency
         /// <summary>
         /// <para>
-        /// <para>Set of values, expressed in milliseconds, indicating the amount of latency that players
-        /// are experiencing when connected to AWS regions. This information is used to try to
-        /// place the new game session where it can offer the best possible gameplay experience
+        /// <para>Set of values, expressed in milliseconds, indicating the amount of latency that a
+        /// player experiences when connected to AWS regions. This information is used to try
+        /// to place the new game session where it can offer the best possible gameplay experience
         /// for the players. </para>
         /// </para>
         /// </summary>
@@ -203,6 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 context.GameProperties = new List<Amazon.GameLift.Model.GameProperty>(this.GameProperty);
             }
+            context.GameSessionData = this.GameSessionData;
             context.GameSessionName = this.GameSessionName;
             context.GameSessionQueueName = this.GameSessionQueueName;
             if (ParameterWasBound("MaximumPlayerSessionCount"))
@@ -235,6 +251,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.GameProperties != null)
             {
                 request.GameProperties = cmdletContext.GameProperties;
+            }
+            if (cmdletContext.GameSessionData != null)
+            {
+                request.GameSessionData = cmdletContext.GameSessionData;
             }
             if (cmdletContext.GameSessionName != null)
             {
@@ -322,6 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             public List<Amazon.GameLift.Model.DesiredPlayerSession> DesiredPlayerSessions { get; set; }
             public List<Amazon.GameLift.Model.GameProperty> GameProperties { get; set; }
+            public System.String GameSessionData { get; set; }
             public System.String GameSessionName { get; set; }
             public System.String GameSessionQueueName { get; set; }
             public System.Int32? MaximumPlayerSessionCount { get; set; }

@@ -28,8 +28,9 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Cancels a game session placement that is in Pending status. To stop a placement, provide
-    /// the placement ID values. If successful, the placement is moved to Cancelled status.
+    /// Cancels a game session placement that is in <code>PENDING</code> status. To stop a
+    /// placement, provide the placement ID values. If successful, the placement is moved
+    /// to <code>CANCELLED</code> status.
     /// 
     ///  
     /// <para>

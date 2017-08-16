@@ -28,38 +28,33 @@ using Amazon.GameLift.Model;
 namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Retrieves the location of stored game session logs for a specified game session. When
-    /// a game session is terminated, Amazon GameLift automatically stores the logs in Amazon
-    /// S3 and retains them for 14 days. Use this URL to download the logs.
+    /// Validates the syntax of a matchmaking rule or rule set. This operation checks that
+    /// the rule set uses syntactically correct JSON and that it conforms to allowed property
+    /// expressions. To validate syntax, provide a rule set string.
     /// 
-    ///  <note><para>
-    /// See the <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html#limits_gamelift">AWS
-    /// Service Limits</a> page for maximum log file sizes. Log files that exceed this limit
-    /// are not saved.
-    /// </para></note><para>
-    /// Game-session-related operations include:
-    /// </para><ul><li><para><a>CreateGameSession</a></para></li><li><para><a>DescribeGameSessions</a></para></li><li><para><a>DescribeGameSessionDetails</a></para></li><li><para><a>SearchGameSessions</a></para></li><li><para><a>UpdateGameSession</a></para></li><li><para><a>GetGameSessionLogUrl</a></para></li><li><para>
-    /// Game session placements
-    /// </para><ul><li><para><a>StartGameSessionPlacement</a></para></li><li><para><a>DescribeGameSessionPlacement</a></para></li><li><para><a>StopGameSessionPlacement</a></para></li></ul></li></ul>
+    ///  
+    /// <para>
+    /// Operations related to match configurations and rule sets include:
+    /// </para><ul><li><para><a>CreateMatchmakingConfiguration</a></para></li><li><para><a>DescribeMatchmakingConfigurations</a></para></li><li><para><a>UpdateMatchmakingConfiguration</a></para></li><li><para><a>DeleteMatchmakingConfiguration</a></para></li><li><para><a>CreateMatchmakingRuleSet</a></para></li><li><para><a>DescribeMatchmakingRuleSets</a></para></li><li><para><a>ValidateMatchmakingRuleSet</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Get", "GMLGameSessionLogUrl")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetGameSessionLogUrl operation against Amazon GameLift Service.", Operation = new[] {"GetGameSessionLogUrl"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a String object.",
-        "The service call response (type Amazon.GameLift.Model.GetGameSessionLogUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "GMLMatchmakingRuleSetValidity")]
+    [OutputType("System.Boolean")]
+    [AWSCmdlet("Invokes the ValidateMatchmakingRuleSet operation against Amazon GameLift Service.", Operation = new[] {"ValidateMatchmakingRuleSet"})]
+    [AWSCmdletOutput("System.Boolean",
+        "This cmdlet returns a Boolean object.",
+        "The service call response (type Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetGMLGameSessionLogUrlCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class TestGMLMatchmakingRuleSetValidityCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter GameSessionId
+        #region Parameter RuleSetBody
         /// <summary>
         /// <para>
-        /// <para>Unique identifier for the game session to get logs for.</para>
+        /// <para>Collection of matchmaking rules to validate, formatted as a JSON string.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String GameSessionId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String RuleSetBody { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -75,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.GameSessionId = this.GameSessionId;
+            context.RuleSetBody = this.RuleSetBody;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -90,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.GameLift.Model.GetGameSessionLogUrlRequest();
+            var request = new Amazon.GameLift.Model.ValidateMatchmakingRuleSetRequest();
             
-            if (cmdletContext.GameSessionId != null)
+            if (cmdletContext.RuleSetBody != null)
             {
-                request.GameSessionId = cmdletContext.GameSessionId;
+                request.RuleSetBody = cmdletContext.RuleSetBody;
             }
             
             CmdletOutput output;
@@ -105,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.PreSignedUrl;
+                object pipelineOutput = response.Valid;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -130,16 +125,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.GetGameSessionLogUrlResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.GetGameSessionLogUrlRequest request)
+        private Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ValidateMatchmakingRuleSetRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "GetGameSessionLogUrl");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ValidateMatchmakingRuleSet");
             try
             {
                 #if DESKTOP
-                return client.GetGameSessionLogUrl(request);
+                return client.ValidateMatchmakingRuleSet(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetGameSessionLogUrlAsync(request);
+                var task = client.ValidateMatchmakingRuleSetAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -160,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String GameSessionId { get; set; }
+            public System.String RuleSetBody { get; set; }
         }
         
     }
