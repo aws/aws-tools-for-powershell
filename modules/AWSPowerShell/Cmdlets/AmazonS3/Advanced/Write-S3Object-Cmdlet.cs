@@ -96,18 +96,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.String Content { get; set; }
         #endregion
 
-        #region Parameter TagSet
-
-        /// <summary>
-        /// One or more tags to apply to the object.
-        /// </summary>
-        [Parameter(ParameterSetName = ParamSet_FromLocalFile)]
-        [Parameter(ParameterSetName = ParamSet_FromContent)]
-        [Parameter(ParameterSetName = ParamSet_FromStream)]
-        public Tag[] TagSet { get; set; }
-
-        #endregion
-
         #endregion
 
         #region Upload Stream Params
@@ -338,6 +326,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [Parameter]
         public SwitchParameter UseDualstackEndpoint { get; set; }
+
+        #endregion
+
+        #region Parameter TagSet
+
+        /// <summary>
+        /// One or more tags to apply to the object.
+        /// </summary>
+        public Tag[] TagSet { get; set; }
 
         #endregion
 
@@ -618,6 +615,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 request.ServerSideEncryptionMethod = cmdletContext.ServerSideEncryptionMethod.Value;
             if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
                 request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
+            if (cmdletContext.TagSet != null)
+                request.TagSet.AddRange(cmdletContext.TagSet);
 
             AmazonS3Helper.SetExtraRequestFields(request, cmdletContext);
 
@@ -644,15 +643,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         private Amazon.S3.Model.PutObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutObjectRequest request)
         {
+            try
+            {
 #if DESKTOP
-            return client.PutObject(request);
+                return client.PutObject(request);
 #elif CORECLR
-            // todo: handle AggregateException and extract true service exception for rethrow
-            var task = client.PutObjectAsync(request);
-            return task.Result;
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.PutObjectAsync(request);
+                return task.Result;
 #else
 #error "Unknown build edition"
 #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+
+                throw;
+            }
         }
 
         #endregion

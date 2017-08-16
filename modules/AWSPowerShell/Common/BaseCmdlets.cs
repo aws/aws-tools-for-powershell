@@ -506,7 +506,7 @@ namespace Amazon.PowerShell.Common
     public abstract class ServiceCmdlet : BaseCmdlet, IDynamicParameters
     {
         protected AWSCredentials CurrentCredentials { get; private set; }
-        protected RegionEndpoint Region { get; private set; }
+        internal RegionEndpoint Region { get; private set; }
         protected bool ExecuteWithAnonymousCredentials { get; set; }
 
         internal AWSCommonArguments Parameters { get; set; }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Management.Automation;
 using System.Text;
 using System.Threading;
+using Amazon.Runtime;
 
 namespace Amazon.PowerShell.Utils
 {
@@ -138,6 +139,20 @@ namespace Amazon.PowerShell.Utils
             try
             {
                 Run(action, tracker);
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    var serviceCmdlet = SourceCmdlet as ServiceCmdlet;
+                    if (serviceCmdlet != null)
+                    {
+                        throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(serviceCmdlet.Region, serviceCmdlet.EndpointUrl, webException.Message), webException);
+                    }
+                }
+
+                throw;
             }
             catch (Exception e)
             {

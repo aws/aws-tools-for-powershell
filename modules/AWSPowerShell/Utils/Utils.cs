@@ -169,7 +169,11 @@ namespace Amazon.PowerShell.Utils
 
         public static string FormatNameResolutionFailureMessage(IClientConfig clientConfig, string exceptionMessage)
         {
-            var serviceUrl = clientConfig.ServiceURL;
+            return FormatNameResolutionFailureMessage(clientConfig.RegionEndpoint, clientConfig.ServiceURL, exceptionMessage);
+        }
+
+        public static string FormatNameResolutionFailureMessage(RegionEndpoint region, string serviceUrl, string exceptionMessage)
+        {
             if (!string.IsNullOrEmpty(serviceUrl))
             {
                 return string.Format("Name resolution failure attempting to reach service endpoint {0}.\n"
@@ -181,8 +185,7 @@ namespace Amazon.PowerShell.Utils
                                      serviceUrl);
             }
 
-            var serviceRegion = clientConfig.RegionEndpoint;
-            if (serviceRegion != null)
+            if (region != null)
             {
                 return string.Format(
                     "Name resolution failure attempting to reach service in region {0} (as supplied to the -Region parameter or from configured shell default).\n"
@@ -192,7 +195,7 @@ namespace Amazon.PowerShell.Utils
                     + "\t- The service may not be available in the region.\n"
                     + "\t- No network connectivity."
                     + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
-                    serviceRegion.SystemName,
+                    region.SystemName,
                     exceptionMessage);
             }
 
