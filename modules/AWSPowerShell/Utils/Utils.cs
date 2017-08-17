@@ -180,7 +180,7 @@ namespace Amazon.PowerShell.Utils
                                      + "Possible causes:\n"
                                      + "\t- The endpoint may be incorrect.\n"
                                      + "\t- The service may not be available at that endpoint.\n"
-                                     + "\t- No network connectivity."
+                                     + "\t- No network connectivity.\n"
                                      + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
                                      serviceUrl);
             }
@@ -193,7 +193,7 @@ namespace Amazon.PowerShell.Utils
                     + "Possible causes:\n"
                     + "\t- The region may be incorrectly specified (did you specify an availability zone?).\n"
                     + "\t- The service may not be available in the region.\n"
-                    + "\t- No network connectivity."
+                    + "\t- No network connectivity.\n"
                     + "See https://docs.aws.amazon.com/general/latest/gr/rande.html for the latest service availability across the AWS regions.",
                     region.SystemName,
                     exceptionMessage);
