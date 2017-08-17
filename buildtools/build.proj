@@ -296,7 +296,7 @@
 
 	<Target Name="sign-script-artifacts" Condition="$(SignModule)" DependsOnTargets="copy-desktop-artifacts;copy-coreclr-artifacts">
 		<PropertyGroup>
-            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)\BuildScripts\AuthenticodeSign.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
+            <SigningScriptArgs>-ExecutionPolicy Unrestricted -NoProfile -Command "$(InternalBuildTools)\BuildScripts\Set-AuthenticodeSignature.ps1" -Filter "*.ps1","*.psm1","*.psd1","*.ps1xml"</SigningScriptArgs>
 		</PropertyGroup>
 		
 		<Message Text="Authenticode signing module and script artifacts for Desktop edition" />
