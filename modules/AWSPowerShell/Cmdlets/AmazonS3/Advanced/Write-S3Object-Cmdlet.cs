@@ -19,8 +19,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Management.Automation;
-using System.Text;
-
 using Amazon.PowerShell.Common;
 using Amazon.PowerShell.Utils;
 using Amazon.S3;
@@ -29,7 +27,6 @@ using Amazon.S3.Model;
 using Amazon.Runtime;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 
 namespace Amazon.PowerShell.Cmdlets.S3
 {
@@ -195,7 +192,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter ContentType 
         /// <summary>
-        /// Specifies the MIME type of the content being uploaded.
+        /// <para>
+        /// Specifies the MIME type of the content being uploaded. The default behavior if
+        /// this parameter is not specified is to inspect the file extension to determine the
+        /// content type.
+        /// </para>
+        /// <para>
+        /// <bNote:</b> if this parameter is used when uploading a folder of files the 
+        /// specified content type will be applied to all of the uploaded files, overriding the 
+        /// default behavior to inspect file extensions.
+        /// </para>
         /// </summary>
         [Parameter]
         public System.String ContentType { get; set; }
@@ -600,7 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 Directory = cmdletContext.Folder,
                 BucketName = cmdletContext.BucketName,
-                KeyPrefix = cmdletContext.KeyPrefix
+                KeyPrefix = cmdletContext.KeyPrefix,
+                ContentType = cmdletContext.ContentType
             };
 
             if (cmdletContext.Recurse)
