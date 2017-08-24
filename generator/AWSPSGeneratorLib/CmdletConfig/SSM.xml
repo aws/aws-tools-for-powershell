@@ -26,6 +26,7 @@
     <ServiceOperation MethodName="DescribeDocument" Noun="DocumentDescription" />
     <ServiceOperation MethodName="GetDocument" Output="Response" />
     <ServiceOperation MethodName="ListAssociations" Verb="Get" Noun="AssociationList" />
+    <ServiceOperation MethodName="ListAssociationVersions" Verb="Get" Noun="AssociationVersionList" />
     <ServiceOperation MethodName="ListDocuments" Verb="Get" Noun="DocumentList" />
     <ServiceOperation MethodName="UpdateAssociationStatus" />
     <!-- RunCommand apis -->

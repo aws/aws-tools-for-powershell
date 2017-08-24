@@ -12,6 +12,7 @@
     <ServiceOperation MethodName="CreateDeliveryStream" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
     <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" />
     <ServiceOperation MethodName="DescribeDeliveryStream" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="GetKinesisStream" Verb="Get"  Output="Response" />
     <ServiceOperation MethodName="ListDeliveryStreams" Verb="Get" Noun="DeliveryStreamList" NoPipelineParameter="true" Output="Response"/>
     <ServiceOperation MethodName="PutRecord" Exclude="true" />
     <ServiceOperation MethodName="PutRecordBatch" PipelineParameter="Records" Output="Response"/>
