@@ -40,25 +40,33 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// a delivery stream that is not in the <code>ACTIVE</code> state cause an exception.
     /// To check the state of a delivery stream, use <a>DescribeDeliveryStream</a>.
     /// </para><para>
-    /// A delivery stream is configured with a single destination: Amazon S3, Amazon Elasticsearch
-    /// Service, or Amazon Redshift. You must specify only one of the following destination
-    /// configuration parameters: <b>ExtendedS3DestinationConfiguration</b>, <b>S3DestinationConfiguration</b>,
+    /// A Kinesis Firehose delivery stream can be configured to receive records directly from
+    /// providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it can be configured
+    /// to use an existing Kinesis stream as its source. To specify a Kinesis stream as input,
+    /// set the <code>DeliveryStreamType</code> parameter to <code>KinesisStreamAsSource</code>,
+    /// and provide the Kinesis stream ARN and role ARN in the <code>KinesisStreamSourceConfiguration</code>
+    /// parameter.
+    /// </para><para>
+    /// A delivery stream is configured with a single destination: Amazon S3, Amazon ES, or
+    /// Amazon Redshift. You must specify only one of the following destination configuration
+    /// parameters: <b>ExtendedS3DestinationConfiguration</b>, <b>S3DestinationConfiguration</b>,
     /// <b>ElasticsearchDestinationConfiguration</b>, or <b>RedshiftDestinationConfiguration</b>.
     /// </para><para>
     /// When you specify <b>S3DestinationConfiguration</b>, you can also provide the following
     /// optional values: <b>BufferingHints</b>, <b>EncryptionConfiguration</b>, and <b>CompressionFormat</b>.
-    /// By default, if no <b>BufferingHints</b> value is provided, Firehose buffers data up
-    /// to 5 MB or for 5 minutes, whichever condition is satisfied first. Note that <b>BufferingHints</b>
-    /// is a hint, so there are some cases where the service cannot adhere to these conditions
-    /// strictly; for example, record boundaries are such that the size is a little over or
-    /// under the configured buffering size. By default, no encryption is performed. We strongly
-    /// recommend that you enable encryption to ensure secure data storage in Amazon S3.
+    /// By default, if no <b>BufferingHints</b> value is provided, Kinesis Firehose buffers
+    /// data up to 5 MB or for 5 minutes, whichever condition is satisfied first. Note that
+    /// <b>BufferingHints</b> is a hint, so there are some cases where the service cannot
+    /// adhere to these conditions strictly; for example, record boundaries are such that
+    /// the size is a little over or under the configured buffering size. By default, no encryption
+    /// is performed. We strongly recommend that you enable encryption to ensure secure data
+    /// storage in Amazon S3.
     /// </para><para>
     /// A few notes about Amazon Redshift as a destination:
     /// </para><ul><li><para>
     /// An Amazon Redshift destination requires an S3 bucket as intermediate location, as
-    /// Firehose first delivers data to S3 and then uses <code>COPY</code> syntax to load
-    /// data into an Amazon Redshift table. This is specified in the <b>RedshiftDestinationConfiguration.S3Configuration</b>
+    /// Kinesis Firehose first delivers data to S3 and then uses <code>COPY</code> syntax
+    /// to load data into an Amazon Redshift table. This is specified in the <b>RedshiftDestinationConfiguration.S3Configuration</b>
     /// parameter.
     /// </para></li><li><para>
     /// The compression formats <code>SNAPPY</code> or <code>ZIP</code> cannot be specified
@@ -67,12 +75,13 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// formats.
     /// </para></li><li><para>
     /// We strongly recommend that you use the user name and password you provide exclusively
-    /// with Firehose, and that the permissions for the account are restricted for Amazon
-    /// Redshift <code>INSERT</code> permissions.
+    /// with Kinesis Firehose, and that the permissions for the account are restricted for
+    /// Amazon Redshift <code>INSERT</code> permissions.
     /// </para></li></ul><para>
-    /// Firehose assumes the IAM role that is configured as part of the destination. The role
-    /// should allow the Firehose principal to assume the role, and the role should have permissions
-    /// that allows the service to deliver the data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon
+    /// Kinesis Firehose assumes the IAM role that is configured as part of the destination.
+    /// The role should allow the Kinesis Firehose principal to assume the role, and the role
+    /// should have permissions that allow the service to deliver the data. For more information,
+    /// see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon
     /// S3 Bucket Access</a> in the <i>Amazon Kinesis Firehose Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -90,12 +99,24 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>The name of the delivery stream. This name must be unique per AWS account in the same
-        /// region. You can have multiple delivery streams with the same name if they are in different
-        /// accounts or different regions.</para>
+        /// region. If the delivery streams are in different accounts or different regions, you
+        /// can have multiple delivery streams with the same name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeliveryStreamName { get; set; }
+        #endregion
+        
+        #region Parameter DeliveryStreamType
+        /// <summary>
+        /// <para>
+        /// <para>The delivery stream type. This parameter can be one of the following values:</para><ul><li><para><code>DirectPut</code>: Provider applications access the delivery stream directly.</para></li><li><para><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis stream as
+        /// a source.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.DeliveryStreamType")]
+        public Amazon.KinesisFirehose.DeliveryStreamType DeliveryStreamType { get; set; }
         #endregion
         
         #region Parameter ElasticsearchDestinationConfiguration_DomainARN
@@ -114,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         /// <summary>
         /// <para>
         /// <para>After an initial failure to deliver to Amazon ES, the total amount of time during
-        /// which Firehose re-attempts delivery (including the first attempt). After this time
-        /// has elapsed, the failed documents are written to Amazon S3. Default value is 300 seconds
-        /// (5 minutes). A value of 0 (zero) results in no retries.</para>
+        /// which Kinesis Firehose re-attempts delivery (including the first attempt). After this
+        /// time has elapsed, the failed documents are written to Amazon S3. Default value is
+        /// 300 seconds (5 minutes). A value of 0 (zero) results in no retries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -169,8 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_IndexRotationPeriod
         /// <summary>
         /// <para>
-        /// <para>The Elasticsearch index rotation period. Index rotation appends a timestamp to the
-        /// IndexName to facilitate expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
+        /// <para>The Elasticsearch index rotation period. Index rotation appends a time stamp to the
+        /// IndexName to facilitate the expiration of old data. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-index-rotation">Index
         /// Rotation for Amazon Elasticsearch Service Destination</a>. The default value is <code>OneDay</code>.</para>
         /// </para>
         /// </summary>
@@ -189,6 +210,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         [System.Management.Automation.Parameter]
         [Alias("ElasticsearchDestinationConfiguration_BufferingHints_IntervalInSeconds")]
         public System.Int32 BufferingHints_IntervalInSecond { get; set; }
+        #endregion
+        
+        #region Parameter KinesisStreamSourceConfiguration_KinesisStreamARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the source Kinesis stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KinesisStreamSourceConfiguration_KinesisStreamARN { get; set; }
         #endregion
         
         #region Parameter CloudWatchLoggingOptions_LogGroupName
@@ -239,8 +270,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role to be assumed by Firehose for calling the Amazon ES Configuration
-        /// API and for indexing documents. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon
+        /// <para>The ARN of the IAM role to be assumed by Kinesis Firehose for calling the Amazon ES
+        /// Configuration API and for indexing documents. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Amazon
         /// S3 Bucket Access</a>.</para>
         /// </para>
         /// </summary>
@@ -248,14 +279,25 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.String ElasticsearchDestinationConfiguration_RoleARN { get; set; }
         #endregion
         
+        #region Parameter KinesisStreamSourceConfiguration_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role that provides access to the source Kinesis stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchDestinationConfiguration_S3BackupMode
         /// <summary>
         /// <para>
         /// <para>Defines how documents should be delivered to Amazon S3. When set to FailedDocumentsOnly,
-        /// Firehose writes any documents that could not be indexed to the configured Amazon S3
-        /// destination, with elasticsearch-failed/ appended to the key prefix. When set to AllDocuments,
-        /// Firehose delivers all incoming records to Amazon S3, and also writes failed documents
-        /// with elasticsearch-failed/ appended to the prefix. For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
+        /// Kinesis Firehose writes any documents that could not be indexed to the configured
+        /// Amazon S3 destination, with elasticsearch-failed/ appended to the key prefix. When
+        /// set to AllDocuments, Kinesis Firehose delivers all incoming records to Amazon S3,
+        /// and also writes failed documents with elasticsearch-failed/ appended to the prefix.
+        /// For more information, see <a href="http://docs.aws.amazon.com/firehose/latest/dev/basic-deliver.html#es-s3-backup">Amazon
         /// S3 Backup for Amazon Elasticsearch Service Destination</a>. Default value is FailedDocumentsOnly.</para>
         /// </para>
         /// </summary>
@@ -267,8 +309,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter ElasticsearchDestinationConfiguration_S3Configuration
         /// <summary>
         /// <para>
-        /// <para>The configuration for the intermediate Amazon S3 location from which Amazon ES obtains
-        /// data.</para>
+        /// <para>The configuration for the backup Amazon S3 location.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -339,6 +380,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             PreExecutionContextLoad(context);
             
             context.DeliveryStreamName = this.DeliveryStreamName;
+            context.DeliveryStreamType = this.DeliveryStreamType;
             if (ParameterWasBound("BufferingHints_IntervalInSecond"))
                 context.ElasticsearchDestinationConfiguration_BufferingHints_IntervalInSeconds = this.BufferingHints_IntervalInSecond;
             if (ParameterWasBound("BufferingHints_SizeInMBs"))
@@ -363,6 +405,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.ElasticsearchDestinationConfiguration_S3Configuration = this.ElasticsearchDestinationConfiguration_S3Configuration;
             context.ElasticsearchDestinationConfiguration_TypeName = this.ElasticsearchDestinationConfiguration_TypeName;
             context.ExtendedS3DestinationConfiguration = this.ExtendedS3DestinationConfiguration;
+            context.KinesisStreamSourceConfiguration_KinesisStreamARN = this.KinesisStreamSourceConfiguration_KinesisStreamARN;
+            context.KinesisStreamSourceConfiguration_RoleARN = this.KinesisStreamSourceConfiguration_RoleARN;
             context.RedshiftDestinationConfiguration = this.RedshiftDestinationConfiguration;
             context.S3DestinationConfiguration = this.S3DestinationConfiguration;
             
@@ -384,6 +428,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             if (cmdletContext.DeliveryStreamName != null)
             {
                 request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
+            }
+            if (cmdletContext.DeliveryStreamType != null)
+            {
+                request.DeliveryStreamType = cmdletContext.DeliveryStreamType;
             }
             
              // populate ElasticsearchDestinationConfiguration
@@ -608,6 +656,35 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.ExtendedS3DestinationConfiguration = cmdletContext.ExtendedS3DestinationConfiguration;
             }
+            
+             // populate KinesisStreamSourceConfiguration
+            bool requestKinesisStreamSourceConfigurationIsNull = true;
+            request.KinesisStreamSourceConfiguration = new Amazon.KinesisFirehose.Model.KinesisStreamSourceConfiguration();
+            System.String requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_KinesisStreamARN = null;
+            if (cmdletContext.KinesisStreamSourceConfiguration_KinesisStreamARN != null)
+            {
+                requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_KinesisStreamARN = cmdletContext.KinesisStreamSourceConfiguration_KinesisStreamARN;
+            }
+            if (requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_KinesisStreamARN != null)
+            {
+                request.KinesisStreamSourceConfiguration.KinesisStreamARN = requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_KinesisStreamARN;
+                requestKinesisStreamSourceConfigurationIsNull = false;
+            }
+            System.String requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_RoleARN = null;
+            if (cmdletContext.KinesisStreamSourceConfiguration_RoleARN != null)
+            {
+                requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_RoleARN = cmdletContext.KinesisStreamSourceConfiguration_RoleARN;
+            }
+            if (requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_RoleARN != null)
+            {
+                request.KinesisStreamSourceConfiguration.RoleARN = requestKinesisStreamSourceConfiguration_kinesisStreamSourceConfiguration_RoleARN;
+                requestKinesisStreamSourceConfigurationIsNull = false;
+            }
+             // determine if request.KinesisStreamSourceConfiguration should be set to null
+            if (requestKinesisStreamSourceConfigurationIsNull)
+            {
+                request.KinesisStreamSourceConfiguration = null;
+            }
             if (cmdletContext.RedshiftDestinationConfiguration != null)
             {
                 request.RedshiftDestinationConfiguration = cmdletContext.RedshiftDestinationConfiguration;
@@ -681,6 +758,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DeliveryStreamName { get; set; }
+            public Amazon.KinesisFirehose.DeliveryStreamType DeliveryStreamType { get; set; }
             public System.Int32? ElasticsearchDestinationConfiguration_BufferingHints_IntervalInSeconds { get; set; }
             public System.Int32? ElasticsearchDestinationConfiguration_BufferingHints_SizeInMBs { get; set; }
             public System.Boolean? ElasticsearchDestinationConfiguration_CloudWatchLoggingOptions_Enabled { get; set; }
@@ -697,6 +775,8 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration ElasticsearchDestinationConfiguration_S3Configuration { get; set; }
             public System.String ElasticsearchDestinationConfiguration_TypeName { get; set; }
             public Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration ExtendedS3DestinationConfiguration { get; set; }
+            public System.String KinesisStreamSourceConfiguration_KinesisStreamARN { get; set; }
+            public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
         }

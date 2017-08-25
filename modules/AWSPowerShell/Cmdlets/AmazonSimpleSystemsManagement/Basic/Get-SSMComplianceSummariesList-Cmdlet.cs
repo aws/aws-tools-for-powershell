@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <summary>
     /// Returns a summary count of compliant and non-compliant resources for a compliance
     /// type. For example, this call can return State Manager associations, patches, or custom
-    /// compliance types according to the filter criteria you specify.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// compliance types according to the filter criteria that you specify.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMComplianceSummariesList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ComplianceSummaryItem")]

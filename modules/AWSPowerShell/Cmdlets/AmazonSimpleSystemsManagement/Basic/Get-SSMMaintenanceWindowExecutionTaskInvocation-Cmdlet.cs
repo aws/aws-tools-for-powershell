@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WindowExecutionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Maintenance Window execution the task is part of.</para>
+        /// <para>The ID of the Maintenance Window execution for which the task is a part.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,8 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Updates an association. You can only update the document version, schedule, parameters,
-    /// and Amazon S3 output of an association.
+    /// Updates an association. You can update the association name and version, the document
+    /// version, schedule, parameters, and Amazon S3 output.
     /// </summary>
     [Cmdlet("Update", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
@@ -49,6 +49,28 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String AssociationId { get; set; }
+        #endregion
+        
+        #region Parameter AssociationName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the association that you want to update.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AssociationName { get; set; }
+        #endregion
+        
+        #region Parameter AssociationVersion
+        /// <summary>
+        /// <para>
+        /// <para>This parameter is provided for concurrency control purposes. You must specify the
+        /// latest association version in the service. If you want to ensure that this request
+        /// succeeds, either specify <code>$LATEST</code>, or omit this parameter.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AssociationVersion { get; set; }
         #endregion
         
         #region Parameter DocumentVersion
@@ -168,6 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.AssociationId = this.AssociationId;
+            context.AssociationName = this.AssociationName;
+            context.AssociationVersion = this.AssociationVersion;
             context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
             context.OutputLocation_S3Location_OutputS3BucketName = this.S3Location_OutputS3BucketName;
@@ -217,6 +241,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AssociationId != null)
             {
                 request.AssociationId = cmdletContext.AssociationId;
+            }
+            if (cmdletContext.AssociationName != null)
+            {
+                request.AssociationName = cmdletContext.AssociationName;
+            }
+            if (cmdletContext.AssociationVersion != null)
+            {
+                request.AssociationVersion = cmdletContext.AssociationVersion;
             }
             if (cmdletContext.DocumentVersion != null)
             {
@@ -357,6 +389,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssociationId { get; set; }
+            public System.String AssociationName { get; set; }
+            public System.String AssociationVersion { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }
             public System.String OutputLocation_S3Location_OutputS3BucketName { get; set; }

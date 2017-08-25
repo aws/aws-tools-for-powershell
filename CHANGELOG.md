@@ -1,3 +1,9 @@
+### 3.3.143.0 (2017-08-24)
+  * Amazon Simple Systems Management
+    - Added new cmdlet, Get-SSMAssociationVersionList (ListAssociationVersions API), to returns versioned associations.
+  * Amazon Kinesis Firehose
+    - Added new cmdlet, Get-KINFKinesisStream (GetKinesisStream API).
+	
 ### 3.3.140.0 (2017-08-16)
   * All services
     - Improved error messaging for 'name resolution failure' errors. The cmdlets now detail the endpoint they attempted to access and list some possible causes (for example, use of an availability zone instead of a region code).

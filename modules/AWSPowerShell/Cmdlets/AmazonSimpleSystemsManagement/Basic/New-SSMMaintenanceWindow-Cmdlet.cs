@@ -43,8 +43,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter AllowUnassociatedTarget
         /// <summary>
         /// <para>
-        /// <para>Whether targets must be registered with the Maintenance Window before tasks can be
-        /// defined for those targets.</para>
+        /// <para>Enables a Maintenance Window task to execute on managed instances, even if you have
+        /// not registered those instances as targets. If enabled, then you must specify the unregistered
+        /// instances (by instance ID) when you register a task with the Maintenance Window </para><para>If you don't enable this option, then you must specify previously-registered targets
+        /// when you register a task with the Maintenance Window. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>An optional description for the Maintenance Window. We recommend specifying a description
-        /// to help your organize your Maintenance Windows. </para>
+        /// to help you organize your Maintenance Windows. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

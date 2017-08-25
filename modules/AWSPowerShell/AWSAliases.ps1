@@ -2894,6 +2894,7 @@ Set-Alias -Name Delete-KINFDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name KINF-DeleteDeliveryStream -Value Remove-KINFDeliveryStream
 Set-Alias -Name Describe-KINFDeliveryStream -Value Get-KINFDeliveryStream
 Set-Alias -Name KINF-DescribeDeliveryStream -Value Get-KINFDeliveryStream
+Set-Alias -Name KINF-GetKinesisStream -Value Get-KINFKinesisStream
 Set-Alias -Name KINF-ListDeliveryStreams -Value Get-KINFDeliveryStreamList
 Set-Alias -Name Put-KINFRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-PutRecordBatch -Value Write-KINFRecordBatch
@@ -4237,6 +4238,7 @@ Set-Alias -Name SQS-SendMessage -Value Send-SQSMessage
 Set-Alias -Name SQS-SendMessageBatch -Value Send-SQSMessageBatch
 Set-Alias -Name Set-SQSQueueAttributes -Value Set-SQSQueueAttribute
 Set-Alias -Name SQS-SetQueueAttributes -Value Set-SQSQueueAttribute
+Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow
 Set-Alias -Name SSM-RegisterTaskWithMaintenanceWindow -Value Register-SSMTaskWithMaintenanceWindow
 Set-Alias -Name SSM-RemoveTagsFromResource -Value Remove-SSMResourceTag
 Set-Alias -Name SSM-SendAutomationSignal -Value Send-SSMAutomationSignal
@@ -4261,6 +4263,7 @@ Set-Alias -Name SSM-GetParametersByPath -Value Get-SSMParametersByPath
 Set-Alias -Name SSM-GetPatchBaseline -Value Get-SSMPatchBaselineDetail
 Set-Alias -Name SSM-GetPatchBaselineForPatchGroup -Value Get-SSMPatchBaselineForPatchGroup
 Set-Alias -Name SSM-ListAssociations -Value Get-SSMAssociationList
+Set-Alias -Name SSM-ListAssociationVersions -Value Get-SSMAssociationVersionList
 Set-Alias -Name SSM-ListCommandInvocations -Value Get-SSMCommandInvocation
 Set-Alias -Name SSM-ListCommands -Value Get-SSMCommand
 Set-Alias -Name List-SSMComplianceItemsList -Value Get-SSMComplianceItemsList
@@ -4287,7 +4290,6 @@ Set-Alias -Name Put-SSMParameter -Value Write-SSMParameter
 Set-Alias -Name SSM-PutParameter -Value Write-SSMParameter
 Set-Alias -Name SSM-RegisterDefaultPatchBaseline -Value Register-SSMDefaultPatchBaseline
 Set-Alias -Name SSM-RegisterPatchBaselineForPatchGroup -Value Register-SSMPatchBaselineForPatchGroup
-Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow
 Set-Alias -Name Describe-SSMDocumentPermission -Value Get-SSMDocumentPermission
 Set-Alias -Name SSM-DescribeDocumentPermission -Value Get-SSMDocumentPermission
 Set-Alias -Name Describe-SSMEffectiveInstanceAssociationList -Value Get-SSMEffectiveInstanceAssociationList

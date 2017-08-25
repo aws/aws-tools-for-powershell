@@ -29,27 +29,27 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Modifies a task assigned to a Maintenance Window. You can't change the task type,
-    /// but you can change the following:
+    /// but you can change the following values:
     /// 
     ///  
     /// <para>
-    /// The Task Arn. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript
+    /// Task ARN. For example, you can change a RUN_COMMAND task from AWS-RunPowerShellScript
     /// to AWS-RunShellScript.
     /// </para><para>
-    /// The service role ARN.
+    /// Service role ARN.
     /// </para><para>
-    /// The task parameters.
+    /// Task parameters.
     /// </para><para>
-    /// The task priority.
+    /// Task priority.
     /// </para><para>
-    /// The task MaxConcurrency and MaxErrors.
+    /// Task MaxConcurrency and MaxErrors.
     /// </para><para>
-    /// The log location.
+    /// Log location.
     /// </para><para>
     /// If a parameter is null, then the corresponding field is not modified. Also, if you
     /// set Replace to true, then all fields required by the RegisterTaskWithMaintenanceWindow
-    /// operation are required for this request. Optional fields that aren't specified are
-    /// be set to null.
+    /// action are required for this request. Optional fields that aren't specified are set
+    /// to null.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SSMMaintenanceWindowTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,9 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_ClientContext
         /// <summary>
         /// <para>
-        /// <para>Using the ClientContext you can pass client-specific information to the Lambda function
-        /// you are invoking. You can then process the client information in your Lambda function
-        /// as you choose through the context variable.</para>
+        /// <para>Pass client-specific information to the Lambda function that you are invoking. You
+        /// can then process the client information in your Lambda function as you choose through
+        /// the context variable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The new task description that you want to specify.</para>
+        /// <para>The new task description to specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_DocumentHash
         /// <summary>
         /// <para>
-        /// <para>The Sha256 or Sha1 hash created by the system when the document was created. Sha1
+        /// <para>The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1
         /// hashes have been deprecated.</para>
         /// </para>
         /// </summary>
@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_DocumentHashType
         /// <summary>
         /// <para>
-        /// <para>Sha256 or Sha1. Sha1 hashes have been deprecated.</para>
+        /// <para>SHA-256 or SHA-1. SHA-1 hashes have been deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of an SSM Automation document to use during task execution.</para>
+        /// <para>The version of an Automation document to use during task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -155,8 +155,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter MaxError
         /// <summary>
         /// <para>
-        /// <para>The new <code>MaxErrors</code> value you want to specify. <code>MaxErrors</code> is
-        /// the maximum number of errors that are allowed before the task stops being scheduled.</para>
+        /// <para>The new <code>MaxErrors</code> value to specify. <code>MaxErrors</code> is the maximum
+        /// number of errors that are allowed before the task stops being scheduled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -167,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The new task name that you want to specify.</para>
+        /// <para>The new task name to specify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -250,7 +250,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_Parameter
         /// <summary>
         /// <para>
-        /// <para>Parameters for the AUTOMATION task.</para>
+        /// <para>The parameters for the AUTOMATION task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -261,7 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_Parameter
         /// <summary>
         /// <para>
-        /// <para>Parameters for the RUN_COMMAND task execution.</para>
+        /// <para>The parameters for the RUN_COMMAND task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -272,7 +272,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_Payload
         /// <summary>
         /// <para>
-        /// <para>JSON that you want to provide to your Lambda function as input.</para>
+        /// <para>JSON to provide to your Lambda function as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -283,8 +283,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Priority
         /// <summary>
         /// <para>
-        /// <para>The new task priority that you want to specify. The lower the number, the higher the
-        /// priority. Tasks that have the same priority are scheduled in parallel.</para>
+        /// <para>The new task priority to specify. The lower the number, the higher the priority. Tasks
+        /// that have the same priority are scheduled in parallel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -294,10 +294,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_Qualifier
         /// <summary>
         /// <para>
-        /// <para>You can use this optional parameter to specify a Lambda function version or alias
-        /// name. If you specify a function version, the API uses the qualified function ARN to
-        /// invoke a specific Lambda function. If you specify an alias name, the API uses the
-        /// alias ARN to invoke the Lambda function version to which the alias points.</para>
+        /// <para>(Optional) Specify a Lambda function version or alias name. If you specify a function
+        /// version, the action uses the qualified function ARN to invoke a specific Lambda function.
+        /// If you specify an alias name, the action uses the alias ARN to invoke the Lambda function
+        /// version to which the alias points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -308,9 +308,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If you specify True, then all fields that are required by the RegisterTaskWithMaintenanceWndow
-        /// API are also required for this API request. Optional fields that are not specified
-        /// will be set to null.</para>
+        /// <para>If True, then all fields that are required by the RegisterTaskWithMaintenanceWndow
+        /// action are also required for this API request. Optional fields that are not specified
+        /// are set to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -350,8 +350,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM service role ARN that you want to modify. The system assumes this role during
-        /// task exectuion. </para>
+        /// <para>The IAM service role ARN to modify. The system assumes this role during task execution.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -361,7 +361,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM service role that to assume during task execution.</para>
+        /// <para>The IAM service role to assume during task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -372,9 +372,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets (either instances or tags) that you want to modify. Instances are specified
-        /// using Key=instanceids,Values=instanceID_1,instanceID_2. Tags are specified using Key=tag_name,Values=tag_value.
-        /// </para>
+        /// <para>The targets (either instances or tags) to modify. Instances are specified using Key=instanceids,Values=instanceID_1,instanceID_2.
+        /// Tags are specified using Key=tag_name,Values=tag_value. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -385,7 +384,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TaskArn
         /// <summary>
         /// <para>
-        /// <para>The task ARN that you want to modify.</para>
+        /// <para>The task ARN to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +394,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter TaskParameter
         /// <summary>
         /// <para>
-        /// <para>The parameters that you want to modify. The map has the following format:</para><para>Key: string, between 1 and 255 characters</para><para>Value: an array of strings, each string is between 1 and 255 characters</para>
+        /// <para>The parameters to modify. The map has the following format:</para><para>Key: string, between 1 and 255 characters</para><para>Value: an array of strings, each string is between 1 and 255 characters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -406,7 +405,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started executing, it will
+        /// <para>If this time is reached and the command has not already started executing, it doesn
         /// not execute.</para>
         /// </para>
         /// </summary>
@@ -418,7 +417,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WindowId
         /// <summary>
         /// <para>
-        /// <para>The Maintenance Window ID that contains the task that you want to modify.</para>
+        /// <para>The Maintenance Window ID that contains the task to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -428,7 +427,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WindowTaskId
         /// <summary>
         /// <para>
-        /// <para>The task ID that you want to modify.</para>
+        /// <para>The task ID to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

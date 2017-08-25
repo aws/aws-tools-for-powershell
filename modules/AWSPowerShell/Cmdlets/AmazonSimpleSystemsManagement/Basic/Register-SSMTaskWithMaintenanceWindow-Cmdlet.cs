@@ -43,9 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_ClientContext
         /// <summary>
         /// <para>
-        /// <para>Using the ClientContext you can pass client-specific information to the Lambda function
-        /// you are invoking. You can then process the client information in your Lambda function
-        /// as you choose through the context variable.</para>
+        /// <para>Pass client-specific information to the Lambda function that you are invoking. You
+        /// can then process the client information in your Lambda function as you choose through
+        /// the context variable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_DocumentHash
         /// <summary>
         /// <para>
-        /// <para>The Sha256 or Sha1 hash created by the system when the document was created. Sha1
+        /// <para>The SHA-256 or SHA-1 hash created by the system when the document was created. SHA-1
         /// hashes have been deprecated.</para>
         /// </para>
         /// </summary>
@@ -99,7 +99,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_DocumentHashType
         /// <summary>
         /// <para>
-        /// <para>Sha256 or Sha1. Sha1 hashes have been deprecated.</para>
+        /// <para>SHA-256 or SHA-1. SHA-1 hashes have been deprecated.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -111,7 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_DocumentVersion
         /// <summary>
         /// <para>
-        /// <para>The version of an SSM Automation document to use during task execution.</para>
+        /// <para>The version of an Automation document to use during task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Automation_Parameter
         /// <summary>
         /// <para>
-        /// <para>Parameters for the AUTOMATION task.</para>
+        /// <para>The parameters for the AUTOMATION task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -248,7 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_Parameter
         /// <summary>
         /// <para>
-        /// <para>Parameters for the RUN_COMMAND task execution.</para>
+        /// <para>The parameters for the RUN_COMMAND task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -259,7 +259,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_Payload
         /// <summary>
         /// <para>
-        /// <para>JSON that you want to provide to your Lambda function as input.</para>
+        /// <para>JSON to provide to your Lambda function as input.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -282,10 +282,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Lambda_Qualifier
         /// <summary>
         /// <para>
-        /// <para>You can use this optional parameter to specify a Lambda function version or alias
-        /// name. If you specify a function version, the API uses the qualified function ARN to
-        /// invoke a specific Lambda function. If you specify an alias name, the API uses the
-        /// alias ARN to invoke the Lambda function version to which the alias points.</para>
+        /// <para>(Optional) Specify a Lambda function version or alias name. If you specify a function
+        /// version, the action uses the qualified function ARN to invoke a specific Lambda function.
+        /// If you specify an alias name, the action uses the alias ARN to invoke the Lambda function
+        /// version to which the alias points.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -336,7 +336,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para>The IAM service role that to assume during task execution.</para>
+        /// <para>The IAM service role to assume during task execution.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -391,7 +391,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter RunCommand_TimeoutSecond
         /// <summary>
         /// <para>
-        /// <para>If this time is reached and the command has not already started executing, it will
+        /// <para>If this time is reached and the command has not already started executing, it doesn
         /// not execute.</para>
         /// </para>
         /// </summary>

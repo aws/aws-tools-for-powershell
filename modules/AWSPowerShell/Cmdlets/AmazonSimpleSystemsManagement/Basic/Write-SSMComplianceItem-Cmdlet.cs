@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
     /// Registers a compliance type and other compliance details on a designated resource.
-    /// This API lets you register custom compliance details with a resource. This call overwrites
-    /// existing compliance information on the resource, so you must provide a full list of
-    /// compliance items each time you send the request.
+    /// This action lets you register custom compliance details with a resource. This call
+    /// overwrites existing compliance information on the resource, so you must provide a
+    /// full list of compliance items each time that you send the request.
     /// </summary>
     [Cmdlet("Write", "SSMComplianceItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter ItemContentHash
         /// <summary>
         /// <para>
-        /// <para>MD5 or Sha256 content hash. The content hash is used to determine if existing information
-        /// should be overwritten or ignored. If the content hashes match, ,the request to put
+        /// <para>MD5 or SHA-256 content hash. The content hash is used to determine if existing information
+        /// should be overwritten or ignored. If the content hashes match, the request to put
         /// compliance information is ignored.</para>
         /// </para>
         /// </summary>

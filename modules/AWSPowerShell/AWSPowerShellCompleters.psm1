@@ -3338,6 +3338,16 @@ $KINF_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.KinesisFirehose.DeliveryStreamType
+        {
+            ($_ -eq "Get-KINFDeliveryStreamList/DeliveryStreamType") -Or
+            ($_ -eq "New-KINFDeliveryStream/DeliveryStreamType")
+        }
+        {
+            $v = "DirectPut","KinesisStreamAsSource"
+            break
+        }
+        
         # Amazon.KinesisFirehose.ElasticsearchIndexRotationPeriod
         {
             ($_ -eq "New-KINFDeliveryStream/ElasticsearchDestinationConfiguration_IndexRotationPeriod") -Or
@@ -3363,6 +3373,7 @@ $KINF_Completers = {
 }
 
 $KINF_map = @{
+    "DeliveryStreamType"=@("Get-KINFDeliveryStreamList","New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_IndexRotationPeriod"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationConfiguration_S3BackupMode"=@("New-KINFDeliveryStream")
     "ElasticsearchDestinationUpdate_IndexRotationPeriod"=@("Update-KINFDestination")
@@ -4261,7 +4272,7 @@ $R53_Completers = {
             ($_ -eq "Get-R53TrafficPolicyInstancesByPolicy/TrafficPolicyInstanceTypeMarker")
         }
         {
-            $v = "A","AAAA","CNAME","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
+            $v = "A","AAAA","CAA","CNAME","MX","NAPTR","NS","PTR","SOA","SPF","SRV","TXT"
             break
         }
         

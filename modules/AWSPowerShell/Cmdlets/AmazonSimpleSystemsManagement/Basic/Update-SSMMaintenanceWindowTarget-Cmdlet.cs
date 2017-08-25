@@ -35,17 +35,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// <para>
     /// The target from being an ID target to a Tag target, or a Tag target to an ID target.
     /// </para><para>
-    /// The IDs of an ID target.
+    /// IDs for an ID target.
     /// </para><para>
-    /// The tags of a Tag target.
+    /// Tags for a Tag target.
     /// </para><para>
-    /// The Owner.
+    /// Owner.
     /// </para><para>
-    /// The Name.
+    /// Name.
     /// </para><para>
-    /// The Description.
+    /// Description.
     /// </para><para>
-    /// Also note that if a parameter is null, then the corresponding field is not modified.
+    /// If a parameter is null, then the corresponding field is not modified.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SSMMaintenanceWindowTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -91,9 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If you specify True, then all fields that are required by the RegisterTargetWithMaintenanceWindow
-        /// API are also required for this API request. Optional fields that are not specified
-        /// will be set to null.</para>
+        /// <para>If True, then all fields that are required by the RegisterTargetWithMaintenanceWindow
+        /// action are also required for this API request. Optional fields that are not specified
+        /// are set to null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets that you want to add or replace.</para>
+        /// <para>The targets to add or replace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WindowId
         /// <summary>
         /// <para>
-        /// <para>The Maintenance Window ID for which you want to modify the target.</para>
+        /// <para>The Maintenance Window ID with which to modify the target.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -124,7 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter WindowTargetId
         /// <summary>
         /// <para>
-        /// <para>The target ID that you want to modify.</para>
+        /// <para>The target ID to modify.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

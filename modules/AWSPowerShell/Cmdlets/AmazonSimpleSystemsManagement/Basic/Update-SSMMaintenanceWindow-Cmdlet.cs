@@ -105,9 +105,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Replace
         /// <summary>
         /// <para>
-        /// <para>If you specify True, then all fields that are required by the CreateMaintenanceWindow
-        /// API are also required for this API request. Optional fields that are not specified
-        /// will be set to null. </para>
+        /// <para>If True, then all fields that are required by the CreateMaintenanceWindow action are
+        /// also required for this API request. Optional fields that are not specified are set
+        /// to null. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

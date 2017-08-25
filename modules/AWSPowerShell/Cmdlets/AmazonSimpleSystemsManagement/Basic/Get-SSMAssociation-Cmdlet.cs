@@ -50,6 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String AssociationId { get; set; }
         #endregion
         
+        #region Parameter AssociationVersion
+        /// <summary>
+        /// <para>
+        /// <para>Specify the association version to retrieve. To view the latest version, either specify
+        /// <code>$LATEST</code> for this parameter, or omit this parameter. To view a list of
+        /// all associations for an instance, use ListInstanceAssociations. To get a list of versions
+        /// for a specific association, use ListAssociationVersions. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AssociationVersion { get; set; }
+        #endregion
+        
         #region Parameter InstanceId
         /// <summary>
         /// <para>
@@ -84,6 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.AssociationId = this.AssociationId;
+            context.AssociationVersion = this.AssociationVersion;
             context.InstanceId = this.InstanceId;
             context.Name = this.Name;
             
@@ -105,6 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.AssociationId != null)
             {
                 request.AssociationId = cmdletContext.AssociationId;
+            }
+            if (cmdletContext.AssociationVersion != null)
+            {
+                request.AssociationVersion = cmdletContext.AssociationVersion;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -179,6 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AssociationId { get; set; }
+            public System.String AssociationVersion { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }
         }

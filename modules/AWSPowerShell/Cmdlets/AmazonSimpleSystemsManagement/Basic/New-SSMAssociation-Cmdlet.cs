@@ -51,6 +51,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMAssociationCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter AssociationName
+        /// <summary>
+        /// <para>
+        /// <para>Specify a descriptive name for the association.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AssociationName { get; set; }
+        #endregion
+        
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
@@ -177,6 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AssociationName = this.AssociationName;
             context.DocumentVersion = this.DocumentVersion;
             context.InstanceId = this.InstanceId;
             context.Name = this.Name;
@@ -224,6 +235,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.CreateAssociationRequest();
             
+            if (cmdletContext.AssociationName != null)
+            {
+                request.AssociationName = cmdletContext.AssociationName;
+            }
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
@@ -366,6 +381,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AssociationName { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String InstanceId { get; set; }
             public System.String Name { get; set; }

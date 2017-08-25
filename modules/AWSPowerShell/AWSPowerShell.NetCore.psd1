@@ -10,7 +10,7 @@ ModuleToProcess = 'AWSPowerShell.NetCore.dll'
 CompatiblePSEditions = @('Core')
 
 # Version number of this module.
-ModuleVersion = '3.0.0.0'
+ModuleVersion = '3.3.143.0'
 
 # ID used to uniquely identify this module
 GUID = 'cb0b9b96-f3f2-4eff-b7f4-cbe0a9203683'

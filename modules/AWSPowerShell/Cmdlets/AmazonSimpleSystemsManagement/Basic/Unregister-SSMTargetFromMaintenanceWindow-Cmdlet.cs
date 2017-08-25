@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The system checks if the target is being referenced by a task. If the target is being
-        /// referenced, the system returns and error and does not deregister the target from the
+        /// referenced, the system returns an error and does not deregister the target from the
         /// Maintenance Window.</para>
         /// </para>
         /// </summary>

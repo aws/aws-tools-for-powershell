@@ -28,54 +28,27 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// For a specified resource ID, this API action returns a list of compliance statuses
-    /// for different resource types. Currently, you can only specify one resource ID per
-    /// call. List results depend on the criteria specified in the filter.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves all versions of an association for a specific association ID.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "SSMComplianceItemsList")]
-    [OutputType("Amazon.SimpleSystemsManagement.Model.ComplianceItem")]
-    [AWSCmdlet("Invokes the ListComplianceItems operation against Amazon Simple Systems Management.", Operation = new[] {"ListComplianceItems"})]
-    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ComplianceItem",
-        "This cmdlet returns a collection of ComplianceItem objects.",
-        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "SSMAssociationVersionList")]
+    [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationVersionInfo")]
+    [AWSCmdlet("Invokes the ListAssociationVersions operation against Amazon Simple Systems Management.", Operation = new[] {"ListAssociationVersions"})]
+    [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationVersionInfo",
+        "This cmdlet returns a collection of AssociationVersionInfo objects.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.ListAssociationVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetSSMComplianceItemsListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class GetSSMAssociationVersionListCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
-        #region Parameter Filter
+        #region Parameter AssociationId
         /// <summary>
         /// <para>
-        /// <para>One or more compliance filters. Use a filter to return a more specific list of results.</para>
+        /// <para>The association ID for which you want to view all versions.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("Filters")]
-        public Amazon.SimpleSystemsManagement.Model.ComplianceStringFilter[] Filter { get; set; }
-        #endregion
-        
-        #region Parameter ResourceId
-        /// <summary>
-        /// <para>
-        /// <para>The ID for the resources from which to get compliance information. Currently, you
-        /// can only specify one resource ID.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        [Alias("ResourceIds")]
-        public System.String[] ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>The type of resource from which to get compliance information. Currently, the only
-        /// supported resource type is <code>ManagedInstance</code>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("ResourceTypes")]
-        public System.String[] ResourceType { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.String AssociationId { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -116,21 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.Filter != null)
-            {
-                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.ComplianceStringFilter>(this.Filter);
-            }
+            context.AssociationId = this.AssociationId;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.ResourceId != null)
-            {
-                context.ResourceIds = new List<System.String>(this.ResourceId);
-            }
-            if (this.ResourceType != null)
-            {
-                context.ResourceTypes = new List<System.String>(this.ResourceType);
-            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -146,35 +108,27 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.SimpleSystemsManagement.Model.ListComplianceItemsRequest();
-            if (cmdletContext.Filters != null)
+            var request = new Amazon.SimpleSystemsManagement.Model.ListAssociationVersionsRequest();
+            if (cmdletContext.AssociationId != null)
             {
-                request.Filters = cmdletContext.Filters;
-            }
-            if (cmdletContext.ResourceIds != null)
-            {
-                request.ResourceIds = cmdletContext.ResourceIds;
-            }
-            if (cmdletContext.ResourceTypes != null)
-            {
-                request.ResourceTypes = cmdletContext.ResourceTypes;
+                request.AssociationId = cmdletContext.AssociationId;
             }
             
             // Initialize loop variants and commence piping
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
-            int? _pageSize = 100;
+            int? _pageSize = 50;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                // The service has a maximum page size of 100. If the user has
+                // The service has a maximum page size of 50. If the user has
                 // asked for more items than page max, and there is no page size
                 // configured, we rely on the service ignoring the set maximum
-                // and giving us 100 items back. If a page size is set, that will
+                // and giving us 50 items back. If a page size is set, that will
                 // be used to configure the pagination.
                 // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
@@ -214,7 +168,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ComplianceItems;
+                        object pipelineOutput = response.AssociationVersions;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -223,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ComplianceItems.Count;
+                        int _receivedThisCall = response.AssociationVersions.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -243,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     }
                     
                     ProcessOutput(output);
-                    // The service has a maximum page size of 100 and the user has set a retrieval limit.
+                    // The service has a maximum page size of 50 and the user has set a retrieval limit.
                     // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
                     // what's left to match the user's request.
                     
@@ -275,16 +229,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListComplianceItemsRequest request)
+        private Amazon.SimpleSystemsManagement.Model.ListAssociationVersionsResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.ListAssociationVersionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListComplianceItems");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "ListAssociationVersions");
             try
             {
                 #if DESKTOP
-                return client.ListComplianceItems(request);
+                return client.ListAssociationVersions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListComplianceItemsAsync(request);
+                var task = client.ListAssociationVersionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -305,11 +259,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<Amazon.SimpleSystemsManagement.Model.ComplianceStringFilter> Filters { get; set; }
+            public System.String AssociationId { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> ResourceIds { get; set; }
-            public List<System.String> ResourceTypes { get; set; }
         }
         
     }

@@ -50,6 +50,19 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     public partial class GetKINFDeliveryStreamListCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
+        #region Parameter DeliveryStreamType
+        /// <summary>
+        /// <para>
+        /// <para>The delivery stream type. This can be one of the following values:</para><ul><li><para><code>DirectPut</code>: Provider applications access the delivery stream directly.</para></li><li><para><code>KinesisStreamAsSource</code>: The delivery stream uses a Kinesis stream as
+        /// a source.</para></li></ul><para>This parameter is optional. If this parameter is omitted, delivery streams of all
+        /// types are returned.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.KinesisFirehose.DeliveryStreamType")]
+        public Amazon.KinesisFirehose.DeliveryStreamType DeliveryStreamType { get; set; }
+        #endregion
+        
         #region Parameter ExclusiveStartDeliveryStreamName
         /// <summary>
         /// <para>
@@ -83,6 +96,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DeliveryStreamType = this.DeliveryStreamType;
             context.ExclusiveStartDeliveryStreamName = this.ExclusiveStartDeliveryStreamName;
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
@@ -102,6 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // create request
             var request = new Amazon.KinesisFirehose.Model.ListDeliveryStreamsRequest();
             
+            if (cmdletContext.DeliveryStreamType != null)
+            {
+                request.DeliveryStreamType = cmdletContext.DeliveryStreamType;
+            }
             if (cmdletContext.ExclusiveStartDeliveryStreamName != null)
             {
                 request.ExclusiveStartDeliveryStreamName = cmdletContext.ExclusiveStartDeliveryStreamName;
@@ -174,6 +192,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.KinesisFirehose.DeliveryStreamType DeliveryStreamType { get; set; }
             public System.String ExclusiveStartDeliveryStreamName { get; set; }
             public System.Int32? Limit { get; set; }
         }

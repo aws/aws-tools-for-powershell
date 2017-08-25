@@ -28,50 +28,25 @@ using Amazon.KinesisFirehose.Model;
 namespace Amazon.PowerShell.Cmdlets.KINF
 {
     /// <summary>
-    /// Describes the specified delivery stream and gets the status. For example, after your
-    /// delivery stream is created, call <a>DescribeDeliveryStream</a> to see if the delivery
-    /// stream is <code>ACTIVE</code> and therefore ready for data to be sent to it.
+    
     /// </summary>
-    [Cmdlet("Get", "KINFDeliveryStream")]
-    [OutputType("Amazon.KinesisFirehose.Model.DeliveryStreamDescription")]
-    [AWSCmdlet("Invokes the DescribeDeliveryStream operation against Amazon Kinesis Firehose.", Operation = new[] {"DescribeDeliveryStream"})]
-    [AWSCmdletOutput("Amazon.KinesisFirehose.Model.DeliveryStreamDescription",
-        "This cmdlet returns a DeliveryStreamDescription object.",
-        "The service call response (type Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "KINFKinesisStream")]
+    [OutputType("Amazon.KinesisFirehose.Model.GetKinesisStreamResponse")]
+    [AWSCmdlet("Invokes the GetKinesisStream operation against Amazon Kinesis Firehose.", Operation = new[] {"GetKinesisStream"})]
+    [AWSCmdletOutput("Amazon.KinesisFirehose.Model.GetKinesisStreamResponse",
+        "This cmdlet returns a Amazon.KinesisFirehose.Model.GetKinesisStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKINFDeliveryStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
+    public partial class GetKINFKinesisStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
     {
         
-        #region Parameter DeliveryStreamName
+        #region Parameter DeliveryStreamARN
         /// <summary>
         /// <para>
-        /// <para>The name of the delivery stream.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String DeliveryStreamName { get; set; }
-        #endregion
-        
-        #region Parameter ExclusiveStartDestinationId
-        /// <summary>
-        /// <para>
-        /// <para>The ID of the destination to start returning the destination information. Currently,
-        /// Kinesis Firehose supports one destination per delivery stream.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ExclusiveStartDestinationId { get; set; }
-        #endregion
-        
-        #region Parameter Limit
-        /// <summary>
-        /// <para>
-        /// <para>The limit on the number of destinations to return. Currently, you can have one destination
-        /// per delivery stream.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Int32 Limit { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DeliveryStreamARN { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -87,10 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DeliveryStreamName = this.DeliveryStreamName;
-            context.ExclusiveStartDestinationId = this.ExclusiveStartDestinationId;
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
+            context.DeliveryStreamARN = this.DeliveryStreamARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -105,19 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisFirehose.Model.DescribeDeliveryStreamRequest();
+            var request = new Amazon.KinesisFirehose.Model.GetKinesisStreamRequest();
             
-            if (cmdletContext.DeliveryStreamName != null)
+            if (cmdletContext.DeliveryStreamARN != null)
             {
-                request.DeliveryStreamName = cmdletContext.DeliveryStreamName;
-            }
-            if (cmdletContext.ExclusiveStartDestinationId != null)
-            {
-                request.ExclusiveStartDestinationId = cmdletContext.ExclusiveStartDestinationId;
-            }
-            if (cmdletContext.Limit != null)
-            {
-                request.Limit = cmdletContext.Limit.Value;
+                request.DeliveryStreamARN = cmdletContext.DeliveryStreamARN;
             }
             
             CmdletOutput output;
@@ -128,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DeliveryStreamDescription;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +117,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.DescribeDeliveryStreamRequest request)
+        private Amazon.KinesisFirehose.Model.GetKinesisStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.GetKinesisStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "DescribeDeliveryStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "GetKinesisStream");
             try
             {
                 #if DESKTOP
-                return client.DescribeDeliveryStream(request);
+                return client.GetKinesisStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeDeliveryStreamAsync(request);
+                var task = client.GetKinesisStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,9 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeliveryStreamName { get; set; }
-            public System.String ExclusiveStartDestinationId { get; set; }
-            public System.Int32? Limit { get; set; }
+            public System.String DeliveryStreamARN { get; set; }
         }
         
     }
