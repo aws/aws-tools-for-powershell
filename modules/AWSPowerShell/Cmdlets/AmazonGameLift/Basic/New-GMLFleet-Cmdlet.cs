@@ -58,6 +58,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// This allows you to view aggregated metrics for a set of fleets. Once you specify a
     /// metric group, the new fleet's metrics are included in the metric group's data.
     /// </para><para>
+    /// You have the option of creating a VPC peering connection with the new fleet. For more
+    /// information, see <a href="http://docs.aws.amazon.com/gamelift/latest/developerguide/vpc-peering.html">VPC
+    /// Peering with Amazon GameLift Fleets</a>.
+    /// </para><para>
     /// If the CreateFleet call is successful, Amazon GameLift performs the following tasks:
     /// </para><ul><li><para>
     /// Creates a fleet record and sets the status to <code>NEW</code> (followed by other
@@ -220,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// is not set, instances in this fleet default to no protection. You can change a fleet's
         /// protection policy using UpdateFleetAttributes, but this change will only affect sessions
         /// created after the policy change. You can also set protection for individual instances
-        /// using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> – The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code> status,
+        /// using <a>UpdateGameSession</a>.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
         /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>
@@ -238,6 +242,31 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
+        #endregion
+        
+        #region Parameter PeerVpcAwsAccountId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for the AWS account with the VPC that you want to peer your Amazon
+        /// GameLift fleet with. You can find your Account ID in the AWS Management Console under
+        /// account settings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PeerVpcAwsAccountId { get; set; }
+        #endregion
+        
+        #region Parameter PeerVpcId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for a VPC with resources to be accessed by your Amazon GameLift
+        /// fleet. The VPC must be in the same region where your fleet is deployed. To get VPC
+        /// information, including IDs, use the Virtual Private Cloud service tools, including
+        /// the VPC Dashboard in the AWS Management Console.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PeerVpcId { get; set; }
         #endregion
         
         #region Parameter ResourceCreationLimitPolicy_PolicyPeriodInMinute
@@ -334,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             }
             context.Name = this.Name;
             context.NewGameSessionProtectionPolicy = this.NewGameSessionProtectionPolicy;
+            context.PeerVpcAwsAccountId = this.PeerVpcAwsAccountId;
+            context.PeerVpcId = this.PeerVpcId;
             if (ParameterWasBound("ResourceCreationLimitPolicy_NewGameSessionsPerCreator"))
                 context.ResourceCreationLimitPolicy_NewGameSessionsPerCreator = this.ResourceCreationLimitPolicy_NewGameSessionsPerCreator;
             if (ParameterWasBound("ResourceCreationLimitPolicy_PolicyPeriodInMinute"))
@@ -395,6 +426,14 @@ namespace Amazon.PowerShell.Cmdlets.GML
             if (cmdletContext.NewGameSessionProtectionPolicy != null)
             {
                 request.NewGameSessionProtectionPolicy = cmdletContext.NewGameSessionProtectionPolicy;
+            }
+            if (cmdletContext.PeerVpcAwsAccountId != null)
+            {
+                request.PeerVpcAwsAccountId = cmdletContext.PeerVpcAwsAccountId;
+            }
+            if (cmdletContext.PeerVpcId != null)
+            {
+                request.PeerVpcId = cmdletContext.PeerVpcId;
             }
             
              // populate ResourceCreationLimitPolicy
@@ -544,6 +583,8 @@ namespace Amazon.PowerShell.Cmdlets.GML
             public List<System.String> MetricGroups { get; set; }
             public System.String Name { get; set; }
             public Amazon.GameLift.ProtectionPolicy NewGameSessionProtectionPolicy { get; set; }
+            public System.String PeerVpcAwsAccountId { get; set; }
+            public System.String PeerVpcId { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_NewGameSessionsPerCreator { get; set; }
             public System.Int32? ResourceCreationLimitPolicy_PolicyPeriodInMinutes { get; set; }
             public System.Int32? RuntimeConfiguration_GameSessionActivationTimeoutSeconds { get; set; }

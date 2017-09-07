@@ -137,7 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// to your GitHub account, you do not need to finish creating the build project, and
         /// you may then leave the AWS CodeBuild console.) To instruct AWS CodeBuild to then use
         /// this connection, in the <code>source</code> object, set the <code>auth</code> object's
-        /// <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
+        /// <code>type</code> value to <code>OAUTH</code>.</para></li><li><para>For source code in a Bitbucket repository, the HTTPS clone URL to the repository that
+        /// contains the source and the build spec. Also, you must connect your AWS account to
+        /// your Bitbucket account. To do this, use the AWS CodeBuild console to begin creating
+        /// a build project. When you use the console to connect (or reconnect) with Bitbucket,
+        /// on the Bitbucket <b>Confirm access to your account</b> page that displays, choose
+        /// <b>Grant access</b>. (After you have connected to your Bitbucket account, you do not
+        /// need to finish creating the build project, and you may then leave the AWS CodeBuild
+        /// console.) To instruct AWS CodeBuild to then use this connection, in the <code>source</code>
+        /// object, set the <code>auth</code> object's <code>type</code> value to <code>OAUTH</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -235,8 +243,8 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// spec by running the following build commands. (Do not run the following build commands
         /// if the specified build environment image is provided by AWS CodeBuild with Docker
         /// support.)</para><para><code>- nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375
-        /// --storage-driver=vfs&amp; - timeout -t 15 sh -c "until docker info; do echo .; sleep
-        /// 1; done"</code></para>
+        /// --storage-driver=overlay&amp; - timeout -t 15 sh -c "until docker info; do echo .;
+        /// sleep 1; done"</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -329,7 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
         #region Parameter Source_Type
         /// <summary>
         /// <para>
-        /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
+        /// <para>The type of repository that contains the source code to be built. Valid values include:</para><ul><li><para><code>BITBUCKET</code>: The source code is in a Bitbucket repository.</para></li><li><para><code>CODECOMMIT</code>: The source code is in an AWS CodeCommit repository.</para></li><li><para><code>CODEPIPELINE</code>: The source code settings are specified in the source action
         /// of a pipeline in AWS CodePipeline.</para></li><li><para><code>GITHUB</code>: The source code is in a GitHub repository.</para></li><li><para><code>S3</code>: The source code is in an Amazon Simple Storage Service (Amazon S3)
         /// input bucket.</para></li></ul>
         /// </para>

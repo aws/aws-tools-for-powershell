@@ -40,9 +40,18 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// This operation can be called only from the organization's master account. Member accounts
     /// can remove themselves with <a>LeaveOrganization</a> instead.
     /// </para><important><ul><li><para>
-    /// You can remove only accounts that were created outside your organization and invited
-    /// to join. If you created the account using the AWS Organizations console, the Organizations
-    /// API, or the Organizations CLI commands, then you cannot remove the account.
+    /// You can remove an account from your organization only if the account is configured
+    /// with the information required to operate as a standalone account. When you create
+    /// an account in an organization using the AWS Organizations console, API, or CLI commands,
+    /// the information required of standalone accounts is <i>not</i> automatically collected.
+    /// For an account that you want to make standalone, you must accept the End User License
+    /// Agreement (EULA), choose a support plan, provide and verify the required contact information,
+    /// and provide a current payment method. AWS uses the payment method to charge for any
+    /// billable (not free tier) AWS activity that occurs while the account is not attached
+    /// to an organization. To remove an account that does not yet have this information,
+    /// you must sign in as the member account and follow the steps at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
+    /// To leave an organization when all required account information has not yet been provided</a>
+    /// in the <i>AWS Organizations User Guide</i>.
     /// </para></li><li><para>
     /// You can remove a member account only after you enable IAM user access to billing in
     /// the member account. For more information, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html#ControllingAccessWebsite-Activate">Activating

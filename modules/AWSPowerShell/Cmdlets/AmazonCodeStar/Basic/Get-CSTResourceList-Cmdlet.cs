@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>he maximum amount of data that can be contained in a single set of results.</para>
+        /// <para>The maximum amount of data that can be contained in a single set of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

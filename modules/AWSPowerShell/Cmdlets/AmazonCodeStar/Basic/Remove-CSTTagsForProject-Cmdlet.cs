@@ -28,62 +28,46 @@ using Amazon.CodeStar.Model;
 namespace Amazon.PowerShell.Cmdlets.CST
 {
     /// <summary>
-    /// Updates a team member's attributes in an AWS CodeStar project. For example, you can
-    /// change a team member's role in the project, or change whether they have remote access
-    /// to project resources.
+    /// Removes tags from a project.
     /// </summary>
-    [Cmdlet("Update", "CSTTeamMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeStar.Model.UpdateTeamMemberResponse")]
-    [AWSCmdlet("Invokes the UpdateTeamMember operation against AWS CodeStar.", Operation = new[] {"UpdateTeamMember"})]
-    [AWSCmdletOutput("Amazon.CodeStar.Model.UpdateTeamMemberResponse",
-        "This cmdlet returns a Amazon.CodeStar.Model.UpdateTeamMemberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CSTTagsForProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the UntagProject operation against AWS CodeStar.", Operation = new[] {"UntagProject"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.CodeStar.Model.UntagProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCSTTeamMemberCmdlet : AmazonCodeStarClientCmdlet, IExecutor
+    public partial class RemoveCSTTagsForProjectCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
-        #region Parameter ProjectId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the project.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProjectId { get; set; }
-        #endregion
-        
-        #region Parameter ProjectRole
-        /// <summary>
-        /// <para>
-        /// <para>The role assigned to the user in the project. Project roles have different levels
-        /// of access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working
-        /// with Teams</a> in the <i>AWS CodeStar User Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProjectRole { get; set; }
-        #endregion
-        
-        #region Parameter RemoteAccessAllowed
-        /// <summary>
-        /// <para>
-        /// <para>Whether a team member is allowed to remotely access project resources using the SSH
-        /// public key associated with the user's profile. Even if this is set to True, the user
-        /// must associate a public key with their profile before the user can access resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean RemoteAccessAllowed { get; set; }
-        #endregion
-        
-        #region Parameter UserArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the user for whom you want to change team membership
-        /// attributes.</para>
+        /// <para>The ID of the project to remove tags from.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String UserArn { get; set; }
+        public System.String Id { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to remove from the project.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.String[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the Id parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CSTTeamMember (UpdateTeamMember)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Id", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CSTTagsForProject (UntagProject)"))
             {
                 return;
             }
@@ -115,11 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.CST
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ProjectId = this.ProjectId;
-            context.ProjectRole = this.ProjectRole;
-            if (ParameterWasBound("RemoteAccessAllowed"))
-                context.RemoteAccessAllowed = this.RemoteAccessAllowed;
-            context.UserArn = this.UserArn;
+            context.Id = this.Id;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<System.String>(this.Tag);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,23 +118,15 @@ namespace Amazon.PowerShell.Cmdlets.CST
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStar.Model.UpdateTeamMemberRequest();
+            var request = new Amazon.CodeStar.Model.UntagProjectRequest();
             
-            if (cmdletContext.ProjectId != null)
+            if (cmdletContext.Id != null)
             {
-                request.ProjectId = cmdletContext.ProjectId;
+                request.Id = cmdletContext.Id;
             }
-            if (cmdletContext.ProjectRole != null)
+            if (cmdletContext.Tags != null)
             {
-                request.ProjectRole = cmdletContext.ProjectRole;
-            }
-            if (cmdletContext.RemoteAccessAllowed != null)
-            {
-                request.RemoteAccessAllowed = cmdletContext.RemoteAccessAllowed.Value;
-            }
-            if (cmdletContext.UserArn != null)
-            {
-                request.UserArn = cmdletContext.UserArn;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -161,7 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.CST
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.Id;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -186,16 +164,16 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStar.Model.UpdateTeamMemberResponse CallAWSServiceOperation(IAmazonCodeStar client, Amazon.CodeStar.Model.UpdateTeamMemberRequest request)
+        private Amazon.CodeStar.Model.UntagProjectResponse CallAWSServiceOperation(IAmazonCodeStar client, Amazon.CodeStar.Model.UntagProjectRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar", "UpdateTeamMember");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar", "UntagProject");
             try
             {
                 #if DESKTOP
-                return client.UpdateTeamMember(request);
+                return client.UntagProject(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateTeamMemberAsync(request);
+                var task = client.UntagProjectAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -216,10 +194,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProjectId { get; set; }
-            public System.String ProjectRole { get; set; }
-            public System.Boolean? RemoteAccessAllowed { get; set; }
-            public System.String UserArn { get; set; }
+            public System.String Id { get; set; }
+            public List<System.String> Tags { get; set; }
         }
         
     }

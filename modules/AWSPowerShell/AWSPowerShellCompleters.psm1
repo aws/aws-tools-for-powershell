@@ -643,6 +643,22 @@ $BGT_Completers = {
             break
         }
         
+        # Amazon.Budgets.ThresholdType
+        {
+            ($_ -eq "Update-BGTNotification/NewNotification_ThresholdType") -Or
+            ($_ -eq "Get-BGTSubscribersForNotification/Notification_ThresholdType") -Or
+            ($_ -eq "New-BGTNotification/Notification_ThresholdType") -Or
+            ($_ -eq "New-BGTSubscriber/Notification_ThresholdType") -Or
+            ($_ -eq "Remove-BGTNotification/Notification_ThresholdType") -Or
+            ($_ -eq "Remove-BGTSubscriber/Notification_ThresholdType") -Or
+            ($_ -eq "Update-BGTSubscriber/Notification_ThresholdType") -Or
+            ($_ -eq "Update-BGTNotification/OldNotification_ThresholdType")
+        }
+        {
+            $v = "ABSOLUTE_VALUE","PERCENTAGE"
+            break
+        }
+        
         # Amazon.Budgets.TimeUnit
         {
             ($_ -eq "New-BGTBudget/Budget_TimeUnit") -Or
@@ -667,11 +683,14 @@ $BGT_map = @{
     "NewBudget_TimeUnit"=@("Update-BGTBudget")
     "NewNotification_ComparisonOperator"=@("Update-BGTNotification")
     "NewNotification_NotificationType"=@("Update-BGTNotification")
+    "NewNotification_ThresholdType"=@("Update-BGTNotification")
     "NewSubscriber_SubscriptionType"=@("Update-BGTSubscriber")
     "Notification_ComparisonOperator"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
     "Notification_NotificationType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
+    "Notification_ThresholdType"=@("Get-BGTSubscribersForNotification","New-BGTNotification","New-BGTSubscriber","Remove-BGTNotification","Remove-BGTSubscriber","Update-BGTSubscriber")
     "OldNotification_ComparisonOperator"=@("Update-BGTNotification")
     "OldNotification_NotificationType"=@("Update-BGTNotification")
+    "OldNotification_ThresholdType"=@("Update-BGTNotification")
     "OldSubscriber_SubscriptionType"=@("Update-BGTSubscriber")
     "Subscriber_SubscriptionType"=@("New-BGTSubscriber","Remove-BGTSubscriber")
 }
@@ -2705,6 +2724,13 @@ $ELB2_Completers = {
             break
         }
         
+        # Amazon.ElasticLoadBalancingV2.TargetTypeEnum
+        "New-ELB2TargetGroup/TargetType"
+        {
+            $v = "instance","ip"
+            break
+        }
+        
     }
     
     $v |
@@ -2717,6 +2743,7 @@ $ELB2_map = @{
     "IpAddressType"=@("New-ELB2LoadBalancer","Set-ELB2IpAddressType")
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
+    "TargetType"=@("New-ELB2TargetGroup")
 }
 
 _awsArgumentCompleterRegistration $ELB2_Completers $ELB2_map
@@ -2856,7 +2883,7 @@ $GML_Completers = {
             ($_ -eq "New-GMLFleet/EC2InstanceType")
         }
         {
-            $v = "c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","t2.large","t2.medium","t2.micro","t2.small"
+            $v = "c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t2.large","t2.medium","t2.micro","t2.small"
             break
         }
         
@@ -3553,6 +3580,13 @@ $LMB_Completers = {
             break
         }
         
+        # Amazon.LexModelBuildingService.SlotValueSelectionStrategy
+        "Write-LMBSlotType/ValueSelectionStrategy"
+        {
+            $v = "ORIGINAL_VALUE","TOP_RESOLUTION"
+            break
+        }
+        
         # Amazon.LexModelBuildingService.StatusType
         "Get-LMBUtterancesView/StatusType"
         {
@@ -3572,6 +3606,7 @@ $LMB_map = @{
     "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
     "ProcessBehavior"=@("Write-LMBBot")
     "StatusType"=@("Get-LMBUtterancesView")
+    "ValueSelectionStrategy"=@("Write-LMBSlotType")
 }
 
 _awsArgumentCompleterRegistration $LMB_Completers $LMB_map

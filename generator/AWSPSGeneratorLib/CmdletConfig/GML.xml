@@ -23,11 +23,20 @@
     <ServiceOperation MethodName="CreateGameSession" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreateGameSessionQueue" PipelineParameter="Name" ShouldProcessTarget="Name"/>
     <ServiceOperation MethodName="CreatePlayerSessions" PipelineParameter="GameSessionId" Noun="PlayerSession"/>
+	
+    <ServiceOperation MethodName="CreateVpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" />
+    <ServiceOperation MethodName="CreateVpcPeeringConnection" PipelineParameter="FleetId" Output="Void" />
+	
     <ServiceOperation MethodName="DeleteAlias" Output="Void"/>
     <ServiceOperation MethodName="DeleteBuild" Output="Void"/>
     <ServiceOperation MethodName="DeleteFleet" Output="Void"/>
     <ServiceOperation MethodName="DeleteGameSessionQueue" ShouldProcessTarget="Name" Output="Void"/>
     <ServiceOperation MethodName="DeleteScalingPolicy" PipelineParameter="FleetId" Output="Void"/>
+
+    <ServiceOperation MethodName="DeleteVpcPeeringAuthorization" ShouldProcessTarget="PeerVpcId" Output="Void"/>
+    <ServiceOperation MethodName="DeleteVpcPeeringConnection" PipelineParameter="FleetId" Output="Void"/>
+
+
     <ServiceOperation MethodName="DescribeAlias" Noun="AliasDetail"/>
     <ServiceOperation MethodName="DescribeBuild" Noun="BuildDetail"/>
     <ServiceOperation MethodName="DescribeEC2InstanceLimits" Noun="EC2InstanceLimit"/>
@@ -44,6 +53,11 @@
     <ServiceOperation MethodName="DescribePlayerSessions" Noun="PlayerSession"/>
     <ServiceOperation MethodName="DescribeRuntimeConfiguration"/>
     <ServiceOperation MethodName="DescribeScalingPolicies" Noun="ScalingPolicy" PipelineParameter="FleetId"/>
+	
+    <ServiceOperation MethodName="DescribeVpcPeeringAuthorizations" Noun="VpcPeeringAuthorization" />
+    <ServiceOperation MethodName="DescribeVpcPeeringConnections" Noun="VpcPeeringConnection" PipelineParameter="FleetId"/>
+	
+	
     <ServiceOperation MethodName="GetGameSessionLogUrl"/>
     <ServiceOperation MethodName="GetInstanceAccess" PipelineParameter="FleetId"/>
     <ServiceOperation MethodName="ListAliases" Noun="Alias"/>

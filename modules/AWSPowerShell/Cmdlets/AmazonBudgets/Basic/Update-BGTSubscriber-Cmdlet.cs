@@ -134,6 +134,17 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Double Notification_Threshold { get; set; }
         #endregion
         
+        #region Parameter Notification_ThresholdType
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Budgets.ThresholdType")]
+        public Amazon.Budgets.ThresholdType Notification_ThresholdType { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BudgetName parameter.
@@ -180,6 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.Notification_NotificationType = this.Notification_NotificationType;
             if (ParameterWasBound("Notification_Threshold"))
                 context.Notification_Threshold = this.Notification_Threshold;
+            context.Notification_ThresholdType = this.Notification_ThresholdType;
             context.OldSubscriber_Address = this.OldSubscriber_Address;
             context.OldSubscriber_SubscriptionType = this.OldSubscriber_SubscriptionType;
             
@@ -267,6 +279,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestNotification_notification_Threshold != null)
             {
                 request.Notification.Threshold = requestNotification_notification_Threshold.Value;
+                requestNotificationIsNull = false;
+            }
+            Amazon.Budgets.ThresholdType requestNotification_notification_ThresholdType = null;
+            if (cmdletContext.Notification_ThresholdType != null)
+            {
+                requestNotification_notification_ThresholdType = cmdletContext.Notification_ThresholdType;
+            }
+            if (requestNotification_notification_ThresholdType != null)
+            {
+                request.Notification.ThresholdType = requestNotification_notification_ThresholdType;
                 requestNotificationIsNull = false;
             }
              // determine if request.Notification should be set to null
@@ -376,6 +398,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public Amazon.Budgets.ComparisonOperator Notification_ComparisonOperator { get; set; }
             public Amazon.Budgets.NotificationType Notification_NotificationType { get; set; }
             public System.Double? Notification_Threshold { get; set; }
+            public Amazon.Budgets.ThresholdType Notification_ThresholdType { get; set; }
             public System.String OldSubscriber_Address { get; set; }
             public Amazon.Budgets.SubscriptionType OldSubscriber_SubscriptionType { get; set; }
         }

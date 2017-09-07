@@ -276,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The identifier of the DB instance that will act as the source for the Read Replica.
         /// Each DB instance can have up to five Read Replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.</para></li><li><para>Can specify a DB instance that is a MySQL Read Replica only if the source is running
         /// MySQL 5.6.</para></li><li><para>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running
-        /// PostgreSQL 9.3.5 or later.</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
+        /// PostgreSQL 9.3.5 or later (9.4.7 and higher for cross region replication).</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
         /// period must be greater than 0.</para></li><li><para>If the source DB instance is in the same AWS Region as the Read Replica, specify a
         /// valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different AWS Region than the Read Replica, specify
         /// a valid DB instance ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">

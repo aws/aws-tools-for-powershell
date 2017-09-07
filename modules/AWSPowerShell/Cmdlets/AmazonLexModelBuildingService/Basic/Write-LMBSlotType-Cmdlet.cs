@@ -81,7 +81,14 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>A list of <code>EnumerationValue</code> objects that defines the values that the slot
-        /// type can take.</para>
+        /// type can take. Each value can have a list of <code>synonyms</code>, which are additional
+        /// values that help train the machine learning model about the values that it resolves
+        /// for a slot. </para><para>When Amazon Lex resolves a slot value, it generates a resolution list that contains
+        /// up to five possible values for the slot. If you are using a Lambda function, this
+        /// resolution list is passed to the function. If you are not using a Lambda function
+        /// you can choose to return the value that the user entered or the first value in the
+        /// resolution list as the slot value. The <code>valueSelectionStrategy</code> field indicates
+        /// the option to use. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,6 +107,21 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter ValueSelectionStrategy
+        /// <summary>
+        /// <para>
+        /// <para>Determines the strategy that Amazon Lex uses to return slot type values. The field
+        /// can be set to one of the following values:</para><ul><li><para><code>ORIGINAL_VALUE</code> - Returns the value entered by the user.</para></li><li><para><code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return
+        /// the first value in the resolution list as the slot type value. If there is no resolution
+        /// list, null is returned.</para></li></ul><para>If you don't specify the <code>valueSelectionStrategy</code> is not provided, the
+        /// default is <code>ORIGINAL_VALUE</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.LexModelBuildingService.SlotValueSelectionStrategy")]
+        public Amazon.LexModelBuildingService.SlotValueSelectionStrategy ValueSelectionStrategy { get; set; }
         #endregion
         
         #region Parameter Force
@@ -138,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
                 context.EnumerationValues = new List<Amazon.LexModelBuildingService.Model.EnumerationValue>(this.EnumerationValue);
             }
             context.Name = this.Name;
+            context.ValueSelectionStrategy = this.ValueSelectionStrategy;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -169,6 +192,10 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.ValueSelectionStrategy != null)
+            {
+                request.ValueSelectionStrategy = cmdletContext.ValueSelectionStrategy;
             }
             
             CmdletOutput output;
@@ -238,6 +265,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
             public System.String Description { get; set; }
             public List<Amazon.LexModelBuildingService.Model.EnumerationValue> EnumerationValues { get; set; }
             public System.String Name { get; set; }
+            public Amazon.LexModelBuildingService.SlotValueSelectionStrategy ValueSelectionStrategy { get; set; }
         }
         
     }

@@ -33,8 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// 
     ///  
     /// <para>
-    ///  The GetBot operation requires permissions for the <code>lex:GetBot</code> action.
-    /// 
+    ///  This operation requires permissions for the <code>lex:GetBot</code> action. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "LMBBot")]

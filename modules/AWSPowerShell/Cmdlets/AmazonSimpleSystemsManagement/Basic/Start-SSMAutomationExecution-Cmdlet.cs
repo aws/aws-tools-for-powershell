@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class StartSSMAutomationExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter ClientToken
+        /// <summary>
+        /// <para>
+        /// <para>User-provided idempotency token. The token must be unique, is case insensitive, enforces
+        /// the UUID format, and can't be reused.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientToken { get; set; }
+        #endregion
+        
         #region Parameter DocumentName
         /// <summary>
         /// <para>
@@ -101,6 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClientToken = this.ClientToken;
             context.DocumentName = this.DocumentName;
             context.DocumentVersion = this.DocumentVersion;
             if (this.Parameter != null)
@@ -139,6 +151,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.StartAutomationExecutionRequest();
             
+            if (cmdletContext.ClientToken != null)
+            {
+                request.ClientToken = cmdletContext.ClientToken;
+            }
             if (cmdletContext.DocumentName != null)
             {
                 request.DocumentName = cmdletContext.DocumentName;
@@ -215,6 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientToken { get; set; }
             public System.String DocumentName { get; set; }
             public System.String DocumentVersion { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }

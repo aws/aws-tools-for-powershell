@@ -172,6 +172,24 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
         #endregion
         
+        #region Parameter TargetType
+        /// <summary>
+        /// <para>
+        /// <para>The type of target that you must specify when registering targets with this target
+        /// group. The possible values are <code>instance</code> (targets are specified by instance
+        /// ID) or <code>ip</code> (targets are specified by IP address). The default is <code>instance</code>.
+        /// Note that you can't specify targets for a target group using both instance IDs and
+        /// IP addresses.</para><para>If the target type is <code>ip</code>, specify IP addresses from the subnets of the
+        /// virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8,
+        /// 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't
+        /// specify publicly routable IP addresses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.TargetTypeEnum")]
+        public Amazon.ElasticLoadBalancingV2.TargetTypeEnum TargetType { get; set; }
+        #endregion
+        
         #region Parameter UnhealthyThresholdCount
         /// <summary>
         /// <para>
@@ -236,6 +254,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.Protocol = this.Protocol;
+            context.TargetType = this.TargetType;
             if (ParameterWasBound("UnhealthyThresholdCount"))
                 context.UnhealthyThresholdCount = this.UnhealthyThresholdCount;
             context.VpcId = this.VpcId;
@@ -309,6 +328,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.Protocol != null)
             {
                 request.Protocol = cmdletContext.Protocol;
+            }
+            if (cmdletContext.TargetType != null)
+            {
+                request.TargetType = cmdletContext.TargetType;
             }
             if (cmdletContext.UnhealthyThresholdCount != null)
             {
@@ -392,6 +415,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.String Name { get; set; }
             public System.Int32? Port { get; set; }
             public Amazon.ElasticLoadBalancingV2.ProtocolEnum Protocol { get; set; }
+            public Amazon.ElasticLoadBalancingV2.TargetTypeEnum TargetType { get; set; }
             public System.Int32? UnhealthyThresholdCount { get; set; }
             public System.String VpcId { get; set; }
         }

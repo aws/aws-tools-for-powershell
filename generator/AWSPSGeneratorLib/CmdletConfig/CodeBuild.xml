@@ -11,6 +11,7 @@
   <AutoIterate Start="NextToken" Next="NextToken" />
  
   <ServiceOperations>
+    <ServiceOperation MethodName="BatchDeleteBuilds" Verb="Delete" Noun="BuildBatch" Output="Response"  />
     <ServiceOperation MethodName="BatchGetBuilds" Verb="Get" Noun="BuildBatch" Output="Response" />
     <ServiceOperation MethodName="BatchGetProjects" Verb="Get" Noun="ProjectBatch" Output="Response" />
     <ServiceOperation MethodName="CreateProject" PipelineParameter="Name" />

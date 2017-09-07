@@ -97,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
         #region Parameter ProtectionPolicy
         /// <summary>
         /// <para>
-        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><b>NoProtection</b> – The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> – If the game session is in an <code>ACTIVE</code> status,
+        /// <para>Game session protection policy to apply to this game session only.</para><ul><li><para><b>NoProtection</b> -- The game session can be terminated during a scale-down event.</para></li><li><para><b>FullProtection</b> -- If the game session is in an <code>ACTIVE</code> status,
         /// it cannot be terminated during a scale-down event.</para></li></ul>
         /// </para>
         /// </summary>

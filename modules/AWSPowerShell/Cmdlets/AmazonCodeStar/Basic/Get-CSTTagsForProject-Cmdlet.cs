@@ -22,77 +22,50 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.GameLift;
-using Amazon.GameLift.Model;
+using Amazon.CodeStar;
+using Amazon.CodeStar.Model;
 
-namespace Amazon.PowerShell.Cmdlets.GML
+namespace Amazon.PowerShell.Cmdlets.CST
 {
     /// <summary>
-    /// Retrieves all aliases for this AWS account. You can filter the result set by alias
-    /// name and/or routing strategy type. Use the pagination parameters to retrieve results
-    /// in sequential pages.
-    /// 
-    ///  <note><para>
-    /// Returned aliases are not listed in any particular order.
-    /// </para></note><para>
-    /// Alias-related operations include:
-    /// </para><ul><li><para><a>CreateAlias</a></para></li><li><para><a>ListAliases</a></para></li><li><para><a>DescribeAlias</a></para></li><li><para><a>UpdateAlias</a></para></li><li><para><a>DeleteAlias</a></para></li><li><para><a>ResolveAlias</a></para></li></ul><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets the tags for a project.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "GMLAlias")]
-    [OutputType("Amazon.GameLift.Model.Alias")]
-    [AWSCmdlet("Invokes the ListAliases operation against Amazon GameLift Service.", Operation = new[] {"ListAliases"})]
-    [AWSCmdletOutput("Amazon.GameLift.Model.Alias",
-        "This cmdlet returns a collection of Alias objects.",
-        "The service call response (type Amazon.GameLift.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "CSTTagsForProject")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the ListTagsForProject operation against AWS CodeStar.", Operation = new[] {"ListTagsForProject"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.CodeStar.Model.ListTagsForProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetGMLAliasCmdlet : AmazonGameLiftClientCmdlet, IExecutor
+    public partial class GetCSTTagsForProjectCmdlet : AmazonCodeStarClientCmdlet, IExecutor
     {
         
-        #region Parameter Name
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>Descriptive label that is associated with an alias. Alias names do not need to be
-        /// unique.</para>
+        /// <para>The ID of the project to get tags for.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String Name { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Id { get; set; }
         #endregion
         
-        #region Parameter RoutingStrategyType
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Type of routing to filter results on. Use this parameter to retrieve only aliases
-        /// of a certain type. To retrieve all aliases, leave this parameter empty.</para><para>Possible routing types include the following:</para><ul><li><para><b>SIMPLE</b> -- The alias resolves to one specific fleet. Use this type when routing
-        /// to active fleets.</para></li><li><para><b>TERMINAL</b> -- The alias does not resolve to a fleet but instead can be used
-        /// to display a message to the user. A terminal alias throws a TerminalRoutingStrategyException
-        /// with the <a>RoutingStrategy</a> message embedded.</para></li></ul>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.GameLift.RoutingStrategyType")]
-        public Amazon.GameLift.RoutingStrategyType RoutingStrategyType { get; set; }
-        #endregion
-        
-        #region Parameter Limit
-        /// <summary>
-        /// <para>
-        /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
-        /// to get results as a set of sequential pages.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxItems")]
-        public int Limit { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>Token that indicates the start of the next sequential page of results. Use the token
-        /// that is returned with a previous call to this action. To start at the beginning of
-        /// the result set, do not specify a value.</para>
+        /// <para>Reserved for future use.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -115,11 +88,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (ParameterWasBound("Limit"))
-                context.Limit = this.Limit;
-            context.Name = this.Name;
+            context.Id = this.Id;
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            context.RoutingStrategyType = this.RoutingStrategyType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -135,14 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.GML
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.GameLift.Model.ListAliasesRequest();
-            if (cmdletContext.Name != null)
+            var request = new Amazon.CodeStar.Model.ListTagsForProjectRequest();
+            if (cmdletContext.Id != null)
             {
-                request.Name = cmdletContext.Name;
-            }
-            if (cmdletContext.RoutingStrategyType != null)
-            {
-                request.RoutingStrategyType = cmdletContext.RoutingStrategyType;
+                request.Id = cmdletContext.Id;
             }
             
             // Initialize loop variants and commence piping
@@ -153,11 +121,11 @@ namespace Amazon.PowerShell.Cmdlets.GML
             {
                 _nextMarker = cmdletContext.NextToken;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.Limit))
+            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
-                _emitLimit = cmdletContext.Limit;
+                _emitLimit = cmdletContext.MaxResults;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.Limit);
+            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
             bool _continueIteration = true;
             
             try
@@ -167,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                     request.NextToken = _nextMarker;
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
-                        request.Limit = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -178,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.Aliases;
+                        object pipelineOutput = response.Tags;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -187,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.Aliases.Count;
+                        int _receivedThisCall = response.Tags.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -230,16 +198,16 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         #region AWS Service Operation Call
         
-        private Amazon.GameLift.Model.ListAliasesResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.ListAliasesRequest request)
+        private Amazon.CodeStar.Model.ListTagsForProjectResponse CallAWSServiceOperation(IAmazonCodeStar client, Amazon.CodeStar.Model.ListTagsForProjectRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "ListAliases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar", "ListTagsForProject");
             try
             {
                 #if DESKTOP
-                return client.ListAliases(request);
+                return client.ListTagsForProject(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListAliasesAsync(request);
+                var task = client.ListTagsForProjectAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -260,10 +228,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? Limit { get; set; }
-            public System.String Name { get; set; }
+            public System.String Id { get; set; }
+            public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public Amazon.GameLift.RoutingStrategyType RoutingStrategyType { get; set; }
         }
         
     }

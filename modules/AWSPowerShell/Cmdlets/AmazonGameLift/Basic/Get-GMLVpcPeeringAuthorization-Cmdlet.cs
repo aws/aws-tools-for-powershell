@@ -22,45 +22,34 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Organizations;
-using Amazon.Organizations.Model;
+using Amazon.GameLift;
+using Amazon.GameLift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ORG
+namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Deletes the organization. You can delete an organization only by using credentials
-    /// from the master account. The organization must be empty of member accounts, OUs, and
-    /// policies.
+    /// Retrieves valid VPC peering authorizations that are pending for the AWS account. This
+    /// operation returns all VPC peering authorizations and requests for peering. This includes
+    /// those initiated and received by this account. 
+    /// 
+    ///  
+    /// <para>
+    /// VPC peering connection operations include:
+    /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Remove", "ORGOrganization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteOrganization operation against AWS Organizations.", Operation = new[] {"DeleteOrganization"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.Organizations.Model.DeleteOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "GMLVpcPeeringAuthorization")]
+    [OutputType("Amazon.GameLift.Model.VpcPeeringAuthorization")]
+    [AWSCmdlet("Invokes the DescribeVpcPeeringAuthorizations operation against Amazon GameLift Service.", Operation = new[] {"DescribeVpcPeeringAuthorizations"})]
+    [AWSCmdletOutput("Amazon.GameLift.Model.VpcPeeringAuthorization",
+        "This cmdlet returns a collection of VpcPeeringAuthorization objects.",
+        "The service call response (type Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveORGOrganizationCmdlet : AmazonOrganizationsClientCmdlet, IExecutor
+    public partial class GetGMLVpcPeeringAuthorizationCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = string.Empty;
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ORGOrganization (DeleteOrganization)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -85,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Organizations.Model.DeleteOrganizationRequest();
+            var request = new Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsRequest();
             
             
             CmdletOutput output;
@@ -96,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.VpcPeeringAuthorizations;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -121,16 +110,16 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         
         #region AWS Service Operation Call
         
-        private Amazon.Organizations.Model.DeleteOrganizationResponse CallAWSServiceOperation(IAmazonOrganizations client, Amazon.Organizations.Model.DeleteOrganizationRequest request)
+        private Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DescribeVpcPeeringAuthorizationsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Organizations", "DeleteOrganization");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DescribeVpcPeeringAuthorizations");
             try
             {
                 #if DESKTOP
-                return client.DeleteOrganization(request);
+                return client.DescribeVpcPeeringAuthorizations(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteOrganizationAsync(request);
+                var task = client.DescribeVpcPeeringAuthorizationsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"

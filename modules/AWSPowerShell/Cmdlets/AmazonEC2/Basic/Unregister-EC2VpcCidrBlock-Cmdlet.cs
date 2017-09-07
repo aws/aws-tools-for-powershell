@@ -28,9 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Disassociates a CIDR block from a VPC. Currently, you can disassociate an IPv6 CIDR
-    /// block only. You must detach or delete all gateways and resources that are associated
-    /// with the CIDR block before you can disassociate it.
+    /// Disassociates a CIDR block from a VPC. To disassociate the CIDR block, you must specify
+    /// its association ID. You can get the association ID by using <a>DescribeVpcs</a>. You
+    /// must detach or delete all gateways and resources that are associated with the CIDR
+    /// block before you can disassociate it. 
+    /// 
+    ///  
+    /// <para>
+    /// You cannot disassociate the CIDR block with which you originally created the VPC (the
+    /// primary CIDR block).
+    /// </para>
     /// </summary>
     [Cmdlet("Unregister", "EC2VpcCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateVpcCidrBlockResponse")]

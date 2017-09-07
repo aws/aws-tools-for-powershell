@@ -22,68 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeStar;
-using Amazon.CodeStar.Model;
+using Amazon.CodeBuild;
+using Amazon.CodeBuild.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CST
+namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// Updates a team member's attributes in an AWS CodeStar project. For example, you can
-    /// change a team member's role in the project, or change whether they have remote access
-    /// to project resources.
+    /// Deletes one or more builds.
     /// </summary>
-    [Cmdlet("Update", "CSTTeamMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeStar.Model.UpdateTeamMemberResponse")]
-    [AWSCmdlet("Invokes the UpdateTeamMember operation against AWS CodeStar.", Operation = new[] {"UpdateTeamMember"})]
-    [AWSCmdletOutput("Amazon.CodeStar.Model.UpdateTeamMemberResponse",
-        "This cmdlet returns a Amazon.CodeStar.Model.UpdateTeamMemberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CBBuildBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.CodeBuild.Model.BatchDeleteBuildsResponse")]
+    [AWSCmdlet("Invokes the BatchDeleteBuilds operation against AWS CodeBuild.", Operation = new[] {"BatchDeleteBuilds"})]
+    [AWSCmdletOutput("Amazon.CodeBuild.Model.BatchDeleteBuildsResponse",
+        "This cmdlet returns a Amazon.CodeBuild.Model.BatchDeleteBuildsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCSTTeamMemberCmdlet : AmazonCodeStarClientCmdlet, IExecutor
+    public partial class RemoveCBBuildBatchCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
-        #region Parameter ProjectId
+        #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The ID of the project.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProjectId { get; set; }
-        #endregion
-        
-        #region Parameter ProjectRole
-        /// <summary>
-        /// <para>
-        /// <para>The role assigned to the user in the project. Project roles have different levels
-        /// of access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working
-        /// with Teams</a> in the <i>AWS CodeStar User Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProjectRole { get; set; }
-        #endregion
-        
-        #region Parameter RemoteAccessAllowed
-        /// <summary>
-        /// <para>
-        /// <para>Whether a team member is allowed to remotely access project resources using the SSH
-        /// public key associated with the user's profile. Even if this is set to True, the user
-        /// must associate a public key with their profile before the user can access resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean RemoteAccessAllowed { get; set; }
-        #endregion
-        
-        #region Parameter UserArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the user for whom you want to change team membership
-        /// attributes.</para>
+        /// <para>The IDs of the builds to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String UserArn { get; set; }
+        [Alias("Ids")]
+        public System.String[] Id { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CSTTeamMember (UpdateTeamMember)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Id", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CBBuildBatch (BatchDeleteBuilds)"))
             {
                 return;
             }
@@ -115,11 +79,10 @@ namespace Amazon.PowerShell.Cmdlets.CST
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ProjectId = this.ProjectId;
-            context.ProjectRole = this.ProjectRole;
-            if (ParameterWasBound("RemoteAccessAllowed"))
-                context.RemoteAccessAllowed = this.RemoteAccessAllowed;
-            context.UserArn = this.UserArn;
+            if (this.Id != null)
+            {
+                context.Ids = new List<System.String>(this.Id);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,23 +97,11 @@ namespace Amazon.PowerShell.Cmdlets.CST
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStar.Model.UpdateTeamMemberRequest();
+            var request = new Amazon.CodeBuild.Model.BatchDeleteBuildsRequest();
             
-            if (cmdletContext.ProjectId != null)
+            if (cmdletContext.Ids != null)
             {
-                request.ProjectId = cmdletContext.ProjectId;
-            }
-            if (cmdletContext.ProjectRole != null)
-            {
-                request.ProjectRole = cmdletContext.ProjectRole;
-            }
-            if (cmdletContext.RemoteAccessAllowed != null)
-            {
-                request.RemoteAccessAllowed = cmdletContext.RemoteAccessAllowed.Value;
-            }
-            if (cmdletContext.UserArn != null)
-            {
-                request.UserArn = cmdletContext.UserArn;
+                request.Ids = cmdletContext.Ids;
             }
             
             CmdletOutput output;
@@ -186,16 +137,16 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStar.Model.UpdateTeamMemberResponse CallAWSServiceOperation(IAmazonCodeStar client, Amazon.CodeStar.Model.UpdateTeamMemberRequest request)
+        private Amazon.CodeBuild.Model.BatchDeleteBuildsResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.BatchDeleteBuildsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar", "UpdateTeamMember");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "BatchDeleteBuilds");
             try
             {
                 #if DESKTOP
-                return client.UpdateTeamMember(request);
+                return client.BatchDeleteBuilds(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateTeamMemberAsync(request);
+                var task = client.BatchDeleteBuildsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -216,10 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProjectId { get; set; }
-            public System.String ProjectRole { get; set; }
-            public System.Boolean? RemoteAccessAllowed { get; set; }
-            public System.String UserArn { get; set; }
+            public List<System.String> Ids { get; set; }
         }
         
     }

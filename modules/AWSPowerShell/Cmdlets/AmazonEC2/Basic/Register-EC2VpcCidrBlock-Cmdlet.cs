@@ -28,8 +28,16 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Associates a CIDR block with your VPC. You can only associate a single Amazon-provided
-    /// IPv6 CIDR block with your VPC. The IPv6 CIDR block size is fixed at /56.
+    /// Associates a CIDR block with your VPC. You can associate a secondary IPv4 CIDR block,
+    /// or you can associate an Amazon-provided IPv6 CIDR block. The IPv6 CIDR block size
+    /// is fixed at /56.
+    /// 
+    ///  
+    /// <para>
+    /// For more information about associating CIDR blocks with your VPC and applicable restrictions,
+    /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Subnets.html#VPC_Sizing">VPC
+    /// and Subnet Sizing</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
+    /// </para>
     /// </summary>
     [Cmdlet("Register", "EC2VpcCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssociateVpcCidrBlockResponse")]
@@ -49,6 +57,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean AmazonProvidedIpv6CidrBlock { get; set; }
+        #endregion
+        
+        #region Parameter CidrBlock
+        /// <summary>
+        /// <para>
+        /// <para>An IPv4 CIDR block to associate with the VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CidrBlock { get; set; }
         #endregion
         
         #region Parameter VpcId
@@ -92,6 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (ParameterWasBound("AmazonProvidedIpv6CidrBlock"))
                 context.AmazonProvidedIpv6CidrBlock = this.AmazonProvidedIpv6CidrBlock;
+            context.CidrBlock = this.CidrBlock;
             context.VpcId = this.VpcId;
             
             // allow further manipulation of loaded context prior to processing
@@ -112,6 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.AmazonProvidedIpv6CidrBlock != null)
             {
                 request.AmazonProvidedIpv6CidrBlock = cmdletContext.AmazonProvidedIpv6CidrBlock.Value;
+            }
+            if (cmdletContext.CidrBlock != null)
+            {
+                request.CidrBlock = cmdletContext.CidrBlock;
             }
             if (cmdletContext.VpcId != null)
             {
@@ -182,6 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? AmazonProvidedIpv6CidrBlock { get; set; }
+            public System.String CidrBlock { get; set; }
             public System.String VpcId { get; set; }
         }
         

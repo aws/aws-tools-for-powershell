@@ -44,9 +44,14 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// For more information about creating accounts, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html">Creating
     /// an AWS Account in Your Organization</a> in the <i>AWS Organizations User Guide</i>.
     /// </para><important><para>
-    /// You cannot remove accounts that are created with this operation from an organization.
-    /// That also means that you cannot delete an organization that contains an account that
-    /// is created with this operation.
+    /// When you create an account in an organization using the AWS Organizations console,
+    /// API, or CLI commands, the information required for the account to operate as a standalone
+    /// account, such as a payment method and signing the End User Licence Agreement (EULA)
+    /// is <i>not</i> automatically collected. If you must remove an account from your organization
+    /// later, you can do so only after you provide the missing information. Follow the steps
+    /// at <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_remove.html#leave-without-all-info">
+    /// To leave an organization when all required account information has not yet been provided</a>
+    /// in the <i>AWS Organizations User Guide</i>.
     /// </para></important><note><para>
     /// When you create a member account with this operation, you can choose whether to create
     /// the account with the <b>IAM User and Role Access to Billing Information</b> switch
@@ -57,7 +62,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// Access to Your Billing Information and Tools</a>.
     /// </para></note><para>
     /// This operation can be called only from the organization's master account.
-    /// </para>
+    /// </para><important><para>
+    /// If you get an exception that indicates that you exceeded your account limits for the
+    /// organization or that you can"t add an account because your organization is still initializing,
+    /// please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer
+    /// Support</a>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("New", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.CreateAccountStatus")]

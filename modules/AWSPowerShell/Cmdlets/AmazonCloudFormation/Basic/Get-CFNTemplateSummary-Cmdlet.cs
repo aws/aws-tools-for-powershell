@@ -30,12 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// <summary>
     /// Returns information about a new or existing template. The <code>GetTemplateSummary</code>
     /// action is useful for viewing parameter information, such as default parameter values
-    /// and parameter types, before you create or update a stack.
+    /// and parameter types, before you create or update a stack or stack set.
     /// 
     ///  
     /// <para>
     /// You can use the <code>GetTemplateSummary</code> action when you submit a template,
-    /// or you can get template information for a running or deleted stack.
+    /// or you can get template information for a stack set, or a running or deleted stack.
     /// </para><para>
     /// For deleted stacks, <code>GetTemplateSummary</code> returns the template information
     /// for up to 90 days after the stack has been deleted. If the template does not exist,
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>The name or the stack ID that is associated with the stack, which are not always interchangeable.
         /// For running stacks, you can specify either the stack's name or its unique stack ID.
         /// For deleted stack, you must specify the unique stack ID.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,7 +67,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter StackSetName
         /// <summary>
         /// <para>
-        /// <para>The name or unique ID of the stack set from which the stack was created.</para>
+        /// <para>The name or unique ID of the stack set from which the stack was created.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
+        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -80,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// <para>Structure containing the template body with a minimum length of 1 byte and a maximum
         /// length of 51,200 bytes. For more information about templates, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// size: 460,800 bytes) that is located in an Amazon S3 bucket. For more information
         /// about templates, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template
         /// Anatomy</a> in the AWS CloudFormation User Guide.</para><para>Conditional: You must specify only one of the following parameters: <code>StackName</code>,
-        /// <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
+        /// <code>StackSetName</code>, <code>TemplateBody</code>, or <code>TemplateURL</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <summary>
         /// <para>
         /// <para>A user- or system-generated token that identifies the entity that requested the team
-        /// member association to the project. This token can be used to repeat the request. </para>
+        /// member association to the project. This token can be used to repeat the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         #region Parameter UserArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) for the IAM user you want to add to the DevHub project.</para>
+        /// <para>The Amazon Resource Name (ARN) for the IAM user you want to add to the AWS CodeStar
+        /// project.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

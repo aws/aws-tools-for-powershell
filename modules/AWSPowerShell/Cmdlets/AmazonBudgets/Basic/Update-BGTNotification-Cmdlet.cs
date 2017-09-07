@@ -124,6 +124,28 @@ namespace Amazon.PowerShell.Cmdlets.BGT
         public System.Double OldNotification_Threshold { get; set; }
         #endregion
         
+        #region Parameter NewNotification_ThresholdType
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Budgets.ThresholdType")]
+        public Amazon.Budgets.ThresholdType NewNotification_ThresholdType { get; set; }
+        #endregion
+        
+        #region Parameter OldNotification_ThresholdType
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.Budgets.ThresholdType")]
+        public Amazon.Budgets.ThresholdType OldNotification_ThresholdType { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the BudgetName parameter.
@@ -168,10 +190,12 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             context.NewNotification_NotificationType = this.NewNotification_NotificationType;
             if (ParameterWasBound("NewNotification_Threshold"))
                 context.NewNotification_Threshold = this.NewNotification_Threshold;
+            context.NewNotification_ThresholdType = this.NewNotification_ThresholdType;
             context.OldNotification_ComparisonOperator = this.OldNotification_ComparisonOperator;
             context.OldNotification_NotificationType = this.OldNotification_NotificationType;
             if (ParameterWasBound("OldNotification_Threshold"))
                 context.OldNotification_Threshold = this.OldNotification_Threshold;
+            context.OldNotification_ThresholdType = this.OldNotification_ThresholdType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -230,6 +254,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
                 request.NewNotification.Threshold = requestNewNotification_newNotification_Threshold.Value;
                 requestNewNotificationIsNull = false;
             }
+            Amazon.Budgets.ThresholdType requestNewNotification_newNotification_ThresholdType = null;
+            if (cmdletContext.NewNotification_ThresholdType != null)
+            {
+                requestNewNotification_newNotification_ThresholdType = cmdletContext.NewNotification_ThresholdType;
+            }
+            if (requestNewNotification_newNotification_ThresholdType != null)
+            {
+                request.NewNotification.ThresholdType = requestNewNotification_newNotification_ThresholdType;
+                requestNewNotificationIsNull = false;
+            }
              // determine if request.NewNotification should be set to null
             if (requestNewNotificationIsNull)
             {
@@ -267,6 +301,16 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             if (requestOldNotification_oldNotification_Threshold != null)
             {
                 request.OldNotification.Threshold = requestOldNotification_oldNotification_Threshold.Value;
+                requestOldNotificationIsNull = false;
+            }
+            Amazon.Budgets.ThresholdType requestOldNotification_oldNotification_ThresholdType = null;
+            if (cmdletContext.OldNotification_ThresholdType != null)
+            {
+                requestOldNotification_oldNotification_ThresholdType = cmdletContext.OldNotification_ThresholdType;
+            }
+            if (requestOldNotification_oldNotification_ThresholdType != null)
+            {
+                request.OldNotification.ThresholdType = requestOldNotification_oldNotification_ThresholdType;
                 requestOldNotificationIsNull = false;
             }
              // determine if request.OldNotification should be set to null
@@ -345,9 +389,11 @@ namespace Amazon.PowerShell.Cmdlets.BGT
             public Amazon.Budgets.ComparisonOperator NewNotification_ComparisonOperator { get; set; }
             public Amazon.Budgets.NotificationType NewNotification_NotificationType { get; set; }
             public System.Double? NewNotification_Threshold { get; set; }
+            public Amazon.Budgets.ThresholdType NewNotification_ThresholdType { get; set; }
             public Amazon.Budgets.ComparisonOperator OldNotification_ComparisonOperator { get; set; }
             public Amazon.Budgets.NotificationType OldNotification_NotificationType { get; set; }
             public System.Double? OldNotification_Threshold { get; set; }
+            public Amazon.Budgets.ThresholdType OldNotification_ThresholdType { get; set; }
         }
         
     }

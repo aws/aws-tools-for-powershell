@@ -22,68 +22,65 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CodeStar;
-using Amazon.CodeStar.Model;
+using Amazon.GameLift;
+using Amazon.GameLift.Model;
 
-namespace Amazon.PowerShell.Cmdlets.CST
+namespace Amazon.PowerShell.Cmdlets.GML
 {
     /// <summary>
-    /// Updates a team member's attributes in an AWS CodeStar project. For example, you can
-    /// change a team member's role in the project, or change whether they have remote access
-    /// to project resources.
+    /// Removes a VPC peering connection. To delete the connection, you must have a valid
+    /// authorization for the VPC peering connection that you want to delete. You can check
+    /// for an authorization by calling <a>DescribeVpcPeeringAuthorizations</a> or request
+    /// a new one using <a>CreateVpcPeeringAuthorization</a>. 
+    /// 
+    ///  
+    /// <para>
+    /// Once a valid authorization exists, call this operation from the AWS account that is
+    /// used to manage the Amazon GameLift fleets. Identify the connection to delete by the
+    /// connection ID and fleet ID. If successful, the connection is removed. 
+    /// </para><para>
+    /// VPC peering connection operations include:
+    /// </para><ul><li><para><a>CreateVpcPeeringAuthorization</a></para></li><li><para><a>DescribeVpcPeeringAuthorizations</a></para></li><li><para><a>DeleteVpcPeeringAuthorization</a></para></li><li><para><a>CreateVpcPeeringConnection</a></para></li><li><para><a>DescribeVpcPeeringConnections</a></para></li><li><para><a>DeleteVpcPeeringConnection</a></para></li></ul>
     /// </summary>
-    [Cmdlet("Update", "CSTTeamMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.CodeStar.Model.UpdateTeamMemberResponse")]
-    [AWSCmdlet("Invokes the UpdateTeamMember operation against AWS CodeStar.", Operation = new[] {"UpdateTeamMember"})]
-    [AWSCmdletOutput("Amazon.CodeStar.Model.UpdateTeamMemberResponse",
-        "This cmdlet returns a Amazon.CodeStar.Model.UpdateTeamMemberResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "GMLVpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteVpcPeeringConnection operation against Amazon GameLift Service.", Operation = new[] {"DeleteVpcPeeringConnection"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.GameLift.Model.DeleteVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateCSTTeamMemberCmdlet : AmazonCodeStarClientCmdlet, IExecutor
+    public partial class RemoveGMLVpcPeeringConnectionCmdlet : AmazonGameLiftClientCmdlet, IExecutor
     {
         
-        #region Parameter ProjectId
+        #region Parameter FleetId
         /// <summary>
         /// <para>
-        /// <para>The ID of the project.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProjectId { get; set; }
-        #endregion
-        
-        #region Parameter ProjectRole
-        /// <summary>
-        /// <para>
-        /// <para>The role assigned to the user in the project. Project roles have different levels
-        /// of access. For more information, see <a href="http://docs.aws.amazon.com/codestar/latest/userguide/working-with-teams.html">Working
-        /// with Teams</a> in the <i>AWS CodeStar User Guide</i>.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ProjectRole { get; set; }
-        #endregion
-        
-        #region Parameter RemoteAccessAllowed
-        /// <summary>
-        /// <para>
-        /// <para>Whether a team member is allowed to remotely access project resources using the SSH
-        /// public key associated with the user's profile. Even if this is set to True, the user
-        /// must associate a public key with their profile before the user can access resources.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean RemoteAccessAllowed { get; set; }
-        #endregion
-        
-        #region Parameter UserArn
-        /// <summary>
-        /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the user for whom you want to change team membership
-        /// attributes.</para>
+        /// <para>Unique identifier for a fleet. This value must match the fleet ID referenced in the
+        /// VPC peering connection record.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String UserArn { get; set; }
+        public System.String FleetId { get; set; }
+        #endregion
+        
+        #region Parameter VpcPeeringConnectionId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for a VPC peering connection. This value is included in the <a>VpcPeeringConnection</a>
+        /// object, which can be retrieved by calling <a>DescribeVpcPeeringConnections</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VpcPeeringConnectionId { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the FleetId parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("UserArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CSTTeamMember (UpdateTeamMember)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("FleetId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-GMLVpcPeeringConnection (DeleteVpcPeeringConnection)"))
             {
                 return;
             }
@@ -115,11 +112,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ProjectId = this.ProjectId;
-            context.ProjectRole = this.ProjectRole;
-            if (ParameterWasBound("RemoteAccessAllowed"))
-                context.RemoteAccessAllowed = this.RemoteAccessAllowed;
-            context.UserArn = this.UserArn;
+            context.FleetId = this.FleetId;
+            context.VpcPeeringConnectionId = this.VpcPeeringConnectionId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,23 +128,15 @@ namespace Amazon.PowerShell.Cmdlets.CST
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.CodeStar.Model.UpdateTeamMemberRequest();
+            var request = new Amazon.GameLift.Model.DeleteVpcPeeringConnectionRequest();
             
-            if (cmdletContext.ProjectId != null)
+            if (cmdletContext.FleetId != null)
             {
-                request.ProjectId = cmdletContext.ProjectId;
+                request.FleetId = cmdletContext.FleetId;
             }
-            if (cmdletContext.ProjectRole != null)
+            if (cmdletContext.VpcPeeringConnectionId != null)
             {
-                request.ProjectRole = cmdletContext.ProjectRole;
-            }
-            if (cmdletContext.RemoteAccessAllowed != null)
-            {
-                request.RemoteAccessAllowed = cmdletContext.RemoteAccessAllowed.Value;
-            }
-            if (cmdletContext.UserArn != null)
-            {
-                request.UserArn = cmdletContext.UserArn;
+                request.VpcPeeringConnectionId = cmdletContext.VpcPeeringConnectionId;
             }
             
             CmdletOutput output;
@@ -161,7 +147,9 @@ namespace Amazon.PowerShell.Cmdlets.CST
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.FleetId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -186,16 +174,16 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         #region AWS Service Operation Call
         
-        private Amazon.CodeStar.Model.UpdateTeamMemberResponse CallAWSServiceOperation(IAmazonCodeStar client, Amazon.CodeStar.Model.UpdateTeamMemberRequest request)
+        private Amazon.GameLift.Model.DeleteVpcPeeringConnectionResponse CallAWSServiceOperation(IAmazonGameLift client, Amazon.GameLift.Model.DeleteVpcPeeringConnectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeStar", "UpdateTeamMember");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GameLift Service", "DeleteVpcPeeringConnection");
             try
             {
                 #if DESKTOP
-                return client.UpdateTeamMember(request);
+                return client.DeleteVpcPeeringConnection(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateTeamMemberAsync(request);
+                var task = client.DeleteVpcPeeringConnectionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -216,10 +204,8 @@ namespace Amazon.PowerShell.Cmdlets.CST
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ProjectId { get; set; }
-            public System.String ProjectRole { get; set; }
-            public System.Boolean? RemoteAccessAllowed { get; set; }
-            public System.String UserArn { get; set; }
+            public System.String FleetId { get; set; }
+            public System.String VpcPeeringConnectionId { get; set; }
         }
         
     }

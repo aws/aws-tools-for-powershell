@@ -104,6 +104,28 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.Boolean DisableRollback { get; set; }
         #endregion
         
+        #region Parameter RollbackConfiguration_MonitoringTimeInMinute
+        /// <summary>
+        /// <para>
+        /// <para>The amount of time, in minutes, during which CloudFormation should monitor all the
+        /// rollback triggers after the stack creation or update operation deploys all necessary
+        /// resources. If any of the alarms goes to ALERT state during the stack operation or
+        /// this monitoring period, CloudFormation rolls back the entire stack operation. Then,
+        /// for update operations, if the monitoring period expires without any alarms going to
+        /// ALERT state CloudFormation proceeds to dispose of old resources as usual.</para><para>If you specify a monitoring period but do not specify any rollback triggers, CloudFormation
+        /// still waits the specified period of time before cleaning up old resources for update
+        /// operations. You can use this monitoring period to perform any manual stack validation
+        /// desired, and manually cancel the stack creation or update (using <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_CancelUpdateStack.html">CancelUpdateStack</a>,
+        /// for example) as necessary.</para><para>If you specify 0 for this parameter, CloudFormation still monitors the specified rollback
+        /// triggers during stack creation and update operations. Then, for update operations,
+        /// it begins disposing of old resources immediately once the operation completes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RollbackConfiguration_MonitoringTimeInMinutes")]
+        public System.Int32 RollbackConfiguration_MonitoringTimeInMinute { get; set; }
+        #endregion
+        
         #region Parameter NotificationARNs
         /// <summary>
         /// <para>
@@ -178,6 +200,26 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String RoleARN { get; set; }
+        #endregion
+        
+        #region Parameter RollbackConfiguration_RollbackTrigger
+        /// <summary>
+        /// <para>
+        /// <para>The triggers to monitor during stack creation or update actions. </para><para>By default, AWS CloudFormation saves the rollback triggers specified for a stack and
+        /// applies them to any subsequent update operations for the stack, unless you specify
+        /// otherwise. If you do specify rollback triggers for this parameter, those triggers
+        /// replace any list of triggers previously specified for the stack. This means:</para><ul><li><para>If you don't specify this parameter, AWS CloudFormation uses the rollback triggers
+        /// previously specified for this stack, if any.</para></li><li><para>If you specify any rollback triggers using this parameter, you must specify all the
+        /// triggers that you want used for this stack, even triggers you've specifed before (for
+        /// example, when creating the stack or during a previous stack update). Any triggers
+        /// that you don't include in the updated list of triggers are no longer applied to the
+        /// stack.</para></li><li><para>If you specify an empty list, AWS CloudFormation removes all currently specified triggers.</para></li></ul><para>If a specified Cloudwatch alarm is missing, the entire stack operation fails and is
+        /// rolled back. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RollbackConfiguration_RollbackTriggers")]
+        public Amazon.CloudFormation.Model.RollbackTrigger[] RollbackConfiguration_RollbackTrigger { get; set; }
         #endregion
         
         #region Parameter StackName
@@ -319,6 +361,12 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                 context.ResourceTypes = new List<System.String>(this.ResourceType);
             }
             context.RoleARN = this.RoleARN;
+            if (ParameterWasBound("RollbackConfiguration_MonitoringTimeInMinute"))
+                context.RollbackConfiguration_MonitoringTimeInMinutes = this.RollbackConfiguration_MonitoringTimeInMinute;
+            if (this.RollbackConfiguration_RollbackTrigger != null)
+            {
+                context.RollbackConfiguration_RollbackTriggers = new List<Amazon.CloudFormation.Model.RollbackTrigger>(this.RollbackConfiguration_RollbackTrigger);
+            }
             context.StackName = this.StackName;
             context.StackPolicyBody = this.StackPolicyBody;
             context.StackPolicyURL = this.StackPolicyURL;
@@ -377,6 +425,35 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.RoleARN != null)
             {
                 request.RoleARN = cmdletContext.RoleARN;
+            }
+            
+             // populate RollbackConfiguration
+            bool requestRollbackConfigurationIsNull = true;
+            request.RollbackConfiguration = new Amazon.CloudFormation.Model.RollbackConfiguration();
+            System.Int32? requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute = null;
+            if (cmdletContext.RollbackConfiguration_MonitoringTimeInMinutes != null)
+            {
+                requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute = cmdletContext.RollbackConfiguration_MonitoringTimeInMinutes.Value;
+            }
+            if (requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute != null)
+            {
+                request.RollbackConfiguration.MonitoringTimeInMinutes = requestRollbackConfiguration_rollbackConfiguration_MonitoringTimeInMinute.Value;
+                requestRollbackConfigurationIsNull = false;
+            }
+            List<Amazon.CloudFormation.Model.RollbackTrigger> requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger = null;
+            if (cmdletContext.RollbackConfiguration_RollbackTriggers != null)
+            {
+                requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger = cmdletContext.RollbackConfiguration_RollbackTriggers;
+            }
+            if (requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger != null)
+            {
+                request.RollbackConfiguration.RollbackTriggers = requestRollbackConfiguration_rollbackConfiguration_RollbackTrigger;
+                requestRollbackConfigurationIsNull = false;
+            }
+             // determine if request.RollbackConfiguration should be set to null
+            if (requestRollbackConfigurationIsNull)
+            {
+                request.RollbackConfiguration = null;
             }
             if (cmdletContext.StackName != null)
             {
@@ -478,6 +555,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }
             public List<System.String> ResourceTypes { get; set; }
             public System.String RoleARN { get; set; }
+            public System.Int32? RollbackConfiguration_MonitoringTimeInMinutes { get; set; }
+            public List<Amazon.CloudFormation.Model.RollbackTrigger> RollbackConfiguration_RollbackTriggers { get; set; }
             public System.String StackName { get; set; }
             public System.String StackPolicyBody { get; set; }
             public System.String StackPolicyURL { get; set; }

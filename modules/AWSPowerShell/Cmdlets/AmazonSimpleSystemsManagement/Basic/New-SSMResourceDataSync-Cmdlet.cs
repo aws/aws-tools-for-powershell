@@ -54,6 +54,17 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class NewSSMResourceDataSyncCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter S3Destination_AWSKMSKeyARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an encryption key for a destination in Amazon S3. Must belong to the same
+        /// region as the destination Amazon S3 bucket.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String S3Destination_AWSKMSKeyARN { get; set; }
+        #endregion
+        
         #region Parameter S3Destination_BucketName
         /// <summary>
         /// <para>
@@ -143,6 +154,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.S3Destination_AWSKMSKeyARN = this.S3Destination_AWSKMSKeyARN;
             context.S3Destination_BucketName = this.S3Destination_BucketName;
             context.S3Destination_Prefix = this.S3Destination_Prefix;
             context.S3Destination_Region = this.S3Destination_Region;
@@ -168,6 +180,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
              // populate S3Destination
             bool requestS3DestinationIsNull = true;
             request.S3Destination = new Amazon.SimpleSystemsManagement.Model.ResourceDataSyncS3Destination();
+            System.String requestS3Destination_s3Destination_AWSKMSKeyARN = null;
+            if (cmdletContext.S3Destination_AWSKMSKeyARN != null)
+            {
+                requestS3Destination_s3Destination_AWSKMSKeyARN = cmdletContext.S3Destination_AWSKMSKeyARN;
+            }
+            if (requestS3Destination_s3Destination_AWSKMSKeyARN != null)
+            {
+                request.S3Destination.AWSKMSKeyARN = requestS3Destination_s3Destination_AWSKMSKeyARN;
+                requestS3DestinationIsNull = false;
+            }
             System.String requestS3Destination_s3Destination_BucketName = null;
             if (cmdletContext.S3Destination_BucketName != null)
             {
@@ -283,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String S3Destination_AWSKMSKeyARN { get; set; }
             public System.String S3Destination_BucketName { get; set; }
             public System.String S3Destination_Prefix { get; set; }
             public System.String S3Destination_Region { get; set; }

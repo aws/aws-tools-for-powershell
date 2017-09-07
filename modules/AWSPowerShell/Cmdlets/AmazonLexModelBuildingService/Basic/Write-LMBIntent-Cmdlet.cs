@@ -280,7 +280,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         /// <summary>
         /// <para>
         /// <para>An array of intent slots. At runtime, Amazon Lex elicits required slot values from
-        /// the user using prompts defined in the slots. For more information, see &lt;xref linkend="how-it-works"/&gt;.
+        /// the user using prompts defined in the slots. For more information, see <a>how-it-works</a>.
         /// </para>
         /// </para>
         /// </summary>

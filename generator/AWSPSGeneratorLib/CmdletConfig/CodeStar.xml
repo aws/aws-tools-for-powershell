@@ -25,8 +25,11 @@
     <ServiceOperation MethodName="DisassociateTeamMember" Verb="Remove" PipelineParameter="UserArn" Output="Void" />
     <ServiceOperation MethodName="ListProjects" Noun="ProjectList" />
     <ServiceOperation MethodName="ListResources" Noun="ResourceList" />
+    <ServiceOperation MethodName="ListTagsForProject" Noun="TagsForProject" />
     <ServiceOperation MethodName="ListTeamMembers" Noun="TeamMemberList" />
     <ServiceOperation MethodName="ListUserProfiles" Noun="UserProfileList" />
+    <ServiceOperation MethodName="TagProject" Verb="Add" Noun="TagsForProject" PipelineParameter="Id" />
+    <ServiceOperation MethodName="UntagProject" Verb="Remove" Noun="TagsForProject" PipelineParameter="Id" Output="Void" />
     <ServiceOperation MethodName="UpdateProject" PipelineParameter="Id" Output="Void" />
     <ServiceOperation MethodName="UpdateTeamMember" PipelineParameter="UserArn" Output="Response" />
     <ServiceOperation MethodName="UpdateUserProfile" PipelineParameter="UserArn" Output="Response" />

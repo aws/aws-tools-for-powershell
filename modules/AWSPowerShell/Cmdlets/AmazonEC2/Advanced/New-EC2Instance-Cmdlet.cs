@@ -429,6 +429,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public SwitchParameter Force { get; set; }
         #endregion
 
+        #region Parameter ElasticGpuSpecification
+        /// <summary>
+        /// An Elastic GPU to associate with the instance.
+        /// </summary>
+        [Parameter]
+        public Amazon.EC2.Model.ElasticGpuSpecification[] ElasticGpuSpecification { get; set; }
+        #endregion
+
+        #region Parameter Ipv6AddressCount
+        /// <summary>
+        /// [EC2-VPC] A number of IPv6 addresses to associate with the primary network interface.
+        /// Amazon EC2 chooses the IPv6 addresses from the range of your subnet. You cannot specify
+        /// this option and the option to assign specific IPv6 addresses in the same request.
+        /// You can specify this option if you've specified a minimum number of instances to launch.
+        /// </summary>
+        [Parameter]
+        public int Ipv6AddressCount { get; set; }
+        #endregion
+
+        #region Parameter Ipv6Addresses
+        /// <summary>
+        /// An Elastic GPU to associate with the instance.
+        /// </summary>
+        [Parameter]
+        public Amazon.EC2.Model.InstanceIpv6Address[] Ipv6Addresses { get; set; }
+        #endregion
+
         public NewEC2InstanceCmdlet()
         {
             this.MinCount = this.MaxCount = 1;    
@@ -490,6 +517,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.TagSpecifications = new List<Amazon.EC2.Model.TagSpecification>(this.TagSpecification);
             }
             context.AdditionalInfo = this.AdditionalInfo;
+
+            if(this.ElasticGpuSpecification != null)
+            {
+                context.ElasticGpuSpecification = new List<Amazon.EC2.Model.ElasticGpuSpecification>(this.ElasticGpuSpecification);
+            }
+
+            if(this.Ipv6AddressCount > 0)
+            {
+                context.Ipv6AddressCount = this.Ipv6AddressCount;
+            }
+
+            if (this.Ipv6Addresses != null)
+            {
+                context.Ipv6Addresses = new List<Amazon.EC2.Model.InstanceIpv6Address>(this.Ipv6Addresses);
+            }
 
             try
             {
@@ -735,6 +777,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 
             request.AdditionalInfo = cmdletContext.AdditionalInfo;
 
+            if(cmdletContext.ElasticGpuSpecification != null)
+            {
+                request.ElasticGpuSpecification = cmdletContext.ElasticGpuSpecification;
+            }
+
+            if (cmdletContext.Ipv6Addresses != null)
+            {
+                request.Ipv6Addresses = cmdletContext.Ipv6Addresses;
+            }
+
+            if(cmdletContext.Ipv6AddressCount.HasValue)
+            {
+                request.Ipv6AddressCount = cmdletContext.Ipv6AddressCount.Value;
+            }
+
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
             
@@ -829,6 +886,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public String InstanceProfile_Name { get; set; }
             public String AdditionalInfo { get; set; }
             public List<Amazon.EC2.Model.TagSpecification> TagSpecifications { get; set; }
+            public List<Amazon.EC2.Model.ElasticGpuSpecification> ElasticGpuSpecification { get; set; }
+            public List<Amazon.EC2.Model.InstanceIpv6Address> Ipv6Addresses { get; set; }
+            public int? Ipv6AddressCount { get; set; }
         }
         
     }
