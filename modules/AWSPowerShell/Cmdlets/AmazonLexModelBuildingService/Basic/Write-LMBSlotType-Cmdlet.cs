@@ -112,11 +112,11 @@ namespace Amazon.PowerShell.Cmdlets.LMB
         #region Parameter ValueSelectionStrategy
         /// <summary>
         /// <para>
-        /// <para>Determines the strategy that Amazon Lex uses to return slot type values. The field
-        /// can be set to one of the following values:</para><ul><li><para><code>ORIGINAL_VALUE</code> - Returns the value entered by the user.</para></li><li><para><code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return
+        /// <para>Determines the slot resolution strategy that Amazon Lex uses to return slot type values.
+        /// The field can be set to one of the following values:</para><ul><li><para><code>ORIGINAL_VALUE</code> - Returns the value entered by the user, if the user
+        /// value is similar to the slot value.</para></li><li><para><code>TOP_RESOLUTION</code> - If there is a resolution list for the slot, return
         /// the first value in the resolution list as the slot type value. If there is no resolution
-        /// list, null is returned.</para></li></ul><para>If you don't specify the <code>valueSelectionStrategy</code> is not provided, the
-        /// default is <code>ORIGINAL_VALUE</code>.</para>
+        /// list, null is returned.</para></li></ul><para>If you don't specify the <code>valueSelectionStrategy</code>, the default is <code>ORIGINAL_VALUE</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

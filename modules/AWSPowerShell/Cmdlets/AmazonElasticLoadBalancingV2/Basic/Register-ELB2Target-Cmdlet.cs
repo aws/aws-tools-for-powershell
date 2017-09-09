@@ -40,6 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// group. If the target is an EC2 instance, it must be in the <code>running</code> state
     /// when you register it.
     /// </para><para>
+    /// Network Load Balancers do not support the following instance types as targets: C1,
+    /// CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
+    /// </para><para>
     /// To remove a target from a target group, use <a>DeregisterTargets</a>.
     /// </para>
     /// </summary>

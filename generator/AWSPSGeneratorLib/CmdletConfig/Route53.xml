@@ -45,11 +45,13 @@
     <ServiceOperation MethodName="ChangeTagsForResource" Output="Void" PipelineParameter="ResourceId"/>
     <ServiceOperation MethodName="CreateHealthCheck" Output="Response" PipelineParameter="CallerReference" IgnoreSupportsShouldProcess="true" />
     <ServiceOperation MethodName="CreateHostedZone" Output="Response" PipelineParameter="Name" PositionalParameters="CallerReference;HostedZoneConfig_Comment"/>
+    <ServiceOperation MethodName="CreateQueryLoggingConfig" Output="Response" PipelineParameter="HostedZoneId"/>
     <ServiceOperation MethodName="CreateTrafficPolicy" Output="Response" PipelineParameter="Name"/>
     <ServiceOperation MethodName="CreateTrafficPolicyInstance" Output="Response" PipelineParameter="Name"/>
     <ServiceOperation MethodName="CreateTrafficPolicyVersion" Output="Response" PipelineParameter="Id"/>
     <ServiceOperation MethodName="DeleteHealthCheck" Output="Void" />
     <ServiceOperation MethodName="DeleteHostedZone" />
+    <ServiceOperation MethodName="DeleteQueryLoggingConfig" PipelineParameter="Id" Output="Void" />
     <ServiceOperation MethodName="DeleteTrafficPolicy" PipelineParameter="Id" Output="Void" />
     <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Output="Void" />
     <ServiceOperation MethodName="GetChange" />
@@ -58,10 +60,12 @@
     <ServiceOperation MethodName="GetHealthCheck" />
     <ServiceOperation MethodName="GetHealthCheckCount" />
     <ServiceOperation MethodName="GetHostedZone" Output="Response" />
+    <ServiceOperation MethodName="GetQueryLoggingConfig" PipelineParameter="Id" />
     <ServiceOperation MethodName="GetTrafficPolicy" PipelineParameter="Id" />
     <ServiceOperation MethodName="GetTrafficPolicyInstance" />
     <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" />
     <ServiceOperation MethodName="ListGeoLocations" Output="Response" NoPipelineParameter="true" Noun="GeoLocationList" LegacyAlias="Get-R53GeoLocations"/>
+    <ServiceOperation MethodName="ListQueryLoggingConfigs" PipelineParameter="HostedZoneId" Noun="QueryLoggingConfigList"/>
     <ServiceOperation MethodName="ListResourceRecordSets" Output="Response" PipelineParameter="HostedZoneId" PositionalParameters="StartRecordName;StartRecordType">
       <Params>
         <Param Name="HostedZoneId" Alias="Id" />

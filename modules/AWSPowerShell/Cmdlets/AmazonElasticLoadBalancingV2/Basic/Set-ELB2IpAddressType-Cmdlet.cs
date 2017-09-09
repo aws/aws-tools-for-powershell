@@ -29,7 +29,12 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Sets the type of IP addresses used by the subnets of the specified Application Load
-    /// Balancer.
+    /// Balancer or Network Load Balancer.
+    /// 
+    ///  
+    /// <para>
+    /// Note that Network Load Balancers must use <code>ipv4</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2IpAddressType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.IpAddressType")]

@@ -47,6 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// The security groups must all be for the same VPC or a peer VPC in a VPC peering connection.
     /// For more information about VPC security group limits, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Appendix_Limits.html">Amazon
     /// VPC Limits</a>.
+    /// </para><para>
+    /// You can optionally specify a description for the security group rule.
     /// </para>
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,7 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group. Required for a nondefault VPC.</para>
+        /// <para>The ID of the security group. You must specify either the security group ID or the
+        /// security group name in the request. For security groups in a nondefault VPC, you must
+        /// specify the security group ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -72,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The name of the security group.</para>
+        /// <para>[EC2-Classic, default VPC] The name of the security group. You must specify either
+        /// the security group ID or the security group name in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Creates a listener for the specified Application Load Balancer.
+    /// Creates a listener for the specified Application Load Balancer or Network Load Balancer.
     /// 
     ///  
     /// <para>
@@ -39,7 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// and the load balancer, you can delete them both using <a>DeleteLoadBalancer</a>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners
-    /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>.
+    /// for Your Application Load Balancers</a> in the <i>Application Load Balancers Guide</i>
+    /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners
+    /// for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELB2Listener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,8 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The SSL server certificate. You must provide exactly one certificate if the protocol
-        /// is HTTPS.</para>
+        /// <para>[HTTPS listeners] The SSL server certificate. You must provide exactly one certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +68,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter DefaultAction
         /// <summary>
         /// <para>
-        /// <para>The default action for the listener.</para>
+        /// <para>The default action for the listener. For Application Load Balancers, the protocol
+        /// of the specified target group must be HTTP or HTTPS. For Network Load Balancers, the
+        /// protocol of the specified target group must be TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +101,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol for connections from clients to the load balancer.</para>
+        /// <para>The protocol for connections from clients to the load balancer. For Application Load
+        /// Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers,
+        /// the supported protocol is TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -109,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SslPolicy
         /// <summary>
         /// <para>
-        /// <para>The security policy that defines which ciphers and protocols are supported. The default
-        /// is the current predefined security policy.</para>
+        /// <para>[HTTPS listeners] The security policy that defines which ciphers and protocols are
+        /// supported. The default is the current predefined security policy.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

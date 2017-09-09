@@ -40,6 +40,7 @@
     <ServiceOperation MethodName="GetBuiltinIntent" Output="Response" />
     <ServiceOperation MethodName="GetBuiltinIntents" Noun="BuiltinIntentList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="GetBuiltinSlotTypes" Noun="BuiltinSlotType" NoPipelineParameter="true" />
+	<ServiceOperation MethodName="GetExport" Output="Response" />
     <ServiceOperation MethodName="GetIntent" Output="Response" />
     <ServiceOperation MethodName="GetIntents" Noun="IntentList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="GetIntentVersions" Noun="IntentVersion" />

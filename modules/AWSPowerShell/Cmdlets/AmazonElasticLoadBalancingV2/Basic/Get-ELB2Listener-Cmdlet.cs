@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Describes the specified listeners or the listeners for the specified Application Load
-    /// Balancer. You must specify either a load balancer or one or more listeners.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Balancer or Network Load Balancer. You must specify either a load balancer or one
+    /// or more listeners.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ELB2Listener")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Listener")]

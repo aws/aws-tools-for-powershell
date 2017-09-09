@@ -29,17 +29,17 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Creates or updates a destination. A destination encapsulates a physical resource (such
-    /// as a Kinesis stream) and enables you to subscribe to a real-time stream of log events
-    /// of a different account, ingested using <a>PutLogEvents</a>. Currently, the only supported
-    /// physical resource is a Amazon Kinesis stream belonging to the same account as the
-    /// destination.
+    /// as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of
+    /// log events for a different account, ingested using <a>PutLogEvents</a>. Currently,
+    /// the only supported physical resource is a Kinesis stream belonging to the same account
+    /// as the destination.
     /// 
     ///  
     /// <para>
-    /// A destination controls what is written to its Amazon Kinesis stream through an access
-    /// policy. By default, <code>PutDestination</code> does not set any access policy with
-    /// the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a>
-    /// against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a>
+    /// Through an access policy, a destination controls what is written to its Kinesis stream.
+    /// By default, <code>PutDestination</code> does not set any access policy with the destination,
+    /// which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against
+    /// this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a>
     /// after <code>PutDestination</code>.
     /// </para>
     /// </summary>
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter RoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to call Amazon Kinesis
-        /// PutRecord on the destination stream.</para>
+        /// <para>The ARN of an IAM role that grants CloudWatch Logs permissions to call the Amazon
+        /// Kinesis PutRecord operation on the destination stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter TargetArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of an Amazon Kinesis stream to deliver matching log events to.</para>
+        /// <para>The ARN of an Amazon Kinesis stream to which to deliver matching log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

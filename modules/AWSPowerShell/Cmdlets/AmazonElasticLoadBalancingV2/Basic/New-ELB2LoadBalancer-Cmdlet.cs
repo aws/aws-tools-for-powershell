@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Creates an Application Load Balancer.
+    /// Creates an Application Load Balancer or a Network Load Balancer.
     /// 
     ///  
     /// <para>
@@ -43,10 +43,13 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// You can create up to 20 load balancers per region per account. You can request an
     /// increase for the number of load balancers for your account. For more information,
     /// see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-limits.html">Limits
-    /// for Your Application Load Balancer</a> in the <i>Application Load Balancers Guide</i>.
+    /// for Your Application Load Balancer</a> in the <i>Application Load Balancers Guide</i>
+    /// and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-limits.html">Limits
+    /// for Your Network Load Balancer</a> in the <i>Network Load Balancers Guide</i>.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/application-load-balancers.html">Application
-    /// Load Balancers</a> in the <i>Application Load Balancers Guide</i>.
+    /// Load Balancers</a> in the <i>Application Load Balancers Guide</i> and <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/network-load-balancers.html">Network
+    /// Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELB2LoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,9 +65,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter IpAddressType
         /// <summary>
         /// <para>
-        /// <para>The type of IP addresses used by the subnets for your load balancer. The possible
-        /// values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for
-        /// IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>.</para>
+        /// <para>[Application Load Balancers] The type of IP addresses used by the subnets for your
+        /// load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and
+        /// <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must
+        /// use <code>ipv4</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,7 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter SecurityGroup
         /// <summary>
         /// <para>
-        /// <para>The IDs of the security groups to assign to the load balancer.</para>
+        /// <para>[Application Load Balancers] The IDs of the security groups to assign to the load
+        /// balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -112,11 +117,24 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public System.String[] SecurityGroup { get; set; }
         #endregion
         
+        #region Parameter SubnetMapping
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets to attach to the load balancer. You can specify only one subnet
+        /// per Availability Zone. You must specify either subnets or subnet mappings.</para><para>[Network Load Balancers] You can specify one Elastic IP address per subnet.</para><para>[Application Load Balancers] You cannot specify Elastic IP addresses for your subnets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SubnetMappings")]
+        public Amazon.ElasticLoadBalancingV2.Model.SubnetMapping[] SubnetMapping { get; set; }
+        #endregion
+        
         #region Parameter Subnet
         /// <summary>
         /// <para>
         /// <para>The IDs of the subnets to attach to the load balancer. You can specify only one subnet
-        /// per Availability Zone. You must specify subnets from at least two Availability Zones.</para>
+        /// per Availability Zone. You must specify either subnets or subnet mappings.</para><para>[Application Load Balancers] You must specify subnets from at least two Availability
+        /// Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,6 +151,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
         public Amazon.ElasticLoadBalancingV2.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of load balancer to create. The default is <code>application</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum")]
+        public Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum Type { get; set; }
         #endregion
         
         #region Parameter Force
@@ -171,6 +200,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 context.SecurityGroups = new List<System.String>(this.SecurityGroup);
             }
+            if (this.SubnetMapping != null)
+            {
+                context.SubnetMappings = new List<Amazon.ElasticLoadBalancingV2.Model.SubnetMapping>(this.SubnetMapping);
+            }
             if (this.Subnet != null)
             {
                 context.Subnets = new List<System.String>(this.Subnet);
@@ -179,6 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 context.Tags = new List<Amazon.ElasticLoadBalancingV2.Model.Tag>(this.Tag);
             }
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -211,6 +245,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 request.SecurityGroups = cmdletContext.SecurityGroups;
             }
+            if (cmdletContext.SubnetMappings != null)
+            {
+                request.SubnetMappings = cmdletContext.SubnetMappings;
+            }
             if (cmdletContext.Subnets != null)
             {
                 request.Subnets = cmdletContext.Subnets;
@@ -218,6 +256,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.Tags != null)
             {
                 request.Tags = cmdletContext.Tags;
+            }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
             }
             
             CmdletOutput output;
@@ -287,8 +329,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             public System.String Name { get; set; }
             public Amazon.ElasticLoadBalancingV2.LoadBalancerSchemeEnum Scheme { get; set; }
             public List<System.String> SecurityGroups { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.SubnetMapping> SubnetMappings { get; set; }
             public List<System.String> Subnets { get; set; }
             public List<Amazon.ElasticLoadBalancingV2.Model.Tag> Tags { get; set; }
+            public Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum Type { get; set; }
         }
         
     }

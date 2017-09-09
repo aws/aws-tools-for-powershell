@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  
     /// <para>
     /// By default, this operation returns as many log events as can fit in a response size
-    /// of 1MB (up to 10,000 log events). If the results include tokens, there are more log
-    /// events available. You can get additional log events by specifying one of the tokens
-    /// in a subsequent call.
+    /// of 1 MB (up to 10,000 log events). You can get additional log events by specifying
+    /// one of the tokens in a subsequent call.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogEvent")]
@@ -51,8 +50,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range, expressed as the number of milliseconds since Jan 1, 1970
-        /// 00:00:00 UTC. Events with a timestamp later than this time are not included.</para>
+        /// <para>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
+        /// 00:00:00 UTC. Events with a time stamp later than this time are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time range, expressed as the number of milliseconds since Jan 1,
-        /// 1970 00:00:00 UTC. Events with a timestamp earlier than this time are not included.</para>
+        /// <para>The start of the time range, expressed as the number of milliseconds after Jan 1,
+        /// 1970 00:00:00 UTC. Events with a time stamp earlier than this time are not included.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>The maximum number of log events returned. If you don't specify a value, the maximum
-        /// is as many log events as can fit in a response size of 1MB, up to 10,000 log events.</para>
+        /// is as many log events as can fit in a response size of 1 MB, up to 10,000 log events.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

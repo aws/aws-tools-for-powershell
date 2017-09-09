@@ -28,7 +28,7 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Removes the specified tags from the specified resource.
+    /// Removes the specified tags from the specified Elastic Load Balancing resource.
     /// 
     ///  
     /// <para>

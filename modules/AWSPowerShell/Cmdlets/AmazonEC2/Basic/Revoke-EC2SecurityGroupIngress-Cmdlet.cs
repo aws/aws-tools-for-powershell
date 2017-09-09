@@ -28,9 +28,8 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Removes one or more ingress rules from a security group. The values that you specify
-    /// in the revoke request (for example, ports) must match the existing rule's values for
-    /// the rule to be removed.
+    /// Removes one or more ingress rules from a security group. To remove a rule, the values
+    /// that you specify (for example, ports) must match the existing rule's values exactly.
     /// 
     ///  <note><para>
     /// [EC2-Classic security groups only] If the values you specify do not match the existing
@@ -39,7 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </para></note><para>
     /// Each rule consists of the protocol and the CIDR range or source security group. For
     /// the TCP and UDP protocols, you must also specify the destination port or range of
-    /// ports. For the ICMP protocol, you must also specify the ICMP type and code.
+    /// ports. For the ICMP protocol, you must also specify the ICMP type and code. If the
+    /// security group rule has a description, you do not have to specify the description
+    /// to revoke the rule.
     /// </para><para>
     /// Rule changes are propagated to instances within the security group as quickly as possible.
     /// However, a small delay might occur.

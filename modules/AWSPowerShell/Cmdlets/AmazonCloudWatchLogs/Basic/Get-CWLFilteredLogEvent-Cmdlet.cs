@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// 
     ///  
     /// <para>
-    /// By default, this operation returns as many log events as can fit in 1MB (up to 10,000
+    /// By default, this operation returns as many log events as can fit in 1 MB (up to 10,000
     /// log events), or all the events found within the time range that you specify. If the
     /// results include a token, then there are more log events available, and you can get
     /// additional results by specifying the token in a subsequent call.
@@ -51,8 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The end of the time range, expressed as the number of milliseconds since Jan 1, 1970
-        /// 00:00:00 UTC. Events with a timestamp later than this time are not returned.</para>
+        /// <para>The end of the time range, expressed as the number of milliseconds after Jan 1, 1970
+        /// 00:00:00 UTC. Events with a time stamp later than this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>If the value is true, the operation makes a best effort to provide responses that
-        /// contain events from multiple log streams within the log group interleaved in a single
-        /// response. If the value is false all the matched log events in the first log stream
+        /// contain events from multiple log streams within the log group, interleaved in a single
+        /// response. If the value is false, all the matched log events in the first log stream
         /// are searched first, then those in the next log stream, and so on. The default is false.</para>
         /// </para>
         /// </summary>
@@ -106,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The start of the time range, expressed as the number of milliseconds since Jan 1,
-        /// 1970 00:00:00 UTC. Events with a timestamp prior to this time are not returned.</para>
+        /// <para>The start of the time range, expressed as the number of milliseconds after Jan 1,
+        /// 1970 00:00:00 UTC. Events with a time stamp before this time are not returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

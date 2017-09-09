@@ -28,8 +28,8 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Adds the specified tags to the specified resource. You can tag your Application Load
-    /// Balancers and your target groups.
+    /// Adds the specified tags to the specified Elastic Load Balancing resource. You can
+    /// tag your Application Load Balancers, Network Load Balancers, and your target groups.
     /// 
     ///  
     /// <para>

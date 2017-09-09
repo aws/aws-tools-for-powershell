@@ -39,16 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// A logical destination that belongs to a different account, for cross-account delivery.
     /// </para></li><li><para>
-    /// An Amazon Kinesis Firehose stream that belongs to the same account as the subscription
-    /// filter, for same-account delivery.
+    /// An Amazon Kinesis Firehose delivery stream that belongs to the same account as the
+    /// subscription filter, for same-account delivery.
     /// </para></li><li><para>
     /// An AWS Lambda function that belongs to the same account as the subscription filter,
     /// for same-account delivery.
     /// </para></li></ul><para>
     /// There can only be one subscription filter associated with a log group. If you are
     /// updating an existing filter, you must specify the correct name in <code>filterName</code>.
-    /// Otherwise, the call will fail because you cannot associate a second filter with a
-    /// log group.
+    /// Otherwise, the call fails because you cannot associate a second filter with a log
+    /// group.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "CWLSubscriptionFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>The ARN of the destination to deliver matching log events to. Currently, the supported
         /// destinations are:</para><ul><li><para>An Amazon Kinesis stream belonging to the same account as the subscription filter,
         /// for same-account delivery.</para></li><li><para>A logical destination (specified using an ARN) belonging to a different account, for
-        /// cross-account delivery.</para></li><li><para>An Amazon Kinesis Firehose stream belonging to the same account as the subscription
+        /// cross-account delivery.</para></li><li><para>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription
         /// filter, for same-account delivery.</para></li><li><para>An AWS Lambda function belonging to the same account as the subscription filter, for
         /// same-account delivery.</para></li></ul>
         /// </para>
@@ -93,9 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <summary>
         /// <para>
         /// <para>A name for the subscription filter. If you are updating an existing filter, you must
-        /// specify the correct name in <code>filterName</code>. Otherwise, the call will fail
-        /// because you cannot associate a second filter with a log group. To find the name of
-        /// the filter currently associated with a log group, use <a>DescribeSubscriptionFilters</a>.</para>
+        /// specify the correct name in <code>filterName</code>. Otherwise, the call fails because
+        /// you cannot associate a second filter with a log group. To find the name of the filter
+        /// currently associated with a log group, use <a>DescribeSubscriptionFilters</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

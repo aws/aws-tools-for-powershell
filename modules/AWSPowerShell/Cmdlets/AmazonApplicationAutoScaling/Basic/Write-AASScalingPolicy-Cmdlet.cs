@@ -103,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter TargetTrackingScalingPolicyConfiguration_DisableScaleIn
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Indicates whether scale in by the target tracking policy is disabled. If the value
+        /// is <code>true</code>, scale in is disabled and the target tracking policy won't remove
+        /// capacity from the scalable resource. Otherwise, scale in is enabled and the target
+        /// tracking policy can remove capacity from the scalable resource. The default value
+        /// is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

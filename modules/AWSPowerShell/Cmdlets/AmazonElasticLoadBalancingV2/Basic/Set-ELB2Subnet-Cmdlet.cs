@@ -28,8 +28,13 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Enables the Availability Zone for the specified subnets for the specified load balancer.
-    /// The specified subnets replace the previously enabled subnets.
+    /// Enables the Availability Zone for the specified subnets for the specified Application
+    /// Load Balancer. The specified subnets replace the previously enabled subnets.
+    /// 
+    ///  
+    /// <para>
+    /// Note that you can't change the subnets for a Network Load Balancer.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone")]
@@ -51,11 +56,26 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         public System.String LoadBalancerArn { get; set; }
         #endregion
         
+        #region Parameter SubnetMapping
+        /// <summary>
+        /// <para>
+        /// <para>The IDs of the subnets. You must specify subnets from at least two Availability Zones.
+        /// You can specify only one subnet per Availability Zone. You must specify either subnets
+        /// or subnet mappings.</para><para>The load balancer is allocated one static IP address per subnet. You cannot specify
+        /// your own Elastic IP addresses.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SubnetMappings")]
+        public Amazon.ElasticLoadBalancingV2.Model.SubnetMapping[] SubnetMapping { get; set; }
+        #endregion
+        
         #region Parameter Subnet
         /// <summary>
         /// <para>
-        /// <para>The IDs of the subnets. You must specify at least two subnets. You can add only one
-        /// subnet per Availability Zone.</para>
+        /// <para>The IDs of the subnets. You must specify subnets from at least two Availability Zones.
+        /// You can specify only one subnet per Availability Zone. You must specify either subnets
+        /// or subnet mappings.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             PreExecutionContextLoad(context);
             
             context.LoadBalancerArn = this.LoadBalancerArn;
+            if (this.SubnetMapping != null)
+            {
+                context.SubnetMappings = new List<Amazon.ElasticLoadBalancingV2.Model.SubnetMapping>(this.SubnetMapping);
+            }
             if (this.Subnet != null)
             {
                 context.Subnets = new List<System.String>(this.Subnet);
@@ -116,6 +140,10 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             if (cmdletContext.LoadBalancerArn != null)
             {
                 request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
+            }
+            if (cmdletContext.SubnetMappings != null)
+            {
+                request.SubnetMappings = cmdletContext.SubnetMappings;
             }
             if (cmdletContext.Subnets != null)
             {
@@ -186,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String LoadBalancerArn { get; set; }
+            public List<Amazon.ElasticLoadBalancingV2.Model.SubnetMapping> SubnetMappings { get; set; }
             public List<System.String> Subnets { get; set; }
         }
         

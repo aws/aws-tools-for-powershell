@@ -42,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Each rule consists of the protocol (for example, TCP), plus either a CIDR range or
     /// a source group. For the TCP and UDP protocols, you must also specify the destination
     /// port or port range. For the ICMP protocol, you must also specify the ICMP type and
-    /// code. You can use -1 for the type or code to mean all types or all codes.
+    /// code. You can use -1 for the type or code to mean all types or all codes. You can
+    /// optionally specify a description for the rule.
     /// </para><para>
     /// Rule changes are propagated to affected instances as quickly as possible. However,
     /// a small delay might occur.

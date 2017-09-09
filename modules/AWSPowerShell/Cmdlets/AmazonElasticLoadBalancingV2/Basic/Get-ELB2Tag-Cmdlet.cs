@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
     /// Describes the tags for the specified resources. You can describe the tags for one
-    /// or more Application Load Balancers and target groups.
+    /// or more Application Load Balancers, Network Load Balancers, and target groups.
     /// </summary>
     [Cmdlet("Get", "ELB2Tag")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TagDescription")]

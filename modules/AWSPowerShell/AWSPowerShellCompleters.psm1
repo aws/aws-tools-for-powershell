@@ -2711,6 +2711,13 @@ $ELB2_Completers = {
             break
         }
         
+        # Amazon.ElasticLoadBalancingV2.LoadBalancerTypeEnum
+        "New-ELB2LoadBalancer/Type"
+        {
+            $v = "application","network"
+            break
+        }
+        
         # Amazon.ElasticLoadBalancingV2.ProtocolEnum
         {
             ($_ -eq "Edit-ELB2TargetGroup/HealthCheckProtocol") -Or
@@ -2720,7 +2727,7 @@ $ELB2_Completers = {
             ($_ -eq "New-ELB2TargetGroup/Protocol")
         }
         {
-            $v = "HTTP","HTTPS"
+            $v = "HTTP","HTTPS","TCP"
             break
         }
         
@@ -2744,6 +2751,7 @@ $ELB2_map = @{
     "Protocol"=@("Edit-ELB2Listener","New-ELB2Listener","New-ELB2TargetGroup")
     "Scheme"=@("New-ELB2LoadBalancer")
     "TargetType"=@("New-ELB2TargetGroup")
+    "Type"=@("New-ELB2LoadBalancer")
 }
 
 _awsArgumentCompleterRegistration $ELB2_Completers $ELB2_map
@@ -3555,6 +3563,13 @@ $LMB_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.LexModelBuildingService.ExportType
+        "Get-LMBExport/ExportType"
+        {
+            $v = "ALEXA_SKILLS_KIT"
+            break
+        }
+        
         # Amazon.LexModelBuildingService.FulfillmentActivityType
         "Write-LMBIntent/FulfillmentActivity_Type"
         {
@@ -3580,6 +3595,13 @@ $LMB_Completers = {
             break
         }
         
+        # Amazon.LexModelBuildingService.ResourceType
+        "Get-LMBExport/ResourceType"
+        {
+            $v = "BOT"
+            break
+        }
+        
         # Amazon.LexModelBuildingService.SlotValueSelectionStrategy
         "Write-LMBSlotType/ValueSelectionStrategy"
         {
@@ -3602,9 +3624,11 @@ $LMB_Completers = {
 }
 
 $LMB_map = @{
+    "ExportType"=@("Get-LMBExport")
     "FulfillmentActivity_Type"=@("Write-LMBIntent")
     "Locale"=@("Get-LMBBuiltinIntentList","Get-LMBBuiltinSlotType","Write-LMBBot")
     "ProcessBehavior"=@("Write-LMBBot")
+    "ResourceType"=@("Get-LMBExport")
     "StatusType"=@("Get-LMBUtterancesView")
     "ValueSelectionStrategy"=@("Write-LMBSlotType")
 }

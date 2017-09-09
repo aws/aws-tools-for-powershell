@@ -34,7 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// <para>
     /// You must include the sequence token obtained from the response of the previous call.
     /// An upload in a newly created log stream does not require a sequence token. You can
-    /// also get the sequence token using <a>DescribeLogStreams</a>.
+    /// also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code>
+    /// twice within a narrow time period using the same value for <code>sequenceToken</code>,
+    /// both calls may be successful, or one may be rejected.
     /// </para><para>
     /// The batch of events must satisfy the following constraints:
     /// </para><ul><li><para>
@@ -46,8 +48,8 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// None of the log events in the batch can be older than 14 days or the retention period
     /// of the log group.
     /// </para></li><li><para>
-    /// The log events in the batch must be in chronological ordered by their timestamp (the
-    /// time the event occurred, expressed as the number of milliseconds since Jan 1, 1970
+    /// The log events in the batch must be in chronological ordered by their time stamp (the
+    /// time the event occurred, expressed as the number of milliseconds after Jan 1, 1970
     /// 00:00:00 UTC).
     /// </para></li><li><para>
     /// The maximum number of log events in a batch is 10,000.
@@ -101,7 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter SequenceToken
         /// <summary>
         /// <para>
-        /// <para>The sequence token.</para>
+        /// <para>The sequence token obtained from the response of the previous <code>PutLogEvents</code>
+        /// call. An upload in a newly created log stream does not require a sequence token. You
+        /// can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code>
+        /// twice within a narrow time period using the same value for <code>sequenceToken</code>,
+        /// both calls may be successful, or one may be rejected.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

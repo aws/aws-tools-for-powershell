@@ -62,7 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter DefaultAction
         /// <summary>
         /// <para>
-        /// <para>The default actions.</para>
+        /// <para>The default action. For Application Load Balancers, the protocol of the specified
+        /// target group must be HTTP or HTTPS. For Network Load Balancers, the protocol of the
+        /// specified target group must be TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol for connections from clients to the load balancer.</para>
+        /// <para>The protocol for connections from clients to the load balancer. Application Load Balancers
+        /// support HTTP and HTTPS and Network Load Balancers support TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

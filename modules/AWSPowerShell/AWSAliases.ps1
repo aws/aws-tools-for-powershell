@@ -789,6 +789,9 @@ Set-Alias -Name CWE-PutTargets -Value Write-CWETarget
 Set-Alias -Name CWE-RemovePermission -Value Remove-CWEPermission
 Set-Alias -Name CWE-RemoveTargets -Value Remove-CWETarget
 Set-Alias -Name CWE-TestEventPattern -Value Test-CWEEventPattern
+Set-Alias -Name CWL-TagLogGroup -Value Add-CWLLogGroupTag
+Set-Alias -Name CWL-TestMetricFilter -Value Test-CWLMetricFilter
+Set-Alias -Name CWL-UntagLogGroup -Value Remove-CWLLogGroupTag
 Set-Alias -Name Cancel-CWLExportTask -Value Stop-CWLExportTask
 Set-Alias -Name CWL-CancelExportTask -Value Stop-CWLExportTask
 Set-Alias -Name Create-CWLExportTask -Value New-CWLExportTask
@@ -805,6 +808,8 @@ Set-Alias -Name Delete-CWLLogStream -Value Remove-CWLLogStream
 Set-Alias -Name CWL-DeleteLogStream -Value Remove-CWLLogStream
 Set-Alias -Name Delete-CWLMetricFilter -Value Remove-CWLMetricFilter
 Set-Alias -Name CWL-DeleteMetricFilter -Value Remove-CWLMetricFilter
+Set-Alias -Name Delete-CWLResourcePolicy -Value Remove-CWLResourcePolicy
+Set-Alias -Name CWL-DeleteResourcePolicy -Value Remove-CWLResourcePolicy
 Set-Alias -Name Delete-CWLRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name CWL-DeleteRetentionPolicy -Value Remove-CWLRetentionPolicy
 Set-Alias -Name Delete-CWLSubscriptionFilter -Value Remove-CWLSubscriptionFilter
@@ -819,6 +824,8 @@ Set-Alias -Name Describe-CWLLogStream -Value Get-CWLLogStream
 Set-Alias -Name CWL-DescribeLogStreams -Value Get-CWLLogStream
 Set-Alias -Name Describe-CWLMetricFilter -Value Get-CWLMetricFilter
 Set-Alias -Name CWL-DescribeMetricFilters -Value Get-CWLMetricFilter
+Set-Alias -Name Describe-CWLResourcePolicy -Value Get-CWLResourcePolicy
+Set-Alias -Name CWL-DescribeResourcePolicies -Value Get-CWLResourcePolicy
 Set-Alias -Name Describe-CWLSubscriptionFilter -Value Get-CWLSubscriptionFilter
 Set-Alias -Name CWL-DescribeSubscriptionFilters -Value Get-CWLSubscriptionFilter
 Set-Alias -Name CWL-FilterLogEvents -Value Get-CWLFilteredLogEvent
@@ -832,13 +839,12 @@ Set-Alias -Name Put-CWLLogEvent -Value Write-CWLLogEvent
 Set-Alias -Name CWL-PutLogEvents -Value Write-CWLLogEvent
 Set-Alias -Name Put-CWLMetricFilter -Value Write-CWLMetricFilter
 Set-Alias -Name CWL-PutMetricFilter -Value Write-CWLMetricFilter
+Set-Alias -Name Put-CWLResourcePolicy -Value Write-CWLResourcePolicy
+Set-Alias -Name CWL-PutResourcePolicy -Value Write-CWLResourcePolicy
 Set-Alias -Name Put-CWLRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name CWL-PutRetentionPolicy -Value Write-CWLRetentionPolicy
 Set-Alias -Name Put-CWLSubscriptionFilter -Value Write-CWLSubscriptionFilter
 Set-Alias -Name CWL-PutSubscriptionFilter -Value Write-CWLSubscriptionFilter
-Set-Alias -Name CWL-TagLogGroup -Value Add-CWLLogGroupTag
-Set-Alias -Name CWL-TestMetricFilter -Value Test-CWLMetricFilter
-Set-Alias -Name CWL-UntagLogGroup -Value Remove-CWLLogGroupTag
 Set-Alias -Name Delete-CBBuildBatch -Value Remove-CBBuildBatch
 Set-Alias -Name CB-BatchDeleteBuilds -Value Remove-CBBuildBatch
 Set-Alias -Name CB-BatchGetBuilds -Value Get-CBBuildBatch
@@ -1522,6 +1528,8 @@ Set-Alias -Name EC2-UnassignIpv6Addresses -Value Unregister-EC2Ipv6AddressList
 Set-Alias -Name Unassign-EC2PrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnassignPrivateIpAddresses -Value Unregister-EC2PrivateIpAddress
 Set-Alias -Name EC2-UnmonitorInstances -Value Stop-EC2InstanceMonitoring
+Set-Alias -Name EC2-UpdateSecurityGroupRuleDescriptionsEgress -Value Update-EC2SecurityGroupRuleEgressDescription
+Set-Alias -Name EC2-UpdateSecurityGroupRuleDescriptionsIngress -Value Update-EC2SecurityGroupRuleIngressDescription
 Set-Alias -Name Modify-EC2IdentityIdFormat -Value Edit-EC2IdentityIdFormat
 Set-Alias -Name EC2-ModifyIdentityIdFormat -Value Edit-EC2IdentityIdFormat
 Set-Alias -Name Modify-EC2IdFormat -Value Edit-EC2IdFormat
@@ -3003,6 +3011,7 @@ Set-Alias -Name LM-UpdateAlias -Value Update-LMAlias
 Set-Alias -Name LM-UpdateEventSourceMapping -Value Update-LMEventSourceMapping
 Set-Alias -Name LEX-PostContent -Value Send-LEXContent
 Set-Alias -Name LEX-PostText -Value Send-LEXText
+Set-Alias -Name LMB-GetUtterancesView -Value Get-LMBUtterancesView
 Set-Alias -Name Put-LMBBot -Value Write-LMBBot
 Set-Alias -Name LMB-PutBot -Value Write-LMBBot
 Set-Alias -Name Put-LMBBotAlias -Value Write-LMBBotAlias
@@ -3045,13 +3054,13 @@ Set-Alias -Name LMB-GetBotVersions -Value Get-LMBBotVersionList
 Set-Alias -Name LMB-GetBuiltinIntent -Value Get-LMBBuiltinIntent
 Set-Alias -Name LMB-GetBuiltinIntents -Value Get-LMBBuiltinIntentList
 Set-Alias -Name LMB-GetBuiltinSlotTypes -Value Get-LMBBuiltinSlotType
+Set-Alias -Name LMB-GetExport -Value Get-LMBExport
 Set-Alias -Name LMB-GetIntent -Value Get-LMBIntent
 Set-Alias -Name LMB-GetIntents -Value Get-LMBIntentList
 Set-Alias -Name LMB-GetIntentVersions -Value Get-LMBIntentVersion
 Set-Alias -Name LMB-GetSlotType -Value Get-LMBSlotType
 Set-Alias -Name LMB-GetSlotTypes -Value Get-LMBSlotTypeList
 Set-Alias -Name LMB-GetSlotTypeVersions -Value Get-LMBSlotTypeVersionList
-Set-Alias -Name LMB-GetUtterancesView -Value Get-LMBUtterancesView
 Set-Alias -Name LS-GetKeyPair -Value Get-LSKeyPairInfo
 Set-Alias -Name LS-GetKeyPairs -Value Get-LSKeypairList
 Set-Alias -Name LS-GetOperation -Value Get-LSOperation
@@ -3770,6 +3779,9 @@ Set-Alias -Name RGT-GetTagKeys -Value Get-RGTTagKey
 Set-Alias -Name RGT-GetTagValues -Value Get-RGTTagValue
 Set-Alias -Name RGT-TagResources -Value Add-RGTResourceTag
 Set-Alias -Name RGT-UntagResources -Value Remove-RGTResourceTag
+Set-Alias -Name R53-GetQueryLoggingConfig -Value Get-R53QueryLoggingConfig
+Set-Alias -Name R53-GetReusableDelegationSet -Value Get-R53ReusableDelegationSet
+Set-Alias -Name R53-GetTrafficPolicy -Value Get-R53TrafficPolicy
 Set-Alias -Name R53-GetTrafficPolicyInstance -Value Get-R53TrafficPolicyInstance
 Set-Alias -Name R53-GetTrafficPolicyInstanceCount -Value Get-R53TrafficPolicyInstanceCount
 Set-Alias -Name List-R53GeoLocationList -Value Get-R53GeoLocationList
@@ -3778,6 +3790,8 @@ Set-Alias -Name List-R53HealthCheckList -Value Get-R53HealthCheckList
 Set-Alias -Name R53-ListHealthChecks -Value Get-R53HealthCheckList
 Set-Alias -Name List-R53HostedZoneList -Value Get-R53HostedZoneList
 Set-Alias -Name R53-ListHostedZones -Value Get-R53HostedZoneList
+Set-Alias -Name List-R53QueryLoggingConfigList -Value Get-R53QueryLoggingConfigList
+Set-Alias -Name R53-ListQueryLoggingConfigs -Value Get-R53QueryLoggingConfigList
 Set-Alias -Name List-R53ResourceRecordSets -Value Get-R53ResourceRecordSet
 Set-Alias -Name R53-ListResourceRecordSets -Value Get-R53ResourceRecordSet
 Set-Alias -Name List-R53ReusableDelegationSetList -Value Get-R53ReusableDelegationSetList
@@ -3806,6 +3820,8 @@ Set-Alias -Name Create-R53HealthCheck -Value New-R53HealthCheck
 Set-Alias -Name R53-CreateHealthCheck -Value New-R53HealthCheck
 Set-Alias -Name Create-R53HostedZone -Value New-R53HostedZone
 Set-Alias -Name R53-CreateHostedZone -Value New-R53HostedZone
+Set-Alias -Name Create-R53QueryLoggingConfig -Value New-R53QueryLoggingConfig
+Set-Alias -Name R53-CreateQueryLoggingConfig -Value New-R53QueryLoggingConfig
 Set-Alias -Name Create-R53ReusableDelegationSet -Value New-R53ReusableDelegationSet
 Set-Alias -Name R53-CreateReusableDelegationSet -Value New-R53ReusableDelegationSet
 Set-Alias -Name Create-R53TrafficPolicy -Value New-R53TrafficPolicy
@@ -3820,6 +3836,8 @@ Set-Alias -Name Delete-R53HealthCheck -Value Remove-R53HealthCheck
 Set-Alias -Name R53-DeleteHealthCheck -Value Remove-R53HealthCheck
 Set-Alias -Name Delete-R53HostedZone -Value Remove-R53HostedZone
 Set-Alias -Name R53-DeleteHostedZone -Value Remove-R53HostedZone
+Set-Alias -Name Delete-R53QueryLoggingConfig -Value Remove-R53QueryLoggingConfig
+Set-Alias -Name R53-DeleteQueryLoggingConfig -Value Remove-R53QueryLoggingConfig
 Set-Alias -Name Delete-R53ReusableDelegationSet -Value Remove-R53ReusableDelegationSet
 Set-Alias -Name R53-DeleteReusableDelegationSet -Value Remove-R53ReusableDelegationSet
 Set-Alias -Name Delete-R53TrafficPolicy -Value Remove-R53TrafficPolicy
@@ -3838,8 +3856,6 @@ Set-Alias -Name R53-GetHealthCheckLastFailureReason -Value Get-R53HealthCheckLas
 Set-Alias -Name R53-GetHealthCheckStatus -Value Get-R53HealthCheckStatus
 Set-Alias -Name R53-GetHostedZone -Value Get-R53HostedZone
 Set-Alias -Name R53-GetHostedZoneCount -Value Get-R53HostedZoneCount
-Set-Alias -Name R53-GetReusableDelegationSet -Value Get-R53ReusableDelegationSet
-Set-Alias -Name R53-GetTrafficPolicy -Value Get-R53TrafficPolicy
 Set-Alias -Name R53D-CheckDomainAvailability -Value Test-R53DDomainAvailability
 Set-Alias -Name Delete-R53DTagsForDomain -Value Remove-R53DTagsForDomain
 Set-Alias -Name R53D-DeleteTagsForDomain -Value Remove-R53DTagsForDomain

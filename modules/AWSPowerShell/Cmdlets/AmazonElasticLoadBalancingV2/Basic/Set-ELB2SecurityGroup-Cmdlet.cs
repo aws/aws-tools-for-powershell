@@ -28,8 +28,13 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Associates the specified security groups with the specified load balancer. The specified
-    /// security groups override the previously associated security groups.
+    /// Associates the specified security groups with the specified Application Load Balancer.
+    /// The specified security groups override the previously associated security groups.
+    /// 
+    ///  
+    /// <para>
+    /// Note that you can't specify a security group for a Network Load Balancer.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "ELB2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         #region Parameter MetricTransformation
         /// <summary>
         /// <para>
-        /// <para>A collection of information needed to define how metric data gets emitted.</para>
+        /// <para>A collection of information that defines how metric data gets emitted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

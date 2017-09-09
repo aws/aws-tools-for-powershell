@@ -43,7 +43,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target
     /// Groups for Your Application Load Balancers</a> in the <i>Application Load Balancers
-    /// Guide</i>.
+    /// Guide</i> or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target
+    /// Groups for Your Network Load Balancers</a> in the <i>Network Load Balancers Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "ELB2TargetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -60,7 +61,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The approximate amount of time, in seconds, between health checks of an individual
-        /// target. The default is 30 seconds.</para>
+        /// target. For Application Load Balancers, the range is 5 to 300 seconds. For Network
+        /// Load Balancers, the supported values are 10 or 30 seconds. The default is 30 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -71,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter HealthCheckPath
         /// <summary>
         /// <para>
-        /// <para>The ping path that is the destination on the targets for health checks. The default
-        /// is /.</para>
+        /// <para>[HTTP/HTTPS health checks] The ping path that is the destination on the targets for
+        /// health checks. The default is /.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The port the load balancer uses when performing health checks on targets. The default
-        /// is <code>traffic-port</code>, which indicates the port on which each target receives
-        /// traffic from the load balancer.</para>
+        /// is <code>traffic-port</code>, which is the port on which each target receives traffic
+        /// from the load balancer.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,7 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The protocol the load balancer uses when performing health checks on targets. The
-        /// default is the HTTP protocol.</para>
+        /// TCP protocol is supported only if the protocol of the target group is TCP. For Application
+        /// Load Balancers, the default is HTTP. For Network Load Balancers, the default is TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +110,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The amount of time, in seconds, during which no response from a target means a failed
-        /// health check. The default is 5 seconds.</para>
+        /// health check. For Application Load Balancers, the range is 2 to 60 seconds and the
+        /// default is 5 seconds. For Network Load Balancers, this is 10 seconds for TCP and HTTPS
+        /// health checks and 6 seconds for HTTP health checks.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,7 +124,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health checks successes required before considering an unhealthy
-        /// target healthy. The default is 5.</para>
+        /// target healthy. For Application Load Balancers, the default is 5. For Network Load
+        /// Balancers, the default is 3.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,9 +135,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Matcher_HttpCode
         /// <summary>
         /// <para>
-        /// <para>The HTTP codes. You can specify values between 200 and 499. The default value is 200.
-        /// You can specify multiple values (for example, "200,202") or a range of values (for
-        /// example, "200-299").</para>
+        /// <para>The HTTP codes.</para><para>For Application Load Balancers, you can specify values between 200 and 499, and the
+        /// default value is 200. You can specify multiple values (for example, "200,202") or
+        /// a range of values (for example, "200-299").</para><para>For Network Load Balancers, this is 200 to 399.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -164,7 +170,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol to use for routing traffic to the targets.</para>
+        /// <para>The protocol to use for routing traffic to the targets. For Application Load Balancers,
+        /// the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported
+        /// protocol is TCP.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,7 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <summary>
         /// <para>
         /// <para>The number of consecutive health check failures required before considering a target
-        /// unhealthy. The default is 2.</para>
+        /// unhealthy. For Application Load Balancers, the default is 2. For Network Load Balancers,
+        /// this value must be the same as the healthy threshold count.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

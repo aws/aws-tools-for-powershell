@@ -28,7 +28,8 @@ using Amazon.ElasticLoadBalancingV2.Model;
 namespace Amazon.PowerShell.Cmdlets.ELB2
 {
     /// <summary>
-    /// Describes the attributes for the specified Application Load Balancer.
+    /// Describes the attributes for the specified Application Load Balancer or Network Load
+    /// Balancer.
     /// </summary>
     [Cmdlet("Get", "ELB2LoadBalancerAttribute")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.LoadBalancerAttribute")]

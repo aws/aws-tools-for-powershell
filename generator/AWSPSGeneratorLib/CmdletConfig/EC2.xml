@@ -316,6 +316,8 @@
       </PassThru>
     </ServiceOperation>
     <ServiceOperation MethodName="UnmonitorInstances" Verb="Stop" Noun="InstanceMonitoring" />
+    <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsEgress" Noun="SecurityGroupRuleEgressDescription" ShouldProcessTarget="GroupId" />
+    <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsIngress" Noun="SecurityGroupRuleIngressDescription" ShouldProcessTarget="GroupId" />
     <ServiceOperation MethodName="DescribeVpcPeeringConnections" PipelineParameter="VpcPeeringConnectionIds" PositionalParameters="Filters" Noun="VpcPeeringConnection" LegacyAlias="Get-EC2VpcPeeringConnections" />
     <ServiceOperation MethodName="CreateVpcPeeringConnection" PipelineParameter="VpcId" PositionalParameters="PeerVpcId;PeerOwnerId"/>
     <ServiceOperation MethodName="AcceptVpcPeeringConnection" Verb="Approve" />

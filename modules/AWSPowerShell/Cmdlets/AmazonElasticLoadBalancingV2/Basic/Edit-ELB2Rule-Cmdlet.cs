@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Action
         /// <summary>
         /// <para>
-        /// <para>The actions.</para>
+        /// <para>The actions. The target group must use the HTTP or HTTPS protocol.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
