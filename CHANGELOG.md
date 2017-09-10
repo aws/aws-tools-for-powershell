@@ -1,3 +1,22 @@
+### 3.3.152.1 (2017-09-09)
+  * Amazon CloudWatch Logs
+    - Added cmdlets for managing resource polices
+  * Amazon EC2
+    - Added new cmdlets Update-EC2SecurityGroupRuleIngressDescription and Update-EC2SecurityGroupRuleEgressDescription 
+  * Amazon Lex Model Building Service
+	- Added new cmdlet Get-LMBExport
+  * Amazon Route53
+    - Added new cmdlets to manage query logging config.
+
+### 3.3.150.1 (2017-09-07)
+  * AWS CodeBuild
+    - Added new cmdlet RemoveCBBuildBatch
+  * AWS CodeStar
+    - Added new cmdlets Add-CSTTagsForProject, Remove-CSTTagsForProject and Get-CSTTagsForProject
+  * Amazon GameLift
+    - Added new cmdlets for setting up EC2 VPC peering.
+	
+
 ### 3.3.143.0 (2017-08-24)
   * Amazon Simple Systems Management
     - Added new cmdlet, Get-SSMAssociationVersionList (ListAssociationVersions API), to returns versioned associations.
