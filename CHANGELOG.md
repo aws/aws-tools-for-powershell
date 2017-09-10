@@ -1,4 +1,4 @@
-### 3.3.152.1 (2017-09-09)
+### 3.3.152.0 (2017-09-09)
   * Amazon CloudWatch Logs
     - Added cmdlets for managing resource polices
   * Amazon EC2
@@ -8,7 +8,7 @@
   * Amazon Route53
     - Added new cmdlets to manage query logging config.
 
-### 3.3.150.1 (2017-09-07)
+### 3.3.150.0 (2017-09-07)
   * AWS CodeBuild
     - Added new cmdlet RemoveCBBuildBatch
   * AWS CodeStar
