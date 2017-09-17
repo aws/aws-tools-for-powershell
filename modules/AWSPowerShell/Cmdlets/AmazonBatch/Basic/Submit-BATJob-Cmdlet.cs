@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter DependsOn
         /// <summary>
         /// <para>
-        /// <para>A list of job IDs on which this job depends. A job can depend upon a maximum of 100
+        /// <para>A list of job IDs on which this job depends. A job can depend upon a maximum of 20
         /// jobs. </para>
         /// </para>
         /// </summary>
@@ -101,7 +101,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobName
         /// <summary>
         /// <para>
-        /// <para>The name of the job. A name must be 1 to 128 characters in length.</para><para>Pattern: ^[a-zA-Z0-9_]+$</para>
+        /// <para>The name of the job. The first character must be alphanumeric, and up to 128 letters
+        /// (uppercase and lowercase), numbers, hyphens, and underscores are allowed. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

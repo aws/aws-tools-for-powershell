@@ -93,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The email address of the owner to assign to the new member account. This email address
-        /// must not already be associated with another AWS account.</para>
+        /// must not already be associated with another AWS account. You must use a valid email
+        /// address to complete account creation. You cannot access the root user of the account
+        /// or remove an account that was created with an invalid email address.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

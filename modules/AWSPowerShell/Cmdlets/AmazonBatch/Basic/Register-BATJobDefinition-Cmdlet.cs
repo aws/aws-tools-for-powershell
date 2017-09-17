@@ -107,7 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobDefinitionName
         /// <summary>
         /// <para>
-        /// <para>The name of the job definition to register. </para>
+        /// <para>The name of the job definition to register. Up to 128 letters (uppercase and lowercase),
+        /// numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -133,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// to <code>Memory</code> in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--memory</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para>
+        /// run</a>. You must specify at least 4 MiB of memory for a job.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -243,7 +244,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares.</para>
+        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least 1
+        /// vCPU.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

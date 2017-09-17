@@ -28,15 +28,25 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a new portfolio.
+    /// Copies the specified source product to the specified target product or a new product.
+    /// 
+    ///  
+    /// <para>
+    /// You can copy the product to the same account or another account. You can copy the
+    /// product to the same region or another region.
+    /// </para><para>
+    /// This operation is performed asynchronously. To track the progress of the operation,
+    /// use <a>DescribeCopyProductStatus</a>.
+    /// </para>
     /// </summary>
-    [Cmdlet("New", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ServiceCatalog.Model.CreatePortfolioResponse")]
-    [AWSCmdlet("Invokes the CreatePortfolio operation against AWS Service Catalog.", Operation = new[] {"CreatePortfolio"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.CreatePortfolioResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.CreatePortfolioResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Copy", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the CopyProduct operation against AWS Service Catalog.", Operation = new[] {"CopyProduct"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.ServiceCatalog.Model.CopyProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSCPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class CopySCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -49,56 +59,70 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Description
+        #region Parameter CopyOption
         /// <summary>
         /// <para>
-        /// <para>The text description of the portfolio.</para>
+        /// <para>The copy options. If the value is <code>CopyTags</code>, the tags from the source
+        /// product are copied to the target product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter DisplayName
-        /// <summary>
-        /// <para>
-        /// <para>The name to use for display purposes.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String DisplayName { get; set; }
+        [Alias("CopyOptions")]
+        public System.String[] CopyOption { get; set; }
         #endregion
         
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A token to disambiguate duplicate requests. You can use the same input in multiple
-        /// requests, provided that you also specify a different idempotency token for each request.</para>
+        /// <para> A token to disambiguate duplicate requests. You can use the same input in multiple
+        /// requests, provided that you also specify a different idempotency token for each request.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String IdempotencyToken { get; set; }
         #endregion
         
-        #region Parameter ProviderName
+        #region Parameter SourceProductArn
         /// <summary>
         /// <para>
-        /// <para>The name of the portfolio provider.</para>
+        /// <para>The Amazon Resource Name (ARN) of the source product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ProviderName { get; set; }
+        public System.String SourceProductArn { get; set; }
         #endregion
         
-        #region Parameter Tag
+        #region Parameter SourceProvisioningArtifactIdentifier
         /// <summary>
         /// <para>
-        /// <para>Tags to associate with the new portfolio.</para>
+        /// <para>The IDs of the product versions to copy. By default, all provisioning artifacts are
+        /// copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Tags")]
-        public Amazon.ServiceCatalog.Model.Tag[] Tag { get; set; }
+        [Alias("SourceProvisioningArtifactIdentifiers")]
+        public System.Collections.Hashtable[] SourceProvisioningArtifactIdentifier { get; set; }
+        #endregion
+        
+        #region Parameter TargetProductId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the target product. By default, a new product is created.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TargetProductId { get; set; }
+        #endregion
+        
+        #region Parameter TargetProductName
+        /// <summary>
+        /// <para>
+        /// <para>A name for the target product. The default is the name of the source product.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TargetProductName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -115,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DisplayName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SCPortfolio (CreatePortfolio)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("TargetProductName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-SCProduct (CopyProduct)"))
             {
                 return;
             }
@@ -131,14 +155,27 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.Description = this.Description;
-            context.DisplayName = this.DisplayName;
-            context.IdempotencyToken = this.IdempotencyToken;
-            context.ProviderName = this.ProviderName;
-            if (this.Tag != null)
+            if (this.CopyOption != null)
             {
-                context.Tags = new List<Amazon.ServiceCatalog.Model.Tag>(this.Tag);
+                context.CopyOptions = new List<System.String>(this.CopyOption);
             }
+            context.IdempotencyToken = this.IdempotencyToken;
+            context.SourceProductArn = this.SourceProductArn;
+            if (this.SourceProvisioningArtifactIdentifier != null)
+            {
+                context.SourceProvisioningArtifactIdentifiers = new List<Dictionary<System.String, System.String>>();
+                foreach (var hashTable in this.SourceProvisioningArtifactIdentifier)
+                {
+                    var d = new Dictionary<System.String, System.String>();
+                    foreach (var hashKey in hashTable.Keys)
+                    {
+                        d.Add((String)hashKey, (String)(hashTable[hashKey]));
+                    }
+                    context.SourceProvisioningArtifactIdentifiers.Add(d);
+                }
+            }
+            context.TargetProductId = this.TargetProductId;
+            context.TargetProductName = this.TargetProductName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,31 +190,35 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.CreatePortfolioRequest();
+            var request = new Amazon.ServiceCatalog.Model.CopyProductRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.Description != null)
+            if (cmdletContext.CopyOptions != null)
             {
-                request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.DisplayName != null)
-            {
-                request.DisplayName = cmdletContext.DisplayName;
+                request.CopyOptions = cmdletContext.CopyOptions;
             }
             if (cmdletContext.IdempotencyToken != null)
             {
                 request.IdempotencyToken = cmdletContext.IdempotencyToken;
             }
-            if (cmdletContext.ProviderName != null)
+            if (cmdletContext.SourceProductArn != null)
             {
-                request.ProviderName = cmdletContext.ProviderName;
+                request.SourceProductArn = cmdletContext.SourceProductArn;
             }
-            if (cmdletContext.Tags != null)
+            if (cmdletContext.SourceProvisioningArtifactIdentifiers != null)
             {
-                request.Tags = cmdletContext.Tags;
+                request.SourceProvisioningArtifactIdentifiers = cmdletContext.SourceProvisioningArtifactIdentifiers;
+            }
+            if (cmdletContext.TargetProductId != null)
+            {
+                request.TargetProductId = cmdletContext.TargetProductId;
+            }
+            if (cmdletContext.TargetProductName != null)
+            {
+                request.TargetProductName = cmdletContext.TargetProductName;
             }
             
             CmdletOutput output;
@@ -188,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.CopyProductToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -213,16 +254,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.CreatePortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.CreatePortfolioRequest request)
+        private Amazon.ServiceCatalog.Model.CopyProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.CopyProductRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "CreatePortfolio");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "CopyProduct");
             try
             {
                 #if DESKTOP
-                return client.CreatePortfolio(request);
+                return client.CopyProduct(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreatePortfolioAsync(request);
+                var task = client.CopyProductAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -244,11 +285,12 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String Description { get; set; }
-            public System.String DisplayName { get; set; }
+            public List<System.String> CopyOptions { get; set; }
             public System.String IdempotencyToken { get; set; }
-            public System.String ProviderName { get; set; }
-            public List<Amazon.ServiceCatalog.Model.Tag> Tags { get; set; }
+            public System.String SourceProductArn { get; set; }
+            public List<Dictionary<System.String, System.String>> SourceProvisioningArtifactIdentifiers { get; set; }
+            public System.String TargetProductId { get; set; }
+            public System.String TargetProductName { get; set; }
         }
         
     }

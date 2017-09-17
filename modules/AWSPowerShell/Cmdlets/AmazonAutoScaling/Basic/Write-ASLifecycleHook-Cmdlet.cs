@@ -95,10 +95,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter HeartbeatTimeout
         /// <summary>
         /// <para>
-        /// <para>The amount of time, in seconds, that can elapse before the lifecycle hook times out.
-        /// When the lifecycle hook times out, Auto Scaling performs the default action. You can
-        /// prevent the lifecycle hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>.
-        /// The default is 3600 seconds (1 hour).</para>
+        /// <para>The maximum time, in seconds, that can elapse before the lifecycle hook times out.
+        /// The range is from 30 to 7200 seconds. The default is 3600 seconds (1 hour).</para><para>If the lifecycle hook times out, Auto Scaling performs the default action. You can
+        /// prevent the lifecycle hook from timing out by calling <a>RecordLifecycleActionHeartbeat</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

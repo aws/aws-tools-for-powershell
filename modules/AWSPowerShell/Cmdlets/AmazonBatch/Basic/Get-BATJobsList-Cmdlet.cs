@@ -29,7 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
     /// Returns a list of task jobs for a specified job queue. You can filter the results
-    /// by job status with the <code>jobStatus</code> parameter.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// by job status with the <code>jobStatus</code> parameter. If you do not specify a status,
+    /// only <code>RUNNING</code> jobs are returned.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "BATJobsList")]
     [OutputType("Amazon.Batch.Model.JobSummary")]
@@ -55,7 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobStatus
         /// <summary>
         /// <para>
-        /// <para>The job status with which to filter jobs in the specified queue.</para>
+        /// <para>The job status with which to filter jobs in the specified queue. If you do not specify
+        /// a status, only <code>RUNNING</code> jobs are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

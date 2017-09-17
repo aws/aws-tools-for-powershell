@@ -30,11 +30,6 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// <summary>
     /// Create a new provisioning artifact for the specified product. This operation does
     /// not work with a product that has been shared with you.
-    /// 
-    ///  
-    /// <para>
-    /// See the bottom of this topic for an example JSON request.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateProvisioningArtifactResponse")]
@@ -48,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AcceptLanguage
         /// <summary>
         /// <para>
-        /// <para>The language code to use for this operation. Supported language codes are as follows:</para><para>"en" (English)</para><para>"jp" (Japanese)</para><para>"zh" (Chinese)</para><para>If no code is specified, "en" is used as the default.</para>
+        /// <para>The language code.</para><ul><li><para><code>en</code> - English (default)</para></li><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,9 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A token to disambiguate duplicate requests. You can create multiple resources using
-        /// the same input in multiple requests, provided that you also specify a different idempotency
-        /// token for each request.</para>
+        /// <para>A token to disambiguate duplicate requests. You can use the same input in multiple
+        /// requests, provided that you also specify a different idempotency token for each request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

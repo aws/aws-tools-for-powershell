@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
         #endregion
         
+        #region Parameter ClientId
+        /// <summary>
+        /// <para>
+        /// <para>Unique identifier for the client. If you want access to multiple devices on the same
+        /// client, you should pass the same <code>clientId</code> value in each call to <code>CreateRemoteAccessSession</code>.
+        /// This is required only if <code>remoteDebugEnabled</code> is set to true <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ClientId { get; set; }
+        #endregion
+        
         #region Parameter DeviceArn
         /// <summary>
         /// <para>
@@ -83,6 +95,29 @@ namespace Amazon.PowerShell.Cmdlets.DF
         public System.String ProjectArn { get; set; }
         #endregion
         
+        #region Parameter RemoteDebugEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set to <code>true</code> if you want to access devices remotely for debugging in your
+        /// remote access session.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean RemoteDebugEnabled { get; set; }
+        #endregion
+        
+        #region Parameter SshPublicKey
+        /// <summary>
+        /// <para>
+        /// <para>The public key of the <code>ssh</code> key pair you want to use for connecting to
+        /// remote devices in your remote debugging session. This is only required if <code>remoteDebugEnabled</code>
+        /// is set to <code>true</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SshPublicKey { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -112,10 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ClientId = this.ClientId;
             context.Configuration_BillingMethod = this.Configuration_BillingMethod;
             context.DeviceArn = this.DeviceArn;
             context.Name = this.Name;
             context.ProjectArn = this.ProjectArn;
+            if (ParameterWasBound("RemoteDebugEnabled"))
+                context.RemoteDebugEnabled = this.RemoteDebugEnabled;
+            context.SshPublicKey = this.SshPublicKey;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -132,6 +171,10 @@ namespace Amazon.PowerShell.Cmdlets.DF
             // create request
             var request = new Amazon.DeviceFarm.Model.CreateRemoteAccessSessionRequest();
             
+            if (cmdletContext.ClientId != null)
+            {
+                request.ClientId = cmdletContext.ClientId;
+            }
             
              // populate Configuration
             bool requestConfigurationIsNull = true;
@@ -162,6 +205,14 @@ namespace Amazon.PowerShell.Cmdlets.DF
             if (cmdletContext.ProjectArn != null)
             {
                 request.ProjectArn = cmdletContext.ProjectArn;
+            }
+            if (cmdletContext.RemoteDebugEnabled != null)
+            {
+                request.RemoteDebugEnabled = cmdletContext.RemoteDebugEnabled.Value;
+            }
+            if (cmdletContext.SshPublicKey != null)
+            {
+                request.SshPublicKey = cmdletContext.SshPublicKey;
             }
             
             CmdletOutput output;
@@ -227,10 +278,13 @@ namespace Amazon.PowerShell.Cmdlets.DF
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ClientId { get; set; }
             public Amazon.DeviceFarm.BillingMethod Configuration_BillingMethod { get; set; }
             public System.String DeviceArn { get; set; }
             public System.String Name { get; set; }
             public System.String ProjectArn { get; set; }
+            public System.Boolean? RemoteDebugEnabled { get; set; }
+            public System.String SshPublicKey { get; set; }
         }
         
     }

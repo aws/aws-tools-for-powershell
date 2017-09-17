@@ -85,8 +85,13 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
-        /// <para>The name or full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch
-        /// to make calls to ECS, Auto Scaling, and EC2 on your behalf.</para>
+        /// <para>The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make
+        /// calls to other AWS services on your behalf.</para><para>If your specified role has a path other than <code>/</code>, then you must either
+        /// specify the full role ARN (this is recommended) or prefix the role name with the path.</para><note><para>Depending on how you created your AWS Batch service role, its ARN may contain the
+        /// <code>service-role</code> path prefix. When you only specify the name of the service
+        /// role, AWS Batch assumes that your ARN does not use the <code>service-role</code> path
+        /// prefix. Because of this, we recommend that you specify the full ARN of your service
+        /// role when you create compute environments.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

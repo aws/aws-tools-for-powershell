@@ -28,21 +28,15 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves information about a specified product.
-    /// 
-    ///  
-    /// <para>
-    /// This operation is functionally identical to <a>DescribeProductView</a> except that
-    /// it takes as input <code>ProductId</code> instead of <code>ProductViewId</code>.
-    /// </para>
+    /// Describes the status of the specified copy product operation.
     /// </summary>
-    [Cmdlet("Get", "SCProduct")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProductResponse")]
-    [AWSCmdlet("Invokes the DescribeProduct operation against AWS Service Catalog.", Operation = new[] {"DescribeProduct"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProductResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "SCCopyProductStatus")]
+    [OutputType("Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse")]
+    [AWSCmdlet("Invokes the DescribeCopyProductStatus operation against AWS Service Catalog.", Operation = new[] {"DescribeCopyProductStatus"})]
+    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse",
+        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProductCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetSCCopyProductStatusCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
     {
         
         #region Parameter AcceptLanguage
@@ -55,14 +49,14 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
-        #region Parameter Id
+        #region Parameter CopyProductToken
         /// <summary>
         /// <para>
-        /// <para>The <code>ProductId</code> of the product to describe.</para>
+        /// <para>The token returned from the call to <code>CopyProduct</code> that initiated the operation.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Id { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.String CopyProductToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -79,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
-            context.Id = this.Id;
+            context.CopyProductToken = this.CopyProductToken;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -94,15 +88,15 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProductRequest();
+            var request = new Amazon.ServiceCatalog.Model.DescribeCopyProductStatusRequest();
             
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
             }
-            if (cmdletContext.Id != null)
+            if (cmdletContext.CopyProductToken != null)
             {
-                request.Id = cmdletContext.Id;
+                request.CopyProductToken = cmdletContext.CopyProductToken;
             }
             
             CmdletOutput output;
@@ -138,16 +132,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.DescribeProductResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProductRequest request)
+        private Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeCopyProductStatusRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProduct");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeCopyProductStatus");
             try
             {
                 #if DESKTOP
-                return client.DescribeProduct(request);
+                return client.DescribeCopyProductStatus(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeProductAsync(request);
+                var task = client.DescribeCopyProductStatusAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -169,7 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
-            public System.String Id { get; set; }
+            public System.String CopyProductToken { get; set; }
         }
         
     }

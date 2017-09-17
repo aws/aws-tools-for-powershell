@@ -89,7 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// <para>
         /// <para>The number of EC2 instances that should be running in the group. This number must
         /// be greater than or equal to the minimum size of the group and less than or equal to
-        /// the maximum size of the group.</para>
+        /// the maximum size of the group. If you do not specify a desired capacity, the default
+        /// is the minimum size of the group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -145,6 +146,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String LaunchConfigurationName { get; set; }
+        #endregion
+        
+        #region Parameter LifecycleHookSpecificationList
+        /// <summary>
+        /// <para>
+        /// <para>One or more lifecycle hooks.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.AutoScaling.Model.LifecycleHookSpecification[] LifecycleHookSpecificationList { get; set; }
         #endregion
         
         #region Parameter LoadBalancerName
@@ -303,6 +314,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.HealthCheckType = this.HealthCheckType;
             context.InstanceId = this.InstanceId;
             context.LaunchConfigurationName = this.LaunchConfigurationName;
+            if (this.LifecycleHookSpecificationList != null)
+            {
+                context.LifecycleHookSpecificationList = new List<Amazon.AutoScaling.Model.LifecycleHookSpecification>(this.LifecycleHookSpecificationList);
+            }
             if (this.LoadBalancerName != null)
             {
                 context.LoadBalancerNames = new List<System.String>(this.LoadBalancerName);
@@ -374,6 +389,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.LaunchConfigurationName != null)
             {
                 request.LaunchConfigurationName = cmdletContext.LaunchConfigurationName;
+            }
+            if (cmdletContext.LifecycleHookSpecificationList != null)
+            {
+                request.LifecycleHookSpecificationList = cmdletContext.LifecycleHookSpecificationList;
             }
             if (cmdletContext.LoadBalancerNames != null)
             {
@@ -485,6 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String HealthCheckType { get; set; }
             public System.String InstanceId { get; set; }
             public System.String LaunchConfigurationName { get; set; }
+            public List<Amazon.AutoScaling.Model.LifecycleHookSpecification> LifecycleHookSpecificationList { get; set; }
             public List<System.String> LoadBalancerNames { get; set; }
             public System.Int32? MaxSize { get; set; }
             public System.Int32? MinSize { get; set; }

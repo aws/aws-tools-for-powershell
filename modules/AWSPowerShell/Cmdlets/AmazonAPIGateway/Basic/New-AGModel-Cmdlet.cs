@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the model.</para>
+        /// <para>The name of the model. Must be alphanumeric.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

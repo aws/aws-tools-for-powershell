@@ -49,9 +49,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </para></li><li><para>
     /// AWS Step Functions state machines
     /// </para></li><li><para>
+    /// Pipelines in Amazon Code Pipeline
+    /// </para></li><li><para>
+    /// Amazon Inspector assessment templates
+    /// </para></li><li><para>
     /// Amazon SNS topics
     /// </para></li><li><para>
     /// Amazon SQS queues
+    /// </para></li><li><para>
+    /// The default event bus of another AWS account
     /// </para></li></ul><para>
     /// Note that creating rules with built-in targets is supported only in the AWS Management
     /// Console.
@@ -71,9 +77,15 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// and Access Control</a> in the <i>Amazon CloudWatch Events User Guide</i>.
     /// </para><para>
     /// If another AWS account is in the same region and has granted you permission (using
-    /// <code>PutPermission</code>), you can set that account's event bus as a target of the
-    /// rules in your account. To send the matched events to the other account, specify that
-    /// account's event bus as the <code>Arn</code> when you run <code>PutTargets</code>.
+    /// <code>PutPermission</code>), you can send events to that account by setting that account's
+    /// event bus as a target of the rules in your account. To send the matched events to
+    /// the other account, specify that account's event bus as the <code>Arn</code> when you
+    /// run <code>PutTargets</code>. If your account sends events to another account, your
+    /// account is charged for each sent event. Each event sent to antoher account is charged
+    /// as a custom event. The account receiving the event is not charged. For more information
+    /// on pricing, see <a href="https://aws.amazon.com/cloudwatch/pricing/">Amazon CloudWatch
+    /// Pricing</a>.
+    /// </para><para>
     /// For more information about enabling cross-account events, see <a>PutPermission</a>.
     /// </para><para><b>Input</b>, <b>InputPath</b> and <b>InputTransformer</b> are mutually exclusive
     /// and optional parameters of a target. When a rule is triggered due to a matched event:

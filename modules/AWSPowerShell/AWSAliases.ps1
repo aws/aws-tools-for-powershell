@@ -3961,6 +3961,8 @@ Set-Alias -Name S3-GetBucketLogging -Value Get-S3BucketLogging
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object
+Set-Alias -Name SC-DisassociateTagOptionFromResource -Value Remove-SCTagOptionFromResource
+Set-Alias -Name SC-ListAcceptedPortfolioShares -Value Get-SCAcceptedPortfolioSharesList
 Set-Alias -Name SC-ListConstraintsForPortfolio -Value Get-SCConstrainsForPortfolioList
 Set-Alias -Name List-SCLaunchPath -Value Get-SCLaunchPath
 Set-Alias -Name SC-ListLaunchPaths -Value Get-SCLaunchPath
@@ -3991,6 +3993,7 @@ Set-Alias -Name SC-AssociatePrincipalWithPortfolio -Value Register-SCPrincipalWi
 Set-Alias -Name Associate-SCProductWithPortfolio -Value Register-SCProductWithPortfolio
 Set-Alias -Name SC-AssociateProductWithPortfolio -Value Register-SCProductWithPortfolio
 Set-Alias -Name SC-AssociateTagOptionWithResource -Value Add-SCTagOptionToResource
+Set-Alias -Name SC-CopyProduct -Value Copy-SCProduct
 Set-Alias -Name Create-SCConstraint -Value New-SCConstraint
 Set-Alias -Name SC-CreateConstraint -Value New-SCConstraint
 Set-Alias -Name Create-SCPortfolio -Value New-SCPortfolio
@@ -4015,6 +4018,8 @@ Set-Alias -Name Delete-SCProvisioningArtifact -Value Remove-SCProvisioningArtifa
 Set-Alias -Name SC-DeleteProvisioningArtifact -Value Remove-SCProvisioningArtifact
 Set-Alias -Name Describe-SCConstraint -Value Get-SCConstraint
 Set-Alias -Name SC-DescribeConstraint -Value Get-SCConstraint
+Set-Alias -Name Describe-SCCopyProductStatus -Value Get-SCCopyProductStatus
+Set-Alias -Name SC-DescribeCopyProductStatus -Value Get-SCCopyProductStatus
 Set-Alias -Name Describe-SCPortfolio -Value Get-SCPortfolio
 Set-Alias -Name SC-DescribePortfolio -Value Get-SCPortfolio
 Set-Alias -Name Describe-SCProduct -Value Get-SCProduct
@@ -4037,8 +4042,6 @@ Set-Alias -Name Disassociate-SCPrincipalFromPortfolio -Value Unregister-SCPrinci
 Set-Alias -Name SC-DisassociatePrincipalFromPortfolio -Value Unregister-SCPrincipalFromPortfolio
 Set-Alias -Name Disassociate-SCProductFromPortfolio -Value Unregister-SCProductFromPortfolio
 Set-Alias -Name SC-DisassociateProductFromPortfolio -Value Unregister-SCProductFromPortfolio
-Set-Alias -Name SC-DisassociateTagOptionFromResource -Value Remove-SCTagOptionFromResource
-Set-Alias -Name SC-ListAcceptedPortfolioShares -Value Get-SCAcceptedPortfolioSharesList
 Set-Alias -Name List-SESReceiptFilterList -Value Get-SESReceiptFilterList
 Set-Alias -Name SES-ListReceiptFilters -Value Get-SESReceiptFilterList
 Set-Alias -Name List-SESReceiptRuleSetList -Value Get-SESReceiptRuleSetList

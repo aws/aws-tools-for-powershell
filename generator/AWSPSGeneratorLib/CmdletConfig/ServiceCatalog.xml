@@ -43,6 +43,8 @@
     <ServiceOperation MethodName="CreatePortfolio" NoPipelineParameter="true" ShouldProcessTarget="DisplayName" Output="Response" />
     <ServiceOperation MethodName="CreatePortfolioShare" PipelineParameter="AccountId" Output="Void" />
     <ServiceOperation MethodName="CreateProduct" NoPipelineParameter="true" ShouldProcessTarget="Name" Output="Response" />
+    <ServiceOperation MethodName="CopyProduct" ShouldProcessTarget="TargetProductName" />
+    <ServiceOperation MethodName="DescribeCopyProductStatus" Output="Response" />
     <ServiceOperation MethodName="CreateProvisioningArtifact" PipelineParameter="ProductId" Output="Response" />
     <ServiceOperation MethodName="DeleteConstraint" Output="Void" />
     <ServiceOperation MethodName="DeletePortfolio" Output="Void" />

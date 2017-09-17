@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
     /// Deletes the specified job queue. You must first disable submissions for a queue with
-    /// the <a>UpdateJobQueue</a> operation and terminate any jobs that have not completed
-    /// with the <a>TerminateJob</a>.
+    /// the <a>UpdateJobQueue</a> operation. All jobs in the queue are terminated when you
+    /// delete a job queue.
     /// 
     ///  
     /// <para>

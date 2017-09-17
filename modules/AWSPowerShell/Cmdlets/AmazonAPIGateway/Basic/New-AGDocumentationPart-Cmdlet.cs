@@ -131,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <code>MODEL</code>, <code>RESOURCE</code>, <code>METHOD</code>, <code>PATH_PARAMETER</code>,
         /// <code>QUERY_PARAMETER</code>, <code>REQUEST_HEADER</code>, <code>REQUEST_BODY</code>,
         /// <code>RESPONSE</code>, <code>RESPONSE_HEADER</code>, and <code>RESPONSE_BODY</code>.
-        /// Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHROZER</code>,
+        /// Content inheritance does not apply to any entity of the <code>API</code>, <code>AUTHORIZER</code>,
         /// <code>METHOD</code>, <code>MODEL</code>, <code>REQUEST_BODY</code>, or <code>RESOURCE</code>
         /// type.</para>
         /// </para>

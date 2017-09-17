@@ -98,9 +98,11 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter TargetTrackingConfiguration_DisableScaleIn
         /// <summary>
         /// <para>
-        /// <para>If the parameter is true, then scale-in will be disabled for the target tracking policy,
-        /// i.e. the target tracking policy will not scale in the Auto Scaling group. The default
-        /// value is false.</para>
+        /// <para>Indicates whether scale in by the target tracking policy is disabled. If the value
+        /// is <code>true</code>, scale in is disabled and the target tracking policy won't remove
+        /// instances from the Auto Scaling group. Otherwise, scale in is enabled and the target
+        /// tracking policy can remove instances from the Auto Scaling group. The default value
+        /// is <code>false</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -213,11 +215,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PredefinedMetricSpecification_ResourceLabel
         /// <summary>
         /// <para>
-        /// <para>Identifies the resource associated with the metric type. For predefined metric types
-        /// <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code> and <code>ASGAverageNetworkOut</code>,
-        /// the parameter must not be specified as the resource associated with the metric type
-        /// is the Auto Scaling group. For predefined metric type <code>ALBRequestCountPerTarget</code>,
-        /// the parameter must be specified in the format <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code>
+        /// <para>Identifies the resource associated with the metric type. The following predefined
+        /// metrics are available:</para><ul><li><para><code>ASGAverageCPUUtilization</code> - average CPU utilization of the Auto Scaling
+        /// group</para></li><li><para><code>ASGAverageNetworkIn</code> - average number of bytes received on all network
+        /// interfaces by the Auto Scaling group</para></li><li><para><code>ASGAverageNetworkOut</code> - average number of bytes sent out on all network
+        /// interfaces by the Auto Scaling group</para></li><li><para><code>ALBRequestCountPerTarget</code> - number of requests completed per target in
+        /// an Application Load Balancer target group</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>
+        /// and <code>ASGAverageNetworkOut</code>, the parameter must not be specified as the
+        /// resource associated with the metric type is the Auto Scaling group. For predefined
+        /// metric type <code>ALBRequestCountPerTarget</code>, the parameter must be specified
+        /// in the format: <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i>/targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code>, where <code>app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code>
         /// is the final portion of the load balancer ARN, and <code>targetgroup/<i>target-group-name</i>/<i>target-group-id</i></code> is the final portion of the target group ARN. The target group must be attached
         /// to the Auto Scaling group.</para>
         /// </para>
