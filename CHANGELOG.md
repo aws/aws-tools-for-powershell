@@ -1,3 +1,7 @@
+### 3.3.158.0 (2017-09-17)
+  * AWS Service Catalog
+    - Added cmdlets the CopyProduct and DescribeCopyProductStatus
+
 ### 3.3.152.0 (2017-09-09)
   * Amazon CloudWatch Logs
     - Added cmdlets for managing resource polices
