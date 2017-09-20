@@ -7,7 +7,7 @@ PolicyArn                                                 PolicyName
 ---------                                                 ----------
 arn:aws:iam::aws:policy/SecurityAudit                     SecurityAudit
 arn:aws:iam::aws:policy/AdministratorAccess               AdministratorAccess</code>
-    <description>This command returns the names and ARNs of the managed policies that are attached to the IAM group named <code>Admins</code> in the AWS account. To see the list of inline policies embedded in the group, use the <code>Get-IAMGroupPolicies</code> command.</description>
+    <description>This command returns the names and ARNs of the managed policies that are attached to the IAM group named <code>Admins</code> in the AWS account. To see the list of inline policies embedded in the group, use the <code>Get-IAMGroupPolicyList</code> command.</description>
   </example>
-  
+
 </examples>

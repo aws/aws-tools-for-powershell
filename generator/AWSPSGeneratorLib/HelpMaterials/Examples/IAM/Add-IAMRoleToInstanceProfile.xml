@@ -2,6 +2,6 @@
 <examples>
   <example>
     <code>PS C:\>Add-IAMRoleToInstanceProfile -RoleName "S3Access" -InstanceProfileName "webserver"</code>
-    <description>This command adds the role named <code>S3Access</code> to an existing instance profile named <code>webserver</code>.<br/>To create the instance profile, use the <code>New-IAMInstanceProfile</code> command. After you create the instance profile and associate it with a role using this command, you can attach it to an EC2 instance. To do that, use the <code>New-EC2Instance</code> with either the <code>InstanceProfile_Arn</code> or the <code>InstanceProfile-Name</code> parameter to launch the new instance.</description>
+    <description>This command adds the role named <code>S3Access</code> to an existing instance profile named <code>webserver</code>.<br/>To create the instance profile, use the <code>New-IAMInstanceProfile</code> command. After you create the instance profile and associate it with a role using this command, you can attach it to an EC2 instance. To do that, use the <code>New-EC2Instance</code> cmdlet with either the <code>InstanceProfile_Arn</code> or the <code>InstanceProfile-Name</code> parameter to launch the new instance.</description>
   </example>
 </examples>

@@ -5,7 +5,7 @@
     <description>This example detaches the managed policy whose ARN is <code>arn:aws:iam::123456789012:policy/TesterPolicy</code> from the IAM user named <code>Bob</code>.</description>
   </example>
   <example>
-    <code>PS C:\>Get-IAMAttachedUserPolicies -UserName Theresa | Unregister-IAMUserPolicy -Username Theresa</code>
+    <code>PS C:\>Get-IAMAttachedUserPolicyList -UserName Theresa | Unregister-IAMUserPolicy -Username Theresa</code>
     <description>This example finds all the managed policies that are attached to the IAM user named <code>Theresa</code> and detaches those policies from the user.</description>
   </example>
 </examples>

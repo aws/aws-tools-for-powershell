@@ -7,6 +7,6 @@ PolicyArn                                                 PolicyName
 ---------                                                 ----------
 arn:aws:iam::aws:policy/SecurityAudit                     SecurityAudit
     </code>
-    <description>This command returns the names and ARNs of the managed policies attached to the IAM role named <code>SecurityAuditRole</code> in the AWS  account. To see the list of inline policies that are embedded in the role, use the <code>Get-IAMRolePolicies</code> command.</description>
+    <description>This command returns the names and ARNs of the managed policies attached to the IAM role named <code>SecurityAuditRole</code> in the AWS  account. To see the list of inline policies that are embedded in the role, use the <code>Get-IAMRolePolicyList</code> command.</description>
   </example>
 </examples>

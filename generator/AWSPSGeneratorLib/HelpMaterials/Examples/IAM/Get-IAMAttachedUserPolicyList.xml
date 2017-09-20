@@ -6,6 +6,6 @@
 PolicyArn                                                 PolicyName
 ---------                                                 ----------
 arn:aws:iam::aws:policy/TesterPolicy                      TesterPolicy</code>
-    <description>This command returns the names and ARNs of the managed policies for the IAM user named <code>Bob</code> in the AWS account. To see the list of inline policies that are embedded in the IAM user, use the <code>Get-IAMUserPolicies</code> command.</description>
+    <description>This command returns the names and ARNs of the managed policies for the IAM user named <code>Bob</code> in the AWS account. To see the list of inline policies that are embedded in the IAM user, use the <code>Get-IAMUserPolicyList</code> command.</description>
   </example>
 </examples>

@@ -5,7 +5,8 @@
     <description>This example deletes the role named <code>MyNewRole</code> from the current IAM account. Before you can delete the role you must first use the <code>Unregister-IAMRolePolicy</code> command to detach any managed policies. Inline policies are deleted with the role.</description>
   </example>
   <example>
-    <code>PS C:\>Get-IAMAttachedRolePolicies -RoleName MyNewRole | Unregister-IAMRolePolicy -RoleName MyNewRole
+    <code>
+PS C:\>Get-IAMAttachedRolePolicyList -RoleName MyNewRole | Unregister-IAMRolePolicy -RoleName MyNewRole
 PS C:\>Remove-IAMRole -RoleName MyNewRole</code>
     <description>This example detaches any managed policies from  the role named <code>MyNewRole</code> and then deletes the role. The first line retrieves any managed policies attached to the role as a collection and then detaches each policy in the collection from the role. The second line deletes the role itself. Inline policies are deleted along with the role.</description>
   </example>
