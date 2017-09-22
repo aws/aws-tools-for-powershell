@@ -247,7 +247,7 @@ namespace Amazon.PowerShell.Common
                 {
                     var cmdletAttribute = GetCmdletAttributeInstanceOnType(cmdletType, false);
                     var awsCmdletAttribute = AWSCmdletAttribute.GetAttributeInstanceOnType(cmdletType, false);
-                    if (awsCmdletAttribute == null || awsCmdletAttribute.Operation == null)
+                    if (awsCmdletAttribute == null)
                         continue;
 
                     var cmdletInfo = new PSObject();
@@ -256,8 +256,16 @@ namespace Amazon.PowerShell.Common
                                               cmdletAttribute.VerbName, 
                                               cmdletAttribute.NounName)));
 
-                    // some cmdlets can implement more than one operation (eg Stop-EC2Instance)
-                    cmdletInfo.Properties.Add(new PSNoteProperty("ServiceOperation", string.Join(";", awsCmdletAttribute.Operation)));
+                    // some cmdlets can implement more than one operation (eg Stop-EC2Instance). Some don't have a service
+                    // operation.
+                    if (awsCmdletAttribute.Operation != null && awsCmdletAttribute.Operation.Length > 0)
+                    {
+                        cmdletInfo.Properties.Add(new PSNoteProperty("ServiceOperation", string.Join(";", awsCmdletAttribute.Operation)));
+                    }
+                    else
+                    {
+                        cmdletInfo.Properties.Add(new PSNoteProperty("ServiceOperation", string.Empty));
+                    }
 
                     if (string.IsNullOrEmpty(serviceName))
                     {

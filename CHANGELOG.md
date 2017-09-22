@@ -1,3 +1,7 @@
+### Next Release
+  * Amazon EC2 Container Registry
+    * Implemented a new helper cmdlet, Get-ECRLoginCommand, to return the login command to the pipeline for your default or specified registry or registries. This command is similar to the AWS CLI's 'ecr get-login' command.
+
 ### 3.3.161.0 (2017-09-22)
   * AWS CodePipeline
     * [BREAKING CHANGE]
