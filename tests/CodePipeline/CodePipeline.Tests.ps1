@@ -25,7 +25,7 @@ Describe -Tag "Smoke" "CodePipeline" {
             if ($pipelines) {
                 $pipeline = Get-CPPipeline -Name $pipelines[0].Name
                 $pipeline | Should Not Be $null
-                $pipeline.Name | Should Be $pipelines[0].Name
+                $pipeline.Pipeline.Name | Should Be $pipelines[0].Name
             }
         }
     }
