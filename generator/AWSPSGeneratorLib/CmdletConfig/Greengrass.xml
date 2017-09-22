@@ -82,6 +82,11 @@
     <ServiceOperation MethodName="ListLoggerDefinitions" Noun="LoggerDefinitionList" />
     <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" Noun="SubscriptionDefinitionVersionList" />
     <ServiceOperation MethodName="ListSubscriptionDefinitions" Noun="SubscriptionDefinitionList" />
+    <ServiceOperation MethodName="ResetDeployments" Noun="Deployment" PipelineParameter="GroupId" Output="Response">
+      <Params>
+        <Param Name="Force" NewName="BestEffort" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="UpdateConnectivityInfo" PipelineParameter="ThingName" Output="Response" />
     <ServiceOperation MethodName="UpdateCoreDefinition" PipelineParameter="Name" Output="Void" />
     <ServiceOperation MethodName="UpdateDeviceDefinition" PipelineParameter="Name" Output="Void" />

@@ -29,11 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.CWL
 {
     /// <summary>
     /// Lists the tags for the specified log group.
-    /// 
-    ///  
-    /// <para>
-    /// To add tags, use <a>TagLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.
-    /// </para>
     /// </summary>
     [Cmdlet("Get", "CWLLogGroupTag")]
     [OutputType("System.String")]

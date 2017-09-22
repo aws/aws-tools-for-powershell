@@ -34,10 +34,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// To disable your email-receiving through Amazon SES completely, you can call this API
     /// with RuleSetName set to null.
     /// </para></note><para>
-    /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// For information about managing receipt rule sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "SESActiveReceiptRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

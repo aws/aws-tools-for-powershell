@@ -230,6 +230,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean EnablePerformanceInsight { get; set; }
+        #endregion
+        
         #region Parameter Engine
         /// <summary>
         /// <para>
@@ -259,7 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v3</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v2</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v1</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v12</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.6.x:</b><code> 9.6.1 | 9.6.2</code></para></li><li><para><b>Version 9.5.x:</b><code>9.5.6 | 9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4.x:</b><code>9.4.11 | 9.4.9 | 9.4.7</code></para></li><li><para><b>Version 9.3.x:</b><code>9.3.16 | 9.3.14 | 9.3.12</code></para></li></ul>
+        /// regions except us-gov-west-1)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v12</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.6.x:</b><code> 9.6.1 | 9.6.2 | 9.6.3</code></para></li><li><para><b>Version 9.5.x:</b><code>9.5.6 | 9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4.x:</b><code>9.4.11 | 9.4.9 | 9.4.7</code></para></li><li><para><b>Version 9.3.x:</b><code>9.3.16 | 9.3.14 | 9.3.12</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -379,6 +390,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
         #endregion
         
         #region Parameter Port
@@ -585,6 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            if (ParameterWasBound("EnablePerformanceInsight"))
+                context.EnablePerformanceInsights = this.EnablePerformanceInsight;
             context.Engine = this.Engine;
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
@@ -599,6 +622,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (ParameterWasBound("MultiAZ"))
                 context.MultiAZ = this.MultiAZ;
             context.OptionGroupName = this.OptionGroupName;
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
@@ -701,6 +725,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnablePerformanceInsights != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsights.Value;
+            }
             if (cmdletContext.Engine != null)
             {
                 request.Engine = cmdletContext.Engine;
@@ -744,6 +772,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
             if (cmdletContext.Port != null)
             {
@@ -873,6 +905,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnablePerformanceInsights { get; set; }
             public System.String Engine { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
@@ -884,6 +917,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String MonitoringRoleArn { get; set; }
             public System.Boolean? MultiAZ { get; set; }
             public System.String OptionGroupName { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }

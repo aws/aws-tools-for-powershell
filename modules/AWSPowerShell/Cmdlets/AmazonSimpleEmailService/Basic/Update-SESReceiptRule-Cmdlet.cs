@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about managing receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// For information about managing receipt rules, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rules.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SESReceiptRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -84,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Rule_Recipient
         /// <summary>
         /// <para>
-        /// <para>The recipient domains and email addresses to which the receipt rule applies. If this
+        /// <para>The recipient domains and email addresses that the receipt rule applies to. If this
         /// field is not specified, this rule will match all recipients under all verified domains.</para>
         /// </para>
         /// </summary>
@@ -96,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter RuleSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the receipt rule set to which the receipt rule belongs.</para>
+        /// <para>The name of the receipt rule set that the receipt rule belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -106,7 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Rule_ScanEnabled
         /// <summary>
         /// <para>
-        /// <para>If <code>true</code>, then messages to which this receipt rule applies are scanned
+        /// <para>If <code>true</code>, then messages that this receipt rule applies to are scanned
         /// for spam and viruses. The default value is <code>false</code>.</para>
         /// </para>
         /// </summary>

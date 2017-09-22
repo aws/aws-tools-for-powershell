@@ -122,7 +122,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]
-        public int Limit { get; set; }
+        public System.Int32 Limit { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -130,6 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The token for the next set of events to return. (You received this token from a previous
         /// call.)</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             }
             if (cmdletContext.Limit != null)
             {
-                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
+                request.Limit = cmdletContext.Limit.Value;
             }
             if (cmdletContext.LogGroupName != null)
             {
@@ -279,7 +282,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             public System.Int64? EndTime { get; set; }
             public System.String FilterPattern { get; set; }
             public System.Boolean? Interleaved { get; set; }
-            public int? Limit { get; set; }
+            public System.Int32? Limit { get; set; }
             public System.String LogGroupName { get; set; }
             public List<System.String> LogStreamNames { get; set; }
             public System.String NextToken { get; set; }

@@ -28,12 +28,16 @@ using Amazon.Lex.Model;
 namespace Amazon.PowerShell.Cmdlets.LEX
 {
     /// <summary>
-    /// Sends user input (text or speech) to Amazon Lex. Clients use this API to send requests
-    /// to Amazon Lex at runtime. Amazon Lex interprets the user input using the machine learning
-    /// model that it built for the bot. 
+    /// Sends user input (text or speech) to Amazon Lex. Clients use this API to send text
+    /// and audio requests to Amazon Lex at runtime. Amazon Lex interprets the user input
+    /// using the machine learning model that it built for the bot. 
     /// 
     ///  
     /// <para>
+    /// The <code>PostContent</code> operation supports audio input at 8kHz and 16kHz. You
+    /// can use 8kHz audio to achieve higher speech recognition accuracy in telephone audio
+    /// applications. 
+    /// </para><para>
     ///  In response, Amazon Lex returns the next message to convey to the user. Consider
     /// the following example messages: 
     /// </para><ul><li><para>
@@ -123,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter ContentType
         /// <summary>
         /// <para>
-        /// <para> You pass this values as the <code>Content-Type</code> HTTP header. </para><para> Indicates the audio format or text. The header value must start with one of the following
-        /// prefixes: </para><ul><li><para>PCM format</para><ul><li><para>audio/l16; rate=16000; channels=1</para></li><li><para>audio/x-l16; sample-rate=16000; channel-count=1</para></li></ul></li><li><para>Opus format</para><ul><li><para>audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=1; frame-size-milliseconds=1.1</para></li></ul></li><li><para>Text format</para><ul><li><para>text/plain; charset=utf-8</para></li></ul></li></ul>
+        /// <para> You pass this value as the <code>Content-Type</code> HTTP header. </para><para> Indicates the audio format or text. The header value must start with one of the following
+        /// prefixes: </para><ul><li><para>PCM format, audio data must be in little-endian byte order.</para><ul><li><para>audio/l16; rate=16000; channels=1</para></li><li><para>audio/x-l16; sample-rate=16000; channel-count=1</para></li><li><para>audio/lpcm; sample-rate=8000; sample-size-bits=16; channel-count=1; is-big-endian=false
+        /// </para></li></ul></li><li><para>Opus format</para><ul><li><para>audio/x-cbr-opus-with-preamble; preamble-size=0; bit-rate=256000; frame-size-milliseconds=4</para></li></ul></li><li><para>Text format</para><ul><li><para>text/plain; charset=utf-8</para></li></ul></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,39 +140,39 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         /// <summary>
         /// <para>
         /// <para> User input in PCM or Opus audio format or text format as described in the <code>Content-Type</code>
-        /// HTTP header. </para>
+        /// HTTP header. </para><para>You can stream audio data to Amazon Lex or you can create a local buffer that captures
+        /// all of the audio data before sending. In general, you get better performance if you
+        /// stream audio data rather than buffering the data locally.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.IO.Stream InputStream { get; set; }
         #endregion
         
+        #region Parameter RequestAttribute
+        /// <summary>
+        /// <para>
+        /// <para>You pass this value as the <code>x-amz-lex-request-attributes</code> HTTP header.</para><para>Request-specific information passed between Amazon Lex and a client application. The
+        /// value must be a JSON serialized and base64 encoded map with string keys and values.
+        /// The total size of the <code>requestAttributes</code> and <code>sessionAttributes</code>
+        /// headers is limited to 12 KB.</para><para>The namespace <code>x-amz-lex:</code> is reserved for special attributes. Don't create
+        /// any request attributes with the prefix <code>x-amz-lex:</code>.</para><para>For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-request-attribs">Setting
+        /// Request Attributes</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RequestAttributes")]
+        public System.String RequestAttribute { get; set; }
+        #endregion
+        
         #region Parameter SessionAttribute
         /// <summary>
         /// <para>
-        /// <para>You pass this value in the <code>x-amz-lex-session-attributes</code> HTTP header.
-        /// The value must be map (keys and values must be strings) that is JSON serialized and
-        /// then base64 encoded.</para><para> A session represents dialog between a user and Amazon Lex. At runtime, a client application
-        /// can pass contextual information, in the request to Amazon Lex. For example, </para><ul><li><para>You might use session attributes to track the requestID of user requests.</para></li><li><para>In Getting Started Exercise 1, the example bot uses the price session attribute to
-        /// maintain the price of flowers ordered (for example, "price":25). The code hook (Lambda
-        /// function) sets this attribute based on the type of flowers ordered. For more information,
-        /// see <a href="http://docs.aws.amazon.com/lex/latest/dg/gs-bp-details-after-lambda.html">Review
-        /// the Details of Information Flow</a>. </para></li><li><para>In the BookTrip bot exercise, the bot uses the <code>currentReservation</code> session
-        /// attribute to maintains the slot data during the in-progress conversation to book a
-        /// hotel or book a car. For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/book-trip-detail-flow.html">Details
-        /// of Information Flow</a>. </para></li></ul><para> Amazon Lex passes these session attributes to the Lambda functions configured for
-        /// the intent In the your Lambda function, you can use the session attributes for initialization
-        /// and customization (prompts). Some examples are: </para><ul><li><para> Initialization - In a pizza ordering bot, if you pass user location (for example,
-        /// <code>"Location : 111 Maple Street"</code>), then your Lambda function might use this
-        /// information to determine the closest pizzeria to place the order (and perhaps set
-        /// the storeAddress slot value as well). </para><para> Personalized prompts - For example, you can configure prompts to refer to the user
-        /// by name (for example, "Hey [firstName], what toppings would you like?"). You can pass
-        /// the user's name as a session attribute ("firstName": "Joe") so that Amazon Lex can
-        /// substitute the placeholder to provide a personalized prompt to the user ("Hey Joe,
-        /// what toppings would you like?"). </para></li></ul><note><para> Amazon Lex does not persist session attributes. </para><para> If you configured a code hook for the intent, Amazon Lex passes the incoming session
-        /// attributes to the Lambda function. The Lambda function must return these session attributes
-        /// if you want Amazon Lex to return them to the client. </para><para> If there is no code hook configured for the intent Amazon Lex simply returns the
-        /// session attributes to the client application. </para></note>
+        /// <para>You pass this value as the <code>x-amz-lex-session-attributes</code> HTTP header.</para><para>Application-specific information passed between Amazon Lex and a client application.
+        /// The value must be a JSON serialized and base64 encoded map with string keys and values.
+        /// The total size of the <code>sessionAttributes</code> and <code>requestAttributes</code>
+        /// headers is limited to 12 KB.</para><para>For more information, see <a href="http://docs.aws.amazon.com/lex/latest/dg/context-mgmt.html#context-mgmt-session-attribs">Setting
+        /// Session Attributes</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -178,14 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.LEX
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>ID of the client application user. Typically, each of your application users should
-        /// have a unique ID. The application developer decides the user IDs. At runtime, each
-        /// request must include the user ID. Note the following considerations:</para><ul><li><para> If you want a user to start conversation on one device and continue the conversation
-        /// on another device, you might choose a user-specific identifier, such as the user's
-        /// login, or Amazon Cognito user ID (assuming your application is using Amazon Cognito).
-        /// </para></li><li><para> If you want the same user to be able to have two independent conversations on two
-        /// different devices, you might choose device-specific identifier, such as device ID,
-        /// or some globally unique identifier. </para></li></ul>
+        /// <para>The ID of the client application user. Amazon Lex uses this to identify a user's conversation
+        /// with your bot. At runtime, each request must contain the <code>userID</code> field.</para><para>To decide the user ID to use for your application, consider the following factors.</para><ul><li><para>The <code>userID</code> field must not contain any personally identifiable information
+        /// of the user, for example, name, personal identification numbers, or other end user
+        /// personal information.</para></li><li><para>If you want a user to start a conversation on one device and continue on another device,
+        /// use a user-specific identifier.</para></li><li><para>If you want the same user to be able to have two independent conversations on two
+        /// different devices, choose a device-specific identifier.</para></li><li><para>A user can't have two independent conversations with two different versions of the
+        /// same bot. For example, a user can't have a conversation with the PROD and BETA versions
+        /// of the same bot. If you anticipate that a user will need to have conversation with
+        /// two different versions, for example, while testing, include the bot alias in the user
+        /// ID to separate the two conversations.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -210,6 +217,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             context.BotName = this.BotName;
             context.ContentType = this.ContentType;
             context.InputStream = this.InputStream;
+            context.RequestAttributes = this.RequestAttribute;
             context.SessionAttributes = this.SessionAttribute;
             context.UserId = this.UserId;
             
@@ -247,6 +255,10 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             if (cmdletContext.InputStream != null)
             {
                 request.InputStream = cmdletContext.InputStream;
+            }
+            if (cmdletContext.RequestAttributes != null)
+            {
+                request.RequestAttributes = cmdletContext.RequestAttributes;
             }
             if (cmdletContext.SessionAttributes != null)
             {
@@ -325,6 +337,7 @@ namespace Amazon.PowerShell.Cmdlets.LEX
             public System.String BotName { get; set; }
             public System.String ContentType { get; set; }
             public System.IO.Stream InputStream { get; set; }
+            public System.String RequestAttributes { get; set; }
             public System.String SessionAttributes { get; set; }
             public System.String UserId { get; set; }
         }

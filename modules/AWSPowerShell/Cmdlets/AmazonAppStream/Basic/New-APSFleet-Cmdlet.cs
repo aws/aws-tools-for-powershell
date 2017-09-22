@@ -105,6 +105,17 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.Boolean EnableDefaultInternetAccess { get; set; }
         #endregion
         
+        #region Parameter FleetType
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.AppStream.FleetType")]
+        public Amazon.AppStream.FleetType FleetType { get; set; }
+        #endregion
+        
         #region Parameter ImageName
         /// <summary>
         /// <para>
@@ -118,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type of compute resources for the fleet. Fleet instances are launched
-        /// from this instance type. Available instance types are:</para><ul><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li></ul>
+        /// <para>The instance type to use when launching fleet instances. The following instance types
+        /// are available:</para><ul><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -219,6 +230,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             context.DomainJoinInfo_OrganizationalUnitDistinguishedName = this.DomainJoinInfo_OrganizationalUnitDistinguishedName;
             if (ParameterWasBound("EnableDefaultInternetAccess"))
                 context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
+            context.FleetType = this.FleetType;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
             if (ParameterWasBound("MaxUserDurationInSecond"))
@@ -311,6 +323,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             if (cmdletContext.EnableDefaultInternetAccess != null)
             {
                 request.EnableDefaultInternetAccess = cmdletContext.EnableDefaultInternetAccess.Value;
+            }
+            if (cmdletContext.FleetType != null)
+            {
+                request.FleetType = cmdletContext.FleetType;
             }
             if (cmdletContext.ImageName != null)
             {
@@ -428,6 +444,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             public System.String DomainJoinInfo_DirectoryName { get; set; }
             public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
             public System.Boolean? EnableDefaultInternetAccess { get; set; }
+            public Amazon.AppStream.FleetType FleetType { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
             public System.Int32? MaxUserDurationInSeconds { get; set; }

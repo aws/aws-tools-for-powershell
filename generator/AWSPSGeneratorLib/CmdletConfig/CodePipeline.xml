@@ -20,7 +20,7 @@
     <ServiceOperation MethodName="DisableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName" />
     <ServiceOperation MethodName="EnableStageTransition" NoPipelineParameter="true" Output="Void" ShouldProcessTarget="PipelineName"/>
     <ServiceOperation MethodName="GetJobDetails" Noun="JobDetail" LegacyAlias="Get-CPJobDetails" />
-    <ServiceOperation MethodName="GetPipeline" PipelineParameter="Name" />
+    <ServiceOperation MethodName="GetPipeline" PipelineParameter="Name" Output="Response" />
     <ServiceOperation MethodName="GetPipelineExecution" PipelineParameter="PipelineName" />
     <ServiceOperation MethodName="GetPipelineState" Output="Response" />
     <ServiceOperation MethodName="GetThirdPartyJobDetails" PipelineParameter="JobId" Noun="ThirdPartyJobDetail" LegacyAlias="Get-CPThirdPartyJobDetails" />

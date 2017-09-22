@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.
     /// </para><para>
     /// If the specified DB instance is part of an Amazon Aurora DB cluster, you cannot delete
-    /// the DB instance if the following are true:
+    /// the DB instance if both of the following conditions are true:
     /// </para><ul><li><para>
     /// The DB cluster is a Read Replica of another Amazon Aurora DB cluster.
     /// </para></li><li><para>

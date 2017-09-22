@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter ConnectivityInfo
         /// <summary>
         /// <para>
-        /// Connectivity info array
+        /// Connectivity info list
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

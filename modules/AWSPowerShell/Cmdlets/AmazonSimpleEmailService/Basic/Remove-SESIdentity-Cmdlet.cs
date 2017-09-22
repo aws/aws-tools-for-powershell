@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SESIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

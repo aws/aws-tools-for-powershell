@@ -37,10 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </para></note><para>
     /// Sending authorization is a feature that enables an identity owner to authorize other
     /// senders to use its identities. For information about using sending authorization,
-    /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Write", "SESIdentityPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter Identity
         /// <summary>
         /// <para>
-        /// <para>The identity to which the policy will apply. You can specify an identity by using
-        /// its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
+        /// <para>The identity that the policy will apply to. You can specify an identity by using its
+        /// name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>,
         /// <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</para><para>To successfully call this API, you must own the identity.</para>
         /// </para>
         /// </summary>

@@ -47,8 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// status changes to "Failed." In that case, if you still want to verify the domain,
     /// you must restart the verification process from the beginning.
     /// </para><para>
-    /// This action is throttled at one request per second and can only get verification attributes
-    /// for up to 100 identities at a time.
+    /// This operation is throttled at one request per second and can only get verification
+    /// attributes for up to 100 identities at a time.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SESIdentityVerificationAttribute")]

@@ -33,11 +33,10 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// and used to update the pipeline structure with <a>UpdatePipeline</a>.
     /// </summary>
     [Cmdlet("Get", "CPPipeline")]
-    [OutputType("Amazon.CodePipeline.Model.PipelineDeclaration")]
+    [OutputType("Amazon.CodePipeline.Model.GetPipelineResponse")]
     [AWSCmdlet("Invokes the GetPipeline operation against AWS CodePipeline.", Operation = new[] {"GetPipeline"})]
-    [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineDeclaration",
-        "This cmdlet returns a PipelineDeclaration object.",
-        "The service call response (type Amazon.CodePipeline.Model.GetPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.CodePipeline.Model.GetPipelineResponse",
+        "This cmdlet returns a Amazon.CodePipeline.Model.GetPipelineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetCPPipelineCmdlet : AmazonCodePipelineClientCmdlet, IExecutor
     {
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Pipeline;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// For information about setting up receipt rule sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SESReceiptRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

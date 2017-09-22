@@ -28,14 +28,8 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Returns a list containing all of the email addresses that have been verified.
-    /// 
-    ///  <important><para>
-    /// The ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release
-    /// of Domain Verification. The ListIdentities action is now preferred.
-    /// </para></important><para>
-    /// This action is throttled at one request per second.
-    /// </para>
+    /// Deprecated. Use the <code>ListIdentities</code> operation to list the email addresses
+    /// and domains associated with your account.
     /// </summary>
     [Cmdlet("Get", "SESVerifiedEmailAddress")]
     [OutputType("System.String")]

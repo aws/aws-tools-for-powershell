@@ -165,9 +165,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
-        /// of the ARN for the KMS encryption key.</para><para>If the <code>StorageEncrypted</code> parameter is true, and you do not specify a value
-        /// for the <code>KmsKeyId</code> parameter, then Amazon RDS will use your default encryption
-        /// key. AWS KMS creates the default encryption key for your AWS account. Your AWS account
+        /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
+        /// RDS will use the encryption key used to encrypt the source. Otherwise, Amazon RDS
+        /// will use your default encryption key. </para></li><li><para>If the <code>StorageEncrypted</code> parameter is true and <code>ReplicationSourceIdentifier</code>
+        /// is not specified, then Amazon RDS will use your default encryption key.</para></li></ul><para>AWS KMS creates the default encryption key for your AWS account. Your AWS account
         /// has a different default encryption key for each AWS Region.</para><para>If you create a Read Replica of an encrypted DB cluster in another AWS Region, you
         /// must set <code>KmsKeyId</code> to a KMS key ID that is valid in the destination AWS
         /// Region. This key is used to encrypt the Read Replica in that AWS Region.</para>

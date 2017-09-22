@@ -28,14 +28,8 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Deletes the specified email address from the list of verified addresses.
-    /// 
-    ///  <important><para>
-    /// The DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release
-    /// of Domain Verification. The DeleteIdentity action is now preferred.
-    /// </para></important><para>
-    /// This action is throttled at one request per second.
-    /// </para>
+    /// Deprecated. Use the <code>DeleteIdentity</code> operation to delete email addresses
+    /// and domains.
     /// </summary>
     [Cmdlet("Remove", "SESVerifiedEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

@@ -276,6 +276,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean EnablePerformanceInsight { get; set; }
+        #endregion
+        
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
@@ -419,6 +430,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
         #endregion
         
         #region Parameter PreferredBackupWindow
@@ -582,6 +603,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DomainIAMRoleName = this.DomainIAMRoleName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            if (ParameterWasBound("EnablePerformanceInsight"))
+                context.EnablePerformanceInsights = this.EnablePerformanceInsight;
             context.EngineVersion = this.EngineVersion;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
@@ -594,6 +617,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.MultiAZ = this.MultiAZ;
             context.NewDBInstanceIdentifier = this.NewDBInstanceIdentifier;
             context.OptionGroupName = this.OptionGroupName;
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             context.PreferredBackupWindow = this.PreferredBackupWindow;
             context.PreferredMaintenanceWindow = this.PreferredMaintenanceWindow;
             if (ParameterWasBound("PromotionTier"))
@@ -687,6 +711,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnablePerformanceInsights != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsights.Value;
+            }
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
@@ -722,6 +750,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
             if (cmdletContext.PreferredBackupWindow != null)
             {
@@ -835,6 +867,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String Domain { get; set; }
             public System.String DomainIAMRoleName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnablePerformanceInsights { get; set; }
             public System.String EngineVersion { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String LicenseModel { get; set; }
@@ -844,6 +877,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.Boolean? MultiAZ { get; set; }
             public System.String NewDBInstanceIdentifier { get; set; }
             public System.String OptionGroupName { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.String PreferredBackupWindow { get; set; }
             public System.String PreferredMaintenanceWindow { get; set; }
             public System.Int32? PromotionTier { get; set; }

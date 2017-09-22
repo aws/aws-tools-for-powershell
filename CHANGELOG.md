@@ -1,12 +1,27 @@
+### 3.3.161.0 (2017-09-22)
+  * AWS CodePipeline
+    * [BREAKING CHANGE]
+      The output of the Get-CPPipeline cmdlet has changed as a result of a service update to the underlying GetPipeline API. The api response data now includes pipeline metadata info in addition to the pipeline declaration data (which was the previous output). To access the original data, use the '.Pipeline' member of the output object. To access the new metadata use the the '.Metadata' member of the output object.
+  * AWS Greengrass
+    * Added new cmdlet Reset-GGDeployment to support the new ResetDeployments API.
+  * AWS CloudWatchLogs
+    * Added support for associating LogGroups with KMS Keys with new cmdlets Register-CWLKmsKey (AssociateKmsKey API) and Unregister-CWLKmsKey (DisassociateKmsKey API).
+  * Amazon EC2
+    * Added support for new operations on Amazon FPGA Images (AFIs), within the same region and across multiple regions, with new cmdlets Get-EC2FpgaImageAttribute (DescribeFpgaImageAttribute API), Edit-EC2FpgaImageAttribute (ModifyFpgaImageAttribute API), Reset-EC2FpgaImageAttribute (ResetFpgaImageAttribute API),  Remove-EC2FpgaImage (DeleteFpgaImage API) and Copy-EC2FpgaImage (CopyFpgaImage API). AFI attributes include name, description and granting/denying other AWS accounts to load the AFI.
+  * AWS Identity and Access Management
+    * Added support for new APIs to submit a service-linked role deletion request and querying the status of the deletion with new cmdlets Remove-IAMServiceLinkedRole (DeleteServiceLinkedRole API) and Get-IAMServiceLinkedRoleDeletionStatus (GetServiceLinkedRoleDeletionStatus API).
+  * Amazon Simple Email Service
+    * Added support for new APIs enabling domain customization for tracking open and click events with new cmdlets New-SESConfigurationSetTrackingOption (CreateConfigurationSetTrackingOptions API), Update-SESConfigurationSetTrackingOption (UpdateConfigurationSetTrackingOptions API) and Remove-SESConfigurationSetTrackingOption (DeleteConfigurationSetTrackingOptions API).
+
 ### 3.3.158.0 (2017-09-17)
   * AWS Service Catalog
-    - Added cmdlets the CopyProduct and DescribeCopyProductStatus
+    - Added cmdlets to support the new CopyProduct and DescribeCopyProductStatus apis.
 
 ### 3.3.152.0 (2017-09-09)
   * Amazon CloudWatch Logs
     - Added cmdlets for managing resource polices
   * Amazon EC2
-    - Added new cmdlets Update-EC2SecurityGroupRuleIngressDescription and Update-EC2SecurityGroupRuleEgressDescription 
+    - Added new cmdlets Update-EC2SecurityGroupRuleIngressDescription and Update-EC2SecurityGroupRuleEgressDescription
   * Amazon Lex Model Building Service
 	- Added new cmdlet Get-LMBExport
   * Amazon Route53
@@ -19,7 +34,6 @@
     - Added new cmdlets Add-CSTTagsForProject, Remove-CSTTagsForProject and Get-CSTTagsForProject
   * Amazon GameLift
     - Added new cmdlets for setting up EC2 VPC peering.
-	
 
 ### 3.3.143.0 (2017-08-24)
   * Amazon Simple Systems Management

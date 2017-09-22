@@ -35,10 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// To send emails using the specified MAIL FROM domain, you must add an MX record to
     /// your MAIL FROM domain's DNS settings. If you want your emails to pass Sender Policy
     /// Framework (SPF) checks, you must also add or update an SPF record. For more information,
-    /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para></important><para>
-    /// This action is throttled at one request per second.
+    /// see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from-set.html">Amazon
+    /// SES Developer Guide</a>.</i></para></important><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Set", "SESIdentityMailFromDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

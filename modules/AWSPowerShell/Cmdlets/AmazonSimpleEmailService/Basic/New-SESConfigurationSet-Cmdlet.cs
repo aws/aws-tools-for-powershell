@@ -33,10 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     ///  
     /// <para>
     /// Configuration sets enable you to publish email sending events. For information about
-    /// using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// using configuration sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SESConfigurationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -52,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ConfigurationSet_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set. The name must:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The name of the configuration set. The name must meet the following requirements:</para><ul><li><para>Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</para></li><li><para>Contain 64 characters or fewer.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

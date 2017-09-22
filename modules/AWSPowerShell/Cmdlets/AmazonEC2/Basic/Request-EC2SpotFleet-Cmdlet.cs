@@ -116,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_InstanceInterruptionBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a Spot instance stops or terminates when it is interrupted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.InstanceInterruptionBehavior")]
+        public Amazon.EC2.InstanceInterruptionBehavior SpotFleetRequestConfig_InstanceInterruptionBehavior { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_LaunchSpecification
         /// <summary>
         /// <para>
@@ -247,6 +258,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (ParameterWasBound("SpotFleetRequestConfig_FulfilledCapacity"))
                 context.SpotFleetRequestConfig_FulfilledCapacity = this.SpotFleetRequestConfig_FulfilledCapacity;
             context.SpotFleetRequestConfig_IamFleetRole = this.SpotFleetRequestConfig_IamFleetRole;
+            context.SpotFleetRequestConfig_InstanceInterruptionBehavior = this.SpotFleetRequestConfig_InstanceInterruptionBehavior;
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
                 context.SpotFleetRequestConfig_LaunchSpecifications = new List<Amazon.EC2.Model.SpotFleetLaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
@@ -331,6 +343,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole != null)
             {
                 request.SpotFleetRequestConfig.IamFleetRole = requestSpotFleetRequestConfig_spotFleetRequestConfig_IamFleetRole;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            Amazon.EC2.InstanceInterruptionBehavior requestSpotFleetRequestConfig_spotFleetRequestConfig_InstanceInterruptionBehavior = null;
+            if (cmdletContext.SpotFleetRequestConfig_InstanceInterruptionBehavior != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_InstanceInterruptionBehavior = cmdletContext.SpotFleetRequestConfig_InstanceInterruptionBehavior;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_InstanceInterruptionBehavior != null)
+            {
+                request.SpotFleetRequestConfig.InstanceInterruptionBehavior = requestSpotFleetRequestConfig_spotFleetRequestConfig_InstanceInterruptionBehavior;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             List<Amazon.EC2.Model.SpotFleetLaunchSpecification> requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification = null;
@@ -487,6 +509,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.ExcessCapacityTerminationPolicy SpotFleetRequestConfig_ExcessCapacityTerminationPolicy { get; set; }
             public System.Double? SpotFleetRequestConfig_FulfilledCapacity { get; set; }
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
+            public Amazon.EC2.InstanceInterruptionBehavior SpotFleetRequestConfig_InstanceInterruptionBehavior { get; set; }
             public List<Amazon.EC2.Model.SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstances { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }

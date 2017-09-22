@@ -366,6 +366,13 @@ $APS_Completers = {
             break
         }
         
+        # Amazon.AppStream.FleetType
+        "New-APSFleet/FleetType"
+        {
+            $v = "ALWAYS_ON","ON_DEMAND"
+            break
+        }
+        
     }
     
     $v |
@@ -375,6 +382,7 @@ $APS_Completers = {
 
 $APS_map = @{
     "AuthenticationType"=@("Get-APSSessionList")
+    "FleetType"=@("New-APSFleet")
 }
 
 _awsArgumentCompleterRegistration $APS_Completers $APS_map
@@ -2275,6 +2283,16 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.FpgaImageAttributeName
+        {
+            ($_ -eq "Edit-EC2FpgaImageAttribute/Attribute") -Or
+            ($_ -eq "Get-EC2FpgaImageAttribute/Attribute")
+        }
+        {
+            $v = "description","loadPermission","name","productCodes"
+            break
+        }
+        
         # Amazon.EC2.GatewayType
         {
             ($_ -eq "New-EC2CustomerGateway/Type") -Or
@@ -2307,6 +2325,16 @@ $EC2_Completers = {
         }
         {
             $v = "blockDeviceMapping","disableApiTermination","ebsOptimized","enaSupport","groupSet","instanceInitiatedShutdownBehavior","instanceType","kernel","productCodes","ramdisk","rootDeviceName","sourceDestCheck","sriovNetSupport","userData"
+            break
+        }
+        
+        # Amazon.EC2.InstanceInterruptionBehavior
+        {
+            ($_ -eq "Request-EC2SpotInstance/InstanceInterruptionBehavior") -Or
+            ($_ -eq "Request-EC2SpotFleet/SpotFleetRequestConfig_InstanceInterruptionBehavior")
+        }
+        {
+            $v = "stop","terminate"
             break
         }
         
@@ -2357,6 +2385,7 @@ $EC2_Completers = {
         
         # Amazon.EC2.OperationType
         {
+            ($_ -eq "Edit-EC2FpgaImageAttribute/OperationType") -Or
             ($_ -eq "Edit-EC2ImageAttribute/OperationType") -Or
             ($_ -eq "Edit-EC2SnapshotAttribute/OperationType")
         }
@@ -2376,6 +2405,13 @@ $EC2_Completers = {
         "Send-EC2InstanceStatus/Status"
         {
             $v = "impaired","ok"
+            break
+        }
+        
+        # Amazon.EC2.ResetFpgaImageAttributeName
+        "Reset-EC2FpgaImageAttribute/Attribute"
+        {
+            $v = "loadPermission"
             break
         }
         
@@ -2481,7 +2517,7 @@ $EC2_Completers = {
 $EC2_map = @{
     "Affinity"=@("Edit-EC2InstancePlacement")
     "Architecture"=@("Register-EC2Image")
-    "Attribute"=@("Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
+    "Attribute"=@("Edit-EC2FpgaImageAttribute","Edit-EC2InstanceAttribute","Edit-EC2SnapshotAttribute","Get-EC2FpgaImageAttribute","Get-EC2ImageAttribute","Get-EC2InstanceAttribute","Get-EC2NetworkInterfaceAttribute","Get-EC2SnapshotAttribute","Get-EC2VolumeAttribute","Get-EC2VpcAttribute","Reset-EC2FpgaImageAttribute","Reset-EC2ImageAttribute","Reset-EC2InstanceAttribute","Reset-EC2SnapshotAttribute")
     "AutoPlacement"=@("Edit-EC2Host","New-EC2Host")
     "CurrencyCode"=@("New-EC2HostReservation")
     "Domain"=@("New-EC2Address")
@@ -2490,6 +2526,7 @@ $EC2_map = @{
     "ExportToS3Task_ContainerFormat"=@("New-EC2InstanceExportTask")
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
+    "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
     "InstanceTenancy"=@("Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
@@ -2497,13 +2534,14 @@ $EC2_map = @{
     "LimitPrice_CurrencyCode"=@("New-EC2ReservedInstance")
     "OfferingClass"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
     "OfferingType"=@("Get-EC2ReservedInstance","Get-EC2ReservedInstancesOffering")
-    "OperationType"=@("Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
+    "OperationType"=@("Edit-EC2FpgaImageAttribute","Edit-EC2ImageAttribute","Edit-EC2SnapshotAttribute")
     "Permission"=@("New-EC2NetworkInterfacePermission")
     "ProductDescription"=@("Get-EC2ReservedInstancesOffering")
     "ResourceType"=@("New-EC2FlowLog")
     "RuleAction"=@("New-EC2NetworkAclEntry","Set-EC2NetworkAclEntry")
     "SpotFleetRequestConfig_AllocationStrategy"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_ExcessCapacityTerminationPolicy"=@("Request-EC2SpotFleet")
+    "SpotFleetRequestConfig_InstanceInterruptionBehavior"=@("Request-EC2SpotFleet")
     "SpotFleetRequestConfig_Type"=@("Request-EC2SpotFleet")
     "Status"=@("Send-EC2InstanceStatus")
     "Strategy"=@("New-EC2PlacementGroup")
@@ -2987,7 +3025,7 @@ $GG_Completers = {
         # Amazon.Greengrass.DeploymentType
         "New-GGDeployment/DeploymentType"
         {
-            $v = "NewDeployment","Redeployment"
+            $v = "ForceResetDeployment","NewDeployment","Redeployment","ResetDeployment"
             break
         }
         

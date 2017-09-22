@@ -143,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.Boolean EnableIAMDatabaseAuthentication { get; set; }
         #endregion
         
+        #region Parameter EnablePerformanceInsight
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EnablePerformanceInsights")]
+        public System.Boolean EnablePerformanceInsight { get; set; }
+        #endregion
+        
         #region Parameter Iops
         /// <summary>
         /// <para>
@@ -207,6 +218,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String OptionGroupName { get; set; }
+        #endregion
+        
+        #region Parameter PerformanceInsightsKMSKeyId
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PerformanceInsightsKMSKeyId { get; set; }
         #endregion
         
         #region Parameter Port
@@ -363,6 +384,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             context.DBSubnetGroupName = this.DBSubnetGroupName;
             if (ParameterWasBound("EnableIAMDatabaseAuthentication"))
                 context.EnableIAMDatabaseAuthentication = this.EnableIAMDatabaseAuthentication;
+            if (ParameterWasBound("EnablePerformanceInsight"))
+                context.EnablePerformanceInsights = this.EnablePerformanceInsight;
             if (ParameterWasBound("Iops"))
                 context.Iops = this.Iops;
             context.KmsKeyId = this.KmsKeyId;
@@ -370,6 +393,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
                 context.MonitoringInterval = this.MonitoringInterval;
             context.MonitoringRoleArn = this.MonitoringRoleArn;
             context.OptionGroupName = this.OptionGroupName;
+            context.PerformanceInsightsKMSKeyId = this.PerformanceInsightsKMSKeyId;
             if (ParameterWasBound("Port"))
                 context.Port = this.Port;
             context.PreSignedUrl = this.PreSignedUrl;
@@ -429,6 +453,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 request.EnableIAMDatabaseAuthentication = cmdletContext.EnableIAMDatabaseAuthentication.Value;
             }
+            if (cmdletContext.EnablePerformanceInsights != null)
+            {
+                request.EnablePerformanceInsights = cmdletContext.EnablePerformanceInsights.Value;
+            }
             if (cmdletContext.Iops != null)
             {
                 request.Iops = cmdletContext.Iops.Value;
@@ -448,6 +476,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.OptionGroupName != null)
             {
                 request.OptionGroupName = cmdletContext.OptionGroupName;
+            }
+            if (cmdletContext.PerformanceInsightsKMSKeyId != null)
+            {
+                request.PerformanceInsightsKMSKeyId = cmdletContext.PerformanceInsightsKMSKeyId;
             }
             if (cmdletContext.Port != null)
             {
@@ -545,11 +577,13 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             public System.String DBInstanceIdentifier { get; set; }
             public System.String DBSubnetGroupName { get; set; }
             public System.Boolean? EnableIAMDatabaseAuthentication { get; set; }
+            public System.Boolean? EnablePerformanceInsights { get; set; }
             public System.Int32? Iops { get; set; }
             public System.String KmsKeyId { get; set; }
             public System.Int32? MonitoringInterval { get; set; }
             public System.String MonitoringRoleArn { get; set; }
             public System.String OptionGroupName { get; set; }
+            public System.String PerformanceInsightsKMSKeyId { get; set; }
             public System.Int32? Port { get; set; }
             public System.String PreSignedUrl { get; set; }
             public System.Boolean? PubliclyAccessible { get; set; }

@@ -28,11 +28,11 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Returns the user's current sending limits.
+    /// Provides the sending limits for the Amazon SES account. 
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SESSendQuota")]

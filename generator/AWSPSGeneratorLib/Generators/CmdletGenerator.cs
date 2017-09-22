@@ -949,11 +949,11 @@ namespace AWSPowerShellGenerator.Generators
 
             if (Options.BreakOnUnknownOperationError)
             {
-                Logger.LogError("Method name {0} has no corresponding ServiceOperation definition in the current model {1}, INVESTIGATE", method.Name, CurrentModel.ServiceNamespace);
+                Logger.LogError("Method {0} has no ServiceOperation definition in model {1}", method.Name, CurrentModel.ServiceNamespace);
             }
             else
             {
-                Logger.Log("Method name {0} has no corresponding ServiceOperation definition in the current model {1}, SKIPPING as BreakOnUnknownOperationError FALSE", method.Name, CurrentModel.ServiceNamespace);
+                Logger.Log("Method {0} has no ServiceOperation definition in model {1}, IGNORING as BreakOnUnknownOperationError option FALSE", method.Name, CurrentModel.ServiceNamespace);
             }
 
             return false; 

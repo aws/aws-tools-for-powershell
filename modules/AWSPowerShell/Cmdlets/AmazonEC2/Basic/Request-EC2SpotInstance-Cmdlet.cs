@@ -195,6 +195,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32 InstanceCount { get; set; }
         #endregion
         
+        #region Parameter InstanceInterruptionBehavior
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether a Spot instance stops or terminates when it is interrupted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.EC2.InstanceInterruptionBehavior")]
+        public Amazon.EC2.InstanceInterruptionBehavior InstanceInterruptionBehavior { get; set; }
+        #endregion
+        
         #region Parameter LaunchSpecification_InstanceType
         /// <summary>
         /// <para>
@@ -409,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ClientToken = this.ClientToken;
             if (ParameterWasBound("InstanceCount"))
                 context.InstanceCount = this.InstanceCount;
+            context.InstanceInterruptionBehavior = this.InstanceInterruptionBehavior;
             context.LaunchGroup = this.LaunchGroup;
             context.LaunchSpecification_AddressingType = this.LaunchSpecification_AddressingType;
             if (this.LaunchSpecification_AllSecurityGroup != null)
@@ -480,6 +492,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.InstanceCount != null)
             {
                 request.InstanceCount = cmdletContext.InstanceCount.Value;
+            }
+            if (cmdletContext.InstanceInterruptionBehavior != null)
+            {
+                request.InstanceInterruptionBehavior = cmdletContext.InstanceInterruptionBehavior;
             }
             if (cmdletContext.LaunchGroup != null)
             {
@@ -798,6 +814,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Int32? BlockDurationMinutes { get; set; }
             public System.String ClientToken { get; set; }
             public System.Int32? InstanceCount { get; set; }
+            public Amazon.EC2.InstanceInterruptionBehavior InstanceInterruptionBehavior { get; set; }
             public System.String LaunchGroup { get; set; }
             public System.String LaunchSpecification_AddressingType { get; set; }
             public List<Amazon.EC2.Model.GroupIdentifier> LaunchSpecification_AllSecurityGroups { get; set; }

@@ -28,15 +28,8 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Verifies an email address. This action causes a confirmation email message to be sent
-    /// to the specified address.
-    /// 
-    ///  <important><para>
-    /// The VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain
-    /// Verification. The VerifyEmailIdentity action is now preferred.
-    /// </para></important><para>
-    /// This action is throttled at one request per second.
-    /// </para>
+    /// Deprecated. Use the <code>VerifyEmailIdentity</code> operation to verify a new email
+    /// address.
     /// </summary>
     [Cmdlet("Confirm", "SESEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

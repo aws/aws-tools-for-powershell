@@ -37,10 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </para></note><para>
     /// An event destination is the AWS service to which Amazon SES publishes the email sending
     /// events associated with a configuration set. For information about using configuration
-    /// sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("New", "SESConfigurationSetEventDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -56,7 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ConfigurationSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the configuration set to which to apply the event destination.</para>
+        /// <para>The name of the configuration set that the event destination should be associated
+        /// with.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -66,7 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter KinesisFirehoseDestination_DeliveryStreamARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon Kinesis Firehose stream to which to publish email sending events.</para>
+        /// <para>The ARN of the Amazon Kinesis Firehose stream that email sending events should be
+        /// published to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,9 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter SNSDestination_TopicARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the Amazon SNS topic to which you want to publish email sending events.
-        /// An example of an Amazon SNS topic ARN is arn:aws:sns:us-west-2:123456789012:MyTopic.
-        /// For more information about Amazon SNS topics, see the <a href="http://docs.aws.amazon.com/http:/alpha-docs-aws.amazon.com/sns/latest/dg/CreateTopic.html"><i>Amazon SNS Developer Guide</i></a>.</para>
+        /// <para>The ARN of the Amazon SNS topic that email sending events will be published to. An
+        /// example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>.
+        /// For more information about Amazon SNS topics, see the <i><a href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
+        /// SNS Developer Guide</a>.</i></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

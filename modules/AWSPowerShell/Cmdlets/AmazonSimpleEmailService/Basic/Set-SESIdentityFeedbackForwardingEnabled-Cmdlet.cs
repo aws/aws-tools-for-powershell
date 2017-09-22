@@ -37,11 +37,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// Feedback forwarding does not apply to delivery notifications. Delivery notifications
     /// are only available through Amazon SNS.
     /// </para></note><para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para>
+    /// For more information about using notifications with Amazon SES, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// SES Developer Guide</a>.</i></para>
     /// </summary>
     [Cmdlet("Set", "SESIdentityFeedbackForwardingEnabled", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

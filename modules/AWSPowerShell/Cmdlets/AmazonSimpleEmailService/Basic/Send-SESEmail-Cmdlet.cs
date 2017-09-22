@@ -28,36 +28,39 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Composes an email message based on input data, and then immediately queues the message
-    /// for sending.
+    /// Composes an email message and immediately queues it for sending. In order to send
+    /// email using the <code>SendEmail</code> operation, your message must meet the following
+    /// requirements:
     /// 
-    ///  
-    /// <para>
-    /// There are several important points to know about <code>SendEmail</code>:
-    /// </para><ul><li><para>
-    /// You can only send email from verified email addresses and domains; otherwise, you
-    /// will get an "Email address not verified" error. If your account is still in the Amazon
-    /// SES sandbox, you must also verify every recipient email address except for the recipients
-    /// provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
-    /// SES Developer Guide</a>.
+    ///  <ul><li><para>
+    /// The message must be sent from a verified email address or domain. If you attempt to
+    /// send email using a non-verified address or domain, the operation will result in an
+    /// "Email address not verified" error. 
     /// </para></li><li><para>
-    /// The total size of the message cannot exceed 10 MB. This includes any attachments that
-    /// are part of the message.
+    /// If your account is still in the Amazon SES sandbox, you may only send to verified
+    /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+    /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+    /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para></li><li><para>
-    /// You must provide at least one recipient email address. The recipient address can be
-    /// a To: address, a CC: address, or a BCC: address. If any email address you provide
-    /// is invalid, Amazon SES rejects the entire email.
+    /// The total size of the message, including attachments, must be smaller than 10 MB.
     /// </para></li><li><para>
-    /// Amazon SES has a limit on the total number of recipients per message. The combined
-    /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
-    /// an email message to a larger audience, you can divide your recipient list into groups
-    /// of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+    /// The message must include at least one recipient email address. The recipient address
+    /// can be a To: address, a CC: address, or a BCC: address. If a recipient email address
+    /// is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+    /// the entire message will be rejected, even if the message contains other recipients
+    /// that are valid.
     /// </para></li><li><para>
-    /// For every message that you send, the total number of recipients (To:, CC: and BCC:)
-    /// is counted against your sending quota - the maximum number of emails you can send
-    /// in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para></li></ul>
+    /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
+    /// fields. If you need to send an email message to a larger audience, you can divide
+    /// your recipient list into groups of 50 or fewer, and then call the <code>SendEmail</code>
+    /// operation several times to send the message to each group.
+    /// </para></li></ul><important><para>
+    /// For every message that you send, the total number of recipients (including each recipient
+    /// in the To:, CC: and BCC: fields) is counted against the maximum number of emails you
+    /// can send in a 24-hour period (your <i>sending quota</i>). For more information about
+    /// sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing
+    /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide</i>.
+    /// </para></important>
     /// </summary>
     [Cmdlet("Send", "SESEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -182,13 +185,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter ReturnPath
         /// <summary>
         /// <para>
-        /// <para>The email address to which bounces and complaints are to be forwarded when feedback
-        /// forwarding is enabled. If the message cannot be delivered to the recipient, then an
-        /// error message will be returned from the recipient's ISP; this message will then be
-        /// forwarded to the email address specified by the <code>ReturnPath</code> parameter.
-        /// The <code>ReturnPath</code> parameter is never overwritten. This email address must
-        /// be either individually verified with Amazon SES, or from a domain that has been verified
-        /// with Amazon SES. </para>
+        /// <para>The email address that bounces and complaints will be forwarded to when feedback forwarding
+        /// is enabled. If the message cannot be delivered to the recipient, then an error message
+        /// will be returned from the recipient's ISP; this message will then be forwarded to
+        /// the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code>
+        /// parameter is never overwritten. This email address must be either individually verified
+        /// with Amazon SES, or from a domain that has been verified with Amazon SES. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -223,7 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// SES Developer Guide</a>.</para><para> In all cases, the email address must be 7-bit ASCII. If the text must contain any
         /// other characters, then you must use MIME encoded-word syntax (RFC 2047) instead of
         /// a literal string. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.
-        /// For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>.
+        /// For more information, see <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.
         /// </para>
         /// </para>
         /// </summary>

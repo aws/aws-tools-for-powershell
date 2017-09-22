@@ -20,11 +20,15 @@
     <Map From="List" To="Get" />
     <Map From="Verify" To="Confirm" />
   </VerbMappings>
-  
+
   <AutoIterate EmitLimit="MaxItems" Start="NextToken" Next="NextToken" />
   
   <DefaultRegion>us-east-1</DefaultRegion>
-  
+
+  <TypesNotToFlatten>
+    <Type>Amazon.SimpleEmail.Model.TrackingOptions</Type>
+  </TypesNotToFlatten>
+
   <ServiceOperations>
     <ServiceOperation MethodName="DeleteIdentity" Output="Void" />
     <ServiceOperation MethodName="DeleteIdentityPolicy" Output="Void" PipelineParameter="PolicyName" />
@@ -75,8 +79,21 @@
     <ServiceOperation MethodName="CreateConfigurationSet" Output="Void"/>
     <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Output="Void" PipelineParameter="ConfigurationSetName" />
     <ServiceOperation MethodName="ListConfigurationSets" Verb="Get" Noun="ConfigurationSetList"/>
+
+    <ServiceOperation MethodName="CreateConfigurationSetTrackingOptions"
+                      Noun="ConfigurationSetTrackingOption"
+                      PipelineParameter="TrackingOptions"
+                      Output="Void" />
+    <ServiceOperation MethodName="UpdateConfigurationSetTrackingOptions"
+                      Noun="ConfigurationSetTrackingOption"
+                      PipelineParameter="TrackingOptions"
+                      Output="Void" />
+    <ServiceOperation MethodName="DeleteConfigurationSetTrackingOptions"
+                      Noun="ConfigurationSetTrackingOption"
+                      Output="Void" />
+
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>Identity</Property>
     <Property>EmailAddress</Property>

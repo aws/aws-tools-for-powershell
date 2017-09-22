@@ -34,11 +34,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para>
+    /// For more information about using notifications with Amazon SES, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// SES Developer Guide</a>.</i></para>
     /// </summary>
     [Cmdlet("Set", "SESIdentityHeadersInNotificationsEnabled", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

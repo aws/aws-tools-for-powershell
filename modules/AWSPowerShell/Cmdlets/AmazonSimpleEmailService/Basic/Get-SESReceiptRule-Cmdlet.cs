@@ -32,10 +32,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// For information about setting up receipt rules, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// For information about setting up receipt rules, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon
+    /// SES Developer Guide</a>.</i></para><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SESReceiptRule")]
@@ -61,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter RuleSetName
         /// <summary>
         /// <para>
-        /// <para>The name of the receipt rule set to which the receipt rule belongs.</para>
+        /// <para>The name of the receipt rule set that the receipt rule belongs to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

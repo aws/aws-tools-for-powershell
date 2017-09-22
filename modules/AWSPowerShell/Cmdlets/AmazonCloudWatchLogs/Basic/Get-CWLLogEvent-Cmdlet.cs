@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     ///  
     /// <para>
     /// By default, this operation returns as many log events as can fit in a response size
-    /// of 1 MB (up to 10,000 log events). You can get additional log events by specifying
+    /// of 1MB (up to 10,000 log events). You can get additional log events by specifying
     /// one of the tokens in a subsequent call.
     /// </para>
     /// </summary>
@@ -117,6 +117,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The token for the next set of items to return. (You received this token from a previous
         /// call.)</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

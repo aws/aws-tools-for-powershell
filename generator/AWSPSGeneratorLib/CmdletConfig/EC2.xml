@@ -21,7 +21,7 @@
   <ParamEmitters>
     <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
   </ParamEmitters>
-  
+
   <ServiceOperations>
     <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Verb="Confirm" />
     <ServiceOperation MethodName="AllocateAddress" Output="Response" AnonymousShouldProcessTarget="true" />
@@ -366,6 +366,12 @@
 
     <ServiceOperation MethodName="DescribeElasticGpus" Noun="ElasticGpu" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DescribeFpgaImages" Noun="FpgaImage" NoPipelineParameter="true" />
+
+    <ServiceOperation MethodName="ResetFpgaImageAttribute" PipelineParameter="Attribute" />
+    <ServiceOperation MethodName="ModifyFpgaImageAttribute" PipelineParameter="Attribute" ShouldProcessTarget="Attribute" />
+    <ServiceOperation MethodName="DescribeFpgaImageAttribute" PipelineParameter="Attribute" />
+    <ServiceOperation MethodName="DeleteFpgaImage" />
+    <ServiceOperation MethodName="CopyFpgaImage" PipelineParameter="SourceFpgaImageId" />
 
     <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" Noun="NetworkInterfacePermission" NoPipelineParameter="true" />
     <ServiceOperation MethodName="DeleteNetworkInterfacePermission">

@@ -64,7 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter DeploymentType
         /// <summary>
         /// <para>
-        /// Type of deployment
+        /// Type of deployment. When used in CreateDeployment,
+        /// only NewDeployment and Redeployment are valid.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

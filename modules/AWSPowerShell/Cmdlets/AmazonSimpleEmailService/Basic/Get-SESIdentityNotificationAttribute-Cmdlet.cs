@@ -33,12 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second and can only get notification attributes
-    /// for up to 100 identities at a time.
+    /// This operation is throttled at one request per second and can only get notification
+    /// attributes for up to 100 identities at a time.
     /// </para><para>
-    /// For more information about using notifications with Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para>
+    /// For more information about using notifications with Amazon SES, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// SES Developer Guide</a>.</i></para>
     /// </summary>
     [Cmdlet("Get", "SESIdentityNotificationAttribute")]
     [OutputType("System.String")]

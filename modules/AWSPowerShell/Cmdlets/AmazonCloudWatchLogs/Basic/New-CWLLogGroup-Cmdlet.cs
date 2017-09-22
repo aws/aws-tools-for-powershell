@@ -42,7 +42,16 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </para></li><li><para>
     /// Log group names consist of the following characters: a-z, A-Z, 0-9, '_' (underscore),
     /// '-' (hyphen), '/' (forward slash), and '.' (period).
-    /// </para></li></ul>
+    /// </para></li></ul><para>
+    /// If you associate a AWS Key Management Service (AWS KMS) customer master key (CMK)
+    /// with the log group, ingested data is encrypted using the CMK. This association is
+    /// stored as long as the data encrypted with the CMK is still within Amazon CloudWatch
+    /// Logs. This enables Amazon CloudWatch Logs to decrypt this data whenever it is requested.
+    /// </para><para>
+    /// If you attempt to associate a CMK with the log group but the CMK does not exist or
+    /// the CMK is disabled, you will receive an <code>InvalidParameterException</code> error.
+    /// 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "CWLLogGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -53,6 +62,18 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     )]
     public partial class NewCWLLogGroupCmdlet : AmazonCloudWatchLogsClientCmdlet, IExecutor
     {
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the CMK to use when encrypting log data. For more
+        /// information, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html#arn-syntax-kms">Amazon
+        /// Resource Names - AWS Key Management Service (AWS KMS)</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
         
         #region Parameter LogGroupName
         /// <summary>
@@ -113,6 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.KmsKeyId = this.KmsKeyId;
             context.LogGroupName = this.LogGroupName;
             if (this.Tag != null)
             {
@@ -138,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.CWL
             // create request
             var request = new Amazon.CloudWatchLogs.Model.CreateLogGroupRequest();
             
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
             if (cmdletContext.LogGroupName != null)
             {
                 request.LogGroupName = cmdletContext.LogGroupName;
@@ -212,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String KmsKeyId { get; set; }
             public System.String LogGroupName { get; set; }
             public Dictionary<System.String, System.String> Tags { get; set; }
         }

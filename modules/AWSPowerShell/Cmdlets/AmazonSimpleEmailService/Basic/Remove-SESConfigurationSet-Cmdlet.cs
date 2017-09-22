@@ -28,15 +28,10 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Deletes a configuration set.
-    /// 
-    ///  
-    /// <para>
-    /// Configuration sets enable you to publish email sending events. For information about
-    /// using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// This action is throttled at one request per second.
+    /// Deletes a configuration set. Configuration sets enable you to publish email sending
+    /// events. For information about using configuration sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+    /// SES Developer Guide</a>.</i><para>
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SESConfigurationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

@@ -11,8 +11,8 @@
   <MetadataProperties>
     <Property>RejectedLogEventsInfo</Property>
   </MetadataProperties>
-  
-  <AutoIterate EmitLimit="Limit" Start="NextToken" />
+
+  <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" Exclusions="FilterLogEvents" />
   
   <ServiceOperations>
     <ServiceOperation MethodName="CreateLogGroup" Output="Void" PositionalParameters="LogGroupName" PipelineParameter="LogGroupName" />
@@ -50,8 +50,11 @@
     <ServiceOperation MethodName="ListTagsLogGroup" Verb="Get" Noun="LogGroupTag" />
     <ServiceOperation MethodName="TagLogGroup" Verb="Add" Noun="LogGroupTag" Output="Void" PipelineParameter="LogGroupName" />
     <ServiceOperation MethodName="UntagLogGroup" Verb="Remove" Noun="LogGroupTag" PipelineParameter="LogGroupName" Output="Void" />
+
+    <ServiceOperation MethodName="AssociateKmsKey" Verb="Register" PipelineParameter="KmsKeyId" Output="Void" />
+    <ServiceOperation MethodName="DisassociateKmsKey" Verb="Unregister" Output="Void" />
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>LogGroupName</Property>
     <Property>LogStreamName</Property>

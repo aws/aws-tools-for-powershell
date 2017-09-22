@@ -28,59 +28,68 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Sends an email message, with header and content specified by the client. The <code>SendRawEmail</code>
-    /// action is useful for sending multipart MIME emails. The raw text of the message must
-    /// comply with Internet email standards; otherwise, the message cannot be sent. 
+    /// Composes an email message and immediately queues it for sending. When calling this
+    /// operation, you may specify the message headers as well as the content. The <code>SendRawEmail</code>
+    /// operation is particularly useful for sending multipart MIME emails (such as those
+    /// that contain both a plain-text and an HTML version). 
     /// 
     ///  
     /// <para>
-    /// There are several important points to know about <code>SendRawEmail</code>:
+    /// In order to send email using the <code>SendRawEmail</code> operation, your message
+    /// must meet the following requirements:
     /// </para><ul><li><para>
-    /// You can only send email from verified email addresses and domains; otherwise, you
-    /// will get an "Email address not verified" error. If your account is still in the Amazon
-    /// SES sandbox, you must also verify every recipient email address except for the recipients
-    /// provided by the Amazon SES mailbox simulator. For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon
-    /// SES Developer Guide</a>.
+    /// The message must be sent from a verified email address or domain. If you attempt to
+    /// send email using a non-verified address or domain, the operation will result in an
+    /// "Email address not verified" error. 
     /// </para></li><li><para>
-    /// The total size of the message cannot exceed 10 MB. This includes any attachments that
-    /// are part of the message.
+    /// If your account is still in the Amazon SES sandbox, you may only send to verified
+    /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
+    /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
+    /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para></li><li><para>
-    /// You must provide at least one recipient email address. The recipient address can be
-    /// a To: address, a CC: address, or a BCC: address. If any email address you provide
-    /// is invalid, Amazon SES rejects the entire email.
+    /// The total size of the message, including attachments, must be smaller than 10 MB.
     /// </para></li><li><para>
-    /// Amazon SES has a limit on the total number of recipients per message. The combined
-    /// number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send
-    /// an email message to a larger audience, you can divide your recipient list into groups
-    /// of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group.
+    /// The message must include at least one recipient email address. The recipient address
+    /// can be a To: address, a CC: address, or a BCC: address. If a recipient email address
+    /// is invalid (that is, it is not in the format <i>UserName@[SubDomain.]Domain.TopLevelDomain</i>),
+    /// the entire message will be rejected, even if the message contains other recipients
+    /// that are valid.
     /// </para></li><li><para>
-    /// The To:, CC:, and BCC: headers in the raw message can contain a group list. Note that
-    /// each recipient in a group list counts towards the 50-recipient limit.
-    /// </para></li><li><para>
-    /// Amazon SES overrides any Message-ID and Date headers you provide.
-    /// </para></li><li><para>
-    /// For every message that you send, the total number of recipients (To:, CC: and BCC:)
-    /// is counted against your sending quota - the maximum number of emails you can send
-    /// in a 24-hour period. For information about your sending quota, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Amazon
-    /// SES Developer Guide</a>.
+    /// The message may not include more than 50 recipients, across the To:, CC: and BCC:
+    /// fields. If you need to send an email message to a larger audience, you can divide
+    /// your recipient list into groups of 50 or fewer, and then call the <code>SendRawEmail</code>
+    /// operation several times to send the message to each group.
+    /// </para></li></ul><important><para>
+    /// For every message that you send, the total number of recipients (including each recipient
+    /// in the To:, CC: and BCC: fields) is counted against the maximum number of emails you
+    /// can send in a 24-hour period (your <i>sending quota</i>). For more information about
+    /// sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing
+    /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide</i>.
+    /// </para></important><para>
+    /// Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code>
+    /// operation:
+    /// </para><ul><li><para>
+    /// Although you can customize the message headers when using the <code>SendRawEmail</code>
+    /// operation, Amazon SES will automatically apply its own <code>Message-ID</code> and
+    /// <code>Date</code> headers; if you passed these headers when creating the message,
+    /// they will be overwritten by the values that Amazon SES provides.
     /// </para></li><li><para>
     /// If you are using sending authorization to send on behalf of another user, <code>SendRawEmail</code>
-    /// enables you to specify the cross-account identity for the email's "Source," "From,"
-    /// and "Return-Path" parameters in one of two ways: you can pass optional parameters
-    /// <code>SourceArn</code>, <code>FromArn</code>, and/or <code>ReturnPathArn</code> to
-    /// the API, or you can include the following X-headers in the header of your raw email:
+    /// enables you to specify the cross-account identity for the email's Source, From, and
+    /// Return-Path parameters in one of two ways: you can pass optional parameters <code>SourceArn</code>,
+    /// <code>FromArn</code>, and/or <code>ReturnPathArn</code> to the API, or you can include
+    /// the following X-headers in the header of your raw email:
     /// </para><ul><li><para><code>X-SES-SOURCE-ARN</code></para></li><li><para><code>X-SES-FROM-ARN</code></para></li><li><para><code>X-SES-RETURN-PATH-ARN</code></para></li></ul><important><para>
-    /// Do not include these X-headers in the DKIM signature, because they are removed by
-    /// Amazon SES before sending the email.
+    /// Do not include these X-headers in the DKIM signature; Amazon SES will remove them
+    /// before sending the email.
     /// </para></important><para>
-    /// For the most common sending authorization use case, we recommend that you specify
-    /// the <code>SourceIdentityArn</code> and do not specify either the <code>FromIdentityArn</code>
-    /// or <code>ReturnPathIdentityArn</code>. (The same note applies to the corresponding
-    /// X-headers.) If you only specify the <code>SourceIdentityArn</code>, Amazon SES will
-    /// simply set the "From" address and the "Return Path" address to the identity specified
-    /// in <code>SourceIdentityArn</code>. For more information about sending authorization,
-    /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-    /// SES Developer Guide</a>.
+    /// For most common sending authorization scenarios, we recommend that you specify the
+    /// <code>SourceIdentityArn</code> parameter and not the <code>FromIdentityArn</code>
+    /// or <code>ReturnPathIdentityArn</code> parameters. If you only specify the <code>SourceIdentityArn</code>
+    /// parameter, Amazon SES will set the From and Return Path addresses to the identity
+    /// specified in <code>SourceIdentityArn</code>. For more information about sending authorization,
+    /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using
+    /// Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide</i>.
     /// </para></li></ul>
     /// </summary>
     [Cmdlet("Send", "SESRawEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -177,10 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// both.)</para><para> By default, the string must be 7-bit ASCII. If the text must contain any other characters,
         /// then you must use MIME encoded-word syntax (RFC 2047) instead of a literal string.
         /// MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.
-        /// For more information, see <a href="http://tools.ietf.org/html/rfc2047">RFC 2047</a>.
+        /// For more information, see <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.
         /// </para><note><para>If you specify the <code>Source</code> parameter and have feedback forwarding enabled,
         /// then bounces and complaints will be sent to this email address. This takes precedence
-        /// over any <i>Return-Path</i> header that you might include in the raw text of the message.</para></note>
+        /// over any Return-Path header that you might include in the raw text of the message.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

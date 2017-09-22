@@ -28,12 +28,13 @@ using Amazon.SimpleEmail.Model;
 namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
-    /// Verifies an email address. This action causes a confirmation email message to be sent
-    /// to the specified address.
+    /// Adds an email address to the list of identities for your Amazon SES account and attempts
+    /// to verify it. This operation causes a confirmation email message to be sent to the
+    /// specified address.
     /// 
     ///  
     /// <para>
-    /// This action is throttled at one request per second.
+    /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "SESEmailIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

@@ -28,13 +28,17 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Creates a new DB cluster from a DB cluster snapshot. The target DB cluster is created
-    /// from the source DB cluster restore point with the same configuration as the original
-    /// source DB cluster, except that the new DB cluster is created with the default security
-    /// group.
+    /// Creates a new DB cluster from a DB snapshot or DB cluster snapshot.
     /// 
     ///  
     /// <para>
+    /// If a DB snapshot is specified, the target DB cluster is created from the source DB
+    /// snapshot with a default configuration and default security group.
+    /// </para><para>
+    /// If a DB cluster snapshot is specified, the target DB cluster is created from the source
+    /// DB cluster restore point with the same configuration as the original source DB cluster,
+    /// except that the new DB cluster is created with the default security group.
+    /// </para><para>
     /// For more information on Amazon Aurora, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Aurora.html">Aurora
     /// on Amazon RDS</a> in the <i>Amazon RDS User Guide.</i></para>
     /// </summary>
@@ -73,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterIdentifier
         /// <summary>
         /// <para>
-        /// <para>The name of the DB cluster to create from the DB cluster snapshot. This parameter
-        /// isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
+        /// <para>The name of the DB cluster to create from the DB snapshot or DB cluster snapshot.
+        /// This parameter isn't case-sensitive.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 255 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul><para>Example: <code>my-snapshot-id</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -126,14 +130,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from a DB cluster
-        /// snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from a DB snapshot
+        /// or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
-        /// will occur:</para><ul><li><para>If the DB cluster snapshot is encrypted, then the restored DB cluster is encrypted
-        /// using the KMS key that was used to encrypt the DB cluster snapshot.</para></li><li><para>If the DB cluster snapshot is not encrypted, then the restored DB cluster is encrypted
-        /// using the specified encryption key.</para></li></ul>
+        /// will occur:</para><ul><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is encrypted,
+        /// then the restored DB cluster is encrypted using the KMS key that was used to encrypt
+        /// the DB snapshot or DB cluster snapshot.</para></li><li><para>If the DB snapshot or DB cluster snapshot in <code>SnapshotIdentifier</code> is not
+        /// encrypted, then the restored DB cluster is not encrypted.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,7 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier for the DB cluster snapshot to restore from.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The identifier for the DB snapshot or DB cluster snapshot to restore from.</para><para>You can use either the name or the Amazon Resource Name (ARN) to specify a DB cluster
+        /// snapshot. However, you can use only the ARN to specify a DB snapshot.</para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -159,6 +159,9 @@
     <ServiceOperation MethodName="DeleteServiceSpecificCredential" PipelineParameter="ServiceSpecificCredentialId" Output="Void" />
     <ServiceOperation MethodName="CreateServiceSpecificCredential" />
     <ServiceOperation MethodName="CreateServiceLinkedRole" PipelineParameter="AWSServiceName" />
+
+    <ServiceOperation MethodName="GetServiceLinkedRoleDeletionStatus" Output="Response" />
+    <ServiceOperation MethodName="DeleteServiceLinkedRole" />
   </ServiceOperations>
   
   <PipelineByValueProperties>

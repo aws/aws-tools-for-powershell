@@ -67,6 +67,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         public System.String EngineVersion { get; set; }
         #endregion
         
+        #region Parameter OptionGroupName
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String OptionGroupName { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -81,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DBSnapshotIdentifier", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("OptionGroupName", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RDSDBSnapshot (ModifyDBSnapshot)"))
             {
                 return;
@@ -98,6 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             
             context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
             context.EngineVersion = this.EngineVersion;
+            context.OptionGroupName = this.OptionGroupName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -121,6 +132,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             if (cmdletContext.EngineVersion != null)
             {
                 request.EngineVersion = cmdletContext.EngineVersion;
+            }
+            if (cmdletContext.OptionGroupName != null)
+            {
+                request.OptionGroupName = cmdletContext.OptionGroupName;
             }
             
             CmdletOutput output;
@@ -188,6 +203,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             public System.String DBSnapshotIdentifier { get; set; }
             public System.String EngineVersion { get; set; }
+            public System.String OptionGroupName { get; set; }
         }
         
     }
