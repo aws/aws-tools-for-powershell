@@ -61,4 +61,15 @@ ReservationId : r-63e65bab
 ...</code>
     <description>This example describes all your instances in the current region, grouped by reservation. To see the instance details expand the Instances collection within each reservation object.</description>
   </example>
+  <example>
+    <code>
+PS C:\> (Get-EC2Instance -Filter @{Name="vpc-id";Value="vpc-1a2bc34d"},@{Name="subnet-id";Value="subnet-1a2b3c4d"}).Instances
+
+InstanceId          InstanceType Platform PrivateIpAddress PublicIpAddress SecurityGroups SubnetId        VpcId
+----------          ------------ -------- ---------------- --------------- -------------- --------        -----
+i-01af...82cf180e19 t2.medium    Windows  10.0.0.98                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
+i-0374...7e9d5b0c45 t2.xlarge    Windows  10.0.0.53                        ...            subnet-1a2b3c4d vpc-1a2b3c4d
+    </code>
+    <description>This example illustrates using a filter to query for EC2 instances in a specific subnet of a VPC.</description>
+  </example>
 </examples>
