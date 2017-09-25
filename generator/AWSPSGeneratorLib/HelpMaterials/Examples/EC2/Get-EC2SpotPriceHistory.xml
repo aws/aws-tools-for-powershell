@@ -21,6 +21,6 @@ Price              : 0.017300
 ProductDescription : Linux/UNIX (Amazon VPC)
 Timestamp          : 12/25/2015 6:57:13 AM
 ...</code>
-    <description>This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone.</description>
+    <description>This example gets the last 10 entries in the Spot price history for the specified instance type and Availability Zone. Note that the value specified for the -AvailabilityZone parameter must be valid for the region value supplied to either the cmdlet's -Region parameter (not shown in the example) or set as default in the shell. This example command assumes a default region of 'us-west-2' has been set in the environment.</description>
   </example>
 </examples>
