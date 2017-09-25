@@ -21,12 +21,12 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         public override string GetTOCID()
         {
-            return string.Format("{0}_cmdlets", _serviceName.Replace(' ', '_'));
+            return string.Format("{0}_cmdlets", _serviceName.Replace(' ', '_').Replace('/', '_'));
         }
 
         public override string GenerateFilename()
         {
-            return string.Format("{0}_cmdlets.html", _serviceName.Replace(' ', '_'));
+            return string.Format("{0}_cmdlets.html", _serviceName.Replace(' ', '_').Replace('/', '_'));
         }
 
         protected override string GetTitle()
