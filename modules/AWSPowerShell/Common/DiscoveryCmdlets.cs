@@ -98,7 +98,9 @@ namespace Amazon.PowerShell.Common
         /// <para>
         /// If this is the only parameter supplied to the cmdlet, the output will list all
         /// of the cmdlets belonging to the services matching the search term, together 
-        /// with the corresponding service operation names.
+        /// with the corresponding service operation names. Note that for services with 'helper'
+        /// cmdlets that do not invoke a particular service operation the ServiceOperation member
+        /// for the cmdlet in the resulting output is left blank.
         /// </para>
         /// </summary>
         [Parameter(ParameterSetName = ByApiOperationOrServiceParameterSet)]

@@ -41,8 +41,12 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// <br/><br/>
     /// <b>NOTE:</b> This command writes objects to the pipeline containing authentication credentials. Your credentials could be visible
     /// by other users on your system in a process list display or a command history. If you are not on a secure system, you should consider this risk and 
-    /// login interactively. For more information, see <a href="http://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_GetAuthorizationToken.html">GetAuthorizationToken</a> 
-    /// in the Amazon EC2 Container Registry documentation.
+    /// login interactively. 
+    /// </para>
+    /// <para>
+    /// For more information, see <a href="https://docs.aws.amazon.com/AmazonECR/latest/APIReference/API_GetAuthorizationToken.html">GetAuthorizationToken</a> 
+    /// and <a href="https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html">What Is Amazon EC2 Container Registry?</a>in the Amazon 
+    /// EC2 Container Registry documentation.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "ECRLoginCommand")]
