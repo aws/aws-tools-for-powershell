@@ -17,6 +17,7 @@
 
 using System;
 using System.Management.Automation;
+using System.Linq;
 using Amazon.PowerShell.Common;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -30,28 +31,35 @@ namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
     /// <para>
-    /// Makes a copy of an S3 object to another S3 object or to the local file system.
+    /// Copies an S3 object to another object in S3, or downloads one or more objects from S3 to the local file system.
+    /// Note that you can also use the 
+    /// <a href="https://docs.aws.amazon.com/powershell/latest/reference/index.html?page=Read-S3Object.html&tocid=Read-S3Object">Read-S3Object</a> 
+    /// cmdlet to download one or more objects to the local file system.
     /// </para>
     /// <para>
-    /// Note that you can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
-    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters.
+    /// You can pipe an Amazon.S3.Model.S3Object instance to this cmdlet and its members will be used to
+    /// satisfy the BucketName, Key and optionally VersionId (if an S3ObjectVersion instance is supplied), parameters
+    /// when downloading or copying a single object.
     /// </para>
     /// </summary>
-    [Cmdlet("Copy", "S3Object", DefaultParameterSetName = ToLocalFileParamSet, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
-    [OutputType(new[] { typeof(CopyObjectResponse), typeof(FileInfo) })]
-    [AWSCmdlet("Invokes the CopyObject operation to copy an existing S3 object to another S3 destination (bucket and/or object) "
-                    + "or uses the TransferUtility to download the S3 object to a local file or folder.",
+    [Cmdlet("Copy", "S3Object", DefaultParameterSetName = CopySingleObjectToLocalFile, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
+    [OutputType(new[] { typeof(CopyObjectResponse), typeof(FileInfo), typeof(DirectoryInfo) })]
+    [AWSCmdlet("Invokes the CopyObject operation to copy an existing S3 object to another S3 destination (bucket and/or object),"
+                    + " or download a single S3 object to a local file or folder or download object(s) matching a supplied"
+                    + " key prefix to a folder.",
                     Operation = new [] {"CopyObject"})]
-    [AWSCmdletOutput("Amazon.S3.Model.CopyObjectResponse or System.IO.FileInfo",
-        "This cmdlet returns an Amazon.S3.Model.CopyObjectResponse instance from the service when copying to another S3 object. "
-            + " When copying from S3 to the local file system, the cmdlet returns a FileInfo instance representing the local file.",
+    [AWSCmdletOutput("Amazon.S3.Model.CopyObjectResponse or System.IO.FileInfo or System.IO.DirectoryInfo",
+        "When copying an object to another object in S3 the cmdlet returns an Amazon.S3.Model.CopyObjectResponse instance from the service API call to effect the copy. "
+            + " When copying a single object from S3 to the local file system the cmdlet returns a FileInfo instance representing the local file. "
+            + " When copying multiple objects to a local folder the cmdlet returns a DirectoryInfo instance to the folder.",
         "The service response (type Amazon.S3.Model.CopyObjectResponse) is also added to the cmdlet entry in the $AWSHistory stack regardless of S3->S3 or S3->local file copy mode."
     )]
     public class CopyS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
-        const string ToLocalFileParamSet = "CopyToLocalFile";
-        const string ToLocalFolderParamSet = "CopyToLocalFolder";
-        const string S3toS3ParamSet = "S3toS3Copy";
+        const string CopySingleObjectToLocalFile = "CopySingleObjectToLocalFile";
+        const string CopySingleObjectToLocalFolder = "CopySingleObjectToLocalFolder";
+        const string CopyMultipleObjectsToLocalFolder = "CopyMultipleObjectsToLocalFolder";
+        const string CopyS3ObjectToS3Object = "CopyS3ObjectToS3Object";
 
         #region Parameter BucketName
         /// <summary>
@@ -64,9 +72,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #region Parameter Key
         /// <summary>
-        /// The key of the source object to copy.
+        /// The key of the single source object to copy.
         /// </summary>
-        [Parameter(Position = 1, Mandatory = true, ValueFromPipelineByPropertyName = true)]
+        [Parameter(Position = 1, Mandatory = true, ValueFromPipelineByPropertyName = true, ParameterSetName = CopySingleObjectToLocalFile)]
+        [Parameter(Position = 1, Mandatory = true, ValueFromPipelineByPropertyName = true, ParameterSetName = CopyS3ObjectToS3Object)]
+        [Parameter(Position = 1, ValueFromPipelineByPropertyName = true, ParameterSetName = CopySingleObjectToLocalFolder)]
         [Alias("SourceKey")]
         public System.String Key { get; set; }
         #endregion
@@ -75,7 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies the version of the source object to copy.
         /// </summary>
-        [Parameter(ValueFromPipelineByPropertyName = true)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = CopySingleObjectToLocalFile)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = CopySingleObjectToLocalFolder)]
+        [Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = CopyS3ObjectToS3Object)]
         [Alias("SourceVersionId")]
         public System.String VersionId { get; set; }
         #endregion
@@ -86,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// The key for the copy of the source S3 object.
         /// </summary>
-        [Parameter(Position = 2, ParameterSetName = S3toS3ParamSet, Mandatory=true)]
+        [Parameter(Position = 2, ParameterSetName = CopyS3ObjectToS3Object, Mandatory = true)]
         public System.String DestinationKey { get; set; }
         #endregion
 
@@ -95,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket that will contain the copied object. If not specified,
         /// the copy is to another S3 object in the source bucket.
         /// </summary>
-        [Parameter(Position = 3, ParameterSetName = S3toS3ParamSet)]
+        [Parameter(Position = 3, ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String DestinationBucket { get; set; }
         #endregion
 
@@ -104,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies whether the metadata is copied from the source object or replaced with metadata provided in the request.
         /// Valid values are COPY or REPLACE. COPY is the default if not specified.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public Amazon.S3.S3MetadataDirective MetadataDirective { get; set; }
         #endregion
 
@@ -113,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Sets the content type of the target object; if not specified an attempt is made to infer it using the destination
         /// or source object keys.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String ContentType { get; set; }
         #endregion
 
@@ -122,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the canned ACL (access control list) of permissions to be applied to the S3 bucket.
         /// Please refer to <a href="http://docs.aws.amazon.com/sdkfornet/v3/apidocs/Index.html?page=S3/TS3_S3CannedACL.html&tocid=Amazon_S3_S3CannedACL">Amazon.S3.Model.S3CannedACL</a> for information on S3 Canned ACLs.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         [AWSConstantClassSource("Amazon.S3.S3CannedACL")]
         public Amazon.S3.S3CannedACL CannedACLName { get; set; }
         #endregion
@@ -131,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-only permissions
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public SwitchParameter PublicReadOnly { get; set; }
         #endregion
 
@@ -139,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// If set, applies an ACL making the bucket public with read-write permissions
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public SwitchParameter PublicReadWrite { get; set; }
         #endregion
 
@@ -155,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the storage class for the object.
         /// Please refer to <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/storage-class-intro.html">Storage Classes</a> for information on S3 storage classes.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public Amazon.S3.S3StorageClass StorageClass { get; set; }
         #endregion
 
@@ -164,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the STANDARD storage class, which is the default storage class for S3 objects.
         /// Provides a 99.999999999% durability guarantee.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public SwitchParameter StandardStorage { get; set; }
         #endregion
 
@@ -177,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// that doesn’t require the higher level of durability that S3
         /// provides with the STANDARD storage class.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public SwitchParameter ReducedRedundancyStorage { get; set; }
         #endregion
 
@@ -186,7 +198,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the encryption used on the server to store the content.
         /// Allowable values: None, AES256, aws:kms.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionMethod")]
         public Amazon.S3.ServerSideEncryptionMethod ServerSideEncryption { get; set; }
         #endregion
@@ -195,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies the AWS KMS key for Amazon S3 to use to encrypt the object.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String ServerSideEncryptionKeyManagementServiceKeyId { get; set; }
         #endregion
 
@@ -204,7 +216,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// If this is set then when a GET request is made from the S3 website endpoint a 301 HTTP status code
         /// will be returned indicating a redirect with this value as the redirect location.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String WebsiteRedirectLocation { get; set; }
         #endregion
 
@@ -212,7 +224,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Metadata headers to set on the object.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.Collections.Hashtable Metadata { get; set; }
         #endregion
 
@@ -220,7 +232,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Response headers to set on the object.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         [Alias("Headers")]
         public System.Collections.Hashtable HeaderCollection { get; set; }
         #endregion
@@ -230,7 +242,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// One or more tags to apply to the object.
         /// </summary>
-        [Parameter(ParameterSetName = S3toS3ParamSet)]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public Tag[] TagSet { get; set; }
 
         #endregion
@@ -243,7 +255,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// The full path to the local file that will be created.
         /// </summary>
-        [Parameter(Position = 2, ParameterSetName = ToLocalFileParamSet, Mandatory = true)]
+        [Parameter(Position = 2, ParameterSetName = CopySingleObjectToLocalFile, Mandatory = true)]
         [Alias("File")]
         public System.String LocalFile { get; set; }
         #endregion
@@ -263,9 +275,22 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// keys that are not valid filenames for the host system could cause an exception to be thrown.
         /// </para>
         /// </summary>
-        [Parameter(ParameterSetName = ToLocalFolderParamSet, Mandatory = true)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFolder, Mandatory = true)]
+        [Parameter(ParameterSetName = CopyMultipleObjectsToLocalFolder, Mandatory = true)]
         [Alias("Folder")]
         public System.String LocalFolder { get; set; }
+        #endregion
+
+        #region Parameter KeyPrefix
+        /// <summary>
+        /// Used to download multiple objects to the specified local folder. The supplied prefix
+        /// will be used to determine the set of objects to download that share the same key prefix.
+        /// You must specify either this parameter, or the -Key parameter, to determine what object(s) to 
+        /// download.
+        /// </summary>
+        [Parameter(ParameterSetName = CopyMultipleObjectsToLocalFolder)]
+        [Alias("SourcePrefix")]
+        public System.String KeyPrefix { get; set; }
         #endregion
 
         #endregion
@@ -274,7 +299,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Copies the object if its entity tag (ETag) matches the specified tag; otherwise return a PreconditionFailed.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String ETagToMatch { get; set; }
         #endregion
 
@@ -282,7 +307,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Copies the object if its entity tag (ETag) is different than the specified Etag; otherwise returns an error.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String ETagToNotMatch { get; set; }
         #endregion
 
@@ -307,7 +332,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the server-side encryption algorithm used on the source object with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
         public Amazon.S3.ServerSideEncryptionCustomerMethod CopySourceServerSideEncryptionCustomerMethod { get; set; }
         #endregion
@@ -316,7 +341,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 used on the source object.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String CopySourceServerSideEncryptionCustomerProvidedKey { get; set; }
         #endregion
 
@@ -324,7 +349,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 used on the source object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
         public System.String CopySourceServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         #endregion
 
@@ -333,7 +358,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFolder)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFile)]
         [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
         public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
         #endregion
@@ -342,15 +369,20 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to decrypt the object.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFolder)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFile)]
         public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
         #endregion
 
         #region Parameter ServerSideEncryptionCustomerProvidedKeyMD5
         /// <summary>
-        /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
+        /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, 
+        /// the SDK will calculate the MD5 if this is not set.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = CopyS3ObjectToS3Object)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFolder)]
+        [Parameter(ParameterSetName = CopySingleObjectToLocalFile)]
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         #endregion
 
@@ -420,14 +452,28 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Headers = this.HeaderCollection
             };
 
-            if (this.ParameterSetName == ToLocalFileParamSet)
+            switch (this.ParameterSetName)
             {
-                context.LocalFile = this.LocalFile;
-            }
-            else if (this.ParameterSetName == ToLocalFolderParamSet)
-            {
-                var path = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.LocalFolder);
-                context.LocalFile = Path.Combine(path, this.Key);
+                case CopySingleObjectToLocalFile:
+                    context.LocalFile = this.LocalFile;
+                    break;
+
+                case CopySingleObjectToLocalFolder:
+                    // transform to download to local file
+                    var path = PSHelpers.PSPathToAbsolute(this.SessionState.Path, PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.LocalFolder));
+                    context.LocalFile = Path.Combine(path, this.Key);
+                    break;
+
+                case CopyMultipleObjectsToLocalFolder:
+                    context.OriginalKeyPrefix = this.KeyPrefix;
+                    context.KeyPrefix = ReadS3ObjectCmdlet.rootIndicators.Contains<string>(this.KeyPrefix, StringComparer.OrdinalIgnoreCase)
+                        ? "/" : AmazonS3Helper.CleanKey(this.KeyPrefix);
+
+                    context.LocalFolder = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.LocalFolder);
+                    break;
+
+                case CopyS3ObjectToS3Object:
+                    break;
             }
 
             if (ParameterWasBound("ModifiedSinceDate"))
@@ -478,8 +524,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
             if (!string.IsNullOrEmpty(cmdletContext.LocalFile))
                 return CopyS3ObjectToLocalFile(context);
-            else
-                return CopyS3ObjectToS3(context);
+
+            if (!string.IsNullOrEmpty(cmdletContext.KeyPrefix))
+                return CopyS3ObjectsToLocalFolder(context);
+
+            return CopyS3ObjectToS3(context);
         }
 
         public ExecutorContext CreateContext()
@@ -489,7 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
-        object CopyS3ObjectToS3(ExecutorContext context)
+        private object CopyS3ObjectToS3(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
 
@@ -569,15 +618,17 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
         }
 
-        object CopyS3ObjectToLocalFile(ExecutorContext context)
+        private object CopyS3ObjectToLocalFile(ExecutorContext context)
         {
             // Adapted from Read-S3Object's single file mode
             var cmdletContext = context as CmdletContext;
-            var request = new TransferUtilityDownloadRequest();
+            var request = new TransferUtilityDownloadRequest
+            {
+                BucketName = cmdletContext.SourceBucket,
+                FilePath = cmdletContext.LocalFile,
+                Key = cmdletContext.SourceKey
+            };
 
-            request.BucketName = cmdletContext.SourceBucket;
-            request.FilePath = cmdletContext.LocalFile;
-            request.Key = cmdletContext.SourceKey;
             if (!string.IsNullOrEmpty(cmdletContext.SourceVersionId))
                 request.VersionId = cmdletContext.SourceVersionId;
             if (cmdletContext.ModifiedSinceDate.HasValue)
@@ -600,6 +651,44 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 output = runner.SafeRun(() => tu.Download(request), tracker);
                 if (output.ErrorResponse == null)
                     output.PipelineOutput = new FileInfo(cmdletContext.LocalFile);
+            }
+
+            return output;
+        }
+
+        private object CopyS3ObjectsToLocalFolder(ExecutorContext context)
+        {
+            // Adapted from Read-S3Object's folder download
+            var cmdletContext = context as CmdletContext;
+            var request = new TransferUtilityDownloadDirectoryRequest
+            {
+                BucketName = cmdletContext.SourceBucket,
+                LocalDirectory = cmdletContext.LocalFolder,
+                S3Directory = cmdletContext.KeyPrefix
+            };
+
+            if (cmdletContext.ModifiedSinceDate.HasValue)
+                request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
+            if (cmdletContext.UnmodifiedSinceDate.HasValue)
+                request.UnmodifiedSinceDate = cmdletContext.UnmodifiedSinceDate.Value;
+
+            CmdletOutput output;
+            using (var tu = new TransferUtility(Client ?? CreateClient(context.Credentials, context.Region)))
+            {
+                Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3 object download APIs");
+
+                var runner = new ProgressRunner(this);
+                var tracker = new ReadS3ObjectCmdlet.DownloadFolderProgressTracker(runner, handler => request.DownloadedDirectoryProgressEvent += handler);
+
+                output = runner.SafeRun(() => tu.DownloadDirectory(request), tracker);
+                if (output.ErrorResponse == null)
+                    output.PipelineOutput = new DirectoryInfo(cmdletContext.LocalFolder);
+
+                WriteVerbose(string.Format("Downloaded {0} object(s) from bucket '{1}' with keyprefix '{2}' to '{3}'",
+                    tracker.DownloadedCount,
+                    cmdletContext.SourceBucket,
+                    cmdletContext.OriginalKeyPrefix,
+                    cmdletContext.LocalFolder));
             }
 
             return output;
@@ -642,6 +731,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String DestinationBucket { get; set; }
             public String DestinationKey { get; set; }
             public String LocalFile { get; set; }
+            public String LocalFolder { get; set; }
+            public String OriginalKeyPrefix { get; set; }
+            public String KeyPrefix { get; set; }
             public String ContentType { get; set; }
             public String ETagToMatch { get; set; }
             public String ETagToNotMatch { get; set; }

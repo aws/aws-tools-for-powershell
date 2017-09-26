@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         const string ParamSet_FromS3Object = "FromS3ObjectToFileOrFolder"; 
 
         // try and anticipate all the ways a user might mean 'get everything from root'
-        readonly string[] rootIndicators = new string[] { "/", @"\", "*", "/*", @"\*" };
+        internal static readonly string[] rootIndicators = new string[] { "/", @"\", "*", "/*", @"\*" };
 
         #region Bucket Params
 
@@ -168,7 +168,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// Specifies the server-side encryption algorithm to be used with the customer provided key.
         /// Allowable values: None or AES256.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = ParamSet_ToLocalFile)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object)]
         [AWSConstantClassSource("Amazon.S3.ServerSideEncryptionCustomerMethod")]
         public Amazon.S3.ServerSideEncryptionCustomerMethod ServerSideEncryptionCustomerMethod { get; set; }
         #endregion
@@ -177,7 +178,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies base64-encoded encryption key for Amazon S3 to use to decrypt the object.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = ParamSet_ToLocalFile)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object)]
         public System.String ServerSideEncryptionCustomerProvidedKey { get; set; }
         #endregion
 
@@ -185,7 +187,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// <summary>
         /// Specifies base64-encoded MD5 of the encryption key for Amazon S3 to use to decrypt the object. This field is optional, the SDK will calculate the MD5 if this is not set.
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = ParamSet_ToLocalFile)]
+        [Parameter(ParameterSetName = ParamSet_FromS3Object)]
         public System.String ServerSideEncryptionCustomerProvidedKeyMD5 { get; set; }
         #endregion
         
@@ -292,11 +295,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             var request = new TransferUtilityDownloadRequest
-                              {
-                                  BucketName = cmdletContext.BucketName,
-                                  FilePath = cmdletContext.File,
-                                  Key = cmdletContext.Key
-                              };
+            {
+                BucketName = cmdletContext.BucketName,
+                FilePath = cmdletContext.File,
+                Key = cmdletContext.Key
+            };
 
             if (!string.IsNullOrEmpty(cmdletContext.Version))
                 request.VersionId = cmdletContext.Version;
@@ -328,11 +331,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             var request = new TransferUtilityDownloadDirectoryRequest
-                              {
-                                  BucketName = cmdletContext.BucketName,
-                                  LocalDirectory = cmdletContext.Folder,
-                                  S3Directory = cmdletContext.KeyPrefix
-                              };
+            {
+                BucketName = cmdletContext.BucketName,
+                LocalDirectory = cmdletContext.Folder,
+                S3Directory = cmdletContext.KeyPrefix
+            };
 
             if (cmdletContext.ModifiedSinceDate.HasValue)
                 request.ModifiedSinceDate = cmdletContext.ModifiedSinceDate.Value;
