@@ -2,6 +2,6 @@
 <links>
   <set target="*">
 	<link name="Developer Guide">https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/</link>
-	<link name="Service API Reference">https://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/</link>
+	<link name="Service API Reference">https://docs.aws.amazon.com/cloudfront/latest/APIReference/</link>
   </set>
 </links>
