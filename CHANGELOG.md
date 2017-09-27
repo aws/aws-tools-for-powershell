@@ -5,6 +5,8 @@
     * Added cmdlet Update-CFNTerminationProtection to support the new UpdateTerminationProtection API enabling you to prevent a stack from being accidentally deleted. If you attempt to delete a stack with termination protection enabled, the deletion fails and the stack, including its status, remains unchanged. You can also enable termination protection on a stack when you create it using the new -EnableTerminationProtection parameter on the New-CFNStack cmdlet. Termination protection on stacks is disabled by default. After creation, you can set termination protection on a stack whose status is CREATE_COMPLETE, UPDATE_COMPLETE, or UPDATE_ROLLBACK_COMPLETE.
   * Amazon EC2
     * Added argument completion support for the Attribute parameter of the Edit-EC2ImageAttribute cmdlet, enabling tab completion of the possible attribute names. The service models this parameter as a simple string type, rather than a service enumeration, so tab completion was not available by default.
+  * Amazon S3
+    * Updated the Copy-S3Object cmdlet to support copying (downloading) multiple objects, identified by common key prefix, to a folder on the local file system. Previously the cmdlet could only process single object download to a file or folder. You may therefore use either Read-S3Object or Copy-S3Object to download one or multiple files from S3 to the local system (the functionality is the same). To copy files within S3, use the Copy-S3Object cmdlet.
 
 ### 3.3.161.0 (2017-09-22)
   * AWS CodePipeline
