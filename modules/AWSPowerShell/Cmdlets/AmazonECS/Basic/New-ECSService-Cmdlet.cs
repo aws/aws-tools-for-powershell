@@ -137,15 +137,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>A load balancer object representing the load balancer to use with your service. Currently,
         /// you are limited to one load balancer or target group per service. After you create
         /// a service, the load balancer name or target group ARN, container name, and container
-        /// port specified in the service definition are immutable.</para><para>For Elastic Load Balancing Classic load balancers, this object must contain the load
-        /// balancer name, the container name (as it appears in a container definition), and the
-        /// container port to access from the load balancer. When a task from this service is
-        /// placed on a container instance, the container instance is registered with the load
-        /// balancer specified here.</para><para>For Elastic Load Balancing Application load balancers, this object must contain the
-        /// load balancer target group ARN, the container name (as it appears in a container definition),
-        /// and the container port to access from the load balancer. When a task from this service
-        /// is placed on a container instance, the container instance and port combination is
-        /// registered as a target in the target group specified here.</para>
+        /// port specified in the service definition are immutable.</para><para>For Classic Load Balancers, this object must contain the load balancer name, the container
+        /// name (as it appears in a container definition), and the container port to access from
+        /// the load balancer. When a task from this service is placed on a container instance,
+        /// the container instance is registered with the load balancer specified here.</para><para>For Application Load Balancers and Network Load Balancers, this object must contain
+        /// the load balancer target group ARN, the container name (as it appears in a container
+        /// definition), and the container port to access from the load balancer. When a task
+        /// from this service is placed on a container instance, the container instance and port
+        /// combination is registered as a target in the target group specified here.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

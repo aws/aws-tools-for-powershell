@@ -1,6 +1,8 @@
 ### Next Release
   * Amazon EC2 Container Registry
     * Implemented a new helper cmdlet, Get-ECRLoginCommand, to return the login command to the pipeline for your default or specified registry or registries. This command is similar to the AWS CLI's 'ecr get-login' command.
+  * AWS CloudFormation
+    * Added cmdlet Update-CFNTerminationProtection to support the new UpdateTerminationProtection API enabling you to prevent a stack from being accidentally deleted. If you attempt to delete a stack with termination protection enabled, the deletion fails and the stack, including its status, remains unchanged. You can also enable termination protection on a stack when you create it using the new -EnableTerminationProtection parameter on the New-CFNStack cmdlet. Termination protection on stacks is disabled by default. After creation, you can set termination protection on a stack whose status is CREATE_COMPLETE, UPDATE_COMPLETE, or UPDATE_ROLLBACK_COMPLETE.
 
 ### 3.3.161.0 (2017-09-22)
   * AWS CodePipeline

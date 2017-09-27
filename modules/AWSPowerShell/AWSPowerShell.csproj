@@ -184,7 +184,7 @@
       <HintPath>..\..\packages\AWSSDK.Redshift.3.3.2.9\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
-      <HintPath>..\..\packages\AWSSDK.RDS.3.3.14\lib\net35\AWSSDK.RDS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.RDS.3.3.14.1\lib\net35\AWSSDK.RDS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorks">
       <HintPath>..\..\packages\AWSSDK.OpsWorks.3.3.2.3\lib\net35\AWSSDK.OpsWorks.dll</HintPath>
@@ -247,7 +247,7 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.3.9\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.5.3\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.6\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.15\lib\net35\AWSSDK.ECR.dll</HintPath>
@@ -277,7 +277,7 @@
       <HintPath>..\..\packages\AWSSDK.Core.3.3.17.10\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.9\lib\net35\AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.10\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.6\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
@@ -319,7 +319,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.5\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
-      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.7\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.8\lib\net35\AWSSDK.CloudFormation.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CertificateManager">
       <HintPath>..\..\packages\AWSSDK.CertificateManager.3.3.2.14\lib\net35\AWSSDK.CertificateManager.dll</HintPath>

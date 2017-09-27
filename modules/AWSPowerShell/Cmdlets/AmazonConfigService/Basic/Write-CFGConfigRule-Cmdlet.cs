@@ -216,8 +216,8 @@ namespace Amazon.PowerShell.Cmdlets.CFG
         #region Parameter Scope_TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag key that is applied to only those AWS resources that you want you want to
-        /// trigger an evaluation for the rule.</para>
+        /// <para>The tag key that is applied to only those AWS resources that you want to trigger an
+        /// evaluation for the rule.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

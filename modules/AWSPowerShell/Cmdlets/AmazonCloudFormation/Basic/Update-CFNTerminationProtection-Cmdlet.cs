@@ -22,62 +22,52 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.RDS;
-using Amazon.RDS.Model;
+using Amazon.CloudFormation;
+using Amazon.CloudFormation.Model;
 
-namespace Amazon.PowerShell.Cmdlets.RDS
+namespace Amazon.PowerShell.Cmdlets.CFN
 {
     /// <summary>
-    /// Updates a manual DB snapshot, which can be encrypted or not encrypted, with a new
-    /// engine version. 
+    /// Updates termination protection for the specified stack. If a user attempts to delete
+    /// a stack with termination protection enabled, the operation fails and the stack remains
+    /// unchanged. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting
+    /// a Stack From Being Deleted</a> in the <i>AWS CloudFormation User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Amazon RDS supports upgrading DB snapshots for MySQL and Oracle. 
+    ///  For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+    /// stacks</a>, termination protection is set on the root stack and cannot be changed
+    /// directly on the nested stack.
     /// </para>
     /// </summary>
-    [Cmdlet("Edit", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.RDS.Model.DBSnapshot")]
-    [AWSCmdlet("Invokes the ModifyDBSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBSnapshot"})]
-    [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshot",
-        "This cmdlet returns a DBSnapshot object.",
-        "The service call response (type Amazon.RDS.Model.ModifyDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CFNTerminationProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Invokes the UpdateTerminationProtection operation against AWS CloudFormation.", Operation = new[] {"UpdateTerminationProtection"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class EditRDSDBSnapshotCmdlet : AmazonRDSClientCmdlet, IExecutor
+    public partial class UpdateCFNTerminationProtectionCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
         
-        #region Parameter DBSnapshotIdentifier
+        #region Parameter EnableTerminationProtection
         /// <summary>
         /// <para>
-        /// <para>The identifier of the DB snapshot to modify.</para>
+        /// <para>Whether to enable termination protection on the specified stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableTerminationProtection { get; set; }
+        #endregion
+        
+        #region Parameter StackName
+        /// <summary>
+        /// <para>
+        /// <para>The name or unique ID of the stack for which you want to set termination protection.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DBSnapshotIdentifier { get; set; }
-        #endregion
-        
-        #region Parameter EngineVersion
-        /// <summary>
-        /// <para>
-        /// <para>The engine version to upgrade the DB snapshot to. </para><para>The following are the database engines and engine versions that are available when
-        /// you upgrade a DB snapshot. </para><para><b>MySQL</b></para><ul><li><para><code>5.5.46</code> (supported for 5.1 DB snapshots)</para></li></ul><para><b>Oracle</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for 12.1.0.1 DB snapshots)</para></li><li><para><code>11.2.0.4.v12</code> (supported for 11.2.0.2 DB snapshots)</para></li><li><para><code>11.2.0.4.v11</code> (supported for 11.2.0.3 DB snapshots)</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String EngineVersion { get; set; }
-        #endregion
-        
-        #region Parameter OptionGroupName
-        /// <summary>
-        /// <para>
-        /// <para>The option group to identify with the upgraded DB snapshot. </para><para>You can specify this parameter when you upgrade an Oracle DB snapshot. The same option
-        /// group considerations apply when upgrading a DB snapshot as when upgrading a DB instance.
-        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Oracle.html#USER_UpgradeDBInstance.Oracle.OGPG.OG">Option
-        /// Group Considerations</a>. </para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String OptionGroupName { get; set; }
+        public System.String StackName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -94,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("OptionGroupName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Edit-RDSDBSnapshot (ModifyDBSnapshot)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StackName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CFNTerminationProtection (UpdateTerminationProtection)"))
             {
                 return;
             }
@@ -109,9 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DBSnapshotIdentifier = this.DBSnapshotIdentifier;
-            context.EngineVersion = this.EngineVersion;
-            context.OptionGroupName = this.OptionGroupName;
+            if (ParameterWasBound("EnableTerminationProtection"))
+                context.EnableTerminationProtection = this.EnableTerminationProtection;
+            context.StackName = this.StackName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -126,19 +116,15 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.RDS.Model.ModifyDBSnapshotRequest();
+            var request = new Amazon.CloudFormation.Model.UpdateTerminationProtectionRequest();
             
-            if (cmdletContext.DBSnapshotIdentifier != null)
+            if (cmdletContext.EnableTerminationProtection != null)
             {
-                request.DBSnapshotIdentifier = cmdletContext.DBSnapshotIdentifier;
+                request.EnableTerminationProtection = cmdletContext.EnableTerminationProtection.Value;
             }
-            if (cmdletContext.EngineVersion != null)
+            if (cmdletContext.StackName != null)
             {
-                request.EngineVersion = cmdletContext.EngineVersion;
-            }
-            if (cmdletContext.OptionGroupName != null)
-            {
-                request.OptionGroupName = cmdletContext.OptionGroupName;
+                request.StackName = cmdletContext.StackName;
             }
             
             CmdletOutput output;
@@ -149,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.DBSnapshot;
+                object pipelineOutput = response.StackId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -174,16 +160,16 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         #region AWS Service Operation Call
         
-        private Amazon.RDS.Model.ModifyDBSnapshotResponse CallAWSServiceOperation(IAmazonRDS client, Amazon.RDS.Model.ModifyDBSnapshotRequest request)
+        private Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse CallAWSServiceOperation(IAmazonCloudFormation client, Amazon.CloudFormation.Model.UpdateTerminationProtectionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Relational Database Service", "ModifyDBSnapshot");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CloudFormation", "UpdateTerminationProtection");
             try
             {
                 #if DESKTOP
-                return client.ModifyDBSnapshot(request);
+                return client.UpdateTerminationProtection(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ModifyDBSnapshotAsync(request);
+                var task = client.UpdateTerminationProtectionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -204,9 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DBSnapshotIdentifier { get; set; }
-            public System.String EngineVersion { get; set; }
-            public System.String OptionGroupName { get; set; }
+            public System.Boolean? EnableTerminationProtection { get; set; }
+            public System.String StackName { get; set; }
         }
         
     }

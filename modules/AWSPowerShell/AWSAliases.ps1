@@ -586,6 +586,7 @@ Set-Alias -Name CFN-SignalResource -Value Send-CFNResourceSignal
 Set-Alias -Name CFN-StopStackSetOperation -Value Stop-CFNStackSetOperation
 Set-Alias -Name CFN-UpdateStack -Value Update-CFNStack
 Set-Alias -Name CFN-UpdateStackSet -Value Update-CFNStackSet
+Set-Alias -Name CFN-UpdateTerminationProtection -Value Update-CFNTerminationProtection
 Set-Alias -Name Validate-CFNTemplate -Value Test-CFNTemplate
 Set-Alias -Name CFN-ValidateTemplate -Value Test-CFNTemplate
 Set-Alias -Name Cancel-CFNUpdateStack -Value Stop-CFNUpdateStack

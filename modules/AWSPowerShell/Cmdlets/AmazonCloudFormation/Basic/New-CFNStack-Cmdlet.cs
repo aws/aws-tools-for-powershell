@@ -104,6 +104,22 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public System.Boolean DisableRollback { get; set; }
         #endregion
         
+        #region Parameter EnableTerminationProtection
+        /// <summary>
+        /// <para>
+        /// <para>Whether to enable termination protection on the specified stack. If a user attempts
+        /// to delete a stack with termination protection enabled, the operation fails and the
+        /// stack remains unchanged. For more information, see <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-protect-stacks.html">Protecting
+        /// a Stack From Being Deleted</a> in the <i>AWS CloudFormation User Guide</i>. Termination
+        /// protection is disabled on stacks by default. </para><para> For <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-nested-stacks.html">nested
+        /// stacks</a>, termination protection is set on the root stack and cannot be changed
+        /// directly on the nested stack.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean EnableTerminationProtection { get; set; }
+        #endregion
+        
         #region Parameter RollbackConfiguration_MonitoringTimeInMinute
         /// <summary>
         /// <para>
@@ -347,6 +363,8 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             context.ClientRequestToken = this.ClientRequestToken;
             if (ParameterWasBound("DisableRollback"))
                 context.DisableRollback = this.DisableRollback;
+            if (ParameterWasBound("EnableTerminationProtection"))
+                context.EnableTerminationProtection = this.EnableTerminationProtection;
             if (this.NotificationARNs != null)
             {
                 context.NotificationARNs = new List<System.String>(this.NotificationARNs);
@@ -405,6 +423,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.DisableRollback != null)
             {
                 request.DisableRollback = cmdletContext.DisableRollback.Value;
+            }
+            if (cmdletContext.EnableTerminationProtection != null)
+            {
+                request.EnableTerminationProtection = cmdletContext.EnableTerminationProtection.Value;
             }
             if (cmdletContext.NotificationARNs != null)
             {
@@ -550,6 +572,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> Capabilities { get; set; }
             public System.String ClientRequestToken { get; set; }
             public System.Boolean? DisableRollback { get; set; }
+            public System.Boolean? EnableTerminationProtection { get; set; }
             public List<System.String> NotificationARNs { get; set; }
             public Amazon.CloudFormation.OnFailure OnFailure { get; set; }
             public List<Amazon.CloudFormation.Model.Parameter> Parameters { get; set; }

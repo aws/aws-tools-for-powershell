@@ -90,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// some other means, but they are orphaned (no longer monitored or accounted for by Amazon
         /// ECS). If an orphaned task on your container instance is part of an Amazon ECS service,
         /// then the service scheduler starts another copy of that task, on a different container
-        /// instance if possible. </para><para>Any containers in orphaned service tasks that are registered with a Classic load balancer
-        /// or an Application load balancer target group are deregistered, and they will begin
+        /// instance if possible. </para><para>Any containers in orphaned service tasks that are registered with a Classic Load Balancer
+        /// or an Application Load Balancer target group are deregistered, and they will begin
         /// connection draining according to the settings on the load balancer or target group.</para>
         /// </para>
         /// </summary>

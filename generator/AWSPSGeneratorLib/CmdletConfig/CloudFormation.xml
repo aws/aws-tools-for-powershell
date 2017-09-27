@@ -99,6 +99,8 @@
       <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     </ServiceOperation>
 
+    <ServiceOperation MethodName="UpdateTerminationProtection" />
+
   </ServiceOperations>
 
   <PipelineByValueProperties>
