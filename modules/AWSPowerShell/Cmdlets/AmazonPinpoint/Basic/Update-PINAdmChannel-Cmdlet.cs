@@ -28,16 +28,16 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Update an SMS channel
+    /// Update an ADM channel
     /// </summary>
-    [Cmdlet("Update", "PINSmsChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.SMSChannelResponse")]
-    [AWSCmdlet("Invokes the UpdateSmsChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateSmsChannel"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.SMSChannelResponse",
-        "This cmdlet returns a SMSChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdateSmsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PINAdmChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Pinpoint.Model.ADMChannelResponse")]
+    [AWSCmdlet("Invokes the UpdateAdmChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateAdmChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.ADMChannelResponse",
+        "This cmdlet returns a ADMChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.UpdateAdmChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdatePINSmsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class UpdatePINAdmChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
         #region Parameter ApplicationId
@@ -50,34 +50,34 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter SMSChannelRequest_Enabled
+        #region Parameter ADMChannelRequest_ClientId
+        /// <summary>
+        /// <para>
+        /// Client ID as gotten from Amazon
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ADMChannelRequest_ClientId { get; set; }
+        #endregion
+        
+        #region Parameter ADMChannelRequest_ClientSecret
+        /// <summary>
+        /// <para>
+        /// Client secret as gotten from Amazon
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ADMChannelRequest_ClientSecret { get; set; }
+        #endregion
+        
+        #region Parameter ADMChannelRequest_Enabled
         /// <summary>
         /// <para>
         /// If the channel is enabled for sending messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Boolean SMSChannelRequest_Enabled { get; set; }
-        #endregion
-        
-        #region Parameter SMSChannelRequest_SenderId
-        /// <summary>
-        /// <para>
-        /// Sender identifier of your messages.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SMSChannelRequest_SenderId { get; set; }
-        #endregion
-        
-        #region Parameter SMSChannelRequest_ShortCode
-        /// <summary>
-        /// <para>
-        /// ShortCode registered with phone provider.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SMSChannelRequest_ShortCode { get; set; }
+        public System.Boolean ADMChannelRequest_Enabled { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINSmsChannel (UpdateSmsChannel)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINAdmChannel (UpdateAdmChannel)"))
             {
                 return;
             }
@@ -109,11 +109,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ADMChannelRequest_ClientId = this.ADMChannelRequest_ClientId;
+            context.ADMChannelRequest_ClientSecret = this.ADMChannelRequest_ClientSecret;
+            if (ParameterWasBound("ADMChannelRequest_Enabled"))
+                context.ADMChannelRequest_Enabled = this.ADMChannelRequest_Enabled;
             context.ApplicationId = this.ApplicationId;
-            if (ParameterWasBound("SMSChannelRequest_Enabled"))
-                context.SMSChannelRequest_Enabled = this.SMSChannelRequest_Enabled;
-            context.SMSChannelRequest_SenderId = this.SMSChannelRequest_SenderId;
-            context.SMSChannelRequest_ShortCode = this.SMSChannelRequest_ShortCode;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -128,50 +128,50 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.UpdateSmsChannelRequest();
+            var request = new Amazon.Pinpoint.Model.UpdateAdmChannelRequest();
             
+            
+             // populate ADMChannelRequest
+            bool requestADMChannelRequestIsNull = true;
+            request.ADMChannelRequest = new Amazon.Pinpoint.Model.ADMChannelRequest();
+            System.String requestADMChannelRequest_aDMChannelRequest_ClientId = null;
+            if (cmdletContext.ADMChannelRequest_ClientId != null)
+            {
+                requestADMChannelRequest_aDMChannelRequest_ClientId = cmdletContext.ADMChannelRequest_ClientId;
+            }
+            if (requestADMChannelRequest_aDMChannelRequest_ClientId != null)
+            {
+                request.ADMChannelRequest.ClientId = requestADMChannelRequest_aDMChannelRequest_ClientId;
+                requestADMChannelRequestIsNull = false;
+            }
+            System.String requestADMChannelRequest_aDMChannelRequest_ClientSecret = null;
+            if (cmdletContext.ADMChannelRequest_ClientSecret != null)
+            {
+                requestADMChannelRequest_aDMChannelRequest_ClientSecret = cmdletContext.ADMChannelRequest_ClientSecret;
+            }
+            if (requestADMChannelRequest_aDMChannelRequest_ClientSecret != null)
+            {
+                request.ADMChannelRequest.ClientSecret = requestADMChannelRequest_aDMChannelRequest_ClientSecret;
+                requestADMChannelRequestIsNull = false;
+            }
+            System.Boolean? requestADMChannelRequest_aDMChannelRequest_Enabled = null;
+            if (cmdletContext.ADMChannelRequest_Enabled != null)
+            {
+                requestADMChannelRequest_aDMChannelRequest_Enabled = cmdletContext.ADMChannelRequest_Enabled.Value;
+            }
+            if (requestADMChannelRequest_aDMChannelRequest_Enabled != null)
+            {
+                request.ADMChannelRequest.Enabled = requestADMChannelRequest_aDMChannelRequest_Enabled.Value;
+                requestADMChannelRequestIsNull = false;
+            }
+             // determine if request.ADMChannelRequest should be set to null
+            if (requestADMChannelRequestIsNull)
+            {
+                request.ADMChannelRequest = null;
+            }
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
-            }
-            
-             // populate SMSChannelRequest
-            bool requestSMSChannelRequestIsNull = true;
-            request.SMSChannelRequest = new Amazon.Pinpoint.Model.SMSChannelRequest();
-            System.Boolean? requestSMSChannelRequest_sMSChannelRequest_Enabled = null;
-            if (cmdletContext.SMSChannelRequest_Enabled != null)
-            {
-                requestSMSChannelRequest_sMSChannelRequest_Enabled = cmdletContext.SMSChannelRequest_Enabled.Value;
-            }
-            if (requestSMSChannelRequest_sMSChannelRequest_Enabled != null)
-            {
-                request.SMSChannelRequest.Enabled = requestSMSChannelRequest_sMSChannelRequest_Enabled.Value;
-                requestSMSChannelRequestIsNull = false;
-            }
-            System.String requestSMSChannelRequest_sMSChannelRequest_SenderId = null;
-            if (cmdletContext.SMSChannelRequest_SenderId != null)
-            {
-                requestSMSChannelRequest_sMSChannelRequest_SenderId = cmdletContext.SMSChannelRequest_SenderId;
-            }
-            if (requestSMSChannelRequest_sMSChannelRequest_SenderId != null)
-            {
-                request.SMSChannelRequest.SenderId = requestSMSChannelRequest_sMSChannelRequest_SenderId;
-                requestSMSChannelRequestIsNull = false;
-            }
-            System.String requestSMSChannelRequest_sMSChannelRequest_ShortCode = null;
-            if (cmdletContext.SMSChannelRequest_ShortCode != null)
-            {
-                requestSMSChannelRequest_sMSChannelRequest_ShortCode = cmdletContext.SMSChannelRequest_ShortCode;
-            }
-            if (requestSMSChannelRequest_sMSChannelRequest_ShortCode != null)
-            {
-                request.SMSChannelRequest.ShortCode = requestSMSChannelRequest_sMSChannelRequest_ShortCode;
-                requestSMSChannelRequestIsNull = false;
-            }
-             // determine if request.SMSChannelRequest should be set to null
-            if (requestSMSChannelRequestIsNull)
-            {
-                request.SMSChannelRequest = null;
             }
             
             CmdletOutput output;
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.SMSChannelResponse;
+                object pipelineOutput = response.ADMChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -207,16 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.UpdateSmsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateSmsChannelRequest request)
+        private Amazon.Pinpoint.Model.UpdateAdmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateAdmChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateSmsChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateAdmChannel");
             try
             {
                 #if DESKTOP
-                return client.UpdateSmsChannel(request);
+                return client.UpdateAdmChannel(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateSmsChannelAsync(request);
+                var task = client.UpdateAdmChannelAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -237,10 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ADMChannelRequest_ClientId { get; set; }
+            public System.String ADMChannelRequest_ClientSecret { get; set; }
+            public System.Boolean? ADMChannelRequest_Enabled { get; set; }
             public System.String ApplicationId { get; set; }
-            public System.Boolean? SMSChannelRequest_Enabled { get; set; }
-            public System.String SMSChannelRequest_SenderId { get; set; }
-            public System.String SMSChannelRequest_ShortCode { get; set; }
         }
         
     }

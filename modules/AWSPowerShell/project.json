@@ -75,7 +75,7 @@
 		"AWSSDK.OpsWorks": "3.3.2.3",
 		"AWSSDK.OpsWorksCM": "3.3.3.13",
 		"AWSSDK.Organizations": "3.3.4.1",
-		"AWSSDK.Pinpoint": "3.3.3",
+		"AWSSDK.Pinpoint": "3.3.4",
 		"AWSSDK.Polly": "3.3.2.3",
 		"AWSSDK.RDS": "3.3.14.1",
 		"AWSSDK.Redshift": "3.3.2.9",

@@ -73,6 +73,31 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String QuietTime_End { get; set; }
         #endregion
         
+        #region Parameter Limits_MaximumDuration
+        /// <summary>
+        /// <para>
+        /// The maximum duration of a campaign from
+        /// the scheduled start. Must be a minimum of 60 seconds.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteApplicationSettingsRequest_Limits_MaximumDuration")]
+        public System.Int32 Limits_MaximumDuration { get; set; }
+        #endregion
+        
+        #region Parameter Limits_MessagesPerSecond
+        /// <summary>
+        /// <para>
+        /// The maximum number of messages per second
+        /// that the campaign will send. This is a best effort maximum cap and can go as high
+        /// as 20000 and as low as 50
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteApplicationSettingsRequest_Limits_MessagesPerSecond")]
+        public System.Int32 Limits_MessagesPerSecond { get; set; }
+        #endregion
+        
         #region Parameter QuietTime_Start
         /// <summary>
         /// <para>
@@ -129,6 +154,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.ApplicationId = this.ApplicationId;
             if (ParameterWasBound("Limits_Daily"))
                 context.WriteApplicationSettingsRequest_Limits_Daily = this.Limits_Daily;
+            if (ParameterWasBound("Limits_MaximumDuration"))
+                context.WriteApplicationSettingsRequest_Limits_MaximumDuration = this.Limits_MaximumDuration;
+            if (ParameterWasBound("Limits_MessagesPerSecond"))
+                context.WriteApplicationSettingsRequest_Limits_MessagesPerSecond = this.Limits_MessagesPerSecond;
             if (ParameterWasBound("Limits_Total"))
                 context.WriteApplicationSettingsRequest_Limits_Total = this.Limits_Total;
             context.WriteApplicationSettingsRequest_QuietTime_End = this.QuietTime_End;
@@ -157,41 +186,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate WriteApplicationSettingsRequest
             bool requestWriteApplicationSettingsRequestIsNull = true;
             request.WriteApplicationSettingsRequest = new Amazon.Pinpoint.Model.WriteApplicationSettingsRequest();
-            Amazon.Pinpoint.Model.CampaignLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
-            
-             // populate Limits
-            bool requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = true;
-            requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = new Amazon.Pinpoint.Model.CampaignLimits();
-            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily = null;
-            if (cmdletContext.WriteApplicationSettingsRequest_Limits_Daily != null)
-            {
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily = cmdletContext.WriteApplicationSettingsRequest_Limits_Daily.Value;
-            }
-            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily != null)
-            {
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.Daily = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily.Value;
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
-            }
-            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total = null;
-            if (cmdletContext.WriteApplicationSettingsRequest_Limits_Total != null)
-            {
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total = cmdletContext.WriteApplicationSettingsRequest_Limits_Total.Value;
-            }
-            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total != null)
-            {
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.Total = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total.Value;
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
-            }
-             // determine if requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits should be set to null
-            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull)
-            {
-                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
-            }
-            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits != null)
-            {
-                request.WriteApplicationSettingsRequest.Limits = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits;
-                requestWriteApplicationSettingsRequestIsNull = false;
-            }
             Amazon.Pinpoint.Model.QuietTime requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime = null;
             
              // populate QuietTime
@@ -225,6 +219,61 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime != null)
             {
                 request.WriteApplicationSettingsRequest.QuietTime = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_QuietTime;
+                requestWriteApplicationSettingsRequestIsNull = false;
+            }
+            Amazon.Pinpoint.Model.CampaignLimits requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
+            
+             // populate Limits
+            bool requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = true;
+            requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = new Amazon.Pinpoint.Model.CampaignLimits();
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_Limits_Daily != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily = cmdletContext.WriteApplicationSettingsRequest_Limits_Daily.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.Daily = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Daily.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MaximumDuration = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_Limits_MaximumDuration != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MaximumDuration = cmdletContext.WriteApplicationSettingsRequest_Limits_MaximumDuration.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MaximumDuration != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.MaximumDuration = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MaximumDuration.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MessagesPerSecond = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_Limits_MessagesPerSecond != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MessagesPerSecond = cmdletContext.WriteApplicationSettingsRequest_Limits_MessagesPerSecond.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MessagesPerSecond != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.MessagesPerSecond = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_MessagesPerSecond.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total = null;
+            if (cmdletContext.WriteApplicationSettingsRequest_Limits_Total != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total = cmdletContext.WriteApplicationSettingsRequest_Limits_Total.Value;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total != null)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits.Total = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits_limits_Total.Value;
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull = false;
+            }
+             // determine if requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits should be set to null
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_LimitsIsNull)
+            {
+                requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits = null;
+            }
+            if (requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits != null)
+            {
+                request.WriteApplicationSettingsRequest.Limits = requestWriteApplicationSettingsRequest_writeApplicationSettingsRequest_Limits;
                 requestWriteApplicationSettingsRequestIsNull = false;
             }
              // determine if request.WriteApplicationSettingsRequest should be set to null
@@ -298,6 +347,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.String ApplicationId { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_Daily { get; set; }
+            public System.Int32? WriteApplicationSettingsRequest_Limits_MaximumDuration { get; set; }
+            public System.Int32? WriteApplicationSettingsRequest_Limits_MessagesPerSecond { get; set; }
             public System.Int32? WriteApplicationSettingsRequest_Limits_Total { get; set; }
             public System.String WriteApplicationSettingsRequest_QuietTime_End { get; set; }
             public System.String WriteApplicationSettingsRequest_QuietTime_Start { get; set; }

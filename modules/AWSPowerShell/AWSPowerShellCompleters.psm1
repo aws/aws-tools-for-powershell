@@ -4121,9 +4121,16 @@ $PIN_Completers = {
     {
         # Amazon.Pinpoint.Action
         {
+            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_ADMMessage_Action") -Or
             ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_APNSMessage_Action") -Or
+            ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_BaiduMessage_Action") -Or
             ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action") -Or
             ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_GCMMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_ADMMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_APNSMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_GCMMessage_Action") -Or
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_APNSMessage_Action") -Or
             ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_APNSMessage_Action") -Or
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action") -Or
@@ -4139,7 +4146,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.ChannelType
         "Update-PINEndpoint/EndpointRequest_ChannelType"
         {
-            $v = "ADM","APNS","APNS_SANDBOX","EMAIL","GCM","SMS"
+            $v = "ADM","APNS","APNS_SANDBOX","BAIDU","EMAIL","GCM","SMS"
             break
         }
         
@@ -4195,6 +4202,7 @@ $PIN_Completers = {
         # Amazon.Pinpoint.MessageType
         {
             ($_ -eq "Send-PINMessage/MessageRequest_MessageConfiguration_SMSMessage_MessageType") -Or
+            ($_ -eq "Send-PINUserMessageBatch/SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType") -Or
             ($_ -eq "New-PINCampaign/WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType") -Or
             ($_ -eq "Update-PINCampaign/WriteCampaignRequest_MessageConfiguration_SMSMessage_MessageType")
         }
@@ -4223,10 +4231,18 @@ $PIN_Completers = {
 $PIN_map = @{
     "EndpointRequest_ChannelType"=@("Update-PINEndpoint")
     "ImportJobRequest_Format"=@("New-PINImportJob")
+    "MessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINMessage")
+    "MessageRequest_MessageConfiguration_BaiduMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_GCMMessage_Action"=@("Send-PINMessage")
     "MessageRequest_MessageConfiguration_SMSMessage_MessageType"=@("Send-PINMessage")
+    "SendUsersMessageRequest_MessageConfiguration_ADMMessage_Action"=@("Send-PINUserMessageBatch")
+    "SendUsersMessageRequest_MessageConfiguration_APNSMessage_Action"=@("Send-PINUserMessageBatch")
+    "SendUsersMessageRequest_MessageConfiguration_BaiduMessage_Action"=@("Send-PINUserMessageBatch")
+    "SendUsersMessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action"=@("Send-PINUserMessageBatch")
+    "SendUsersMessageRequest_MessageConfiguration_GCMMessage_Action"=@("Send-PINUserMessageBatch")
+    "SendUsersMessageRequest_MessageConfiguration_SMSMessage_MessageType"=@("Send-PINUserMessageBatch")
     "WriteCampaignRequest_MessageConfiguration_APNSMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_DefaultMessage_Action"=@("New-PINCampaign","Update-PINCampaign")
     "WriteCampaignRequest_MessageConfiguration_GCMMessage_Action"=@("New-PINCampaign","Update-PINCampaign")

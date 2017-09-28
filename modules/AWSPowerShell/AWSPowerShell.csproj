@@ -106,7 +106,7 @@
       <HintPath>..\..\packages\AWSSDK.Organizations.3.3.4.1\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.3\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.4\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.6\lib\net35\AWSSDK.Rekognition.dll</HintPath>

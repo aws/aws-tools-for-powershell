@@ -11,13 +11,14 @@
   <PipelineParameter>ApplicationId</PipelineParameter>
   
   <ServiceOperations>
-    <ServiceOperation MethodName="UpdateSegment" />
     <ServiceOperation MethodName="CreateApp" />
     <ServiceOperation MethodName="CreateCampaign" />
     <ServiceOperation MethodName="CreateImportJob" />
     <ServiceOperation MethodName="CreateSegment" />
+    <ServiceOperation MethodName="DeleteAdmChannel" />
     <ServiceOperation MethodName="DeleteApp" />
     <ServiceOperation MethodName="DeleteApnsChannel"/>
+    <ServiceOperation MethodName="DeleteBaiduChannel" />
     <ServiceOperation MethodName="DeleteCampaign" />
     <ServiceOperation MethodName="DeleteApnsSandboxChannel" />
     <ServiceOperation MethodName="DeleteEmailChannel" />
@@ -25,11 +26,13 @@
     <ServiceOperation MethodName="DeleteGcmChannel"/>
     <ServiceOperation MethodName="DeleteSegment" />
     <ServiceOperation MethodName="DeleteSmsChannel" />
+    <ServiceOperation MethodName="GetAdmChannel" />
     <ServiceOperation MethodName="GetApp" />
     <ServiceOperation MethodName="GetApps" Noun="AppList" />
     <ServiceOperation MethodName="GetApnsChannel"/>
     <ServiceOperation MethodName="GetApnsSandboxChannel" />
     <ServiceOperation MethodName="GetApplicationSettings" Noun="ApplicationSettingList"/>
+    <ServiceOperation MethodName="GetBaiduChannel" />
     <ServiceOperation MethodName="GetCampaign" />
     <ServiceOperation MethodName="GetCampaigns" Noun="CampaignList" />
     <ServiceOperation MethodName="GetCampaignActivities" Noun="CampaignActivityList"/>
@@ -49,14 +52,18 @@
     <ServiceOperation MethodName="GetSmsChannel" />
     <ServiceOperation MethodName="PutEventStream" />
     <ServiceOperation MethodName="SendMessages" Noun="Message" />
+    <ServiceOperation MethodName="SendUsersMessages" Noun="UserMessageBatch" />
+    <ServiceOperation MethodName="UpdateAdmChannel" />
     <ServiceOperation MethodName="UpdateApnsChannel" />
     <ServiceOperation MethodName="UpdateApnsSandboxChannel" />
     <ServiceOperation MethodName="UpdateApplicationSettings" Noun="ApplicationSettingList" />
+    <ServiceOperation MethodName="UpdateBaiduChannel" />
     <ServiceOperation MethodName="UpdateCampaign" />
     <ServiceOperation MethodName="UpdateEndpoint" />
     <ServiceOperation MethodName="UpdateEndpointsBatch" />
     <ServiceOperation MethodName="UpdateGcmChannel" />
     <ServiceOperation MethodName="UpdateEmailChannel" />
+    <ServiceOperation MethodName="UpdateSegment" />
     <ServiceOperation MethodName="UpdateSmsChannel" />
   </ServiceOperations>
 </ConfigModel>

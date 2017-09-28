@@ -50,6 +50,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
+        #region Parameter APNSChannelRequest_BundleId
+        /// <summary>
+        /// <para>
+        /// The bundle id used for APNs Tokens.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String APNSChannelRequest_BundleId { get; set; }
+        #endregion
+        
         #region Parameter APNSChannelRequest_Certificate
         /// <summary>
         /// <para>
@@ -58,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String APNSChannelRequest_Certificate { get; set; }
+        #endregion
+        
+        #region Parameter APNSChannelRequest_DefaultAuthenticationMethod
+        /// <summary>
+        /// <para>
+        /// The default authentication
+        /// method used for APNs.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String APNSChannelRequest_DefaultAuthenticationMethod { get; set; }
         #endregion
         
         #region Parameter APNSChannelRequest_Enabled
@@ -78,6 +99,36 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String APNSChannelRequest_PrivateKey { get; set; }
+        #endregion
+        
+        #region Parameter APNSChannelRequest_TeamId
+        /// <summary>
+        /// <para>
+        /// The team id used for APNs Tokens.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String APNSChannelRequest_TeamId { get; set; }
+        #endregion
+        
+        #region Parameter APNSChannelRequest_TokenKey
+        /// <summary>
+        /// <para>
+        /// The token key used for APNs Tokens.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String APNSChannelRequest_TokenKey { get; set; }
+        #endregion
+        
+        #region Parameter APNSChannelRequest_TokenKeyId
+        /// <summary>
+        /// <para>
+        /// The token key used for APNs Tokens.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String APNSChannelRequest_TokenKeyId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -109,10 +160,15 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.APNSChannelRequest_BundleId = this.APNSChannelRequest_BundleId;
             context.APNSChannelRequest_Certificate = this.APNSChannelRequest_Certificate;
+            context.APNSChannelRequest_DefaultAuthenticationMethod = this.APNSChannelRequest_DefaultAuthenticationMethod;
             if (ParameterWasBound("APNSChannelRequest_Enabled"))
                 context.APNSChannelRequest_Enabled = this.APNSChannelRequest_Enabled;
             context.APNSChannelRequest_PrivateKey = this.APNSChannelRequest_PrivateKey;
+            context.APNSChannelRequest_TeamId = this.APNSChannelRequest_TeamId;
+            context.APNSChannelRequest_TokenKey = this.APNSChannelRequest_TokenKey;
+            context.APNSChannelRequest_TokenKeyId = this.APNSChannelRequest_TokenKeyId;
             context.ApplicationId = this.ApplicationId;
             
             // allow further manipulation of loaded context prior to processing
@@ -134,6 +190,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
              // populate APNSChannelRequest
             bool requestAPNSChannelRequestIsNull = true;
             request.APNSChannelRequest = new Amazon.Pinpoint.Model.APNSChannelRequest();
+            System.String requestAPNSChannelRequest_aPNSChannelRequest_BundleId = null;
+            if (cmdletContext.APNSChannelRequest_BundleId != null)
+            {
+                requestAPNSChannelRequest_aPNSChannelRequest_BundleId = cmdletContext.APNSChannelRequest_BundleId;
+            }
+            if (requestAPNSChannelRequest_aPNSChannelRequest_BundleId != null)
+            {
+                request.APNSChannelRequest.BundleId = requestAPNSChannelRequest_aPNSChannelRequest_BundleId;
+                requestAPNSChannelRequestIsNull = false;
+            }
             System.String requestAPNSChannelRequest_aPNSChannelRequest_Certificate = null;
             if (cmdletContext.APNSChannelRequest_Certificate != null)
             {
@@ -142,6 +208,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSChannelRequest_aPNSChannelRequest_Certificate != null)
             {
                 request.APNSChannelRequest.Certificate = requestAPNSChannelRequest_aPNSChannelRequest_Certificate;
+                requestAPNSChannelRequestIsNull = false;
+            }
+            System.String requestAPNSChannelRequest_aPNSChannelRequest_DefaultAuthenticationMethod = null;
+            if (cmdletContext.APNSChannelRequest_DefaultAuthenticationMethod != null)
+            {
+                requestAPNSChannelRequest_aPNSChannelRequest_DefaultAuthenticationMethod = cmdletContext.APNSChannelRequest_DefaultAuthenticationMethod;
+            }
+            if (requestAPNSChannelRequest_aPNSChannelRequest_DefaultAuthenticationMethod != null)
+            {
+                request.APNSChannelRequest.DefaultAuthenticationMethod = requestAPNSChannelRequest_aPNSChannelRequest_DefaultAuthenticationMethod;
                 requestAPNSChannelRequestIsNull = false;
             }
             System.Boolean? requestAPNSChannelRequest_aPNSChannelRequest_Enabled = null;
@@ -162,6 +238,36 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey != null)
             {
                 request.APNSChannelRequest.PrivateKey = requestAPNSChannelRequest_aPNSChannelRequest_PrivateKey;
+                requestAPNSChannelRequestIsNull = false;
+            }
+            System.String requestAPNSChannelRequest_aPNSChannelRequest_TeamId = null;
+            if (cmdletContext.APNSChannelRequest_TeamId != null)
+            {
+                requestAPNSChannelRequest_aPNSChannelRequest_TeamId = cmdletContext.APNSChannelRequest_TeamId;
+            }
+            if (requestAPNSChannelRequest_aPNSChannelRequest_TeamId != null)
+            {
+                request.APNSChannelRequest.TeamId = requestAPNSChannelRequest_aPNSChannelRequest_TeamId;
+                requestAPNSChannelRequestIsNull = false;
+            }
+            System.String requestAPNSChannelRequest_aPNSChannelRequest_TokenKey = null;
+            if (cmdletContext.APNSChannelRequest_TokenKey != null)
+            {
+                requestAPNSChannelRequest_aPNSChannelRequest_TokenKey = cmdletContext.APNSChannelRequest_TokenKey;
+            }
+            if (requestAPNSChannelRequest_aPNSChannelRequest_TokenKey != null)
+            {
+                request.APNSChannelRequest.TokenKey = requestAPNSChannelRequest_aPNSChannelRequest_TokenKey;
+                requestAPNSChannelRequestIsNull = false;
+            }
+            System.String requestAPNSChannelRequest_aPNSChannelRequest_TokenKeyId = null;
+            if (cmdletContext.APNSChannelRequest_TokenKeyId != null)
+            {
+                requestAPNSChannelRequest_aPNSChannelRequest_TokenKeyId = cmdletContext.APNSChannelRequest_TokenKeyId;
+            }
+            if (requestAPNSChannelRequest_aPNSChannelRequest_TokenKeyId != null)
+            {
+                request.APNSChannelRequest.TokenKeyId = requestAPNSChannelRequest_aPNSChannelRequest_TokenKeyId;
                 requestAPNSChannelRequestIsNull = false;
             }
              // determine if request.APNSChannelRequest should be set to null
@@ -237,9 +343,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String APNSChannelRequest_BundleId { get; set; }
             public System.String APNSChannelRequest_Certificate { get; set; }
+            public System.String APNSChannelRequest_DefaultAuthenticationMethod { get; set; }
             public System.Boolean? APNSChannelRequest_Enabled { get; set; }
             public System.String APNSChannelRequest_PrivateKey { get; set; }
+            public System.String APNSChannelRequest_TeamId { get; set; }
+            public System.String APNSChannelRequest_TokenKey { get; set; }
+            public System.String APNSChannelRequest_TokenKeyId { get; set; }
             public System.String ApplicationId { get; set; }
         }
         

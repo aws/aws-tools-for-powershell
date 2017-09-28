@@ -28,17 +28,27 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Update an SMS channel
+    /// Update a BAIDU GCM channel
     /// </summary>
-    [Cmdlet("Update", "PINSmsChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.SMSChannelResponse")]
-    [AWSCmdlet("Invokes the UpdateSmsChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateSmsChannel"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.SMSChannelResponse",
-        "This cmdlet returns a SMSChannelResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.UpdateSmsChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "PINBaiduChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.Pinpoint.Model.BaiduChannelResponse")]
+    [AWSCmdlet("Invokes the UpdateBaiduChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateBaiduChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.BaiduChannelResponse",
+        "This cmdlet returns a BaiduChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.UpdateBaiduChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdatePINSmsChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class UpdatePINBaiduChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
+        
+        #region Parameter BaiduChannelRequest_ApiKey
+        /// <summary>
+        /// <para>
+        /// Platform credential API key from Baidu.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String BaiduChannelRequest_ApiKey { get; set; }
+        #endregion
         
         #region Parameter ApplicationId
         /// <summary>
@@ -50,34 +60,24 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ApplicationId { get; set; }
         #endregion
         
-        #region Parameter SMSChannelRequest_Enabled
+        #region Parameter BaiduChannelRequest_Enabled
         /// <summary>
         /// <para>
         /// If the channel is enabled for sending messages.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.Boolean SMSChannelRequest_Enabled { get; set; }
+        public System.Boolean BaiduChannelRequest_Enabled { get; set; }
         #endregion
         
-        #region Parameter SMSChannelRequest_SenderId
+        #region Parameter BaiduChannelRequest_SecretKey
         /// <summary>
         /// <para>
-        /// Sender identifier of your messages.
+        /// Platform credential Secret key from Baidu.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String SMSChannelRequest_SenderId { get; set; }
-        #endregion
-        
-        #region Parameter SMSChannelRequest_ShortCode
-        /// <summary>
-        /// <para>
-        /// ShortCode registered with phone provider.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String SMSChannelRequest_ShortCode { get; set; }
+        public System.String BaiduChannelRequest_SecretKey { get; set; }
         #endregion
         
         #region Parameter Force
@@ -95,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINSmsChannel (UpdateSmsChannel)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-PINBaiduChannel (UpdateBaiduChannel)"))
             {
                 return;
             }
@@ -110,10 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             PreExecutionContextLoad(context);
             
             context.ApplicationId = this.ApplicationId;
-            if (ParameterWasBound("SMSChannelRequest_Enabled"))
-                context.SMSChannelRequest_Enabled = this.SMSChannelRequest_Enabled;
-            context.SMSChannelRequest_SenderId = this.SMSChannelRequest_SenderId;
-            context.SMSChannelRequest_ShortCode = this.SMSChannelRequest_ShortCode;
+            context.BaiduChannelRequest_ApiKey = this.BaiduChannelRequest_ApiKey;
+            if (ParameterWasBound("BaiduChannelRequest_Enabled"))
+                context.BaiduChannelRequest_Enabled = this.BaiduChannelRequest_Enabled;
+            context.BaiduChannelRequest_SecretKey = this.BaiduChannelRequest_SecretKey;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -128,50 +128,50 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.UpdateSmsChannelRequest();
+            var request = new Amazon.Pinpoint.Model.UpdateBaiduChannelRequest();
             
             if (cmdletContext.ApplicationId != null)
             {
                 request.ApplicationId = cmdletContext.ApplicationId;
             }
             
-             // populate SMSChannelRequest
-            bool requestSMSChannelRequestIsNull = true;
-            request.SMSChannelRequest = new Amazon.Pinpoint.Model.SMSChannelRequest();
-            System.Boolean? requestSMSChannelRequest_sMSChannelRequest_Enabled = null;
-            if (cmdletContext.SMSChannelRequest_Enabled != null)
+             // populate BaiduChannelRequest
+            bool requestBaiduChannelRequestIsNull = true;
+            request.BaiduChannelRequest = new Amazon.Pinpoint.Model.BaiduChannelRequest();
+            System.String requestBaiduChannelRequest_baiduChannelRequest_ApiKey = null;
+            if (cmdletContext.BaiduChannelRequest_ApiKey != null)
             {
-                requestSMSChannelRequest_sMSChannelRequest_Enabled = cmdletContext.SMSChannelRequest_Enabled.Value;
+                requestBaiduChannelRequest_baiduChannelRequest_ApiKey = cmdletContext.BaiduChannelRequest_ApiKey;
             }
-            if (requestSMSChannelRequest_sMSChannelRequest_Enabled != null)
+            if (requestBaiduChannelRequest_baiduChannelRequest_ApiKey != null)
             {
-                request.SMSChannelRequest.Enabled = requestSMSChannelRequest_sMSChannelRequest_Enabled.Value;
-                requestSMSChannelRequestIsNull = false;
+                request.BaiduChannelRequest.ApiKey = requestBaiduChannelRequest_baiduChannelRequest_ApiKey;
+                requestBaiduChannelRequestIsNull = false;
             }
-            System.String requestSMSChannelRequest_sMSChannelRequest_SenderId = null;
-            if (cmdletContext.SMSChannelRequest_SenderId != null)
+            System.Boolean? requestBaiduChannelRequest_baiduChannelRequest_Enabled = null;
+            if (cmdletContext.BaiduChannelRequest_Enabled != null)
             {
-                requestSMSChannelRequest_sMSChannelRequest_SenderId = cmdletContext.SMSChannelRequest_SenderId;
+                requestBaiduChannelRequest_baiduChannelRequest_Enabled = cmdletContext.BaiduChannelRequest_Enabled.Value;
             }
-            if (requestSMSChannelRequest_sMSChannelRequest_SenderId != null)
+            if (requestBaiduChannelRequest_baiduChannelRequest_Enabled != null)
             {
-                request.SMSChannelRequest.SenderId = requestSMSChannelRequest_sMSChannelRequest_SenderId;
-                requestSMSChannelRequestIsNull = false;
+                request.BaiduChannelRequest.Enabled = requestBaiduChannelRequest_baiduChannelRequest_Enabled.Value;
+                requestBaiduChannelRequestIsNull = false;
             }
-            System.String requestSMSChannelRequest_sMSChannelRequest_ShortCode = null;
-            if (cmdletContext.SMSChannelRequest_ShortCode != null)
+            System.String requestBaiduChannelRequest_baiduChannelRequest_SecretKey = null;
+            if (cmdletContext.BaiduChannelRequest_SecretKey != null)
             {
-                requestSMSChannelRequest_sMSChannelRequest_ShortCode = cmdletContext.SMSChannelRequest_ShortCode;
+                requestBaiduChannelRequest_baiduChannelRequest_SecretKey = cmdletContext.BaiduChannelRequest_SecretKey;
             }
-            if (requestSMSChannelRequest_sMSChannelRequest_ShortCode != null)
+            if (requestBaiduChannelRequest_baiduChannelRequest_SecretKey != null)
             {
-                request.SMSChannelRequest.ShortCode = requestSMSChannelRequest_sMSChannelRequest_ShortCode;
-                requestSMSChannelRequestIsNull = false;
+                request.BaiduChannelRequest.SecretKey = requestBaiduChannelRequest_baiduChannelRequest_SecretKey;
+                requestBaiduChannelRequestIsNull = false;
             }
-             // determine if request.SMSChannelRequest should be set to null
-            if (requestSMSChannelRequestIsNull)
+             // determine if request.BaiduChannelRequest should be set to null
+            if (requestBaiduChannelRequestIsNull)
             {
-                request.SMSChannelRequest = null;
+                request.BaiduChannelRequest = null;
             }
             
             CmdletOutput output;
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.SMSChannelResponse;
+                object pipelineOutput = response.BaiduChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -207,16 +207,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.UpdateSmsChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateSmsChannelRequest request)
+        private Amazon.Pinpoint.Model.UpdateBaiduChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.UpdateBaiduChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateSmsChannel");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "UpdateBaiduChannel");
             try
             {
                 #if DESKTOP
-                return client.UpdateSmsChannel(request);
+                return client.UpdateBaiduChannel(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateSmsChannelAsync(request);
+                var task = client.UpdateBaiduChannelAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -238,9 +238,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationId { get; set; }
-            public System.Boolean? SMSChannelRequest_Enabled { get; set; }
-            public System.String SMSChannelRequest_SenderId { get; set; }
-            public System.String SMSChannelRequest_ShortCode { get; set; }
+            public System.String BaiduChannelRequest_ApiKey { get; set; }
+            public System.Boolean? BaiduChannelRequest_Enabled { get; set; }
+            public System.String BaiduChannelRequest_SecretKey { get; set; }
         }
         
     }

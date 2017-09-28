@@ -7,6 +7,9 @@
     * Added argument completion support for the Attribute parameter of the Edit-EC2ImageAttribute cmdlet, enabling tab completion of the possible attribute names. The service models this parameter as a simple string type, rather than a service enumeration, so tab completion was not available by default.
   * Amazon S3
     * Updated the Copy-S3Object cmdlet to support copying (downloading) multiple objects, identified by common key prefix, to a folder on the local file system. Previously the cmdlet could only process single object download to a file or folder. You may therefore use either Read-S3Object or Copy-S3Object to download one or multiple files from S3 to the local system (the functionality is the same). To copy files within S3, use the Copy-S3Object cmdlet.
+  * Amazon Pinpoint
+    * Added new cmdlets to support new APIs for new push notification channels: Amazon Device Messaging (ADM) and, for push notification support in China, Baidu Cloud Push.
+    * Added new cmdlet for direct message deliveries to user IDs, enabling you to message an individual user on multiple endpoints.
 
 ### 3.3.161.0 (2017-09-22)
   * AWS CodePipeline

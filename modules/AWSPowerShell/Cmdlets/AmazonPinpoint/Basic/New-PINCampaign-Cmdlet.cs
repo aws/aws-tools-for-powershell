@@ -424,6 +424,18 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_JsonBody { get; set; }
         #endregion
         
+        #region Parameter Limits_MaximumDuration
+        /// <summary>
+        /// <para>
+        /// The maximum duration of a campaign from
+        /// the scheduled start. Must be a minimum of 60 seconds.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_Limits_MaximumDuration")]
+        public System.Int32 Limits_MaximumDuration { get; set; }
+        #endregion
+        
         #region Parameter APNSMessage_MediaUrl
         /// <summary>
         /// <para>
@@ -458,6 +470,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("WriteCampaignRequest_MessageConfiguration_GCMMessage_MediaUrl")]
         public System.String GCMMessage_MediaUrl { get; set; }
+        #endregion
+        
+        #region Parameter Limits_MessagesPerSecond
+        /// <summary>
+        /// <para>
+        /// The maximum number of messages per second
+        /// that the campaign will send. This is a best effort maximum cap and can go as high
+        /// as 20000 and as low as 50
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("WriteCampaignRequest_Limits_MessagesPerSecond")]
+        public System.Int32 Limits_MessagesPerSecond { get; set; }
         #endregion
         
         #region Parameter SMSMessage_MessageType
@@ -686,6 +711,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Int32 Limits_Total { get; set; }
         #endregion
         
+        #region Parameter WriteCampaignRequest_Trace
+        /// <summary>
+        /// <para>
+        /// Whether or not to enable trace logging for the campaign.
+        /// Undocumented
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean WriteCampaignRequest_Trace { get; set; }
+        #endregion
+        
         #region Parameter WriteCampaignRequest_TreatmentDescription
         /// <summary>
         /// <para>
@@ -784,6 +820,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.WriteCampaignRequest_IsPaused = this.WriteCampaignRequest_IsPaused;
             if (ParameterWasBound("Limits_Daily"))
                 context.WriteCampaignRequest_Limits_Daily = this.Limits_Daily;
+            if (ParameterWasBound("Limits_MaximumDuration"))
+                context.WriteCampaignRequest_Limits_MaximumDuration = this.Limits_MaximumDuration;
+            if (ParameterWasBound("Limits_MessagesPerSecond"))
+                context.WriteCampaignRequest_Limits_MessagesPerSecond = this.Limits_MessagesPerSecond;
             if (ParameterWasBound("Limits_Total"))
                 context.WriteCampaignRequest_Limits_Total = this.Limits_Total;
             context.WriteCampaignRequest_MessageConfiguration_APNSMessage_Action = this.APNSMessage_Action;
@@ -841,6 +881,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.WriteCampaignRequest_SegmentId = this.WriteCampaignRequest_SegmentId;
             if (ParameterWasBound("WriteCampaignRequest_SegmentVersion"))
                 context.WriteCampaignRequest_SegmentVersion = this.WriteCampaignRequest_SegmentVersion;
+            if (ParameterWasBound("WriteCampaignRequest_Trace"))
+                context.WriteCampaignRequest_Trace = this.WriteCampaignRequest_Trace;
             context.WriteCampaignRequest_TreatmentDescription = this.WriteCampaignRequest_TreatmentDescription;
             context.WriteCampaignRequest_TreatmentName = this.WriteCampaignRequest_TreatmentName;
             
@@ -937,6 +979,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.WriteCampaignRequest.SegmentVersion = requestWriteCampaignRequest_writeCampaignRequest_SegmentVersion.Value;
                 requestWriteCampaignRequestIsNull = false;
             }
+            System.Boolean? requestWriteCampaignRequest_writeCampaignRequest_Trace = null;
+            if (cmdletContext.WriteCampaignRequest_Trace != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Trace = cmdletContext.WriteCampaignRequest_Trace.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Trace != null)
+            {
+                request.WriteCampaignRequest.Trace = requestWriteCampaignRequest_writeCampaignRequest_Trace.Value;
+                requestWriteCampaignRequestIsNull = false;
+            }
             System.String requestWriteCampaignRequest_writeCampaignRequest_TreatmentDescription = null;
             if (cmdletContext.WriteCampaignRequest_TreatmentDescription != null)
             {
@@ -970,6 +1022,26 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily != null)
             {
                 requestWriteCampaignRequest_writeCampaignRequest_Limits.Daily = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Daily.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = null;
+            if (cmdletContext.WriteCampaignRequest_Limits_MaximumDuration != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration = cmdletContext.WriteCampaignRequest_Limits_MaximumDuration.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.MaximumDuration = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MaximumDuration.Value;
+                requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
+            }
+            System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = null;
+            if (cmdletContext.WriteCampaignRequest_Limits_MessagesPerSecond != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond = cmdletContext.WriteCampaignRequest_Limits_MessagesPerSecond.Value;
+            }
+            if (requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond != null)
+            {
+                requestWriteCampaignRequest_writeCampaignRequest_Limits.MessagesPerSecond = requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_MessagesPerSecond.Value;
                 requestWriteCampaignRequest_writeCampaignRequest_LimitsIsNull = false;
             }
             System.Int32? requestWriteCampaignRequest_writeCampaignRequest_Limits_limits_Total = null;
@@ -1657,6 +1729,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? WriteCampaignRequest_HoldoutPercent { get; set; }
             public System.Boolean? WriteCampaignRequest_IsPaused { get; set; }
             public System.Int32? WriteCampaignRequest_Limits_Daily { get; set; }
+            public System.Int32? WriteCampaignRequest_Limits_MaximumDuration { get; set; }
+            public System.Int32? WriteCampaignRequest_Limits_MessagesPerSecond { get; set; }
             public System.Int32? WriteCampaignRequest_Limits_Total { get; set; }
             public Amazon.Pinpoint.Action WriteCampaignRequest_MessageConfiguration_APNSMessage_Action { get; set; }
             public System.String WriteCampaignRequest_MessageConfiguration_APNSMessage_Body { get; set; }
@@ -1708,6 +1782,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String WriteCampaignRequest_Schedule_Timezone { get; set; }
             public System.String WriteCampaignRequest_SegmentId { get; set; }
             public System.Int32? WriteCampaignRequest_SegmentVersion { get; set; }
+            public System.Boolean? WriteCampaignRequest_Trace { get; set; }
             public System.String WriteCampaignRequest_TreatmentDescription { get; set; }
             public System.String WriteCampaignRequest_TreatmentName { get; set; }
         }

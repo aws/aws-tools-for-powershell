@@ -28,48 +28,31 @@ using Amazon.Pinpoint.Model;
 namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Creates or updates an app.
+    /// Get an ADM channel
     /// </summary>
-    [Cmdlet("New", "PINApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.ApplicationResponse")]
-    [AWSCmdlet("Invokes the CreateApp operation against Amazon Pinpoint.", Operation = new[] {"CreateApp"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.ApplicationResponse",
-        "This cmdlet returns a ApplicationResponse object.",
-        "The service call response (type Amazon.Pinpoint.Model.CreateAppResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "PINAdmChannel")]
+    [OutputType("Amazon.Pinpoint.Model.ADMChannelResponse")]
+    [AWSCmdlet("Invokes the GetAdmChannel operation against Amazon Pinpoint.", Operation = new[] {"GetAdmChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.ADMChannelResponse",
+        "This cmdlet returns a ADMChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.GetAdmChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewPINAppCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class GetPINAdmChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter CreateApplicationRequest_Name
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// The display name of the application. Used in the
-        /// Amazon Pinpoint console.
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CreateApplicationRequest_Name { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String ApplicationId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CreateApplicationRequest_Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-PINApp (CreateApp)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -80,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CreateApplicationRequest_Name = this.CreateApplicationRequest_Name;
+            context.ApplicationId = this.ApplicationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -95,26 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.CreateAppRequest();
+            var request = new Amazon.Pinpoint.Model.GetAdmChannelRequest();
             
-            
-             // populate CreateApplicationRequest
-            bool requestCreateApplicationRequestIsNull = true;
-            request.CreateApplicationRequest = new Amazon.Pinpoint.Model.CreateApplicationRequest();
-            System.String requestCreateApplicationRequest_createApplicationRequest_Name = null;
-            if (cmdletContext.CreateApplicationRequest_Name != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                requestCreateApplicationRequest_createApplicationRequest_Name = cmdletContext.CreateApplicationRequest_Name;
-            }
-            if (requestCreateApplicationRequest_createApplicationRequest_Name != null)
-            {
-                request.CreateApplicationRequest.Name = requestCreateApplicationRequest_createApplicationRequest_Name;
-                requestCreateApplicationRequestIsNull = false;
-            }
-             // determine if request.CreateApplicationRequest should be set to null
-            if (requestCreateApplicationRequestIsNull)
-            {
-                request.CreateApplicationRequest = null;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
             
             CmdletOutput output;
@@ -125,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.ApplicationResponse;
+                object pipelineOutput = response.ADMChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -150,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.CreateAppResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.CreateAppRequest request)
+        private Amazon.Pinpoint.Model.GetAdmChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.GetAdmChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "CreateApp");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "GetAdmChannel");
             try
             {
                 #if DESKTOP
-                return client.CreateApp(request);
+                return client.GetAdmChannel(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateAppAsync(request);
+                var task = client.GetAdmChannelAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -180,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CreateApplicationRequest_Name { get; set; }
+            public System.String ApplicationId { get; set; }
         }
         
     }
