@@ -28,8 +28,6 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <summary>
     /// Updates the code for the specified Lambda function. This operation must only be used
     /// on an existing Lambda function and cannot be used to update the function configuration.
-    /// 
-    ///  
     /// <para>
     /// If you are using the versioning feature, note this API will always update the $LATEST
     /// version of your Lambda function. For information about the versioning feature, see
@@ -39,8 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// This operation requires permission for the <code>lambda:UpdateFunctionCode</code>
     /// action.
     /// </para>
+    /// <para>
+    /// The updated code for the function may be supplied from a zip file in an S3 bucket,
+    /// from a zip file on the local file system (the default) or from a memory stream onto
+    /// a resource containing the code.
+    /// </para>
     /// </summary>
-    [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = ParamSet_CodeFromLocalZipFile)]
+    [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = FromZipFile)]
     [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
     [AWSCmdlet("Invokes the UpdateFunctionCode operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionCode"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
@@ -48,9 +51,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public partial class UpdateLMFunctionCodeCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
-        const string ParamSet_CodeFromLocalZipFile = "CodeFromLocalZipFile";
-        const string ParamSet_CodeFromS3Location = "CodeFromS3Location";
-        
+        const string FromZipFile = "FromZipFile";
+        const string FromS3Object = "FromS3Object";
+        const string FromMemoryStream = "FromMemoryStream"
+
         #region Parameter FunctionName
         /// <summary>
         /// <para>
@@ -61,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// name, it is limited to 64 character in length. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
         public System.String FunctionName { get; set; }
         #endregion
 
@@ -70,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Amazon S3 bucket name where the .zip file containing your deployment package is stored.
         /// This bucket must reside in the same AWS region as the existing Lambda function.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FromS3Object)]
         [Alias("S3Bucket", "FunctionCode_S3Bucket")]
         public string BucketName { get; set; }
         #endregion
@@ -79,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// The key name of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FromS3Object)]
         [Alias("S3Key", "FunctionCode_S3Key")]
         public string Key { get; set; }
         #endregion
@@ -88,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = FromS3Object)]
         [Alias("S3ObjectVersion", "FunctionCode_S3ObjectVersion")]
         public string VersionId { get; set; }
         #endregion
@@ -96,12 +100,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ZipFileContent
         /// <summary>
         /// <para>
-        /// <para>The contents of your zip file containing your deployment package.
+        /// <para>A stream onto the zip file containing your deployment package.
         /// For more information about creating a .zip file, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution
         /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </para>
         /// </para>
+        /// <para>Note: the supplied stream is not disposed when the cmdlet exits.</para>
         /// </summary>
-        [System.Management.Automation.Parameter(ParameterSetName = ParamSet_CodeFromLocalZipFile)]
+        [System.Management.Automation.Parameter(ParameterSetName = FromMemoryStream, Mandatory = true)]
         [Alias("ZipContent")]
         public System.IO.MemoryStream ZipFileContent { get; set; }
         #endregion
@@ -109,12 +114,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter ZipFilename
         /// <summary>
         /// <para>
-        /// The path to a zip file containing your deployment package. Use this parameter, or -ZipFileContent, 
-        /// or the S3 bucket and key parameters to specify the code to be deployed.
+        /// The path to a zip file containing your deployment package. For more information about creating a .zip file,
+        /// go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution
+        /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ParameterSetName = ParamSet_CodeFromLocalZipFile)]
-        [Alias("FunctionZip")]
+        [System.Management.Automation.Parameter(ParameterSetName = FromZipFile, Mandatory = true)]
+        [Alias("FunctionZip", "Filename")]
         public System.String ZipFilename { get; set; }
         #endregion
 
@@ -181,12 +187,11 @@ namespace Amazon.PowerShell.Cmdlets.LM
             try
             {
                 var cmdletContext = context as CmdletContext;
-                var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest();
-
-                if (cmdletContext.FunctionName != null)
+                var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest
                 {
-                    request.FunctionName = cmdletContext.FunctionName;
-                }
+                    FunctionName = cmdletContext.FunctionName;
+                };
+
                 if (cmdletContext.Publish != null)
                 {
                     request.Publish = cmdletContext.Publish.Value;
@@ -194,7 +199,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
                 switch (this.ParameterSetName)
                 {
-                    case ParamSet_CodeFromLocalZipFile:
+                    case FromZipFile:
                         {
                             if (!string.IsNullOrEmpty(cmdletContext.ZipFilename))
                             {
@@ -208,12 +213,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                                 _ZipFilenameStream = new MemoryStream(content);
                                 request.ZipFile = _ZipFilenameStream;
                             }
-                            else
-                                request.ZipFile = cmdletContext.ZipFileContent;
                         }
                         break;
 
-                    case ParamSet_CodeFromS3Location:
+                    case FromMemoryStream:
+                        {
+                            request.ZipFile = cmdletContext.ZipFileContent;
+                        }
+                        break;
+
+                    case FromS3Object:
                         {
                             request.S3Bucket = cmdletContext.BucketName;
                             request.S3Key = cmdletContext.Key;

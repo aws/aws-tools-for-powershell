@@ -33,8 +33,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// <para>
     /// This operation requires permission for the <code>lambda:CreateFunction</code> action.
     /// </para>
+    /// <para>
+    /// The code for the function may be supplied from a zip file in an S3 bucket,
+    /// from a zip file on the local file system (the default) or from a memory stream onto
+    /// a resource containing the code.
+    /// </para>
     /// </summary>
-    [Cmdlet("Publish", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = ParamSet_CodeFromLocalZipFile)]
+    [Cmdlet("Publish", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = FromZipFile)]
     [OutputType("Amazon.Lambda.Model.CreateFunctionResult")]
     [AWSCmdlet("Invokes the CreateFunction operation against Amazon Lambda.", Operation = new [] {"CreateFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateFunctionResult",
@@ -42,8 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
     )]
     public class PublishLMFunctionCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
-        const string ParamSet_CodeFromLocalZipFile = "CodeFromLocalZipFile";
-        const string ParamSet_CodeFromS3Location = "CodeFromS3Location";
+        const string FromZipFile = "FromZipFile";
+        const string FromS3Object = "FromS3Object";
+        const string FromMemoryStream = "FromMemoryStream"
 
         #region Parameter Description
         /// <summary>
@@ -77,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// Amazon S3 bucket name where the .zip file containing your deployment package is stored.
         /// This bucket must reside in the same AWS region where you are creating the Lambda function.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FromS3Object)]
         [Alias("S3Bucket", "FunctionCode_S3Bucket")]
         public string BucketName { get; set; }
         #endregion
@@ -86,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// The key name of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, Mandatory = true, ParameterSetName = FromS3Object)]
         [Alias("S3Key", "FunctionCode_S3Key")]
         public string Key { get; set; }
         #endregion
@@ -95,17 +101,35 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// Optional version ID of the Amazon S3 object (the deployment package) you want to upload to Lambda.
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = ParamSet_CodeFromS3Location)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true, ParameterSetName = FromS3Object)]
         [Alias("S3ObjectVersion", "FunctionCode_S3ObjectVersion")]
         public string VersionId { get; set; }
         #endregion
 
+        #region Parameter ZipFileContent
+        /// <summary>
+        /// <para>
+        /// <para>A stream onto the zip file containing your deployment package.
+        /// For more information about creating a .zip file, go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution
+        /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>. </para>
+        /// </para>
+        /// <para>Note: the supplied stream is not disposed when the cmdlet exits.</para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ParameterSetName = FromMemoryStream, Mandatory = true)]
+        [Alias("ZipContent")]
+        public System.IO.MemoryStream ZipFileContent { get; set; }
+        #endregion
+
         #region Parameter ZipFilename
         /// <summary>
-        /// A file path to the zip file containing your packaged source code.
+        /// <para>
+        /// The path to a zip file containing your deployment package. For more information about creating a .zip file,
+        /// go to <a href="http://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role.html">Execution
+        /// Permissions</a> in the <i>AWS Lambda Developer Guide</i>.
+        /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1, Mandatory = true, ParameterSetName = ParamSet_CodeFromLocalZipFile)]
-        [Alias("FunctionZip")]
+        [System.Management.Automation.Parameter(Position = 1, Mandatory = true, ParameterSetName = FromZipFile)]
+        [Alias("FunctionZip", "Filename")]
         public System.String ZipFilename { get; set; }
         #endregion
 
@@ -172,8 +196,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
 		/// runtime (v0.10.42), set the value to "nodejs".
 		/// </para>
 		/// <para>
-        /// Valid Values: dotnetcore1.0 | nodejs | nodejs4.3 | nodejs4.3-edge | java8 | python2.7
+        /// Valid values: nodejs | nodejs4.3 | nodejs6.10 | java8 | python2.7 | python3.6 | dotnetcore1.0 | nodejs4.3-edge
 		/// </para>
+        /// <para>
+        /// <b>Note:</b> the list of options for runtime values is those available at the time the cmdlet was last built
+        /// and released. AWS Lambda periodically introduces new runtimes. New runtime values not listed above may be used
+        /// without requiring a new version of the cmdlet. Simply provide the required new value name to this parameter.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         [AWSConstantClassSource("Amazon.Lambda.Runtime")]
@@ -286,9 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 Credentials = this.CurrentCredentials, 
                 Description = this.Description, 
                 FunctionName = this.FunctionName,
-                ZipFilename = this.ZipFilename, 
-                Handler = this.Handler, 
-                MemorySize = this.MemorySize, 
+                ZipFilename = this.ZipFilename,
+                ZipFileContent = this.ZipFileContent,
+                Handler = this.Handler,
+                MemorySize = this.MemorySize,
                 Role = this.Role, 
                 Runtime = this.Runtime, 
                 Timeout = this.Timeout,
@@ -336,7 +366,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
 
                 switch (this.ParameterSetName)
                 {
-                    case ParamSet_CodeFromLocalZipFile:
+                    case FromZipFile:
                         {
                             var fqZipFilename = PSHelpers.PSPathToAbsolute(this.SessionState.Path, cmdletContext.ZipFilename);
                             if (!File.Exists(fqZipFilename))
@@ -354,7 +384,16 @@ namespace Amazon.PowerShell.Cmdlets.LM
                         }
                         break;
 
-                    case ParamSet_CodeFromS3Location:
+                    case FromMemoryStream:
+                        {
+                            request.Code = new FunctionCode
+                            {
+                                ZipFile = cmdletContext.ZipFileContent
+                            };
+                        }
+                        break;
+
+                    case FromS3Object:
                         {
                             request.Code = new FunctionCode
                             {
@@ -497,6 +536,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public String Description { get; set; }
             public String FunctionName { get; set; }
             public String ZipFilename { get; set; }
+            public System.IO.MemoryStream ZipFileContent { get; set; }
             public String Handler { get; set; }
             public Int32? MemorySize { get; set; }
             public String Role { get; set; }
