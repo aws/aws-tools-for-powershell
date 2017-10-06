@@ -46,9 +46,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// This is an idempotent operation. If you perform the operation more than once, Amazon
     /// EC2 doesn't return an error.
     /// </para><para>
-    /// For more information about VPN connections, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-    /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-    /// Cloud User Guide</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+    /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpnConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -74,13 +73,24 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Options_StaticRoutesOnly
         /// <summary>
         /// <para>
-        /// <para>Indicates whether the VPN connection uses static routes only. Static routes must be
-        /// used for devices that don't support BGP.</para>
+        /// <para>Indicate whether the VPN connection uses static routes only. If you are creating a
+        /// VPN connection for a device that does not support BGP, you must specify <code>true</code>.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]
         [Alias("StaticRoutesOnly")]
         public System.Boolean Options_StaticRoutesOnly { get; set; }
+        #endregion
+        
+        #region Parameter Options_TunnelOption
+        /// <summary>
+        /// <para>
+        /// <para>The tunnel options for the VPN connection.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Options_TunnelOptions")]
+        public Amazon.EC2.Model.VpnTunnelOptionsSpecification[] Options_TunnelOption { get; set; }
         #endregion
         
         #region Parameter Type
@@ -135,6 +145,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.CustomerGatewayId = this.CustomerGatewayId;
             if (ParameterWasBound("Options_StaticRoutesOnly"))
                 context.Options_StaticRoutesOnly = this.Options_StaticRoutesOnly;
+            if (this.Options_TunnelOption != null)
+            {
+                context.Options_TunnelOptions = new List<Amazon.EC2.Model.VpnTunnelOptionsSpecification>(this.Options_TunnelOption);
+            }
             context.Type = this.Type;
             context.VpnGatewayId = this.VpnGatewayId;
             
@@ -169,6 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestOptions_options_StaticRoutesOnly != null)
             {
                 request.Options.StaticRoutesOnly = requestOptions_options_StaticRoutesOnly.Value;
+                requestOptionsIsNull = false;
+            }
+            List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> requestOptions_options_TunnelOption = null;
+            if (cmdletContext.Options_TunnelOptions != null)
+            {
+                requestOptions_options_TunnelOption = cmdletContext.Options_TunnelOptions;
+            }
+            if (requestOptions_options_TunnelOption != null)
+            {
+                request.Options.TunnelOptions = requestOptions_options_TunnelOption;
                 requestOptionsIsNull = false;
             }
              // determine if request.Options should be set to null
@@ -250,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String CustomerGatewayId { get; set; }
             public System.Boolean? Options_StaticRoutesOnly { get; set; }
+            public List<Amazon.EC2.Model.VpnTunnelOptionsSpecification> Options_TunnelOptions { get; set; }
             public System.String Type { get; set; }
             public System.String VpnGatewayId { get; set; }
         }

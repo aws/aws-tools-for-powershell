@@ -171,6 +171,18 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public System.String JSONMappingParameters_RecordRowPath { get; set; }
         #endregion
         
+        #region Parameter InputLambdaProcessor_ResourceARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the <a href="https://aws.amazon.com/documentation/lambda/">AWS Lambda</a>
+        /// function that operates on records in the stream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Input_InputProcessingConfiguration_InputLambdaProcessor_ResourceARN")]
+        public System.String InputLambdaProcessor_ResourceARN { get; set; }
+        #endregion
+        
         #region Parameter KinesisFirehoseInput_ResourceARN
         /// <summary>
         /// <para>
@@ -191,6 +203,17 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         [System.Management.Automation.Parameter]
         [Alias("Input_KinesisStreamsInput_ResourceARN")]
         public System.String KinesisStreamsInput_ResourceARN { get; set; }
+        #endregion
+        
+        #region Parameter InputLambdaProcessor_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the IAM role used to access the AWS Lambda function.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Input_InputProcessingConfiguration_InputLambdaProcessor_RoleARN")]
+        public System.String InputLambdaProcessor_RoleARN { get; set; }
         #endregion
         
         #region Parameter KinesisFirehoseInput_RoleARN
@@ -261,6 +284,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
             if (ParameterWasBound("InputParallelism_Count"))
                 context.Input_InputParallelism_Count = this.InputParallelism_Count;
+            context.Input_InputProcessingConfiguration_InputLambdaProcessor_ResourceARN = this.InputLambdaProcessor_ResourceARN;
+            context.Input_InputProcessingConfiguration_InputLambdaProcessor_RoleARN = this.InputLambdaProcessor_RoleARN;
             if (this.InputSchema_RecordColumn != null)
             {
                 context.Input_InputSchema_RecordColumns = new List<Amazon.KinesisAnalytics.Model.RecordColumn>(this.InputSchema_RecordColumn);
@@ -336,6 +361,56 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             if (requestInput_input_InputParallelism != null)
             {
                 request.Input.InputParallelism = requestInput_input_InputParallelism;
+                requestInputIsNull = false;
+            }
+            Amazon.KinesisAnalytics.Model.InputProcessingConfiguration requestInput_input_InputProcessingConfiguration = null;
+            
+             // populate InputProcessingConfiguration
+            bool requestInput_input_InputProcessingConfigurationIsNull = true;
+            requestInput_input_InputProcessingConfiguration = new Amazon.KinesisAnalytics.Model.InputProcessingConfiguration();
+            Amazon.KinesisAnalytics.Model.InputLambdaProcessor requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor = null;
+            
+             // populate InputLambdaProcessor
+            bool requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessorIsNull = true;
+            requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor = new Amazon.KinesisAnalytics.Model.InputLambdaProcessor();
+            System.String requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_ResourceARN = null;
+            if (cmdletContext.Input_InputProcessingConfiguration_InputLambdaProcessor_ResourceARN != null)
+            {
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_ResourceARN = cmdletContext.Input_InputProcessingConfiguration_InputLambdaProcessor_ResourceARN;
+            }
+            if (requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_ResourceARN != null)
+            {
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor.ResourceARN = requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_ResourceARN;
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessorIsNull = false;
+            }
+            System.String requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_RoleARN = null;
+            if (cmdletContext.Input_InputProcessingConfiguration_InputLambdaProcessor_RoleARN != null)
+            {
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_RoleARN = cmdletContext.Input_InputProcessingConfiguration_InputLambdaProcessor_RoleARN;
+            }
+            if (requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_RoleARN != null)
+            {
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor.RoleARN = requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor_inputLambdaProcessor_RoleARN;
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessorIsNull = false;
+            }
+             // determine if requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor should be set to null
+            if (requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessorIsNull)
+            {
+                requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor = null;
+            }
+            if (requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor != null)
+            {
+                requestInput_input_InputProcessingConfiguration.InputLambdaProcessor = requestInput_input_InputProcessingConfiguration_input_InputProcessingConfiguration_InputLambdaProcessor;
+                requestInput_input_InputProcessingConfigurationIsNull = false;
+            }
+             // determine if requestInput_input_InputProcessingConfiguration should be set to null
+            if (requestInput_input_InputProcessingConfigurationIsNull)
+            {
+                requestInput_input_InputProcessingConfiguration = null;
+            }
+            if (requestInput_input_InputProcessingConfiguration != null)
+            {
+                request.Input.InputProcessingConfiguration = requestInput_input_InputProcessingConfiguration;
                 requestInputIsNull = false;
             }
             Amazon.KinesisAnalytics.Model.KinesisFirehoseInput requestInput_input_KinesisFirehoseInput = null;
@@ -617,6 +692,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             public System.String ApplicationName { get; set; }
             public System.Int64? CurrentApplicationVersionId { get; set; }
             public System.Int32? Input_InputParallelism_Count { get; set; }
+            public System.String Input_InputProcessingConfiguration_InputLambdaProcessor_ResourceARN { get; set; }
+            public System.String Input_InputProcessingConfiguration_InputLambdaProcessor_RoleARN { get; set; }
             public List<Amazon.KinesisAnalytics.Model.RecordColumn> Input_InputSchema_RecordColumns { get; set; }
             public System.String Input_InputSchema_RecordEncoding { get; set; }
             public System.String Input_InputSchema_RecordFormat_MappingParameters_CSVMappingParameters_RecordColumnDelimiter { get; set; }

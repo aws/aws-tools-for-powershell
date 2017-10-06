@@ -15,7 +15,9 @@
     <ServiceOperation MethodName="BatchGetBuilds" Verb="Get" Noun="BuildBatch" Output="Response" />
     <ServiceOperation MethodName="BatchGetProjects" Verb="Get" Noun="ProjectBatch" Output="Response" />
     <ServiceOperation MethodName="CreateProject" PipelineParameter="Name" />
+    <ServiceOperation MethodName="CreateWebhook" />
     <ServiceOperation MethodName="DeleteProject" Output="Void" />
+    <ServiceOperation MethodName="DeleteWebhook" Output="Void" />
     <ServiceOperation MethodName="ListBuilds" NoPipelineParameter="true" Verb="Get" Noun="BuildIdList" />
     <ServiceOperation MethodName="ListBuildsForProject" PipelineParameter="ProjectName" Verb="Get" Noun="BuildIdListForProject" />
     <ServiceOperation MethodName="ListCuratedEnvironmentImages" Verb="Get" Noun=    "CuratedEnvironmentImageList" />

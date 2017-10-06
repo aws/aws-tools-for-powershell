@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <summary>
     /// Determines whether a product code is associated with an instance. This action can
     /// only be used by the owner of the product code. It is useful when a product code owner
-    /// needs to verify whether another user's instance is eligible for support.
+    /// must verify whether another user's instance is eligible for support.
     /// </summary>
     [Cmdlet("Confirm", "EC2ProductInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ConfirmProductInstanceResponse")]

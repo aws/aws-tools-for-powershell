@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a new fleet.
+    /// Creates a fleet.
     /// </summary>
     [Cmdlet("New", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Fleet")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description of the fleet.</para>
+        /// <para>The description displayed to end users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DomainJoinInfo_DirectoryName
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name of the directory, such as corp.example.com</para>
+        /// <para>The fully qualified name of the directory (for example, corp.example.com).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,10 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisconnectTimeoutInSecond
         /// <summary>
         /// <para>
-        /// <para>The time after disconnection when a session is considered to have ended. If a user
-        /// who got disconnected reconnects within this timeout interval, the user is connected
-        /// back to their previous session. The input can be any numeric value in seconds between
-        /// 60 and 57600. </para>
+        /// <para>The time after disconnection when a session is considered to have ended, in seconds.
+        /// If a user who was disconnected reconnects within this time interval, the user is connected
+        /// to their previous session. Specify a value between 60 and 57600.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The display name of the fleet.</para>
+        /// <para>The fleet name displayed to end users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>Unique name of the image used by the fleet.</para>
+        /// <para>The name of the image used by the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -140,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter MaxUserDurationInSecond
         /// <summary>
         /// <para>
-        /// <para>The maximum time for which a streaming session can run. The input can be any numeric
-        /// value in seconds between 600 and 57600.</para>
+        /// <para>The maximum time that a streaming session can run, in seconds. Specify a value between
+        /// 600 and 57600.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -152,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the fleet.</para>
+        /// <para>A unique name for the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -162,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DomainJoinInfo_OrganizationalUnitDistinguishedName
         /// <summary>
         /// <para>
-        /// <para>The distinguished name of the organizational unit to place the computer account in.</para>
+        /// <para>The distinguished name of the organizational unit for computer accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -172,7 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Security groups associated with the fleet.</para>
+        /// <para>The security groups for the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -183,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter VpcConfig_SubnetId
         /// <summary>
         /// <para>
-        /// <para>The list of subnets to which a network interface is established from the fleet instance.</para>
+        /// <para>The subnets to which a network interface is established from the fleet instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

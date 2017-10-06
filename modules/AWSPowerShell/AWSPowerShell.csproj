@@ -55,7 +55,7 @@
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
-      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.5\lib\net35\AWSSDK.AppStream.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.6\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>..\..\packages\AWSSDK.Athena.3.3.0.3\lib\net35\AWSSDK.Athena.dll</HintPath>
@@ -91,19 +91,19 @@
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.5\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.MTurk">
-      <HintPath>..\..\packages\AWSSDK.MTurk.3.3.0.13\lib\net35\AWSSDK.MTurk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.MTurk.3.3.1\lib\net35\AWSSDK.MTurk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.OpsWorksCM">
       <HintPath>..\..\packages\AWSSDK.OpsWorksCM.3.3.3.13\lib\net35\AWSSDK.OpsWorksCM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CodeBuild">
-      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.4\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CodeBuild.3.3.5\lib\net35\AWSSDK.CodeBuild.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Lightsail">
       <HintPath>..\..\packages\AWSSDK.Lightsail.3.3.2.3\lib\net35\AWSSDK.Lightsail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Organizations">
-      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.4.1\lib\net35\AWSSDK.Organizations.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Organizations.3.3.5\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
       <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.4\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
@@ -157,7 +157,7 @@
       <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.6\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.11\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.12\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.21\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -175,13 +175,13 @@
       <HintPath>..\..\packages\AWSSDK.S3.3.3.11\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
-      <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.0.21\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.1\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53">
-      <HintPath>..\..\packages\AWSSDK.Route53.3.3.8\lib\net35\AWSSDK.Route53.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Route53.3.3.9\lib\net35\AWSSDK.Route53.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Redshift">
-      <HintPath>..\..\packages\AWSSDK.Redshift.3.3.2.9\lib\net35\AWSSDK.Redshift.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Redshift.3.3.3\lib\net35\AWSSDK.Redshift.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.RDS">
       <HintPath>..\..\packages\AWSSDK.RDS.3.3.14.1\lib\net35\AWSSDK.RDS.dll</HintPath>
@@ -199,7 +199,7 @@
       <HintPath>..\..\packages\AWSSDK.KinesisFirehose.3.3.2\lib\net35\AWSSDK.KinesisFirehose.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.KinesisAnalytics">
-      <HintPath>..\..\packages\AWSSDK.KinesisAnalytics.3.3.2\lib\net35\AWSSDK.KinesisAnalytics.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.KinesisAnalytics.3.3.3\lib\net35\AWSSDK.KinesisAnalytics.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Kinesis">
       <HintPath>..\..\packages\AWSSDK.Kinesis.3.3.3\lib\net35\AWSSDK.Kinesis.dll</HintPath>
@@ -253,7 +253,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.2.15\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.28\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.29\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.4.17\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -313,7 +313,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudSearch.3.3.0.20\lib\net35\AWSSDK.CloudSearch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudHSM">
-      <HintPath>..\..\packages\AWSSDK.CloudHSM.3.3.0.20\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudHSM.3.3.0.21\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
       <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.5\lib\net35\AWSSDK.CloudFront.dll</HintPath>

@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deletes a fleet.
+    /// Deletes the specified fleet.
     /// </summary>
     [Cmdlet("Remove", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet to be deleted.</para>
+        /// <para>The name of the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

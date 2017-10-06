@@ -3886,7 +3886,7 @@ $MTR_Completers = {
             ($_ -eq "Update-MTRNotificationSetting/Notification_Transport")
         }
         {
-            $v = "Email","SQS"
+            $v = "Email","SNS","SQS"
             break
         }
         
@@ -5041,7 +5041,7 @@ $SSM_Completers = {
             ($_ -eq "Remove-SSMResourceTag/ResourceType")
         }
         {
-            $v = "MaintenanceWindow","ManagedInstance","Parameter"
+            $v = "Document","MaintenanceWindow","ManagedInstance","Parameter","PatchBaseline"
             break
         }
         

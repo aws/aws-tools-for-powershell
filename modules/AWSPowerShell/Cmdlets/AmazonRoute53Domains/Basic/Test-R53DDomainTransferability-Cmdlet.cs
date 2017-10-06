@@ -28,28 +28,34 @@ using Amazon.Route53Domains.Model;
 namespace Amazon.PowerShell.Cmdlets.R53D
 {
     /// <summary>
-    /// This operation returns all of the tags that are associated with the specified domain.
-    /// 
-    ///  
-    /// <para>
-    /// All tag operations are eventually consistent; subsequent operations might not immediately
-    /// represent all issued operations.
-    /// </para>
+    /// Checks whether a domain name can be transferred to Amazon Route 53.
     /// </summary>
-    [Cmdlet("Get", "R53DTagsForDomain")]
-    [OutputType("Amazon.Route53Domains.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"ListTagsForDomain"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.Model.Tag",
-        "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type Amazon.Route53Domains.Model.ListTagsForDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Test", "R53DDomainTransferability")]
+    [OutputType("Amazon.Route53Domains.Model.DomainTransferability")]
+    [AWSCmdlet("Invokes the CheckDomainTransferability operation against Amazon Route 53 Domains.", Operation = new[] {"CheckDomainTransferability"})]
+    [AWSCmdletOutput("Amazon.Route53Domains.Model.DomainTransferability",
+        "This cmdlet returns a DomainTransferability object.",
+        "The service call response (type Amazon.Route53Domains.Model.CheckDomainTransferabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class TestR53DDomainTransferabilityCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
     {
+        
+        #region Parameter AuthCode
+        /// <summary>
+        /// <para>
+        /// <para>If the registrar for the top-level domain (TLD) requires an authorization code to
+        /// transfer the domain, the code that you got from the current registrar for the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AuthCode { get; set; }
+        #endregion
         
         #region Parameter DomainName
         /// <summary>
         /// <para>
-        /// <para>The domain for which you want to get a list of tags.</para>
+        /// <para>The name of the domain that you want to transfer to Amazon Route 53.</para><para>Constraints: The domain name can contain only the letters a through z, the numbers
+        /// 0 through 9, and hyphen (-). Internationalized Domain Names are not supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,6 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AuthCode = this.AuthCode;
             context.DomainName = this.DomainName;
             
             // allow further manipulation of loaded context prior to processing
@@ -84,8 +91,12 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.ListTagsForDomainRequest();
+            var request = new Amazon.Route53Domains.Model.CheckDomainTransferabilityRequest();
             
+            if (cmdletContext.AuthCode != null)
+            {
+                request.AuthCode = cmdletContext.AuthCode;
+            }
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
@@ -99,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TagList;
+                object pipelineOutput = response.Transferability;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -124,16 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Domains.Model.ListTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ListTagsForDomainRequest request)
+        private Amazon.Route53Domains.Model.CheckDomainTransferabilityResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.CheckDomainTransferabilityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "ListTagsForDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "CheckDomainTransferability");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForDomain(request);
+                return client.CheckDomainTransferability(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForDomainAsync(request);
+                var task = client.CheckDomainTransferabilityAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -154,6 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AuthCode { get; set; }
             public System.String DomainName { get; set; }
         }
         

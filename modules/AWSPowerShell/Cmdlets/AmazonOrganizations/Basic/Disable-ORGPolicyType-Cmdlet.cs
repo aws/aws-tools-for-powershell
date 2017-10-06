@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// <summary>
         /// <para>
         /// <para>The unique identifier (ID) of the root in which you want to disable a policy type.
-        /// You can get the ID from the <a>ListPolicies</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
+        /// You can get the ID from the <a>ListRoots</a> operation.</para><para>The <a href="http://wikipedia.org/wiki/regex">regex pattern</a> for a root ID string
         /// requires "r-" followed by from 4 to 32 lower-case letters or digits.</para>
         /// </para>
         /// </summary>

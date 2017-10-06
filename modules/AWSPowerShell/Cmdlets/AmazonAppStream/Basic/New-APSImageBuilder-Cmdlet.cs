@@ -28,65 +28,26 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Updates the specified fleet.
-    /// 
-    ///  
-    /// <para>
-    /// If the fleet is in the <code>STOPPED</code> state, you can update any attribute except
-    /// the fleet name. If the fleet is in the <code>RUNNING</code> state, you can update
-    /// the <code>DisplayName</code> and <code>ComputeCapacity</code> attributes. If the fleet
-    /// is in the <code>STARTING</code> or <code>STOPPING</code> state, you can't update it.
-    /// </para>
+    
     /// </summary>
-    [Cmdlet("Update", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.AppStream.Model.Fleet")]
-    [AWSCmdlet("Invokes the UpdateFleet operation against AWS AppStream.", Operation = new[] {"UpdateFleet"})]
-    [AWSCmdletOutput("Amazon.AppStream.Model.Fleet",
-        "This cmdlet returns a Fleet object.",
-        "The service call response (type Amazon.AppStream.Model.UpdateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "APSImageBuilder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.AppStream.Model.ImageBuilder")]
+    [AWSCmdlet("Invokes the CreateImageBuilder operation against AWS AppStream.", Operation = new[] {"CreateImageBuilder"})]
+    [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder",
+        "This cmdlet returns a ImageBuilder object.",
+        "The service call response (type Amazon.AppStream.Model.CreateImageBuilderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class UpdateAPSFleetCmdlet : AmazonAppStreamClientCmdlet, IExecutor
+    public partial class NewAPSImageBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
-        
-        #region Parameter AttributesToDelete
-        /// <summary>
-        /// <para>
-        /// <para>The fleet attributes to delete.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String[] AttributesToDelete { get; set; }
-        #endregion
-        
-        #region Parameter DeleteVpcConfig
-        /// <summary>
-        /// <para>
-        /// <para>Deletes the VPC association for the specified fleet.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean DeleteVpcConfig { get; set; }
-        #endregion
         
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description displayed to end users.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
-        #endregion
-        
-        #region Parameter ComputeCapacity_DesiredInstance
-        /// <summary>
-        /// <para>
-        /// <para>The desired number of streaming instances.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("ComputeCapacity_DesiredInstances")]
-        public System.Int32 ComputeCapacity_DesiredInstance { get; set; }
         #endregion
         
         #region Parameter DomainJoinInfo_DirectoryName
@@ -99,23 +60,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         public System.String DomainJoinInfo_DirectoryName { get; set; }
         #endregion
         
-        #region Parameter DisconnectTimeoutInSecond
-        /// <summary>
-        /// <para>
-        /// <para>The time after disconnection when a session is considered to have ended, in seconds.
-        /// If a user who was disconnected reconnects within this time interval, the user is connected
-        /// to their previous session. Specify a value between 60 and 57600.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("DisconnectTimeoutInSeconds")]
-        public System.Int32 DisconnectTimeoutInSecond { get; set; }
-        #endregion
-        
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The fleet name displayed to end users.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter EnableDefaultInternetAccess
         /// <summary>
         /// <para>
-        /// <para>Enables or disables default internet access for the fleet.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,43 +83,30 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The name of the image used by the fleet.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ImageName { get; set; }
         #endregion
         
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instance type to use when launching fleet instances. The following instance types
-        /// are available:</para><ul><li><para>stream.standard.medium</para></li><li><para>stream.standard.large</para></li><li><para>stream.compute.large</para></li><li><para>stream.compute.xlarge</para></li><li><para>stream.compute.2xlarge</para></li><li><para>stream.compute.4xlarge</para></li><li><para>stream.compute.8xlarge</para></li><li><para>stream.memory.large</para></li><li><para>stream.memory.xlarge</para></li><li><para>stream.memory.2xlarge</para></li><li><para>stream.memory.4xlarge</para></li><li><para>stream.memory.8xlarge</para></li><li><para>stream.graphics-design.large</para></li><li><para>stream.graphics-design.xlarge</para></li><li><para>stream.graphics-design.2xlarge</para></li><li><para>stream.graphics-design.4xlarge</para></li><li><para>stream.graphics-desktop.2xlarge</para></li><li><para>stream.graphics-pro.4xlarge</para></li><li><para>stream.graphics-pro.8xlarge</para></li><li><para>stream.graphics-pro.16xlarge</para></li></ul>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String InstanceType { get; set; }
         #endregion
         
-        #region Parameter MaxUserDurationInSecond
-        /// <summary>
-        /// <para>
-        /// <para>The maximum time that a streaming session can run, in seconds. Specify a value between
-        /// 600 and 57600.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MaxUserDurationInSeconds")]
-        public System.Int32 MaxUserDurationInSecond { get; set; }
-        #endregion
-        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A unique name for the fleet.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public System.String Name { get; set; }
         #endregion
         
@@ -221,8 +156,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-APSFleet (UpdateFleet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ImageName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-APSImageBuilder (CreateImageBuilder)"))
             {
                 return;
             }
@@ -236,17 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            if (this.AttributesToDelete != null)
-            {
-                context.AttributesToDelete = new List<System.String>(this.AttributesToDelete);
-            }
-            if (ParameterWasBound("ComputeCapacity_DesiredInstance"))
-                context.ComputeCapacity_DesiredInstances = this.ComputeCapacity_DesiredInstance;
-            if (ParameterWasBound("DeleteVpcConfig"))
-                context.DeleteVpcConfig = this.DeleteVpcConfig;
             context.Description = this.Description;
-            if (ParameterWasBound("DisconnectTimeoutInSecond"))
-                context.DisconnectTimeoutInSeconds = this.DisconnectTimeoutInSecond;
             context.DisplayName = this.DisplayName;
             context.DomainJoinInfo_DirectoryName = this.DomainJoinInfo_DirectoryName;
             context.DomainJoinInfo_OrganizationalUnitDistinguishedName = this.DomainJoinInfo_OrganizationalUnitDistinguishedName;
@@ -254,8 +179,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 context.EnableDefaultInternetAccess = this.EnableDefaultInternetAccess;
             context.ImageName = this.ImageName;
             context.InstanceType = this.InstanceType;
-            if (ParameterWasBound("MaxUserDurationInSecond"))
-                context.MaxUserDurationInSeconds = this.MaxUserDurationInSecond;
             context.Name = this.Name;
             if (this.VpcConfig_SecurityGroupId != null)
             {
@@ -279,42 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppStream.Model.UpdateFleetRequest();
+            var request = new Amazon.AppStream.Model.CreateImageBuilderRequest();
             
-            if (cmdletContext.AttributesToDelete != null)
-            {
-                request.AttributesToDelete = cmdletContext.AttributesToDelete;
-            }
-            
-             // populate ComputeCapacity
-            bool requestComputeCapacityIsNull = true;
-            request.ComputeCapacity = new Amazon.AppStream.Model.ComputeCapacity();
-            System.Int32? requestComputeCapacity_computeCapacity_DesiredInstance = null;
-            if (cmdletContext.ComputeCapacity_DesiredInstances != null)
-            {
-                requestComputeCapacity_computeCapacity_DesiredInstance = cmdletContext.ComputeCapacity_DesiredInstances.Value;
-            }
-            if (requestComputeCapacity_computeCapacity_DesiredInstance != null)
-            {
-                request.ComputeCapacity.DesiredInstances = requestComputeCapacity_computeCapacity_DesiredInstance.Value;
-                requestComputeCapacityIsNull = false;
-            }
-             // determine if request.ComputeCapacity should be set to null
-            if (requestComputeCapacityIsNull)
-            {
-                request.ComputeCapacity = null;
-            }
-            if (cmdletContext.DeleteVpcConfig != null)
-            {
-                request.DeleteVpcConfig = cmdletContext.DeleteVpcConfig.Value;
-            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
-            }
-            if (cmdletContext.DisconnectTimeoutInSeconds != null)
-            {
-                request.DisconnectTimeoutInSeconds = cmdletContext.DisconnectTimeoutInSeconds.Value;
             }
             if (cmdletContext.DisplayName != null)
             {
@@ -361,10 +253,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 request.InstanceType = cmdletContext.InstanceType;
             }
-            if (cmdletContext.MaxUserDurationInSeconds != null)
-            {
-                request.MaxUserDurationInSeconds = cmdletContext.MaxUserDurationInSeconds.Value;
-            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -407,7 +295,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.Fleet;
+                object pipelineOutput = response.ImageBuilder;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -432,16 +320,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private Amazon.AppStream.Model.UpdateFleetResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.UpdateFleetRequest request)
+        private Amazon.AppStream.Model.CreateImageBuilderResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.CreateImageBuilderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "UpdateFleet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "CreateImageBuilder");
             try
             {
                 #if DESKTOP
-                return client.UpdateFleet(request);
+                return client.CreateImageBuilder(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.UpdateFleetAsync(request);
+                var task = client.CreateImageBuilderAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -462,18 +350,13 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AttributesToDelete { get; set; }
-            public System.Int32? ComputeCapacity_DesiredInstances { get; set; }
-            public System.Boolean? DeleteVpcConfig { get; set; }
             public System.String Description { get; set; }
-            public System.Int32? DisconnectTimeoutInSeconds { get; set; }
             public System.String DisplayName { get; set; }
             public System.String DomainJoinInfo_DirectoryName { get; set; }
             public System.String DomainJoinInfo_OrganizationalUnitDistinguishedName { get; set; }
             public System.Boolean? EnableDefaultInternetAccess { get; set; }
             public System.String ImageName { get; set; }
             public System.String InstanceType { get; set; }
-            public System.Int32? MaxUserDurationInSeconds { get; set; }
             public System.String Name { get; set; }
             public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
             public List<System.String> VpcConfig_SubnetIds { get; set; }

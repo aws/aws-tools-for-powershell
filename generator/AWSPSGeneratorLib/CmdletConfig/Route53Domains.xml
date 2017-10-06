@@ -20,6 +20,7 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="CheckDomainAvailability" Verb="Test" LegacyAlias="Get-R53DDomainAvailability" />
+    <ServiceOperation MethodName="CheckDomainTransferability" Verb="Test" />
     <ServiceOperation MethodName="DeleteTagsForDomain" Output="Void" />
     <ServiceOperation MethodName="DisableDomainAutoRenew" Output="Void" />
     <ServiceOperation MethodName="DisableDomainTransferLock" />

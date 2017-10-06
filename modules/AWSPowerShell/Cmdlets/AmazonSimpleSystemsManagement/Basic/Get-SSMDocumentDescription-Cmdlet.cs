@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes the specified SSM document.
+    /// Describes the specified Systems Manager document.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentDescription")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the SSM document.</para>
+        /// <para>The name of the Systems Manager document.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]

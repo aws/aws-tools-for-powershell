@@ -28,9 +28,21 @@ using Amazon.Redshift.Model;
 namespace Amazon.PowerShell.Cmdlets.RS
 {
     /// <summary>
-    /// Lists descriptions of all the Amazon Redshift event notifications subscription for
+    /// Lists descriptions of all the Amazon Redshift event notification subscriptions for
     /// a customer account. If you specify a subscription name, lists the description for
-    /// that subscription.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// that subscription.
+    /// 
+    ///  
+    /// <para>
+    /// If you specify both tag keys and tag values in the same request, Amazon Redshift returns
+    /// all event notification subscriptions that match any combination of the specified keys
+    /// and values. For example, if you have <code>owner</code> and <code>environment</code>
+    /// for tag keys, and <code>admin</code> and <code>test</code> for tag values, all subscriptions
+    /// that have any combination of those values are returned.
+    /// </para><para>
+    /// If both tag keys and values are omitted from the request, subscriptions are returned
+    /// regardless of whether they have tag keys or values associated with them.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RSEventSubscription")]
     [OutputType("Amazon.Redshift.Model.EventSubscription")]
@@ -49,16 +61,48 @@ namespace Amazon.PowerShell.Cmdlets.RS
         /// <para>The name of the Amazon Redshift event notification subscription to be described.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String SubscriptionName { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>A tag key or keys for which you want to return all matching event notification subscriptions
+        /// that are associated with the specified key or keys. For example, suppose that you
+        /// have subscriptions that are tagged with keys called <code>owner</code> and <code>environment</code>.
+        /// If you specify both of these tag keys in the request, Amazon Redshift returns a response
+        /// with the subscriptions that have either or both of these tag keys associated with
+        /// them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
+        #endregion
+        
+        #region Parameter TagValue
+        /// <summary>
+        /// <para>
+        /// <para>A tag value or values for which you want to return all matching event notification
+        /// subscriptions that are associated with the specified tag value or values. For example,
+        /// suppose that you have subscriptions that are tagged with values called <code>admin</code>
+        /// and <code>test</code>. If you specify both of these tag values in the request, Amazon
+        /// Redshift returns a response with the subscriptions that have either or both of these
+        /// tag values associated with them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TagValues")]
+        public System.String[] TagValue { get; set; }
         #endregion
         
         #region Parameter Marker
         /// <summary>
         /// <para>
         /// <para>An optional parameter that specifies the starting point to return a set of response
-        /// records. When the results of a <a>DescribeEventSubscriptions</a> request exceed the
-        /// value specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
+        /// records. When the results of a DescribeEventSubscriptions request exceed the value
+        /// specified in <code>MaxRecords</code>, AWS returns a value in the <code>Marker</code>
         /// field of the response. You can retrieve the next set of response records by providing
         /// the returned marker value in the <code>Marker</code> parameter and retrying the request.
         /// </para>
@@ -103,6 +147,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
             context.SubscriptionName = this.SubscriptionName;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<System.String>(this.TagKey);
+            }
+            if (this.TagValue != null)
+            {
+                context.TagValues = new List<System.String>(this.TagValue);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,6 +174,14 @@ namespace Amazon.PowerShell.Cmdlets.RS
             if (cmdletContext.SubscriptionName != null)
             {
                 request.SubscriptionName = cmdletContext.SubscriptionName;
+            }
+            if (cmdletContext.TagKeys != null)
+            {
+                request.TagKeys = cmdletContext.TagKeys;
+            }
+            if (cmdletContext.TagValues != null)
+            {
+                request.TagValues = cmdletContext.TagValues;
             }
             
             // Initialize loop variants and commence piping
@@ -272,6 +332,8 @@ namespace Amazon.PowerShell.Cmdlets.RS
             public System.String Marker { get; set; }
             public int? MaxRecords { get; set; }
             public System.String SubscriptionName { get; set; }
+            public List<System.String> TagKeys { get; set; }
+            public List<System.String> TagValues { get; set; }
         }
         
     }

@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Lists all fleets associated with the stack.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the fleets associated with the specified stack.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSAssociatedFleetList")]
     [OutputType("System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name of the stack whose associated fleets are listed.</para>
+        /// <para>The name of the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

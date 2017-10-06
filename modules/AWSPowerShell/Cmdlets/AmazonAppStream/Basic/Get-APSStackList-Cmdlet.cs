@@ -28,9 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// If stack names are not provided, this operation describes the specified stacks; otherwise,
-    /// all stacks in the account are described. To retrieve the next set of items, pass the
-    /// <code>nextToken</code> value in a subsequent call to this operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the specified stacks or all stacks in the account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSStackList")]
     [OutputType("Amazon.AppStream.Model.Stack")]
@@ -46,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The stack names to describe. Use null to describe all the stacks for the AWS account.</para>
+        /// <para>The names of the stacks to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

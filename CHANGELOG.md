@@ -1,3 +1,15 @@
+###
+  * AWS Lambda
+    * Revised parameter sets and mandatory parameters for the Update-LMFunctionCode and Publish-LMFunction cmdlets based on user feedback. Also made the options for how the function code can be supplied the same.
+  * Amazon AppStream
+    * Added cmdlets to support new service APIs for APIs for managing and accessing image builders, and deleting images. The new cmdlets are: Get-APSImageBuilderList (DescribeImageBuilders API), New-APSImageBuilder (CreateImageBuilder API), New-APSImageBuilderStreamingURL (CreateImageBuilderStreamingURL API), Start-APSImageBuilder (StartImageBuilder API), Stop-APSImageBuilder (StopImageBuilder API), Remove-APSImage (DeleteImage API) and Remove-APSImageBuilder (DeleteImageBuilder API).
+  * AWS CodeBuild
+    * Added cmdlets New-CBWebHook (CreateWebHook API) and Remove-CBWebHook (DeleteWebHook API) to support the new service update for building GitHub pull requests.
+  * Amazon Kinesis Analytics
+    * Added support for schema discovery on objects in S3 and the ability to support configure input data preprocessing through Lambda with new cmdletsAdd-KINAApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration API) and Remove-KINAApplicationInputProcessingConfiguration (DeleteApplicationInputProcessingConfiguration API).
+  * Amazon Route 53 Domains
+    * Added cmdlet Test-R53DDomainTransferability to support the new CheckDomainTransferability API.
+
 ### 3.3.164.0 (2017-09-29)
   * Amazon EC2 Container Registry
     * Implemented a new helper cmdlet, Get-ECRLoginCommand, to return the login command to the pipeline for your default or specified registry or registries. This command is similar to the AWS CLI's 'ecr get-login' command.

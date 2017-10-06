@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a directory configuration with the given parameters.
+    /// Creates a directory configuration.
     /// </summary>
     [Cmdlet("New", "APSDirectoryConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]
@@ -43,10 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ServiceAccountCredentials_AccountName
         /// <summary>
         /// <para>
-        /// <para>The user name of an account in the directory that is used by AppStream 2.0 streaming
-        /// instances to connect to the directory. This account must have the following privileges:
-        /// create computer objects, join computers to the domain, change/reset the password on
-        /// descendant computer objects for the organizational units specified.</para>
+        /// <para>The user name of the account. This account must have the following privileges: create
+        /// computer objects, join computers to the domain, and change/reset the password on descendant
+        /// computer objects for the organizational units specified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -56,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ServiceAccountCredentials_AccountPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the user account for directory actions.</para>
+        /// <para>The password for the account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DirectoryName
         /// <summary>
         /// <para>
-        /// <para>The fully qualified name of the directory, such as corp.example.com</para>
+        /// <para>The fully qualified name of the directory (for example, corp.example.com).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -76,8 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter OrganizationalUnitDistinguishedName
         /// <summary>
         /// <para>
-        /// <para>The list of the distinguished names of organizational units to place computer accounts
-        /// in.</para>
+        /// <para>The distinguished names of the organizational units for computer accounts.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

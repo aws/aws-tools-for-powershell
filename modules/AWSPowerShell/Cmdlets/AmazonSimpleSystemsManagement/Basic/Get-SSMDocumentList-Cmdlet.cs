@@ -28,7 +28,7 @@ using Amazon.SimpleSystemsManagement.Model;
 namespace Amazon.PowerShell.Cmdlets.SSM
 {
     /// <summary>
-    /// Describes one or more of your SSM documents.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes one or more of your Systems Manager documents.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMDocumentList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier")]
@@ -47,8 +47,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         public Amazon.SimpleSystemsManagement.Model.DocumentFilter[] DocumentFilterList { get; set; }
+        #endregion
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters. Use a filter to return a more specific list of results.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter[] Filter { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -94,6 +105,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 context.DocumentFilterList = new List<Amazon.SimpleSystemsManagement.Model.DocumentFilter>(this.DocumentFilterList);
             }
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter>(this.Filter);
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -116,6 +131,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.DocumentFilterList != null)
             {
                 request.DocumentFilterList = cmdletContext.DocumentFilterList;
+            }
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
             }
             
             // Initialize loop variants and commence piping
@@ -264,6 +283,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<Amazon.SimpleSystemsManagement.Model.DocumentFilter> DocumentFilterList { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.DocumentKeyValuesFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

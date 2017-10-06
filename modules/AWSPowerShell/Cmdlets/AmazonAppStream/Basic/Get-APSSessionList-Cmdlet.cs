@@ -28,11 +28,9 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the streaming sessions for a stack and a fleet. If a user ID is provided,
-    /// this operation returns streaming sessions for only that user. To retrieve the next
-    /// set of items, pass this value for the <code>nextToken</code> parameter in a subsequent
-    /// call to this operation. If an authentication type is not provided, the operation defaults
-    /// to users authenticated using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the streaming sessions for the specified stack and fleet. If a user ID is
+    /// provided, only the streaming sessions for only that user are returned. If an authentication
+    /// type is not provided, the default is to authenticate users using a streaming URL.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSSessionList")]
     [OutputType("Amazon.AppStream.Model.Session")]
@@ -48,10 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter AuthenticationType
         /// <summary>
         /// <para>
-        /// <para>The authentication method of the user. It can be <code>API</code> for a user authenticated
-        /// using a streaming URL, or <code>SAML</code> for a SAML federated user. If an authentication
-        /// type is not provided, the operation defaults to users authenticated using a streaming
-        /// URL.</para>
+        /// <para>The authentication method. Specify <code>API</code> for a user authenticated using
+        /// a streaming URL or <code>SAML</code> for a SAML federated user. The default is to
+        /// authenticate users using a streaming URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FleetName
         /// <summary>
         /// <para>
-        /// <para>The name of the fleet for which to list sessions.</para>
+        /// <para>The name of the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The name of the stack for which to list sessions.</para>
+        /// <para>The name of the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -82,8 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>The user for whom to list sessions. Use null to describe all the sessions for the
-        /// stack and fleet.</para>
+        /// <para>The user ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,8 +89,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The size of each page of results. The default value is 20 and the maximum supported
-        /// value is 50.</para>
+        /// <para>The size of each page of results. The default value is 20 and the maximum value is
+        /// 50.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,65 +28,54 @@ using Amazon.KinesisAnalytics.Model;
 namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
-    /// Infers a schema by evaluating sample records on the specified streaming source (Amazon
-    /// Kinesis stream or Amazon Kinesis Firehose delivery stream). In the response, the operation
-    /// returns the inferred schema and also the sample records that the operation used to
-    /// infer the schema.
-    /// 
-    ///  
-    /// <para>
-    ///  You can use the inferred schema when configuring a streaming source for your application.
-    /// For conceptual information, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-input.html">Configuring
-    /// Application Input</a>. Note that when you create an application using the Amazon Kinesis
-    /// Analytics console, the console uses this operation to infer a schema and show it in
-    /// the console user interface. 
-    /// </para><para>
-    ///  This operation requires permissions to perform the <code>kinesisanalytics:DiscoverInputSchema</code>
-    /// action. 
-    /// </para>
+    /// Adds an <a>InputProcessingConfiguration</a> to an application. An input processor
+    /// preprocesses records on the input stream before the application's SQL code executes.
+    /// Currently, the only input processor available is <a href="https://aws.amazon.com/documentation/lambda/">AWS
+    /// Lambda</a>.
     /// </summary>
-    [Cmdlet("Find", "KINAInputSchema")]
-    [OutputType("Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse")]
-    [AWSCmdlet("Invokes the DiscoverInputSchema operation against Amazon Kinesis Analytics.", Operation = new[] {"DiscoverInputSchema"})]
-    [AWSCmdletOutput("Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse",
-        "This cmdlet returns a Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "KINAApplicationInputProcessingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.Int64")]
+    [AWSCmdlet("Invokes the AddApplicationInputProcessingConfiguration operation against Amazon Kinesis Analytics.", Operation = new[] {"AddApplicationInputProcessingConfiguration"})]
+    [AWSCmdletOutput("None or System.Int64",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CurrentApplicationVersionId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.KinesisAnalytics.Model.AddApplicationInputProcessingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class FindKINAInputSchemaCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class AddKINAApplicationInputProcessingConfigurationCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
-        #region Parameter S3Configuration_BucketARN
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Name of the application to which you want to add the input processing configuration.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String S3Configuration_BucketARN { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApplicationName { get; set; }
         #endregion
         
-        #region Parameter S3Configuration_FileKey
+        #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Version of the application to which you want to add the input processing configuration.
+        /// You can use the <a>DescribeApplication</a> operation to get the current application
+        /// version. If the version specified is not the current version, the <code>ConcurrentModificationException</code>
+        /// is returned.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String S3Configuration_FileKey { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Int64 CurrentApplicationVersionId { get; set; }
         #endregion
         
-        #region Parameter InputStartingPositionConfiguration_InputStartingPosition
+        #region Parameter InputId
         /// <summary>
         /// <para>
-        /// <para>The starting position on the stream.</para><ul><li><para><code>NOW</code> - Start reading just after the most recent record in the stream,
-        /// start at the request timestamp that the customer issued.</para></li><li><para><code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream,
-        /// which is the oldest record available in the stream. This option is not available for
-        /// an Amazon Kinesis Firehose delivery stream.</para></li><li><para><code>LAST_STOPPED_POINT</code> - Resume reading from where the application last
-        /// stopped reading.</para></li></ul>
+        /// <para>The ID of the input configuration to which to add the input configuration. You can
+        /// get a list of the input IDs for an application using the <a>DescribeApplication</a>
+        /// operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.KinesisAnalytics.InputStartingPosition")]
-        public Amazon.KinesisAnalytics.InputStartingPosition InputStartingPositionConfiguration_InputStartingPosition { get; set; }
+        public System.String InputId { get; set; }
         #endregion
         
         #region Parameter InputLambdaProcessor_ResourceARN
@@ -101,16 +90,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public System.String InputLambdaProcessor_ResourceARN { get; set; }
         #endregion
         
-        #region Parameter ResourceARN
-        /// <summary>
-        /// <para>
-        /// <para>Amazon Resource Name (ARN) of the streaming source.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ResourceARN { get; set; }
-        #endregion
-        
         #region Parameter InputLambdaProcessor_RoleARN
         /// <summary>
         /// <para>
@@ -122,30 +101,34 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public System.String InputLambdaProcessor_RoleARN { get; set; }
         #endregion
         
-        #region Parameter RoleARN
+        #region Parameter PassThru
         /// <summary>
-        /// <para>
-        /// <para>ARN of the IAM role that Amazon Kinesis Analytics can assume to access the stream
-        /// on your behalf.</para>
-        /// </para>
+        /// Returns the value passed to the CurrentApplicationVersionId parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String RoleARN { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
-        #region Parameter S3Configuration_RoleARN
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String S3Configuration_RoleARN { get; set; }
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CurrentApplicationVersionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-KINAApplicationInputProcessingConfiguration (AddApplicationInputProcessingConfiguration)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -156,14 +139,12 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ApplicationName = this.ApplicationName;
+            if (ParameterWasBound("CurrentApplicationVersionId"))
+                context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
+            context.InputId = this.InputId;
             context.InputProcessingConfiguration_InputLambdaProcessor_ResourceARN = this.InputLambdaProcessor_ResourceARN;
             context.InputProcessingConfiguration_InputLambdaProcessor_RoleARN = this.InputLambdaProcessor_RoleARN;
-            context.InputStartingPositionConfiguration_InputStartingPosition = this.InputStartingPositionConfiguration_InputStartingPosition;
-            context.ResourceARN = this.ResourceARN;
-            context.RoleARN = this.RoleARN;
-            context.S3Configuration_BucketARN = this.S3Configuration_BucketARN;
-            context.S3Configuration_FileKey = this.S3Configuration_FileKey;
-            context.S3Configuration_RoleARN = this.S3Configuration_RoleARN;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,8 +159,20 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalytics.Model.DiscoverInputSchemaRequest();
+            var request = new Amazon.KinesisAnalytics.Model.AddApplicationInputProcessingConfigurationRequest();
             
+            if (cmdletContext.ApplicationName != null)
+            {
+                request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.CurrentApplicationVersionId != null)
+            {
+                request.CurrentApplicationVersionId = cmdletContext.CurrentApplicationVersionId.Value;
+            }
+            if (cmdletContext.InputId != null)
+            {
+                request.InputId = cmdletContext.InputId;
+            }
             
              // populate InputProcessingConfiguration
             bool requestInputProcessingConfigurationIsNull = true;
@@ -225,72 +218,6 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 request.InputProcessingConfiguration = null;
             }
             
-             // populate InputStartingPositionConfiguration
-            bool requestInputStartingPositionConfigurationIsNull = true;
-            request.InputStartingPositionConfiguration = new Amazon.KinesisAnalytics.Model.InputStartingPositionConfiguration();
-            Amazon.KinesisAnalytics.InputStartingPosition requestInputStartingPositionConfiguration_inputStartingPositionConfiguration_InputStartingPosition = null;
-            if (cmdletContext.InputStartingPositionConfiguration_InputStartingPosition != null)
-            {
-                requestInputStartingPositionConfiguration_inputStartingPositionConfiguration_InputStartingPosition = cmdletContext.InputStartingPositionConfiguration_InputStartingPosition;
-            }
-            if (requestInputStartingPositionConfiguration_inputStartingPositionConfiguration_InputStartingPosition != null)
-            {
-                request.InputStartingPositionConfiguration.InputStartingPosition = requestInputStartingPositionConfiguration_inputStartingPositionConfiguration_InputStartingPosition;
-                requestInputStartingPositionConfigurationIsNull = false;
-            }
-             // determine if request.InputStartingPositionConfiguration should be set to null
-            if (requestInputStartingPositionConfigurationIsNull)
-            {
-                request.InputStartingPositionConfiguration = null;
-            }
-            if (cmdletContext.ResourceARN != null)
-            {
-                request.ResourceARN = cmdletContext.ResourceARN;
-            }
-            if (cmdletContext.RoleARN != null)
-            {
-                request.RoleARN = cmdletContext.RoleARN;
-            }
-            
-             // populate S3Configuration
-            bool requestS3ConfigurationIsNull = true;
-            request.S3Configuration = new Amazon.KinesisAnalytics.Model.S3Configuration();
-            System.String requestS3Configuration_s3Configuration_BucketARN = null;
-            if (cmdletContext.S3Configuration_BucketARN != null)
-            {
-                requestS3Configuration_s3Configuration_BucketARN = cmdletContext.S3Configuration_BucketARN;
-            }
-            if (requestS3Configuration_s3Configuration_BucketARN != null)
-            {
-                request.S3Configuration.BucketARN = requestS3Configuration_s3Configuration_BucketARN;
-                requestS3ConfigurationIsNull = false;
-            }
-            System.String requestS3Configuration_s3Configuration_FileKey = null;
-            if (cmdletContext.S3Configuration_FileKey != null)
-            {
-                requestS3Configuration_s3Configuration_FileKey = cmdletContext.S3Configuration_FileKey;
-            }
-            if (requestS3Configuration_s3Configuration_FileKey != null)
-            {
-                request.S3Configuration.FileKey = requestS3Configuration_s3Configuration_FileKey;
-                requestS3ConfigurationIsNull = false;
-            }
-            System.String requestS3Configuration_s3Configuration_RoleARN = null;
-            if (cmdletContext.S3Configuration_RoleARN != null)
-            {
-                requestS3Configuration_s3Configuration_RoleARN = cmdletContext.S3Configuration_RoleARN;
-            }
-            if (requestS3Configuration_s3Configuration_RoleARN != null)
-            {
-                request.S3Configuration.RoleARN = requestS3Configuration_s3Configuration_RoleARN;
-                requestS3ConfigurationIsNull = false;
-            }
-             // determine if request.S3Configuration should be set to null
-            if (requestS3ConfigurationIsNull)
-            {
-                request.S3Configuration = null;
-            }
-            
             CmdletOutput output;
             
             // issue call
@@ -299,7 +226,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.CurrentApplicationVersionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -324,16 +253,16 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalytics.Model.DiscoverInputSchemaResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DiscoverInputSchemaRequest request)
+        private Amazon.KinesisAnalytics.Model.AddApplicationInputProcessingConfigurationResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.AddApplicationInputProcessingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DiscoverInputSchema");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "AddApplicationInputProcessingConfiguration");
             try
             {
                 #if DESKTOP
-                return client.DiscoverInputSchema(request);
+                return client.AddApplicationInputProcessingConfiguration(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DiscoverInputSchemaAsync(request);
+                var task = client.AddApplicationInputProcessingConfigurationAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -354,14 +283,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ApplicationName { get; set; }
+            public System.Int64? CurrentApplicationVersionId { get; set; }
+            public System.String InputId { get; set; }
             public System.String InputProcessingConfiguration_InputLambdaProcessor_ResourceARN { get; set; }
             public System.String InputProcessingConfiguration_InputLambdaProcessor_RoleARN { get; set; }
-            public Amazon.KinesisAnalytics.InputStartingPosition InputStartingPositionConfiguration_InputStartingPosition { get; set; }
-            public System.String ResourceARN { get; set; }
-            public System.String RoleARN { get; set; }
-            public System.String S3Configuration_BucketARN { get; set; }
-            public System.String S3Configuration_FileKey { get; set; }
-            public System.String S3Configuration_RoleARN { get; set; }
         }
         
     }

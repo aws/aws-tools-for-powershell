@@ -28,8 +28,12 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a URL to start an AppStream 2.0 streaming session for a user. By default,
-    /// the URL is valid only for 1 minute from the time that it is generated.
+    /// Creates a URL to start a streaming session for the specified user.
+    /// 
+    ///  
+    /// <para>
+    /// By default, the URL is valid only for one minute from the time that it is generated.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "APSStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FleetName
         /// <summary>
         /// <para>
-        /// <para>The fleet for which the URL is generated.</para>
+        /// <para>The name of the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SessionContext
         /// <summary>
         /// <para>
-        /// <para>The sessionContext of the streaming URL.</para>
+        /// <para>The session context of the streaming URL.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StackName
         /// <summary>
         /// <para>
-        /// <para>The stack for which the URL is generated.</para>
+        /// <para>The name of the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -83,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>A unique user ID for whom the URL is generated.</para>
+        /// <para>The ID of the user.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Validity
         /// <summary>
         /// <para>
-        /// <para>The duration up to which the URL returned by this action is valid. The input can be
-        /// any numeric value in seconds between 1 and 604800 seconds.</para>
+        /// <para>The time that the streaming URL will be valid, in seconds. Specify a value between
+        /// 1 and 604800 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

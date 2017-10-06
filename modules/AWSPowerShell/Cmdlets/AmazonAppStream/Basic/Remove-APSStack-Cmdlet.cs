@@ -28,8 +28,8 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deletes the stack. After this operation completes, the environment can no longer be
-    /// activated, and any reservations made for the stack are released.
+    /// Deletes the specified stack. After this operation completes, the environment can no
+    /// longer be activated and any reservations made for the stack are released.
     /// </summary>
     [Cmdlet("Remove", "APSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the stack to delete.</para>
+        /// <para>The name of the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

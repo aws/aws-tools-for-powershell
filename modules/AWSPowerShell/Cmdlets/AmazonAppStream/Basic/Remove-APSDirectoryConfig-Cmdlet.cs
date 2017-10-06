@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Deletes the directory configuration with the given parameters.
+    /// Deletes the specified directory configuration.
     /// </summary>
     [Cmdlet("Remove", "APSDirectoryConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DirectoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the directory configuration to be deleted.</para>
+        /// <para>The name of the directory configuration.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

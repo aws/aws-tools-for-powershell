@@ -28,8 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Describes the images. If a list of names is not provided, all images in your account
-    /// are returned. This operation does not return a paginated result.
+    /// Describes the specified images or all images in the account.
     /// </summary>
     [Cmdlet("Get", "APSImageList")]
     [OutputType("Amazon.AppStream.Model.Image")]
@@ -44,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>A specific list of images to describe.</para>
+        /// <para>The names of the images to describe.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

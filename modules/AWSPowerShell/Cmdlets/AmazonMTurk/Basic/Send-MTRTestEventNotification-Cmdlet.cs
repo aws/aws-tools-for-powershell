@@ -47,9 +47,8 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         #region Parameter Notification_Destination
         /// <summary>
         /// <para>
-        /// <para> The destination for notification messages. or email notifications (if Transport is
-        /// Email), this is an email address. For Amazon Simple Queue Service (Amazon SQS) notifications
-        /// (if Transport is SQS), this is the URL for your Amazon SQS queue. </para>
+        /// <para> The target for notification messages. The Destination’s format is determined by the
+        /// specified Transport: </para><ul><li><para>When Transport is Email, the Destination is your email address.</para></li><li><para>When Transport is SQS, the Destination is your queue URL.</para></li><li><para>When Transport is SNS, the Destination is the ARN of your topic.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
         /// <summary>
         /// <para>
         /// <para> The method Amazon Mechanical Turk uses to send the notification. Valid Values: Email
-        /// | SQS. </para>
+        /// | SQS | SNS. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

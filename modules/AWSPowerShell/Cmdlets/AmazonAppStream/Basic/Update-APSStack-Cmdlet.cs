@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Updates the specified fields in the stack with the specified name.
+    /// Updates the specified stack.
     /// </summary>
     [Cmdlet("Update", "APSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Stack")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DeleteStorageConnector
         /// <summary>
         /// <para>
-        /// <para>Remove all the storage connectors currently enabled for the stack.</para>
+        /// <para>Deletes the storage connectors currently enabled for the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description displayed to end users on the AppStream 2.0 portal.</para>
+        /// <para>The description displayed to end users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The name displayed to end users on the AppStream 2.0 portal.</para>
+        /// <para>The stack name displayed to end users.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the stack to update.</para>
+        /// <para>The name of the stack.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -84,7 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter StorageConnector
         /// <summary>
         /// <para>
-        /// <para>The storage connectors to be enabled for the stack.</para>
+        /// <para>The storage connectors to enable.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

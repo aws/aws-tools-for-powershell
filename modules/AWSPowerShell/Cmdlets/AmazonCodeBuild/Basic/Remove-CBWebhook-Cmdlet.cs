@@ -22,43 +22,64 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Domains;
-using Amazon.Route53Domains.Model;
+using Amazon.CodeBuild;
+using Amazon.CodeBuild.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53D
+namespace Amazon.PowerShell.Cmdlets.CB
 {
     /// <summary>
-    /// This operation returns all of the tags that are associated with the specified domain.
-    /// 
-    ///  
-    /// <para>
-    /// All tag operations are eventually consistent; subsequent operations might not immediately
-    /// represent all issued operations.
-    /// </para>
+    /// For an existing AWS CodeBuild build project that has its source code stored in a GitHub
+    /// repository, stops AWS CodeBuild from automatically rebuilding the source code every
+    /// time a code change is pushed to the repository.
     /// </summary>
-    [Cmdlet("Get", "R53DTagsForDomain")]
-    [OutputType("Amazon.Route53Domains.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"ListTagsForDomain"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.Model.Tag",
-        "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type Amazon.Route53Domains.Model.ListTagsForDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteWebhook operation against AWS CodeBuild.", Operation = new[] {"DeleteWebhook"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProjectName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.CodeBuild.Model.DeleteWebhookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class RemoveCBWebhookCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
-        #region Parameter DomainName
+        #region Parameter ProjectName
         /// <summary>
         /// <para>
-        /// <para>The domain for which you want to get a list of tags.</para>
+        /// <para>The name of the build project.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DomainName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ProjectName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ProjectName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProjectName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CBWebhook (DeleteWebhook)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -69,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DomainName = this.DomainName;
+            context.ProjectName = this.ProjectName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -84,11 +105,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.ListTagsForDomainRequest();
+            var request = new Amazon.CodeBuild.Model.DeleteWebhookRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.ProjectName != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.ProjectName = cmdletContext.ProjectName;
             }
             
             CmdletOutput output;
@@ -99,7 +120,9 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TagList;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ProjectName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -124,16 +147,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Domains.Model.ListTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ListTagsForDomainRequest request)
+        private Amazon.CodeBuild.Model.DeleteWebhookResponse CallAWSServiceOperation(IAmazonCodeBuild client, Amazon.CodeBuild.Model.DeleteWebhookRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "ListTagsForDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeBuild", "DeleteWebhook");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForDomain(request);
+                return client.DeleteWebhook(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForDomainAsync(request);
+                var task = client.DeleteWebhookAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -154,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
+            public System.String ProjectName { get; set; }
         }
         
     }

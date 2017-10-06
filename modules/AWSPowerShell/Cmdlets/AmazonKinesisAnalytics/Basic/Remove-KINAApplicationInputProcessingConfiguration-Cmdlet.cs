@@ -22,37 +22,59 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.AppStream;
-using Amazon.AppStream.Model;
+using Amazon.KinesisAnalytics;
+using Amazon.KinesisAnalytics.Model;
 
-namespace Amazon.PowerShell.Cmdlets.APS
+namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
-    /// Stops the specified streaming session.
+    /// Deletes an <a>InputProcessingConfiguration</a> from an input.
     /// </summary>
-    [Cmdlet("Revoke", "APSSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ExpireSession operation against AWS AppStream.", Operation = new[] {"ExpireSession"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SessionId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.AppStream.Model.ExpireSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "KINAApplicationInputProcessingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.Int64")]
+    [AWSCmdlet("Invokes the DeleteApplicationInputProcessingConfiguration operation against Amazon Kinesis Analytics.", Operation = new[] {"DeleteApplicationInputProcessingConfiguration"})]
+    [AWSCmdletOutput("None or System.Int64",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CurrentApplicationVersionId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationInputProcessingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RevokeAPSSessionCmdlet : AmazonAppStreamClientCmdlet, IExecutor
+    public partial class RemoveKINAApplicationInputProcessingConfigurationCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
     {
         
-        #region Parameter SessionId
+        #region Parameter ApplicationName
         /// <summary>
         /// <para>
-        /// <para>The ID of the streaming session.</para>
+        /// <para>The Kinesis Analytics application name.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String SessionId { get; set; }
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ApplicationName { get; set; }
+        #endregion
+        
+        #region Parameter CurrentApplicationVersionId
+        /// <summary>
+        /// <para>
+        /// <para>The version ID of the Kinesis Analytics application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        public System.Int64 CurrentApplicationVersionId { get; set; }
+        #endregion
+        
+        #region Parameter InputId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the input configuration from which to delete the input configuration. You
+        /// can get a list of the input IDs for an application using the <a>DescribeApplication</a>
+        /// operation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String InputId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the SessionId parameter.
+        /// Returns the value passed to the CurrentApplicationVersionId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("SessionId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Revoke-APSSession (ExpireSession)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CurrentApplicationVersionId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINAApplicationInputProcessingConfiguration (DeleteApplicationInputProcessingConfiguration)"))
             {
                 return;
             }
@@ -88,7 +110,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.SessionId = this.SessionId;
+            context.ApplicationName = this.ApplicationName;
+            if (ParameterWasBound("CurrentApplicationVersionId"))
+                context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
+            context.InputId = this.InputId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -103,11 +128,19 @@ namespace Amazon.PowerShell.Cmdlets.APS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.AppStream.Model.ExpireSessionRequest();
+            var request = new Amazon.KinesisAnalytics.Model.DeleteApplicationInputProcessingConfigurationRequest();
             
-            if (cmdletContext.SessionId != null)
+            if (cmdletContext.ApplicationName != null)
             {
-                request.SessionId = cmdletContext.SessionId;
+                request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.CurrentApplicationVersionId != null)
+            {
+                request.CurrentApplicationVersionId = cmdletContext.CurrentApplicationVersionId.Value;
+            }
+            if (cmdletContext.InputId != null)
+            {
+                request.InputId = cmdletContext.InputId;
             }
             
             CmdletOutput output;
@@ -120,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.SessionId;
+                    pipelineOutput = this.CurrentApplicationVersionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -145,16 +178,16 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         #region AWS Service Operation Call
         
-        private Amazon.AppStream.Model.ExpireSessionResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ExpireSessionRequest request)
+        private Amazon.KinesisAnalytics.Model.DeleteApplicationInputProcessingConfigurationResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationInputProcessingConfigurationRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "ExpireSession");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DeleteApplicationInputProcessingConfiguration");
             try
             {
                 #if DESKTOP
-                return client.ExpireSession(request);
+                return client.DeleteApplicationInputProcessingConfiguration(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ExpireSessionAsync(request);
+                var task = client.DeleteApplicationInputProcessingConfigurationAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -175,7 +208,9 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String SessionId { get; set; }
+            public System.String ApplicationName { get; set; }
+            public System.Int64? CurrentApplicationVersionId { get; set; }
+            public System.String InputId { get; set; }
         }
         
     }

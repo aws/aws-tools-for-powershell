@@ -12,10 +12,12 @@
 	
 	<ServiceOperations>
 		<ServiceOperation MethodName="AddApplicationInput" Output="Void" />
+		<ServiceOperation MethodName="AddApplicationInputProcessingConfiguration" PipelineParameter="CurrentApplicationVersionId" Output="Void" />
 		<ServiceOperation MethodName="AddApplicationOutput" Output="Void" />
 		<ServiceOperation MethodName="AddApplicationReferenceDataSource" Output="Void" />
 		<ServiceOperation MethodName="CreateApplication" />
 		<ServiceOperation MethodName="DeleteApplication" Output="Void" />
+		<ServiceOperation MethodName="DeleteApplicationInputProcessingConfiguration" PipelineParameter="CurrentApplicationVersionId" Output="Void" />
 		<ServiceOperation MethodName="DeleteApplicationOutput" PipelineParameter="OutputId" Output="Void" />
 		<ServiceOperation MethodName="DeleteApplicationReferenceDataSource" PipelineParameter="ReferenceId" Output="Void" />
 		<ServiceOperation MethodName="DescribeApplication" />

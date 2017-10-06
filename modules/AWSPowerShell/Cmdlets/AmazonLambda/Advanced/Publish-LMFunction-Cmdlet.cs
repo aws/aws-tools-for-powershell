@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     {
         const string FromZipFile = "FromZipFile";
         const string FromS3Object = "FromS3Object";
-        const string FromMemoryStream = "FromMemoryStream"
+        private const string FromMemoryStream = "FromMemoryStream";
 
         #region Parameter Description
         /// <summary>

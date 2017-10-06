@@ -193,6 +193,10 @@ Set-Alias -Name Create-APSDirectoryConfig -Value New-APSDirectoryConfig
 Set-Alias -Name APS-CreateDirectoryConfig -Value New-APSDirectoryConfig
 Set-Alias -Name Create-APSFleet -Value New-APSFleet
 Set-Alias -Name APS-CreateFleet -Value New-APSFleet
+Set-Alias -Name Create-APSImageBuilder -Value New-APSImageBuilder
+Set-Alias -Name APS-CreateImageBuilder -Value New-APSImageBuilder
+Set-Alias -Name Create-APSImageBuilderStreamingURL -Value New-APSImageBuilderStreamingURL
+Set-Alias -Name APS-CreateImageBuilderStreamingURL -Value New-APSImageBuilderStreamingURL
 Set-Alias -Name Create-APSStack -Value New-APSStack
 Set-Alias -Name APS-CreateStack -Value New-APSStack
 Set-Alias -Name Create-APSStreamingURL -Value New-APSStreamingURL
@@ -201,11 +205,16 @@ Set-Alias -Name Delete-APSDirectoryConfig -Value Remove-APSDirectoryConfig
 Set-Alias -Name APS-DeleteDirectoryConfig -Value Remove-APSDirectoryConfig
 Set-Alias -Name Delete-APSFleet -Value Remove-APSFleet
 Set-Alias -Name APS-DeleteFleet -Value Remove-APSFleet
+Set-Alias -Name Delete-APSImage -Value Remove-APSImage
+Set-Alias -Name APS-DeleteImage -Value Remove-APSImage
+Set-Alias -Name Delete-APSImageBuilder -Value Remove-APSImageBuilder
+Set-Alias -Name APS-DeleteImageBuilder -Value Remove-APSImageBuilder
 Set-Alias -Name Delete-APSStack -Value Remove-APSStack
 Set-Alias -Name APS-DeleteStack -Value Remove-APSStack
 Set-Alias -Name Describe-APSDirectoryConfigList -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeDirectoryConfigs -Value Get-APSDirectoryConfigList
 Set-Alias -Name APS-DescribeFleets -Value Get-APSFleetList
+Set-Alias -Name APS-DescribeImageBuilders -Value Get-APSImageBuilderList
 Set-Alias -Name APS-DescribeImages -Value Get-APSImageList
 Set-Alias -Name APS-DescribeSessions -Value Get-APSSessionList
 Set-Alias -Name APS-DescribeStacks -Value Get-APSStackList
@@ -214,7 +223,9 @@ Set-Alias -Name APS-ExpireSession -Value Revoke-APSSession
 Set-Alias -Name APS-ListAssociatedFleets -Value Get-APSAssociatedFleetList
 Set-Alias -Name APS-ListAssociatedStacks -Value Get-APSAssociatedStackList
 Set-Alias -Name APS-StartFleet -Value Start-APSFleet
+Set-Alias -Name APS-StartImageBuilder -Value Start-APSImageBuilder
 Set-Alias -Name APS-StopFleet -Value Stop-APSFleet
+Set-Alias -Name APS-StopImageBuilder -Value Stop-APSImageBuilder
 Set-Alias -Name APS-UpdateDirectoryConfig -Value Update-APSDirectoryConfig
 Set-Alias -Name APS-UpdateFleet -Value Update-APSFleet
 Set-Alias -Name APS-UpdateStack -Value Update-APSStack
@@ -854,8 +865,12 @@ Set-Alias -Name CB-BatchGetBuilds -Value Get-CBBuildBatch
 Set-Alias -Name CB-BatchGetProjects -Value Get-CBProjectBatch
 Set-Alias -Name Create-CBProject -Value New-CBProject
 Set-Alias -Name CB-CreateProject -Value New-CBProject
+Set-Alias -Name Create-CBWebhook -Value New-CBWebhook
+Set-Alias -Name CB-CreateWebhook -Value New-CBWebhook
 Set-Alias -Name Delete-CBProject -Value Remove-CBProject
 Set-Alias -Name CB-DeleteProject -Value Remove-CBProject
+Set-Alias -Name Delete-CBWebhook -Value Remove-CBWebhook
+Set-Alias -Name CB-DeleteWebhook -Value Remove-CBWebhook
 Set-Alias -Name CB-ListBuilds -Value Get-CBBuildIdList
 Set-Alias -Name CB-ListBuildsForProject -Value Get-CBBuildIdListForProject
 Set-Alias -Name CB-ListCuratedEnvironmentImages -Value Get-CBCuratedEnvironmentImageList
@@ -2911,6 +2926,7 @@ Set-Alias -Name KIN-StopStreamEncryption -Value Stop-KINStreamEncryption
 Set-Alias -Name KIN-UpdateShardCount -Value Update-KINShardCount
 Set-Alias -Name KINA-AddApplicationCloudWatchLoggingOption -Value Add-KINAApplicationCloudWatchLoggingOption
 Set-Alias -Name KINA-AddApplicationInput -Value Add-KINAApplicationInput
+Set-Alias -Name KINA-AddApplicationInputProcessingConfiguration -Value Add-KINAApplicationInputProcessingConfiguration
 Set-Alias -Name KINA-AddApplicationOutput -Value Add-KINAApplicationOutput
 Set-Alias -Name KINA-AddApplicationReferenceDataSource -Value Add-KINAApplicationReferenceDataSource
 Set-Alias -Name Create-KINAApplication -Value New-KINAApplication
@@ -2919,6 +2935,8 @@ Set-Alias -Name Delete-KINAApplication -Value Remove-KINAApplication
 Set-Alias -Name KINA-DeleteApplication -Value Remove-KINAApplication
 Set-Alias -Name Delete-KINAApplicationCloudWatchLoggingOption -Value Remove-KINAApplicationCloudWatchLoggingOption
 Set-Alias -Name KINA-DeleteApplicationCloudWatchLoggingOption -Value Remove-KINAApplicationCloudWatchLoggingOption
+Set-Alias -Name Delete-KINAApplicationInputProcessingConfiguration -Value Remove-KINAApplicationInputProcessingConfiguration
+Set-Alias -Name KINA-DeleteApplicationInputProcessingConfiguration -Value Remove-KINAApplicationInputProcessingConfiguration
 Set-Alias -Name Delete-KINAApplicationOutput -Value Remove-KINAApplicationOutput
 Set-Alias -Name KINA-DeleteApplicationOutput -Value Remove-KINAApplicationOutput
 Set-Alias -Name Delete-KINAApplicationReferenceDataSource -Value Remove-KINAApplicationReferenceDataSource
@@ -3881,6 +3899,7 @@ Set-Alias -Name R53-GetHealthCheckStatus -Value Get-R53HealthCheckStatus
 Set-Alias -Name R53-GetHostedZone -Value Get-R53HostedZone
 Set-Alias -Name R53-GetHostedZoneCount -Value Get-R53HostedZoneCount
 Set-Alias -Name R53D-CheckDomainAvailability -Value Test-R53DDomainAvailability
+Set-Alias -Name R53D-CheckDomainTransferability -Value Test-R53DDomainTransferability
 Set-Alias -Name Delete-R53DTagsForDomain -Value Remove-R53DTagsForDomain
 Set-Alias -Name R53D-DeleteTagsForDomain -Value Remove-R53DTagsForDomain
 Set-Alias -Name R53D-DisableDomainAutoRenew -Value Disable-R53DDomainAutoRenew

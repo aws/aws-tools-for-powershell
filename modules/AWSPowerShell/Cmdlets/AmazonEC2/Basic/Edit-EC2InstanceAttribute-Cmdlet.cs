@@ -90,10 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter EbsOptimized
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the instance is optimized for EBS I/O. This optimization provides
-        /// dedicated throughput to Amazon EBS and an optimized configuration stack to provide
-        /// optimal EBS I/O performance. This optimization isn't available with all instance types.
-        /// Additional usage charges apply when using an EBS Optimized instance.</para>
+        /// <para>Specifies whether the instance is optimized for Amazon EBS I/O. This optimization
+        /// provides dedicated throughput to Amazon EBS and an optimized configuration stack to
+        /// provide optimal EBS I/O performance. This optimization isn't available with all instance
+        /// types. Additional usage charges apply when using an EBS Optimized instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -182,7 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Specifies whether source/destination checking is enabled. A value of <code>true</code>
-        /// means that checking is enabled, and <code>false</code> means checking is disabled.
+        /// means that checking is enabled, and <code>false</code> means that checking is disabled.
         /// This value must be <code>false</code> for a NAT instance to perform NAT.</para>
         /// </para>
         /// </summary>
@@ -207,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Changes the instance's user data to the specified value. If you are using an AWS SDK
-        /// or command line tool, Base64-encoding is performed for you, and you can load the text
-        /// from a file. Otherwise, you must provide Base64-encoded text.</para>
+        /// or command line tool, base64-encoding is performed for you, and you can load the text
+        /// from a file. Otherwise, you must provide base64-encoded text.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// command line interface.
     /// </para><para>
     /// Instance console output is buffered and posted shortly after instance boot, reboot,
-    /// and termination. Amazon EC2 preserves the most recent 64 KB output which is available
+    /// and termination. Amazon EC2 preserves the most recent 64 KB output, which is available
     /// for at least one hour after the most recent post.
     /// </para><para>
     /// For Linux instances, the instance console output displays the exact console output

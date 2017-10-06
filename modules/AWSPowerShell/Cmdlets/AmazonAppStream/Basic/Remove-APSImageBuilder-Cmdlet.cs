@@ -22,43 +22,53 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Route53Domains;
-using Amazon.Route53Domains.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
-namespace Amazon.PowerShell.Cmdlets.R53D
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// This operation returns all of the tags that are associated with the specified domain.
-    /// 
-    ///  
-    /// <para>
-    /// All tag operations are eventually consistent; subsequent operations might not immediately
-    /// represent all issued operations.
-    /// </para>
+    
     /// </summary>
-    [Cmdlet("Get", "R53DTagsForDomain")]
-    [OutputType("Amazon.Route53Domains.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"ListTagsForDomain"})]
-    [AWSCmdletOutput("Amazon.Route53Domains.Model.Tag",
-        "This cmdlet returns a collection of Tag objects.",
-        "The service call response (type Amazon.Route53Domains.Model.ListTagsForDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "APSImageBuilder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.AppStream.Model.ImageBuilder")]
+    [AWSCmdlet("Invokes the DeleteImageBuilder operation against AWS AppStream.", Operation = new[] {"DeleteImageBuilder"})]
+    [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder",
+        "This cmdlet returns a ImageBuilder object.",
+        "The service call response (type Amazon.AppStream.Model.DeleteImageBuilderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetR53DTagsForDomainCmdlet : AmazonRoute53DomainsClientCmdlet, IExecutor
+    public partial class RemoveAPSImageBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
-        #region Parameter DomainName
+        #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The domain for which you want to get a list of tags.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String DomainName { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Name", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-APSImageBuilder (DeleteImageBuilder)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -69,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DomainName = this.DomainName;
+            context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -84,11 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Route53Domains.Model.ListTagsForDomainRequest();
+            var request = new Amazon.AppStream.Model.DeleteImageBuilderRequest();
             
-            if (cmdletContext.DomainName != null)
+            if (cmdletContext.Name != null)
             {
-                request.DomainName = cmdletContext.DomainName;
+                request.Name = cmdletContext.Name;
             }
             
             CmdletOutput output;
@@ -99,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.TagList;
+                object pipelineOutput = response.ImageBuilder;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -124,16 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         #region AWS Service Operation Call
         
-        private Amazon.Route53Domains.Model.ListTagsForDomainResponse CallAWSServiceOperation(IAmazonRoute53Domains client, Amazon.Route53Domains.Model.ListTagsForDomainRequest request)
+        private Amazon.AppStream.Model.DeleteImageBuilderResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DeleteImageBuilderRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Route 53 Domains", "ListTagsForDomain");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DeleteImageBuilder");
             try
             {
                 #if DESKTOP
-                return client.ListTagsForDomain(request);
+                return client.DeleteImageBuilder(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListTagsForDomainAsync(request);
+                var task = client.DeleteImageBuilderAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -154,7 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DomainName { get; set; }
+            public System.String Name { get; set; }
         }
         
     }

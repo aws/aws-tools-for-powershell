@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     {
         const string FromZipFile = "FromZipFile";
         const string FromS3Object = "FromS3Object";
-        const string FromMemoryStream = "FromMemoryStream"
+        private const string FromMemoryStream = "FromMemoryStream";
 
         #region Parameter FunctionName
         /// <summary>
@@ -189,7 +189,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
                 var cmdletContext = context as CmdletContext;
                 var request = new Amazon.Lambda.Model.UpdateFunctionCodeRequest
                 {
-                    FunctionName = cmdletContext.FunctionName;
+                    FunctionName = cmdletContext.FunctionName
                 };
 
                 if (cmdletContext.Publish != null)

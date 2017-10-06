@@ -32,10 +32,10 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// 
     ///  
     /// <para>
-    /// This operation supports pagination with the use of the <i>NextToken</i> member. If
-    /// more results are available, the <i>NextToken</i> member of the response contains a
-    /// token that you pass in the next call to <a>ListLunaClients</a> to retrieve the next
-    /// set of items.
+    /// This operation supports pagination with the use of the <code>NextToken</code> member.
+    /// If more results are available, the <code>NextToken</code> member of the response contains
+    /// a token that you pass in the next call to <code>ListLunaClients</code> to retrieve
+    /// the next set of items.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "HSMLunaClientList")]
@@ -52,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <i>NextToken</i> value from a previous call to <a>ListLunaClients</a>. Pass null
-        /// if this is the first call.</para>
+        /// <para>The <code>NextToken</code> value from a previous call to <code>ListLunaClients</code>.
+        /// Pass null if this is the first call.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

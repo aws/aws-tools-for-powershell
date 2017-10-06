@@ -18,16 +18,21 @@
     <ServiceOperation MethodName="AssociateFleet" Verb="Register" Output="Void"/>
     <ServiceOperation MethodName="CreateDirectoryConfig" PipelineParameter="DirectoryName" />
     <ServiceOperation MethodName="CreateFleet" PipelineParameter="Name"/>
+    <ServiceOperation MethodName="CreateImageBuilder" PipelineParameter="ImageName" />
+    <ServiceOperation MethodName="CreateImageBuilderStreamingURL" Parameter="Name" Output="Response" />
     <ServiceOperation MethodName="CreateStack" PipelineParameter="Name"/>
     <ServiceOperation MethodName="CreateStreamingURL" Output="Response" />
     <ServiceOperation MethodName="DeleteDirectoryConfig" Output="Void" />
     <ServiceOperation MethodName="DeleteFleet" Output="Void" />
+    <ServiceOperation MethodName="DeleteImage" />
+    <ServiceOperation MethodName="DeleteImageBuilder" />
     <ServiceOperation MethodName="DeleteStack" Output="Void" />
     <ServiceOperation MethodName="DescribeDirectoryConfigs" Noun="DirectoryConfigList">
       <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
     </ServiceOperation>
     <ServiceOperation MethodName="DescribeFleets" Verb="Get" Noun="FleetList" />
     <ServiceOperation MethodName="DescribeImages" Verb="Get" Noun="ImageList"/>
+    <ServiceOperation MethodName="DescribeImageBuilders" Verb="Get" Noun="ImageBuilderList" />
     <ServiceOperation MethodName="DescribeSessions" Verb="Get" Noun="SessionList"/>
     <ServiceOperation MethodName="DescribeStacks" Verb="Get" Noun="StackList"/>
     <ServiceOperation MethodName="DisassociateFleet" Verb="Unregister" Noun="Fleet" Output="Void"/>
@@ -35,7 +40,9 @@
     <ServiceOperation MethodName="ListAssociatedFleets" Verb="Get" Noun="AssociatedFleetList" />
     <ServiceOperation MethodName="ListAssociatedStacks" Verb="Get" Noun="AssociatedStackList"/>
     <ServiceOperation MethodName="StartFleet" Output="Void"/>
+    <ServiceOperation MethodName="StartImageBuilder" />
     <ServiceOperation MethodName="StopFleet" Output="Void"/>
+    <ServiceOperation MethodName="StopImageBuilder" />
     <ServiceOperation MethodName="UpdateDirectoryConfig" PipelineParameter="DirectoryName" />
     <ServiceOperation MethodName="UpdateFleet" PipelineParameter="Name"/>
     <ServiceOperation MethodName="UpdateStack" PipelineParameter="Name"/>

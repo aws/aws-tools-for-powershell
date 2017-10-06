@@ -22,38 +22,51 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.CloudHSM;
-using Amazon.CloudHSM.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
-namespace Amazon.PowerShell.Cmdlets.HSM
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Retrieves the identifiers of all of the HSMs provisioned for the current customer.
-    /// 
-    ///  
-    /// <para>
-    /// This operation supports pagination with the use of the <code>NextToken</code> member.
-    /// If more results are available, the <code>NextToken</code> member of the response contains
-    /// a token that you pass in the next call to <code>ListHsms</code> to retrieve the next
-    /// set of items.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// <br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "HSMItemList")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListHsms operation against AWS Cloud HSM.", Operation = new[] {"ListHsms"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.CloudHSM.Model.ListHsmsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "APSImageBuilderList")]
+    [OutputType("Amazon.AppStream.Model.ImageBuilder")]
+    [AWSCmdlet("Invokes the DescribeImageBuilders operation against AWS AppStream.", Operation = new[] {"DescribeImageBuilders"})]
+    [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder",
+        "This cmdlet returns a collection of ImageBuilder objects.",
+        "The service call response (type Amazon.AppStream.Model.DescribeImageBuildersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetHSMItemListCmdlet : AmazonCloudHSMClientCmdlet, IExecutor
+    public partial class GetAPSImageBuilderListCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
+        
+        #region Parameter Name
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Names")]
+        public System.String[] Name { get; set; }
+        #endregion
+        
+        #region Parameter MaxResult
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxResults")]
+        public System.Int32 MaxResult { get; set; }
+        #endregion
         
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value from a previous call to <code>ListHsms</code>. Pass
-        /// null if this is the first call.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -76,6 +89,12 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            if (this.Name != null)
+            {
+                context.Names = new List<System.String>(this.Name);
+            }
             context.NextToken = this.NextToken;
             
             // allow further manipulation of loaded context prior to processing
@@ -92,8 +111,16 @@ namespace Amazon.PowerShell.Cmdlets.HSM
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.CloudHSM.Model.ListHsmsRequest();
+            var request = new Amazon.AppStream.Model.DescribeImageBuildersRequest();
             
+            if (cmdletContext.MaxResults != null)
+            {
+                request.MaxResults = cmdletContext.MaxResults.Value;
+            }
+            if (cmdletContext.Names != null)
+            {
+                request.Names = cmdletContext.Names;
+            }
             
             // Initialize loop variant and commence piping
             System.String _nextMarker = null;
@@ -119,7 +146,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                         var response = CallAWSServiceOperation(client, request);
                         
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.HsmList;
+                        object pipelineOutput = response.ImageBuilders;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -130,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
                         };
                         if (_userControllingPaging)
                         {
-                            int _receivedThisCall = response.HsmList.Count;
+                            int _receivedThisCall = response.ImageBuilders.Count;
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
                         }
                         
@@ -165,16 +192,16 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         #region AWS Service Operation Call
         
-        private Amazon.CloudHSM.Model.ListHsmsResponse CallAWSServiceOperation(IAmazonCloudHSM client, Amazon.CloudHSM.Model.ListHsmsRequest request)
+        private Amazon.AppStream.Model.DescribeImageBuildersResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.DescribeImageBuildersRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud HSM", "ListHsms");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "DescribeImageBuilders");
             try
             {
                 #if DESKTOP
-                return client.ListHsms(request);
+                return client.DescribeImageBuilders(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListHsmsAsync(request);
+                var task = client.DescribeImageBuildersAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -195,6 +222,8 @@ namespace Amazon.PowerShell.Cmdlets.HSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? MaxResults { get; set; }
+            public List<System.String> Names { get; set; }
             public System.String NextToken { get; set; }
         }
         

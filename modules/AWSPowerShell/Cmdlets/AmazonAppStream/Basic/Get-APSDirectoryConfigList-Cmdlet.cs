@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Returns a list describing the specified directory configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the specified directory configurations.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "APSDirectoryConfigList")]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DirectoryName
         /// <summary>
         /// <para>
-        /// <para>A specific list of directory names.</para>
+        /// <para>The directory names.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The size of each page of results.</para>
+        /// <para>The maximum size of each page of results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The DescribeDirectoryConfigsResult.NextToken from a previous call to DescribeDirectoryConfigs.
-        /// If this is the first call, pass null.</para>
+        /// <para>The pagination token to use to retrieve the next page of results for this operation.
+        /// If this value is null, it retrieves the first page.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
