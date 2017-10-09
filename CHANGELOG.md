@@ -1,4 +1,4 @@
-###
+### 3.3.169.0 (2017-10-09)
   * AWS Lambda
     * Revised parameter sets and mandatory parameters for the Update-LMFunctionCode and Publish-LMFunction cmdlets based on user feedback. Also made the options for how the function code can be supplied the same.
   * Amazon AppStream

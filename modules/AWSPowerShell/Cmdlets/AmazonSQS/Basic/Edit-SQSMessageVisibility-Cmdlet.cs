@@ -36,13 +36,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// 
     ///  
     /// <para>
-    /// For example, you have a message and with the default visibility timeout of 5 minutes.
-    /// After 3 minutes, you call <code>ChangeMessageVisiblity</code> with a timeout of 10
-    /// minutes. At that time, the timeout for the message is extended by 10 minutes beyond
-    /// the time of the <code>ChangeMessageVisibility</code> action. This results in a total
-    /// visibility timeout of 13 minutes. You can continue to call the <code>ChangeMessageVisibility</code>
-    /// to extend the visibility timeout to a maximum of 12 hours. If you try to extend the
-    /// visibility timeout beyond 12 hours, your request is rejected.
+    /// For example, you have a message with a visibility timeout of 5 minutes. After 3 minutes,
+    /// you call <code>ChangeMessageVisiblity</code> with a timeout of 10 minutes. At that
+    /// time, the timeout for the message is extended by 10 minutes beyond the time of the
+    /// <code>ChangeMessageVisibility</code> action. This results in a total visibility timeout
+    /// of 13 minutes. You can continue to call the <code>ChangeMessageVisibility</code> to
+    /// extend the visibility timeout to a maximum of 12 hours. If you try to extend the visibility
+    /// timeout beyond 12 hours, your request is rejected.
     /// </para><para>
     /// A message is considered to be <i>in flight</i> after it's received from a queue by
     /// a consumer, but not yet deleted from the queue.

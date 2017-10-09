@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para><para>
     /// A message that isn't deleted or a message whose visibility isn't extended before the
     /// visibility timeout expires counts as a failed receive. Depending on the configuration
-    /// of the queue, the message might be sent to the dead letter queue.
+    /// of the queue, the message might be sent to the dead-letter queue.
     /// </para><note><para>
     /// In the future, new attributes might be added. If you write code that calls this action,
     /// we recommend that you structure your code so that it can handle new attributes gracefully.
@@ -192,7 +192,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <summary>
         /// <para>
         /// <para>The duration (in seconds) for which the call waits for a message to arrive in the
-        /// queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.</para>
+        /// queue before returning. If a message is available, the call returns sooner than <code>WaitTimeSeconds</code>.
+        /// If no messages are available and the wait time expires, the call returns successfully
+        /// with an empty list of messages.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 4)]
