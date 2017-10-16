@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The name of the repository whose policy you want to retrieve.</para>
+        /// <para>The name of the repository with the policy to retrieve.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

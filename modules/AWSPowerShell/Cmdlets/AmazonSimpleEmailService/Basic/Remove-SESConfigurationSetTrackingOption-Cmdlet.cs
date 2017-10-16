@@ -35,10 +35,10 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <para>
     /// By default, images and links used for tracking open and click events are hosted on
     /// domains operated by Amazon SES. You can configure a subdomain of your own to handle
-    /// these events by redirecting them to the Amazon SES-operated domain. For information
-    /// about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
-    /// Custom Domains to Handle Open and Click Tracking</a> in the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
-    /// SES Developer Guide</a>.</i></para><note><para>
+    /// these events. For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring
+    /// Custom Domains to Handle Open and Click Tracking</a> in the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><note><para>
     /// Deleting this kind of association will result in emails sent using the specified configuration
     /// set to capture open and click events using the standard, Amazon SES-operated domains.
     /// </para></note>

@@ -800,6 +800,11 @@ Scenario-4  Create            Create       The new create is added to the pendin
         }
         public static string ProcessLines(string text, Func<string, string> action, bool compressConsequitiveNonemptyLines = false, bool compressConsequitiveEmptyLines = false, bool skipEmptyLines = false)
         {
+            var garbageChars = new char[]
+            {
+                '\u2028'
+            };
+
             var builder = new StringBuilder();
             IEnumerable<string> lines = text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
@@ -819,6 +824,12 @@ Scenario-4  Create            Create       The new create is added to the pendin
                 {
                     if (builder.Length > 0)
                         builder.AppendLine();
+
+                    // strip out any garbage characters that occur from time to time
+                    foreach (var c in garbageChars)
+                    {
+                        newLine = newLine.Replace(c, ' ');
+                    }
                     builder.Append(newLine);
                 }
             }

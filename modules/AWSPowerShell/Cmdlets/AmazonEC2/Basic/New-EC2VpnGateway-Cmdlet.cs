@@ -34,9 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-    /// a Hardware Virtual Private Gateway to Your VPC</a> in the <i>Amazon Virtual Private
-    /// Cloud User Guide</i>.
+    /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+    /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpnGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -48,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class NewEC2VpnGatewayCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter AmazonSideAsn
+        /// <summary>
+        /// <para>
+        /// <para>A private Autonomous System Number (ASN) for the Amazon side of a BGP session. If
+        /// you're using a 16-bit ASN, it must be in the 64512 to 65534 range. If you're using
+        /// a 32-bit ASN, it must be in the 4200000000 to 4294967294 range.</para><para>Default: 64512</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int64 AmazonSideAsn { get; set; }
+        #endregion
         
         #region Parameter AvailabilityZone
         /// <summary>
@@ -99,6 +110,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("AmazonSideAsn"))
+                context.AmazonSideAsn = this.AmazonSideAsn;
             context.AvailabilityZone = this.AvailabilityZone;
             context.Type = this.Type;
             
@@ -117,6 +130,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateVpnGatewayRequest();
             
+            if (cmdletContext.AmazonSideAsn != null)
+            {
+                request.AmazonSideAsn = cmdletContext.AmazonSideAsn.Value;
+            }
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
@@ -189,6 +206,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int64? AmazonSideAsn { get; set; }
             public System.String AvailabilityZone { get; set; }
             public Amazon.EC2.GatewayType Type { get; set; }
         }

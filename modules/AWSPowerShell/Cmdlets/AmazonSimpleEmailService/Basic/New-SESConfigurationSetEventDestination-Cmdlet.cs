@@ -37,8 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </para></note><para>
     /// An event destination is the AWS service to which Amazon SES publishes the email sending
     /// events associated with a configuration set. For information about using configuration
-    /// sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-    /// SES Developer Guide</a>.</i></para><para>
+    /// sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>
@@ -138,8 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>The ARN of the Amazon SNS topic that email sending events will be published to. An
         /// example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>.
-        /// For more information about Amazon SNS topics, see the <i><a href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
-        /// SNS Developer Guide</a>.</i></para>
+        /// For more information about Amazon SNS topics, see the <a href="http://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon
+        /// SNS Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

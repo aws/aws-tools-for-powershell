@@ -23,7 +23,7 @@
     <Map From="Events" To="Event" />
     <Map From="EnvironmentCNAMEs" To="EnvironmentCNAME" />
   </NounMappings>
- 
+
   <VerbMappings>
     <Map From="List" To="Get" />
     <Map From="Terminate" To="Stop" />
@@ -85,6 +85,7 @@
     <ServiceOperation MethodName="DescribePlatformVersion" Noun="PlatformVersionDetail"/>
     <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response" Noun="AvailableSolutionStackList" LegacyAlias="Get-EBAvailableSolutionStack" />
     <ServiceOperation MethodName="ListPlatformVersions" Noun="PlatformVersion"/>
+    <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTag" Output="Response" />
     <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
       <PassThru>
         <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
@@ -115,5 +116,6 @@
     <ServiceOperation MethodName="UpdateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove"/>
     <ServiceOperation MethodName="UpdateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description"/>
     <ServiceOperation MethodName="ValidateConfigurationSettings" PositionalParameters="OptionSettings" Noun="ConfigurationSetting" LegacyAlias="Test-EBConfigurationSettings"/>
+    <ServiceOperation MethodName="UpdateTagsForResource" Noun="ResourceTag" PipelineParameter="ResourceArn" Output="Void" />
   </ServiceOperations>
 </ConfigModel>

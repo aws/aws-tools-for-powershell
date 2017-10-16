@@ -8,7 +8,7 @@
   <ServiceClient>AmazonECRClient</ServiceClient>
   <ServiceNamespace>Amazon.ECR</ServiceNamespace>
 
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="100"/>
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="100" Exclusions="GetLifecyclePolicyPreview" />
   
   <PipelineParameter>RepositoryName</PipelineParameter>
   
@@ -24,6 +24,7 @@
     <ServiceOperation MethodName="BatchGetImage" Verb="Get" Noun="ImageBatch" PipelineParameter="ImageIds" Output="Response" />
     <ServiceOperation MethodName="CompleteLayerUpload" PipelineParameter="LayerDigests" Output="Response" ShouldProcessTarget="UploadId" />
     <ServiceOperation MethodName="CreateRepository" />
+    <ServiceOperation MethodName="DeleteLifecyclePolicy" Output="Response" />
     <ServiceOperation MethodName="DeleteRepository">
       <Params>
         <Param Name="Force" NewName="IgnoreExistingImages" AutoApplyAlias="false"/>
@@ -34,15 +35,19 @@
     <ServiceOperation MethodName="DescribeRepositories" Noun="Repository" PipelineParameter="RepositoryNames" />
     <ServiceOperation MethodName="GetAuthorizationToken" />
     <ServiceOperation MethodName="GetDownloadUrlForLayer" Output="Response" />
+    <ServiceOperation MethodName="GetLifecyclePolicy" Output="Response" />
+    <ServiceOperation MethodName="GetLifecyclePolicyPreview" Output="Response" />
     <ServiceOperation MethodName="GetRepositoryPolicy" Output="Response" />
     <ServiceOperation MethodName="InitiateLayerUpload" Output="Response" Verb="Start" />
     <ServiceOperation MethodName="ListImages" Verb="Get" Noun="Image" />
+    <ServiceOperation MethodName="PutLifecyclePolicy" PipelineParameter="LifecyclePolicyText" Output="Response" ShouldProcessTarget="RepositoryName" />
     <ServiceOperation MethodName="PutImage" PipelineParameter="ImageManifest" ShouldProcessTarget="RepositoryName" />
     <ServiceOperation MethodName="SetRepositoryPolicy" PipelineParameter="PolicyText" Output="Response" ShouldProcessTarget="RepositoryName">
       <Params>
         <Param Name="Force" NewName="OverridePolicy" AutoApplyAlias="false"/>
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="StartLifecyclePolicyPreview" Output="Response" />
     <ServiceOperation MethodName="UploadLayerPart" Exclude="true" />
   </ServiceOperations>
 </ConfigModel>

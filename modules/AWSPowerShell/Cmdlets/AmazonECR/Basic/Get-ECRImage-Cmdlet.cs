@@ -53,8 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RegistryId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID associated with the registry that contains the repository to list
-        /// images in. If you do not specify a registry, the default registry is assumed.</para>
+        /// <para>The AWS account ID associated with the registry that contains the repository in which
+        /// to list images. If you do not specify a registry, the default registry is assumed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter RepositoryName
         /// <summary>
         /// <para>
-        /// <para>The repository whose image IDs are to be listed.</para>
+        /// <para>The repository with image IDs to be listed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

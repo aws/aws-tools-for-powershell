@@ -45,8 +45,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about Easy DKIM signing, go to the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon
-    /// SES Developer Guide</a>.</i></para>
+    /// For more information about Easy DKIM signing, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "SESIdentityDkimEnabled", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

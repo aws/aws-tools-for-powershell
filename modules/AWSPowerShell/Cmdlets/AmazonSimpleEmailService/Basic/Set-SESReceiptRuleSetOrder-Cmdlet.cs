@@ -35,8 +35,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// API will return an error if the reorder request doesn't explicitly position all of
     /// the rules.
     /// </para></note><para>
-    /// For information about managing receipt rule sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
-    /// SES Developer Guide</a>.</i></para><para>
+    /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>

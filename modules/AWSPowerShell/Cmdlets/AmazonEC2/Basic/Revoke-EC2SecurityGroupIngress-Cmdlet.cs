@@ -59,7 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupId
         /// <summary>
         /// <para>
-        /// <para>The ID of the security group. Required for a security group in a nondefault VPC.</para>
+        /// <para>The ID of the security group. You must specify either the security group ID or the
+        /// security group name in the request. For security groups in a nondefault VPC, you must
+        /// specify the security group ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -69,7 +71,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>[EC2-Classic, default VPC] The name of the security group.</para>
+        /// <para>[EC2-Classic, default VPC] The name of the security group. You must specify either
+        /// the security group ID or the security group name in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpPermission
         /// <summary>
         /// <para>
-        /// <para>A set of IP permissions. You can't specify a source security group and a CIDR IP address
-        /// range.</para>
+        /// <para>One or more sets of IP permissions. You can't specify a source security group and
+        /// a CIDR IP address range in the same set of permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -51,6 +51,18 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     public partial class StartOWCMMaintenanceCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
         
+        #region Parameter EngineAttribute
+        /// <summary>
+        /// <para>
+        /// <para>Engine attributes that are specific to the server on which you want to run maintenance.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EngineAttributes")]
+        public Amazon.OpsWorksCM.Model.EngineAttribute[] EngineAttribute { get; set; }
+        #endregion
+        
         #region Parameter ServerName
         /// <summary>
         /// <para>
@@ -90,6 +102,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.EngineAttribute != null)
+            {
+                context.EngineAttributes = new List<Amazon.OpsWorksCM.Model.EngineAttribute>(this.EngineAttribute);
+            }
             context.ServerName = this.ServerName;
             
             // allow further manipulation of loaded context prior to processing
@@ -107,6 +123,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             // create request
             var request = new Amazon.OpsWorksCM.Model.StartMaintenanceRequest();
             
+            if (cmdletContext.EngineAttributes != null)
+            {
+                request.EngineAttributes = cmdletContext.EngineAttributes;
+            }
             if (cmdletContext.ServerName != null)
             {
                 request.ServerName = cmdletContext.ServerName;
@@ -175,6 +195,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.OpsWorksCM.Model.EngineAttribute> EngineAttributes { get; set; }
             public System.String ServerName { get; set; }
         }
         

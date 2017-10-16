@@ -30,15 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// <summary>
     /// Provides a list of the configuration sets associated with your Amazon SES account.
     /// For information about using configuration sets, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Monitoring
-    /// Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide</i>.
-    /// 
-    ///  
-    /// <para>
+    /// Your Amazon SES Sending Activity</a> in the <i>Amazon SES Developer Guide.</i><para>
     /// You can execute this operation no more than once per second. This operation will return
-    /// up to 50 configuration sets each time it is run. If your Amazon SES account has more
-    /// than 50 configuration sets, this operation will also return a NextToken element. You
-    /// can then execute the <code>ListConfigurationSets</code> operation again, passing the
-    /// <code>NextToken</code> parameter and the value of the NextToken element to retrieve
+    /// up to 1,000 configuration sets each time it is run. If your Amazon SES account has
+    /// more than 1,000 configuration sets, this operation will also return a NextToken element.
+    /// You can then execute the <code>ListConfigurationSets</code> operation again, passing
+    /// the <code>NextToken</code> parameter and the value of the NextToken element to retrieve
     /// additional results.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>

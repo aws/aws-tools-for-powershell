@@ -40,11 +40,10 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </para>
     /// </summary>
     [Cmdlet("Get", "OWCMNodeAssociationStatus")]
-    [OutputType("Amazon.OpsWorksCM.NodeAssociationStatus")]
+    [OutputType("Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse")]
     [AWSCmdlet("Invokes the DescribeNodeAssociationStatus operation against AWS OpsWorksCM.", Operation = new[] {"DescribeNodeAssociationStatus"})]
-    [AWSCmdletOutput("Amazon.OpsWorksCM.NodeAssociationStatus",
-        "This cmdlet returns a NodeAssociationStatus object.",
-        "The service call response (type Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse",
+        "This cmdlet returns a Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetOWCMNodeAssociationStatusCmdlet : AmazonOpsWorksCMClientCmdlet, IExecutor
     {
@@ -52,7 +51,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter NodeAssociationStatusToken
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The token returned in either the AssociateNodeResponse or the DisassociateNodeResponse.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.NodeAssociationStatus;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

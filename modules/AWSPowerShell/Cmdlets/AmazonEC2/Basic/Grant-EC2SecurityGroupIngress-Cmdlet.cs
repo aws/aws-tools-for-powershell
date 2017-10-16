@@ -87,7 +87,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpPermission
         /// <summary>
         /// <para>
-        /// <para>A set of IP permissions. Can be used to specify multiple rules in a single command.</para>
+        /// <para>One or more sets of IP permissions. Can be used to specify multiple rules in a single
+        /// command.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

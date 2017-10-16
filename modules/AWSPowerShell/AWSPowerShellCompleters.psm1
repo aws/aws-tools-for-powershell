@@ -2588,7 +2588,8 @@ $ECR_Completers = {
         # Amazon.ECR.TagStatus
         {
             ($_ -eq "Get-ECRImage/Filter_TagStatus") -Or
-            ($_ -eq "Get-ECRImageMetadata/Filter_TagStatus")
+            ($_ -eq "Get-ECRImageMetadata/Filter_TagStatus") -Or
+            ($_ -eq "Get-ECRLifecyclePolicyPreview/Filter_TagStatus")
         }
         {
             $v = "TAGGED","UNTAGGED"
@@ -2603,7 +2604,7 @@ $ECR_Completers = {
 }
 
 $ECR_map = @{
-    "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata")
+    "Filter_TagStatus"=@("Get-ECRImage","Get-ECRImageMetadata","Get-ECRLifecyclePolicyPreview")
 }
 
 _awsArgumentCompleterRegistration $ECR_Completers $ECR_map
@@ -4292,7 +4293,7 @@ $POL_Completers = {
         # Amazon.Polly.VoiceId
         "Get-POLSpeech/VoiceId"
         {
-            $v = "Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Tatyana","Vicki","Vitoria"
+            $v = "Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Takumi","Tatyana","Vicki","Vitoria"
             break
         }
         

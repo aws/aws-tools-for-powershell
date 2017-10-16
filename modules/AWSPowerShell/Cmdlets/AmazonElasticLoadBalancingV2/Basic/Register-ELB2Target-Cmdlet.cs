@@ -32,16 +32,17 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// 
     ///  
     /// <para>
+    /// You can register targets by instance ID or by IP address. If the target is an EC2
+    /// instance, it must be in the <code>running</code> state when you register it.
+    /// </para><para>
     /// By default, the load balancer routes requests to registered targets using the protocol
-    /// and port number for the target group. Alternatively, you can override the port for
-    /// a target when you register it.
+    /// and port for the target group. Alternatively, you can override the port for a target
+    /// when you register it. You can register each EC2 instance or IP address with the same
+    /// target group multiple times using different ports.
     /// </para><para>
-    /// The target must be in the virtual private cloud (VPC) that you specified for the target
-    /// group. If the target is an EC2 instance, it must be in the <code>running</code> state
-    /// when you register it.
-    /// </para><para>
-    /// Network Load Balancers do not support the following instance types as targets: C1,
-    /// CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1, HS1, M1, M2, M3, and T1.
+    /// With a Network Load Balancer, you cannot register instances by instance ID if they
+    /// have the following instance types: C1, CC1, CC2, CG1, CG2, CR1, CS1, G1, G2, HI1,
+    /// HS1, M1, M2, M3, and T1. You can register instances of these types by IP address.
     /// </para><para>
     /// To remove a target from a target group, use <a>DeregisterTargets</a>.
     /// </para>
@@ -69,9 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Target
         /// <summary>
         /// <para>
-        /// <para>The targets. The default port for a target is the port for the target group. You can
-        /// specify a port override. If a target is already registered, you can register it again
-        /// using a different port.</para>
+        /// <para>The targets.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

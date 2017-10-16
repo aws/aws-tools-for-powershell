@@ -28,9 +28,9 @@ using Amazon.ECR.Model;
 namespace Amazon.PowerShell.Cmdlets.ECR
 {
     /// <summary>
-    /// Inform Amazon ECR that the image layer upload for a specified registry, repository
-    /// name, and upload ID, has completed. You can optionally provide a <code>sha256</code>
-    /// digest of the image layer for data validation purposes.
+    /// Informs Amazon ECR that the image layer upload has completed for a specified registry,
+    /// repository name, and upload ID. You can optionally provide a <code>sha256</code> digest
+    /// of the image layer for data validation purposes.
     /// 
     ///  <note><para>
     /// This operation is used by the Amazon ECR proxy, and it is not intended for general

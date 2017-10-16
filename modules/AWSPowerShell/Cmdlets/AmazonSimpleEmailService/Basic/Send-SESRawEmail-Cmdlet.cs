@@ -45,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// If your account is still in the Amazon SES sandbox, you may only send to verified
     /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
     /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
-    /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para></li><li><para>
+    /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
     /// The total size of the message, including attachments, must be smaller than 10 MB.
     /// </para></li><li><para>
     /// The message must include at least one recipient email address. The recipient address
@@ -64,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// in the To:, CC: and BCC: fields) is counted against the maximum number of emails you
     /// can send in a 24-hour period (your <i>sending quota</i>). For more information about
     /// sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing
-    /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para></important><para>
+    /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></para></important><para>
     /// Additionally, keep the following considerations in mind when using the <code>SendRawEmail</code>
     /// operation:
     /// </para><ul><li><para>
@@ -89,8 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// parameter, Amazon SES will set the From and Return Path addresses to the identity
     /// specified in <code>SourceIdentityArn</code>. For more information about sending authorization,
     /// see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Using
-    /// Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para></li></ul>
+    /// Sending Authorization with Amazon SES</a> in the <i>Amazon SES Developer Guide.</i></para></li></ul>
     /// </summary>
     [Cmdlet("Send", "SESRawEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -123,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses.
         /// For more information, see the documentation for <code>SendRawEmail</code>. </para><important><para>Do not include these X-headers in the DKIM signature, because they are removed by
         /// Amazon SES before sending the email.</para></important><para>For more information, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon
-        /// SES Developer Guide</a>. </para>
+        /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

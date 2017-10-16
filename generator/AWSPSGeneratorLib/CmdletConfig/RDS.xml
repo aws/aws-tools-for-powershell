@@ -113,6 +113,7 @@
     <ServiceOperation MethodName="DescribePendingMaintenanceActions" PipelineParameter="ResourceIdentifier" Noun="PendingMaintenanceAction" LegacyAlias="Get-RDSPendingMaintenanceActions"/>
     <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" PipelineParameter="ReservedDBInstancesOfferingId" Noun="ReservedDBInstancesOfferingList" LegacyAlias="Get-RDSReservedDBInstancesOfferings"/>
     <ServiceOperation MethodName="DescribeSourceRegions" Noun="SourceRegion" />
+    <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Noun="ValidDBInstanceModification" />
     <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" />
     <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceName"/>
     <ServiceOperation MethodName="ModifyDBCluster" ShouldProcessTarget="DBClusterIdentifier" />

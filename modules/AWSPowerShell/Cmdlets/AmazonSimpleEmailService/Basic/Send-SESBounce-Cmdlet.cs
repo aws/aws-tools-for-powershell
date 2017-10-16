@@ -36,8 +36,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// You cannot use this API to send generic bounces for mail that was not received by
     /// Amazon SES.
     /// </para></note><para>
-    /// For information about receiving email through Amazon SES, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
-    /// SES Developer Guide</a>.</i></para><para>
+    /// For information about receiving email through Amazon SES, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>

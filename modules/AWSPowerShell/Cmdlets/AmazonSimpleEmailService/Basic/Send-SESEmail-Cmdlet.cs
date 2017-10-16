@@ -40,8 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// If your account is still in the Amazon SES sandbox, you may only send to verified
     /// addresses or domains, or to email addresses associated with the Amazon SES Mailbox
     /// Simulator. For more information, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Verifying
-    /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para></li><li><para>
+    /// Email Addresses and Domains</a> in the <i>Amazon SES Developer Guide.</i></para></li><li><para>
     /// The total size of the message, including attachments, must be smaller than 10 MB.
     /// </para></li><li><para>
     /// The message must include at least one recipient email address. The recipient address
@@ -59,8 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// in the To:, CC: and BCC: fields) is counted against the maximum number of emails you
     /// can send in a 24-hour period (your <i>sending quota</i>). For more information about
     /// sending quotas in Amazon SES, see <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html">Managing
-    /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide</i>.
-    /// </para></important>
+    /// Your Amazon SES Sending Limits</a> in the <i>Amazon SES Developer Guide.</i></para></important>
     /// </summary>
     [Cmdlet("Send", "SESEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -206,7 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// attaches a policy to it that authorizes you to use <code>feedback@example.com</code>,
         /// then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
         /// and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</para><para>For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-        /// SES Developer Guide</a>. </para>
+        /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -242,7 +240,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// attaches a policy to it that authorizes you to send from <code>user@example.com</code>,
         /// then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>,
         /// and the <code>Source</code> to be <code>user@example.com</code>.</para><para>For more information about sending authorization, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon
-        /// SES Developer Guide</a>. </para>
+        /// SES Developer Guide</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

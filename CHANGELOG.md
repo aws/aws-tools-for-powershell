@@ -1,3 +1,19 @@
+### 3.3.172.0 (2017-10-16)
+  * AWS Elastic Beanstalk
+    * Added support for tagging environments, including two additional cmdlets Get-EBResourceTag (ListResourceTags API) and Update-EBResourceTag (UpdateResourceTags API).
+  * AWS CodeCommit
+    * Added support for the new DeleteBranch API with cmdlet Remove-CCBranch.
+  * Amazon EC2 Container Registry
+    * Added cmdlets to support new APIs for repository lifecycle policies. Lifecycle policies enable you to specify the lifecycle management of images in a repository. The configuration is a set of one or more rules, where each rule defines an action for Amazon ECR to apply to an image. This allows the automation of cleaning up unused images, for example expiring images based on age or status. A lifecycle policy preview API is provided as well, which allows you to see the impact of a lifecycle policy on an image repository before you execute it.
+  * Elastic Load Balancing v2
+    * Added cmdlets to support Server Name Indication (SNI). Server Name Indication (SNI) is an extension to the TLS protocol by which a client indicates the hostname to connect to at the start of the TLS handshake. The load balancer can present multiple certificates through the same secure listener, which enables it to support multiple secure websites using a single secure listener. Application Load Balancers also support a smart certificate selection algorithm with SNI. If the hostname indicated by a client matches multiple certificates, the load balancer determines the best certificate to use based on multiple factors including the capabilities of the client. The new cmdlets are Add-ELB2ListenerCertificate (AddListenerCertificates API), Get-ELB2ListenerCertificate (DescribeListenerCertificates API) and Remove-ELB2ListenerCertificate (RemoveListenerCertificates API).
+  * AWS OpsWorks CM
+    * [BREAKING CHANGE] The service response data from the DescribeNodeAssociationStatus API (Get-OWCMNodeAssociationStatus cmdlet) has been updated to include additional fields. This cmdlet therefore now emits the service response object to the pipeline.
+  * Amazon Relational Database Service
+    * Added new cmdlet Get-RDSValidDBInstanceModification (DescribeValidDBInstanceModifications API) enabling you to query what modifications can be made to your DB instance.
+  * Amazon Simple Email Service
+    * Added cmdlets to support new service APIs related to email template management and templated email sending operations.
+
 ### 3.3.169.0 (2017-10-09)
   * AWS Lambda
     * Revised parameter sets and mandatory parameters for the Update-LMFunctionCode and Publish-LMFunction cmdlets based on user feedback. Also made the options for how the function code can be supplied the same.

@@ -32,9 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// 
     ///  
     /// <para>
-    /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">Adding
-    /// an IPsec Hardware VPN to Your VPC</a> in the <i>Amazon Virtual Private Cloud User
-    /// Guide</i>.
+    /// For more information about virtual private gateways, see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html">AWS
+    /// Managed VPN Connections</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EC2VpnGateway")]
@@ -50,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>attachment.state</code> - The current state of the attachment between the gateway
+        /// <para>One or more filters.</para><ul><li><para><code>amazon-side-asn</code> - The Autonomous System Number (ASN) for the Amazon
+        /// side of the gateway.</para></li><li><para><code>attachment.state</code> - The current state of the attachment between the gateway
         /// and the VPC (<code>attaching</code> | <code>attached</code> | <code>detaching</code>
         /// | <code>detached</code>).</para></li><li><para><code>attachment.vpc-id</code> - The ID of an attached VPC.</para></li><li><para><code>availability-zone</code> - The Availability Zone for the virtual private gateway
         /// (if applicable).</para></li><li><para><code>state</code> - The state of the virtual private gateway (<code>pending</code>

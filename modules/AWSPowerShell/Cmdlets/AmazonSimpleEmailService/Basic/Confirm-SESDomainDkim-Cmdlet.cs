@@ -42,8 +42,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// To enable or disable Easy DKIM signing for a domain, use the <code>SetIdentityDkimEnabled</code>
     /// operation.
     /// </para><para>
-    /// For more information about creating DNS records using DKIM tokens, go to the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon
-    /// SES Developer Guide</a>.</i></para>
+    /// For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Confirm", "SESDomainDkim", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

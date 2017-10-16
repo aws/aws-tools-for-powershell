@@ -27,6 +27,7 @@
 
   <TypesNotToFlatten>
     <Type>Amazon.SimpleEmail.Model.TrackingOptions</Type>
+    <Type>Amazon.SimpleEmail.Model.Template</Type>
   </TypesNotToFlatten>
 
   <ServiceOperations>
@@ -92,6 +93,14 @@
                       Noun="ConfigurationSetTrackingOption"
                       Output="Void" />
 
+    <ServiceOperation MethodName="GetTemplate" />
+    <ServiceOperation MethodName="ListTemplates" Noun="TemplateList" />
+    <ServiceOperation MethodName="SendBulkTemplatedEmail" PipelineParameter="TemplateData" ShouldProcessTarget="Source" />
+    <ServiceOperation MethodName="SendTemplatedEmail" PipelineParameter="TemplateData" ShouldProcessTarget="Source" />
+    <ServiceOperation MethodName="TestRenderTemplate" PipelineParameter="TemplateData" />
+    <ServiceOperation MethodName="UpdateTemplate" Output="Void" />
+    <ServiceOperation MethodName="CreateTemplate" Output="Void" />
+    <ServiceOperation MethodName="DeleteTemplate" Output="Void" />
   </ServiceOperations>
 
   <PipelineByValueProperties>

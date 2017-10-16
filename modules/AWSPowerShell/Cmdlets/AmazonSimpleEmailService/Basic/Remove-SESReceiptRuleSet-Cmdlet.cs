@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     ///  <note><para>
     /// The currently active rule set cannot be deleted.
     /// </para></note><para>
-    /// For information about managing receipt rule sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
-    /// SES Developer Guide</a>.</i></para><para>
+    /// For information about managing receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-managing-receipt-rule-sets.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>

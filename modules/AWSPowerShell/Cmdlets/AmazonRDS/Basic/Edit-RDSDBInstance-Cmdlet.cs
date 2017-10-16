@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// Modifies settings for a DB instance. You can change one or more database configuration
-    /// parameters by specifying these parameters and the new values in the request.
+    /// parameters by specifying these parameters and the new values in the request. To learn
+    /// what modifications you can make to your DB instance, call <a>DescribeValidDBInstanceModifications</a>
+    /// before you call <a>ModifyDBInstance</a>.
     /// </summary>
     [Cmdlet("Edit", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
@@ -176,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The DB instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must be the identifier for an existing DB instance</para></li><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// <para>The DB instance identifier. This value is stored as a lowercase string.</para><para>Constraints:</para><ul><li><para>Must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -216,7 +218,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of DB security groups to authorize on this DB instance. Changing this setting
-        /// does not result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// does not result in an outage and the change is asynchronously applied as soon as possible.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing DBSecurityGroups.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -233,8 +235,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_VPC.WorkingWithRDSInstanceinaVPC.html#USER_VPC.Non-VPC2VPC">Updating
         /// the VPC for a DB Instance</a>. </para><para>Changing the subnet group causes an outage during the change. The change is applied
         /// during the next maintenance window, unless you specify <code>true</code> for the <code>ApplyImmediately</code>
-        /// parameter. </para><para>Constraints: Must contain no more than 255 alphanumeric characters, periods, underscores,
-        /// spaces, or hyphens.</para><para>Example: <code>mySubnetGroup</code></para>
+        /// parameter. </para><para>Constraints: If supplied, must match the name of an existing DBSubnetGroup.</para><para>Example: <code>mySubnetGroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -349,11 +350,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
-        /// more information, see <a>ModifyDBCluster</a>.</para><para>Default: Uses existing setting</para><para>Constraints: Must be 8 to 41 alphanumeric characters (MySQL, MariaDB, and Amazon Aurora),
-        /// 8 to 30 alphanumeric characters (Oracle), or 8 to 128 alphanumeric characters (SQL
-        /// Server).</para><note><para>Amazon RDS API actions never return the password, so this action provides a way to
+        /// more information, see <a>ModifyDBCluster</a>. </para><para>Default: Uses existing setting</para><para><b>MariaDB</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Microsoft SQL Server</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><para><b>MySQL</b></para><para>Constraints: Must contain from 8 to 41 characters.</para><para><b>Oracle</b></para><para>Constraints: Must contain from 8 to 30 characters.</para><para><b>PostgreSQL</b></para><para>Constraints: Must contain from 8 to 128 characters.</para><note><para>Amazon RDS API actions never return the password, so this action provides a way to
         /// regain access to a primary instance user if the password is lost. This includes restoring
-        /// privileges that might have been accidentally revoked.</para></note>
+        /// privileges that might have been accidentally revoked. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -407,7 +406,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// you change the DB instance identifier, an instance reboot will occur immediately if
         /// you set <code>Apply Immediately</code> to true, or will occur during the next maintenance
         /// window if <code>Apply Immediately</code> to false. This value is stored as a lowercase
-        /// string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// string. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 letters, numbers, or hyphens.</para></li><li><para>The first character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li></ul><para>Example: <code>mydbinstance</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -539,7 +538,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A list of EC2 VPC security groups to authorize on this DB instance. This change is
         /// asynchronously applied as soon as possible.</para><para><b>Amazon Aurora</b></para><para>Not applicable. The associated list of EC2 VPC security groups is managed by the DB
-        /// cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>If supplied, must match existing VpcSecurityGroupIds.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

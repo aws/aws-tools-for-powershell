@@ -30,6 +30,13 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// <summary>
     /// Returns table statistics on the database migration task, including table name, rows
     /// inserted, rows updated, and rows deleted.
+    /// 
+    ///  
+    /// <para>
+    /// Note that the "last updated" column the DMS console only indicates the time that AWS
+    /// DMS last updated the table statistics record for a table. It does not indicate the
+    /// time of the last update to the table.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "DMSTableStatistic")]
     [OutputType("Amazon.DatabaseMigrationService.Model.DescribeTableStatisticsResponse")]
@@ -39,6 +46,18 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     )]
     public partial class GetDMSTableStatisticCmdlet : AmazonDatabaseMigrationServiceClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>Filters applied to the describe table statistics action.</para><para>Valid filter names: schema-name | table-name | table-state</para><para>A combination of filters creates an AND condition where each record matches all specified
+        /// filters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.DatabaseMigrationService.Model.Filter[] Filter { get; set; }
+        #endregion
         
         #region Parameter ReplicationTaskArn
         /// <summary>
@@ -71,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// <para>
         /// <para> The maximum number of records to include in the response. If more records exist than
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
-        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 100.</para>
+        /// included in the response so that the remaining results can be retrieved. </para><para>Default: 100</para><para>Constraints: Minimum 20, maximum 500.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,6 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.DatabaseMigrationService.Model.Filter>(this.Filter);
+            }
             context.Marker = this.Marker;
             if (ParameterWasBound("MaxRecord"))
                 context.MaxRecords = this.MaxRecord;
@@ -112,6 +135,10 @@ namespace Amazon.PowerShell.Cmdlets.DMS
             // create request
             var request = new Amazon.DatabaseMigrationService.Model.DescribeTableStatisticsRequest();
             
+            if (cmdletContext.Filters != null)
+            {
+                request.Filters = cmdletContext.Filters;
+            }
             if (cmdletContext.Marker != null)
             {
                 request.Marker = cmdletContext.Marker;
@@ -188,6 +215,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.DatabaseMigrationService.Model.Filter> Filters { get; set; }
             public System.String Marker { get; set; }
             public System.Int32? MaxRecords { get; set; }
             public System.String ReplicationTaskArn { get; set; }

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         #region Parameter Certificate
         /// <summary>
         /// <para>
-        /// <para>The SSL server certificate.</para>
+        /// <para>The default SSL server certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
         /// cannot be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter.
-        /// This parameter is not case-sensitive. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// This parameter is not case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBCluster.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>A specific DB cluster snapshot identifier to describe. This parameter cannot be used
         /// in conjunction with the <code>DBClusterIdentifier</code> parameter. This value is
-        /// stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBClusterSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
         /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>

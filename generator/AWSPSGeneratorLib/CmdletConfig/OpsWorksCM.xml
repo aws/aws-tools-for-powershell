@@ -23,7 +23,7 @@
     <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute"/>
     <ServiceOperation MethodName="DescribeBackups" Verb="Get" Noun="BackupList"/>
     <ServiceOperation MethodName="DescribeEvents" Verb="Get" Noun="EventList"/>
-    <ServiceOperation MethodName="DescribeNodeAssociationStatus" />
+    <ServiceOperation MethodName="DescribeNodeAssociationStatus" Output="Response" />
     <ServiceOperation MethodName="DescribeServers" Verb="Get" Noun="ServerList"/>
     <ServiceOperation MethodName="DisassociateNode" Verb="Remove"/>
     <ServiceOperation MethodName="RestoreServer" Output="Void"/>

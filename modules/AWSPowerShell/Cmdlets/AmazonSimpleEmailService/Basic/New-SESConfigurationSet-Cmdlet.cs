@@ -33,8 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     ///  
     /// <para>
     /// Configuration sets enable you to publish email sending events. For information about
-    /// using configuration sets, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
-    /// SES Developer Guide</a>.</i></para><para>
+    /// using configuration sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para><para>
     /// You can execute this operation no more than once per second.
     /// </para>
     /// </summary>

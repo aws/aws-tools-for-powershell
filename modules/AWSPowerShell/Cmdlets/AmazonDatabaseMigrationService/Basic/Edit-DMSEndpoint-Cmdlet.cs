@@ -232,7 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ExtraConnectionAttribute
         /// <summary>
         /// <para>
-        /// <para>Additional attributes associated with the connection.</para>
+        /// <para>Additional attributes associated with the connection. To reset this parameter, pass
+        /// the empty string ("") as an argument.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

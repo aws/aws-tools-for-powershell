@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter IpPermission
         /// <summary>
         /// <para>
-        /// <para>A set of IP permissions. You can't specify a destination security group and a CIDR
-        /// IP address range.</para>
+        /// <para>One or more sets of IP permissions. You can't specify a destination security group
+        /// and a CIDR IP address range in the same set of permissions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

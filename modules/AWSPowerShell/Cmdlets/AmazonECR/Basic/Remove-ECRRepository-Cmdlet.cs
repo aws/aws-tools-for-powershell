@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         #region Parameter IgnoreExistingImages
         /// <summary>
         /// <para>
-        /// <para>Force the deletion of the repository if it contains images.</para>
+        /// <para> If a repository contains images, forces the deletion.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

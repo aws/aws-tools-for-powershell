@@ -253,7 +253,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para> The service role that the AWS OpsWorks for Chef Automate service backend uses to
         /// work with your account. Although the AWS OpsWorks management console typically creates
         /// the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml
-        /// AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-stuff/latest/service-role-creation.yaml.
+        /// AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
         /// This template creates a CloudFormation stack that includes the service role that you
         /// need. </para>
         /// </para>
@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para> The IDs of subnets in which to launch the server EC2 instance. </para><para> Amazon EC2-Classic customers: This field is required. All servers must run within
         /// a VPC. The VPC must have "Auto Assign Public IP" enabled. </para><para> EC2-VPC customers: This field is optional. If you do not specify subnet IDs, your
         /// EC2 instances are created in a default subnet that is selected by Amazon EC2. If you
-        /// specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled. </para><para>For more information about supported Amazon EC2 platforms, see <a href="http://docs.aws.amazon.com/https:/docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
+        /// specify subnet IDs, the VPC must have "Auto Assign Public IP" enabled. </para><para>For more information about supported Amazon EC2 platforms, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html">Supported
         /// Platforms</a>.</para>
         /// </para>
         /// </summary>

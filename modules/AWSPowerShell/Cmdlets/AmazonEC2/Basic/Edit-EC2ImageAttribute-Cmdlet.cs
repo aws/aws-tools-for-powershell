@@ -29,16 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Modifies the specified attribute of the specified AMI. You can specify only one attribute
-    /// at a time.
+    /// at a time. You can use the <code>Attribute</code> parameter to specify the attribute
+    /// or one of the following parameters: <code>Description</code>, <code>LaunchPermission</code>,
+    /// or <code>ProductCode</code>.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
     /// AWS Marketplace product codes cannot be modified. Images with an AWS Marketplace product
     /// code cannot be made public.
-    /// </para></note><note><para>
-    /// The SriovNetSupport enhanced networking attribute cannot be changed using this command.
-    /// Instead, enable SriovNetSupport on an instance and create an AMI from the instance.
-    /// This will result in an image with SriovNetSupport enabled.
-    /// </para></note>
+    /// </para><para>
+    /// To enable the SriovNetSupport enhanced networking attribute of an image, enable SriovNetSupport
+    /// on an instance and create an AMI from the instance.
+    /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2ImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -63,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Attribute
         /// <summary>
         /// <para>
-        /// <para>The name of the attribute to modify.</para>
+        /// <para>The name of the attribute to modify. The valid values are <code>description</code>,
+        /// <code>launchPermission</code>, and <code>productCodes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>A description for the AMI.</para>
+        /// <para>A new description for the AMI.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter OperationType
         /// <summary>
         /// <para>
-        /// <para>The operation type.</para>
+        /// <para>The operation type. This parameter can be used only when the <code>Attribute</code>
+        /// parameter is <code>launchPermission</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,8 +108,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ProductCode
         /// <summary>
         /// <para>
-        /// <para>One or more product codes. After you add a product code to an AMI, it can't be removed.
-        /// This is only valid when modifying the <code>productCodes</code> attribute.</para>
+        /// <para>One or more DevPay product codes. After you add a product code to an AMI, it can't
+        /// be removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -126,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserGroup
         /// <summary>
         /// <para>
-        /// <para>One or more user groups. This is only valid when modifying the <code>launchPermission</code>
-        /// attribute.</para>
+        /// <para>One or more user groups. This parameter can be used only when the <code>Attribute</code>
+        /// parameter is <code>launchPermission</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -138,8 +142,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter UserId
         /// <summary>
         /// <para>
-        /// <para>One or more AWS account IDs. This is only valid when modifying the <code>launchPermission</code>
-        /// attribute.</para>
+        /// <para>One or more AWS account IDs. This parameter can be used only when the <code>Attribute</code>
+        /// parameter is <code>launchPermission</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -150,8 +154,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Value
         /// <summary>
         /// <para>
-        /// <para>The value of the attribute being modified. This is only valid when modifying the <code>description</code>
-        /// attribute.</para>
+        /// <para>The value of the attribute being modified. This parameter can be used only when the
+        /// <code>Attribute</code> parameter is <code>description</code> or <code>productCodes</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

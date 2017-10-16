@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The ID of the DB instance to retrieve the list of DB snapshots for. This parameter
         /// cannot be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
-        /// is not case-sensitive. </para><para>Constraints:</para><ul><li><para>Must contain from 1 to 63 alphanumeric characters or hyphens</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// is not case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction
         /// with <code>DBInstanceIdentifier</code>. This value is stored as a lowercase string.
-        /// </para><para>Constraints:</para><ul><li><para>Must be 1 to 255 alphanumeric characters.</para></li><li><para>First character must be a letter.</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
+        /// </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
         /// must also be specified.</para></li></ul>
         /// </para>
         /// </summary>

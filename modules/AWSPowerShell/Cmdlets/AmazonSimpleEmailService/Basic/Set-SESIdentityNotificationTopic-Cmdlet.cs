@@ -38,8 +38,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </para></note><para>
     /// You can execute this operation no more than once per second.
     /// </para><para>
-    /// For more information about feedback notification, see the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
-    /// SES Developer Guide</a>.</i></para>
+    /// For more information about feedback notification, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Set", "SESIdentityNotificationTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

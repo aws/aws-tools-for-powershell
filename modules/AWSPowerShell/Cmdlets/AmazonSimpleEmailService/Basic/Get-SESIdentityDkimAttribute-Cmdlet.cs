@@ -48,8 +48,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// This operation is throttled at one request per second and can only get DKIM attributes
     /// for up to 100 identities at a time.
     /// </para><para>
-    /// For more information about creating DNS records using DKIM tokens, go to the <i><a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon
-    /// SES Developer Guide</a>.</i></para>
+    /// For more information about creating DNS records using DKIM tokens, go to the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html">Amazon
+    /// SES Developer Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SESIdentityDkimAttribute")]
     [OutputType("System.String")]
