@@ -173,6 +173,18 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Int32 EBSOptions_Iops { get; set; }
         #endregion
         
+        #region Parameter LogPublishingOption
+        /// <summary>
+        /// <para>
+        /// <para>Map of <code>LogType</code> and <code>LogPublishingOption</code>, each containing
+        /// options to publish a given type of Elasticsearch log.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("LogPublishingOptions")]
+        public System.Collections.Hashtable LogPublishingOption { get; set; }
+        #endregion
+        
         #region Parameter EBSOptions_VolumeSize
         /// <summary>
         /// <para>
@@ -261,6 +273,14 @@ namespace Amazon.PowerShell.Cmdlets.ES
             if (ParameterWasBound("ElasticsearchClusterConfig_ZoneAwarenessEnabled"))
                 context.ElasticsearchClusterConfig_ZoneAwarenessEnabled = this.ElasticsearchClusterConfig_ZoneAwarenessEnabled;
             context.ElasticsearchVersion = this.ElasticsearchVersion;
+            if (this.LogPublishingOption != null)
+            {
+                context.LogPublishingOptions = new Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption>(StringComparer.Ordinal);
+                foreach (var hashKey in this.LogPublishingOption.Keys)
+                {
+                    context.LogPublishingOptions.Add((String)hashKey, (LogPublishingOption)(this.LogPublishingOption[hashKey]));
+                }
+            }
             if (ParameterWasBound("SnapshotOptions_AutomatedSnapshotStartHour"))
                 context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
             
@@ -413,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.ES
             {
                 request.ElasticsearchVersion = cmdletContext.ElasticsearchVersion;
             }
+            if (cmdletContext.LogPublishingOptions != null)
+            {
+                request.LogPublishingOptions = cmdletContext.LogPublishingOptions;
+            }
             
              // populate SnapshotOptions
             bool requestSnapshotOptionsIsNull = true;
@@ -510,6 +534,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public Amazon.Elasticsearch.ESPartitionInstanceType ElasticsearchClusterConfig_InstanceType { get; set; }
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
             public System.String ElasticsearchVersion { get; set; }
+            public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOptions { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
         }
         

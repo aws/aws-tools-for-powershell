@@ -2531,6 +2531,13 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.VpcTenancy
+        "Edit-EC2VpcTenancy/InstanceTenancy"
+        {
+            $v = "default"
+            break
+        }
+        
     }
     
     $v |
@@ -2551,7 +2558,7 @@ $EC2_map = @{
     "ExportToS3Task_DiskImageFormat"=@("New-EC2InstanceExportTask")
     "InstanceInitiatedShutdownBehavior"=@("New-EC2Instance")
     "InstanceInterruptionBehavior"=@("Request-EC2SpotInstance")
-    "InstanceTenancy"=@("Get-EC2ReservedInstancesOffering","New-EC2Vpc")
+    "InstanceTenancy"=@("Edit-EC2VpcTenancy","Get-EC2ReservedInstancesOffering","New-EC2Vpc")
     "InstanceType"=@("Get-EC2ReservedInstancesOffering","New-EC2Instance")
     "LaunchSpecification_InstanceType"=@("Request-EC2SpotInstance")
     "LaunchSpecification_Placement_Tenancy"=@("Request-EC2SpotInstance")

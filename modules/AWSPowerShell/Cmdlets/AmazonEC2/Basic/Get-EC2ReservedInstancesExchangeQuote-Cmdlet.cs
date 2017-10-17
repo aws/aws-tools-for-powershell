@@ -28,9 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Returns details about the values and term of your specified Convertible Reserved Instances.
-    /// When a target configuration is specified, it returns information about whether the
-    /// exchange is valid and can be performed.
+    /// Returns a quote and exchange information for exchanging one or more specified Convertible
+    /// Reserved Instances for a new Convertible Reserved Instance. If the exchange cannot
+    /// be performed, the reason is returned in the response. Use <a>AcceptReservedInstancesExchangeQuote</a>
+    /// to perform the exchange.
     /// </summary>
     [Cmdlet("Get", "EC2ReservedInstancesExchangeQuote")]
     [OutputType("Amazon.EC2.Model.GetReservedInstancesExchangeQuoteResponse")]
@@ -55,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configuration requirements of the Convertible Reserved Instances to exchange for
-        /// your current Convertible Reserved Instances.</para>
+        /// <para>The configuration of the target Convertible Reserved Instance to exchange for your
+        /// current Convertible Reserved Instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

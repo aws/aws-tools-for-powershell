@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// than the value of <code>Limit</code>, AWS WAF returns a <code>NextMarker</code> value
         /// in the response that allows you to list another group of <code>IPSets</code>. For
         /// the second and subsequent <code>ListIPSets</code> requests, specify the value of <code>NextMarker</code>
-        /// from the previous response to get information about another batch of <code>ByteMatchSets</code>.</para>
+        /// from the previous response to get information about another batch of <code>IPSets</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

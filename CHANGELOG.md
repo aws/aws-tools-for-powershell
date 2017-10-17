@@ -1,4 +1,4 @@
-### 3.3.172.0 (2017-10-16)
+### 3.3.173.0 (2017-10-16)
   * AWS Elastic Beanstalk
     * Added support for tagging environments, including two additional cmdlets Get-EBResourceTag (ListResourceTags API) and Update-EBResourceTag (UpdateResourceTags API).
   * AWS CodeCommit
@@ -13,6 +13,12 @@
     * Added new cmdlet Get-RDSValidDBInstanceModification (DescribeValidDBInstanceModifications API) enabling you to query what modifications can be made to your DB instance.
   * Amazon Simple Email Service
     * Added cmdlets to support new service APIs related to email template management and templated email sending operations.
+  * Amazon EC2
+    * Added new cmdlet Edit-EC2VpcTenancy (ModifyVpcTenancy API) enabling you to change the tenancy of your VPC from dedicated to default with a single API operation. For more details refer to the documentation for changing VPC tenancy.
+  * AWS WAF
+    * Added cmdlets to support regular expressions as match conditions in rules, and support for geographical location by country of request IP address as a match condition in rules.
+  * AWS WAF Regional
+    * Added cmdlets to support regular expressions as match conditions in rules, and support for geographical location by country of request IP address as a match condition in rules.
 
 ### 3.3.169.0 (2017-10-09)
   * AWS Lambda

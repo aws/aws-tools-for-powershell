@@ -67,5 +67,21 @@
       <AutoIterate Start="NextMarker" Next="NextMarker" ServicePageSize="100" EmitLimit="" />
     </ServiceOperation>
 
+    <ServiceOperation MethodName="UpdateRegexMatchSet" PipelineParameter="RegexMatchSetId" />
+    <ServiceOperation MethodName="UpdateRegexPatternSet" PipelineParameter="RegexPatternSetId" />
+    <ServiceOperation MethodName="GetGeoMatchSet" />
+    <ServiceOperation MethodName="GetRegexMatchSet" />
+    <ServiceOperation MethodName="GetRegexPatternSet" />
+    <ServiceOperation MethodName="ListGeoMatchSets" Noun="GeoMatchSetList" />
+    <ServiceOperation MethodName="ListRegexMatchSets" Noun="RegexMatchSetList" />
+    <ServiceOperation MethodName="ListRegexPatternSets" Noun="RegexPatternSetList" />
+    <ServiceOperation MethodName="UpdateGeoMatchSet" PipelineParameter="GeoMatchSetId" />
+    <ServiceOperation MethodName="CreateGeoMatchSet" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateRegexMatchSet" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="CreateRegexPatternSet" PipelineParameter="Name" Output="Response" />
+    <ServiceOperation MethodName="DeleteGeoMatchSet" PipelineParameter="GeoMatchSetId" />
+    <ServiceOperation MethodName="DeleteRegexMatchSet" PipelineParameter="RegexMatchSetId" />
+    <ServiceOperation MethodName="DeleteRegexPatternSet" PipelineParameter="RegexPatternSetId" />
+
   </ServiceOperations>
 </ConfigModel>

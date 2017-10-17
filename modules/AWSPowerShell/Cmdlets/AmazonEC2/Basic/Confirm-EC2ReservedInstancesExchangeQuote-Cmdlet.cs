@@ -44,8 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ReservedInstanceId
         /// <summary>
         /// <para>
-        /// <para>The IDs of the Convertible Reserved Instances to exchange for other Convertible Reserved
-        /// Instances of the same or higher value.</para>
+        /// <para>The IDs of the Convertible Reserved Instances to exchange for another Convertible
+        /// Reserved Instance of the same or higher value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -56,8 +56,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter TargetConfiguration
         /// <summary>
         /// <para>
-        /// <para>The configurations of the Convertible Reserved Instance offerings that you are purchasing
-        /// in this exchange.</para>
+        /// <para>The configuration of the target Convertible Reserved Instance to exchange for your
+        /// current Convertible Reserved Instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
