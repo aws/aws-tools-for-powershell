@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <para>A launch script you can create that configures a server with additional user data.
         /// For example, you might want to run <code>apt-get –y update</code>.</para><note><para>Depending on the machine image you choose, the command to get software on your instance
         /// varies. Amazon Linux and CentOS use <code>yum</code>, Debian and Ubuntu use <code>apt-get</code>,
-        /// and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href="http://lightsail.aws.amazon.com/ls/docs/getting-started/articles/pre-installed-apps">Dev
+        /// and FreeBSD uses <code>pkg</code>. For a complete list, see the <a href="https://lightsail.aws.amazon.com/ls/docs/getting-started/article/compare-options-choose-lightsail-instance-image">Dev
         /// Guide</a>.</para></note>
         /// </para>
         /// </summary>

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// maximum allowed timeout value is 12 hours. Thus, you can't extend the timeout of a
     /// message in an existing queue to more than a total visibility timeout of 12 hours.
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-    /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// 
     ///  
     /// <para>

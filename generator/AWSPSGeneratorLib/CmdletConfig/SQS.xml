@@ -44,7 +44,10 @@
     <ServiceOperation MethodName="DeleteQueue" Output="Void" ShouldProcessTarget="QueueUrl" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="GetQueueAttributes" Output="Response" PositionalParameters="AttributeNames"/>
     <ServiceOperation MethodName="GetQueueUrl" PipelineParameter="QueueName" PositionalParameters="QueueOwnerAWSAccountId"/>
+    <ServiceOperation MethodName="ListDeadLetterSourceQueues" Noun="DeadLetterSourceQueue" LegacyAlias="Get-SQSDeadLetterSourceQueues"/>
     <ServiceOperation MethodName="ListQueues" PositionalParameters="Attribute"/>
+    <ServiceOperation MethodName="ListQueueTags" Noun="ResourceTag" />
+    <ServiceOperation MethodName="PurgeQueue" Output="Void" Verb="Clear" />
     <ServiceOperation MethodName="ReceiveMessage" PositionalParameters="MaxNumberOfMessages;VisibilityTimeout;AttributeNames;WaitTimeSeconds" ShouldProcessTarget="QueueUrl">
       <Params>
         <!-- bring parameter name into line with other services and suffix with 'InUNITS' -->
@@ -62,10 +65,10 @@
     </ServiceOperation>
     <ServiceOperation MethodName="SendMessageBatch" Output="Response"/>
     <ServiceOperation MethodName="SetQueueAttributes" Output="Void" PositionalParameters="Attributes"/>
-    <ServiceOperation MethodName="ListDeadLetterSourceQueues" Noun="DeadLetterSourceQueue" LegacyAlias="Get-SQSDeadLetterSourceQueues"/>
-    <ServiceOperation MethodName="PurgeQueue" Output="Void" Verb="Clear" />
+    <ServiceOperation MethodName="TagQueue" Verb="Add" Noun="ResourceTag" Output="Void" />
+    <ServiceOperation MethodName="UntagQueue" Verb="Remove" Noun="ResourceTag" Output="Void" />
   </ServiceOperations>
-  
+
   <PipelineByValueProperties>
     <Property>QueueUrl</Property>
     <Property>Id</Property>

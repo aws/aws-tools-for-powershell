@@ -1,3 +1,13 @@
+### 3.3.178.0 (2017-10-24)
+  * Amazon EC2
+    * The Get-EC2SecurityGroup cmdlet has been updated to support automatic pagination of all groups to match the corresponding enhancement in the underlying DescribeSecurityGroups API.
+  * Amazon Elasticsearch
+    * Added cmdlet Remove-ESElasticsearchServiceRole (DeleteElasticsearchServiceRole API).
+  * Amazon EC2 Systems Manager
+    * Updated the Write-SSMParameter cmdlet to return the version of the parameter. Previously the cmdlet, and the underlying service PutParameter API, generated no output.
+  * Amazon SQS
+    * Added new cmdlets to support tracking cost allocation by adding, updating, removing, and listing the metadata tags of Amazon SQS queues. The new cmdlets are Add-SQSResourceTag (TagQueue API), Get-SQSResourceTag (ListQueueTags API) and Remove-SQSResourceTag (UntagQueue API).
+
 ### 3.3.173.0 (2017-10-16)
   * AWS Elastic Beanstalk
     * Added support for tagging environments, including two additional cmdlets Get-EBResourceTag (ListResourceTags API) and Update-EBResourceTag (UpdateResourceTags API).

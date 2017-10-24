@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// parameter to specify the account ID of the queue's owner. The queue's owner must grant
     /// you permission to access the queue. For more information about shared queue access,
     /// see <code><a>AddPermission</a></code> or see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
-    /// Queues</a> in the <i>Amazon SQS Developer Guide</i>. 
+    /// Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. 
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SQSQueueUrl")]

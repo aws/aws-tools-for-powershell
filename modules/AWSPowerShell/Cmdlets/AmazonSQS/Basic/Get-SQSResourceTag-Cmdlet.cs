@@ -28,30 +28,45 @@ using Amazon.SQS.Model;
 namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute
-    /// configured with a dead-letter queue.
+    /// List all cost allocation tags added to the specified Amazon SQS queue. For an overview,
+    /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-tagging-queues.html">Tagging
+    /// Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
-    /// For more information about using dead-letter queues, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
-    /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon Simple Queue Service Developer
-    /// Guide</i>.
+    /// When you use queue tags, keep the following guidelines in mind:
+    /// </para><ul><li><para>
+    /// Adding more than 50 tags to a queue isn't recommended.
+    /// </para></li><li><para>
+    /// Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.
+    /// </para></li><li><para>
+    /// Tags are case-sensitive.
+    /// </para></li><li><para>
+    /// A new tag with a key identical to that of an existing tag overwrites the existing
+    /// tag.
+    /// </para></li><li><para>
+    /// Tagging API actions are limited to 5 TPS per AWS account. If your application requires
+    /// a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical
+    /// support request</a>.
+    /// </para></li></ul><para>
+    /// For a full list of tag restrictions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">Limits
+    /// Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Get", "SQSDeadLetterSourceQueue")]
+    [Cmdlet("Get", "SQSResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListDeadLetterSourceQueues operation against Amazon Simple Queue Service.", Operation = new[] {"ListDeadLetterSourceQueues"}, LegacyAlias="Get-SQSDeadLetterSourceQueues")]
+    [AWSCmdlet("Invokes the ListQueueTags operation against Amazon Simple Queue Service.", Operation = new[] {"ListQueueTags"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service call response (type Amazon.SQS.Model.ListQueueTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSQSDeadLetterSourceQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class GetSQSResourceTagCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
         #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The URL of a dead-letter queue.</para><para>Queue URLs are case-sensitive.</para>
+        /// <para>The URL of the queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -86,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest();
+            var request = new Amazon.SQS.Model.ListQueueTagsRequest();
             
             if (cmdletContext.QueueUrl != null)
             {
@@ -101,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.QueueUrls;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -126,16 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest request)
+        private Amazon.SQS.Model.ListQueueTagsResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListQueueTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ListDeadLetterSourceQueues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ListQueueTags");
             try
             {
                 #if DESKTOP
-                return client.ListDeadLetterSourceQueues(request);
+                return client.ListQueueTags(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListDeadLetterSourceQueuesAsync(request);
+                var task = client.ListQueueTagsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"

@@ -22,83 +22,70 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleSystemsManagement;
-using Amazon.SimpleSystemsManagement.Model;
+using Amazon.SQS;
+using Amazon.SQS.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SSM
+namespace Amazon.PowerShell.Cmdlets.SQS
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified resource. Tags are metadata
-    /// that you can assign to your documents, managed instances, Maintenance Windows, Parameter
-    /// Store parameters, and patch baselines. Tags enable you to categorize your resources
-    /// in different ways, for example, by purpose, owner, or environment. Each tag consists
-    /// of a key and an optional value, both of which you define. For example, you could define
-    /// a set of tags for your account's managed instances that helps you track each instance's
-    /// owner and stack level. For example: Key=Owner and Value=DbAdmin, SysAdmin, or Dev.
-    /// Or Key=Stack and Value=Production, Pre-Production, or Test.
+    /// Add cost allocation tags to the specified Amazon SQS queue. For an overview, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-tagging-queues.html">Tagging
+    /// Amazon SQS Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// 
     ///  
     /// <para>
-    /// Each resource can have a maximum of 10 tags. 
-    /// </para><para>
-    /// We recommend that you devise a set of tag keys that meets your needs for each resource
-    /// type. Using a consistent set of tag keys makes it easier for you to manage your resources.
-    /// You can search and filter the resources based on the tags you add. Tags don't have
-    /// any semantic meaning to Amazon EC2 and are interpreted strictly as a string of characters.
-    /// 
-    /// </para><para>
-    /// For more information about tags, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging
-    /// Your Amazon EC2 Resources</a> in the <i>Amazon EC2 User Guide</i>.
+    /// When you use queue tags, keep the following guidelines in mind:
+    /// </para><ul><li><para>
+    /// Adding more than 50 tags to a queue isn't recommended.
+    /// </para></li><li><para>
+    /// Tags don't have any semantic meaning. Amazon SQS interprets tags as character strings.
+    /// </para></li><li><para>
+    /// Tags are case-sensitive.
+    /// </para></li><li><para>
+    /// A new tag with a key identical to that of an existing tag overwrites the existing
+    /// tag.
+    /// </para></li><li><para>
+    /// Tagging API actions are limited to 5 TPS per AWS account. If your application requires
+    /// a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical
+    /// support request</a>.
+    /// </para></li></ul><para>
+    /// For a full list of tag restrictions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/limits-queues.html">Limits
+    /// Related to Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Add", "SSMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Add", "SQSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddTagsToResource operation against Amazon Simple Systems Management.", Operation = new[] {"AddTagsToResource"})]
+    [AWSCmdlet("Invokes the TagQueue operation against Amazon Simple Queue Service.", Operation = new[] {"TagQueue"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.SQS.Model.TagQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class AddSSMResourceTagCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
+    public partial class AddSQSResourceTagCmdlet : AmazonSQSClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter QueueUrl
         /// <summary>
         /// <para>
-        /// <para>The resource ID you want to tag.</para><para>For the ManagedInstance, MaintenanceWindow, and PatchBaseline values, use the ID of
-        /// the resource, such as mw-01234361858c9b57b for a Maintenance Window.</para><para>For the Document and Parameter values, use the name of the resource.</para>
+        /// <para>The URL of the queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter ResourceType
-        /// <summary>
-        /// <para>
-        /// <para>Specifies the type of resource you are tagging.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.ResourceTypeForTagging")]
-        public Amazon.SimpleSystemsManagement.ResourceTypeForTagging ResourceType { get; set; }
+        public System.String QueueUrl { get; set; }
         #endregion
         
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para> One or more tags. The value parameter is required, but if you don't want the tag
-        /// to have a value, specify the parameter with no value, and we set the value to an empty
-        /// string. </para>
+        /// <para>The list of tags to be added to the specified queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Tags")]
-        public Amazon.SimpleSystemsManagement.Model.Tag[] Tag { get; set; }
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the ResourceId parameter.
+        /// Returns the value passed to the QueueUrl parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -119,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SSMResourceTag (AddTagsToResource)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("QueueUrl", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-SQSResourceTag (TagQueue)"))
             {
                 return;
             }
@@ -134,11 +121,14 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
-            context.ResourceType = this.ResourceType;
+            context.QueueUrl = this.QueueUrl;
             if (this.Tag != null)
             {
-                context.Tags = new List<Amazon.SimpleSystemsManagement.Model.Tag>(this.Tag);
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -154,15 +144,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleSystemsManagement.Model.AddTagsToResourceRequest();
+            var request = new Amazon.SQS.Model.TagQueueRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.QueueUrl != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.ResourceType != null)
-            {
-                request.ResourceType = cmdletContext.ResourceType;
+                request.QueueUrl = cmdletContext.QueueUrl;
             }
             if (cmdletContext.Tags != null)
             {
@@ -179,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ResourceId;
+                    pipelineOutput = this.QueueUrl;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -204,16 +190,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleSystemsManagement.Model.AddTagsToResourceResponse CallAWSServiceOperation(IAmazonSimpleSystemsManagement client, Amazon.SimpleSystemsManagement.Model.AddTagsToResourceRequest request)
+        private Amazon.SQS.Model.TagQueueResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.TagQueueRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Systems Management", "AddTagsToResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "TagQueue");
             try
             {
                 #if DESKTOP
-                return client.AddTagsToResource(request);
+                return client.TagQueue(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AddTagsToResourceAsync(request);
+                var task = client.TagQueueAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -234,9 +220,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public Amazon.SimpleSystemsManagement.ResourceTypeForTagging ResourceType { get; set; }
-            public List<Amazon.SimpleSystemsManagement.Model.Tag> Tags { get; set; }
+            public System.String QueueUrl { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }

@@ -31,11 +31,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Add one or more parameters to the system.
     /// </summary>
     [Cmdlet("Write", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
+    [OutputType("System.Int64")]
     [AWSCmdlet("Invokes the PutParameter operation against Amazon Simple Systems Management.", Operation = new[] {"PutParameter"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleSystemsManagement.Model.PutParameterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("System.Int64",
+        "This cmdlet returns a Int64 object.",
+        "The service call response (type Amazon.SimpleSystemsManagement.Model.PutParameterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class WriteSSMParameterCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
@@ -113,15 +113,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Value { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the Name parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -214,9 +205,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.Name;
+                object pipelineOutput = response.Version;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

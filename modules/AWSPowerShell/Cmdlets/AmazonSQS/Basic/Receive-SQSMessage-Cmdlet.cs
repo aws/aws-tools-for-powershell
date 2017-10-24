@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// <summary>
     /// Retrieves one or more messages (up to 10), from the specified queue. Using the <code>WaitTimeSeconds</code>
     /// parameter enables long-poll support. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html">Amazon
-    /// SQS Long Polling</a> in the <i>Amazon SQS Developer Guide</i>. 
+    /// SQS Long Polling</a> in the <i>Amazon Simple Queue Service Developer Guide</i>. 
     /// 
     ///  
     /// <para>
@@ -58,13 +58,13 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </para></li></ul><para>
     /// The receipt handle is the identifier you must provide when deleting the message. For
     /// more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-queue-message-identifiers.html">Queue
-    /// and Message Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// and Message Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para><para>
     /// You can provide the <code>VisibilityTimeout</code> parameter in your request. The
     /// parameter is applied to the messages that Amazon SQS returns in the response. If you
     /// don't include the parameter, the overall visibility timeout for the queue is used
     /// for the returned messages. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-visibility-timeout.html">Visibility
-    /// Timeout</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// Timeout</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para><para>
     /// A message that isn't deleted or a message whose visibility isn't extended before the
     /// visibility timeout expires counts as a failed receive. Depending on the configuration

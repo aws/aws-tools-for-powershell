@@ -2289,6 +2289,8 @@ Set-Alias -Name Create-ESDomain -Value New-ESDomain
 Set-Alias -Name ES-CreateElasticsearchDomain -Value New-ESDomain
 Set-Alias -Name Delete-ESDomain -Value Remove-ESDomain
 Set-Alias -Name ES-DeleteElasticsearchDomain -Value Remove-ESDomain
+Set-Alias -Name Delete-ESElasticsearchServiceRole -Value Remove-ESElasticsearchServiceRole
+Set-Alias -Name ES-DeleteElasticsearchServiceRole -Value Remove-ESElasticsearchServiceRole
 Set-Alias -Name Describe-ESDomain -Value Get-ESDomain
 Set-Alias -Name ES-DescribeElasticsearchDomain -Value Get-ESDomain
 Set-Alias -Name Describe-ESDomainConfig -Value Get-ESDomainConfig
@@ -4347,6 +4349,8 @@ Set-Alias -Name List-SQSDeadLetterSourceQueue -Value Get-SQSDeadLetterSourceQueu
 Set-Alias -Name SQS-ListDeadLetterSourceQueues -Value Get-SQSDeadLetterSourceQueue
 Set-Alias -Name List-SQSQueues -Value Get-SQSQueue
 Set-Alias -Name SQS-ListQueues -Value Get-SQSQueue
+Set-Alias -Name List-SQSResourceTag -Value Get-SQSResourceTag
+Set-Alias -Name SQS-ListQueueTags -Value Get-SQSResourceTag
 Set-Alias -Name SQS-PurgeQueue -Value Clear-SQSQueue
 Set-Alias -Name SQS-ReceiveMessage -Value Receive-SQSMessage
 Set-Alias -Name SQS-RemovePermission -Value Remove-SQSPermission
@@ -4354,6 +4358,8 @@ Set-Alias -Name SQS-SendMessage -Value Send-SQSMessage
 Set-Alias -Name SQS-SendMessageBatch -Value Send-SQSMessageBatch
 Set-Alias -Name Set-SQSQueueAttributes -Value Set-SQSQueueAttribute
 Set-Alias -Name SQS-SetQueueAttributes -Value Set-SQSQueueAttribute
+Set-Alias -Name SQS-TagQueue -Value Add-SQSResourceTag
+Set-Alias -Name SQS-UntagQueue -Value Remove-SQSResourceTag
 Set-Alias -Name SSM-RegisterTargetWithMaintenanceWindow -Value Register-SSMTargetWithMaintenanceWindow
 Set-Alias -Name SSM-RegisterTaskWithMaintenanceWindow -Value Register-SSMTaskWithMaintenanceWindow
 Set-Alias -Name SSM-RemoveTagsFromResource -Value Remove-SSMResourceTag

@@ -22,45 +22,46 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SQS;
-using Amazon.SQS.Model;
+using Amazon.Elasticsearch;
+using Amazon.Elasticsearch.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SQS
+namespace Amazon.PowerShell.Cmdlets.ES
 {
     /// <summary>
-    /// Returns a list of your queues that have the <code>RedrivePolicy</code> queue attribute
-    /// configured with a dead-letter queue.
-    /// 
-    ///  
-    /// <para>
-    /// For more information about using dead-letter queues, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-dead-letter-queues.html">Using
-    /// Amazon SQS Dead-Letter Queues</a> in the <i>Amazon Simple Queue Service Developer
-    /// Guide</i>.
-    /// </para>
+    /// Deletes the service-linked role that Elasticsearch Service uses to manage and maintain
+    /// VPC domains. Role deletion will fail if any existing VPC domains use the role. You
+    /// must delete any such Elasticsearch domains before deleting the role. See <a href="http://docs.aws.amazon.com/elasticsearch-service/latest/developerguide/es-vpc.html#es-enabling-slr" target="_blank">Deleting Elasticsearch Service Role</a> in <i>VPC Endpoints for Amazon
+    /// Elasticsearch Service Domains</i>.
     /// </summary>
-    [Cmdlet("Get", "SQSDeadLetterSourceQueue")]
-    [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListDeadLetterSourceQueues operation against Amazon Simple Queue Service.", Operation = new[] {"ListDeadLetterSourceQueues"}, LegacyAlias="Get-SQSDeadLetterSourceQueues")]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "ESElasticsearchServiceRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None")]
+    [AWSCmdlet("Invokes the DeleteElasticsearchServiceRole operation against Amazon Elasticsearch.", Operation = new[] {"DeleteElasticsearchServiceRole"})]
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
+        "The service response (type Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSQSDeadLetterSourceQueueCmdlet : AmazonSQSClientCmdlet, IExecutor
+    public partial class RemoveESElasticsearchServiceRoleCmdlet : AmazonElasticsearchClientCmdlet, IExecutor
     {
         
-        #region Parameter QueueUrl
+        #region Parameter Force
         /// <summary>
-        /// <para>
-        /// <para>The URL of a dead-letter queue.</para><para>Queue URLs are case-sensitive.</para>
-        /// </para>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String QueueUrl { get; set; }
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = string.Empty;
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-ESElasticsearchServiceRole (DeleteElasticsearchServiceRole)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -71,7 +72,6 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.QueueUrl = this.QueueUrl;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -86,12 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest();
+            var request = new Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleRequest();
             
-            if (cmdletContext.QueueUrl != null)
-            {
-                request.QueueUrl = cmdletContext.QueueUrl;
-            }
             
             CmdletOutput output;
             
@@ -101,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.QueueUrls;
+                object pipelineOutput = null;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -126,16 +122,16 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         #region AWS Service Operation Call
         
-        private Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse CallAWSServiceOperation(IAmazonSQS client, Amazon.SQS.Model.ListDeadLetterSourceQueuesRequest request)
+        private Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleResponse CallAWSServiceOperation(IAmazonElasticsearch client, Amazon.Elasticsearch.Model.DeleteElasticsearchServiceRoleRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Queue Service", "ListDeadLetterSourceQueues");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Elasticsearch", "DeleteElasticsearchServiceRole");
             try
             {
                 #if DESKTOP
-                return client.ListDeadLetterSourceQueues(request);
+                return client.DeleteElasticsearchServiceRole(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.ListDeadLetterSourceQueuesAsync(request);
+                var task = client.DeleteElasticsearchServiceRoleAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -156,7 +152,6 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String QueueUrl { get; set; }
         }
         
     }

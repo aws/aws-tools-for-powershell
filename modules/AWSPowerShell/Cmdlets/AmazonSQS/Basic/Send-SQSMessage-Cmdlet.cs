@@ -68,7 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>
         /// <para>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>.
         /// For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html#message-attributes-items-validation">Message
-        /// Attribute Items and Validation</a> in the <i>Amazon SQS Developer Guide</i>.</para>
+        /// Attribute Items and Validation</a> in the <i>Amazon Simple Queue Service Developer
+        /// Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <code>MessageDeduplicationId</code> is sent successfully, any messages sent with the
         /// same <code>MessageDeduplicationId</code> are accepted successfully but aren't delivered
         /// during the 5-minute deduplication interval. For more information, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/FIFO-queues.html#FIFO-queues-exactly-once-processing">
-        /// Exactly-Once Processing</a> in the <i>Amazon SQS Developer Guide</i>.</para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>,</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable
+        /// Exactly-Once Processing</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><ul><li><para>Every message must have a unique <code>MessageDeduplicationId</code>,</para><ul><li><para>You may provide a <code>MessageDeduplicationId</code> explicitly.</para></li><li><para>If you aren't able to provide a <code>MessageDeduplicationId</code> and you enable
         /// <code>ContentBasedDeduplication</code> for your queue, Amazon SQS uses a SHA-256 hash
         /// to generate the <code>MessageDeduplicationId</code> using the body of the message
         /// (but not the attributes of the message). </para></li><li><para>If you don't provide a <code>MessageDeduplicationId</code> and the queue doesn't have

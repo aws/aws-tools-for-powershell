@@ -37,6 +37,13 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// the relevant IAM permissions:
     /// </para><ul><li><para><b>Invitation to join</b> or <b>Approve all features request</b> handshakes: only
     /// a principal from the member account. 
+    /// </para><para>
+    /// The user who calls the API for an invitation to join must have the <code>organizations:AcceptHandshake</code>
+    /// permission. If you enabled all features in the organization, then the user must also
+    /// have the <code>iam:CreateServiceLinkedRole</code> permission so that Organizations
+    /// can create the required service-linked role named <i>OrgsServiceLinkedRoleName</i>.
+    /// For more information, see <a href="http://docs.aws.amazon.com/organizations/latest/userguide/orgs_integration_services.html#orgs_integration_service-linked-roles">AWS
+    /// Organizations and Service-Linked Roles</a> in the <i>AWS Organizations User Guide</i>.
     /// </para></li><li><para><b>Enable all features final confirmation</b> handshake: only a principal from the
     /// master account.
     /// </para><para>

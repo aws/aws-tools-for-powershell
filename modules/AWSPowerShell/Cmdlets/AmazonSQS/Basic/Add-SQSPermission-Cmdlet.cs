@@ -36,11 +36,11 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// When you create a queue, you have full control access rights for the queue. Only you,
     /// the owner of the queue, can grant or deny permissions to the queue. For more information
     /// about these permissions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html">Shared
-    /// Queues</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// Queues</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para><note><para><code>AddPermission</code> writes an Amazon-SQS-generated policy. If you want to
     /// write your own policy, use <code><a>SetQueueAttributes</a></code> to upload your
     /// policy. For more information about writing your own policy, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AccessPolicyLanguage.html">Using
-    /// The Access Policy Language</a> in the <i>Amazon SQS Developer Guide</i>.
+    /// The Access Policy Language</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.
     /// </para><para>
     /// Some actions take lists of parameters. These lists are specified using the <code>param.n</code>
     /// notation. Values of <code>n</code> are integers starting from 1. For example, a parameter
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// <para>
         /// <para>The action the client wants to allow for the specified principal. The following values
         /// are valid:</para><ul><li><para><code>*</code></para></li><li><para><code>ChangeMessageVisibility</code></para></li><li><para><code>DeleteMessage</code></para></li><li><para><code>GetQueueAttributes</code></para></li><li><para><code>GetQueueUrl</code></para></li><li><para><code>ReceiveMessage</code></para></li><li><para><code>SendMessage</code></para></li></ul><para>For more information about these actions, see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html#PermissionTypes">Understanding
-        /// Permissions</a> in the <i>Amazon SQS Developer Guide</i>.</para><para>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code>
+        /// Permissions</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para><para>Specifying <code>SendMessage</code>, <code>DeleteMessage</code>, or <code>ChangeMessageVisibility</code>
         /// for <code>ActionName.n</code> also grants permissions for the corresponding batch
         /// versions of those actions: <code>SendMessageBatch</code>, <code>DeleteMessageBatch</code>,
         /// and <code>ChangeMessageVisibilityBatch</code>.</para>
@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         /// who is given permission. The principal must have an AWS account, but does not need
         /// to be signed up for Amazon SQS. For information about locating the AWS account identification,
         /// see <a href="http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html">Your
-        /// AWS Identifiers</a> in the <i>Amazon SQS Developer Guide</i>.</para>
+        /// AWS Identifiers</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]

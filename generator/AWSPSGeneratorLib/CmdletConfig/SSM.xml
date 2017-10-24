@@ -89,7 +89,7 @@
     <ServiceOperation MethodName="ListDocumentVersions" Noun="DocumentVersionList" PipelineParameter="Name" />
     <ServiceOperation MethodName="ListInventoryEntries" Noun="InventoryEntriesList" Output="Response" />
     <ServiceOperation MethodName="PutInventory" Output="Void" />
-    <ServiceOperation MethodName="PutParameter" PipelineParameter="Name" Output="Void" />
+    <ServiceOperation MethodName="PutParameter" PipelineParameter="Name" />
     <ServiceOperation MethodName="RegisterTargetWithMaintenanceWindow" PipelineParameter="WindowId" />
     <ServiceOperation MethodName="RegisterTaskWithMaintenanceWindow" PipelineParameter="TaskArn" />
     <ServiceOperation MethodName="StartAutomationExecution" PipelineParameter="DocumentName" />

@@ -12,8 +12,9 @@
  
   <ServiceOperations>
     <ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-ESTag" PipelineParameter="TagList" Output="Void"/>
-    <ServiceOperation MethodName="CreateElasticsearchDomain" NoPipelineParameter="true" Noun="Domain"/>
+    <ServiceOperation MethodName="CreateElasticsearchDomain" NoPipelineParameter="true" Noun="Domain" ShouldProcessTarget="DomainName" />
     <ServiceOperation MethodName="DeleteElasticsearchDomain" Noun="Domain" />
+    <ServiceOperation MethodName="DeleteElasticsearchServiceRole" Output="Void" />
     <ServiceOperation MethodName="DescribeElasticsearchDomain" Noun="Domain"/>
     <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" Noun="DomainConfig"/>
     <ServiceOperation MethodName="DescribeElasticsearchInstanceTypeLimits" Noun="InstanceTypeLimit" PipelineParameter="DomainName"/>
@@ -23,6 +24,6 @@
     <ServiceOperation MethodName="ListElasticsearchVersions" Verb="Get" Noun="VersionList"/>
     <ServiceOperation MethodName="ListTags" Verb="Get" Noun="ResourceTag" LegacyAlias="Get-ESTag" />
     <ServiceOperation MethodName="RemoveTags" Noun="ResourceTag" LegacyAlias="Remove-ESTag" Output="Void" PipelineParameter="TagKeys" ShouldProcessTarget="ARN" />
-    <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Noun="DomainConfig" NoPipelineParameter="true"/>
+    <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Noun="DomainConfig" NoPipelineParameter="true" ShouldProcessTarget="DomainName" />
   </ServiceOperations>
 </ConfigModel>

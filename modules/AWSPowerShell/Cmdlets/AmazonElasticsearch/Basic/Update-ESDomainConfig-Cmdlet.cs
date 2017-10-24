@@ -170,6 +170,28 @@ namespace Amazon.PowerShell.Cmdlets.ES
         public System.Collections.Hashtable LogPublishingOption { get; set; }
         #endregion
         
+        #region Parameter VPCOptions_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the security groups for VPC endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VPCOptions_SecurityGroupIds")]
+        public System.String[] VPCOptions_SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter VPCOptions_SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>Specifies the subnets for VPC endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VPCOptions_SubnetIds")]
+        public System.String[] VPCOptions_SubnetId { get; set; }
+        #endregion
+        
         #region Parameter EBSOptions_VolumeSize
         /// <summary>
         /// <para>
@@ -267,6 +289,14 @@ namespace Amazon.PowerShell.Cmdlets.ES
             }
             if (ParameterWasBound("SnapshotOptions_AutomatedSnapshotStartHour"))
                 context.SnapshotOptions_AutomatedSnapshotStartHour = this.SnapshotOptions_AutomatedSnapshotStartHour;
+            if (this.VPCOptions_SecurityGroupId != null)
+            {
+                context.VPCOptions_SecurityGroupIds = new List<System.String>(this.VPCOptions_SecurityGroupId);
+            }
+            if (this.VPCOptions_SubnetId != null)
+            {
+                context.VPCOptions_SubnetIds = new List<System.String>(this.VPCOptions_SubnetId);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -437,6 +467,35 @@ namespace Amazon.PowerShell.Cmdlets.ES
                 request.SnapshotOptions = null;
             }
             
+             // populate VPCOptions
+            bool requestVPCOptionsIsNull = true;
+            request.VPCOptions = new Amazon.Elasticsearch.Model.VPCOptions();
+            List<System.String> requestVPCOptions_vPCOptions_SecurityGroupId = null;
+            if (cmdletContext.VPCOptions_SecurityGroupIds != null)
+            {
+                requestVPCOptions_vPCOptions_SecurityGroupId = cmdletContext.VPCOptions_SecurityGroupIds;
+            }
+            if (requestVPCOptions_vPCOptions_SecurityGroupId != null)
+            {
+                request.VPCOptions.SecurityGroupIds = requestVPCOptions_vPCOptions_SecurityGroupId;
+                requestVPCOptionsIsNull = false;
+            }
+            List<System.String> requestVPCOptions_vPCOptions_SubnetId = null;
+            if (cmdletContext.VPCOptions_SubnetIds != null)
+            {
+                requestVPCOptions_vPCOptions_SubnetId = cmdletContext.VPCOptions_SubnetIds;
+            }
+            if (requestVPCOptions_vPCOptions_SubnetId != null)
+            {
+                request.VPCOptions.SubnetIds = requestVPCOptions_vPCOptions_SubnetId;
+                requestVPCOptionsIsNull = false;
+            }
+             // determine if request.VPCOptions should be set to null
+            if (requestVPCOptionsIsNull)
+            {
+                request.VPCOptions = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -515,6 +574,8 @@ namespace Amazon.PowerShell.Cmdlets.ES
             public System.Boolean? ElasticsearchClusterConfig_ZoneAwarenessEnabled { get; set; }
             public Dictionary<System.String, Amazon.Elasticsearch.Model.LogPublishingOption> LogPublishingOptions { get; set; }
             public System.Int32? SnapshotOptions_AutomatedSnapshotStartHour { get; set; }
+            public List<System.String> VPCOptions_SecurityGroupIds { get; set; }
+            public List<System.String> VPCOptions_SubnetIds { get; set; }
         }
         
     }
