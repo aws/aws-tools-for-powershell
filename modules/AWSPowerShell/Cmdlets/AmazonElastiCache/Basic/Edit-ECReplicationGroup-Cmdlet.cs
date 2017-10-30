@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Determines whether a read replica is automatically promoted to read/write primary
-        /// if the existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para><note><para>ElastiCache Multi-AZ replication groups are not supported on:</para><ul><li><para>Redis versions earlier than 2.8.6.</para></li><li><para>Redis (cluster mode disabled):T1 and T2 cache node types.</para><para>Redis (cluster mode enabled): T1 node types.</para></li></ul></note>
+        /// if the existing primary encounters a failure.</para><para>Valid values: <code>true</code> | <code>false</code></para><para>Amazon ElastiCache for Redis does not support Multi-AZ with automatic failover on:</para><ul><li><para>Redis versions earlier than 2.8.6.</para></li><li><para>Redis (cluster mode disabled): T1 and T2 cache node types.</para></li><li><para>Redis (cluster mode enabled): T1 node types.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

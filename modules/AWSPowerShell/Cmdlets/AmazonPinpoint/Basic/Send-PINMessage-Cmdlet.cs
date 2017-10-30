@@ -226,18 +226,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String DefaultPushNotificationMessage_Body { get; set; }
         #endregion
         
-        #region Parameter EmailMessage_Body
-        /// <summary>
-        /// <para>
-        /// The message body of the notification, the email body
-        /// or the text message.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_EmailMessage_Body")]
-        public System.String EmailMessage_Body { get; set; }
-        #endregion
-        
         #region Parameter GCMMessage_Body
         /// <summary>
         /// <para>
@@ -262,19 +250,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String SMSMessage_Body { get; set; }
         #endregion
         
-        #region Parameter MessageRequest_Campaign
-        /// <summary>
-        /// <para>
-        /// The JSON payload used for campaign attributes.
-        /// This payload is added to the notifications' data-&gt;pinpoint-&gt;campaign' object in iOS
-        /// and flattened to pinpoint.campaign.{AttributeName} keys in Android. Email will use
-        /// the attribute campaign_id to save the templates.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Collections.Hashtable MessageRequest_Campaign { get; set; }
-        #endregion
-        
         #region Parameter APNSMessage_Category
         /// <summary>
         /// <para>
@@ -286,6 +261,19 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("MessageRequest_MessageConfiguration_APNSMessage_Category")]
         public System.String APNSMessage_Category { get; set; }
+        #endregion
+        
+        #region Parameter APNSMessage_CollapseId
+        /// <summary>
+        /// <para>
+        /// Multiple notifications with the same collapse
+        /// identifier are displayed to the user as a single notification. The value of this key
+        /// must not exceed 64 bytes.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_APNSMessage_CollapseId")]
+        public System.String APNSMessage_CollapseId { get; set; }
         #endregion
         
         #region Parameter GCMMessage_CollapseKey
@@ -413,29 +401,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String ADMMessage_ExpiresAfter { get; set; }
         #endregion
         
-        #region Parameter EmailMessage_FromAddress
-        /// <summary>
-        /// <para>
-        /// The email address used to send the email from.
-        /// Defaults to use FromAddress specified in the Email Channel.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_EmailMessage_FromAddress")]
-        public System.String EmailMessage_FromAddress { get; set; }
-        #endregion
-        
-        #region Parameter EmailMessage_HtmlBody
-        /// <summary>
-        /// <para>
-        /// The HTML part of the email.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_EmailMessage_HtmlBody")]
-        public System.String EmailMessage_HtmlBody { get; set; }
-        #endregion
-        
         #region Parameter ADMMessage_IconReference
         /// <summary>
         /// <para>
@@ -544,66 +509,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String GCMMessage_ImageUrl { get; set; }
         #endregion
         
-        #region Parameter ADMMessage_JsonData
-        /// <summary>
-        /// <para>
-        /// The data payload used for a silent push. This
-        /// payload is added to the notifications' data.pinpoint.jsonBody' object
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_ADMMessage_JsonData")]
-        public System.String ADMMessage_JsonData { get; set; }
-        #endregion
-        
-        #region Parameter APNSMessage_JsonData
-        /// <summary>
-        /// <para>
-        /// The data payload used for a silent push. This
-        /// payload is added to the notifications' data.pinpoint.jsonBody' object
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_APNSMessage_JsonData")]
-        public System.String APNSMessage_JsonData { get; set; }
-        #endregion
-        
-        #region Parameter BaiduMessage_JsonData
-        /// <summary>
-        /// <para>
-        /// The data payload used for a silent push. This
-        /// payload is added to the notifications' data.pinpoint.jsonBody' object
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_BaiduMessage_JsonData")]
-        public System.String BaiduMessage_JsonData { get; set; }
-        #endregion
-        
-        #region Parameter DefaultPushNotificationMessage_JsonData
-        /// <summary>
-        /// <para>
-        /// The data payload used for a silent push. This
-        /// payload is added to the notifications' data.pinpoint.jsonBody' object
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_JsonData")]
-        public System.String DefaultPushNotificationMessage_JsonData { get; set; }
-        #endregion
-        
-        #region Parameter GCMMessage_JsonData
-        /// <summary>
-        /// <para>
-        /// The data payload used for a silent push. This
-        /// payload is added to the notifications' data.pinpoint.jsonBody' object
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_GCMMessage_JsonData")]
-        public System.String GCMMessage_JsonData { get; set; }
-        #endregion
-        
         #region Parameter ADMMessage_MD5
         /// <summary>
         /// <para>
@@ -653,6 +558,30 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.String APNSMessage_PreferredAuthenticationMethod { get; set; }
         #endregion
         
+        #region Parameter APNSMessage_Priority
+        /// <summary>
+        /// <para>
+        /// Is this a transaction priority message or lower
+        /// priority.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_APNSMessage_Priority")]
+        public System.String APNSMessage_Priority { get; set; }
+        #endregion
+        
+        #region Parameter GCMMessage_Priority
+        /// <summary>
+        /// <para>
+        /// Is this a transaction priority message or lower
+        /// priority.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_GCMMessage_Priority")]
+        public System.String GCMMessage_Priority { get; set; }
+        #endregion
+        
         #region Parameter ADMMessage_RawContent
         /// <summary>
         /// <para>
@@ -699,17 +628,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("MessageRequest_MessageConfiguration_GCMMessage_RawContent")]
         public System.String GCMMessage_RawContent { get; set; }
-        #endregion
-        
-        #region Parameter MessageRequest_RequestId
-        /// <summary>
-        /// <para>
-        /// Original request Id for which this message is
-        /// delivered.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String MessageRequest_RequestId { get; set; }
         #endregion
         
         #region Parameter GCMMessage_RestrictedPackageName
@@ -954,18 +872,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Collections.Hashtable DefaultPushNotificationMessage_Substitution { get; set; }
         #endregion
         
-        #region Parameter EmailMessage_Substitution
-        /// <summary>
-        /// <para>
-        /// Default message substitutions. Can be overridden
-        /// by individual address substitutions.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_EmailMessage_Substitutions")]
-        public System.Collections.Hashtable EmailMessage_Substitution { get; set; }
-        #endregion
-        
         #region Parameter GCMMessage_Substitution
         /// <summary>
         /// <para>
@@ -990,17 +896,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         public System.Collections.Hashtable SMSMessage_Substitution { get; set; }
         #endregion
         
-        #region Parameter EmailMessage_TemplateArn
-        /// <summary>
-        /// <para>
-        /// The ARN of the template to use for the email.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_EmailMessage_TemplateArn")]
-        public System.String EmailMessage_TemplateArn { get; set; }
-        #endregion
-        
         #region Parameter APNSMessage_ThreadId
         /// <summary>
         /// <para>
@@ -1012,6 +907,34 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("MessageRequest_MessageConfiguration_APNSMessage_ThreadId")]
         public System.String APNSMessage_ThreadId { get; set; }
+        #endregion
+        
+        #region Parameter APNSMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept if APNS is unable to deliver the notification the first
+        /// time. If the value is 0, APNS treats the notification as if it expires immediately
+        /// and does not store the notification or attempt to redeliver it. This value is converted
+        /// to the expiration field when sent to APNS
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_APNSMessage_TimeToLive")]
+        public System.Int32 APNSMessage_TimeToLive { get; set; }
+        #endregion
+        
+        #region Parameter GCMMessage_TimeToLive
+        /// <summary>
+        /// <para>
+        /// This parameter specifies how long (in seconds)
+        /// the message should be kept in GCM storage if the device is offline. The maximum time
+        /// to live supported is 4 weeks, and the default value is 4 weeks.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MessageRequest_MessageConfiguration_GCMMessage_TimeToLive")]
+        public System.Int32 GCMMessage_TimeToLive { get; set; }
         #endregion
         
         #region Parameter ADMMessage_Title
@@ -1060,17 +983,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         [System.Management.Automation.Parameter]
         [Alias("MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Title")]
         public System.String DefaultPushNotificationMessage_Title { get; set; }
-        #endregion
-        
-        #region Parameter EmailMessage_Title
-        /// <summary>
-        /// <para>
-        /// The subject of the email.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("MessageRequest_MessageConfiguration_EmailMessage_Title")]
-        public System.String EmailMessage_Title { get; set; }
         #endregion
         
         #region Parameter GCMMessage_Title
@@ -1183,14 +1095,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_Addresses.Add((String)hashKey, (AddressConfiguration)(this.MessageRequest_Address[hashKey]));
                 }
             }
-            if (this.MessageRequest_Campaign != null)
-            {
-                context.MessageRequest_Campaign = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
-                foreach (var hashKey in this.MessageRequest_Campaign.Keys)
-                {
-                    context.MessageRequest_Campaign.Add((String)hashKey, (String)(this.MessageRequest_Campaign[hashKey]));
-                }
-            }
             if (this.MessageRequest_Context != null)
             {
                 context.MessageRequest_Context = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1222,7 +1126,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.MessageRequest_MessageConfiguration_ADMMessage_IconReference = this.ADMMessage_IconReference;
             context.MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl = this.ADMMessage_ImageIconUrl;
             context.MessageRequest_MessageConfiguration_ADMMessage_ImageUrl = this.ADMMessage_ImageUrl;
-            context.MessageRequest_MessageConfiguration_ADMMessage_JsonData = this.ADMMessage_JsonData;
             context.MessageRequest_MessageConfiguration_ADMMessage_MD5 = this.ADMMessage_MD5;
             context.MessageRequest_MessageConfiguration_ADMMessage_RawContent = this.ADMMessage_RawContent;
             if (ParameterWasBound("ADMMessage_SilentPush"))
@@ -1256,6 +1159,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 context.MessageRequest_MessageConfiguration_APNSMessage_Badge = this.APNSMessage_Badge;
             context.MessageRequest_MessageConfiguration_APNSMessage_Body = this.APNSMessage_Body;
             context.MessageRequest_MessageConfiguration_APNSMessage_Category = this.APNSMessage_Category;
+            context.MessageRequest_MessageConfiguration_APNSMessage_CollapseId = this.APNSMessage_CollapseId;
             if (this.APNSMessage_Data != null)
             {
                 context.MessageRequest_MessageConfiguration_APNSMessage_Data = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -1264,9 +1168,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_MessageConfiguration_APNSMessage_Data.Add((String)hashKey, (String)(this.APNSMessage_Data[hashKey]));
                 }
             }
-            context.MessageRequest_MessageConfiguration_APNSMessage_JsonData = this.APNSMessage_JsonData;
             context.MessageRequest_MessageConfiguration_APNSMessage_MediaUrl = this.APNSMessage_MediaUrl;
             context.MessageRequest_MessageConfiguration_APNSMessage_PreferredAuthenticationMethod = this.APNSMessage_PreferredAuthenticationMethod;
+            context.MessageRequest_MessageConfiguration_APNSMessage_Priority = this.APNSMessage_Priority;
             context.MessageRequest_MessageConfiguration_APNSMessage_RawContent = this.APNSMessage_RawContent;
             if (ParameterWasBound("APNSMessage_SilentPush"))
                 context.MessageRequest_MessageConfiguration_APNSMessage_SilentPush = this.APNSMessage_SilentPush;
@@ -1292,6 +1196,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 }
             }
             context.MessageRequest_MessageConfiguration_APNSMessage_ThreadId = this.APNSMessage_ThreadId;
+            if (ParameterWasBound("APNSMessage_TimeToLive"))
+                context.MessageRequest_MessageConfiguration_APNSMessage_TimeToLive = this.APNSMessage_TimeToLive;
             context.MessageRequest_MessageConfiguration_APNSMessage_Title = this.APNSMessage_Title;
             context.MessageRequest_MessageConfiguration_APNSMessage_Url = this.APNSMessage_Url;
             context.MessageRequest_MessageConfiguration_BaiduMessage_Action = this.BaiduMessage_Action;
@@ -1307,7 +1213,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.MessageRequest_MessageConfiguration_BaiduMessage_IconReference = this.BaiduMessage_IconReference;
             context.MessageRequest_MessageConfiguration_BaiduMessage_ImageIconUrl = this.BaiduMessage_ImageIconUrl;
             context.MessageRequest_MessageConfiguration_BaiduMessage_ImageUrl = this.BaiduMessage_ImageUrl;
-            context.MessageRequest_MessageConfiguration_BaiduMessage_JsonData = this.BaiduMessage_JsonData;
             context.MessageRequest_MessageConfiguration_BaiduMessage_RawContent = this.BaiduMessage_RawContent;
             if (ParameterWasBound("BaiduMessage_SilentPush"))
                 context.MessageRequest_MessageConfiguration_BaiduMessage_SilentPush = this.BaiduMessage_SilentPush;
@@ -1366,7 +1271,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Data.Add((String)hashKey, (String)(this.DefaultPushNotificationMessage_Data[hashKey]));
                 }
             }
-            context.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_JsonData = this.DefaultPushNotificationMessage_JsonData;
             if (ParameterWasBound("DefaultPushNotificationMessage_SilentPush"))
                 context.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_SilentPush = this.DefaultPushNotificationMessage_SilentPush;
             if (this.DefaultPushNotificationMessage_Substitution != null)
@@ -1391,31 +1295,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             }
             context.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Title = this.DefaultPushNotificationMessage_Title;
             context.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Url = this.DefaultPushNotificationMessage_Url;
-            context.MessageRequest_MessageConfiguration_EmailMessage_Body = this.EmailMessage_Body;
-            context.MessageRequest_MessageConfiguration_EmailMessage_FromAddress = this.EmailMessage_FromAddress;
-            context.MessageRequest_MessageConfiguration_EmailMessage_HtmlBody = this.EmailMessage_HtmlBody;
-            if (this.EmailMessage_Substitution != null)
-            {
-                context.MessageRequest_MessageConfiguration_EmailMessage_Substitutions = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
-                foreach (var hashKey in this.EmailMessage_Substitution.Keys)
-                {
-                    object hashValue = this.EmailMessage_Substitution[hashKey];
-                    if (hashValue == null)
-                    {
-                        context.MessageRequest_MessageConfiguration_EmailMessage_Substitutions.Add((String)hashKey, null);
-                        continue;
-                    }
-                    var enumerable = SafeEnumerable(hashValue);
-                    var valueSet = new List<String>();
-                    foreach (var s in enumerable)
-                    {
-                        valueSet.Add((String)s);
-                    }
-                    context.MessageRequest_MessageConfiguration_EmailMessage_Substitutions.Add((String)hashKey, valueSet);
-                }
-            }
-            context.MessageRequest_MessageConfiguration_EmailMessage_TemplateArn = this.EmailMessage_TemplateArn;
-            context.MessageRequest_MessageConfiguration_EmailMessage_Title = this.EmailMessage_Title;
             context.MessageRequest_MessageConfiguration_GCMMessage_Action = this.GCMMessage_Action;
             context.MessageRequest_MessageConfiguration_GCMMessage_Body = this.GCMMessage_Body;
             context.MessageRequest_MessageConfiguration_GCMMessage_CollapseKey = this.GCMMessage_CollapseKey;
@@ -1430,7 +1309,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             context.MessageRequest_MessageConfiguration_GCMMessage_IconReference = this.GCMMessage_IconReference;
             context.MessageRequest_MessageConfiguration_GCMMessage_ImageIconUrl = this.GCMMessage_ImageIconUrl;
             context.MessageRequest_MessageConfiguration_GCMMessage_ImageUrl = this.GCMMessage_ImageUrl;
-            context.MessageRequest_MessageConfiguration_GCMMessage_JsonData = this.GCMMessage_JsonData;
+            context.MessageRequest_MessageConfiguration_GCMMessage_Priority = this.GCMMessage_Priority;
             context.MessageRequest_MessageConfiguration_GCMMessage_RawContent = this.GCMMessage_RawContent;
             context.MessageRequest_MessageConfiguration_GCMMessage_RestrictedPackageName = this.GCMMessage_RestrictedPackageName;
             if (ParameterWasBound("GCMMessage_SilentPush"))
@@ -1457,6 +1336,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_MessageConfiguration_GCMMessage_Substitutions.Add((String)hashKey, valueSet);
                 }
             }
+            if (ParameterWasBound("GCMMessage_TimeToLive"))
+                context.MessageRequest_MessageConfiguration_GCMMessage_TimeToLive = this.GCMMessage_TimeToLive;
             context.MessageRequest_MessageConfiguration_GCMMessage_Title = this.GCMMessage_Title;
             context.MessageRequest_MessageConfiguration_GCMMessage_Url = this.GCMMessage_Url;
             context.MessageRequest_MessageConfiguration_SMSMessage_Body = this.SMSMessage_Body;
@@ -1482,7 +1363,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                     context.MessageRequest_MessageConfiguration_SMSMessage_Substitutions.Add((String)hashKey, valueSet);
                 }
             }
-            context.MessageRequest_RequestId = this.MessageRequest_RequestId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -1517,16 +1397,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 request.MessageRequest.Addresses = requestMessageRequest_messageRequest_Address;
                 requestMessageRequestIsNull = false;
             }
-            Dictionary<System.String, System.String> requestMessageRequest_messageRequest_Campaign = null;
-            if (cmdletContext.MessageRequest_Campaign != null)
-            {
-                requestMessageRequest_messageRequest_Campaign = cmdletContext.MessageRequest_Campaign;
-            }
-            if (requestMessageRequest_messageRequest_Campaign != null)
-            {
-                request.MessageRequest.Campaign = requestMessageRequest_messageRequest_Campaign;
-                requestMessageRequestIsNull = false;
-            }
             Dictionary<System.String, System.String> requestMessageRequest_messageRequest_Context = null;
             if (cmdletContext.MessageRequest_Context != null)
             {
@@ -1545,16 +1415,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_Endpoint != null)
             {
                 request.MessageRequest.Endpoints = requestMessageRequest_messageRequest_Endpoint;
-                requestMessageRequestIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_RequestId = null;
-            if (cmdletContext.MessageRequest_RequestId != null)
-            {
-                requestMessageRequest_messageRequest_RequestId = cmdletContext.MessageRequest_RequestId;
-            }
-            if (requestMessageRequest_messageRequest_RequestId != null)
-            {
-                request.MessageRequest.RequestId = requestMessageRequest_messageRequest_RequestId;
                 requestMessageRequestIsNull = false;
             }
             Amazon.Pinpoint.Model.DirectMessageConfiguration requestMessageRequest_messageRequest_MessageConfiguration = null;
@@ -1652,81 +1512,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestMessageRequest_messageRequest_MessageConfiguration.SMSMessage = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_SMSMessage;
                 requestMessageRequest_messageRequest_MessageConfigurationIsNull = false;
             }
-            Amazon.Pinpoint.Model.EmailMessage requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage = null;
-            
-             // populate EmailMessage
-            bool requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = true;
-            requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage = new Amazon.Pinpoint.Model.EmailMessage();
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Body = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_Body != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Body = cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_Body;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Body != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage.Body = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Body;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_FromAddress = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_FromAddress != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_FromAddress = cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_FromAddress;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_FromAddress != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage.FromAddress = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_FromAddress;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_HtmlBody != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody = cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_HtmlBody;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage.HtmlBody = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_HtmlBody;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = false;
-            }
-            Dictionary<System.String, List<System.String>> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Substitution = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_Substitutions != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Substitution = cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_Substitutions;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Substitution != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage.Substitutions = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Substitution;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_TemplateArn = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_TemplateArn != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_TemplateArn = cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_TemplateArn;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_TemplateArn != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage.TemplateArn = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_TemplateArn;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Title = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_Title != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Title = cmdletContext.MessageRequest_MessageConfiguration_EmailMessage_Title;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Title != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage.Title = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage_emailMessage_Title;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull = false;
-            }
-             // determine if requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage should be set to null
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessageIsNull)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage = null;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration.EmailMessage = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_EmailMessage;
-                requestMessageRequest_messageRequest_MessageConfigurationIsNull = false;
-            }
             Amazon.Pinpoint.Model.DefaultPushNotificationMessage requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage = null;
             
              // populate DefaultPushNotificationMessage
@@ -1760,16 +1545,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_Data != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage.Data = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_Data;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_JsonData = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_JsonData = cmdletContext.MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_JsonData;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage.JsonData = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_JsonData;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessageIsNull = false;
             }
             System.Boolean? requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_DefaultPushNotificationMessage_defaultPushNotificationMessage_SilentPush = null;
@@ -1887,16 +1662,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage.ImageUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_ImageUrl;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessageIsNull = false;
             }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_JsonData = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_BaiduMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_JsonData = cmdletContext.MessageRequest_MessageConfiguration_BaiduMessage_JsonData;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage.JsonData = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_JsonData;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessageIsNull = false;
-            }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage_baiduMessage_RawContent = null;
             if (cmdletContext.MessageRequest_MessageConfiguration_BaiduMessage_RawContent != null)
             {
@@ -1977,6 +1742,181 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestMessageRequest_messageRequest_MessageConfiguration.BaiduMessage = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_BaiduMessage;
                 requestMessageRequest_messageRequest_MessageConfigurationIsNull = false;
             }
+            Amazon.Pinpoint.Model.ADMMessage requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage = null;
+            
+             // populate ADMMessage
+            bool requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = true;
+            requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage = new Amazon.Pinpoint.Model.ADMMessage();
+            Amazon.Pinpoint.Action requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Action != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Action;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Action = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Body != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Body;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Body = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ConsolidationKey != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ConsolidationKey;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ConsolidationKey = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Data != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Data;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Data = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ExpiresAfter != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ExpiresAfter;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ExpiresAfter = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_IconReference != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_IconReference;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.IconReference = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ImageIconUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageUrl != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageUrl;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ImageUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5 = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_MD5 != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5 = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_MD5;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5 != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.MD5 = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_RawContent != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_RawContent;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.RawContent = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.Boolean? requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SilentPush != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SilentPush.Value;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.SilentPush = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush.Value;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SmallImageIconUrl != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SmallImageIconUrl;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.SmallImageIconUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Sound != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Sound;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Sound = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            Dictionary<System.String, List<System.String>> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Substitutions != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Substitutions;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Substitutions = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Title != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Title;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Title = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Url != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Url;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Url = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
+            }
+             // determine if requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage should be set to null
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage = null;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration.ADMMessage = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage;
+                requestMessageRequest_messageRequest_MessageConfigurationIsNull = false;
+            }
             Amazon.Pinpoint.Model.APNSMessage requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage = null;
             
              // populate APNSMessage
@@ -2022,6 +1962,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.Category = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Category;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
             }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_CollapseId = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_CollapseId != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_CollapseId = cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_CollapseId;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_CollapseId != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.CollapseId = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_CollapseId;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
+            }
             Dictionary<System.String, System.String> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Data = null;
             if (cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_Data != null)
             {
@@ -2030,16 +1980,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Data != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.Data = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Data;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_JsonData = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_JsonData = cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_JsonData;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.JsonData = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_JsonData;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
             }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_MediaUrl = null;
@@ -2060,6 +2000,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_PreferredAuthenticationMethod != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.PreferredAuthenticationMethod = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_PreferredAuthenticationMethod;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
+            }
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Priority = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_Priority != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Priority = cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_Priority;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Priority != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.Priority = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Priority;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
             }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_RawContent = null;
@@ -2110,6 +2060,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_ThreadId != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.ThreadId = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_ThreadId;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
+            }
+            System.Int32? requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_TimeToLive != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive = cmdletContext.MessageRequest_MessageConfiguration_APNSMessage_TimeToLive.Value;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage.TimeToLive = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_TimeToLive.Value;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessageIsNull = false;
             }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_APNSMessage_aPNSMessage_Title = null;
@@ -2217,14 +2177,14 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage.ImageUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_ImageUrl;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessageIsNull = false;
             }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_JsonData = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_JsonData != null)
+            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_Priority != null)
             {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_JsonData = cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_JsonData;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority = cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_Priority;
             }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_JsonData != null)
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority != null)
             {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage.JsonData = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_JsonData;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage.Priority = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_Priority;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessageIsNull = false;
             }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_RawContent = null;
@@ -2287,6 +2247,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage.Substitutions = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_Substitution;
                 requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessageIsNull = false;
             }
+            System.Int32? requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = null;
+            if (cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_TimeToLive != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive = cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_TimeToLive.Value;
+            }
+            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive != null)
+            {
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage.TimeToLive = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_TimeToLive.Value;
+                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessageIsNull = false;
+            }
             System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage_gCMMessage_Title = null;
             if (cmdletContext.MessageRequest_MessageConfiguration_GCMMessage_Title != null)
             {
@@ -2315,191 +2285,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage != null)
             {
                 requestMessageRequest_messageRequest_MessageConfiguration.GCMMessage = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_GCMMessage;
-                requestMessageRequest_messageRequest_MessageConfigurationIsNull = false;
-            }
-            Amazon.Pinpoint.Model.ADMMessage requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage = null;
-            
-             // populate ADMMessage
-            bool requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = true;
-            requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage = new Amazon.Pinpoint.Model.ADMMessage();
-            Amazon.Pinpoint.Action requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Action != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Action;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Action = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Action;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Body != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Body;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Body = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Body;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ConsolidationKey != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ConsolidationKey;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ConsolidationKey = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ConsolidationKey;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            Dictionary<System.String, System.String> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Data != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Data;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Data = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Data;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ExpiresAfter != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ExpiresAfter;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ExpiresAfter = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ExpiresAfter;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_IconReference != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_IconReference;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.IconReference = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_IconReference;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ImageIconUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageIconUrl;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageUrl != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_ImageUrl;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.ImageUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_ImageUrl;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_JsonData = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_JsonData = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_JsonData;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_JsonData != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.JsonData = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_JsonData;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5 = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_MD5 != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5 = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_MD5;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5 != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.MD5 = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_MD5;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_RawContent != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_RawContent;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.RawContent = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_RawContent;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.Boolean? requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SilentPush != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SilentPush.Value;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.SilentPush = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SilentPush.Value;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SmallImageIconUrl != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_SmallImageIconUrl;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.SmallImageIconUrl = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_SmallImageIconUrl;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Sound != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Sound;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Sound = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Sound;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            Dictionary<System.String, List<System.String>> requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Substitutions != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Substitutions;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Substitutions = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Substitution;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Title != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Title;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Title = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Title;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-            System.String requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url = null;
-            if (cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Url != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url = cmdletContext.MessageRequest_MessageConfiguration_ADMMessage_Url;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage.Url = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage_aDMMessage_Url;
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull = false;
-            }
-             // determine if requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage should be set to null
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessageIsNull)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage = null;
-            }
-            if (requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage != null)
-            {
-                requestMessageRequest_messageRequest_MessageConfiguration.ADMMessage = requestMessageRequest_messageRequest_MessageConfiguration_messageRequest_MessageConfiguration_ADMMessage;
                 requestMessageRequest_messageRequest_MessageConfigurationIsNull = false;
             }
              // determine if requestMessageRequest_messageRequest_MessageConfiguration should be set to null
@@ -2583,7 +2368,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             public System.String ApplicationId { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.AddressConfiguration> MessageRequest_Addresses { get; set; }
-            public Dictionary<System.String, System.String> MessageRequest_Campaign { get; set; }
             public Dictionary<System.String, System.String> MessageRequest_Context { get; set; }
             public Dictionary<System.String, Amazon.Pinpoint.Model.EndpointSendConfiguration> MessageRequest_Endpoints { get; set; }
             public Amazon.Pinpoint.Action MessageRequest_MessageConfiguration_ADMMessage_Action { get; set; }
@@ -2594,7 +2378,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String MessageRequest_MessageConfiguration_ADMMessage_IconReference { get; set; }
             public System.String MessageRequest_MessageConfiguration_ADMMessage_ImageIconUrl { get; set; }
             public System.String MessageRequest_MessageConfiguration_ADMMessage_ImageUrl { get; set; }
-            public System.String MessageRequest_MessageConfiguration_ADMMessage_JsonData { get; set; }
             public System.String MessageRequest_MessageConfiguration_ADMMessage_MD5 { get; set; }
             public System.String MessageRequest_MessageConfiguration_ADMMessage_RawContent { get; set; }
             public System.Boolean? MessageRequest_MessageConfiguration_ADMMessage_SilentPush { get; set; }
@@ -2607,15 +2390,17 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.Int32? MessageRequest_MessageConfiguration_APNSMessage_Badge { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_Body { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_Category { get; set; }
+            public System.String MessageRequest_MessageConfiguration_APNSMessage_CollapseId { get; set; }
             public Dictionary<System.String, System.String> MessageRequest_MessageConfiguration_APNSMessage_Data { get; set; }
-            public System.String MessageRequest_MessageConfiguration_APNSMessage_JsonData { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_MediaUrl { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_PreferredAuthenticationMethod { get; set; }
+            public System.String MessageRequest_MessageConfiguration_APNSMessage_Priority { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_RawContent { get; set; }
             public System.Boolean? MessageRequest_MessageConfiguration_APNSMessage_SilentPush { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_Sound { get; set; }
             public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_APNSMessage_Substitutions { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_ThreadId { get; set; }
+            public System.Int32? MessageRequest_MessageConfiguration_APNSMessage_TimeToLive { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_Title { get; set; }
             public System.String MessageRequest_MessageConfiguration_APNSMessage_Url { get; set; }
             public Amazon.Pinpoint.Action MessageRequest_MessageConfiguration_BaiduMessage_Action { get; set; }
@@ -2624,7 +2409,6 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_IconReference { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_ImageIconUrl { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_ImageUrl { get; set; }
-            public System.String MessageRequest_MessageConfiguration_BaiduMessage_JsonData { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_RawContent { get; set; }
             public System.Boolean? MessageRequest_MessageConfiguration_BaiduMessage_SilentPush { get; set; }
             public System.String MessageRequest_MessageConfiguration_BaiduMessage_SmallImageIconUrl { get; set; }
@@ -2637,17 +2421,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public Amazon.Pinpoint.Action MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Action { get; set; }
             public System.String MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Body { get; set; }
             public Dictionary<System.String, System.String> MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Data { get; set; }
-            public System.String MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_JsonData { get; set; }
             public System.Boolean? MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_SilentPush { get; set; }
             public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Substitutions { get; set; }
             public System.String MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Title { get; set; }
             public System.String MessageRequest_MessageConfiguration_DefaultPushNotificationMessage_Url { get; set; }
-            public System.String MessageRequest_MessageConfiguration_EmailMessage_Body { get; set; }
-            public System.String MessageRequest_MessageConfiguration_EmailMessage_FromAddress { get; set; }
-            public System.String MessageRequest_MessageConfiguration_EmailMessage_HtmlBody { get; set; }
-            public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_EmailMessage_Substitutions { get; set; }
-            public System.String MessageRequest_MessageConfiguration_EmailMessage_TemplateArn { get; set; }
-            public System.String MessageRequest_MessageConfiguration_EmailMessage_Title { get; set; }
             public Amazon.Pinpoint.Action MessageRequest_MessageConfiguration_GCMMessage_Action { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_Body { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_CollapseKey { get; set; }
@@ -2655,20 +2432,20 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             public System.String MessageRequest_MessageConfiguration_GCMMessage_IconReference { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_ImageIconUrl { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_ImageUrl { get; set; }
-            public System.String MessageRequest_MessageConfiguration_GCMMessage_JsonData { get; set; }
+            public System.String MessageRequest_MessageConfiguration_GCMMessage_Priority { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_RawContent { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_RestrictedPackageName { get; set; }
             public System.Boolean? MessageRequest_MessageConfiguration_GCMMessage_SilentPush { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_SmallImageIconUrl { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_Sound { get; set; }
             public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_GCMMessage_Substitutions { get; set; }
+            public System.Int32? MessageRequest_MessageConfiguration_GCMMessage_TimeToLive { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_Title { get; set; }
             public System.String MessageRequest_MessageConfiguration_GCMMessage_Url { get; set; }
             public System.String MessageRequest_MessageConfiguration_SMSMessage_Body { get; set; }
             public Amazon.Pinpoint.MessageType MessageRequest_MessageConfiguration_SMSMessage_MessageType { get; set; }
             public System.String MessageRequest_MessageConfiguration_SMSMessage_SenderId { get; set; }
             public Dictionary<System.String, List<System.String>> MessageRequest_MessageConfiguration_SMSMessage_Substitutions { get; set; }
-            public System.String MessageRequest_RequestId { get; set; }
         }
         
     }

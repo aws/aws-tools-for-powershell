@@ -22,61 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElastiCache;
-using Amazon.ElastiCache.Model;
+using Amazon.Pinpoint;
+using Amazon.Pinpoint.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC
+namespace Amazon.PowerShell.Cmdlets.PIN
 {
     /// <summary>
-    /// Reboots some, or all, of the cache nodes within a provisioned cache cluster. This
-    /// operation applies any modified cache parameter groups to the cache cluster. The reboot
-    /// operation takes place as soon as possible, and results in a momentary outage to the
-    /// cache cluster. During the reboot, the cache cluster status is set to REBOOTING.
-    /// 
-    ///  
-    /// <para>
-    /// The reboot causes the contents of the cache (for each cache node being rebooted) to
-    /// be lost.
-    /// </para><para>
-    /// When the reboot is complete, a cache cluster event is created.
-    /// </para><para>
-    /// Rebooting a cluster is currently supported on Memcached and Redis (cluster mode disabled)
-    /// clusters. Rebooting is not supported on Redis (cluster mode enabled) clusters.
-    /// </para><para>
-    /// If you make changes to parameters that require a Redis (cluster mode enabled) cluster
-    /// reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.htm">Rebooting
-    /// a Cluster</a> for an alternate process.
-    /// </para>
+    /// Delete an APNS VoIP channel
     /// </summary>
-    [Cmdlet("Restart", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
-    [AWSCmdlet("Invokes the RebootCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"RebootCacheCluster"})]
-    [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
-        "This cmdlet returns a CacheCluster object.",
-        "The service call response (type Amazon.ElastiCache.Model.RebootCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "PINApnsVoipChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.Pinpoint.Model.APNSVoipChannelResponse")]
+    [AWSCmdlet("Invokes the DeleteApnsVoipChannel operation against Amazon Pinpoint.", Operation = new[] {"DeleteApnsVoipChannel"})]
+    [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSVoipChannelResponse",
+        "This cmdlet returns a APNSVoipChannelResponse object.",
+        "The service call response (type Amazon.Pinpoint.Model.DeleteApnsVoipChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class RemovePINApnsVoipChannelCmdlet : AmazonPinpointClientCmdlet, IExecutor
     {
         
-        #region Parameter CacheClusterId
+        #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The cache cluster identifier. This parameter is stored as a lowercase string.</para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String CacheClusterId { get; set; }
-        #endregion
-        
-        #region Parameter CacheNodeIdsToReboot
-        /// <summary>
-        /// <para>
-        /// <para>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002,
-        /// etc.). To reboot an entire cache cluster, specify all of the cache node IDs.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String[] CacheNodeIdsToReboot { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ApplicationId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,8 +64,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CacheClusterId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-ECCacheCluster (RebootCacheCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-PINApnsVoipChannel (DeleteApnsVoipChannel)"))
             {
                 return;
             }
@@ -108,11 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CacheClusterId = this.CacheClusterId;
-            if (this.CacheNodeIdsToReboot != null)
-            {
-                context.CacheNodeIdsToReboot = new List<System.String>(this.CacheNodeIdsToReboot);
-            }
+            context.ApplicationId = this.ApplicationId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +94,11 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElastiCache.Model.RebootCacheClusterRequest();
+            var request = new Amazon.Pinpoint.Model.DeleteApnsVoipChannelRequest();
             
-            if (cmdletContext.CacheClusterId != null)
+            if (cmdletContext.ApplicationId != null)
             {
-                request.CacheClusterId = cmdletContext.CacheClusterId;
-            }
-            if (cmdletContext.CacheNodeIdsToReboot != null)
-            {
-                request.CacheNodeIdsToReboot = cmdletContext.CacheNodeIdsToReboot;
+                request.ApplicationId = cmdletContext.ApplicationId;
             }
             
             CmdletOutput output;
@@ -146,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CacheCluster;
+                object pipelineOutput = response.APNSVoipChannelResponse;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -171,16 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private Amazon.ElastiCache.Model.RebootCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RebootCacheClusterRequest request)
+        private Amazon.Pinpoint.Model.DeleteApnsVoipChannelResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.DeleteApnsVoipChannelRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "RebootCacheCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "DeleteApnsVoipChannel");
             try
             {
                 #if DESKTOP
-                return client.RebootCacheCluster(request);
+                return client.DeleteApnsVoipChannel(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RebootCacheClusterAsync(request);
+                var task = client.DeleteApnsVoipChannelAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -201,8 +164,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CacheClusterId { get; set; }
-            public List<System.String> CacheNodeIdsToReboot { get; set; }
+            public System.String ApplicationId { get; set; }
         }
         
     }

@@ -120,6 +120,7 @@ RequiredAssemblies = @(
   "AWSSDK.Lightsail.dll",
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.MarketplaceEntitlementService.dll",
+  "AWSSDK.MigrationHub.dll",
   "AWSSDK.MTurk.dll",
   "AWSSDK.OpsWorks.dll",
   "AWSSDK.OpsWorksCM.dll",

@@ -22,56 +22,73 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.Pinpoint;
-using Amazon.Pinpoint.Model;
+using Amazon.MigrationHub;
+using Amazon.MigrationHub.Model;
 
-namespace Amazon.PowerShell.Cmdlets.PIN
+namespace Amazon.PowerShell.Cmdlets.MH
 {
     /// <summary>
-    /// Use to create or update the event stream for an app.
+    /// Associates a discovered resource ID from Application Discovery Service (ADS) with
+    /// a migration task.
     /// </summary>
-    [Cmdlet("Write", "PINEventStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.Pinpoint.Model.EventStream")]
-    [AWSCmdlet("Invokes the PutEventStream operation against Amazon Pinpoint.", Operation = new[] {"PutEventStream"})]
-    [AWSCmdletOutput("Amazon.Pinpoint.Model.EventStream",
-        "This cmdlet returns a EventStream object.",
-        "The service call response (type Amazon.Pinpoint.Model.PutEventStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "MHDiscoveredResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","Amazon.MigrationHub.Model.DiscoveredResource")]
+    [AWSCmdlet("Invokes the AssociateDiscoveredResource operation against AWS Migration Hub.", Operation = new[] {"AssociateDiscoveredResource"})]
+    [AWSCmdletOutput("None or Amazon.MigrationHub.Model.DiscoveredResource",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DiscoveredResource parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WritePINEventStreamCmdlet : AmazonPinpointClientCmdlet, IExecutor
+    public partial class AddMHDiscoveredResourceCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationId
+        #region Parameter DiscoveredResource
         /// <summary>
         /// <para>
-        /// ApplicationId
+        /// <para>Object representing a Resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ApplicationId { get; set; }
+        public Amazon.MigrationHub.Model.DiscoveredResource DiscoveredResource { get; set; }
         #endregion
         
-        #region Parameter WriteEventStream_DestinationStreamArn
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// The Amazon Resource Name (ARN) of
-        /// the Amazon Kinesis stream or Firehose delivery stream to which you want to publish
-        /// events. Firehose ARN: arn:aws:firehose:REGION:ACCOUNT_ID:deliverystream/STREAM_NAME
-        /// Kinesis ARN: arn:aws:kinesis:REGION:ACCOUNT_ID:stream/STREAM_NAME
+        /// <para>Optional boolean flag to indicate whether any effect should take place. Used to test
+        /// if the caller has permission to make the call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String WriteEventStream_DestinationStreamArn { get; set; }
+        public System.Boolean DryRun { get; set; }
         #endregion
         
-        #region Parameter WriteEventStream_RoleArn
+        #region Parameter MigrationTaskName
         /// <summary>
         /// <para>
-        /// The IAM role that authorizes Amazon Pinpoint to
-        /// publish events to the stream in your account.
+        /// <para>The identifier given to the MigrationTask.</para>
         /// </para>
         /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String MigrationTaskName { get; set; }
+        #endregion
+        
+        #region Parameter ProgressUpdateStream
+        /// <summary>
+        /// <para>
+        /// <para>The name of the ProgressUpdateStream.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        public System.String ProgressUpdateStream { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the DiscoveredResource parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String WriteEventStream_RoleArn { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -88,8 +105,8 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ApplicationId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-PINEventStream (PutEventStream)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("MigrationTaskName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-MHDiscoveredResource (AssociateDiscoveredResource)"))
             {
                 return;
             }
@@ -103,9 +120,11 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationId = this.ApplicationId;
-            context.WriteEventStream_DestinationStreamArn = this.WriteEventStream_DestinationStreamArn;
-            context.WriteEventStream_RoleArn = this.WriteEventStream_RoleArn;
+            context.DiscoveredResource = this.DiscoveredResource;
+            if (ParameterWasBound("DryRun"))
+                context.DryRun = this.DryRun;
+            context.MigrationTaskName = this.MigrationTaskName;
+            context.ProgressUpdateStream = this.ProgressUpdateStream;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -120,40 +139,23 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.Pinpoint.Model.PutEventStreamRequest();
+            var request = new Amazon.MigrationHub.Model.AssociateDiscoveredResourceRequest();
             
-            if (cmdletContext.ApplicationId != null)
+            if (cmdletContext.DiscoveredResource != null)
             {
-                request.ApplicationId = cmdletContext.ApplicationId;
+                request.DiscoveredResource = cmdletContext.DiscoveredResource;
             }
-            
-             // populate WriteEventStream
-            bool requestWriteEventStreamIsNull = true;
-            request.WriteEventStream = new Amazon.Pinpoint.Model.WriteEventStream();
-            System.String requestWriteEventStream_writeEventStream_DestinationStreamArn = null;
-            if (cmdletContext.WriteEventStream_DestinationStreamArn != null)
+            if (cmdletContext.DryRun != null)
             {
-                requestWriteEventStream_writeEventStream_DestinationStreamArn = cmdletContext.WriteEventStream_DestinationStreamArn;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (requestWriteEventStream_writeEventStream_DestinationStreamArn != null)
+            if (cmdletContext.MigrationTaskName != null)
             {
-                request.WriteEventStream.DestinationStreamArn = requestWriteEventStream_writeEventStream_DestinationStreamArn;
-                requestWriteEventStreamIsNull = false;
+                request.MigrationTaskName = cmdletContext.MigrationTaskName;
             }
-            System.String requestWriteEventStream_writeEventStream_RoleArn = null;
-            if (cmdletContext.WriteEventStream_RoleArn != null)
+            if (cmdletContext.ProgressUpdateStream != null)
             {
-                requestWriteEventStream_writeEventStream_RoleArn = cmdletContext.WriteEventStream_RoleArn;
-            }
-            if (requestWriteEventStream_writeEventStream_RoleArn != null)
-            {
-                request.WriteEventStream.RoleArn = requestWriteEventStream_writeEventStream_RoleArn;
-                requestWriteEventStreamIsNull = false;
-            }
-             // determine if request.WriteEventStream should be set to null
-            if (requestWriteEventStreamIsNull)
-            {
-                request.WriteEventStream = null;
+                request.ProgressUpdateStream = cmdletContext.ProgressUpdateStream;
             }
             
             CmdletOutput output;
@@ -164,7 +166,9 @@ namespace Amazon.PowerShell.Cmdlets.PIN
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.EventStream;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.DiscoveredResource;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -189,16 +193,16 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         #region AWS Service Operation Call
         
-        private Amazon.Pinpoint.Model.PutEventStreamResponse CallAWSServiceOperation(IAmazonPinpoint client, Amazon.Pinpoint.Model.PutEventStreamRequest request)
+        private Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse CallAWSServiceOperation(IAmazonMigrationHub client, Amazon.MigrationHub.Model.AssociateDiscoveredResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Pinpoint", "PutEventStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub", "AssociateDiscoveredResource");
             try
             {
                 #if DESKTOP
-                return client.PutEventStream(request);
+                return client.AssociateDiscoveredResource(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutEventStreamAsync(request);
+                var task = client.AssociateDiscoveredResourceAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -219,9 +223,10 @@ namespace Amazon.PowerShell.Cmdlets.PIN
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationId { get; set; }
-            public System.String WriteEventStream_DestinationStreamArn { get; set; }
-            public System.String WriteEventStream_RoleArn { get; set; }
+            public Amazon.MigrationHub.Model.DiscoveredResource DiscoveredResource { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public System.String MigrationTaskName { get; set; }
+            public System.String ProgressUpdateStream { get; set; }
         }
         
     }

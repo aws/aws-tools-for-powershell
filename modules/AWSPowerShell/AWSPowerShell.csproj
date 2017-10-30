@@ -90,6 +90,9 @@
     <Reference Include="AWSSDK.MarketplaceEntitlementService">
       <HintPath>..\..\packages\AWSSDK.MarketplaceEntitlementService.3.3.0.7\lib\net35\AWSSDK.MarketplaceEntitlementService.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MigrationHub">
+      <HintPath>..\..\packages\AWSSDK.MigrationHub.3.3.0.2\lib\net35\AWSSDK.MigrationHub.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MTurk">
       <HintPath>..\..\packages\AWSSDK.MTurk.3.3.1.2\lib\net35\AWSSDK.MTurk.dll</HintPath>
     </Reference>
@@ -106,7 +109,7 @@
       <HintPath>..\..\packages\AWSSDK.Organizations.3.3.6.1\lib\net35\AWSSDK.Organizations.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Pinpoint">
-      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.4.2\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.5\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.6.2\lib\net35\AWSSDK.Rekognition.dll</HintPath>
@@ -172,7 +175,7 @@
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.3.2\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.S3">
-      <HintPath>..\..\packages\AWSSDK.S3.3.3.11.3\lib\net35\AWSSDK.S3.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.S3.3.3.11.4\lib\net35\AWSSDK.S3.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Route53Domains">
       <HintPath>..\..\packages\AWSSDK.Route53Domains.3.3.1.2\lib\net35\AWSSDK.Route53Domains.dll</HintPath>
@@ -244,7 +247,7 @@
       <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.6.1\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
-      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.3.11\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.4\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
       <HintPath>..\..\packages\AWSSDK.ECS.3.3.6.2\lib\net35\AWSSDK.ECS.dll</HintPath>
@@ -253,7 +256,7 @@
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.1\lib\net35\AWSSDK.ECR.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.EC2">
-      <HintPath>..\..\packages\AWSSDK.EC2.3.3.32.1\lib\net35\AWSSDK.EC2.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.EC2.3.3.33\lib\net35\AWSSDK.EC2.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.DynamoDBv2">
       <HintPath>..\..\packages\AWSSDK.DynamoDBv2.3.3.4.19\lib\net35\AWSSDK.DynamoDBv2.dll</HintPath>
@@ -277,7 +280,7 @@
       <HintPath>..\..\packages\AWSSDK.Core.3.3.18.2\lib\net35\AWSSDK.Core.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ConfigService">
-      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.10.2\lib\net35\AWSSDK.ConfigService.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ConfigService.3.3.11\lib\net35\AWSSDK.ConfigService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CognitoIdentityProvider">
       <HintPath>..\..\packages\AWSSDK.CognitoIdentityProvider.3.3.6.2\lib\net35\AWSSDK.CognitoIdentityProvider.dll</HintPath>
@@ -316,7 +319,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudHSM.3.3.0.24\lib\net35\AWSSDK.CloudHSM.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFront">
-      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.5.2\lib\net35\AWSSDK.CloudFront.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudFront.3.3.6\lib\net35\AWSSDK.CloudFront.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudFormation">
       <HintPath>..\..\packages\AWSSDK.CloudFormation.3.3.8.2\lib\net35\AWSSDK.CloudFormation.dll</HintPath>

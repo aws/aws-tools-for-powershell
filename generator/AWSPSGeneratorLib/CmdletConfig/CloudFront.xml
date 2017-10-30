@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>CF</ServiceNounPrefix>
   <ServiceName>Amazon CloudFront</ServiceName>
@@ -9,7 +9,7 @@
   <ServiceNamespace>Amazon.CloudFront</ServiceNamespace>
 
   <PositionalParameters>Id</PositionalParameters>
-  
+
   <PipelineParameter>Id</PipelineParameter>
   
   <!-- CloudFront has no directly enumerable output, so we do not support auto-iteration -->
@@ -27,6 +27,7 @@
     <ServiceOperation MethodName="CreateStreamingDistributionWithTags" Noun="StreamingDistributionWithTag" Output="Response" AnonymousShouldProcessTarget="true"/>
     <ServiceOperation MethodName="DeleteCloudFrontOriginAccessIdentity" Output="Void" ShouldProcessTarget="Id" PositionalParameters="IfMatch"/>
     <ServiceOperation MethodName="DeleteDistribution" Output="Void" ShouldProcessTarget="Id" PositionalParameters="IfMatch"/>
+    <ServiceOperation MethodName="DeleteServiceLinkedRole" Output="Void" />
     <ServiceOperation MethodName="DeleteStreamingDistribution" Output="Void" ShouldProcessTarget="Id" PositionalParameters="IfMatch"/>
     <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentity"/>
     <ServiceOperation MethodName="GetCloudFrontOriginAccessIdentityConfig"/>

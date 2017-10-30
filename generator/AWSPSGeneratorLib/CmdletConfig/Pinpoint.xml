@@ -31,6 +31,10 @@
     <ServiceOperation MethodName="GetApps" Noun="AppList" />
     <ServiceOperation MethodName="GetApnsChannel"/>
     <ServiceOperation MethodName="GetApnsSandboxChannel" />
+    <ServiceOperation MethodName="DeleteApnsVoipChannel" />
+    <ServiceOperation MethodName="DeleteApnsVoipSandboxChannel" />
+    <ServiceOperation MethodName="GetApnsVoipChannel" />
+    <ServiceOperation MethodName="GetApnsVoipSandboxChannel" />
     <ServiceOperation MethodName="GetApplicationSettings" Noun="ApplicationSettingList"/>
     <ServiceOperation MethodName="GetBaiduChannel" />
     <ServiceOperation MethodName="GetCampaign" />
@@ -56,6 +60,8 @@
     <ServiceOperation MethodName="UpdateAdmChannel" />
     <ServiceOperation MethodName="UpdateApnsChannel" />
     <ServiceOperation MethodName="UpdateApnsSandboxChannel" />
+    <ServiceOperation MethodName="UpdateApnsVoipChannel" />
+    <ServiceOperation MethodName="UpdateApnsVoipSandboxChannel" />
     <ServiceOperation MethodName="UpdateApplicationSettings" Noun="ApplicationSettingList" />
     <ServiceOperation MethodName="UpdateBaiduChannel" />
     <ServiceOperation MethodName="UpdateCampaign" />

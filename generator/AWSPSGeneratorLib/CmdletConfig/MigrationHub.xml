@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ServiceNounPrefix>MH</ServiceNounPrefix>
+    <ServiceName>AWS Migration Hub</ServiceName>
+    <ServiceClientInterface>IAmazonMigrationHub</ServiceClientInterface>
+    <ServiceClient>AmazonMigrationHubClient</ServiceClient>
+    <ServiceNamespace>Amazon.MigrationHub</ServiceNamespace>
+
+    <PipelineParameter></PipelineParameter>
+
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+    <TypesNotToFlatten>
+        <Type>Amazon.MigrationHub.Model.CreatedArtifact</Type>
+         <Type>Amazon.MigrationHub.Model.DiscoveredResource</Type>
+         <Type>Amazon.MigrationHub.Model.MigrationTask</Type>
+         <Type>Amazon.MigrationHub.Model.Task</Type>
+    </TypesNotToFlatten>
+
+    <PipelineByValueProperties>
+        <Property>MigrationTaskName</Property>
+        <Property>ProgressUpdateStream</Property>
+        <Property>ConfigurationId</Property>
+        <Property>ApplicationId</Property>
+    </PipelineByValueProperties>
+
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateCreatedArtifact" Verb="Add" PipelineParameter="CreatedArtifact" Output="Void" ShouldProcessTarget="MigrationTaskName" />
+        <ServiceOperation MethodName="AssociateDiscoveredResource" Verb="Add" PipelineParameter="DiscoveredResource" Output="Void" ShouldProcessTarget="MigrationTaskName" />
+        <ServiceOperation MethodName="CreateProgressUpdateStream" PipelineParameter="ProgressUpdateStreamName" Output="Void" />
+        <ServiceOperation MethodName="DeleteProgressUpdateStream" PipelineParameter="ProgressUpdateStreamName" Output="Void" />
+        <ServiceOperation MethodName="DescribeApplicationState" Output="Response" />
+        <ServiceOperation MethodName="DescribeMigrationTask" PipelineParameter="MigrationTaskName" />
+        <ServiceOperation MethodName="DisassociateCreatedArtifact" Verb="Remove" PipelineParameter="CreatedArtifactName" Output="Void" />
+        <ServiceOperation MethodName="DisassociateDiscoveredResource" Verb="Remove" PipelineParameter="ConfigurationId" Output="Void" />
+        <ServiceOperation MethodName="ImportMigrationTask" PipelineParameter="MigrationTaskName" Output="Void" />
+        <ServiceOperation MethodName="ListCreatedArtifacts" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" />
+        <ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" />
+        <ServiceOperation MethodName="ListMigrationTasks" Verb="Get" Noun="MigrationTaskList"  />
+        <ServiceOperation MethodName="ListProgressUpdateStreams" Verb="Get" Noun="ProgressUpdateStream" />
+        <ServiceOperation MethodName="NotifyApplicationState" Verb="Send" Noun="ApplicationStateNotification" PipelineParameter="ApplicationId" Output="Void" />
+        <ServiceOperation MethodName="NotifyMigrationTaskState" Verb="Send" Noun="MigrationTaskStateNotification" PipelineParameter="Task" Output="Void" />
+        <ServiceOperation MethodName="PutResourceAttributes" Verb="Set" Noun="ResourceAttribute" PipelineParameter="MigrationTaskName" Output="Void" />
+    </ServiceOperations>
+</ConfigModel>

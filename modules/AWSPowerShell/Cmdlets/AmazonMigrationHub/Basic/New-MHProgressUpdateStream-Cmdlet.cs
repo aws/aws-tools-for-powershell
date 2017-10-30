@@ -22,61 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElastiCache;
-using Amazon.ElastiCache.Model;
+using Amazon.MigrationHub;
+using Amazon.MigrationHub.Model;
 
-namespace Amazon.PowerShell.Cmdlets.EC
+namespace Amazon.PowerShell.Cmdlets.MH
 {
     /// <summary>
-    /// Reboots some, or all, of the cache nodes within a provisioned cache cluster. This
-    /// operation applies any modified cache parameter groups to the cache cluster. The reboot
-    /// operation takes place as soon as possible, and results in a momentary outage to the
-    /// cache cluster. During the reboot, the cache cluster status is set to REBOOTING.
-    /// 
-    ///  
-    /// <para>
-    /// The reboot causes the contents of the cache (for each cache node being rebooted) to
-    /// be lost.
-    /// </para><para>
-    /// When the reboot is complete, a cache cluster event is created.
-    /// </para><para>
-    /// Rebooting a cluster is currently supported on Memcached and Redis (cluster mode disabled)
-    /// clusters. Rebooting is not supported on Redis (cluster mode enabled) clusters.
-    /// </para><para>
-    /// If you make changes to parameters that require a Redis (cluster mode enabled) cluster
-    /// reboot for the changes to be applied, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/Clusters.Rebooting.htm">Rebooting
-    /// a Cluster</a> for an alternate process.
-    /// </para>
+    /// Creates a progress update stream which is an AWS resource used for access control
+    /// as well as a namespace for migration task names that is implicitly linked to your
+    /// AWS account. It must uniquely identify the migration tool as it is used for all updates
+    /// made by the tool; however, it does not need to be unique for each AWS account because
+    /// it is scoped to the AWS account.
     /// </summary>
-    [Cmdlet("Restart", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
-    [AWSCmdlet("Invokes the RebootCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"RebootCacheCluster"})]
-    [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
-        "This cmdlet returns a CacheCluster object.",
-        "The service call response (type Amazon.ElastiCache.Model.RebootCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "MHProgressUpdateStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the CreateProgressUpdateStream operation against AWS Migration Hub.", Operation = new[] {"CreateProgressUpdateStream"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProgressUpdateStreamName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RestartECCacheClusterCmdlet : AmazonElastiCacheClientCmdlet, IExecutor
+    public partial class NewMHProgressUpdateStreamCmdlet : AmazonMigrationHubClientCmdlet, IExecutor
     {
         
-        #region Parameter CacheClusterId
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>The cache cluster identifier. This parameter is stored as a lowercase string.</para>
+        /// <para>Optional boolean flag to indicate whether any effect should take place. Used to test
+        /// if the caller has permission to make the call.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String CacheClusterId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.Boolean DryRun { get; set; }
         #endregion
         
-        #region Parameter CacheNodeIdsToReboot
+        #region Parameter ProgressUpdateStreamName
         /// <summary>
         /// <para>
-        /// <para>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002,
-        /// etc.). To reboot an entire cache cluster, specify all of the cache node IDs.</para>
+        /// <para>The name of the ProgressUpdateStream. </para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String[] CacheNodeIdsToReboot { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ProgressUpdateStreamName { get; set; }
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the ProgressUpdateStreamName parameter.
+        /// By default, this cmdlet does not generate any output.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -93,8 +88,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CacheClusterId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Restart-ECCacheCluster (RebootCacheCluster)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProgressUpdateStreamName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-MHProgressUpdateStream (CreateProgressUpdateStream)"))
             {
                 return;
             }
@@ -108,11 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.CacheClusterId = this.CacheClusterId;
-            if (this.CacheNodeIdsToReboot != null)
-            {
-                context.CacheNodeIdsToReboot = new List<System.String>(this.CacheNodeIdsToReboot);
-            }
+            if (ParameterWasBound("DryRun"))
+                context.DryRun = this.DryRun;
+            context.ProgressUpdateStreamName = this.ProgressUpdateStreamName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -127,15 +120,15 @@ namespace Amazon.PowerShell.Cmdlets.EC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElastiCache.Model.RebootCacheClusterRequest();
+            var request = new Amazon.MigrationHub.Model.CreateProgressUpdateStreamRequest();
             
-            if (cmdletContext.CacheClusterId != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.CacheClusterId = cmdletContext.CacheClusterId;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.CacheNodeIdsToReboot != null)
+            if (cmdletContext.ProgressUpdateStreamName != null)
             {
-                request.CacheNodeIdsToReboot = cmdletContext.CacheNodeIdsToReboot;
+                request.ProgressUpdateStreamName = cmdletContext.ProgressUpdateStreamName;
             }
             
             CmdletOutput output;
@@ -146,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CacheCluster;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.ProgressUpdateStreamName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -171,16 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         #region AWS Service Operation Call
         
-        private Amazon.ElastiCache.Model.RebootCacheClusterResponse CallAWSServiceOperation(IAmazonElastiCache client, Amazon.ElastiCache.Model.RebootCacheClusterRequest request)
+        private Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse CallAWSServiceOperation(IAmazonMigrationHub client, Amazon.MigrationHub.Model.CreateProgressUpdateStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon ElastiCache", "RebootCacheCluster");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Migration Hub", "CreateProgressUpdateStream");
             try
             {
                 #if DESKTOP
-                return client.RebootCacheCluster(request);
+                return client.CreateProgressUpdateStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.RebootCacheClusterAsync(request);
+                var task = client.CreateProgressUpdateStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -201,8 +196,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String CacheClusterId { get; set; }
-            public List<System.String> CacheNodeIdsToReboot { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public System.String ProgressUpdateStreamName { get; set; }
         }
         
     }

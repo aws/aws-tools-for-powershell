@@ -102,8 +102,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// must match the difference between the existing number of cache nodes in the cluster
         /// or pending cache nodes, whichever is greater, and the value of <code>NumCacheNodes</code>
         /// in the request.</para><para>For example: If you have 3 active cache nodes, 7 pending cache nodes, and the number
-        /// of cache nodes in this <code>ModifyCacheCluser</code> call is 5, you must list 2 (7
-        /// - 5) cache node IDs to remove.</para>
+        /// of cache nodes in this <code>ModifyCacheCluster</code> call is 5, you must list 2
+        /// (7 - 5) cache node IDs to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

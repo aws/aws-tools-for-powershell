@@ -1,3 +1,11 @@
+### 3.3.180.0 (2017-10-30)
+  * Amazon CloudFront
+    * Added cmdlet Remove-CFServiceLinkedRole for the new DeleteServiceLinkedRole API.
+  * AWS Migration Hub
+    * Added cmdlets to support the AWS Migration Hub service. Cmdlets for the service have the noun prefix 'MH' and can be listed using the command 'Get-AWSCmdletName -Service MH'. For more information on the service please refer to the service user guide [here](http://docs.aws.amazon.com/migrationhub/latest/ug/whatishub.html).
+  * Amazon Pinpoint
+    * Added cmdlets to support the new service APIs for APNs VoIP messages.
+
 ### 3.3.178.0 (2017-10-24)
   * Amazon EC2
     * The Get-EC2SecurityGroup cmdlet has been updated to support automatic pagination of all groups to match the corresponding enhancement in the underlying DescribeSecurityGroups API.
