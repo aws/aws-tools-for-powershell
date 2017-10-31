@@ -21,6 +21,7 @@
 		"AWSSDK.CloudFormation": "3.3.8.2",
 		"AWSSDK.CloudFront": "3.3.6",
 		"AWSSDK.CloudHSM": "3.3.0.24",
+		"AWSSDK.CloudHSMV2": "3.3.0.2",
 		"AWSSDK.CloudSearch": "3.3.0.22",
 		"AWSSDK.CloudSearchDomain": "3.3.0.22",
 		"AWSSDK.CloudTrail": "3.3.1.21",
@@ -99,7 +100,7 @@
 		"AWSSDK.StorageGateway": "3.3.5.2",
 		"AWSSDK.WAF": "3.3.3.1",
 		"AWSSDK.WAFRegional": "3.3.2.1",
-		"AWSSDK.WorkDocs": "3.3.2.5",
+		"AWSSDK.WorkDocs": "3.3.3",
 		"AWSSDK.WorkSpaces": "3.3.0.23",
 		"AWSSDK.XRay": "3.3.1.5"
  	},

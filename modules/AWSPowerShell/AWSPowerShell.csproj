@@ -69,6 +69,9 @@
     <Reference Include="AWSSDK.CloudDirectory">
       <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.5.2\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CloudHSMV2">
+      <HintPath>..\..\packages\AWSSDK.CloudHSMV2.3.3.0.2\lib\net35\AWSSDK.CloudHSMV2.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CodeStar">
       <HintPath>..\..\packages\AWSSDK.CodeStar.3.3.1.2\lib\net35\AWSSDK.CodeStar.dll</HintPath>
     </Reference>
@@ -127,7 +130,7 @@
       <HintPath>..\..\packages\AWSSDK.WAFRegional.3.3.2.1\lib\net35\AWSSDK.WAFRegional.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.WorkDocs">
-      <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.2.5\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.WorkDocs.3.3.3\lib\net35\AWSSDK.WorkDocs.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.XRay">
       <HintPath>..\..\packages\AWSSDK.XRay.3.3.1.5\lib\net35\AWSSDK.XRay.dll</HintPath>

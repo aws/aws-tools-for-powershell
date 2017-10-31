@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ServiceNounPrefix>HSM2</ServiceNounPrefix>
+    <ServiceName>AWS Cloud HSM V2</ServiceName>
+    <ServiceNamespace>Amazon.CloudHSMV2</ServiceNamespace>
+    <ServiceClientInterface>IAmazonCloudHSMV2</ServiceClientInterface>
+    <ServiceClient>AmazonCloudHSMV2Client</ServiceClient>
+
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
+
+    <NounMappings>
+        <Map From="Hsm" To="Item"/>
+    </NounMappings>
+
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateCluster" NoPipelineParameter="true" AnonymousShouldProcessTarget="true" />
+        <ServiceOperation MethodName="CreateHsm" PipelineParameter="ClusterId" />
+        <ServiceOperation MethodName="DeleteCluster" />
+        <ServiceOperation MethodName="DeleteHsm" PipelineParameter="HsmId" />
+        <ServiceOperation MethodName="DescribeBackups" Noun="Backup" NoPipelineParameter="true" />
+        <ServiceOperation MethodName="DescribeClusters" Noun="Cluster" NoPipelineParameter="true" />
+        <ServiceOperation MethodName="InitializeCluster" PipelineParameter="ClusterId" Output="Response" />
+        <ServiceOperation MethodName="ListTags" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
+        <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
+        <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
+    </ServiceOperations>
+</ConfigModel>

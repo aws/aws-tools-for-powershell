@@ -70,6 +70,7 @@ RequiredAssemblies = @(
   "AWSSDK.CloudFormation.dll",
   "AWSSDK.CloudFront.dll",
   "AWSSDK.CloudHSM.dll",
+  "AWSSDK.CloudHSMV2.dll",
   "AWSSDK.CloudSearch.dll",
   "AWSSDK.CloudSearchDomain.dll",
   "AWSSDK.CloudTrail.dll",
