@@ -1,3 +1,7 @@
+### 3.3.181.0 (2017-11-01)
+  * Amazon EC2 Systems Manager
+    * Fixed bug in the Get-SSMParametersByPath cmdlet preventing automatic pagination.
+
 ### 3.3.180.0 (2017-10-30)
   * Amazon CloudFront
     * Added cmdlet Remove-CFServiceLinkedRole for the new DeleteServiceLinkedRole API.
