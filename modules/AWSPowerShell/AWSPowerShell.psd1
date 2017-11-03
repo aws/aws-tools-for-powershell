@@ -8,7 +8,7 @@
 ModuleToProcess = 'AWSPowerShell.dll'
 
 # Version number of this module.
-ModuleVersion = '3.3.143.0'
+ModuleVersion = '3.3.183.1'
 
 # ID used to uniquely identify this module
 GUID = '21f083f2-4c41-4b5d-88ec-7d24c9e88769'
@@ -68,6 +68,7 @@ RequiredAssemblies = @(
   "AWSSDK.CloudFormation.dll",
   "AWSSDK.CloudFront.dll",
   "AWSSDK.CloudHSM.dll",
+  "AWSSDK.CloudHSMV2.dll",
   "AWSSDK.CloudSearch.dll",
   "AWSSDK.CloudSearchDomain.dll",
   "AWSSDK.CloudTrail.dll",

@@ -8,11 +8,7 @@
     <ServiceClientInterface>IAmazonCloudHSMV2</ServiceClientInterface>
     <ServiceClient>AmazonCloudHSMV2Client</ServiceClient>
 
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
-
-    <NounMappings>
-        <Map From="Hsm" To="Item"/>
-    </NounMappings>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="25" />
 
     <ServiceOperations>
         <ServiceOperation MethodName="CreateCluster" NoPipelineParameter="true" AnonymousShouldProcessTarget="true" />

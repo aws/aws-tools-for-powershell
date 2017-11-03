@@ -52,7 +52,7 @@
     <Path>Greengrass.xml</Path>
     <Path>Health.xml</Path>
     <Path>HSM.xml</Path>
-    <!-- <Path>HSM2.xml</Path> -->
+    <Path>HSM2.xml</Path>
     <Path>IAM.xml</Path>
     <Path>IoT.xml</Path>
     <Path>ImportExport.xml</Path>
