@@ -81,6 +81,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String Name { get; set; }
         #endregion
         
+        #region Parameter EndpointConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>).
+        /// For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>.
+        /// For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EndpointConfiguration_Types")]
+        public System.String[] EndpointConfiguration_Type { get; set; }
+        #endregion
+        
         #region Parameter Version
         /// <summary>
         /// <para>
@@ -126,6 +139,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             context.CloneFrom = this.CloneFrom;
             context.Description = this.Description;
+            if (this.EndpointConfiguration_Type != null)
+            {
+                context.EndpointConfiguration_Types = new List<System.String>(this.EndpointConfiguration_Type);
+            }
             context.Name = this.Name;
             context.Version = this.Version;
             
@@ -155,6 +172,25 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
+            }
+            
+             // populate EndpointConfiguration
+            bool requestEndpointConfigurationIsNull = true;
+            request.EndpointConfiguration = new Amazon.APIGateway.Model.EndpointConfiguration();
+            List<System.String> requestEndpointConfiguration_endpointConfiguration_Type = null;
+            if (cmdletContext.EndpointConfiguration_Types != null)
+            {
+                requestEndpointConfiguration_endpointConfiguration_Type = cmdletContext.EndpointConfiguration_Types;
+            }
+            if (requestEndpointConfiguration_endpointConfiguration_Type != null)
+            {
+                request.EndpointConfiguration.Types = requestEndpointConfiguration_endpointConfiguration_Type;
+                requestEndpointConfigurationIsNull = false;
+            }
+             // determine if request.EndpointConfiguration should be set to null
+            if (requestEndpointConfigurationIsNull)
+            {
+                request.EndpointConfiguration = null;
             }
             if (cmdletContext.Name != null)
             {
@@ -231,6 +267,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public List<System.String> BinaryMediaTypes { get; set; }
             public System.String CloneFrom { get; set; }
             public System.String Description { get; set; }
+            public List<System.String> EndpointConfiguration_Types { get; set; }
             public System.String Name { get; set; }
             public System.String Version { get; set; }
         }

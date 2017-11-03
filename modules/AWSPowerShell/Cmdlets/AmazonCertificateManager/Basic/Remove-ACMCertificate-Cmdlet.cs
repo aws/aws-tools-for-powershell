@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// Deletes an ACM Certificate and its associated private key. If this action succeeds,
     /// the certificate no longer appears in the list of ACM Certificates that can be displayed
     /// by calling the <a>ListCertificates</a> action or be retrieved by calling the <a>GetCertificate</a>
-    /// action. The certificate will not be available for use by other AWS services.
+    /// action. The certificate will not be available for use by other AWS services. 
     /// 
     ///  <note><para>
     /// You cannot delete an ACM Certificate that is being used by another AWS service. To

@@ -42,8 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The reference to an AWS-managed certificate. AWS Certificate Manager is the only supported
-        /// source.</para>
+        /// <para>The reference to an AWS-managed certificate that will be used by edge-optimized endpoint
+        /// for this domain name. AWS Certificate Manager is the only supported source.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificateBody
         /// <summary>
         /// <para>
-        /// <para>[Deprecated] The body of the server certificate provided by your certificate authority.</para>
+        /// <para>[Deprecated] The body of the server certificate that will be used by edge-optimized
+        /// endpoint for this domain name provided by your certificate authority.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,10 +65,11 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>[Deprecated] The intermediate certificates and optionally the root certificate, one
-        /// after the other without any blank lines. If you include the root certificate, your
-        /// certificate chain must start with intermediate certificates and end with the root
-        /// certificate. Use the intermediate certificates that were provided by your certificate
-        /// authority. Do not include any intermediaries that are not in the chain of trust path.</para>
+        /// after the other without any blank lines, used by an edge-optimized endpoint for this
+        /// domain name. If you include the root certificate, your certificate chain must start
+        /// with intermediate certificates and end with the root certificate. Use the intermediate
+        /// certificates that were provided by your certificate authority. Do not include any
+        /// intermediaries that are not in the chain of trust path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificateName
         /// <summary>
         /// <para>
-        /// <para>The user-friendly name of the certificate.</para>
+        /// <para>The user-friendly name of the certificate that will be used by edge-optimized endpoint
+        /// for this domain name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter CertificatePrivateKey
         /// <summary>
         /// <para>
-        /// <para>[Deprecated] Your certificate's private key.</para>
+        /// <para>[Deprecated] Your edge-optimized endpoint's domain name certificate's private key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,6 +105,41 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String DomainName { get; set; }
+        #endregion
+        
+        #region Parameter RegionalCertificateArn
+        /// <summary>
+        /// <para>
+        /// <para>The reference to an AWS-managed certificate that will be used by regional endpoint
+        /// for this domain name. AWS Certificate Manager is the only supported source.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegionalCertificateArn { get; set; }
+        #endregion
+        
+        #region Parameter RegionalCertificateName
+        /// <summary>
+        /// <para>
+        /// <para>The user-friendly name of the certificate that will be used by regional endpoint for
+        /// this domain name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegionalCertificateName { get; set; }
+        #endregion
+        
+        #region Parameter EndpointConfiguration_Type
+        /// <summary>
+        /// <para>
+        /// <para>A list of endpoint types of an API (<a>RestApi</a>) or its custom domain name (<a>DomainName</a>).
+        /// For an edge-optimized API and its custom domain name, the endpoint type is <code>"EDGE"</code>.
+        /// For a regional API and its custom domain name, the endpoint type is <code>REGIONAL</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("EndpointConfiguration_Types")]
+        public System.String[] EndpointConfiguration_Type { get; set; }
         #endregion
         
         #region Parameter Force
@@ -139,6 +177,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.CertificateName = this.CertificateName;
             context.CertificatePrivateKey = this.CertificatePrivateKey;
             context.DomainName = this.DomainName;
+            if (this.EndpointConfiguration_Type != null)
+            {
+                context.EndpointConfiguration_Types = new List<System.String>(this.EndpointConfiguration_Type);
+            }
+            context.RegionalCertificateArn = this.RegionalCertificateArn;
+            context.RegionalCertificateName = this.RegionalCertificateName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -178,6 +222,33 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.DomainName != null)
             {
                 request.DomainName = cmdletContext.DomainName;
+            }
+            
+             // populate EndpointConfiguration
+            bool requestEndpointConfigurationIsNull = true;
+            request.EndpointConfiguration = new Amazon.APIGateway.Model.EndpointConfiguration();
+            List<System.String> requestEndpointConfiguration_endpointConfiguration_Type = null;
+            if (cmdletContext.EndpointConfiguration_Types != null)
+            {
+                requestEndpointConfiguration_endpointConfiguration_Type = cmdletContext.EndpointConfiguration_Types;
+            }
+            if (requestEndpointConfiguration_endpointConfiguration_Type != null)
+            {
+                request.EndpointConfiguration.Types = requestEndpointConfiguration_endpointConfiguration_Type;
+                requestEndpointConfigurationIsNull = false;
+            }
+             // determine if request.EndpointConfiguration should be set to null
+            if (requestEndpointConfigurationIsNull)
+            {
+                request.EndpointConfiguration = null;
+            }
+            if (cmdletContext.RegionalCertificateArn != null)
+            {
+                request.RegionalCertificateArn = cmdletContext.RegionalCertificateArn;
+            }
+            if (cmdletContext.RegionalCertificateName != null)
+            {
+                request.RegionalCertificateName = cmdletContext.RegionalCertificateName;
             }
             
             CmdletOutput output;
@@ -249,6 +320,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String CertificateName { get; set; }
             public System.String CertificatePrivateKey { get; set; }
             public System.String DomainName { get; set; }
+            public List<System.String> EndpointConfiguration_Types { get; set; }
+            public System.String RegionalCertificateArn { get; set; }
+            public System.String RegionalCertificateName { get; set; }
         }
         
     }

@@ -28,50 +28,44 @@ using Amazon.DirectConnect.Model;
 namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
-    /// Associates a virtual interface with a specified link aggregation group (LAG) or connection.
-    /// Connectivity to AWS is temporarily interrupted as the virtual interface is being migrated.
-    /// If the target connection or LAG has an associated virtual interface with a conflicting
-    /// VLAN number or a conflicting IP address, the operation fails. 
-    /// 
-    ///  
-    /// <para>
-    /// Virtual interfaces associated with a hosted connection cannot be associated with a
-    /// LAG; hosted connections must be migrated along with their virtual interfaces using
-    /// <a>AssociateHostedConnection</a>.
-    /// </para><para>
-    /// In order to reassociate a virtual interface to a new connection or LAG, the requester
-    /// must own either the virtual interface itself or the connection to which the virtual
-    /// interface is currently associated. Additionally, the requester must own the connection
-    /// or LAG to which the virtual interface will be newly associated.
-    /// </para>
+    /// Creates a new direct connect gateway. A direct connect gateway is an intermediate
+    /// object that enables you to connect a set of virtual interfaces and virtual private
+    /// gateways. direct connect gateways are global and visible in any AWS region after they
+    /// are created. The virtual interfaces and virtual private gateways that are connected
+    /// through a direct connect gateway can be in different regions. This enables you to
+    /// connect to a VPC in any region, regardless of the region in which the virtual interfaces
+    /// are located, and pass traffic between them.
     /// </summary>
-    [Cmdlet("Register", "DCVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse")]
-    [AWSCmdlet("Invokes the AssociateVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"AssociateVirtualInterface"})]
-    [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse",
-        "This cmdlet returns a Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("New", "DCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.DirectConnect.Model.DirectConnectGateway")]
+    [AWSCmdlet("Invokes the CreateDirectConnectGateway operation against AWS Direct Connect.", Operation = new[] {"CreateDirectConnectGateway"})]
+    [AWSCmdletOutput("Amazon.DirectConnect.Model.DirectConnectGateway",
+        "This cmdlet returns a DirectConnectGateway object.",
+        "The service call response (type Amazon.DirectConnect.Model.CreateDirectConnectGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterDCVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
+    public partial class NewDCGatewayCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
         
-        #region Parameter ConnectionId
+        #region Parameter AmazonSideAsn
         /// <summary>
         /// <para>
-        /// <para>The ID of the LAG or connection with which to associate the virtual interface.</para><para>Example: dxlag-abc123 or dxcon-abc123</para><para>Default: None</para>
+        /// <para>The autonomous system number (ASN) for Border Gateway Protocol (BGP) to be configured
+        /// on the Amazon side of the connection. The ASN must be in the private range of 64,512
+        /// to 65,534 or 4,200,000,000 to 4,294,967,294 </para><para>Example: 65200</para><para>Default: 64512</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ConnectionId { get; set; }
+        [System.Management.Automation.Parameter]
+        public System.Int64 AmazonSideAsn { get; set; }
         #endregion
         
-        #region Parameter VirtualInterfaceId
+        #region Parameter DirectConnectGatewayName
         /// <summary>
         /// <para>
-        /// <para>The ID of the virtual interface.</para><para>Example: dxvif-123dfg56</para><para>Default: None</para>
+        /// <para>The name of the direct connect gateway.</para><para>Example: "My direct connect gateway"</para><para>Default: None</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String VirtualInterfaceId { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DirectConnectGatewayName { get; set; }
         #endregion
         
         #region Parameter Force
@@ -88,8 +82,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("VirtualInterfaceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-DCVirtualInterface (AssociateVirtualInterface)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DirectConnectGatewayName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-DCGateway (CreateDirectConnectGateway)"))
             {
                 return;
             }
@@ -103,8 +97,9 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ConnectionId = this.ConnectionId;
-            context.VirtualInterfaceId = this.VirtualInterfaceId;
+            if (ParameterWasBound("AmazonSideAsn"))
+                context.AmazonSideAsn = this.AmazonSideAsn;
+            context.DirectConnectGatewayName = this.DirectConnectGatewayName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -119,15 +114,15 @@ namespace Amazon.PowerShell.Cmdlets.DC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.DirectConnect.Model.AssociateVirtualInterfaceRequest();
+            var request = new Amazon.DirectConnect.Model.CreateDirectConnectGatewayRequest();
             
-            if (cmdletContext.ConnectionId != null)
+            if (cmdletContext.AmazonSideAsn != null)
             {
-                request.ConnectionId = cmdletContext.ConnectionId;
+                request.AmazonSideAsn = cmdletContext.AmazonSideAsn.Value;
             }
-            if (cmdletContext.VirtualInterfaceId != null)
+            if (cmdletContext.DirectConnectGatewayName != null)
             {
-                request.VirtualInterfaceId = cmdletContext.VirtualInterfaceId;
+                request.DirectConnectGatewayName = cmdletContext.DirectConnectGatewayName;
             }
             
             CmdletOutput output;
@@ -138,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.DirectConnectGateway;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -163,16 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         #region AWS Service Operation Call
         
-        private Amazon.DirectConnect.Model.AssociateVirtualInterfaceResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.AssociateVirtualInterfaceRequest request)
+        private Amazon.DirectConnect.Model.CreateDirectConnectGatewayResponse CallAWSServiceOperation(IAmazonDirectConnect client, Amazon.DirectConnect.Model.CreateDirectConnectGatewayRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "AssociateVirtualInterface");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Direct Connect", "CreateDirectConnectGateway");
             try
             {
                 #if DESKTOP
-                return client.AssociateVirtualInterface(request);
+                return client.CreateDirectConnectGateway(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateVirtualInterfaceAsync(request);
+                var task = client.CreateDirectConnectGatewayAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -193,8 +188,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ConnectionId { get; set; }
-            public System.String VirtualInterfaceId { get; set; }
+            public System.Int64? AmazonSideAsn { get; set; }
+            public System.String DirectConnectGatewayName { get; set; }
         }
         
     }

@@ -102,6 +102,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
         public System.String NewPrivateVirtualInterface_CustomerAddress { get; set; }
         #endregion
         
+        #region Parameter NewPrivateVirtualInterface_DirectConnectGatewayId
+        /// <summary>
+        /// <para>
+        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }
+        #endregion
+        
         #region Parameter NewPrivateVirtualInterface_VirtualGatewayId
         /// <summary>
         /// <para>
@@ -168,6 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
                 context.NewPrivateVirtualInterface_Asn = this.NewPrivateVirtualInterface_Asn;
             context.NewPrivateVirtualInterface_AuthKey = this.NewPrivateVirtualInterface_AuthKey;
             context.NewPrivateVirtualInterface_CustomerAddress = this.NewPrivateVirtualInterface_CustomerAddress;
+            context.NewPrivateVirtualInterface_DirectConnectGatewayId = this.NewPrivateVirtualInterface_DirectConnectGatewayId;
             context.NewPrivateVirtualInterface_VirtualGatewayId = this.NewPrivateVirtualInterface_VirtualGatewayId;
             context.NewPrivateVirtualInterface_VirtualInterfaceName = this.NewPrivateVirtualInterface_VirtualInterfaceName;
             if (ParameterWasBound("NewPrivateVirtualInterface_Vlan"))
@@ -244,6 +255,16 @@ namespace Amazon.PowerShell.Cmdlets.DC
             if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_CustomerAddress != null)
             {
                 request.NewPrivateVirtualInterface.CustomerAddress = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_CustomerAddress;
+                requestNewPrivateVirtualInterfaceIsNull = false;
+            }
+            System.String requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId = null;
+            if (cmdletContext.NewPrivateVirtualInterface_DirectConnectGatewayId != null)
+            {
+                requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId = cmdletContext.NewPrivateVirtualInterface_DirectConnectGatewayId;
+            }
+            if (requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId != null)
+            {
+                request.NewPrivateVirtualInterface.DirectConnectGatewayId = requestNewPrivateVirtualInterface_newPrivateVirtualInterface_DirectConnectGatewayId;
                 requestNewPrivateVirtualInterfaceIsNull = false;
             }
             System.String requestNewPrivateVirtualInterface_newPrivateVirtualInterface_VirtualGatewayId = null;
@@ -351,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             public System.Int32? NewPrivateVirtualInterface_Asn { get; set; }
             public System.String NewPrivateVirtualInterface_AuthKey { get; set; }
             public System.String NewPrivateVirtualInterface_CustomerAddress { get; set; }
+            public System.String NewPrivateVirtualInterface_DirectConnectGatewayId { get; set; }
             public System.String NewPrivateVirtualInterface_VirtualGatewayId { get; set; }
             public System.String NewPrivateVirtualInterface_VirtualInterfaceName { get; set; }
             public System.Int32? NewPrivateVirtualInterface_Vlan { get; set; }

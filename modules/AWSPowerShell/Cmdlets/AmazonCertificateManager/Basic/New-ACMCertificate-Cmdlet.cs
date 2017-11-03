@@ -29,12 +29,23 @@ namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
     /// Requests an ACM Certificate for use with other AWS services. To request an ACM Certificate,
-    /// you must specify the fully qualified domain name (FQDN) for your site. You can also
-    /// specify additional FQDNs if users can reach your site by using other names. For each
-    /// domain name you specify, email is sent to the domain owner to request approval to
-    /// issue the certificate. After receiving approval from the domain owner, the ACM Certificate
-    /// is issued. For more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
+    /// you must specify the fully qualified domain name (FQDN) for your site in the <code>DomainName</code>
+    /// parameter. You can also specify additional FQDNs in the <code>SubjectAlternativeNames</code>
+    /// parameter if users can reach your site by using other names. 
+    /// 
+    ///  
+    /// <para>
+    /// For each domain name you specify, email is sent to the domain owner to request approval
+    /// to issue the certificate. Email is sent to three registered contact addresses in the
+    /// WHOIS database and to five common system administration addresses formed from the
+    /// <code>DomainName</code> you enter or the optional <code>ValidationDomain</code> parameter.
+    /// For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/gs-acm-validate.html">Validate
+    /// Domain Ownership</a>. 
+    /// </para><para>
+    /// After receiving approval from the domain owner, the ACM Certificate is issued. For
+    /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
     /// Certificate Manager User Guide</a>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]

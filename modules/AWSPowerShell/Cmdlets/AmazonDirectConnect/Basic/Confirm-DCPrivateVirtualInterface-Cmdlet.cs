@@ -33,8 +33,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     ///  
     /// <para>
     /// After the virtual interface owner calls this function, the virtual interface will
-    /// be created and attached to the given virtual private gateway, and will be available
-    /// for handling traffic.
+    /// be created and attached to the given virtual private gateway or direct connect gateway,
+    /// and will be available for handling traffic.
     /// </para>
     /// </summary>
     [Cmdlet("Confirm", "DCPrivateVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -46,6 +46,17 @@ namespace Amazon.PowerShell.Cmdlets.DC
     )]
     public partial class ConfirmDCPrivateVirtualInterfaceCmdlet : AmazonDirectConnectClientCmdlet, IExecutor
     {
+        
+        #region Parameter DirectConnectGatewayId
+        /// <summary>
+        /// <para>
+        /// <para>ID of the direct connect gateway that will be attached to the virtual interface.</para><para> A direct connect gateway can be managed via the AWS Direct Connect console or the
+        /// <a>CreateDirectConnectGateway</a> action.</para><para>Default: None</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String DirectConnectGatewayId { get; set; }
+        #endregion
         
         #region Parameter VirtualGatewayId
         /// <summary>
@@ -98,6 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DirectConnectGatewayId = this.DirectConnectGatewayId;
             context.VirtualGatewayId = this.VirtualGatewayId;
             context.VirtualInterfaceId = this.VirtualInterfaceId;
             
@@ -116,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.DC
             // create request
             var request = new Amazon.DirectConnect.Model.ConfirmPrivateVirtualInterfaceRequest();
             
+            if (cmdletContext.DirectConnectGatewayId != null)
+            {
+                request.DirectConnectGatewayId = cmdletContext.DirectConnectGatewayId;
+            }
             if (cmdletContext.VirtualGatewayId != null)
             {
                 request.VirtualGatewayId = cmdletContext.VirtualGatewayId;
@@ -188,6 +204,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String DirectConnectGatewayId { get; set; }
             public System.String VirtualGatewayId { get; set; }
             public System.String VirtualInterfaceId { get; set; }
         }

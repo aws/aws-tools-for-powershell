@@ -14,7 +14,9 @@
     <Map From="VirtualGateways" To="VirtualGateway" />
     <Map From="VirtualInterfaces" To="VirtualInterface" />
   </NounMappings>
-  
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
   <ServiceOperations>
     <ServiceOperation MethodName="AllocateConnectionOnInterconnect" Verb="Enable" Output="Response" PipelineParameter="InterconnectId" PositionalParameters="ConnectionName;OwnerAccount;Bandwidth;Vlan"/>
     <ServiceOperation MethodName="AllocateHostedConnection" PipelineParameter="ConnectionId" Output="Response" />
@@ -28,12 +30,16 @@
     <ServiceOperation MethodName="ConfirmPublicVirtualInterface" />
     <ServiceOperation MethodName="CreateBGPPeer" PipelineParameter="VirtualInterfaceId"/>
     <ServiceOperation MethodName="CreateConnection" Output="Response" PipelineParameter="ConnectionName" PositionalParameters="Bandwidth;Location"/>
+    <ServiceOperation MethodName="CreateDirectConnectGateway" Noun="Gateway" PipelineParameter="DirectConnectGatewayName" />
+    <ServiceOperation MethodName="CreateDirectConnectGatewayAssociation" Noun="GatewayAssociation" PipelineParameter="VirtualGatewayId" />
     <ServiceOperation MethodName="CreateInterconnect" Output="Response" PipelineParameter="InterconnectName" PositionalParameters="Bandwidth;Location"/>
     <ServiceOperation MethodName="CreateLag" PipelineParameter="ConnectionId" Output="Response" />
     <ServiceOperation MethodName="CreatePrivateVirtualInterface" Output="Response" PipelineParameter="ConnectionId" />
     <ServiceOperation MethodName="CreatePublicVirtualInterface" Output="Response" PipelineParameter="ConnectionId"/>
     <ServiceOperation MethodName="DeleteBGPPeer" PipelineParameter="VirtualInterfaceId"/>
     <ServiceOperation MethodName="DeleteConnection" Output="Response" />
+    <ServiceOperation MethodName="DeleteDirectConnectGateway" Noun="Gateway" />
+    <ServiceOperation MethodName="DeleteDirectConnectGatewayAssociation" Noun="GatewayAssociation" PipelineParameter="VirtualGatewayId" />
     <ServiceOperation MethodName="DeleteInterconnect" />
     <ServiceOperation MethodName="DeleteLag" Output="Response" />
     <ServiceOperation MethodName="DeleteVirtualInterface" />
@@ -41,6 +47,9 @@
     <ServiceOperation MethodName="DescribeConnections" />
     <ServiceOperation MethodName="DescribeConnectionsOnInterconnect" />
     <ServiceOperation MethodName="DescribeConnectionLoa" PipelineParameter="ConnectionId"/>
+    <ServiceOperation MethodName="DescribeDirectConnectGatewayAssociations" Noun="GatewayAssociation" PipelineParameter="DirectConnectGatewayId" />
+    <ServiceOperation MethodName="DescribeDirectConnectGatewayAttachments" Noun="GatewayAttachment" PipelineParameter="DirectConnectGatewayId" />
+    <ServiceOperation MethodName="DescribeDirectConnectGateways" Noun="Gateway" PipelineParameter="DirectConnectGatewayId" />
     <ServiceOperation MethodName="DescribeHostedConnections" Noun="HostedConnection" />
     <ServiceOperation MethodName="DescribeInterconnects" />
     <ServiceOperation MethodName="DescribeInterconnectLoa" PipelineParameter="InterconnectId"/>

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
 {
     /// <summary>
     /// Returns the list of AWS Direct Connect locations in the current AWS region. These
-    /// are the locations that may be selected when calling CreateConnection or CreateInterconnect.
+    /// are the locations that may be selected when calling <a>CreateConnection</a> or <a>CreateInterconnect</a>.
     /// </summary>
     [Cmdlet("Get", "DCLocation")]
     [OutputType("Amazon.DirectConnect.Model.Location")]

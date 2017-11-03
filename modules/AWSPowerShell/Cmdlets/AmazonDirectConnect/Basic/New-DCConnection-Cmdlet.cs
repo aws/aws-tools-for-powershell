@@ -40,6 +40,8 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// with. You can establish connections with AWS Direct Connect locations in multiple
     /// regions, but a connection in one region does not provide connectivity to other regions.
     /// </para><para>
+    /// To find the locations for your region, use <a>DescribeLocations</a>.
+    /// </para><para>
     /// You can automatically add the new connection to a link aggregation group (LAG) by
     /// specifying a LAG ID in the request. This ensures that the new connection is allocated
     /// on the same AWS Direct Connect endpoint that hosts the specified LAG. If there are
