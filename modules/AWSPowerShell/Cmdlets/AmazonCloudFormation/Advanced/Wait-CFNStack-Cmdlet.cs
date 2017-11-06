@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     )]
     public partial class WaitCFNStackCmdlet : AmazonCloudFormationClientCmdlet, IExecutor
     {
-        private const int DefaultTimeoutInSeconds = 60;
+        private const int DefaultTimeoutInSeconds = 120;
         private const int PollSleepInSeconds = 2;
 
         #region Parameter StackName
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         #region Parameter Timeout
         /// <summary>
         /// The number of seconds that the command should run for before timing out and throwing an exception.
-        /// If not specified the command waits for 60 seconds.
+        /// If not specified the command waits for 120 seconds.
         /// </summary>
         [System.Management.Automation.Parameter]
         public int Timeout { get; set; }
@@ -128,47 +128,50 @@ namespace Amazon.PowerShell.Cmdlets.CFN
                     var output = Execute(_cmdletContext) as CmdletOutput;
                     if (output != null)
                     {
-                        var stack = output.PipelineOutput as Stack;
-                        if (stack != null)
+                        if (output.PipelineOutput != null)
                         {
-                            if (TestCFNStackCmdlet.IsStackInState(stack.StackStatus, _cmdletContext.Status))
+                            var stack = output.PipelineOutput as Stack;
+                            if (stack != null)
                             {
-                                ProcessOutput(output);
-                                break;
+                                if (TestCFNStackCmdlet.IsStackInState(stack.StackStatus, _cmdletContext.Status))
+                                {
+                                    ProcessOutput(output);
+                                    break;
+                                }
                             }
                         }
+                        else if (output.ErrorResponse != null)
+                            throw new Exception(output.ErrorResponse.Message);
                     }
 
                     var now = DateTime.UtcNow;
                     if ((now - _startTime).TotalSeconds > _cmdletContext.Timeout)
                     {
-                        var err = string.Format("...timed out after {0} seconds waiting for CloudFormation stack {1} in region {2} to reach one of state(s): {3}",
-                                                 _cmdletContext.Timeout,
-                                                 _cmdletContext.StackName,
-                                                 _cmdletContext.Region.SystemName,
-                                                 TestCFNStackCmdlet.StateSetToFormattedString(_cmdletContext.Status));
+                        var err = string.Format("Stack did not reach one of expected states {0} after {1} seconds waiting. Abandoning execution.\nUse the -Timeout parameter to extend the waiting time if needed.",
+                                                TestCFNStackCmdlet.StateSetToFormattedString(_cmdletContext.Status),
+                                                _cmdletContext.Timeout);
                         ThrowExecutionError(err, this);
                     }
 
                     WriteVerbose(string.Format("...sleeping for {0} seconds before re-testing status", PollSleepInSeconds));
                     Thread.Sleep(PollSleepInSeconds * 1000);
                 }
-                catch (Exception)
+                catch (Exception e)
                 {
                     // ...of course we don't know from the error cfn gives us if this is truly
                     // delete completed, or 'stack doesn't exist because you have wrong name/not yours'
                     // scenario
-                    if (_cmdletContext.Status.Contains(StackStatus.DELETE_COMPLETE))
+                    if (_cmdletContext.Status.Contains(StackStatus.DELETE_COMPLETE) && e.Message.Contains("does not exist"))
                     {
-                        WriteVerbose("...status test on stack threw exception, assuming stack has reached termination as states to test included 'DELETE_COMPLETE'.");
+                        WriteVerbose("Status query on stack threw exception indicating stack does not exist");
+                        WriteVerbose("Assuming stack has reached termination as states to test included 'DELETE_COMPLETE'.");
                         // cannot send exception back in output object here, as it will
                         // stop the pipeline with an error
                         ProcessOutput(new CmdletOutput());
+                        break;
                     }
-                    else
-                    {
-                        throw;
-                    }
+
+                    throw;
                 }
             }
 
@@ -188,9 +191,11 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             try
             {
                 var response = CallAWSServiceOperation(client, request);
+                var stack = response.Stacks.FirstOrDefault();
+                WriteVerbose("DescribeStacks query on stack yielded current status " + stack.StackStatus);
                 output = new CmdletOutput
                 {
-                    PipelineOutput = response.Stacks.FirstOrDefault(),
+                    PipelineOutput = stack,
                     ServiceResponse = response
                 };
             }
