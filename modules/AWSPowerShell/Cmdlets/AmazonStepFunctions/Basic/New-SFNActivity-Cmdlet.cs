@@ -28,7 +28,11 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Creates an activity.
+    /// Creates an activity. An Activity is a task which you write, in any language and hosted
+    /// on any machine which has access to AWS Step Functions. Activities must poll Step Functions
+    /// using the <code>GetActivityTask</code> and respond using <code>SendTask*</code> API
+    /// calls. This function lets Step Functions know the existence of your activity and returns
+    /// an identifier for use in a state machine and when polling from the activity.
     /// </summary>
     [Cmdlet("New", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateActivityResponse")]
@@ -43,7 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>The name of the activity to create. This name must be unique for your AWS account
-        /// and region.</para>
+        /// and region for 90 days. For more information, see <a href="http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
+        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>whitespace</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -29,7 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Deletes a state machine. This is an asynchronous operation-- it sets the state machine's
-    /// status to "DELETING" and begins the delete process.
+    /// status to "DELETING" and begins the delete process. Each state machine execution will
+    /// be deleted the next time it makes a state transition. After all executions have completed
+    /// or been deleted, the state machine itself will be deleted.
     /// </summary>
     [Cmdlet("Remove", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

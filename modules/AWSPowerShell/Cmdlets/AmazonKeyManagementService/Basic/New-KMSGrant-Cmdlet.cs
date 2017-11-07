@@ -28,12 +28,14 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Adds a grant to a key to specify who can use the key and under what conditions. Grants
-    /// are alternate permission mechanisms to key policies.
+    /// Adds a grant to a customer master key (CMK). The grant specifies who can use the CMK
+    /// and under what conditions. When setting permissions, grants are an alternative to
+    /// key policies. 
     /// 
     ///  
     /// <para>
-    /// For more information about grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
+    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
+    /// in the value of the KeyId parameter. For more information about grants, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/grants.html">Grants</a>
     /// in the <i>AWS Key Management Service Developer Guide</i>.
     /// </para>
     /// </summary>
@@ -104,8 +106,8 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The unique identifier for the customer master key (CMK) that the grant applies to.</para><para>To specify this value, use the globally unique key ID or the Amazon Resource Name
-        /// (ARN) of the key. Examples:</para><ul><li><para>Globally unique key ID: 12345678-1234-1234-1234-123456789012</para></li><li><para>Key ARN: arn:aws:kms:us-west-2:123456789012:key/12345678-1234-1234-1234-123456789012</para></li></ul>
+        /// <para>The unique identifier for the customer master key (CMK) that the grant applies to.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK
+        /// in a different AWS account, you must use the key ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

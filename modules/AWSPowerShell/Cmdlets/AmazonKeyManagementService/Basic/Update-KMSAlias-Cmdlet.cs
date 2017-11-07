@@ -28,20 +28,27 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Updates an alias to map it to a different key.
+    /// Associates an existing alias with a different customer master key (CMK). Each CMK
+    /// can have multiple aliases, but the aliases must be unique within the account and region.
+    /// You cannot perform this operation on an alias in a different AWS account.
     /// 
     ///  
     /// <para>
-    /// An alias is not a property of a key. Therefore, an alias can be mapped to and unmapped
-    /// from an existing key without changing the properties of the key.
+    /// This operation works only on existing aliases. To change the alias of a CMK to a new
+    /// value, use <a>CreateAlias</a> to create a new alias and <a>DeleteAlias</a> to delete
+    /// the old alias.
+    /// </para><para>
+    /// Because an alias is not a property of a CMK, you can create, update, and delete the
+    /// aliases of a CMK without affecting the CMK. Also, aliases do not appear in the response
+    /// from the <a>DescribeKey</a> operation. To get the aliases of all CMKs in the account,
+    /// use the <a>ListAliases</a> operation. 
     /// </para><para>
     /// An alias name can contain only alphanumeric characters, forward slashes (/), underscores
-    /// (_), and dashes (-). An alias must start with the word "alias" followed by a forward
-    /// slash (alias/). An alias that begins with "aws" after the forward slash (alias/aws...)
-    /// is reserved by Amazon Web Services (AWS).
-    /// </para><para>
-    /// The alias and the key it is mapped to must be in the same AWS account and the same
-    /// region.
+    /// (_), and dashes (-). An alias must start with the word <code>alias</code> followed
+    /// by a forward slash (<code>alias/</code>). The alias name can contain only alphanumeric
+    /// characters, forward slashes (/), underscores (_), and dashes (-). Alias names cannot
+    /// begin with <code>aws</code>; that alias name prefix is reserved by Amazon Web Services
+    /// (AWS).
     /// </para>
     /// </summary>
     [Cmdlet("Update", "KMSAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -69,9 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter TargetKeyId
         /// <summary>
         /// <para>
-        /// <para>Unique identifier of the customer master key to be mapped to the alias. This value
-        /// can be a globally unique identifier or the fully specified ARN of a key.</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li></ul><para>You can call <a>ListAliases</a> to verify that the alias is mapped to the correct
-        /// <code>TargetKeyId</code>.</para>
+        /// <para>Unique identifier of the customer master key to be mapped to the alias.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para><para>To verify that the alias is mapped to the correct CMK, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

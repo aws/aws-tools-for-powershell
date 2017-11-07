@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name of the CMK associated with the grant. Example:</para><ul><li><para>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the CMK associated with the grant. </para><para>For example: <code>arn:aws:kms:us-east-2:444455556666:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

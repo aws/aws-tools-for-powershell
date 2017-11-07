@@ -28,7 +28,7 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Creates a customer master key (CMK).
+    /// Creates a customer master key (CMK) in the caller's AWS account.
     /// 
     ///  
     /// <para>
@@ -40,7 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// The <a>GenerateDataKey</a> operation
     /// </para></li><li><para><a href="http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS
     /// Key Management Service Concepts</a> in the <i>AWS Key Management Service Developer
-    /// Guide</i></para></li></ul>
+    /// Guide</i></para></li></ul><para>
+    /// You cannot use this operation to create a CMK in a different AWS account.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]
@@ -117,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
         /// that I make are not always immediately visible</a> in the <i>IAM User Guide</i>.</para></li></ul><para>If you do not specify a policy, AWS KMS attaches a default key policy to the CMK.
         /// For more information, see <a href="http://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default">Default
-        /// Key Policy</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The policy size limit is 32 KiB (32768 bytes).</para>
+        /// Key Policy</a> in the <i>AWS Key Management Service Developer Guide</i>.</para><para>The policy size limit is 32 kilobytes (32768 bytes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,26 +28,29 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Encrypts plaintext into ciphertext by using a customer master key. The <code>Encrypt</code>
-    /// function has two primary use cases:
+    /// Encrypts plaintext into ciphertext by using a customer master key (CMK). The <code>Encrypt</code>
+    /// operation has two primary use cases:
     /// 
     ///  <ul><li><para>
-    /// You can encrypt up to 4 KB of arbitrary data such as an RSA key, a database password,
-    /// or other sensitive customer information.
+    /// You can encrypt up to 4 kilobytes (4096 bytes) of arbitrary data such as an RSA key,
+    /// a database password, or other sensitive information.
     /// </para></li><li><para>
-    /// If you are moving encrypted data from one region to another, you can use this API
+    /// To move encrypted data from one AWS region to another, you can use this operation
     /// to encrypt in the new region the plaintext data key that was used to encrypt the data
     /// in the original region. This provides you with an encrypted copy of the data key that
     /// can be decrypted in the new region and used there to decrypt the encrypted data.
     /// </para></li></ul><para>
-    /// Unless you are moving encrypted data from one region to another, you don't use this
-    /// function to encrypt a generated data key within a region. You retrieve data keys already
-    /// encrypted by calling the <a>GenerateDataKey</a> or <a>GenerateDataKeyWithoutPlaintext</a>
-    /// function. Data keys don't need to be encrypted again by calling <code>Encrypt</code>.
+    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
+    /// or alias ARN in the value of the KeyId parameter.
     /// </para><para>
-    /// If you want to encrypt data locally in your application, you can use the <code>GenerateDataKey</code>
-    /// function to return a plaintext data encryption key and a copy of the key encrypted
-    /// under the customer master key (CMK) of your choosing.
+    /// Unless you are moving encrypted data from one region to another, you don't use this
+    /// operation to encrypt a generated data key within a region. To get data keys that are
+    /// already encrypted, call the <a>GenerateDataKey</a> or <a>GenerateDataKeyWithoutPlaintext</a>
+    /// operation. Data keys don't need to be encrypted again by calling <code>Encrypt</code>.
+    /// </para><para>
+    /// To encrypt data locally in your application, use the <a>GenerateDataKey</a> operation
+    /// to return a plaintext data encryption key and a copy of the key encrypted under the
+    /// CMK of your choosing.
     /// </para>
     /// </summary>
     [Cmdlet("Invoke", "KMSEncrypt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -87,9 +90,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
-        /// by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
+        /// <para>A unique identifier for the customer master key (CMK).</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different
+        /// AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

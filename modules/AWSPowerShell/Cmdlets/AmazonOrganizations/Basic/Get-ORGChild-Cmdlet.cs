@@ -30,7 +30,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// <summary>
     /// Lists all of the OUs or accounts that are contained in the specified parent OU or
     /// root. This operation, along with <a>ListParents</a> enables you to traverse the tree
-    /// structure that makes up this root.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// structure that makes up this root.
+    /// 
+    ///  
+    /// <para>
+    /// This operation can be called only from the organization's master account.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ORGChild")]
     [OutputType("Amazon.Organizations.Model.Child")]

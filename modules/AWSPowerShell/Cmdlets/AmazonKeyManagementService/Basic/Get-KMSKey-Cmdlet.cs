@@ -28,7 +28,13 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Provides detailed information about the specified customer master key.
+    /// Provides detailed information about the specified customer master key (CMK).
+    /// 
+    ///  
+    /// <para>
+    /// To perform this operation on a CMK in a different AWS account, specify the key ARN
+    /// or alias ARN in the value of the KeyId parameter.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "KMSKey")]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]
@@ -55,9 +61,10 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the customer master key. This value can be a globally unique
-        /// identifier, a fully specified ARN to either an alias or a key, or an alias name prefixed
-        /// by "alias/".</para><ul><li><para>Key ARN Example - arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</para></li><li><para>Alias ARN Example - arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</para></li><li><para>Globally Unique Key ID Example - 12345678-1234-1234-1234-123456789012</para></li><li><para>Alias Name Example - alias/MyAliasName</para></li></ul>
+        /// <para>A unique identifier for the customer master key (CMK).</para><para>To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias
+        /// ARN. When using an alias name, prefix it with "alias/". To specify a CMK in a different
+        /// AWS account, you must use the key ARN or alias ARN.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Alias name: <code>alias/ExampleAlias</code></para></li><li><para>Alias ARN: <code>arn:aws:kms:us-east-2:111122223333:alias/ExampleAlias</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.
+        /// To get the alias name and alias ARN, use <a>ListAliases</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
     /// Decrypts ciphertext. Ciphertext is plaintext that has been previously encrypted by
-    /// using any of the following functions:
+    /// using any of the following operations:
     /// 
     ///  <ul><li><para><a>GenerateDataKey</a></para></li><li><para><a>GenerateDataKeyWithoutPlaintext</a></para></li><li><para><a>Encrypt</a></para></li></ul><para>
     /// Note that if a caller has been granted access permissions to all keys (through, for

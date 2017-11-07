@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <para>
         /// <para>The maximum number of results that will be returned per call. <code>nextToken</code>
         /// can be used to obtain further pages of results. The default is 100 and the maximum
-        /// allowed page size is 1000.</para><para>This is an upper limit only; the actual number of results returned per call may be
+        /// allowed page size is 100. A value of 0 means to use the default.</para><para>This is an upper limit only; the actual number of results returned per call may be
         /// fewer than the specified maximum.</para>
         /// </para>
         /// </summary>

@@ -28,7 +28,10 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Creates a state machine.
+    /// Creates a state machine. A state machine consists of a collection of states that can
+    /// do work (<code>Task</code> states), determine which states to transition to next (<code>Choice</code>
+    /// states), stop an execution with an error (<code>Fail</code> states), and so on. State
+    /// machines are specified using a JSON-based, structured language.
     /// </summary>
     [Cmdlet("New", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateStateMachineResponse")]
@@ -52,7 +55,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the state machine. This name must be unique for your AWS account and region.</para>
+        /// <para>The name of the state machine. This name must be unique for your AWS account and region
+        /// for 90 days. For more information, see <a href="http://docs.aws.amazon.com/step-functions/latest/dg/limits.html#service-limits-state-machine-executions">
+        /// Limits Related to State Machine Executions</a> in the <i>AWS Step Functions Developer
+        /// Guide</i>.</para><para>A name must <i>not</i> contain:</para><ul><li><para>whitespace</para></li><li><para>brackets <code>&lt; &gt; { } [ ]</code></para></li><li><para>wildcard characters <code>? *</code></para></li><li><para>special characters <code>" # % \ ^ | ~ ` $ &amp; , ; : /</code></para></li><li><para>control characters (<code>U+0000-001F</code>, <code>U+007F-009F</code>)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,7 +28,8 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Adds or overwrites one or more tags for the specified customer master key (CMK). 
+    /// Adds or overwrites one or more tags for the specified customer master key (CMK). You
+    /// cannot perform this operation on a CMK in a different AWS account.
     /// 
     ///  
     /// <para>
@@ -40,6 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// If you send a <code>TagResource</code> request for this CMK with a tag key of <code>Purpose</code>
     /// and a tag value of <code>Prod</code>, it does not create a second tag. Instead, the
     /// original tag is overwritten with the new tag value.
+    /// </para><para>
+    /// For information about the rules that apply to tag keys and tag values, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/allocation-tag-restrictions.html">User-Defined
+    /// Tag Restrictions</a> in the <i>AWS Billing and Cost Management User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("Add", "KMSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,8 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the CMK you are tagging. You can use the unique key ID or
-        /// the Amazon Resource Name (ARN) of the CMK. Examples:</para><ul><li><para>Unique key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul>
+        /// <para>A unique identifier for the CMK you are tagging.</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

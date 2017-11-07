@@ -32,7 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// or organizational unit (OU). If you specify the root, you get a list of all the accounts
     /// that are not in any OU. If you specify an OU, you get a list of all the accounts in
     /// only that OU, and not in any child OUs. To get a list of all accounts in the organization,
-    /// use the <a>ListAccounts</a> operation.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// use the <a>ListAccounts</a> operation.
+    /// 
+    ///  
+    /// <para>
+    /// This operation can be called only from the organization's master account.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ORGAccountForParent")]
     [OutputType("Amazon.Organizations.Model.Account")]

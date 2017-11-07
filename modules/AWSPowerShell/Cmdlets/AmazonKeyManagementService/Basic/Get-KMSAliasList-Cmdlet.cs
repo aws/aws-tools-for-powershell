@@ -28,7 +28,17 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Lists all of the key aliases in the account.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets a list of all aliases in the caller's AWS account and region. You cannot list
+    /// aliases in other accounts. For more information about aliases, see <a>CreateAlias</a>.
+    /// 
+    ///  
+    /// <para>
+    /// The response might include several aliases that do not have a <code>TargetKeyId</code>
+    /// field because they are not associated with a CMK. These are predefined aliases that
+    /// are reserved for CMKs managed by AWS services. If an alias is not associated with
+    /// a CMK, the alias does not count against the <a href="http://docs.aws.amazon.com/kms/latest/developerguide/limits.html#aliases-limit">alias
+    /// limit</a> for your account.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "KMSAliasList")]
     [OutputType("Amazon.KeyManagementService.Model.AliasListEntry")]

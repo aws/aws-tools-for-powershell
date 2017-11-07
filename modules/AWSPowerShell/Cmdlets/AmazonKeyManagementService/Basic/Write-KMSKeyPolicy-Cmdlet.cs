@@ -28,7 +28,8 @@ using Amazon.KeyManagementService.Model;
 namespace Amazon.PowerShell.Cmdlets.KMS
 {
     /// <summary>
-    /// Attaches a key policy to the specified customer master key (CMK).
+    /// Attaches a key policy to the specified customer master key (CMK). You cannot perform
+    /// this operation on a CMK in a different AWS account.
     /// 
     ///  
     /// <para>
@@ -62,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>A unique identifier for the CMK.</para><para>Use the CMK's unique identifier or its Amazon Resource Name (ARN). For example:</para><ul><li><para>Unique ID: 1234abcd-12ab-34cd-56ef-1234567890ab</para></li><li><para>ARN: arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</para></li></ul>
+        /// <para>A unique identifier for the customer master key (CMK).</para><para>Specify the key ID or the Amazon Resource Name (ARN) of the CMK.</para><para>For example:</para><ul><li><para>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li><li><para>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></para></li></ul><para>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -82,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// need to enforce a delay before specifying the new principal in a key policy because
         /// the new principal might not immediately be visible to AWS KMS. For more information,
         /// see <a href="http://docs.aws.amazon.com/IAM/latest/UserGuide/troubleshoot_general.html#troubleshoot_general_eventual-consistency">Changes
-        /// that I make are not always immediately visible</a> in the <i>IAM User Guide</i>.</para></li></ul><para>The policy size limit is 32 KiB (32768 bytes).</para>
+        /// that I make are not always immediately visible</a> in the <i>IAM User Guide</i>.</para></li></ul><para>The policy size limit is 32 kilobytes (32768 bytes).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>The name of the key policy.</para><para>This value must be <code>default</code>.</para>
+        /// <para>The name of the key policy. The only valid value is <code>default</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
