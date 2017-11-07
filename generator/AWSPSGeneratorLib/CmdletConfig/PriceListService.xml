@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ServiceNounPrefix>PLS</ServiceNounPrefix>
+    <ServiceName>AWS Price List Service</ServiceName>
+    <ServiceNamespace>Amazon.Pricing</ServiceNamespace>
+    <ServiceClientInterface>IAmazonPricing</ServiceClientInterface>
+    <ServiceClient>AmazonPricingClient</ServiceClient>
+
+    <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
+
+    <MetadataProperties>
+        <Property>FormatVersion</Property>
+    </MetadataProperties>
+
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeServices" Noun="Service" PipelineParameter="ServiceCode" />
+        <ServiceOperation MethodName="GetAttributeValues" Noun="AttributeValue" PipelineParameter="AttributeName" />
+        <ServiceOperation MethodName="GetProducts" Noun="Product" PipelineParameter="ServiceCode" />
+    </ServiceOperations>
+
+</ConfigModel>

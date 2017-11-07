@@ -114,6 +114,9 @@
     <Reference Include="AWSSDK.Pinpoint">
       <HintPath>..\..\packages\AWSSDK.Pinpoint.3.3.5\lib\net35\AWSSDK.Pinpoint.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Pricing">
+      <HintPath>..\..\packages\AWSSDK.Pricing.3.3.0\lib\net35\AWSSDK.Pricing.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Rekognition">
       <HintPath>..\..\packages\AWSSDK.Rekognition.3.3.6.2\lib\net35\AWSSDK.Rekognition.dll</HintPath>
     </Reference>

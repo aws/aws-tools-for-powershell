@@ -126,6 +126,7 @@ RequiredAssemblies = @(
   "AWSSDK.Organizations.dll",
   "AWSSDK.Pinpoint.dll",
   "AWSSDK.Polly.dll",
+  "AWSSDK.Pricing.dll",
   "AWSSDK.RDS.dll",
   "AWSSDK.Redshift.dll",
   "AWSSDK.Rekognition.dll",

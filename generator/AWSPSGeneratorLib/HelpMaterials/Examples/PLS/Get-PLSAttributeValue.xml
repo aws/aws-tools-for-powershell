@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<examples>
+    <example>
+        <code>
+PS C:\> Get-PLSAttributeValue -ServiceCode AmazonEC2 -AttributeName "volumeType" -region us-east-1
+    
+Value
+-----
+Cold HDD
+General Purpose
+Magnetic
+Provisioned IOPS
+Throughput Optimized HDD
+        </code>
+        <description>Returns the values for the attribute 'volumeType' for Amazon EC2 in the us-east-1 region.</description>
+    </example>
+</examples>

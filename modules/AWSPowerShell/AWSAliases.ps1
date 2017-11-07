@@ -3612,6 +3612,10 @@ Set-Alias -Name POL-ListLexicons -Value Get-POLLexiconList
 Set-Alias -Name Put-POLLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-PutLexicon -Value Write-POLLexicon
 Set-Alias -Name POL-SynthesizeSpeech -Value Get-POLSpeech
+Set-Alias -Name Describe-PLSService -Value Get-PLSService
+Set-Alias -Name PLS-DescribeServices -Value Get-PLSService
+Set-Alias -Name PLS-GetAttributeValues -Value Get-PLSAttributeValue
+Set-Alias -Name PLS-GetProducts -Value Get-PLSProduct
 Set-Alias -Name RDS-ResetDBParameterGroup -Value Reset-RDSDBParameterGroup
 Set-Alias -Name RDS-RestoreDBClusterFromS3 -Value Restore-RDSDBClusterFromS3
 Set-Alias -Name RDS-RestoreDBClusterFromSnapshot -Value Restore-RDSDBClusterFromSnapshot

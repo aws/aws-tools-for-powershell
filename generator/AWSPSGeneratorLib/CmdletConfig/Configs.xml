@@ -76,6 +76,7 @@
     <Path>Organizations.xml</Path>
     <Path>Pinpoint.xml</Path>
     <Path>Polly.xml</Path>
+    <Path>PriceListService.xml</Path>
     <Path>RDS.xml</Path>
     <Path>Rekognition.xml</Path>
     <Path>Redshift.xml</Path>
@@ -139,7 +140,7 @@
     <Property>Limit</Property>
     <Property>PaginationToken</Property>
   </MetadataProperties>
-  
+
   <!--
     any cmdlet generated with these verbs will have 'shouldprocess'
     attributing and operation confirmation code added automatically
