@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRChangeToken")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetChangeToken operation against AWS WAF Regional.", Operation = new[] {"GetChangeToken"})]
+    [AWSCmdlet("Calls the AWS WAF Regional GetChangeToken API operation.", Operation = new[] {"GetChangeToken"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.GetChangeTokenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

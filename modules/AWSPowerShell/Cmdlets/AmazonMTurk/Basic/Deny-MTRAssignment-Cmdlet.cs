@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Deny", "MTRAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the RejectAssignment operation against Amazon MTurk Service.", Operation = new[] {"RejectAssignment"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service RejectAssignment API operation.", Operation = new[] {"RejectAssignment"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.MTurk.Model.RejectAssignmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

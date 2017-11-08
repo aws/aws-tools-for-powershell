@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2ReservedInstancesListing", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ReservedInstancesListing")]
-    [AWSCmdlet("Invokes the CreateReservedInstancesListing operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateReservedInstancesListing"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateReservedInstancesListing API operation.", Operation = new[] {"CreateReservedInstancesListing"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesListing",
         "This cmdlet returns a collection of ReservedInstancesListing objects.",
         "The service call response (type Amazon.EC2.Model.CreateReservedInstancesListingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Get", "CWLSubscriptionFilter")]
     [OutputType("Amazon.CloudWatchLogs.Model.SubscriptionFilter")]
-    [AWSCmdlet("Invokes the DescribeSubscriptionFilters operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeSubscriptionFilters"}, LegacyAlias="Get-CWLSubscriptionFilters")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeSubscriptionFilters API operation.", Operation = new[] {"DescribeSubscriptionFilters"}, LegacyAlias="Get-CWLSubscriptionFilters")]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.SubscriptionFilter",
         "This cmdlet returns a collection of SubscriptionFilter objects.",
         "The service call response (type Amazon.CloudWatchLogs.Model.DescribeSubscriptionFiltersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

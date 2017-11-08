@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Unregister", "OPSVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterVolume operation against AWS OpsWorks.", Operation = new[] {"DeregisterVolume"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DeregisterVolume API operation.", Operation = new[] {"DeregisterVolume"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeregisterVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

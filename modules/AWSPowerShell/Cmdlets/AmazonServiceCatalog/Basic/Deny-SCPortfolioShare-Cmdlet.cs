@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Deny", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RejectPortfolioShare operation against AWS Service Catalog.", Operation = new[] {"RejectPortfolioShare"})]
+    [AWSCmdlet("Calls the AWS Service Catalog RejectPortfolioShare API operation.", Operation = new[] {"RejectPortfolioShare"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PortfolioId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.RejectPortfolioShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

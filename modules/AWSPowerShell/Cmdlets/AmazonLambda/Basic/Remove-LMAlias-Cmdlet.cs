@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Remove", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteAlias operation against Amazon Lambda.", Operation = new[] {"DeleteAlias"})]
+    [AWSCmdlet("Calls the Amazon Lambda DeleteAlias API operation.", Operation = new[] {"DeleteAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Lambda.Model.DeleteAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

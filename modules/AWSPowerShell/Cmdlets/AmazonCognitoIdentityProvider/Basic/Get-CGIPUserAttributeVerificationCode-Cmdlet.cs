@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Get", "CGIPUserAttributeVerificationCode")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType")]
-    [AWSCmdlet("Invokes the GetUserAttributeVerificationCode operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetUserAttributeVerificationCode"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetUserAttributeVerificationCode API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"GetUserAttributeVerificationCode"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType",
         "This cmdlet returns a CodeDeliveryDetailsType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.GetUserAttributeVerificationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

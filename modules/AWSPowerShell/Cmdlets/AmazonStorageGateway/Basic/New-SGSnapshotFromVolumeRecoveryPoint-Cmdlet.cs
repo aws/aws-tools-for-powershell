@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("New", "SGSnapshotFromVolumeRecoveryPoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse")]
-    [AWSCmdlet("Invokes the CreateSnapshotFromVolumeRecoveryPoint operation against AWS Storage Gateway.", Operation = new[] {"CreateSnapshotFromVolumeRecoveryPoint"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway CreateSnapshotFromVolumeRecoveryPoint API operation.", Operation = new[] {"CreateSnapshotFromVolumeRecoveryPoint"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.CreateSnapshotFromVolumeRecoveryPointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// </summary>
     [Cmdlet("Remove", "RGTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UntagResources operation against AWS Resource Groups Tagging API.", Operation = new[] {"UntagResources"})]
+    [AWSCmdlet("Calls the AWS Resource Groups Tagging API UntagResources API operation.", Operation = new[] {"UntagResources"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ResourceGroupsTaggingAPI.Model.UntagResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

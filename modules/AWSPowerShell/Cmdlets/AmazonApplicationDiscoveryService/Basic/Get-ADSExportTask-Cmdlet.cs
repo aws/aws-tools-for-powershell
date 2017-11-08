@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Get", "ADSExportTask")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ExportInfo")]
-    [AWSCmdlet("Invokes the DescribeExportTasks operation against Application Discovery Service.", Operation = new[] {"DescribeExportTasks"})]
+    [AWSCmdlet("Calls the Application Discovery Service DescribeExportTasks API operation.", Operation = new[] {"DescribeExportTasks"})]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ExportInfo",
         "This cmdlet returns a collection of ExportInfo objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeExportTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

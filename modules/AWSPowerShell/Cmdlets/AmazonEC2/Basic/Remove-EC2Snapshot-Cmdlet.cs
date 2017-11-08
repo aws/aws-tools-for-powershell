@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Snapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteSnapshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteSnapshot"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeleteSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3CORSConfiguration")]
     [OutputType("Amazon.S3.Model.CORSConfiguration")]
-    [AWSCmdlet("Invokes the GetCORSConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"GetCORSConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetCORSConfiguration API operation.", Operation = new[] {"GetCORSConfiguration"})]
     [AWSCmdletOutput("Amazon.S3.Model.CORSConfiguration",
         "This cmdlet returns a CORSConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetCORSConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

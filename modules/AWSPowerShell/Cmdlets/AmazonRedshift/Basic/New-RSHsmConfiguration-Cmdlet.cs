@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("New", "RSHsmConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.HsmConfiguration")]
-    [AWSCmdlet("Invokes the CreateHsmConfiguration operation against Amazon Redshift.", Operation = new[] {"CreateHsmConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Redshift CreateHsmConfiguration API operation.", Operation = new[] {"CreateHsmConfiguration"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.HsmConfiguration",
         "This cmdlet returns a HsmConfiguration object.",
         "The service call response (type Amazon.Redshift.Model.CreateHsmConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

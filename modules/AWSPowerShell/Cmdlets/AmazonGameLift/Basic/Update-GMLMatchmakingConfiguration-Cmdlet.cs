@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Update", "GMLMatchmakingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]
-    [AWSCmdlet("Invokes the UpdateMatchmakingConfiguration operation against Amazon GameLift Service.", Operation = new[] {"UpdateMatchmakingConfiguration"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateMatchmakingConfiguration API operation.", Operation = new[] {"UpdateMatchmakingConfiguration"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingConfiguration",
         "This cmdlet returns a MatchmakingConfiguration object.",
         "The service call response (type Amazon.GameLift.Model.UpdateMatchmakingConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

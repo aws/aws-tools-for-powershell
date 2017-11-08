@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRByteMatchSetList")]
     [OutputType("Amazon.WAFRegional.Model.ByteMatchSetSummary")]
-    [AWSCmdlet("Invokes the ListByteMatchSets operation against AWS WAF Regional.", Operation = new[] {"ListByteMatchSets"})]
+    [AWSCmdlet("Calls the AWS WAF Regional ListByteMatchSets API operation.", Operation = new[] {"ListByteMatchSets"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.ByteMatchSetSummary",
         "This cmdlet returns a collection of ByteMatchSetSummary objects.",
         "The service call response (type Amazon.WAFRegional.Model.ListByteMatchSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

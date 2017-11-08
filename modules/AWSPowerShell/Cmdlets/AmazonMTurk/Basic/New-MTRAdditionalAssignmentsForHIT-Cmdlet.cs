@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("New", "MTRAdditionalAssignmentsForHIT", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the CreateAdditionalAssignmentsForHIT operation against Amazon MTurk Service.", Operation = new[] {"CreateAdditionalAssignmentsForHIT"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service CreateAdditionalAssignmentsForHIT API operation.", Operation = new[] {"CreateAdditionalAssignmentsForHIT"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.MTurk.Model.CreateAdditionalAssignmentsForHITResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSTableRestoreStatus")]
     [OutputType("Amazon.Redshift.Model.TableRestoreStatus")]
-    [AWSCmdlet("Invokes the DescribeTableRestoreStatus operation against Amazon Redshift.", Operation = new[] {"DescribeTableRestoreStatus"})]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeTableRestoreStatus API operation.", Operation = new[] {"DescribeTableRestoreStatus"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.TableRestoreStatus",
         "This cmdlet returns a collection of TableRestoreStatus objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeTableRestoreStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

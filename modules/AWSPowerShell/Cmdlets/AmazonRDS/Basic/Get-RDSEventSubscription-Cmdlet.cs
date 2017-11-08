@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSEventSubscription")]
     [OutputType("Amazon.RDS.Model.EventSubscription")]
-    [AWSCmdlet("Invokes the DescribeEventSubscriptions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEventSubscriptions"}, LegacyAlias="Get-RDSEventSubscriptions")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeEventSubscriptions API operation.", Operation = new[] {"DescribeEventSubscriptions"}, LegacyAlias="Get-RDSEventSubscriptions")]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a collection of EventSubscription objects.",
         "The service call response (type Amazon.RDS.Model.DescribeEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInstancePatchStatesForPatchGroup")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstancePatchState")]
-    [AWSCmdlet("Invokes the DescribeInstancePatchStatesForPatchGroup operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeInstancePatchStatesForPatchGroup"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeInstancePatchStatesForPatchGroup API operation.", Operation = new[] {"DescribeInstancePatchStatesForPatchGroup"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstancePatchState",
         "This cmdlet returns a collection of InstancePatchState objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstancePatchStatesForPatchGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

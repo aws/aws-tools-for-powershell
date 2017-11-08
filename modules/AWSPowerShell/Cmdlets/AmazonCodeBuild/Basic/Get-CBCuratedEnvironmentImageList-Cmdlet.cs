@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// </summary>
     [Cmdlet("Get", "CBCuratedEnvironmentImageList")]
     [OutputType("Amazon.CodeBuild.Model.EnvironmentPlatform")]
-    [AWSCmdlet("Invokes the ListCuratedEnvironmentImages operation against AWS CodeBuild.", Operation = new[] {"ListCuratedEnvironmentImages"})]
+    [AWSCmdlet("Calls the AWS CodeBuild ListCuratedEnvironmentImages API operation.", Operation = new[] {"ListCuratedEnvironmentImages"})]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.EnvironmentPlatform",
         "This cmdlet returns a collection of EnvironmentPlatform objects.",
         "The service call response (type Amazon.CodeBuild.Model.ListCuratedEnvironmentImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

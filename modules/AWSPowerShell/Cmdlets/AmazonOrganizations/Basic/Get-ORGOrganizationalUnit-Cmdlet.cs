@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGOrganizationalUnit")]
     [OutputType("Amazon.Organizations.Model.OrganizationalUnit")]
-    [AWSCmdlet("Invokes the DescribeOrganizationalUnit operation against AWS Organizations.", Operation = new[] {"DescribeOrganizationalUnit"})]
+    [AWSCmdlet("Calls the AWS Organizations DescribeOrganizationalUnit API operation.", Operation = new[] {"DescribeOrganizationalUnit"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.OrganizationalUnit",
         "This cmdlet returns a OrganizationalUnit object.",
         "The service call response (type Amazon.Organizations.Model.DescribeOrganizationalUnitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

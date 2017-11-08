@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Close", "LSInstancePublicPort", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Invokes the CloseInstancePublicPorts operation against Amazon Lightsail.", Operation = new[] {"CloseInstancePublicPorts"})]
+    [AWSCmdlet("Calls the Amazon Lightsail CloseInstancePublicPorts API operation.", Operation = new[] {"CloseInstancePublicPorts"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a Operation object.",
         "The service call response (type Amazon.Lightsail.Model.CloseInstancePublicPortsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

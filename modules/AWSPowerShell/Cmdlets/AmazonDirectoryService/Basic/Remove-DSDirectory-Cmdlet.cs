@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Remove", "DSDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteDirectory operation against AWS Directory Service.", Operation = new[] {"DeleteDirectory"})]
+    [AWSCmdlet("Calls the AWS Directory Service DeleteDirectory API operation.", Operation = new[] {"DeleteDirectory"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.DeleteDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

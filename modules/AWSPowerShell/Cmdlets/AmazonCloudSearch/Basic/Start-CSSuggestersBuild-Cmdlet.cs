@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Start", "CSSuggestersBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the BuildSuggesters operation against Amazon CloudSearch.", Operation = new[] {"BuildSuggesters"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch BuildSuggesters API operation.", Operation = new[] {"BuildSuggesters"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudSearch.Model.BuildSuggestersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

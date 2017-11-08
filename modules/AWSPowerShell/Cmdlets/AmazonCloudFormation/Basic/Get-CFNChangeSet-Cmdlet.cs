@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Get", "CFNChangeSet")]
     [OutputType("Amazon.CloudFormation.Model.DescribeChangeSetResponse")]
-    [AWSCmdlet("Invokes the DescribeChangeSet operation against AWS CloudFormation.", Operation = new[] {"DescribeChangeSet"})]
+    [AWSCmdlet("Calls the AWS CloudFormation DescribeChangeSet API operation.", Operation = new[] {"DescribeChangeSet"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.DescribeChangeSetResponse",
         "This cmdlet returns a Amazon.CloudFormation.Model.DescribeChangeSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

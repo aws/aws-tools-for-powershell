@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("Read", "ETSPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticTranscoder.Model.Pipeline")]
-    [AWSCmdlet("Invokes the ReadPipeline operation against Amazon Elastic Transcoder.", Operation = new[] {"ReadPipeline"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder ReadPipeline API operation.", Operation = new[] {"ReadPipeline"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Pipeline",
         "This cmdlet returns a Pipeline object.",
         "The service call response (type Amazon.ElasticTranscoder.Model.ReadPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

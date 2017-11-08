@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Write", "EMRAutoScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse")]
-    [AWSCmdlet("Invokes the PutAutoScalingPolicy operation against Amazon Elastic MapReduce.", Operation = new[] {"PutAutoScalingPolicy"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce PutAutoScalingPolicy API operation.", Operation = new[] {"PutAutoScalingPolicy"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse",
         "This cmdlet returns a Amazon.ElasticMapReduce.Model.PutAutoScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

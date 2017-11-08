@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// </summary>
     [Cmdlet("Send", "MMMeteringData", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the MeterUsage operation against AWS Marketplace Metering.", Operation = new[] {"MeterUsage"})]
+    [AWSCmdlet("Calls the AWS Marketplace Metering MeterUsage API operation.", Operation = new[] {"MeterUsage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AWSMarketplaceMetering.Model.MeterUsageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

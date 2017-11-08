@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketRequestPayment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutBucketRequestPayment operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketRequestPayment"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketRequestPayment API operation.", Operation = new[] {"PutBucketRequestPayment"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.S3.Model.PutBucketRequestPaymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

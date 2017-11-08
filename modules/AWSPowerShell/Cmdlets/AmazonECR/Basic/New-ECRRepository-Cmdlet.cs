@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("New", "ECRRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.Repository")]
-    [AWSCmdlet("Invokes the CreateRepository operation against Amazon EC2 Container Registry.", Operation = new[] {"CreateRepository"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry CreateRepository API operation.", Operation = new[] {"CreateRepository"})]
     [AWSCmdletOutput("Amazon.ECR.Model.Repository",
         "This cmdlet returns a Repository object.",
         "The service call response (type Amazon.ECR.Model.CreateRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

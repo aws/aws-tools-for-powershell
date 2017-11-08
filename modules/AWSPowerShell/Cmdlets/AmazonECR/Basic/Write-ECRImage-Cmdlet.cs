@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Write", "ECRImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.Image")]
-    [AWSCmdlet("Invokes the PutImage operation against Amazon EC2 Container Registry.", Operation = new[] {"PutImage"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry PutImage API operation.", Operation = new[] {"PutImage"})]
     [AWSCmdletOutput("Amazon.ECR.Model.Image",
         "This cmdlet returns a Image object.",
         "The service call response (type Amazon.ECR.Model.PutImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

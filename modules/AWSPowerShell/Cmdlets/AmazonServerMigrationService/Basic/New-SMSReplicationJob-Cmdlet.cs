@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("New", "SMSReplicationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateReplicationJob operation against Amazon Server Migration Service.", Operation = new[] {"CreateReplicationJob"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service CreateReplicationJob API operation.", Operation = new[] {"CreateReplicationJob"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ServerMigrationService.Model.CreateReplicationJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

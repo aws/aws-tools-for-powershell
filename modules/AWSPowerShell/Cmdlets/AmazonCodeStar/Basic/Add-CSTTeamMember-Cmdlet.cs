@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Add", "CSTTeamMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AssociateTeamMember operation against AWS CodeStar.", Operation = new[] {"AssociateTeamMember"})]
+    [AWSCmdlet("Calls the AWS CodeStar AssociateTeamMember API operation.", Operation = new[] {"AssociateTeamMember"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodeStar.Model.AssociateTeamMemberResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

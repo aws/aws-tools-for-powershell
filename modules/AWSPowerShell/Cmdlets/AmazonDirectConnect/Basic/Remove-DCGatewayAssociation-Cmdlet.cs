@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Remove", "DCGatewayAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGatewayAssociation")]
-    [AWSCmdlet("Invokes the DeleteDirectConnectGatewayAssociation operation against AWS Direct Connect.", Operation = new[] {"DeleteDirectConnectGatewayAssociation"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DeleteDirectConnectGatewayAssociation API operation.", Operation = new[] {"DeleteDirectConnectGatewayAssociation"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DirectConnectGatewayAssociation",
         "This cmdlet returns a DirectConnectGatewayAssociation object.",
         "The service call response (type Amazon.DirectConnect.Model.DeleteDirectConnectGatewayAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

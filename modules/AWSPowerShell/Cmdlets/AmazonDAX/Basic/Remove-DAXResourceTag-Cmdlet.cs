@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Remove", "DAXResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DAX.Model.Tag")]
-    [AWSCmdlet("Invokes the UntagResource operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("Amazon.DAX.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.DAX.Model.UntagResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

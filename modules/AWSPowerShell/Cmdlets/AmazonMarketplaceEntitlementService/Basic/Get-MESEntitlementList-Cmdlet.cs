@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.MES
     /// </summary>
     [Cmdlet("Get", "MESEntitlementList")]
     [OutputType("Amazon.MarketplaceEntitlementService.Model.Entitlement")]
-    [AWSCmdlet("Invokes the GetEntitlements operation against AWS Marketplace Entitlement Service.", Operation = new[] {"GetEntitlements"})]
+    [AWSCmdlet("Calls the AWS Marketplace Entitlement Service GetEntitlements API operation.", Operation = new[] {"GetEntitlements"})]
     [AWSCmdletOutput("Amazon.MarketplaceEntitlementService.Model.Entitlement",
         "This cmdlet returns a collection of Entitlement objects.",
         "The service call response (type Amazon.MarketplaceEntitlementService.Model.GetEntitlementsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

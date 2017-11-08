@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Get", "INSAgentPreview")]
     [OutputType("Amazon.Inspector.Model.AgentPreview")]
-    [AWSCmdlet("Invokes the PreviewAgents operation against Amazon Inspector.", Operation = new[] {"PreviewAgents"})]
+    [AWSCmdlet("Calls the Amazon Inspector PreviewAgents API operation.", Operation = new[] {"PreviewAgents"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.AgentPreview",
         "This cmdlet returns a collection of AgentPreview objects.",
         "The service call response (type Amazon.Inspector.Model.PreviewAgentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ImportSnapshotTask")]
     [OutputType("Amazon.EC2.Model.ImportSnapshotTask")]
-    [AWSCmdlet("Invokes the DescribeImportSnapshotTasks operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeImportSnapshotTasks"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeImportSnapshotTasks API operation.", Operation = new[] {"DescribeImportSnapshotTasks"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportSnapshotTask",
         "This cmdlet returns a collection of ImportSnapshotTask objects.",
         "The service call response (type Amazon.EC2.Model.DescribeImportSnapshotTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

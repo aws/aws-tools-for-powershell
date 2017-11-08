@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Restore", "DMSTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ReloadTables operation against AWS Database Migration Service.", Operation = new[] {"ReloadTables"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service ReloadTables API operation.", Operation = new[] {"ReloadTables"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.ReloadTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

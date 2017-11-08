@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Update", "PINApplicationSettingList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.ApplicationSettingsResource")]
-    [AWSCmdlet("Invokes the UpdateApplicationSettings operation against Amazon Pinpoint.", Operation = new[] {"UpdateApplicationSettings"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint UpdateApplicationSettings API operation.", Operation = new[] {"UpdateApplicationSettings"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.ApplicationSettingsResource",
         "This cmdlet returns a ApplicationSettingsResource object.",
         "The service call response (type Amazon.Pinpoint.Model.UpdateApplicationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

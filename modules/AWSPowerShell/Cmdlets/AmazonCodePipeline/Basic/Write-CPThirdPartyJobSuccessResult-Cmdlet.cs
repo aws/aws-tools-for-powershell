@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Write", "CPThirdPartyJobSuccessResult", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutThirdPartyJobSuccessResult operation against AWS CodePipeline.", Operation = new[] {"PutThirdPartyJobSuccessResult"})]
+    [AWSCmdlet("Calls the AWS CodePipeline PutThirdPartyJobSuccessResult API operation.", Operation = new[] {"PutThirdPartyJobSuccessResult"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodePipeline.Model.PutThirdPartyJobSuccessResultResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

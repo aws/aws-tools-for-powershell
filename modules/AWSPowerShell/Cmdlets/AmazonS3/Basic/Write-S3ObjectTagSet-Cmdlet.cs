@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3ObjectTagSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PutObjectTagging operation against Amazon Simple Storage Service.", Operation = new[] {"PutObjectTagging"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutObjectTagging API operation.", Operation = new[] {"PutObjectTagging"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.S3.Model.PutObjectTaggingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

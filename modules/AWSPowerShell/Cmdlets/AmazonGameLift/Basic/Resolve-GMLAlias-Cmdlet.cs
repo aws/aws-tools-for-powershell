@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Resolve", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ResolveAlias operation against Amazon GameLift Service.", Operation = new[] {"ResolveAlias"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service ResolveAlias API operation.", Operation = new[] {"ResolveAlias"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.GameLift.Model.ResolveAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

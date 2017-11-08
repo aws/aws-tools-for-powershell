@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Add", "OPSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the TagResource operation against AWS OpsWorks.", Operation = new[] {"TagResource"})]
+    [AWSCmdlet("Calls the AWS OpsWorks TagResource API operation.", Operation = new[] {"TagResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

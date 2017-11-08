@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Get", "MTRAccountBalance")]
     [OutputType("Amazon.MTurk.Model.GetAccountBalanceResponse")]
-    [AWSCmdlet("Invokes the GetAccountBalance operation against Amazon MTurk Service.", Operation = new[] {"GetAccountBalance"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service GetAccountBalance API operation.", Operation = new[] {"GetAccountBalance"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.GetAccountBalanceResponse",
         "This cmdlet returns a Amazon.MTurk.Model.GetAccountBalanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

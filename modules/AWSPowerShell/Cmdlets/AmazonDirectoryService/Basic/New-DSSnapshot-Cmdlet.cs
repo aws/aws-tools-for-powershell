@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("New", "DSSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateSnapshot operation against AWS Directory Service.", Operation = new[] {"CreateSnapshot"})]
+    [AWSCmdlet("Calls the AWS Directory Service CreateSnapshot API operation.", Operation = new[] {"CreateSnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

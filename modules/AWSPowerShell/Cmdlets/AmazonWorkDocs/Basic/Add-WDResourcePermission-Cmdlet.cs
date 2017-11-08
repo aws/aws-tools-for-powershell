@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Add", "WDResourcePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkDocs.Model.ShareResult")]
-    [AWSCmdlet("Invokes the AddResourcePermissions operation against Amazon WorkDocs.", Operation = new[] {"AddResourcePermissions"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs AddResourcePermissions API operation.", Operation = new[] {"AddResourcePermissions"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.ShareResult",
         "This cmdlet returns a collection of ShareResult objects.",
         "The service call response (type Amazon.WorkDocs.Model.AddResourcePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Update", "EBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateTagsForResource operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateTagsForResource"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk UpdateTagsForResource API operation.", Operation = new[] {"UpdateTagsForResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.UpdateTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

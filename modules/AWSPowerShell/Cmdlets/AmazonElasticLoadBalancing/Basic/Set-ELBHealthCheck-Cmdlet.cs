@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Set", "ELBHealthCheck", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancing.Model.HealthCheck")]
-    [AWSCmdlet("Invokes the ConfigureHealthCheck operation against Elastic Load Balancing.", Operation = new[] {"ConfigureHealthCheck"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing ConfigureHealthCheck API operation.", Operation = new[] {"ConfigureHealthCheck"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.HealthCheck",
         "This cmdlet returns a HealthCheck object.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.ConfigureHealthCheckResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("New", "SQSQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateQueue operation against Amazon Simple Queue Service.", Operation = new[] {"CreateQueue"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service CreateQueue API operation.", Operation = new[] {"CreateQueue"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SQS.Model.CreateQueueResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// </summary>
     [Cmdlet("Get", "SHLDProtectionList")]
     [OutputType("Amazon.Shield.Model.Protection")]
-    [AWSCmdlet("Invokes the ListProtections operation against AWS Shield.", Operation = new[] {"ListProtections"})]
+    [AWSCmdlet("Calls the AWS Shield ListProtections API operation.", Operation = new[] {"ListProtections"})]
     [AWSCmdletOutput("Amazon.Shield.Model.Protection",
         "This cmdlet returns a collection of Protection objects.",
         "The service call response (type Amazon.Shield.Model.ListProtectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

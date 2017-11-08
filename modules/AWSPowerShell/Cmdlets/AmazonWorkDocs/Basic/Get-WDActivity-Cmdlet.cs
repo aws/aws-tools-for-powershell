@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDActivity")]
     [OutputType("Amazon.WorkDocs.Model.Activity")]
-    [AWSCmdlet("Invokes the DescribeActivities operation against Amazon WorkDocs.", Operation = new[] {"DescribeActivities"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DescribeActivities API operation.", Operation = new[] {"DescribeActivities"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
         "The service call response (type Amazon.WorkDocs.Model.DescribeActivitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

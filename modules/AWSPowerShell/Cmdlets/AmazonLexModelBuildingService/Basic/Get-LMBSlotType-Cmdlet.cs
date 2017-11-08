@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Get", "LMBSlotType")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetSlotTypeResponse")]
-    [AWSCmdlet("Invokes the GetSlotType operation against Amazon Lex Model Building Service.", Operation = new[] {"GetSlotType"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service GetSlotType API operation.", Operation = new[] {"GetSlotType"})]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetSlotTypeResponse",
         "This cmdlet returns a Amazon.LexModelBuildingService.Model.GetSlotTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

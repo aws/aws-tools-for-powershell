@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Set", "S3ACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType(new Type[] { typeof(string) })]
-    [AWSCmdlet("Invokes the SetACL operation against Amazon S3.", Operation = new [] {"SetACL"})]
+    [AWSCmdlet("Sets or updates an access control list on an object in an Amazon S3 bucket.", Operation = new [] {"SetACL"})]
     [AWSCmdletOutput("String",
                      "This cmdlet returns the version ID of the S3 object.",
                      "The service response (type Amazon.S3.Model.SetACLResponse) is added to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceTag")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Simple Systems Management.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

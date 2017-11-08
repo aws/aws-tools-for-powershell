@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Get", "APSAssociatedStackList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListAssociatedStacks operation against AWS AppStream.", Operation = new[] {"ListAssociatedStacks"})]
+    [AWSCmdlet("Calls the AWS AppStream ListAssociatedStacks API operation.", Operation = new[] {"ListAssociatedStacks"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.AppStream.Model.ListAssociatedStacksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

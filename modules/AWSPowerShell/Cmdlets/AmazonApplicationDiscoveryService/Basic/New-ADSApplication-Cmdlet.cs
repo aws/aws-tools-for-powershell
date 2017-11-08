@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("New", "ADSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateApplication operation against Application Discovery Service.", Operation = new[] {"CreateApplication"})]
+    [AWSCmdlet("Calls the Application Discovery Service CreateApplication API operation.", Operation = new[] {"CreateApplication"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

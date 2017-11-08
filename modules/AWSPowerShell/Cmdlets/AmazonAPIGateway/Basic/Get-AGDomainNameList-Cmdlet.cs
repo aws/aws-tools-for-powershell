@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Get", "AGDomainNameList")]
     [OutputType("Amazon.APIGateway.Model.DomainName")]
-    [AWSCmdlet("Invokes the GetDomainNames operation against Amazon API Gateway.", Operation = new[] {"GetDomainNames"})]
+    [AWSCmdlet("Calls the Amazon API Gateway GetDomainNames API operation.", Operation = new[] {"GetDomainNames"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.DomainName",
         "This cmdlet returns a collection of DomainName objects.",
         "The service call response (type Amazon.APIGateway.Model.GetDomainNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

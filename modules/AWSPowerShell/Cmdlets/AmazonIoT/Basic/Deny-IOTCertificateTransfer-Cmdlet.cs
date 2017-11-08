@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Deny", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RejectCertificateTransfer operation against AWS IoT.", Operation = new[] {"RejectCertificateTransfer"})]
+    [AWSCmdlet("Calls the AWS IoT RejectCertificateTransfer API operation.", Operation = new[] {"RejectCertificateTransfer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.RejectCertificateTransferResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

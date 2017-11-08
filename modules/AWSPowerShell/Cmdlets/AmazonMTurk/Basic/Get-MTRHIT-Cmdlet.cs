@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Get", "MTRHIT")]
     [OutputType("Amazon.MTurk.Model.HIT")]
-    [AWSCmdlet("Invokes the GetHIT operation against Amazon MTurk Service.", Operation = new[] {"GetHIT"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service GetHIT API operation.", Operation = new[] {"GetHIT"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.HIT",
         "This cmdlet returns a HIT object.",
         "The service call response (type Amazon.MTurk.Model.GetHITResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("New", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
-    [AWSCmdlet("Invokes the CreateDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBCluster"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBCluster API operation.", Operation = new[] {"CreateDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
         "The service call response (type Amazon.RDS.Model.CreateDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

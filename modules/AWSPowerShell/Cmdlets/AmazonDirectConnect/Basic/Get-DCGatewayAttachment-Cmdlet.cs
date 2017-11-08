@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCGatewayAttachment")]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGatewayAttachment")]
-    [AWSCmdlet("Invokes the DescribeDirectConnectGatewayAttachments operation against AWS Direct Connect.", Operation = new[] {"DescribeDirectConnectGatewayAttachments"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeDirectConnectGatewayAttachments API operation.", Operation = new[] {"DescribeDirectConnectGatewayAttachments"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DirectConnectGatewayAttachment",
         "This cmdlet returns a collection of DirectConnectGatewayAttachment objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeDirectConnectGatewayAttachmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

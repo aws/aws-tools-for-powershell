@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGHandshake")]
     [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the DescribeHandshake operation against AWS Organizations.", Operation = new[] {"DescribeHandshake"})]
+    [AWSCmdlet("Calls the AWS Organizations DescribeHandshake API operation.", Operation = new[] {"DescribeHandshake"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
         "This cmdlet returns a Handshake object.",
         "The service call response (type Amazon.Organizations.Model.DescribeHandshakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

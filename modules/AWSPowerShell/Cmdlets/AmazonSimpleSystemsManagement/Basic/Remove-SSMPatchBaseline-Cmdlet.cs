@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMPatchBaseline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeletePatchBaseline operation against Amazon Simple Systems Management.", Operation = new[] {"DeletePatchBaseline"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DeletePatchBaseline API operation.", Operation = new[] {"DeletePatchBaseline"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DeletePatchBaselineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

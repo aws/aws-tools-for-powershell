@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Register", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachGroupPolicy operation against AWS Identity and Access Management.", Operation = new[] {"AttachGroupPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management AttachGroupPolicy API operation.", Operation = new[] {"AttachGroupPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.AttachGroupPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

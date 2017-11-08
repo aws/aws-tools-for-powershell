@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Update", "CGIPPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the ChangePassword operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ChangePassword"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ChangePassword API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ChangePassword"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.ChangePasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

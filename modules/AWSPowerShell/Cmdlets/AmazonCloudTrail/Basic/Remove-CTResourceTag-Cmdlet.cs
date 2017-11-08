@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Remove", "CTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the RemoveTags operation against AWS CloudTrail.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-CTTag")]
+    [AWSCmdlet("Calls the AWS CloudTrail RemoveTags API operation.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-CTTag")]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CloudTrail.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

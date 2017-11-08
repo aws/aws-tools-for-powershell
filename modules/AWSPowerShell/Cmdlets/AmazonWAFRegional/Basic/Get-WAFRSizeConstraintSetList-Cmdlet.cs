@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRSizeConstraintSetList")]
     [OutputType("Amazon.WAFRegional.Model.SizeConstraintSetSummary")]
-    [AWSCmdlet("Invokes the ListSizeConstraintSets operation against AWS WAF Regional.", Operation = new[] {"ListSizeConstraintSets"})]
+    [AWSCmdlet("Calls the AWS WAF Regional ListSizeConstraintSets API operation.", Operation = new[] {"ListSizeConstraintSets"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.SizeConstraintSetSummary",
         "This cmdlet returns a collection of SizeConstraintSetSummary objects.",
         "The service call response (type Amazon.WAFRegional.Model.ListSizeConstraintSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

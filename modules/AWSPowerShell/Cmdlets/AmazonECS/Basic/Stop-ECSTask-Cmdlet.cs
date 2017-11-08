@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Stop", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Task")]
-    [AWSCmdlet("Invokes the StopTask operation against Amazon EC2 Container Service.", Operation = new[] {"StopTask"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service StopTask API operation.", Operation = new[] {"StopTask"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Task",
         "This cmdlet returns a Task object.",
         "The service call response (type Amazon.ECS.Model.StopTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Get", "DAXCluster")]
     [OutputType("Amazon.DAX.Model.Cluster")]
-    [AWSCmdlet("Invokes the DescribeClusters operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"DescribeClusters"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DescribeClusters API operation.", Operation = new[] {"DescribeClusters"})]
     [AWSCmdletOutput("Amazon.DAX.Model.Cluster",
         "This cmdlet returns a collection of Cluster objects.",
         "The service call response (type Amazon.DAX.Model.DescribeClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

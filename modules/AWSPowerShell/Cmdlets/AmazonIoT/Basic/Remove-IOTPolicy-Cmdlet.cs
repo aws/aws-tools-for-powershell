@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Remove", "IOTPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeletePolicy operation against AWS IoT.", Operation = new[] {"DeletePolicy"})]
+    [AWSCmdlet("Calls the AWS IoT DeletePolicy API operation.", Operation = new[] {"DeletePolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PolicyName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.DeletePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

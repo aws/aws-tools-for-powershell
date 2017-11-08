@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Get", "CGIPIdentityProviderList")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ProviderDescription")]
-    [AWSCmdlet("Invokes the ListIdentityProviders operation against Amazon Cognito Identity Provider.", Operation = new[] {"ListIdentityProviders"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ListIdentityProviders API operation.", Operation = new[] {"ListIdentityProviders"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ProviderDescription",
         "This cmdlet returns a collection of ProviderDescription objects.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.ListIdentityProvidersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

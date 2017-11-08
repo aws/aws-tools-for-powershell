@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Remove", "CDDeploymentGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CodeDeploy.Model.AutoScalingGroup")]
-    [AWSCmdlet("Invokes the DeleteDeploymentGroup operation against AWS CodeDeploy.", Operation = new[] {"DeleteDeploymentGroup"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy DeleteDeploymentGroup API operation.", Operation = new[] {"DeleteDeploymentGroup"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.AutoScalingGroup",
         "This cmdlet returns a collection of AutoScalingGroup objects.",
         "The service call response (type Amazon.CodeDeploy.Model.DeleteDeploymentGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Remove", "LMBIntent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteIntent operation against Amazon Lex Model Building Service.", Operation = new[] {"DeleteIntent"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteIntent API operation.", Operation = new[] {"DeleteIntent"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteIntentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

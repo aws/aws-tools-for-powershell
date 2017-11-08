@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Get", "BATJobsList")]
     [OutputType("Amazon.Batch.Model.JobSummary")]
-    [AWSCmdlet("Invokes the ListJobs operation against AWS Batch.", Operation = new[] {"ListJobs"})]
+    [AWSCmdlet("Calls the AWS Batch ListJobs API operation.", Operation = new[] {"ListJobs"})]
     [AWSCmdletOutput("Amazon.Batch.Model.JobSummary",
         "This cmdlet returns a collection of JobSummary objects.",
         "The service call response (type Amazon.Batch.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

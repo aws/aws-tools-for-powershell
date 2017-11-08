@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Get", "CPActionableJobList")]
     [OutputType("Amazon.CodePipeline.Model.Job")]
-    [AWSCmdlet("Invokes the PollForJobs operation against AWS CodePipeline.", Operation = new[] {"PollForJobs"}, LegacyAlias="Get-CPActionableJobs")]
+    [AWSCmdlet("Calls the AWS CodePipeline PollForJobs API operation.", Operation = new[] {"PollForJobs"}, LegacyAlias="Get-CPActionableJobs")]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.Job",
         "This cmdlet returns a collection of Job objects.",
         "The service call response (type Amazon.CodePipeline.Model.PollForJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("New", "LSDomainEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Invokes the CreateDomainEntry operation against Amazon Lightsail.", Operation = new[] {"CreateDomainEntry"})]
+    [AWSCmdlet("Calls the Amazon Lightsail CreateDomainEntry API operation.", Operation = new[] {"CreateDomainEntry"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a Operation object.",
         "The service call response (type Amazon.Lightsail.Model.CreateDomainEntryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

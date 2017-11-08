@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Add", "OPSElasticIp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociateElasticIp operation against AWS OpsWorks.", Operation = new[] {"AssociateElasticIp"})]
+    [AWSCmdlet("Calls the AWS OpsWorks AssociateElasticIp API operation.", Operation = new[] {"AssociateElasticIp"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.AssociateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

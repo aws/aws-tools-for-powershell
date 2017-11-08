@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Get", "CSSuggester")]
     [OutputType("Amazon.CloudSearch.Model.SuggesterStatus")]
-    [AWSCmdlet("Invokes the DescribeSuggesters operation against Amazon CloudSearch.", Operation = new[] {"DescribeSuggesters"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch DescribeSuggesters API operation.", Operation = new[] {"DescribeSuggesters"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.SuggesterStatus",
         "This cmdlet returns a collection of SuggesterStatus objects.",
         "The service call response (type Amazon.CloudSearch.Model.DescribeSuggestersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

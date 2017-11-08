@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGLocalDisk")]
     [OutputType("Amazon.StorageGateway.Model.ListLocalDisksResponse")]
-    [AWSCmdlet("Invokes the ListLocalDisks operation against AWS Storage Gateway.", Operation = new[] {"ListLocalDisks"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway ListLocalDisks API operation.", Operation = new[] {"ListLocalDisks"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.ListLocalDisksResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.ListLocalDisksResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Write", "CPActionRevision", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodePipeline.Model.PutActionRevisionResponse")]
-    [AWSCmdlet("Invokes the PutActionRevision operation against AWS CodePipeline.", Operation = new[] {"PutActionRevision"})]
+    [AWSCmdlet("Calls the AWS CodePipeline PutActionRevision API operation.", Operation = new[] {"PutActionRevision"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PutActionRevisionResponse",
         "This cmdlet returns a Amazon.CodePipeline.Model.PutActionRevisionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

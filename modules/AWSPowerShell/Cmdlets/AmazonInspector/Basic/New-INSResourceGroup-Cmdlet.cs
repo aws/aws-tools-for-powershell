@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("New", "INSResourceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateResourceGroup operation against Amazon Inspector.", Operation = new[] {"CreateResourceGroup"})]
+    [AWSCmdlet("Calls the Amazon Inspector CreateResourceGroup API operation.", Operation = new[] {"CreateResourceGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Inspector.Model.CreateResourceGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

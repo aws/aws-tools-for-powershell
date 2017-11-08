@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Get", "INSEventSubscription")]
     [OutputType("Amazon.Inspector.Model.Subscription")]
-    [AWSCmdlet("Invokes the ListEventSubscriptions operation against Amazon Inspector.", Operation = new[] {"ListEventSubscriptions"})]
+    [AWSCmdlet("Calls the Amazon Inspector ListEventSubscriptions API operation.", Operation = new[] {"ListEventSubscriptions"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.Subscription",
         "This cmdlet returns a collection of Subscription objects.",
         "The service call response (type Amazon.Inspector.Model.ListEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

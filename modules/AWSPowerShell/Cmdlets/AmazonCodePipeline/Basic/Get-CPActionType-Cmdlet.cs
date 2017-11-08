@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Get", "CPActionType")]
     [OutputType("Amazon.CodePipeline.Model.ActionType")]
-    [AWSCmdlet("Invokes the ListActionTypes operation against AWS CodePipeline.", Operation = new[] {"ListActionTypes"})]
+    [AWSCmdlet("Calls the AWS CodePipeline ListActionTypes API operation.", Operation = new[] {"ListActionTypes"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ActionType",
         "This cmdlet returns a collection of ActionType objects.",
         "The service call response (type Amazon.CodePipeline.Model.ListActionTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

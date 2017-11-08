@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Install", "DFToRemoteAccessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.Upload")]
-    [AWSCmdlet("Invokes the InstallToRemoteAccessSession operation against AWS Device Farm.", Operation = new[] {"InstallToRemoteAccessSession"})]
+    [AWSCmdlet("Calls the AWS Device Farm InstallToRemoteAccessSession API operation.", Operation = new[] {"InstallToRemoteAccessSession"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Upload",
         "This cmdlet returns a Upload object.",
         "The service call response (type Amazon.DeviceFarm.Model.InstallToRemoteAccessSessionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </summary>
     [Cmdlet("Get", "ACMCertificate")]
     [OutputType("Amazon.CertificateManager.Model.GetCertificateResponse")]
-    [AWSCmdlet("Invokes the GetCertificate operation against AWS Certificate Manager.", Operation = new[] {"GetCertificate"})]
+    [AWSCmdlet("Calls the AWS Certificate Manager GetCertificate API operation.", Operation = new[] {"GetCertificate"})]
     [AWSCmdletOutput("Amazon.CertificateManager.Model.GetCertificateResponse",
         "This cmdlet returns a Amazon.CertificateManager.Model.GetCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

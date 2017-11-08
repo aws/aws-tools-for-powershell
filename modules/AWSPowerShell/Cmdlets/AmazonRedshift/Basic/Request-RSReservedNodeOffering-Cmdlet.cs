@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Request", "RSReservedNodeOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.ReservedNode")]
-    [AWSCmdlet("Invokes the PurchaseReservedNodeOffering operation against Amazon Redshift.", Operation = new[] {"PurchaseReservedNodeOffering"})]
+    [AWSCmdlet("Calls the Amazon Redshift PurchaseReservedNodeOffering API operation.", Operation = new[] {"PurchaseReservedNodeOffering"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ReservedNode",
         "This cmdlet returns a ReservedNode object.",
         "The service call response (type Amazon.Redshift.Model.PurchaseReservedNodeOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

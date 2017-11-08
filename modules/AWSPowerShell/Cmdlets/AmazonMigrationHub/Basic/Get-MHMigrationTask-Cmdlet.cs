@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Get", "MHMigrationTask")]
     [OutputType("Amazon.MigrationHub.Model.MigrationTask")]
-    [AWSCmdlet("Invokes the DescribeMigrationTask operation against AWS Migration Hub.", Operation = new[] {"DescribeMigrationTask"})]
+    [AWSCmdlet("Calls the AWS Migration Hub DescribeMigrationTask API operation.", Operation = new[] {"DescribeMigrationTask"})]
     [AWSCmdletOutput("Amazon.MigrationHub.Model.MigrationTask",
         "This cmdlet returns a MigrationTask object.",
         "The service call response (type Amazon.MigrationHub.Model.DescribeMigrationTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

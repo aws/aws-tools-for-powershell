@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Remove", "GMLFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteFleet operation against Amazon GameLift Service.", Operation = new[] {"DeleteFleet"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DeleteFleet API operation.", Operation = new[] {"DeleteFleet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.GameLift.Model.DeleteFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRDirectoryMetadata")]
     [OutputType("Amazon.CloudDirectory.Model.Directory")]
-    [AWSCmdlet("Invokes the GetDirectory operation against AWS Cloud Directory.", Operation = new[] {"GetDirectory"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory GetDirectory API operation.", Operation = new[] {"GetDirectory"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.Directory",
         "This cmdlet returns a Directory object.",
         "The service call response (type Amazon.CloudDirectory.Model.GetDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

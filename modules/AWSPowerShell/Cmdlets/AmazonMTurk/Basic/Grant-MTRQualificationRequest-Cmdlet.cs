@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Grant", "MTRQualificationRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the AcceptQualificationRequest operation against Amazon MTurk Service.", Operation = new[] {"AcceptQualificationRequest"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service AcceptQualificationRequest API operation.", Operation = new[] {"AcceptQualificationRequest"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.MTurk.Model.AcceptQualificationRequestResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

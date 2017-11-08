@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateGroup operation against AWS Identity and Access Management.", Operation = new[] {"UpdateGroup"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateGroup API operation.", Operation = new[] {"UpdateGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Update", "KMSKeyDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateKeyDescription operation against AWS Key Management Service.", Operation = new[] {"UpdateKeyDescription"})]
+    [AWSCmdlet("Calls the AWS Key Management Service UpdateKeyDescription API operation.", Operation = new[] {"UpdateKeyDescription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.UpdateKeyDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

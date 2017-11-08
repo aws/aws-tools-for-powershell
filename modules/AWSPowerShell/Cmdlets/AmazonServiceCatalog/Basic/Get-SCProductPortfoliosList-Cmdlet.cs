@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCProductPortfoliosList")]
     [OutputType("Amazon.ServiceCatalog.Model.PortfolioDetail")]
-    [AWSCmdlet("Invokes the ListPortfoliosForProduct operation against AWS Service Catalog.", Operation = new[] {"ListPortfoliosForProduct"})]
+    [AWSCmdlet("Calls the AWS Service Catalog ListPortfoliosForProduct API operation.", Operation = new[] {"ListPortfoliosForProduct"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.PortfolioDetail",
         "This cmdlet returns a collection of PortfolioDetail objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.ListPortfoliosForProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Remove", "BATJobQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteJobQueue operation against AWS Batch.", Operation = new[] {"DeleteJobQueue"})]
+    [AWSCmdlet("Calls the AWS Batch DeleteJobQueue API operation.", Operation = new[] {"DeleteJobQueue"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobQueue parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Batch.Model.DeleteJobQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

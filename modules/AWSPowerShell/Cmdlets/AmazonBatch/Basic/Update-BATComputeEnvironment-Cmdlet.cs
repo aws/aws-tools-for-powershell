@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Update", "BATComputeEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.UpdateComputeEnvironmentResponse")]
-    [AWSCmdlet("Invokes the UpdateComputeEnvironment operation against AWS Batch.", Operation = new[] {"UpdateComputeEnvironment"})]
+    [AWSCmdlet("Calls the AWS Batch UpdateComputeEnvironment API operation.", Operation = new[] {"UpdateComputeEnvironment"})]
     [AWSCmdletOutput("Amazon.Batch.Model.UpdateComputeEnvironmentResponse",
         "This cmdlet returns a Amazon.Batch.Model.UpdateComputeEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Start", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.StartTaskResponse")]
-    [AWSCmdlet("Invokes the StartTask operation against Amazon EC2 Container Service.", Operation = new[] {"StartTask"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service StartTask API operation.", Operation = new[] {"StartTask"})]
     [AWSCmdletOutput("Amazon.ECS.Model.StartTaskResponse",
         "This cmdlet returns a Amazon.ECS.Model.StartTaskResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

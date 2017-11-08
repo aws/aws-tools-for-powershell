@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDBSubnetGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSubnetGroup"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBSubnetGroup API operation.", Operation = new[] {"DeleteDBSubnetGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.DeleteDBSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

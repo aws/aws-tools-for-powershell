@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     /// </summary>
     [Cmdlet("Get", "POLLexiconList")]
     [OutputType("Amazon.Polly.Model.LexiconDescription")]
-    [AWSCmdlet("Invokes the ListLexicons operation against Amazon Polly.", Operation = new[] {"ListLexicons"})]
+    [AWSCmdlet("Calls the Amazon Polly ListLexicons API operation.", Operation = new[] {"ListLexicons"})]
     [AWSCmdletOutput("Amazon.Polly.Model.LexiconDescription",
         "This cmdlet returns a collection of LexiconDescription objects.",
         "The service call response (type Amazon.Polly.Model.ListLexiconsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

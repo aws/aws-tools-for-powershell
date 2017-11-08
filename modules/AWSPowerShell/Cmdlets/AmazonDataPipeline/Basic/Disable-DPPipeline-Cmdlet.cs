@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Disable", "DPPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeactivatePipeline operation against AWS Data Pipeline.", Operation = new[] {"DeactivatePipeline"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline DeactivatePipeline API operation.", Operation = new[] {"DeactivatePipeline"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DataPipeline.Model.DeactivatePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Remove", "WAFRSizeConstraintSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteSizeConstraintSet operation against AWS WAF Regional.", Operation = new[] {"DeleteSizeConstraintSet"})]
+    [AWSCmdlet("Calls the AWS WAF Regional DeleteSizeConstraintSet API operation.", Operation = new[] {"DeleteSizeConstraintSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.DeleteSizeConstraintSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

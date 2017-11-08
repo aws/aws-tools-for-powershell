@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBEvent")]
     [OutputType("Amazon.ElasticBeanstalk.Model.EventDescription")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeEvents"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeEvents API operation.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EventDescription",
         "This cmdlet returns a collection of EventDescription objects.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

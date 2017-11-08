@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteNatGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteNatGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteNatGateway API operation.", Operation = new[] {"DeleteNatGateway"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.EC2.Model.DeleteNatGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

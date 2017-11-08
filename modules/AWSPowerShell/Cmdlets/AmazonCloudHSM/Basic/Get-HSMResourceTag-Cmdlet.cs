@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Get", "HSMResourceTag")]
     [OutputType("Amazon.CloudHSM.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Cloud HSM.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

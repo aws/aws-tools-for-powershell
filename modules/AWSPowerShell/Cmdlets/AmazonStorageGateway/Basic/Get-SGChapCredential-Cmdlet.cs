@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGChapCredential")]
     [OutputType("Amazon.StorageGateway.Model.ChapInfo")]
-    [AWSCmdlet("Invokes the DescribeChapCredentials operation against AWS Storage Gateway.", Operation = new[] {"DescribeChapCredentials"}, LegacyAlias="Get-SGChapCredentials")]
+    [AWSCmdlet("Calls the AWS Storage Gateway DescribeChapCredentials API operation.", Operation = new[] {"DescribeChapCredentials"}, LegacyAlias="Get-SGChapCredentials")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.ChapInfo",
         "This cmdlet returns a collection of ChapInfo objects.",
         "The service call response (type Amazon.StorageGateway.Model.DescribeChapCredentialsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

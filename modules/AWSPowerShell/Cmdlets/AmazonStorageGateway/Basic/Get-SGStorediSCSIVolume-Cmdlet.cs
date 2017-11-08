@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGStorediSCSIVolume")]
     [OutputType("Amazon.StorageGateway.Model.StorediSCSIVolume")]
-    [AWSCmdlet("Invokes the DescribeStorediSCSIVolumes operation against AWS Storage Gateway.", Operation = new[] {"DescribeStorediSCSIVolumes"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DescribeStorediSCSIVolumes API operation.", Operation = new[] {"DescribeStorediSCSIVolumes"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.StorediSCSIVolume",
         "This cmdlet returns a collection of StorediSCSIVolume objects.",
         "The service call response (type Amazon.StorageGateway.Model.DescribeStorediSCSIVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

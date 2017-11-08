@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Get", "WAFRegexMatchSet")]
     [OutputType("Amazon.WAF.Model.RegexMatchSet")]
-    [AWSCmdlet("Invokes the GetRegexMatchSet operation against AWS WAF.", Operation = new[] {"GetRegexMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF GetRegexMatchSet API operation.", Operation = new[] {"GetRegexMatchSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.RegexMatchSet",
         "This cmdlet returns a RegexMatchSet object.",
         "The service call response (type Amazon.WAF.Model.GetRegexMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

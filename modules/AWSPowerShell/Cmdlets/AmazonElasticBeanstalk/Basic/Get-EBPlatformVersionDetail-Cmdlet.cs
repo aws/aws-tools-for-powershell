@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBPlatformVersionDetail")]
     [OutputType("Amazon.ElasticBeanstalk.Model.PlatformDescription")]
-    [AWSCmdlet("Invokes the DescribePlatformVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribePlatformVersion"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribePlatformVersion API operation.", Operation = new[] {"DescribePlatformVersion"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformDescription",
         "This cmdlet returns a PlatformDescription object.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribePlatformVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

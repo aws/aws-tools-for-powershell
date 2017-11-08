@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Set", "ASInstanceHealth", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetInstanceHealth operation against Auto Scaling.", Operation = new[] {"SetInstanceHealth"})]
+    [AWSCmdlet("Calls the Auto Scaling SetInstanceHealth API operation.", Operation = new[] {"SetInstanceHealth"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.SetInstanceHealthResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

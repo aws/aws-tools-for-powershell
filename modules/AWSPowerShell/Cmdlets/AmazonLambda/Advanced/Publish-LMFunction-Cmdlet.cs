@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Publish", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = FromZipFile)]
     [OutputType("Amazon.Lambda.Model.CreateFunctionResult")]
-    [AWSCmdlet("Invokes the CreateFunction operation against Amazon Lambda.", Operation = new [] {"CreateFunction"})]
+    [AWSCmdlet("Calls the Amazon Lambda CreateFunction operation.", Operation = new[] { "CreateFunction" })]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateFunctionResult",
         "This cmdlet returns an Amazon.Lambda.Model.CreateFunctionResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

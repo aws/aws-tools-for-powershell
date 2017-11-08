@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Remove", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteHsm operation against AWS Cloud HSM.", Operation = new[] {"DeleteHsm"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM DeleteHsm API operation.", Operation = new[] {"DeleteHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.DeleteHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

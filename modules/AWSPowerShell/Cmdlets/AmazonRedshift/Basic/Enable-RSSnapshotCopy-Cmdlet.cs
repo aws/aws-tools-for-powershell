@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Enable", "RSSnapshotCopy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
-    [AWSCmdlet("Invokes the EnableSnapshotCopy operation against Amazon Redshift.", Operation = new[] {"EnableSnapshotCopy"})]
+    [AWSCmdlet("Calls the Amazon Redshift EnableSnapshotCopy API operation.", Operation = new[] {"EnableSnapshotCopy"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.Redshift.Model.EnableSnapshotCopyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

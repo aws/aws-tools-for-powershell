@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Remove", "ASLaunchConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLaunchConfiguration operation against Auto Scaling.", Operation = new[] {"DeleteLaunchConfiguration"})]
+    [AWSCmdlet("Calls the Auto Scaling DeleteLaunchConfiguration API operation.", Operation = new[] {"DeleteLaunchConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LaunchConfigurationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.DeleteLaunchConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

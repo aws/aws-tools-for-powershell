@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectMetadata")]
     [OutputType("Amazon.S3.Model.GetObjectMetadataResponse")]
-    [AWSCmdlet("Invokes the GetObjectMetadata operation against Amazon Simple Storage Service.", Operation = new[] {"GetObjectMetadata"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectMetadata API operation.", Operation = new[] {"GetObjectMetadata"})]
     [AWSCmdletOutput("Amazon.S3.Model.GetObjectMetadataResponse",
         "This cmdlet returns a Amazon.S3.Model.GetObjectMetadataResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

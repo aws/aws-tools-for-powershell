@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Dismount", "CDIRPolicyFromObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DetachPolicy operation against AWS Cloud Directory.", Operation = new[] {"DetachPolicy"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory DetachPolicy API operation.", Operation = new[] {"DetachPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.DetachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

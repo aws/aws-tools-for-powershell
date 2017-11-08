@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECCacheSubnetGroup")]
     [OutputType("Amazon.ElastiCache.Model.CacheSubnetGroup")]
-    [AWSCmdlet("Invokes the DescribeCacheSubnetGroups operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheSubnetGroups"}, LegacyAlias="Get-ECCacheSubnetGroups")]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeCacheSubnetGroups API operation.", Operation = new[] {"DescribeCacheSubnetGroups"}, LegacyAlias="Get-ECCacheSubnetGroups")]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSubnetGroup",
         "This cmdlet returns a collection of CacheSubnetGroup objects.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeCacheSubnetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

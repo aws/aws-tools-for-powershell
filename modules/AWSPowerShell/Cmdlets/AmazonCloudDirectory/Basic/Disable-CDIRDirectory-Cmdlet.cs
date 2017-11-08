@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Disable", "CDIRDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DisableDirectory operation against AWS Cloud Directory.", Operation = new[] {"DisableDirectory"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory DisableDirectory API operation.", Operation = new[] {"DisableDirectory"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.DisableDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

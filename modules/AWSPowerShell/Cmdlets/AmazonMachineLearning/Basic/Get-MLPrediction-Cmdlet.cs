@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// </summary>
     [Cmdlet("Get", "MLPrediction")]
     [OutputType("Amazon.MachineLearning.Model.Prediction")]
-    [AWSCmdlet("Invokes the Predict operation against Amazon Machine Learning.", Operation = new[] {"Predict"})]
+    [AWSCmdlet("Calls the Amazon Machine Learning Predict API operation.", Operation = new[] {"Predict"})]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.Prediction",
         "This cmdlet returns a Prediction object.",
         "The service call response (type Amazon.MachineLearning.Model.PredictResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

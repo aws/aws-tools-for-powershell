@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Unregister", "OPSInstanceAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UnassignInstance operation against AWS OpsWorks.", Operation = new[] {"UnassignInstance"})]
+    [AWSCmdlet("Calls the AWS OpsWorks UnassignInstance API operation.", Operation = new[] {"UnassignInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.UnassignInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

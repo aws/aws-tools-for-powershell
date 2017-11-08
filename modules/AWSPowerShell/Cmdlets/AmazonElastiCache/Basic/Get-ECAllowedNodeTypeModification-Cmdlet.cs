@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECAllowedNodeTypeModification")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListAllowedNodeTypeModifications operation against Amazon ElastiCache.", Operation = new[] {"ListAllowedNodeTypeModifications"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache ListAllowedNodeTypeModifications API operation.", Operation = new[] {"ListAllowedNodeTypeModifications"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ElastiCache.Model.ListAllowedNodeTypeModificationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

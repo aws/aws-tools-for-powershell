@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Start", "CPPipelineExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the StartPipelineExecution operation against AWS CodePipeline.", Operation = new[] {"StartPipelineExecution"})]
+    [AWSCmdlet("Calls the AWS CodePipeline StartPipelineExecution API operation.", Operation = new[] {"StartPipelineExecution"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodePipeline.Model.StartPipelineExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

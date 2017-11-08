@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Update", "SMSReplicationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateReplicationJob operation against Amazon Server Migration Service.", Operation = new[] {"UpdateReplicationJob"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service UpdateReplicationJob API operation.", Operation = new[] {"UpdateReplicationJob"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ReplicationJobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServerMigrationService.Model.UpdateReplicationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

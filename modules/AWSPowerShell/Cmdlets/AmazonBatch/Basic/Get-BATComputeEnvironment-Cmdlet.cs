@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Get", "BATComputeEnvironment")]
     [OutputType("Amazon.Batch.Model.ComputeEnvironmentDetail")]
-    [AWSCmdlet("Invokes the DescribeComputeEnvironments operation against AWS Batch.", Operation = new[] {"DescribeComputeEnvironments"})]
+    [AWSCmdlet("Calls the AWS Batch DescribeComputeEnvironments API operation.", Operation = new[] {"DescribeComputeEnvironments"})]
     [AWSCmdletOutput("Amazon.Batch.Model.ComputeEnvironmentDetail",
         "This cmdlet returns a collection of ComputeEnvironmentDetail objects.",
         "The service call response (type Amazon.Batch.Model.DescribeComputeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

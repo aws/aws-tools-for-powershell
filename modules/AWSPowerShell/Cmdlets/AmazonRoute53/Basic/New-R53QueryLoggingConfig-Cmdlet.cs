@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("New", "R53QueryLoggingConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateQueryLoggingConfigResponse")]
-    [AWSCmdlet("Invokes the CreateQueryLoggingConfig operation against Amazon Route 53.", Operation = new[] {"CreateQueryLoggingConfig"})]
+    [AWSCmdlet("Calls the Amazon Route 53 CreateQueryLoggingConfig API operation.", Operation = new[] {"CreateQueryLoggingConfig"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateQueryLoggingConfigResponse",
         "This cmdlet returns a Amazon.Route53.Model.CreateQueryLoggingConfigResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

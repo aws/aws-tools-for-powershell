@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Split", "KINShard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SplitShard operation against Amazon Kinesis.", Operation = new[] {"SplitShard"})]
+    [AWSCmdlet("Calls the Amazon Kinesis SplitShard API operation.", Operation = new[] {"SplitShard"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.SplitShardResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

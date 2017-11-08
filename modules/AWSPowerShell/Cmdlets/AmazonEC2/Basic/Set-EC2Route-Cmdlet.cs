@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2Route", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ReplaceRoute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceRoute"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceRoute API operation.", Operation = new[] {"ReplaceRoute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RouteTableId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.ReplaceRouteResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

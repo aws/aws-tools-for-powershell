@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// </summary>
     [Cmdlet("New", "SHLDSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the CreateSubscription operation against AWS Shield.", Operation = new[] {"CreateSubscription"})]
+    [AWSCmdlet("Calls the AWS Shield CreateSubscription API operation.", Operation = new[] {"CreateSubscription"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Shield.Model.CreateSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

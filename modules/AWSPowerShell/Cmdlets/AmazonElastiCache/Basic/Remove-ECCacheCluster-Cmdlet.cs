@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Remove", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
-    [AWSCmdlet("Invokes the DeleteCacheCluster operation against Amazon ElastiCache.", Operation = new[] {"DeleteCacheCluster"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DeleteCacheCluster API operation.", Operation = new[] {"DeleteCacheCluster"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a CacheCluster object.",
         "The service call response (type Amazon.ElastiCache.Model.DeleteCacheClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

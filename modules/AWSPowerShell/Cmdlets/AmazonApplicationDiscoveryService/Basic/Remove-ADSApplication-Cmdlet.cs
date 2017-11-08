@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Remove", "ADSApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteApplications operation against Application Discovery Service.", Operation = new[] {"DeleteApplications"}, LegacyAlias="Remove-ADSApplications")]
+    [AWSCmdlet("Calls the Application Discovery Service DeleteApplications API operation.", Operation = new[] {"DeleteApplications"}, LegacyAlias="Remove-ADSApplications")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationDiscoveryService.Model.DeleteApplicationsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

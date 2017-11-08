@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("New", "CSTProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeStar.Model.CreateProjectResponse")]
-    [AWSCmdlet("Invokes the CreateProject operation against AWS CodeStar.", Operation = new[] {"CreateProject"})]
+    [AWSCmdlet("Calls the AWS CodeStar CreateProject API operation.", Operation = new[] {"CreateProject"})]
     [AWSCmdletOutput("Amazon.CodeStar.Model.CreateProjectResponse",
         "This cmdlet returns a Amazon.CodeStar.Model.CreateProjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

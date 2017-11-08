@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Add", "SGCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AddCache operation against AWS Storage Gateway.", Operation = new[] {"AddCache"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway AddCache API operation.", Operation = new[] {"AddCache"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.AddCacheResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

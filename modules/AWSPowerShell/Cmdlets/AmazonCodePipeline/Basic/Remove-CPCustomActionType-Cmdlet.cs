@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Remove", "CPCustomActionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteCustomActionType operation against AWS CodePipeline.", Operation = new[] {"DeleteCustomActionType"})]
+    [AWSCmdlet("Calls the AWS CodePipeline DeleteCustomActionType API operation.", Operation = new[] {"DeleteCustomActionType"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodePipeline.Model.DeleteCustomActionTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDDeploymentBatch")]
     [OutputType("Amazon.CodeDeploy.Model.DeploymentInfo")]
-    [AWSCmdlet("Invokes the BatchGetDeployments operation against AWS CodeDeploy.", Operation = new[] {"BatchGetDeployments"}, LegacyAlias="Get-CDDeployments")]
+    [AWSCmdlet("Calls the AWS CodeDeploy BatchGetDeployments API operation.", Operation = new[] {"BatchGetDeployments"}, LegacyAlias="Get-CDDeployments")]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentInfo",
         "This cmdlet returns a collection of DeploymentInfo objects.",
         "The service call response (type Amazon.CodeDeploy.Model.BatchGetDeploymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

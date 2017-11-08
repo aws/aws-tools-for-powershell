@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Reset", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ResetDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"ResetDBClusterParameterGroup"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service ResetDBClusterParameterGroup API operation.", Operation = new[] {"ResetDBClusterParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.RDS.Model.ResetDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

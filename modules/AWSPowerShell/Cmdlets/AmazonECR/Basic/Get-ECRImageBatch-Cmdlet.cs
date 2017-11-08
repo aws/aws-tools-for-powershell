@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRImageBatch")]
     [OutputType("Amazon.ECR.Model.BatchGetImageResponse")]
-    [AWSCmdlet("Invokes the BatchGetImage operation against Amazon EC2 Container Registry.", Operation = new[] {"BatchGetImage"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchGetImage API operation.", Operation = new[] {"BatchGetImage"})]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchGetImageResponse",
         "This cmdlet returns a Amazon.ECR.Model.BatchGetImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

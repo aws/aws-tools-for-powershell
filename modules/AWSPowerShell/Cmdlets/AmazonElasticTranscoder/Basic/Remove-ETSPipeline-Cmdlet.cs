@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("Remove", "ETSPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeletePipeline operation against Amazon Elastic Transcoder.", Operation = new[] {"DeletePipeline"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder DeletePipeline API operation.", Operation = new[] {"DeletePipeline"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticTranscoder.Model.DeletePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

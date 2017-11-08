@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Get", "CGIPDeviceListAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.DeviceType")]
-    [AWSCmdlet("Invokes the AdminListDevices operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminListDevices"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminListDevices API operation.", Operation = new[] {"AdminListDevices"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.DeviceType",
         "This cmdlet returns a collection of DeviceType objects.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminListDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

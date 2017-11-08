@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Update", "OPSElasticIp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UpdateElasticIp operation against AWS OpsWorks.", Operation = new[] {"UpdateElasticIp"})]
+    [AWSCmdlet("Calls the AWS OpsWorks UpdateElasticIp API operation.", Operation = new[] {"UpdateElasticIp"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.OpsWorks.Model.UpdateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

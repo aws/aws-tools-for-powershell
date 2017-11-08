@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Update", "ORGOrganizationalUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.OrganizationalUnit")]
-    [AWSCmdlet("Invokes the UpdateOrganizationalUnit operation against AWS Organizations.", Operation = new[] {"UpdateOrganizationalUnit"})]
+    [AWSCmdlet("Calls the AWS Organizations UpdateOrganizationalUnit API operation.", Operation = new[] {"UpdateOrganizationalUnit"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.OrganizationalUnit",
         "This cmdlet returns a OrganizationalUnit object.",
         "The service call response (type Amazon.Organizations.Model.UpdateOrganizationalUnitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

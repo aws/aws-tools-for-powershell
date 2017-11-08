@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Stop", "OPSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopStack operation against AWS OpsWorks.", Operation = new[] {"StopStack"})]
+    [AWSCmdlet("Calls the AWS OpsWorks StopStack API operation.", Operation = new[] {"StopStack"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.StopStackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

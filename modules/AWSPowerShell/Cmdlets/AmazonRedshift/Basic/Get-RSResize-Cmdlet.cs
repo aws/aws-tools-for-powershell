@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSResize")]
     [OutputType("Amazon.Redshift.Model.DescribeResizeResponse")]
-    [AWSCmdlet("Invokes the DescribeResize operation against Amazon Redshift.", Operation = new[] {"DescribeResize"})]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeResize API operation.", Operation = new[] {"DescribeResize"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.DescribeResizeResponse",
         "This cmdlet returns a Amazon.Redshift.Model.DescribeResizeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

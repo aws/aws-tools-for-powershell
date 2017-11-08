@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("New", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateActivityResponse")]
-    [AWSCmdlet("Invokes the CreateActivity operation against Amazon Step Functions.", Operation = new[] {"CreateActivity"})]
+    [AWSCmdlet("Calls the Amazon Step Functions CreateActivity API operation.", Operation = new[] {"CreateActivity"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.CreateActivityResponse",
         "This cmdlet returns a Amazon.StepFunctions.Model.CreateActivityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

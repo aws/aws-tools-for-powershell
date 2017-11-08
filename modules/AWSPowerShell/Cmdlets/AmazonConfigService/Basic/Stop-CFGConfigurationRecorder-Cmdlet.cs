@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Stop", "CFGConfigurationRecorder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the StopConfigurationRecorder operation against AWS Config.", Operation = new[] {"StopConfigurationRecorder"})]
+    [AWSCmdlet("Calls the AWS Config StopConfigurationRecorder API operation.", Operation = new[] {"StopConfigurationRecorder"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ConfigService.Model.StopConfigurationRecorderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

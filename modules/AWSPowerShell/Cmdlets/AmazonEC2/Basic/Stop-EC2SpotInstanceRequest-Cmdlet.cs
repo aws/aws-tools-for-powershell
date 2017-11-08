@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2SpotInstanceRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CancelledSpotInstanceRequest")]
-    [AWSCmdlet("Invokes the CancelSpotInstanceRequests operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelSpotInstanceRequests"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelSpotInstanceRequests API operation.", Operation = new[] {"CancelSpotInstanceRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelledSpotInstanceRequest",
         "This cmdlet returns a collection of CancelledSpotInstanceRequest objects.",
         "The service call response (type Amazon.EC2.Model.CancelSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

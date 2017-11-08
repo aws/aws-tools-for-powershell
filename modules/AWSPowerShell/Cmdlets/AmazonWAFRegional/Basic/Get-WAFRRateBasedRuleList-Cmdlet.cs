@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRRateBasedRuleList")]
     [OutputType("Amazon.WAFRegional.Model.RuleSummary")]
-    [AWSCmdlet("Invokes the ListRateBasedRules operation against AWS WAF Regional.", Operation = new[] {"ListRateBasedRules"})]
+    [AWSCmdlet("Calls the AWS WAF Regional ListRateBasedRules API operation.", Operation = new[] {"ListRateBasedRules"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.RuleSummary",
         "This cmdlet returns a collection of RuleSummary objects.",
         "The service call response (type Amazon.WAFRegional.Model.ListRateBasedRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

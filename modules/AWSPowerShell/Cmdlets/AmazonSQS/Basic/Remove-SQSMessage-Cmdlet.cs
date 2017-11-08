@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Remove", "SQSMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteMessage operation against Amazon Simple Queue Service.", Operation = new[] {"DeleteMessage"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service DeleteMessage API operation.", Operation = new[] {"DeleteMessage"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.DeleteMessageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Register", "OPSEcsCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RegisterEcsCluster operation against AWS OpsWorks.", Operation = new[] {"RegisterEcsCluster"})]
+    [AWSCmdlet("Calls the AWS OpsWorks RegisterEcsCluster API operation.", Operation = new[] {"RegisterEcsCluster"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.RegisterEcsClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

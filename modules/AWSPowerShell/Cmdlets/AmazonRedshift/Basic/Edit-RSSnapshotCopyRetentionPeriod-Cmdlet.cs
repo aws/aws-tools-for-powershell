@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Edit", "RSSnapshotCopyRetentionPeriod", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
-    [AWSCmdlet("Invokes the ModifySnapshotCopyRetentionPeriod operation against Amazon Redshift.", Operation = new[] {"ModifySnapshotCopyRetentionPeriod"})]
+    [AWSCmdlet("Calls the Amazon Redshift ModifySnapshotCopyRetentionPeriod API operation.", Operation = new[] {"ModifySnapshotCopyRetentionPeriod"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.Redshift.Model.ModifySnapshotCopyRetentionPeriodResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

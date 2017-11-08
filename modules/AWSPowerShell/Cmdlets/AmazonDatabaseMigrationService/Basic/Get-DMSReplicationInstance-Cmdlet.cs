@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSReplicationInstance")]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]
-    [AWSCmdlet("Invokes the DescribeReplicationInstances operation against AWS Database Migration Service.", Operation = new[] {"DescribeReplicationInstances"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeReplicationInstances API operation.", Operation = new[] {"DescribeReplicationInstances"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationInstance",
         "This cmdlet returns a collection of ReplicationInstance objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeReplicationInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

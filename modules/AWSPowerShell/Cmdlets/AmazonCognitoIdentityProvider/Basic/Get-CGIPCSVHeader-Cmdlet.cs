@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Get", "CGIPCSVHeader")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse")]
-    [AWSCmdlet("Invokes the GetCSVHeader operation against Amazon Cognito Identity Provider.", Operation = new[] {"GetCSVHeader"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GetCSVHeader API operation.", Operation = new[] {"GetCSVHeader"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse",
         "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.GetCSVHeaderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

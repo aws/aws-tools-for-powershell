@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSElasticIp")]
     [OutputType("Amazon.OpsWorks.Model.ElasticIp")]
-    [AWSCmdlet("Invokes the DescribeElasticIps operation against AWS OpsWorks.", Operation = new[] {"DescribeElasticIps"}, LegacyAlias="Get-OPSElasticIps")]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeElasticIps API operation.", Operation = new[] {"DescribeElasticIps"}, LegacyAlias="Get-OPSElasticIps")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.ElasticIp",
         "This cmdlet returns a collection of ElasticIp objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeElasticIpsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

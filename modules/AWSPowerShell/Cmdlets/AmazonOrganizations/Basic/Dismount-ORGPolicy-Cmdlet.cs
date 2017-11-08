@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Dismount", "ORGPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DetachPolicy operation against AWS Organizations.", Operation = new[] {"DetachPolicy"})]
+    [AWSCmdlet("Calls the AWS Organizations DetachPolicy API operation.", Operation = new[] {"DetachPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PolicyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Organizations.Model.DetachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

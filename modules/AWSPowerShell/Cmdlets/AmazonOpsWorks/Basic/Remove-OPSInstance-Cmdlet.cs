@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Remove", "OPSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteInstance operation against AWS OpsWorks.", Operation = new[] {"DeleteInstance"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DeleteInstance API operation.", Operation = new[] {"DeleteInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeleteInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

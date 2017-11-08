@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMAccountAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteAccountAlias operation against AWS Identity and Access Management.", Operation = new[] {"DeleteAccountAlias"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteAccountAlias API operation.", Operation = new[] {"DeleteAccountAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountAlias parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteAccountAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

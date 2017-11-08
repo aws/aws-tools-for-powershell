@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// </summary>
     [Cmdlet("Get", "XRServiceGraph")]
     [OutputType("Amazon.XRay.Model.GetServiceGraphResponse")]
-    [AWSCmdlet("Invokes the GetServiceGraph operation against AWS X-Ray.", Operation = new[] {"GetServiceGraph"})]
+    [AWSCmdlet("Calls the AWS X-Ray GetServiceGraph API operation.", Operation = new[] {"GetServiceGraph"})]
     [AWSCmdletOutput("Amazon.XRay.Model.GetServiceGraphResponse",
         "This cmdlet returns a Amazon.XRay.Model.GetServiceGraphResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

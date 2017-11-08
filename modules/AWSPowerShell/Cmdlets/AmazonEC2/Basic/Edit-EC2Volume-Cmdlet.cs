@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VolumeModification")]
-    [AWSCmdlet("Invokes the ModifyVolume operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyVolume"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVolume API operation.", Operation = new[] {"ModifyVolume"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeModification",
         "This cmdlet returns a VolumeModification object.",
         "The service call response (type Amazon.EC2.Model.ModifyVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

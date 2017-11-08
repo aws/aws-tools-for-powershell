@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("New", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.CreateLagResponse")]
-    [AWSCmdlet("Invokes the CreateLag operation against AWS Direct Connect.", Operation = new[] {"CreateLag"})]
+    [AWSCmdlet("Calls the AWS Direct Connect CreateLag API operation.", Operation = new[] {"CreateLag"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateLagResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.CreateLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

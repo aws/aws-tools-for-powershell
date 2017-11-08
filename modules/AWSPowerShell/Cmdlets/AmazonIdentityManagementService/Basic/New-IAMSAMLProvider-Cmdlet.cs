@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"CreateSAMLProvider"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateSAMLProvider API operation.", Operation = new[] {"CreateSAMLProvider"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateSAMLProviderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

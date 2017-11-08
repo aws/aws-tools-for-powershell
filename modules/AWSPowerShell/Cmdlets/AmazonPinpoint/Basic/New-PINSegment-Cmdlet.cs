@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("New", "PINSegment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.SegmentResponse")]
-    [AWSCmdlet("Invokes the CreateSegment operation against Amazon Pinpoint.", Operation = new[] {"CreateSegment"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint CreateSegment API operation.", Operation = new[] {"CreateSegment"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.SegmentResponse",
         "This cmdlet returns a SegmentResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.CreateSegmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

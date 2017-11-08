@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Get", "CWLLogGroup")]
     [OutputType("Amazon.CloudWatchLogs.Model.LogGroup")]
-    [AWSCmdlet("Invokes the DescribeLogGroups operation against Amazon CloudWatch Logs.", Operation = new[] {"DescribeLogGroups"}, LegacyAlias="Get-CWLLogGroups")]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs DescribeLogGroups API operation.", Operation = new[] {"DescribeLogGroups"}, LegacyAlias="Get-CWLLogGroups")]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.LogGroup",
         "This cmdlet returns a collection of LogGroup objects.",
         "The service call response (type Amazon.CloudWatchLogs.Model.DescribeLogGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

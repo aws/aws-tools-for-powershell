@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDefaultPatchBaseline")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse")]
-    [AWSCmdlet("Invokes the GetDefaultPatchBaseline operation against Amazon Simple Systems Management.", Operation = new[] {"GetDefaultPatchBaseline"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management GetDefaultPatchBaseline API operation.", Operation = new[] {"GetDefaultPatchBaseline"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetDefaultPatchBaselineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

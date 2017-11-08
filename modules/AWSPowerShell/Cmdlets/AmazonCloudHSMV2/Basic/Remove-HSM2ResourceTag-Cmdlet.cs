@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// </summary>
     [Cmdlet("Remove", "HSM2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UntagResource operation against AWS Cloud HSM V2.", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM V2 UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudHSMV2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

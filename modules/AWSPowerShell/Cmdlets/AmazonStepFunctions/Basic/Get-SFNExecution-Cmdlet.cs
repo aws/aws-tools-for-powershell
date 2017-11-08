@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Get", "SFNExecution")]
     [OutputType("Amazon.StepFunctions.Model.DescribeExecutionResponse")]
-    [AWSCmdlet("Invokes the DescribeExecution operation against Amazon Step Functions.", Operation = new[] {"DescribeExecution"})]
+    [AWSCmdlet("Calls the Amazon Step Functions DescribeExecution API operation.", Operation = new[] {"DescribeExecution"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.DescribeExecutionResponse",
         "This cmdlet returns a Amazon.StepFunctions.Model.DescribeExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

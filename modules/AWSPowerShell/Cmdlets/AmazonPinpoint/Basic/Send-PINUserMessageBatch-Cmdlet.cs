@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Send", "PINUserMessageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.SendUsersMessageResponse")]
-    [AWSCmdlet("Invokes the SendUsersMessages operation against Amazon Pinpoint.", Operation = new[] {"SendUsersMessages"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint SendUsersMessages API operation.", Operation = new[] {"SendUsersMessages"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.SendUsersMessageResponse",
         "This cmdlet returns a SendUsersMessageResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.SendUsersMessagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

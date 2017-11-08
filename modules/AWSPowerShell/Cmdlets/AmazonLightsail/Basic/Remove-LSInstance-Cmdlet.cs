@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Remove", "LSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Invokes the DeleteInstance operation against Amazon Lightsail.", Operation = new[] {"DeleteInstance"})]
+    [AWSCmdlet("Calls the Amazon Lightsail DeleteInstance API operation.", Operation = new[] {"DeleteInstance"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a collection of Operation objects.",
         "The service call response (type Amazon.Lightsail.Model.DeleteInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

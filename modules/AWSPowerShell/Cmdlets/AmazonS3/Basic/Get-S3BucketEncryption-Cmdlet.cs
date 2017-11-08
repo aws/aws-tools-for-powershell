@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketEncryption")]
     [OutputType("Amazon.S3.Model.ServerSideEncryptionConfiguration")]
-    [AWSCmdlet("Invokes the GetBucketEncryption operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketEncryption"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketEncryption API operation.", Operation = new[] {"GetBucketEncryption"})]
     [AWSCmdletOutput("Amazon.S3.Model.ServerSideEncryptionConfiguration",
         "This cmdlet returns a ServerSideEncryptionConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketEncryptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

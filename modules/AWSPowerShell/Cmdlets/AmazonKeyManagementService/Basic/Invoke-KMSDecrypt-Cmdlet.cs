@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Invoke", "KMSDecrypt")]
     [OutputType("Amazon.KeyManagementService.Model.DecryptResponse")]
-    [AWSCmdlet("Invokes the Decrypt operation against AWS Key Management Service.", Operation = new[] {"Decrypt"})]
+    [AWSCmdlet("Calls the AWS Key Management Service Decrypt API operation.", Operation = new[] {"Decrypt"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.DecryptResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.DecryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

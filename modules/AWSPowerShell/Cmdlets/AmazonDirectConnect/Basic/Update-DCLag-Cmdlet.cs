@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Update", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.UpdateLagResponse")]
-    [AWSCmdlet("Invokes the UpdateLag operation against AWS Direct Connect.", Operation = new[] {"UpdateLag"})]
+    [AWSCmdlet("Calls the AWS Direct Connect UpdateLag API operation.", Operation = new[] {"UpdateLag"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.UpdateLagResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.UpdateLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

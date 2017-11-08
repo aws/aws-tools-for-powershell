@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Get", "GMLFleetPortSetting")]
     [OutputType("Amazon.GameLift.Model.IpPermission")]
-    [AWSCmdlet("Invokes the DescribeFleetPortSettings operation against Amazon GameLift Service.", Operation = new[] {"DescribeFleetPortSettings"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DescribeFleetPortSettings API operation.", Operation = new[] {"DescribeFleetPortSettings"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.IpPermission",
         "This cmdlet returns a collection of IpPermission objects.",
         "The service call response (type Amazon.GameLift.Model.DescribeFleetPortSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Set", "EBEnvironmentCNAME", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SwapEnvironmentCNAMEs operation against AWS Elastic Beanstalk.", Operation = new[] {"SwapEnvironmentCNAMEs"}, LegacyAlias="Set-EBEnvironmentCNAMEs")]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk SwapEnvironmentCNAMEs API operation.", Operation = new[] {"SwapEnvironmentCNAMEs"}, LegacyAlias="Set-EBEnvironmentCNAMEs")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SourceEnvironmentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.SwapEnvironmentCNAMEsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

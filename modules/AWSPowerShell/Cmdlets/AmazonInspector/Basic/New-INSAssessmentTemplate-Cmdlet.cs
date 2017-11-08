@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("New", "INSAssessmentTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateAssessmentTemplate operation against Amazon Inspector.", Operation = new[] {"CreateAssessmentTemplate"})]
+    [AWSCmdlet("Calls the Amazon Inspector CreateAssessmentTemplate API operation.", Operation = new[] {"CreateAssessmentTemplate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Inspector.Model.CreateAssessmentTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("New", "DPPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreatePipeline operation against AWS Data Pipeline.", Operation = new[] {"CreatePipeline"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline CreatePipeline API operation.", Operation = new[] {"CreatePipeline"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DataPipeline.Model.CreatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMParameter")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
-    [AWSCmdlet("Invokes the GetParameter operation against Amazon Simple Systems Management.", Operation = new[] {"GetParameter"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management GetParameter API operation.", Operation = new[] {"GetParameter"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Parameter",
         "This cmdlet returns a Parameter object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetParameterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

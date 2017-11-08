@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// </summary>
     [Cmdlet("Add", "HSM2ResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the TagResource operation against AWS Cloud HSM V2.", Operation = new[] {"TagResource"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM V2 TagResource API operation.", Operation = new[] {"TagResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudHSMV2.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

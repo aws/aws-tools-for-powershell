@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// </summary>
     [Cmdlet("Remove", "CBProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteProject operation against AWS CodeBuild.", Operation = new[] {"DeleteProject"})]
+    [AWSCmdlet("Calls the AWS CodeBuild DeleteProject API operation.", Operation = new[] {"DeleteProject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeBuild.Model.DeleteProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

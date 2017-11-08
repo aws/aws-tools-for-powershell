@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketInventoryConfiguration")]
     [OutputType("Amazon.S3.Model.InventoryConfiguration")]
-    [AWSCmdlet("Invokes the GetBucketInventoryConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketInventoryConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketInventoryConfiguration API operation.", Operation = new[] {"GetBucketInventoryConfiguration"})]
     [AWSCmdletOutput("Amazon.S3.Model.InventoryConfiguration",
         "This cmdlet returns a InventoryConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketInventoryConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

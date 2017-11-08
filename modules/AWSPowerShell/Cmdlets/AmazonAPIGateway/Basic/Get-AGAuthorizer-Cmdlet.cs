@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Get", "AGAuthorizer")]
     [OutputType("Amazon.APIGateway.Model.GetAuthorizerResponse")]
-    [AWSCmdlet("Invokes the GetAuthorizer operation against Amazon API Gateway.", Operation = new[] {"GetAuthorizer"})]
+    [AWSCmdlet("Calls the Amazon API Gateway GetAuthorizer API operation.", Operation = new[] {"GetAuthorizer"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetAuthorizerResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.GetAuthorizerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

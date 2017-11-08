@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Get", "EMRSecurityConfiguration")]
     [OutputType("Amazon.ElasticMapReduce.Model.DescribeSecurityConfigurationResponse")]
-    [AWSCmdlet("Invokes the DescribeSecurityConfiguration operation against Amazon Elastic MapReduce.", Operation = new[] {"DescribeSecurityConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce DescribeSecurityConfiguration API operation.", Operation = new[] {"DescribeSecurityConfiguration"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.DescribeSecurityConfigurationResponse",
         "This cmdlet returns a Amazon.ElasticMapReduce.Model.DescribeSecurityConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

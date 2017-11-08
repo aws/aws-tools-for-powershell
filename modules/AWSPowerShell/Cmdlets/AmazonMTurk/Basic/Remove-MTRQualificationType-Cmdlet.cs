@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Remove", "MTRQualificationType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteQualificationType operation against Amazon MTurk Service.", Operation = new[] {"DeleteQualificationType"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service DeleteQualificationType API operation.", Operation = new[] {"DeleteQualificationType"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QualificationTypeId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MTurk.Model.DeleteQualificationTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("New", "APSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Stack")]
-    [AWSCmdlet("Invokes the CreateStack operation against AWS AppStream.", Operation = new[] {"CreateStack"})]
+    [AWSCmdlet("Calls the AWS AppStream CreateStack API operation.", Operation = new[] {"CreateStack"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.Stack",
         "This cmdlet returns a Stack object.",
         "The service call response (type Amazon.AppStream.Model.CreateStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

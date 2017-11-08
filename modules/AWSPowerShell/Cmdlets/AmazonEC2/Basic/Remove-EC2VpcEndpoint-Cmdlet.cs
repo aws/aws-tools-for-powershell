@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.UnsuccessfulItem")]
-    [AWSCmdlet("Invokes the DeleteVpcEndpoints operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteVpcEndpoints"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteVpcEndpoints API operation.", Operation = new[] {"DeleteVpcEndpoints"})]
     [AWSCmdletOutput("Amazon.EC2.Model.UnsuccessfulItem",
         "This cmdlet returns a collection of UnsuccessfulItem objects.",
         "The service call response (type Amazon.EC2.Model.DeleteVpcEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

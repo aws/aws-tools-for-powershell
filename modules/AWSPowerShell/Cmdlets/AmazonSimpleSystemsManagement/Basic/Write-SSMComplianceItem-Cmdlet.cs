@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Write", "SSMComplianceItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutComplianceItems operation against Amazon Simple Systems Management.", Operation = new[] {"PutComplianceItems"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management PutComplianceItems API operation.", Operation = new[] {"PutComplianceItems"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.PutComplianceItemsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

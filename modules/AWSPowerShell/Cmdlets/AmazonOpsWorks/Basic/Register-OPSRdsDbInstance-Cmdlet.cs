@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Register", "OPSRdsDbInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RegisterRdsDbInstance operation against AWS OpsWorks.", Operation = new[] {"RegisterRdsDbInstance"})]
+    [AWSCmdlet("Calls the AWS OpsWorks RegisterRdsDbInstance API operation.", Operation = new[] {"RegisterRdsDbInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.RegisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

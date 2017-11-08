@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Update", "R53DTagsForDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateTagsForDomain operation against Amazon Route 53 Domains.", Operation = new[] {"UpdateTagsForDomain"})]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains UpdateTagsForDomain API operation.", Operation = new[] {"UpdateTagsForDomain"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Route53Domains.Model.UpdateTagsForDomainResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

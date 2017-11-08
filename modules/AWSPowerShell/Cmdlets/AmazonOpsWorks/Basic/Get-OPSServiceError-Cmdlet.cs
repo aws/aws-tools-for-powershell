@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSServiceError")]
     [OutputType("Amazon.OpsWorks.Model.ServiceError")]
-    [AWSCmdlet("Invokes the DescribeServiceErrors operation against AWS OpsWorks.", Operation = new[] {"DescribeServiceErrors"}, LegacyAlias="Get-OPSServiceErrors")]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeServiceErrors API operation.", Operation = new[] {"DescribeServiceErrors"}, LegacyAlias="Get-OPSServiceErrors")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.ServiceError",
         "This cmdlet returns a collection of ServiceError objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeServiceErrorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

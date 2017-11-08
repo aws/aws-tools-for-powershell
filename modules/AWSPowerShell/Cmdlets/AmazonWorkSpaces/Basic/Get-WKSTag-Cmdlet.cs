@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("Get", "WKSTag")]
     [OutputType("Amazon.WorkSpaces.Model.Tag")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Amazon WorkSpaces.", Operation = new[] {"DescribeTags"})]
+    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeTags API operation.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.WorkSpaces.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

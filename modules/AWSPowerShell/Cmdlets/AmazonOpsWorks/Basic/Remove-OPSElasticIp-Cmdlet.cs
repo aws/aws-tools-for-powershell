@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Remove", "OPSElasticIp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateElasticIp operation against AWS OpsWorks.", Operation = new[] {"DisassociateElasticIp"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DisassociateElasticIp API operation.", Operation = new[] {"DisassociateElasticIp"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ElasticIp parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DisassociateElasticIpResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

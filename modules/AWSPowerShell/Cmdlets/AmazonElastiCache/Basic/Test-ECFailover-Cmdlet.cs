@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Test", "ECFailover")]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
-    [AWSCmdlet("Invokes the TestFailover operation against Amazon ElastiCache.", Operation = new[] {"TestFailover"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache TestFailover API operation.", Operation = new[] {"TestFailover"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup",
         "This cmdlet returns a ReplicationGroup object.",
         "The service call response (type Amazon.ElastiCache.Model.TestFailoverResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMActivation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse")]
-    [AWSCmdlet("Invokes the CreateActivation operation against Amazon Simple Systems Management.", Operation = new[] {"CreateActivation"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management CreateActivation API operation.", Operation = new[] {"CreateActivation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.CreateActivationResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.CreateActivationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

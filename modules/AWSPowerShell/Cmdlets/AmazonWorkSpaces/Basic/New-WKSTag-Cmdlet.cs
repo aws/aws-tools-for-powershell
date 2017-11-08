@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("New", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the CreateTags operation against Amazon WorkSpaces.", Operation = new[] {"CreateTags"})]
+    [AWSCmdlet("Calls the Amazon WorkSpaces CreateTags API operation.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.WorkSpaces.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

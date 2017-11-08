@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Add", "EC2Volume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VolumeAttachment")]
-    [AWSCmdlet("Invokes the AttachVolume operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachVolume"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AttachVolume API operation.", Operation = new[] {"AttachVolume"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VolumeAttachment",
         "This cmdlet returns a VolumeAttachment object.",
         "The service call response (type Amazon.EC2.Model.AttachVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

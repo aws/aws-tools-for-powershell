@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDDeploymentGroupList")]
     [OutputType("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse")]
-    [AWSCmdlet("Invokes the ListDeploymentGroups operation against AWS CodeDeploy.", Operation = new[] {"ListDeploymentGroups"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy ListDeploymentGroups API operation.", Operation = new[] {"ListDeploymentGroups"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse",
         "This cmdlet returns a Amazon.CodeDeploy.Model.ListDeploymentGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

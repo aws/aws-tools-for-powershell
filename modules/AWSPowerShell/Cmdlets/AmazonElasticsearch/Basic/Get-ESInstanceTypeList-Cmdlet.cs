@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESInstanceTypeList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListElasticsearchInstanceTypes operation against Amazon Elasticsearch.", Operation = new[] {"ListElasticsearchInstanceTypes"})]
+    [AWSCmdlet("Calls the Amazon Elasticsearch ListElasticsearchInstanceTypes API operation.", Operation = new[] {"ListElasticsearchInstanceTypes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Elasticsearch.Model.ListElasticsearchInstanceTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Remove", "APSDirectoryConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDirectoryConfig operation against AWS AppStream.", Operation = new[] {"DeleteDirectoryConfig"})]
+    [AWSCmdlet("Calls the AWS AppStream DeleteDirectoryConfig API operation.", Operation = new[] {"DeleteDirectoryConfig"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AppStream.Model.DeleteDirectoryConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

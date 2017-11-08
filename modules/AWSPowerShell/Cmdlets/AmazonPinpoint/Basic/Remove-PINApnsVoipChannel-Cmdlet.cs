@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Remove", "PINApnsVoipChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Pinpoint.Model.APNSVoipChannelResponse")]
-    [AWSCmdlet("Invokes the DeleteApnsVoipChannel operation against Amazon Pinpoint.", Operation = new[] {"DeleteApnsVoipChannel"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint DeleteApnsVoipChannel API operation.", Operation = new[] {"DeleteApnsVoipChannel"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSVoipChannelResponse",
         "This cmdlet returns a APNSVoipChannelResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.DeleteApnsVoipChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

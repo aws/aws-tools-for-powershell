@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCLag")]
     [OutputType("Amazon.DirectConnect.Model.Lag")]
-    [AWSCmdlet("Invokes the DescribeLags operation against AWS Direct Connect.", Operation = new[] {"DescribeLags"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeLags API operation.", Operation = new[] {"DescribeLags"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Lag",
         "This cmdlet returns a collection of Lag objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeLagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

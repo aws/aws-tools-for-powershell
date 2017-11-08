@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Remove", "CWEPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemovePermission operation against Amazon CloudWatch Events.", Operation = new[] {"RemovePermission"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events RemovePermission API operation.", Operation = new[] {"RemovePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StatementId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchEvents.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </summary>
     [Cmdlet("Send", "ACMValidationEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ResendValidationEmail operation against AWS Certificate Manager.", Operation = new[] {"ResendValidationEmail"})]
+    [AWSCmdlet("Calls the AWS Certificate Manager ResendValidationEmail API operation.", Operation = new[] {"ResendValidationEmail"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CertificateManager.Model.ResendValidationEmailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

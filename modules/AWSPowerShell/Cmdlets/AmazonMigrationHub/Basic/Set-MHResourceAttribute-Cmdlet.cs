@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Set", "MHResourceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutResourceAttributes operation against AWS Migration Hub.", Operation = new[] {"PutResourceAttributes"})]
+    [AWSCmdlet("Calls the AWS Migration Hub PutResourceAttributes API operation.", Operation = new[] {"PutResourceAttributes"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the MigrationTaskName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.PutResourceAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Disable", "R53DDomainTransferLock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DisableDomainTransferLock operation against Amazon Route 53 Domains.", Operation = new[] {"DisableDomainTransferLock"})]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains DisableDomainTransferLock API operation.", Operation = new[] {"DisableDomainTransferLock"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Route53Domains.Model.DisableDomainTransferLockResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

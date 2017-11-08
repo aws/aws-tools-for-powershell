@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Get", "KMSKey")]
     [OutputType("Amazon.KeyManagementService.Model.KeyMetadata")]
-    [AWSCmdlet("Invokes the DescribeKey operation against AWS Key Management Service.", Operation = new[] {"DescribeKey"})]
+    [AWSCmdlet("Calls the AWS Key Management Service DescribeKey API operation.", Operation = new[] {"DescribeKey"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.KeyMetadata",
         "This cmdlet returns a KeyMetadata object.",
         "The service call response (type Amazon.KeyManagementService.Model.DescribeKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

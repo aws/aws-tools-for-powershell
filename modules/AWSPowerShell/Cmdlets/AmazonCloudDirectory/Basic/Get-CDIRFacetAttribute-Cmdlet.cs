@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRFacetAttribute")]
     [OutputType("Amazon.CloudDirectory.Model.FacetAttribute")]
-    [AWSCmdlet("Invokes the ListFacetAttributes operation against AWS Cloud Directory.", Operation = new[] {"ListFacetAttributes"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListFacetAttributes API operation.", Operation = new[] {"ListFacetAttributes"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.FacetAttribute",
         "This cmdlet returns a collection of FacetAttribute objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListFacetAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

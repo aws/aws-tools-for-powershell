@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMOpenIDConnectProvider")]
     [OutputType("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse")]
-    [AWSCmdlet("Invokes the GetOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"GetOpenIDConnectProvider"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetOpenIDConnectProvider API operation.", Operation = new[] {"GetOpenIDConnectProvider"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GetOpenIDConnectProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

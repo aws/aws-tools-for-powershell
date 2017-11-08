@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Add", "OPSVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssignVolume operation against AWS OpsWorks.", Operation = new[] {"AssignVolume"})]
+    [AWSCmdlet("Calls the AWS OpsWorks AssignVolume API operation.", Operation = new[] {"AssignVolume"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.AssignVolumeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

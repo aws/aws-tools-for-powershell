@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Remove", "OPSUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteUserProfile operation against AWS OpsWorks.", Operation = new[] {"DeleteUserProfile"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DeleteUserProfile API operation.", Operation = new[] {"DeleteUserProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IamUserArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeleteUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

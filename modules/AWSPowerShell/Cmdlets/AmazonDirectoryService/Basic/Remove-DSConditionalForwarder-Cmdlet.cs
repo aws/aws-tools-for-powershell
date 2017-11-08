@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Remove", "DSConditionalForwarder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteConditionalForwarder operation against AWS Directory Service.", Operation = new[] {"DeleteConditionalForwarder"})]
+    [AWSCmdlet("Calls the AWS Directory Service DeleteConditionalForwarder API operation.", Operation = new[] {"DeleteConditionalForwarder"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.DeleteConditionalForwarderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Remove", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeletePortfolio operation against AWS Service Catalog.", Operation = new[] {"DeletePortfolio"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DeletePortfolio API operation.", Operation = new[] {"DeletePortfolio"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DeletePortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

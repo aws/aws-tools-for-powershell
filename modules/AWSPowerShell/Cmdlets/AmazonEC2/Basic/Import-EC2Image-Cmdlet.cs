@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Import", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ImportImageResponse")]
-    [AWSCmdlet("Invokes the ImportImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ImportImage"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ImportImage API operation.", Operation = new[] {"ImportImage"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ImportImageResponse",
         "This cmdlet returns a Amazon.EC2.Model.ImportImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

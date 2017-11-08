@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Get", "ADSTag")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ConfigurationTag")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Application Discovery Service.", Operation = new[] {"DescribeTags"})]
+    [AWSCmdlet("Calls the Application Discovery Service DescribeTags API operation.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ConfigurationTag",
         "This cmdlet returns a collection of ConfigurationTag objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

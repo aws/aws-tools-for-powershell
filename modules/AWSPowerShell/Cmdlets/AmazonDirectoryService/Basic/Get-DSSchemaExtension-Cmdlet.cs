@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSSchemaExtension")]
     [OutputType("Amazon.DirectoryService.Model.SchemaExtensionInfo")]
-    [AWSCmdlet("Invokes the ListSchemaExtensions operation against AWS Directory Service.", Operation = new[] {"ListSchemaExtensions"})]
+    [AWSCmdlet("Calls the AWS Directory Service ListSchemaExtensions API operation.", Operation = new[] {"ListSchemaExtensions"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.SchemaExtensionInfo",
         "This cmdlet returns a collection of SchemaExtensionInfo objects.",
         "The service call response (type Amazon.DirectoryService.Model.ListSchemaExtensionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

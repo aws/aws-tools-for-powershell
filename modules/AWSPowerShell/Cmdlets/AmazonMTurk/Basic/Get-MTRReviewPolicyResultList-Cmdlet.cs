@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Get", "MTRReviewPolicyResultList")]
     [OutputType("Amazon.MTurk.Model.ListReviewPolicyResultsForHITResponse")]
-    [AWSCmdlet("Invokes the ListReviewPolicyResultsForHIT operation against Amazon MTurk Service.", Operation = new[] {"ListReviewPolicyResultsForHIT"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service ListReviewPolicyResultsForHIT API operation.", Operation = new[] {"ListReviewPolicyResultsForHIT"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.ListReviewPolicyResultsForHITResponse",
         "This cmdlet returns a Amazon.MTurk.Model.ListReviewPolicyResultsForHITResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("New", "ETSJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticTranscoder.Model.Job")]
-    [AWSCmdlet("Invokes the CreateJob operation against Amazon Elastic Transcoder.", Operation = new[] {"CreateJob"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder CreateJob API operation.", Operation = new[] {"CreateJob"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Job",
         "This cmdlet returns a Job object.",
         "The service call response (type Amazon.ElasticTranscoder.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

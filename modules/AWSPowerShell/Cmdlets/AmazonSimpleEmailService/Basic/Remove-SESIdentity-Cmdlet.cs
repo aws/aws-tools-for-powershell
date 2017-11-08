@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Remove", "SESIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteIdentity operation against Amazon Simple Email Service.", Operation = new[] {"DeleteIdentity"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteIdentity API operation.", Operation = new[] {"DeleteIdentity"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.DeleteIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

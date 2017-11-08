@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Get", "MTRQualificationRequestList")]
     [OutputType("Amazon.MTurk.Model.QualificationRequest")]
-    [AWSCmdlet("Invokes the ListQualificationRequests operation against Amazon MTurk Service.", Operation = new[] {"ListQualificationRequests"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service ListQualificationRequests API operation.", Operation = new[] {"ListQualificationRequests"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.QualificationRequest",
         "This cmdlet returns a collection of QualificationRequest objects.",
         "The service call response (type Amazon.MTurk.Model.ListQualificationRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Start", "DSSchemaExtension", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the StartSchemaExtension operation against AWS Directory Service.", Operation = new[] {"StartSchemaExtension"})]
+    [AWSCmdlet("Calls the AWS Directory Service StartSchemaExtension API operation.", Operation = new[] {"StartSchemaExtension"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.StartSchemaExtensionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

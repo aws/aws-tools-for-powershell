@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Restart", "DAXNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DAX.Model.Cluster")]
-    [AWSCmdlet("Invokes the RebootNode operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"RebootNode"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) RebootNode API operation.", Operation = new[] {"RebootNode"})]
     [AWSCmdletOutput("Amazon.DAX.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.DAX.Model.RebootNodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

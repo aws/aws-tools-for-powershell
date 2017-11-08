@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// </summary>
     [Cmdlet("Get", "BGTBudgetList")]
     [OutputType("Amazon.Budgets.Model.Budget")]
-    [AWSCmdlet("Invokes the DescribeBudgets operation against AWS Budgets.", Operation = new[] {"DescribeBudgets"})]
+    [AWSCmdlet("Calls the AWS Budgets DescribeBudgets API operation.", Operation = new[] {"DescribeBudgets"})]
     [AWSCmdletOutput("Amazon.Budgets.Model.Budget",
         "This cmdlet returns a collection of Budget objects.",
         "The service call response (type Amazon.Budgets.Model.DescribeBudgetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

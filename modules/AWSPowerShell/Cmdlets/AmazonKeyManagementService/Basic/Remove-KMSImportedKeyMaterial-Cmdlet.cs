@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Remove", "KMSImportedKeyMaterial", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteImportedKeyMaterial operation against AWS Key Management Service.", Operation = new[] {"DeleteImportedKeyMaterial"})]
+    [AWSCmdlet("Calls the AWS Key Management Service DeleteImportedKeyMaterial API operation.", Operation = new[] {"DeleteImportedKeyMaterial"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.DeleteImportedKeyMaterialResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

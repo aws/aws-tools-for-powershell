@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Get", "HSMItem")]
     [OutputType("Amazon.CloudHSM.Model.DescribeHsmResponse")]
-    [AWSCmdlet("Invokes the DescribeHsm operation against AWS Cloud HSM.", Operation = new[] {"DescribeHsm"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM DescribeHsm API operation.", Operation = new[] {"DescribeHsm"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeHsmResponse",
         "This cmdlet returns a Amazon.CloudHSM.Model.DescribeHsmResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

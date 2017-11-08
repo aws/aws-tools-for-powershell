@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Approve", "MTRAssignment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ApproveAssignment operation against Amazon MTurk Service.", Operation = new[] {"ApproveAssignment"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service ApproveAssignment API operation.", Operation = new[] {"ApproveAssignment"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssignmentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MTurk.Model.ApproveAssignmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

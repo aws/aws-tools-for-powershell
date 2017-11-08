@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Test", "AGInvokeMethod")]
     [OutputType("Amazon.APIGateway.Model.TestInvokeMethodResponse")]
-    [AWSCmdlet("Invokes the TestInvokeMethod operation against Amazon API Gateway.", Operation = new[] {"TestInvokeMethod"})]
+    [AWSCmdlet("Calls the Amazon API Gateway TestInvokeMethod API operation.", Operation = new[] {"TestInvokeMethod"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.TestInvokeMethodResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.TestInvokeMethodResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

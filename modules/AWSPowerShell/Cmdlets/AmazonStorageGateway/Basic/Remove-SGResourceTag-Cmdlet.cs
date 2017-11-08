@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Remove", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against AWS Storage Gateway.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

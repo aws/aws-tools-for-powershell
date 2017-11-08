@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Confirm", "SESEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the VerifyEmailAddress operation against Amazon Simple Email Service.", Operation = new[] {"VerifyEmailAddress"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service VerifyEmailAddress API operation.", Operation = new[] {"VerifyEmailAddress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EmailAddress parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.VerifyEmailAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

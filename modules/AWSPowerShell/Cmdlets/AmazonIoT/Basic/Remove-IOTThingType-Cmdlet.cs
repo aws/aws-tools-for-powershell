@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Remove", "IOTThingType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteThingType operation against AWS IoT.", Operation = new[] {"DeleteThingType"})]
+    [AWSCmdlet("Calls the AWS IoT DeleteThingType API operation.", Operation = new[] {"DeleteThingType"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingTypeName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.DeleteThingTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

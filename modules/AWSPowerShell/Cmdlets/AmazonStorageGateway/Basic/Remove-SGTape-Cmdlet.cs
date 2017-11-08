@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Remove", "SGTape", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteTape operation against AWS Storage Gateway.", Operation = new[] {"DeleteTape"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DeleteTape API operation.", Operation = new[] {"DeleteTape"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.DeleteTapeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

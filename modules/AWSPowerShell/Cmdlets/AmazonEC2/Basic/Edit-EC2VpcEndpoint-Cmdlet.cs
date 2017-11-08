@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifyVpcEndpoint operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyVpcEndpoint"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcEndpoint API operation.", Operation = new[] {"ModifyVpcEndpoint"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcEndpointId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.ModifyVpcEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

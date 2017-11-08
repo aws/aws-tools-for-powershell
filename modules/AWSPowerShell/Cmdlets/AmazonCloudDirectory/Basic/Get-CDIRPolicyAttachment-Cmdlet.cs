@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRPolicyAttachment")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListPolicyAttachments operation against AWS Cloud Directory.", Operation = new[] {"ListPolicyAttachments"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListPolicyAttachments API operation.", Operation = new[] {"ListPolicyAttachments"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListPolicyAttachmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

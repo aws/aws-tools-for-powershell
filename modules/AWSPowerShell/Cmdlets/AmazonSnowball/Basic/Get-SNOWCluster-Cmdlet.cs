@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </summary>
     [Cmdlet("Get", "SNOWCluster")]
     [OutputType("Amazon.Snowball.Model.ClusterMetadata")]
-    [AWSCmdlet("Invokes the DescribeCluster operation against AWS Import/Export Snowball.", Operation = new[] {"DescribeCluster"})]
+    [AWSCmdlet("Calls the AWS Import/Export Snowball DescribeCluster API operation.", Operation = new[] {"DescribeCluster"})]
     [AWSCmdletOutput("Amazon.Snowball.Model.ClusterMetadata",
         "This cmdlet returns a ClusterMetadata object.",
         "The service call response (type Amazon.Snowball.Model.DescribeClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

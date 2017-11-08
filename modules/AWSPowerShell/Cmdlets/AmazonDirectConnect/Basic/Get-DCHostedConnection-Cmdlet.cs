@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCHostedConnection")]
     [OutputType("Amazon.DirectConnect.Model.Connection")]
-    [AWSCmdlet("Invokes the DescribeHostedConnections operation against AWS Direct Connect.", Operation = new[] {"DescribeHostedConnections"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeHostedConnections API operation.", Operation = new[] {"DescribeHostedConnections"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Connection",
         "This cmdlet returns a collection of Connection objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeHostedConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

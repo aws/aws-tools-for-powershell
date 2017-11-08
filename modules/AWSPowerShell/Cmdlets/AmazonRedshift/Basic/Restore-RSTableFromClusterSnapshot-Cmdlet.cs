@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Restore", "RSTableFromClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.TableRestoreStatus")]
-    [AWSCmdlet("Invokes the RestoreTableFromClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"RestoreTableFromClusterSnapshot"})]
+    [AWSCmdlet("Calls the Amazon Redshift RestoreTableFromClusterSnapshot API operation.", Operation = new[] {"RestoreTableFromClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.TableRestoreStatus",
         "This cmdlet returns a TableRestoreStatus object.",
         "The service call response (type Amazon.Redshift.Model.RestoreTableFromClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

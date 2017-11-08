@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </summary>
     [Cmdlet("Get", "ASAAttachment")]
     [OutputType("Amazon.AWSSupport.Model.Attachment")]
-    [AWSCmdlet("Invokes the DescribeAttachment operation against AWS Support API.", Operation = new[] {"DescribeAttachment"})]
+    [AWSCmdlet("Calls the AWS Support API DescribeAttachment API operation.", Operation = new[] {"DescribeAttachment"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.Attachment",
         "This cmdlet returns a Attachment object.",
         "The service call response (type Amazon.AWSSupport.Model.DescribeAttachmentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

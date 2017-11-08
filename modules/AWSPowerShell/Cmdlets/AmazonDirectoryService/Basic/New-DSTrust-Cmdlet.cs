@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("New", "DSTrust", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateTrust operation against AWS Directory Service.", Operation = new[] {"CreateTrust"})]
+    [AWSCmdlet("Calls the AWS Directory Service CreateTrust API operation.", Operation = new[] {"CreateTrust"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateTrustResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

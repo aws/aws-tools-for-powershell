@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Remove", "WDComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteComment operation against Amazon WorkDocs.", Operation = new[] {"DeleteComment"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DeleteComment API operation.", Operation = new[] {"DeleteComment"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CommentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.DeleteCommentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

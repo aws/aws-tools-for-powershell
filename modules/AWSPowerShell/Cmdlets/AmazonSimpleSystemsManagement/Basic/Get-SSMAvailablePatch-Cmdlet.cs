@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAvailablePatch")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Patch")]
-    [AWSCmdlet("Invokes the DescribeAvailablePatches operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAvailablePatches"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeAvailablePatches API operation.", Operation = new[] {"DescribeAvailablePatches"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Patch",
         "This cmdlet returns a collection of Patch objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAvailablePatchesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

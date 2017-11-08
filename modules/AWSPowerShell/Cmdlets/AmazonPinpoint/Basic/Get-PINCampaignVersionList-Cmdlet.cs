@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Get", "PINCampaignVersionList")]
     [OutputType("Amazon.Pinpoint.Model.CampaignsResponse")]
-    [AWSCmdlet("Invokes the GetCampaignVersions operation against Amazon Pinpoint.", Operation = new[] {"GetCampaignVersions"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetCampaignVersions API operation.", Operation = new[] {"GetCampaignVersions"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.CampaignsResponse",
         "This cmdlet returns a CampaignsResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.GetCampaignVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

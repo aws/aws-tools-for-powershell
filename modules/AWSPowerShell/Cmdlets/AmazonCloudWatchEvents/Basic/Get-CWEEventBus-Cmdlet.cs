@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Get", "CWEEventBus")]
     [OutputType("Amazon.CloudWatchEvents.Model.DescribeEventBusResponse")]
-    [AWSCmdlet("Invokes the DescribeEventBus operation against Amazon CloudWatch Events.", Operation = new[] {"DescribeEventBus"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events DescribeEventBus API operation.", Operation = new[] {"DescribeEventBus"})]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.DescribeEventBusResponse",
         "This cmdlet returns a Amazon.CloudWatchEvents.Model.DescribeEventBusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

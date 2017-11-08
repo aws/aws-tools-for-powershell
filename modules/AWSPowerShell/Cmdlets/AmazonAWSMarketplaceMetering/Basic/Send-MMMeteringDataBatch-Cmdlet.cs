@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// </summary>
     [Cmdlet("Send", "MMMeteringDataBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse")]
-    [AWSCmdlet("Invokes the BatchMeterUsage operation against AWS Marketplace Metering.", Operation = new[] {"BatchMeterUsage"})]
+    [AWSCmdlet("Calls the AWS Marketplace Metering BatchMeterUsage API operation.", Operation = new[] {"BatchMeterUsage"})]
     [AWSCmdletOutput("Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse",
         "This cmdlet returns a Amazon.AWSMarketplaceMetering.Model.BatchMeterUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

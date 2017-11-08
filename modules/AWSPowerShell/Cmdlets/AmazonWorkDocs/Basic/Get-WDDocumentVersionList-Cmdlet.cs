@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDDocumentVersionList")]
     [OutputType("Amazon.WorkDocs.Model.DocumentVersionMetadata")]
-    [AWSCmdlet("Invokes the DescribeDocumentVersions operation against Amazon WorkDocs.", Operation = new[] {"DescribeDocumentVersions"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DescribeDocumentVersions API operation.", Operation = new[] {"DescribeDocumentVersions"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.DocumentVersionMetadata",
         "This cmdlet returns a collection of DocumentVersionMetadata objects.",
         "The service call response (type Amazon.WorkDocs.Model.DescribeDocumentVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

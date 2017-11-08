@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Update", "KINShardCount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kinesis.Model.UpdateShardCountResponse")]
-    [AWSCmdlet("Invokes the UpdateShardCount operation against Amazon Kinesis.", Operation = new[] {"UpdateShardCount"})]
+    [AWSCmdlet("Calls the Amazon Kinesis UpdateShardCount API operation.", Operation = new[] {"UpdateShardCount"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.UpdateShardCountResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.UpdateShardCountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

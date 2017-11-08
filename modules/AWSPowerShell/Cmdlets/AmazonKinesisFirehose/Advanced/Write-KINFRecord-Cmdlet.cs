@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </summary>
     [Cmdlet("Write", "KINFRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = DataFromText)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PutRecord operation against Amazon Kinesis Firehose.", Operation = new[] {"PutRecord"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Firehose PutRecord API operation.", Operation = new[] { "PutRecord" })]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.KinesisFirehose.Model.PutRecordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

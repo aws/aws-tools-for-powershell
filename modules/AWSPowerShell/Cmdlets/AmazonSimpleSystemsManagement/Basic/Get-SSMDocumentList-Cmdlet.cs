@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDocumentList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier")]
-    [AWSCmdlet("Invokes the ListDocuments operation against Amazon Simple Systems Management.", Operation = new[] {"ListDocuments"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management ListDocuments API operation.", Operation = new[] {"ListDocuments"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentIdentifier",
         "This cmdlet returns a collection of DocumentIdentifier objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

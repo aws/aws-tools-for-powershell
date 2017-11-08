@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Remove", "DCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UntagResource operation against AWS Direct Connect.", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Calls the AWS Direct Connect UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.DirectConnect.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

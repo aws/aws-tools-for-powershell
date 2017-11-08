@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Edit", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
-    [AWSCmdlet("Invokes the ModifyDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBInstance"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBInstance API operation.", Operation = new[] {"ModifyDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
         "The service call response (type Amazon.RDS.Model.ModifyDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

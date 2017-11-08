@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("New", "DFProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.Project")]
-    [AWSCmdlet("Invokes the CreateProject operation against AWS Device Farm.", Operation = new[] {"CreateProject"})]
+    [AWSCmdlet("Calls the AWS Device Farm CreateProject API operation.", Operation = new[] {"CreateProject"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Project",
         "This cmdlet returns a Project object.",
         "The service call response (type Amazon.DeviceFarm.Model.CreateProjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

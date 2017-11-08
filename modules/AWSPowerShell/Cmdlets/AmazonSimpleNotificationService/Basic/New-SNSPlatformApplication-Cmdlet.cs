@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("New", "SNSPlatformApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreatePlatformApplication operation against Amazon Simple Notification Service.", Operation = new[] {"CreatePlatformApplication"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service CreatePlatformApplication API operation.", Operation = new[] {"CreatePlatformApplication"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleNotificationService.Model.CreatePlatformApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

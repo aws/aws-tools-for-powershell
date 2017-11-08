@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSHsmConfiguration")]
     [OutputType("Amazon.Redshift.Model.HsmConfiguration")]
-    [AWSCmdlet("Invokes the DescribeHsmConfigurations operation against Amazon Redshift.", Operation = new[] {"DescribeHsmConfigurations"}, LegacyAlias="Get-RSHsmConfigurations")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeHsmConfigurations API operation.", Operation = new[] {"DescribeHsmConfigurations"}, LegacyAlias="Get-RSHsmConfigurations")]
     [AWSCmdletOutput("Amazon.Redshift.Model.HsmConfiguration",
         "This cmdlet returns a collection of HsmConfiguration objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeHsmConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

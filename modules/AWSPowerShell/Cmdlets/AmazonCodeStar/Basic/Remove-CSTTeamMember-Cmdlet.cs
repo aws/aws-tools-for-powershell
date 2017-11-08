@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Remove", "CSTTeamMember", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateTeamMember operation against AWS CodeStar.", Operation = new[] {"DisassociateTeamMember"})]
+    [AWSCmdlet("Calls the AWS CodeStar DisassociateTeamMember API operation.", Operation = new[] {"DisassociateTeamMember"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeStar.Model.DisassociateTeamMemberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

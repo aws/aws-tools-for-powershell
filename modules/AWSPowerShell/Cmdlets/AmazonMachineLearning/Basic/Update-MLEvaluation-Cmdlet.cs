@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// </summary>
     [Cmdlet("Update", "MLEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateEvaluation operation against Amazon Machine Learning.", Operation = new[] {"UpdateEvaluation"})]
+    [AWSCmdlet("Calls the Amazon Machine Learning UpdateEvaluation API operation.", Operation = new[] {"UpdateEvaluation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MachineLearning.Model.UpdateEvaluationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

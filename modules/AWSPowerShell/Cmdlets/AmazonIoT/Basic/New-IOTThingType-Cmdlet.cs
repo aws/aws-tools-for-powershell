@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("New", "IOTThingType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IoT.Model.CreateThingTypeResponse")]
-    [AWSCmdlet("Invokes the CreateThingType operation against AWS IoT.", Operation = new[] {"CreateThingType"})]
+    [AWSCmdlet("Calls the AWS IoT CreateThingType API operation.", Operation = new[] {"CreateThingType"})]
     [AWSCmdletOutput("Amazon.IoT.Model.CreateThingTypeResponse",
         "This cmdlet returns a Amazon.IoT.Model.CreateThingTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

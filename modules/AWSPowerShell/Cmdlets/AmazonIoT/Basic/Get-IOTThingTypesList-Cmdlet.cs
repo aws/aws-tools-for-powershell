@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Get", "IOTThingTypesList")]
     [OutputType("Amazon.IoT.Model.ThingTypeDefinition")]
-    [AWSCmdlet("Invokes the ListThingTypes operation against AWS IoT.", Operation = new[] {"ListThingTypes"})]
+    [AWSCmdlet("Calls the AWS IoT ListThingTypes API operation.", Operation = new[] {"ListThingTypes"})]
     [AWSCmdletOutput("Amazon.IoT.Model.ThingTypeDefinition",
         "This cmdlet returns a collection of ThingTypeDefinition objects.",
         "The service call response (type Amazon.IoT.Model.ListThingTypesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

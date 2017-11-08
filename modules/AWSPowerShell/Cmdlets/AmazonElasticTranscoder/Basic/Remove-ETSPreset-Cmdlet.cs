@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("Remove", "ETSPreset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeletePreset operation against Amazon Elastic Transcoder.", Operation = new[] {"DeletePreset"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder DeletePreset API operation.", Operation = new[] {"DeletePreset"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticTranscoder.Model.DeletePresetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

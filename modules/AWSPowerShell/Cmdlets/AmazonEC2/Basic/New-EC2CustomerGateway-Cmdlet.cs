@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2CustomerGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CustomerGateway")]
-    [AWSCmdlet("Invokes the CreateCustomerGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateCustomerGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateCustomerGateway API operation.", Operation = new[] {"CreateCustomerGateway"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CustomerGateway",
         "This cmdlet returns a CustomerGateway object.",
         "The service call response (type Amazon.EC2.Model.CreateCustomerGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Start", "WDDocumentVersionUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkDocs.Model.InitiateDocumentVersionUploadResponse")]
-    [AWSCmdlet("Invokes the InitiateDocumentVersionUpload operation against Amazon WorkDocs.", Operation = new[] {"InitiateDocumentVersionUpload"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs InitiateDocumentVersionUpload API operation.", Operation = new[] {"InitiateDocumentVersionUpload"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.InitiateDocumentVersionUploadResponse",
         "This cmdlet returns a Amazon.WorkDocs.Model.InitiateDocumentVersionUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

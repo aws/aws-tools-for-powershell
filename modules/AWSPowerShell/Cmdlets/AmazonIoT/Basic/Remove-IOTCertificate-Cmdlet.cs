@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Remove", "IOTCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteCertificate operation against AWS IoT.", Operation = new[] {"DeleteCertificate"})]
+    [AWSCmdlet("Calls the AWS IoT DeleteCertificate API operation.", Operation = new[] {"DeleteCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.DeleteCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

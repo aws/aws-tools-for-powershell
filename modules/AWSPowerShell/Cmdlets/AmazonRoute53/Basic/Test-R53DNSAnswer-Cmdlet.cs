@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Test", "R53DNSAnswer")]
     [OutputType("Amazon.Route53.Model.TestDNSAnswerResponse")]
-    [AWSCmdlet("Invokes the TestDNSAnswer operation against Amazon Route 53.", Operation = new[] {"TestDNSAnswer"})]
+    [AWSCmdlet("Calls the Amazon Route 53 TestDNSAnswer API operation.", Operation = new[] {"TestDNSAnswer"})]
     [AWSCmdletOutput("Amazon.Route53.Model.TestDNSAnswerResponse",
         "This cmdlet returns a Amazon.Route53.Model.TestDNSAnswerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

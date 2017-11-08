@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Update", "DDBTimeToLive", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.TimeToLiveSpecification")]
-    [AWSCmdlet("Invokes the UpdateTimeToLive operation against Amazon DynamoDB.", Operation = new[] {"UpdateTimeToLive"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB UpdateTimeToLive API operation.", Operation = new[] {"UpdateTimeToLive"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TimeToLiveSpecification",
         "This cmdlet returns a TimeToLiveSpecification object.",
         "The service call response (type Amazon.DynamoDBv2.Model.UpdateTimeToLiveResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

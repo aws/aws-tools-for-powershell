@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Add", "MHCreatedArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.MigrationHub.Model.CreatedArtifact")]
-    [AWSCmdlet("Invokes the AssociateCreatedArtifact operation against AWS Migration Hub.", Operation = new[] {"AssociateCreatedArtifact"})]
+    [AWSCmdlet("Calls the AWS Migration Hub AssociateCreatedArtifact API operation.", Operation = new[] {"AssociateCreatedArtifact"})]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.CreatedArtifact",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CreatedArtifact parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.AssociateCreatedArtifactResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

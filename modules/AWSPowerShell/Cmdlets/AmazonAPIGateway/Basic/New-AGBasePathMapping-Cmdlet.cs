@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("New", "AGBasePathMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateBasePathMappingResponse")]
-    [AWSCmdlet("Invokes the CreateBasePathMapping operation against Amazon API Gateway.", Operation = new[] {"CreateBasePathMapping"})]
+    [AWSCmdlet("Calls the Amazon API Gateway CreateBasePathMapping API operation.", Operation = new[] {"CreateBasePathMapping"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateBasePathMappingResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateBasePathMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

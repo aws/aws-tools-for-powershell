@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBResourceTag")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ListTagsForResourceResponse")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Elastic Beanstalk.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ListTagsForResourceResponse",
         "This cmdlet returns a Amazon.ElasticBeanstalk.Model.ListTagsForResourceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

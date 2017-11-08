@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Remove", "MHDiscoveredResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateDiscoveredResource operation against AWS Migration Hub.", Operation = new[] {"DisassociateDiscoveredResource"})]
+    [AWSCmdlet("Calls the AWS Migration Hub DisassociateDiscoveredResource API operation.", Operation = new[] {"DisassociateDiscoveredResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.DisassociateDiscoveredResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

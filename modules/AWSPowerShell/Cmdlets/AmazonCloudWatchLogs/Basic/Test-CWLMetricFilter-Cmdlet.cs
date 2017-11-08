@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Test", "CWLMetricFilter")]
     [OutputType("Amazon.CloudWatchLogs.Model.MetricFilterMatchRecord")]
-    [AWSCmdlet("Invokes the TestMetricFilter operation against Amazon CloudWatch Logs.", Operation = new[] {"TestMetricFilter"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs TestMetricFilter API operation.", Operation = new[] {"TestMetricFilter"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.MetricFilterMatchRecord",
         "This cmdlet returns a collection of MetricFilterMatchRecord objects.",
         "The service call response (type Amazon.CloudWatchLogs.Model.TestMetricFilterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

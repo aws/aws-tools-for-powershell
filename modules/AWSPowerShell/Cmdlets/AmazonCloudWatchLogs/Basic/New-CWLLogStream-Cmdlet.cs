@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("New", "CWLLogStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateLogStream operation against Amazon CloudWatch Logs.", Operation = new[] {"CreateLogStream"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs CreateLogStream API operation.", Operation = new[] {"CreateLogStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.CreateLogStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

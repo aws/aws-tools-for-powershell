@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMSSHPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"UpdateSSHPublicKey"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateSSHPublicKey API operation.", Operation = new[] {"UpdateSSHPublicKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SSHPublicKeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateSSHPublicKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

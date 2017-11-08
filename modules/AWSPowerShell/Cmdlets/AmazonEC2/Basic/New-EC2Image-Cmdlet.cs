@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateImage"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateImage API operation.", Operation = new[] {"CreateImage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.EC2.Model.CreateImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

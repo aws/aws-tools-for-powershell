@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Remove", "OWCMNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DisassociateNode operation against AWS OpsWorksCM.", Operation = new[] {"DisassociateNode"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DisassociateNode API operation.", Operation = new[] {"DisassociateNode"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorksCM.Model.DisassociateNodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

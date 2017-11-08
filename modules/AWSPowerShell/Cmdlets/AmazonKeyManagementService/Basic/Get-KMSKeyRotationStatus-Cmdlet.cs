@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Get", "KMSKeyRotationStatus")]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the GetKeyRotationStatus operation against AWS Key Management Service.", Operation = new[] {"GetKeyRotationStatus"})]
+    [AWSCmdlet("Calls the AWS Key Management Service GetKeyRotationStatus API operation.", Operation = new[] {"GetKeyRotationStatus"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.KeyManagementService.Model.GetKeyRotationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

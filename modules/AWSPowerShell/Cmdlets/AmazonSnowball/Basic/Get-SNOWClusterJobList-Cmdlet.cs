@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </summary>
     [Cmdlet("Get", "SNOWClusterJobList")]
     [OutputType("Amazon.Snowball.Model.JobListEntry")]
-    [AWSCmdlet("Invokes the ListClusterJobs operation against AWS Import/Export Snowball.", Operation = new[] {"ListClusterJobs"})]
+    [AWSCmdlet("Calls the AWS Import/Export Snowball ListClusterJobs API operation.", Operation = new[] {"ListClusterJobs"})]
     [AWSCmdletOutput("Amazon.Snowball.Model.JobListEntry",
         "This cmdlet returns a collection of JobListEntry objects.",
         "The service call response (type Amazon.Snowball.Model.ListClusterJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

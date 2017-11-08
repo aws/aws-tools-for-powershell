@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Add", "DSIpRoute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddIpRoutes operation against AWS Directory Service.", Operation = new[] {"AddIpRoutes"}, LegacyAlias="Add-DSIpRoutes")]
+    [AWSCmdlet("Calls the AWS Directory Service AddIpRoutes API operation.", Operation = new[] {"AddIpRoutes"}, LegacyAlias="Add-DSIpRoutes")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.AddIpRoutesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

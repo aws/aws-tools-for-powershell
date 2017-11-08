@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Get", "CTTrail")]
     [OutputType("Amazon.CloudTrail.Model.Trail")]
-    [AWSCmdlet("Invokes the DescribeTrails operation against AWS CloudTrail.", Operation = new[] {"DescribeTrails"})]
+    [AWSCmdlet("Calls the AWS CloudTrail DescribeTrails API operation.", Operation = new[] {"DescribeTrails"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.Trail",
         "This cmdlet returns a collection of Trail objects.",
         "The service call response (type Amazon.CloudTrail.Model.DescribeTrailsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

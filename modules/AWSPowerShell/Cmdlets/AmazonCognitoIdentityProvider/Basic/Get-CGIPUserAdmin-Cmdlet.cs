@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Get", "CGIPUserAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AdminGetUserResponse")]
-    [AWSCmdlet("Invokes the AdminGetUser operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminGetUser"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminGetUser API operation.", Operation = new[] {"AdminGetUser"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.AdminGetUserResponse",
         "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.AdminGetUserResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

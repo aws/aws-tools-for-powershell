@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Write", "CWLDestination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchLogs.Model.Destination")]
-    [AWSCmdlet("Invokes the PutDestination operation against Amazon CloudWatch Logs.", Operation = new[] {"PutDestination"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs PutDestination API operation.", Operation = new[] {"PutDestination"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.Destination",
         "This cmdlet returns a Destination object.",
         "The service call response (type Amazon.CloudWatchLogs.Model.PutDestinationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

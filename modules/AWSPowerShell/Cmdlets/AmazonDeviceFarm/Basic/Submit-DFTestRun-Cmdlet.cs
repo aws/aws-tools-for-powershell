@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Submit", "DFTestRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.Run")]
-    [AWSCmdlet("Invokes the ScheduleRun operation against AWS Device Farm.", Operation = new[] {"ScheduleRun"})]
+    [AWSCmdlet("Calls the AWS Device Farm ScheduleRun API operation.", Operation = new[] {"ScheduleRun"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Run",
         "This cmdlet returns a Run object.",
         "The service call response (type Amazon.DeviceFarm.Model.ScheduleRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

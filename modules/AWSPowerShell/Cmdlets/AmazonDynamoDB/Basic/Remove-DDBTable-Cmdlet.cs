@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Remove", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Invokes the DeleteTable operation against Amazon DynamoDB.", Operation = new[] {"DeleteTable"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB DeleteTable API operation.", Operation = new[] {"DeleteTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
         "The service call response (type Amazon.DynamoDBv2.Model.DeleteTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

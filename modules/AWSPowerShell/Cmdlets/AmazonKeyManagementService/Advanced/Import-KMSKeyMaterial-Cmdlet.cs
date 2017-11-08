@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Import", "KMSKeyMaterial", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ImportKeyMaterial operation against AWS Key Management Service.", Operation = new[] {"ImportKeyMaterial"})]
+    [AWSCmdlet("Calls the AWS Key Management Service ImportKeyMaterial API operation.", Operation = new[] { "ImportKeyMaterial" })]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.ImportKeyMaterialResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

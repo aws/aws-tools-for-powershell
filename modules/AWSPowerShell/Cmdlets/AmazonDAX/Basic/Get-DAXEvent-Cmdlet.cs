@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Get", "DAXEvent")]
     [OutputType("Amazon.DAX.Model.Event")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"DescribeEvents"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DescribeEvents API operation.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.DAX.Model.Event",
         "This cmdlet returns a collection of Event objects.",
         "The service call response (type Amazon.DAX.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

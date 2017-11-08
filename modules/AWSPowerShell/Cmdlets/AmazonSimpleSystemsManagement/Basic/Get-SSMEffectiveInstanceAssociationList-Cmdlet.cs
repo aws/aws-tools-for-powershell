@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMEffectiveInstanceAssociationList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceAssociation")]
-    [AWSCmdlet("Invokes the DescribeEffectiveInstanceAssociations operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeEffectiveInstanceAssociations"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeEffectiveInstanceAssociations API operation.", Operation = new[] {"DescribeEffectiveInstanceAssociations"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceAssociation",
         "This cmdlet returns a collection of InstanceAssociation objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeEffectiveInstanceAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

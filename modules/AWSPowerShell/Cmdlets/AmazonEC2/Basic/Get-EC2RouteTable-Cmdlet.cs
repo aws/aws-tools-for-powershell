@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2RouteTable")]
     [OutputType("Amazon.EC2.Model.RouteTable")]
-    [AWSCmdlet("Invokes the DescribeRouteTables operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeRouteTables"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeRouteTables API operation.", Operation = new[] {"DescribeRouteTables"})]
     [AWSCmdletOutput("Amazon.EC2.Model.RouteTable",
         "This cmdlet returns a collection of RouteTable objects.",
         "The service call response (type Amazon.EC2.Model.DescribeRouteTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

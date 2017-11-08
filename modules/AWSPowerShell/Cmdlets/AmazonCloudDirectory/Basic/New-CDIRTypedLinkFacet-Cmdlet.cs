@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("New", "CDIRTypedLinkFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateTypedLinkFacet operation against AWS Cloud Directory.", Operation = new[] {"CreateTypedLinkFacet"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory CreateTypedLinkFacet API operation.", Operation = new[] {"CreateTypedLinkFacet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SchemaArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.CreateTypedLinkFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

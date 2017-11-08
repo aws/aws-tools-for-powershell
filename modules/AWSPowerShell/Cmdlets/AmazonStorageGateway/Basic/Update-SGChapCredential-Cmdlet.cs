@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Update", "SGChapCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StorageGateway.Model.UpdateChapCredentialsResponse")]
-    [AWSCmdlet("Invokes the UpdateChapCredentials operation against AWS Storage Gateway.", Operation = new[] {"UpdateChapCredentials"}, LegacyAlias="Update-SGChapCredentials")]
+    [AWSCmdlet("Calls the AWS Storage Gateway UpdateChapCredentials API operation.", Operation = new[] {"UpdateChapCredentials"}, LegacyAlias="Update-SGChapCredentials")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.UpdateChapCredentialsResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.UpdateChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Remove", "RSSnapshotCopyGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteSnapshotCopyGrant operation against Amazon Redshift.", Operation = new[] {"DeleteSnapshotCopyGrant"})]
+    [AWSCmdlet("Calls the Amazon Redshift DeleteSnapshotCopyGrant API operation.", Operation = new[] {"DeleteSnapshotCopyGrant"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotCopyGrantName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Redshift.Model.DeleteSnapshotCopyGrantResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Find", "DPObject")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the QueryObjects operation against AWS Data Pipeline.", Operation = new[] {"QueryObjects"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline QueryObjects API operation.", Operation = new[] {"QueryObjects"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.DataPipeline.Model.QueryObjectsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

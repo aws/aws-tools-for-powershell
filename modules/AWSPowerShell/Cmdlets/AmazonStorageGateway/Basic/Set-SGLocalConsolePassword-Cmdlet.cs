@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Set", "SGLocalConsolePassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the SetLocalConsolePassword operation against AWS Storage Gateway.", Operation = new[] {"SetLocalConsolePassword"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway SetLocalConsolePassword API operation.", Operation = new[] {"SetLocalConsolePassword"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.SetLocalConsolePasswordResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

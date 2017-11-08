@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("New", "DCGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.DirectConnectGateway")]
-    [AWSCmdlet("Invokes the CreateDirectConnectGateway operation against AWS Direct Connect.", Operation = new[] {"CreateDirectConnectGateway"})]
+    [AWSCmdlet("Calls the AWS Direct Connect CreateDirectConnectGateway API operation.", Operation = new[] {"CreateDirectConnectGateway"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DirectConnectGateway",
         "This cmdlet returns a DirectConnectGateway object.",
         "The service call response (type Amazon.DirectConnect.Model.CreateDirectConnectGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

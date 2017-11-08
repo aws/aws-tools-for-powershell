@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Test", "CWEEventPattern")]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the TestEventPattern operation against Amazon CloudWatch Events.", Operation = new[] {"TestEventPattern"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events TestEventPattern API operation.", Operation = new[] {"TestEventPattern"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.CloudWatchEvents.Model.TestEventPatternResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

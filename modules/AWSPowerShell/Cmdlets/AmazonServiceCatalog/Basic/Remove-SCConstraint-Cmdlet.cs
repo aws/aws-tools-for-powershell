@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Remove", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteConstraint operation against AWS Service Catalog.", Operation = new[] {"DeleteConstraint"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DeleteConstraint API operation.", Operation = new[] {"DeleteConstraint"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DeleteConstraintResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

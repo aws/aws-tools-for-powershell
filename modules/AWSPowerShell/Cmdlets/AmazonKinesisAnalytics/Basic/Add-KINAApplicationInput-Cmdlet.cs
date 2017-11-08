@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// </summary>
     [Cmdlet("Add", "KINAApplicationInput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddApplicationInput operation against Amazon Kinesis Analytics.", Operation = new[] {"AddApplicationInput"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Analytics AddApplicationInput API operation.", Operation = new[] {"AddApplicationInput"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.AddApplicationInputResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

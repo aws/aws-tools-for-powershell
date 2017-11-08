@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Move", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the MoveAccount operation against AWS Organizations.", Operation = new[] {"MoveAccount"})]
+    [AWSCmdlet("Calls the AWS Organizations MoveAccount API operation.", Operation = new[] {"MoveAccount"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Organizations.Model.MoveAccountResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

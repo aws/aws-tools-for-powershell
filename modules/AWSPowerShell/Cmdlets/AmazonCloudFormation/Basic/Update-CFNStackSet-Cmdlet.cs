@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Update", "CFNStackSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateStackSet operation against AWS CloudFormation.", Operation = new[] {"UpdateStackSet"})]
+    [AWSCmdlet("Calls the AWS CloudFormation UpdateStackSet API operation.", Operation = new[] {"UpdateStackSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.UpdateStackSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

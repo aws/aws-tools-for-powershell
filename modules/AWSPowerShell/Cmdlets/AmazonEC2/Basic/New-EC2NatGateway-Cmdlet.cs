@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2NatGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateNatGatewayResponse")]
-    [AWSCmdlet("Invokes the CreateNatGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateNatGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateNatGateway API operation.", Operation = new[] {"CreateNatGateway"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateNatGatewayResponse",
         "This cmdlet returns a Amazon.EC2.Model.CreateNatGatewayResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

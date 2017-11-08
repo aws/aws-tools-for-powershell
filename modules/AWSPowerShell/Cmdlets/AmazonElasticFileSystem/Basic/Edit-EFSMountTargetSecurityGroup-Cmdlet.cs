@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </summary>
     [Cmdlet("Edit", "EFSMountTargetSecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifyMountTargetSecurityGroups operation against Amazon Elastic File System.", Operation = new[] {"ModifyMountTargetSecurityGroups"})]
+    [AWSCmdlet("Calls the Amazon Elastic File System ModifyMountTargetSecurityGroups API operation.", Operation = new[] {"ModifyMountTargetSecurityGroups"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SecurityGroup parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticFileSystem.Model.ModifyMountTargetSecurityGroupsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

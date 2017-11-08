@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Remove", "RSClusterSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Redshift.Model.Snapshot")]
-    [AWSCmdlet("Invokes the DeleteClusterSnapshot operation against Amazon Redshift.", Operation = new[] {"DeleteClusterSnapshot"})]
+    [AWSCmdlet("Calls the Amazon Redshift DeleteClusterSnapshot API operation.", Operation = new[] {"DeleteClusterSnapshot"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
         "The service call response (type Amazon.Redshift.Model.DeleteClusterSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

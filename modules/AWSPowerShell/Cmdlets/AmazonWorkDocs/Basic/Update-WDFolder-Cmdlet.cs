@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Update", "WDFolder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateFolder operation against Amazon WorkDocs.", Operation = new[] {"UpdateFolder"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs UpdateFolder API operation.", Operation = new[] {"UpdateFolder"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FolderId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.UpdateFolderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

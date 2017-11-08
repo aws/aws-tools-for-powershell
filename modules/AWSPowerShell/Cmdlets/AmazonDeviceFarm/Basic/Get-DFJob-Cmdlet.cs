@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Get", "DFJob")]
     [OutputType("Amazon.DeviceFarm.Model.Job")]
-    [AWSCmdlet("Invokes the GetJob operation against AWS Device Farm.", Operation = new[] {"GetJob"})]
+    [AWSCmdlet("Calls the AWS Device Farm GetJob API operation.", Operation = new[] {"GetJob"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Job",
         "This cmdlet returns a Job object.",
         "The service call response (type Amazon.DeviceFarm.Model.GetJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Set", "CCRepositoryTrigger", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PutRepositoryTriggers operation against AWS CodeCommit.", Operation = new[] {"PutRepositoryTriggers"})]
+    [AWSCmdlet("Calls the AWS CodeCommit PutRepositoryTriggers API operation.", Operation = new[] {"PutRepositoryTriggers"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodeCommit.Model.PutRepositoryTriggersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

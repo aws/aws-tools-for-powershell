@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Image")]
     [OutputType("Amazon.EC2.Model.Image")]
-    [AWSCmdlet("Invokes the DescribeImages operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeImages"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeImages API operation.", Operation = new[] {"DescribeImages"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Image",
         "This cmdlet returns a collection of Image objects.",
         "The service call response (type Amazon.EC2.Model.DescribeImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

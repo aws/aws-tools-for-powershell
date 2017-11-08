@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSRegionList")]
     [OutputType("Amazon.Lightsail.Model.Region")]
-    [AWSCmdlet("Invokes the GetRegions operation against Amazon Lightsail.", Operation = new[] {"GetRegions"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetRegions API operation.", Operation = new[] {"GetRegions"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Region",
         "This cmdlet returns a collection of Region objects.",
         "The service call response (type Amazon.Lightsail.Model.GetRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

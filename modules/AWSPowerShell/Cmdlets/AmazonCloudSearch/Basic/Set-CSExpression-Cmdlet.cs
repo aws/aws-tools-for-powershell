@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Set", "CSExpression", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearch.Model.ExpressionStatus")]
-    [AWSCmdlet("Invokes the DefineExpression operation against Amazon CloudSearch.", Operation = new[] {"DefineExpression"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch DefineExpression API operation.", Operation = new[] {"DefineExpression"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.ExpressionStatus",
         "This cmdlet returns a ExpressionStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DefineExpressionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

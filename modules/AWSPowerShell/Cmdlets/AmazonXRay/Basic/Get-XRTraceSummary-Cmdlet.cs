@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// </summary>
     [Cmdlet("Get", "XRTraceSummary")]
     [OutputType("Amazon.XRay.Model.GetTraceSummariesResponse")]
-    [AWSCmdlet("Invokes the GetTraceSummaries operation against AWS X-Ray.", Operation = new[] {"GetTraceSummaries"})]
+    [AWSCmdlet("Calls the AWS X-Ray GetTraceSummaries API operation.", Operation = new[] {"GetTraceSummaries"})]
     [AWSCmdletOutput("Amazon.XRay.Model.GetTraceSummariesResponse",
         "This cmdlet returns a Amazon.XRay.Model.GetTraceSummariesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

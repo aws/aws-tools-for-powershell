@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Remove", "ELBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","Amazon.ElasticLoadBalancing.Model.TagKeyOnly")]
-    [AWSCmdlet("Invokes the RemoveTags operation against Elastic Load Balancing.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-ELBTags")]
+    [AWSCmdlet("Calls the Elastic Load Balancing RemoveTags API operation.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-ELBTags")]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.TagKeyOnly",
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

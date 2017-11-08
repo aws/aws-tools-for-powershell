@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSDirectory")]
     [OutputType("Amazon.DirectoryService.Model.DirectoryDescription")]
-    [AWSCmdlet("Invokes the DescribeDirectories operation against AWS Directory Service.", Operation = new[] {"DescribeDirectories"})]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeDirectories API operation.", Operation = new[] {"DescribeDirectories"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.DirectoryDescription",
         "This cmdlet returns a collection of DirectoryDescription objects.",
         "The service call response (type Amazon.DirectoryService.Model.DescribeDirectoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2EgressOnlyInternetGatewayList")]
     [OutputType("Amazon.EC2.Model.EgressOnlyInternetGateway")]
-    [AWSCmdlet("Invokes the DescribeEgressOnlyInternetGateways operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeEgressOnlyInternetGateways"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeEgressOnlyInternetGateways API operation.", Operation = new[] {"DescribeEgressOnlyInternetGateways"})]
     [AWSCmdletOutput("Amazon.EC2.Model.EgressOnlyInternetGateway",
         "This cmdlet returns a collection of EgressOnlyInternetGateway objects.",
         "The service call response (type Amazon.EC2.Model.DescribeEgressOnlyInternetGatewaysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.ReleaseHostsResponse")]
-    [AWSCmdlet("Invokes the ReleaseHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReleaseHosts"}, LegacyAlias="ReleaseHosts")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReleaseHosts API operation.", Operation = new[] {"ReleaseHosts"}, LegacyAlias="ReleaseHosts")]
     [AWSCmdletOutput("Amazon.EC2.Model.ReleaseHostsResponse",
         "This cmdlet returns a Amazon.EC2.Model.ReleaseHostsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

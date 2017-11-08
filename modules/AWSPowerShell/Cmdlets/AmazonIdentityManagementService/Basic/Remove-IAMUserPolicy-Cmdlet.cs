@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMUserPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteUserPolicy operation against AWS Identity and Access Management.", Operation = new[] {"DeleteUserPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteUserPolicy API operation.", Operation = new[] {"DeleteUserPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteUserPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSDomainControllerList")]
     [OutputType("Amazon.DirectoryService.Model.DomainController")]
-    [AWSCmdlet("Invokes the DescribeDomainControllers operation against AWS Directory Service.", Operation = new[] {"DescribeDomainControllers"})]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeDomainControllers API operation.", Operation = new[] {"DescribeDomainControllers"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.DomainController",
         "This cmdlet returns a collection of DomainController objects.",
         "The service call response (type Amazon.DirectoryService.Model.DescribeDomainControllersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

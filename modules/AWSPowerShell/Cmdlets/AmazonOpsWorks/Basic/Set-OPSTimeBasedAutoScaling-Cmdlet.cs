@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Set", "OPSTimeBasedAutoScaling", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetTimeBasedAutoScaling operation against AWS OpsWorks.", Operation = new[] {"SetTimeBasedAutoScaling"})]
+    [AWSCmdlet("Calls the AWS OpsWorks SetTimeBasedAutoScaling API operation.", Operation = new[] {"SetTimeBasedAutoScaling"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.SetTimeBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

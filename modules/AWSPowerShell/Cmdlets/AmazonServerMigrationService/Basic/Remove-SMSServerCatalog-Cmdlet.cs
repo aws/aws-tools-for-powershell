@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Remove", "SMSServerCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteServerCatalog operation against Amazon Server Migration Service.", Operation = new[] {"DeleteServerCatalog"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service DeleteServerCatalog API operation.", Operation = new[] {"DeleteServerCatalog"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ServerMigrationService.Model.DeleteServerCatalogResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

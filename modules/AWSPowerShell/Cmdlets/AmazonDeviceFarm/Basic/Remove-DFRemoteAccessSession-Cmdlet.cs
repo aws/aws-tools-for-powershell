@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Remove", "DFRemoteAccessSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteRemoteAccessSession operation against AWS Device Farm.", Operation = new[] {"DeleteRemoteAccessSession"})]
+    [AWSCmdlet("Calls the AWS Device Farm DeleteRemoteAccessSession API operation.", Operation = new[] {"DeleteRemoteAccessSession"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Arn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DeviceFarm.Model.DeleteRemoteAccessSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Remove", "WDCustomMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteCustomMetadata operation against Amazon WorkDocs.", Operation = new[] {"DeleteCustomMetadata"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DeleteCustomMetadata API operation.", Operation = new[] {"DeleteCustomMetadata"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.DeleteCustomMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

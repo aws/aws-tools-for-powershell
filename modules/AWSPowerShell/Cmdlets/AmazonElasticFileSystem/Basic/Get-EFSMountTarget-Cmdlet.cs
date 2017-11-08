@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </summary>
     [Cmdlet("Get", "EFSMountTarget")]
     [OutputType("Amazon.ElasticFileSystem.Model.MountTargetDescription")]
-    [AWSCmdlet("Invokes the DescribeMountTargets operation against Amazon Elastic File System.", Operation = new[] {"DescribeMountTargets"})]
+    [AWSCmdlet("Calls the Amazon Elastic File System DescribeMountTargets API operation.", Operation = new[] {"DescribeMountTargets"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.MountTargetDescription",
         "This cmdlet returns a collection of MountTargetDescription objects.",
         "The service call response (type Amazon.ElasticFileSystem.Model.DescribeMountTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

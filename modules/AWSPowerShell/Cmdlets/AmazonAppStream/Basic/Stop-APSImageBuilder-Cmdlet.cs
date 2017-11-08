@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Stop", "APSImageBuilder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.ImageBuilder")]
-    [AWSCmdlet("Invokes the StopImageBuilder operation against AWS AppStream.", Operation = new[] {"StopImageBuilder"})]
+    [AWSCmdlet("Calls the AWS AppStream StopImageBuilder API operation.", Operation = new[] {"StopImageBuilder"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder",
         "This cmdlet returns a ImageBuilder object.",
         "The service call response (type Amazon.AppStream.Model.StopImageBuilderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

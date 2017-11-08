@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRRepositoryPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.DeleteRepositoryPolicyResponse")]
-    [AWSCmdlet("Invokes the DeleteRepositoryPolicy operation against Amazon EC2 Container Registry.", Operation = new[] {"DeleteRepositoryPolicy"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry DeleteRepositoryPolicy API operation.", Operation = new[] {"DeleteRepositoryPolicy"})]
     [AWSCmdletOutput("Amazon.ECR.Model.DeleteRepositoryPolicyResponse",
         "This cmdlet returns a Amazon.ECR.Model.DeleteRepositoryPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53TagsForResource")]
     [OutputType("Amazon.Route53.Model.ResourceTagSet")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against Amazon Route 53.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the Amazon Route 53 ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ResourceTagSet",
         "This cmdlet returns a ResourceTagSet object.",
         "The service call response (type Amazon.Route53.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

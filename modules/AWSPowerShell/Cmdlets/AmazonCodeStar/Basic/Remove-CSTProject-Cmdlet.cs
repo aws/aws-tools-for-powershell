@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Remove", "CSTProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CodeStar.Model.DeleteProjectResponse")]
-    [AWSCmdlet("Invokes the DeleteProject operation against AWS CodeStar.", Operation = new[] {"DeleteProject"})]
+    [AWSCmdlet("Calls the AWS CodeStar DeleteProject API operation.", Operation = new[] {"DeleteProject"})]
     [AWSCmdletOutput("Amazon.CodeStar.Model.DeleteProjectResponse",
         "This cmdlet returns a Amazon.CodeStar.Model.DeleteProjectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

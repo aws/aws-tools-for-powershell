@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Start", "EMRJobFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RunJobFlow operation against Amazon Elastic MapReduce.", Operation = new[] {"RunJobFlow"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce RunJobFlow API operation.", Operation = new[] {"RunJobFlow"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ElasticMapReduce.Model.RunJobFlowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

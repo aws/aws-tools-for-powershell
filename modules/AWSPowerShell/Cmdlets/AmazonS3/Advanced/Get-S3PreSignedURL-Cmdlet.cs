@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3PreSignedURL")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetPreSignedURL operation against Amazon Simple Storage Service.", Operation = new[] {"GetPreSignedURL"})]
+    [AWSCmdlet("Generates a pre-signed URL to an object in an Amazon S3 bucket.", Operation = new[] {"GetPreSignedURL"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a System.String object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

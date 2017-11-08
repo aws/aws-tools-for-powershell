@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2RouteTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateRouteTable operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisassociateRouteTable"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateRouteTable API operation.", Operation = new[] {"DisassociateRouteTable"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssociationId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DisassociateRouteTableResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

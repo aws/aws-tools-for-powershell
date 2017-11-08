@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Unregister", "SMSConnector", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateConnector operation against Amazon Server Migration Service.", Operation = new[] {"DisassociateConnector"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service DisassociateConnector API operation.", Operation = new[] {"DisassociateConnector"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConnectorId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServerMigrationService.Model.DisassociateConnectorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

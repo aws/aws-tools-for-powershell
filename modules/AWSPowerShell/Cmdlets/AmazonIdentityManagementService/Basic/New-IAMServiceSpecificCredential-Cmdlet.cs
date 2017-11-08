@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.ServiceSpecificCredential")]
-    [AWSCmdlet("Invokes the CreateServiceSpecificCredential operation against AWS Identity and Access Management.", Operation = new[] {"CreateServiceSpecificCredential"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateServiceSpecificCredential API operation.", Operation = new[] {"CreateServiceSpecificCredential"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServiceSpecificCredential",
         "This cmdlet returns a ServiceSpecificCredential object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateServiceSpecificCredentialResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

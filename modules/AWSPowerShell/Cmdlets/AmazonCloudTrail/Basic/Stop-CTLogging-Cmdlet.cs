@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Stop", "CTLogging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopLogging operation against AWS CloudTrail.", Operation = new[] {"StopLogging"})]
+    [AWSCmdlet("Calls the AWS CloudTrail StopLogging API operation.", Operation = new[] {"StopLogging"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudTrail.Model.StopLoggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

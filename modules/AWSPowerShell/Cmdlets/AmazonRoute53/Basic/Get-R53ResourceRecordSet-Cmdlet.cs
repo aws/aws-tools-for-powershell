@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53ResourceRecordSet")]
     [OutputType("Amazon.Route53.Model.ListResourceRecordSetsResponse")]
-    [AWSCmdlet("Invokes the ListResourceRecordSets operation against Amazon Route 53.", Operation = new[] {"ListResourceRecordSets"})]
+    [AWSCmdlet("Calls the Amazon Route 53 ListResourceRecordSets API operation.", Operation = new[] {"ListResourceRecordSets"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ListResourceRecordSetsResponse",
         "This cmdlet returns a Amazon.Route53.Model.ListResourceRecordSetsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

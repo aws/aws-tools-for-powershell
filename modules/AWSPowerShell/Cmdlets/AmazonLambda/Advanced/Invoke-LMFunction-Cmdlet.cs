@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Invoke", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
     [OutputType("System.Int32")]
-    [AWSCmdlet("Invokes the Invoke operation against Amazon Lambda.", Operation = new [] {"Invoke"})]
+    [AWSCmdlet("Calls the Amazon Lambda Invoke API operation.", Operation = new[] { "Invoke" })]
     [AWSCmdletOutput("System.Int32",
         "This cmdlet returns a System.Int32 object.",
         "The service call response (type Amazon.Lambda.Model.InvokeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

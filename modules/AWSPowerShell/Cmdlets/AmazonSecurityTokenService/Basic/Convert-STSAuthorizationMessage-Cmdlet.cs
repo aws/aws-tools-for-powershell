@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Convert", "STSAuthorizationMessage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DecodeAuthorizationMessage operation against AWS Security Token Service.", Operation = new[] {"DecodeAuthorizationMessage"})]
+    [AWSCmdlet("Calls the AWS Security Token Service DecodeAuthorizationMessage API operation.", Operation = new[] {"DecodeAuthorizationMessage"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SecurityToken.Model.DecodeAuthorizationMessageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

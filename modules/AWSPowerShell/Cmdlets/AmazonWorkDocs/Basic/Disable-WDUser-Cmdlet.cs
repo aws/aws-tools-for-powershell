@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Disable", "WDUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeactivateUser operation against Amazon WorkDocs.", Operation = new[] {"DeactivateUser"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DeactivateUser API operation.", Operation = new[] {"DeactivateUser"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.DeactivateUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

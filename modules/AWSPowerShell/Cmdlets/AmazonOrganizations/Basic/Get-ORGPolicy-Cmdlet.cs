@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGPolicy")]
     [OutputType("Amazon.Organizations.Model.Policy")]
-    [AWSCmdlet("Invokes the DescribePolicy operation against AWS Organizations.", Operation = new[] {"DescribePolicy"})]
+    [AWSCmdlet("Calls the AWS Organizations DescribePolicy API operation.", Operation = new[] {"DescribePolicy"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Policy",
         "This cmdlet returns a Policy object.",
         "The service call response (type Amazon.Organizations.Model.DescribePolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

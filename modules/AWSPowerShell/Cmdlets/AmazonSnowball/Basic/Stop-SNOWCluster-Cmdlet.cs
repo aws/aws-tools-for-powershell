@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </summary>
     [Cmdlet("Stop", "SNOWCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CancelCluster operation against AWS Import/Export Snowball.", Operation = new[] {"CancelCluster"})]
+    [AWSCmdlet("Calls the AWS Import/Export Snowball CancelCluster API operation.", Operation = new[] {"CancelCluster"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Snowball.Model.CancelClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

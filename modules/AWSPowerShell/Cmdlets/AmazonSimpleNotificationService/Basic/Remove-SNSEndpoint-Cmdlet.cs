@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Remove", "SNSEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteEndpoint operation against Amazon Simple Notification Service.", Operation = new[] {"DeleteEndpoint"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service DeleteEndpoint API operation.", Operation = new[] {"DeleteEndpoint"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EndpointArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.DeleteEndpointResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

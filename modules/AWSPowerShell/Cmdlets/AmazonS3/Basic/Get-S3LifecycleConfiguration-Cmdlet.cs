@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3LifecycleConfiguration")]
     [OutputType("Amazon.S3.Model.LifecycleConfiguration")]
-    [AWSCmdlet("Invokes the GetLifecycleConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"GetLifecycleConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetLifecycleConfiguration API operation.", Operation = new[] {"GetLifecycleConfiguration"})]
     [AWSCmdletOutput("Amazon.S3.Model.LifecycleConfiguration",
         "This cmdlet returns a LifecycleConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetLifecycleConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

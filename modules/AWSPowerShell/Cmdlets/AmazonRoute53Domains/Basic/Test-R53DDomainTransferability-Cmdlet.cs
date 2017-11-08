@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Test", "R53DDomainTransferability")]
     [OutputType("Amazon.Route53Domains.Model.DomainTransferability")]
-    [AWSCmdlet("Invokes the CheckDomainTransferability operation against Amazon Route 53 Domains.", Operation = new[] {"CheckDomainTransferability"})]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains CheckDomainTransferability API operation.", Operation = new[] {"CheckDomainTransferability"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.DomainTransferability",
         "This cmdlet returns a DomainTransferability object.",
         "The service call response (type Amazon.Route53Domains.Model.CheckDomainTransferabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

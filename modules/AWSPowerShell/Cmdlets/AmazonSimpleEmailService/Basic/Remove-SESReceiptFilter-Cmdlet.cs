@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Remove", "SESReceiptFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteReceiptFilter operation against Amazon Simple Email Service.", Operation = new[] {"DeleteReceiptFilter"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteReceiptFilter API operation.", Operation = new[] {"DeleteReceiptFilter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FilterName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.DeleteReceiptFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

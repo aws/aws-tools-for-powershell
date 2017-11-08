@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGBandwidthRateLimit")]
     [OutputType("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse")]
-    [AWSCmdlet("Invokes the DescribeBandwidthRateLimit operation against AWS Storage Gateway.", Operation = new[] {"DescribeBandwidthRateLimit"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DescribeBandwidthRateLimit API operation.", Operation = new[] {"DescribeBandwidthRateLimit"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.DescribeBandwidthRateLimitResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

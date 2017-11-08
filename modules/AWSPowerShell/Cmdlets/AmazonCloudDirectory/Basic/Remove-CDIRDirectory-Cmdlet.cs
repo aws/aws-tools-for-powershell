@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Remove", "CDIRDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteDirectory operation against AWS Cloud Directory.", Operation = new[] {"DeleteDirectory"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory DeleteDirectory API operation.", Operation = new[] {"DeleteDirectory"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.DeleteDirectoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

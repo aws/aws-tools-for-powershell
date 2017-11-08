@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Set", "INSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetTagsForResource operation against Amazon Inspector.", Operation = new[] {"SetTagsForResource"})]
+    [AWSCmdlet("Calls the Amazon Inspector SetTagsForResource API operation.", Operation = new[] {"SetTagsForResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Inspector.Model.SetTagsForResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

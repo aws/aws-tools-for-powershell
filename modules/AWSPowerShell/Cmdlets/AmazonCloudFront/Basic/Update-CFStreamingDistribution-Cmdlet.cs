@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Update", "CFStreamingDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.StreamingDistribution")]
-    [AWSCmdlet("Invokes the UpdateStreamingDistribution operation against Amazon CloudFront.", Operation = new[] {"UpdateStreamingDistribution"})]
+    [AWSCmdlet("Calls the Amazon CloudFront UpdateStreamingDistribution API operation.", Operation = new[] {"UpdateStreamingDistribution"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.StreamingDistribution",
         "This cmdlet returns a StreamingDistribution object.",
         "The service call response (type Amazon.CloudFront.Model.UpdateStreamingDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

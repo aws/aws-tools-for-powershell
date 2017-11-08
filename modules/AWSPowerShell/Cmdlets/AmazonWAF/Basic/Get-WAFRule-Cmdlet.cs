@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Get", "WAFRule")]
     [OutputType("Amazon.WAF.Model.Rule")]
-    [AWSCmdlet("Invokes the GetRule operation against AWS WAF.", Operation = new[] {"GetRule"})]
+    [AWSCmdlet("Calls the AWS WAF GetRule API operation.", Operation = new[] {"GetRule"})]
     [AWSCmdletOutput("Amazon.WAF.Model.Rule",
         "This cmdlet returns a Rule object.",
         "The service call response (type Amazon.WAF.Model.GetRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

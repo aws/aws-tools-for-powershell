@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Write", "CWEEvent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatchEvents.Model.PutEventsResponse")]
-    [AWSCmdlet("Invokes the PutEvents operation against Amazon CloudWatch Events.", Operation = new[] {"PutEvents"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events PutEvents API operation.", Operation = new[] {"PutEvents"})]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.PutEventsResponse",
         "This cmdlet returns a Amazon.CloudWatchEvents.Model.PutEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

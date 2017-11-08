@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSBlueprintList")]
     [OutputType("Amazon.Lightsail.Model.Blueprint")]
-    [AWSCmdlet("Invokes the GetBlueprints operation against Amazon Lightsail.", Operation = new[] {"GetBlueprints"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetBlueprints API operation.", Operation = new[] {"GetBlueprints"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Blueprint",
         "This cmdlet returns a collection of Blueprint objects.",
         "The service call response (type Amazon.Lightsail.Model.GetBlueprintsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

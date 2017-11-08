@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSDBEngineVersion")]
     [OutputType("Amazon.RDS.Model.DBEngineVersion")]
-    [AWSCmdlet("Invokes the DescribeDBEngineVersions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBEngineVersions"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeDBEngineVersions API operation.", Operation = new[] {"DescribeDBEngineVersions"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBEngineVersion",
         "This cmdlet returns a collection of DBEngineVersion objects.",
         "The service call response (type Amazon.RDS.Model.DescribeDBEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

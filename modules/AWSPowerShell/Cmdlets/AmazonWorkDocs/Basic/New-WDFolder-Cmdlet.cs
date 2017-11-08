@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("New", "WDFolder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkDocs.Model.FolderMetadata")]
-    [AWSCmdlet("Invokes the CreateFolder operation against Amazon WorkDocs.", Operation = new[] {"CreateFolder"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs CreateFolder API operation.", Operation = new[] {"CreateFolder"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.FolderMetadata",
         "This cmdlet returns a FolderMetadata object.",
         "The service call response (type Amazon.WorkDocs.Model.CreateFolderResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

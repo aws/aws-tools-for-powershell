@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSStackSummary")]
     [OutputType("Amazon.OpsWorks.Model.StackSummary")]
-    [AWSCmdlet("Invokes the DescribeStackSummary operation against AWS OpsWorks.", Operation = new[] {"DescribeStackSummary"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeStackSummary API operation.", Operation = new[] {"DescribeStackSummary"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.StackSummary",
         "This cmdlet returns a StackSummary object.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeStackSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

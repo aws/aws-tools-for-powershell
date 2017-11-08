@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Update", "AGIntegrationResponse", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateIntegrationResponseResponse")]
-    [AWSCmdlet("Invokes the UpdateIntegrationResponse operation against Amazon API Gateway.", Operation = new[] {"UpdateIntegrationResponse"})]
+    [AWSCmdlet("Calls the Amazon API Gateway UpdateIntegrationResponse API operation.", Operation = new[] {"UpdateIntegrationResponse"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateIntegrationResponseResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.UpdateIntegrationResponseResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

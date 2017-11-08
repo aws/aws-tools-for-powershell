@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRSampledRequestList")]
     [OutputType("Amazon.WAFRegional.Model.GetSampledRequestsResponse")]
-    [AWSCmdlet("Invokes the GetSampledRequests operation against AWS WAF Regional.", Operation = new[] {"GetSampledRequests"})]
+    [AWSCmdlet("Calls the AWS WAF Regional GetSampledRequests API operation.", Operation = new[] {"GetSampledRequests"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.GetSampledRequestsResponse",
         "This cmdlet returns a Amazon.WAFRegional.Model.GetSampledRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

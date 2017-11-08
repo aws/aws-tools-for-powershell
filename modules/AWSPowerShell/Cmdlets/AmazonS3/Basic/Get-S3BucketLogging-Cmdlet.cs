@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketLogging")]
     [OutputType("Amazon.S3.Model.S3BucketLoggingConfig")]
-    [AWSCmdlet("Invokes the GetBucketLogging operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketLogging"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketLogging API operation.", Operation = new[] {"GetBucketLogging"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3BucketLoggingConfig",
         "This cmdlet returns a S3BucketLoggingConfig object.",
         "The service call response (type Amazon.S3.Model.GetBucketLoggingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

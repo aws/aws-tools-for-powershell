@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSClusterSnapshot")]
     [OutputType("Amazon.Redshift.Model.Snapshot")]
-    [AWSCmdlet("Invokes the DescribeClusterSnapshots operation against Amazon Redshift.", Operation = new[] {"DescribeClusterSnapshots"}, LegacyAlias="Get-RSClusterSnapshots")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeClusterSnapshots API operation.", Operation = new[] {"DescribeClusterSnapshots"}, LegacyAlias="Get-RSClusterSnapshots")]
     [AWSCmdletOutput("Amazon.Redshift.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeClusterSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

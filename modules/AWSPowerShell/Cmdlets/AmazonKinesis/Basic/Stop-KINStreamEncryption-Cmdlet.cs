@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Stop", "KINStreamEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopStreamEncryption operation against Amazon Kinesis.", Operation = new[] {"StopStreamEncryption"})]
+    [AWSCmdlet("Calls the Amazon Kinesis StopStreamEncryption API operation.", Operation = new[] {"StopStreamEncryption"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Kinesis.Model.StopStreamEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

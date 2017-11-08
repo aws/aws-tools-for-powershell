@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SpotInstanceRequest")]
     [OutputType("Amazon.EC2.Model.SpotInstanceRequest")]
-    [AWSCmdlet("Invokes the DescribeSpotInstanceRequests operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotInstanceRequests"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSpotInstanceRequests API operation.", Operation = new[] {"DescribeSpotInstanceRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotInstanceRequest",
         "This cmdlet returns a collection of SpotInstanceRequest objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSpotInstanceRequestsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DContactReachabilityStatus")]
     [OutputType("Amazon.Route53Domains.Model.GetContactReachabilityStatusResponse")]
-    [AWSCmdlet("Invokes the GetContactReachabilityStatus operation against Amazon Route 53 Domains.", Operation = new[] {"GetContactReachabilityStatus"})]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains GetContactReachabilityStatus API operation.", Operation = new[] {"GetContactReachabilityStatus"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.GetContactReachabilityStatusResponse",
         "This cmdlet returns a Amazon.Route53Domains.Model.GetContactReachabilityStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

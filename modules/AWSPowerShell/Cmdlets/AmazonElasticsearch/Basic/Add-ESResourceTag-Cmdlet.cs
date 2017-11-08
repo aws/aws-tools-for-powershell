@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Add", "ESResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.Elasticsearch.Model.Tag")]
-    [AWSCmdlet("Invokes the AddTags operation against Amazon Elasticsearch.", Operation = new[] {"AddTags"}, LegacyAlias="Add-ESTag")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch AddTags API operation.", Operation = new[] {"AddTags"}, LegacyAlias="Add-ESTag")]
     [AWSCmdletOutput("None or Amazon.Elasticsearch.Model.Tag",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagList parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Elasticsearch.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

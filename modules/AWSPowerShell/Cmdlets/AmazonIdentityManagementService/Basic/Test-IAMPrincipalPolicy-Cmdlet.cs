@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Test", "IAMPrincipalPolicy")]
     [OutputType("Amazon.IdentityManagement.Model.EvaluationResult")]
-    [AWSCmdlet("Invokes the SimulatePrincipalPolicy operation against AWS Identity and Access Management.", Operation = new[] {"SimulatePrincipalPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management SimulatePrincipalPolicy API operation.", Operation = new[] {"SimulatePrincipalPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.EvaluationResult",
         "This cmdlet returns a collection of EvaluationResult objects.",
         "The service call response (type Amazon.IdentityManagement.Model.SimulatePrincipalPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

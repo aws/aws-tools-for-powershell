@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Update", "WAFSizeConstraintSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateSizeConstraintSet operation against AWS WAF.", Operation = new[] {"UpdateSizeConstraintSet"})]
+    [AWSCmdlet("Calls the AWS WAF UpdateSizeConstraintSet API operation.", Operation = new[] {"UpdateSizeConstraintSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.UpdateSizeConstraintSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

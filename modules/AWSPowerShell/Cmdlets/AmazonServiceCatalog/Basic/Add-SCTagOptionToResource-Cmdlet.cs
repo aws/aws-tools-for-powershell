@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Add", "SCTagOptionToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociateTagOptionWithResource operation against AWS Service Catalog.", Operation = new[] {"AssociateTagOptionWithResource"})]
+    [AWSCmdlet("Calls the AWS Service Catalog AssociateTagOptionWithResource API operation.", Operation = new[] {"AssociateTagOptionWithResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagOptionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.AssociateTagOptionWithResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

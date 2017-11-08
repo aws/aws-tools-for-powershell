@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Remove", "RSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteEventSubscription operation against Amazon Redshift.", Operation = new[] {"DeleteEventSubscription"})]
+    [AWSCmdlet("Calls the Amazon Redshift DeleteEventSubscription API operation.", Operation = new[] {"DeleteEventSubscription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubscriptionName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Redshift.Model.DeleteEventSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

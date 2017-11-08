@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Set", "EMRVisibleToAllUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetVisibleToAllUsers operation against Amazon Elastic MapReduce.", Operation = new[] {"SetVisibleToAllUsers"}, LegacyAlias="Set-EMRVisibleToAllUsers")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce SetVisibleToAllUsers API operation.", Operation = new[] {"SetVisibleToAllUsers"}, LegacyAlias="Set-EMRVisibleToAllUsers")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobFlowId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.SetVisibleToAllUsersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

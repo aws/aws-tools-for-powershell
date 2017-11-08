@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Remove", "SGBandwidthRateLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteBandwidthRateLimit operation against AWS Storage Gateway.", Operation = new[] {"DeleteBandwidthRateLimit"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DeleteBandwidthRateLimit API operation.", Operation = new[] {"DeleteBandwidthRateLimit"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.DeleteBandwidthRateLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

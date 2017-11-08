@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Read", "LSDefaultKeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse")]
-    [AWSCmdlet("Invokes the DownloadDefaultKeyPair operation against Amazon Lightsail.", Operation = new[] {"DownloadDefaultKeyPair"})]
+    [AWSCmdlet("Calls the Amazon Lightsail DownloadDefaultKeyPair API operation.", Operation = new[] {"DownloadDefaultKeyPair"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse",
         "This cmdlet returns a Amazon.Lightsail.Model.DownloadDefaultKeyPairResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

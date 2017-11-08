@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// </summary>
     [Cmdlet("Remove", "BGTNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteNotification operation against AWS Budgets.", Operation = new[] {"DeleteNotification"})]
+    [AWSCmdlet("Calls the AWS Budgets DeleteNotification API operation.", Operation = new[] {"DeleteNotification"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BudgetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Budgets.Model.DeleteNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

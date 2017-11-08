@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2AccountLimit")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Limit")]
-    [AWSCmdlet("Invokes the DescribeAccountLimits operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeAccountLimits"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeAccountLimits API operation.", Operation = new[] {"DescribeAccountLimits"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Limit",
         "This cmdlet returns a collection of Limit objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeAccountLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

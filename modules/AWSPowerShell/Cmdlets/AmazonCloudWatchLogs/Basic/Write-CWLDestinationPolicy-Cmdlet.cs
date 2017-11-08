@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Write", "CWLDestinationPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutDestinationPolicy operation against Amazon CloudWatch Logs.", Operation = new[] {"PutDestinationPolicy"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs PutDestinationPolicy API operation.", Operation = new[] {"PutDestinationPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DestinationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.PutDestinationPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

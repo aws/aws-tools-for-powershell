@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCLaunchPath")]
     [OutputType("Amazon.ServiceCatalog.Model.LaunchPathSummary")]
-    [AWSCmdlet("Invokes the ListLaunchPaths operation against AWS Service Catalog.", Operation = new[] {"ListLaunchPaths"})]
+    [AWSCmdlet("Calls the AWS Service Catalog ListLaunchPaths API operation.", Operation = new[] {"ListLaunchPaths"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.LaunchPathSummary",
         "This cmdlet returns a collection of LaunchPathSummary objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.ListLaunchPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Remove", "ECReplicationGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
-    [AWSCmdlet("Invokes the DeleteReplicationGroup operation against Amazon ElastiCache.", Operation = new[] {"DeleteReplicationGroup"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DeleteReplicationGroup API operation.", Operation = new[] {"DeleteReplicationGroup"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup",
         "This cmdlet returns a ReplicationGroup object.",
         "The service call response (type Amazon.ElastiCache.Model.DeleteReplicationGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

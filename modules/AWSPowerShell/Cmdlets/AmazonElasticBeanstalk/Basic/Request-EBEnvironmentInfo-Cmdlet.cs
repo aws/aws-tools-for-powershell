@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Request", "EBEnvironmentInfo", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RequestEnvironmentInfo operation against AWS Elastic Beanstalk.", Operation = new[] {"RequestEnvironmentInfo"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk RequestEnvironmentInfo API operation.", Operation = new[] {"RequestEnvironmentInfo"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the id or name of the environment (depending on which parameter was supplied) when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.RequestEnvironmentInfoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

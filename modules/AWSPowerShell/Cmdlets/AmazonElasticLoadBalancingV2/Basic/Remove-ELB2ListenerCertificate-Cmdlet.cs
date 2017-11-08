@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Remove", "ELB2ListenerCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","Amazon.ElasticLoadBalancingV2.Model.Certificate")]
-    [AWSCmdlet("Invokes the RemoveListenerCertificates operation against Elastic Load Balancing V2.", Operation = new[] {"RemoveListenerCertificates"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 RemoveListenerCertificates API operation.", Operation = new[] {"RemoveListenerCertificates"})]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancingV2.Model.Certificate",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Certificate parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.RemoveListenerCertificatesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

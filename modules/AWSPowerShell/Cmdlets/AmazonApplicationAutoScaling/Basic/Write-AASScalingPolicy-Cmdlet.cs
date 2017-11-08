@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </summary>
     [Cmdlet("Write", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse")]
-    [AWSCmdlet("Invokes the PutScalingPolicy operation against Application Auto Scaling.", Operation = new[] {"PutScalingPolicy"})]
+    [AWSCmdlet("Calls the Application Auto Scaling PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"})]
     [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse",
         "This cmdlet returns a Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </summary>
     [Cmdlet("Find", "REKModerationLabel")]
     [OutputType("Amazon.Rekognition.Model.ModerationLabel")]
-    [AWSCmdlet("Invokes the DetectModerationLabels operation against Amazon Rekognition.", Operation = new[] {"DetectModerationLabels"})]
+    [AWSCmdlet("Calls the Amazon Rekognition DetectModerationLabels API operation.", Operation = new[] {"DetectModerationLabels"})]
     [AWSCmdletOutput("Amazon.Rekognition.Model.ModerationLabel",
         "This cmdlet returns a collection of ModerationLabel objects.",
         "The service call response (type Amazon.Rekognition.Model.DetectModerationLabelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

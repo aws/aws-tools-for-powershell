@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Restore", "RDSDBInstanceToPointInTime", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
-    [AWSCmdlet("Invokes the RestoreDBInstanceToPointInTime operation against Amazon Relational Database Service.", Operation = new[] {"RestoreDBInstanceToPointInTime"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service RestoreDBInstanceToPointInTime API operation.", Operation = new[] {"RestoreDBInstanceToPointInTime"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
         "The service call response (type Amazon.RDS.Model.RestoreDBInstanceToPointInTimeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Test", "CFNTemplate")]
     [OutputType("Amazon.CloudFormation.Model.ValidateTemplateResponse")]
-    [AWSCmdlet("Invokes the ValidateTemplate operation against AWS CloudFormation.", Operation = new[] {"ValidateTemplate"})]
+    [AWSCmdlet("Calls the AWS CloudFormation ValidateTemplate API operation.", Operation = new[] {"ValidateTemplate"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.ValidateTemplateResponse",
         "This cmdlet returns a Amazon.CloudFormation.Model.ValidateTemplateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

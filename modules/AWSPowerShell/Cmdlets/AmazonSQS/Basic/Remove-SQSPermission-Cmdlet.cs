@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Remove", "SQSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemovePermission operation against Amazon Simple Queue Service.", Operation = new[] {"RemovePermission"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service RemovePermission API operation.", Operation = new[] {"RemovePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

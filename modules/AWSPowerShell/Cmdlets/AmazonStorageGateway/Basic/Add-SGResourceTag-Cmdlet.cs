@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Add", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AddTagsToResource operation against AWS Storage Gateway.", Operation = new[] {"AddTagsToResource"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.AddTagsToResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

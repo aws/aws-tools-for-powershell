@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Resume", "CDDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ContinueDeployment operation against AWS CodeDeploy.", Operation = new[] {"ContinueDeployment"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy ContinueDeployment API operation.", Operation = new[] {"ContinueDeployment"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeploymentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.ContinueDeploymentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

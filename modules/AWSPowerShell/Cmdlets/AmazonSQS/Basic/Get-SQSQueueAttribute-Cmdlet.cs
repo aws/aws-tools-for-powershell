@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Get", "SQSQueueAttribute")]
     [OutputType("Amazon.SQS.Model.GetQueueAttributesResponse")]
-    [AWSCmdlet("Invokes the GetQueueAttributes operation against Amazon Simple Queue Service.", Operation = new[] {"GetQueueAttributes"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service GetQueueAttributes API operation.", Operation = new[] {"GetQueueAttributes"})]
     [AWSCmdletOutput("Amazon.SQS.Model.GetQueueAttributesResponse",
         "This cmdlet returns a Amazon.SQS.Model.GetQueueAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

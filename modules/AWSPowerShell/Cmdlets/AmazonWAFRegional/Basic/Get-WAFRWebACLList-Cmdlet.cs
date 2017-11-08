@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRWebACLList")]
     [OutputType("Amazon.WAFRegional.Model.WebACLSummary")]
-    [AWSCmdlet("Invokes the ListWebACLs operation against AWS WAF Regional.", Operation = new[] {"ListWebACLs"})]
+    [AWSCmdlet("Calls the AWS WAF Regional ListWebACLs API operation.", Operation = new[] {"ListWebACLs"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.WebACLSummary",
         "This cmdlet returns a collection of WebACLSummary objects.",
         "The service call response (type Amazon.WAFRegional.Model.ListWebACLsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

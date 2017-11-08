@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSOrderableClusterOption")]
     [OutputType("Amazon.Redshift.Model.OrderableClusterOption")]
-    [AWSCmdlet("Invokes the DescribeOrderableClusterOptions operation against Amazon Redshift.", Operation = new[] {"DescribeOrderableClusterOptions"}, LegacyAlias="Get-RSOrderableClusterOptions")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeOrderableClusterOptions API operation.", Operation = new[] {"DescribeOrderableClusterOptions"}, LegacyAlias="Get-RSOrderableClusterOptions")]
     [AWSCmdletOutput("Amazon.Redshift.Model.OrderableClusterOption",
         "This cmdlet returns a collection of OrderableClusterOption objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeOrderableClusterOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

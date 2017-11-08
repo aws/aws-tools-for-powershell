@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Update", "GMLBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Build")]
-    [AWSCmdlet("Invokes the UpdateBuild operation against Amazon GameLift Service.", Operation = new[] {"UpdateBuild"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateBuild API operation.", Operation = new[] {"UpdateBuild"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.Build",
         "This cmdlet returns a Build object.",
         "The service call response (type Amazon.GameLift.Model.UpdateBuildResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

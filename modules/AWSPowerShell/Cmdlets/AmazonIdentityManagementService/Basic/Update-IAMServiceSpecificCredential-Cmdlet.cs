@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateServiceSpecificCredential operation against AWS Identity and Access Management.", Operation = new[] {"UpdateServiceSpecificCredential"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateServiceSpecificCredential API operation.", Operation = new[] {"UpdateServiceSpecificCredential"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceSpecificCredentialId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateServiceSpecificCredentialResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Update", "MTRHITReviewStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UpdateHITReviewStatus operation against Amazon MTurk Service.", Operation = new[] {"UpdateHITReviewStatus"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service UpdateHITReviewStatus API operation.", Operation = new[] {"UpdateHITReviewStatus"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.MTurk.Model.UpdateHITReviewStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

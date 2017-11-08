@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the CreateDocument operation against Amazon Simple Systems Management.", Operation = new[] {"CreateDocument"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management CreateDocument API operation.", Operation = new[] {"CreateDocument"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
         "This cmdlet returns a DocumentDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.CreateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Remove", "DDBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UntagResource operation against Amazon DynamoDB.", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.DynamoDBv2.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Reservation")]
-    [AWSCmdlet("Invokes the RunInstances operation against Amazon Elastic Compute Cloud.", Operation = new [] {"RunInstances"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RunInstances API operation.", Operation = new[] { "RunInstances" })]
     [AWSCmdletOutput("Reservation",
         "This cmdlet returns an Amazon.EC2.Model.Reservation instance with the instances contained in the .Instances member.",
         "The service response (type Amazon.EC2.Model.RunInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."

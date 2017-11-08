@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Get", "HSMPartitionGroupList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListHapgs operation against AWS Cloud HSM.", Operation = new[] {"ListHapgs"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM ListHapgs API operation.", Operation = new[] {"ListHapgs"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListHapgsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Remove", "WAFRRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteRule operation against AWS WAF Regional.", Operation = new[] {"DeleteRule"})]
+    [AWSCmdlet("Calls the AWS WAF Regional DeleteRule API operation.", Operation = new[] {"DeleteRule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.DeleteRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

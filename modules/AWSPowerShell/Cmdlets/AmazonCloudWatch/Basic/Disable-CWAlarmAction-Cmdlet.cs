@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </summary>
     [Cmdlet("Disable", "CWAlarmAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisableAlarmActions operation against Amazon CloudWatch.", Operation = new[] {"DisableAlarmActions"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch DisableAlarmActions API operation.", Operation = new[] {"DisableAlarmActions"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AlarmName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatch.Model.DisableAlarmActionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

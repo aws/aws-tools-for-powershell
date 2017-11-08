@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Remove", "ECTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.Tag")]
-    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against Amazon ElastiCache.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.ElastiCache.Model.RemoveTagsFromResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

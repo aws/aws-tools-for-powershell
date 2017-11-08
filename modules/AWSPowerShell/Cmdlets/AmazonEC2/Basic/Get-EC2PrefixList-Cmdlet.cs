@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2PrefixList")]
     [OutputType("Amazon.EC2.Model.PrefixList")]
-    [AWSCmdlet("Invokes the DescribePrefixLists operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribePrefixLists"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribePrefixLists API operation.", Operation = new[] {"DescribePrefixLists"})]
     [AWSCmdletOutput("Amazon.EC2.Model.PrefixList",
         "This cmdlet returns a collection of PrefixList objects.",
         "The service call response (type Amazon.EC2.Model.DescribePrefixListsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

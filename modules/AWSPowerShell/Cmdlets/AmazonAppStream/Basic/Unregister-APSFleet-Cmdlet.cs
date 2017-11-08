@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Unregister", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateFleet operation against AWS AppStream.", Operation = new[] {"DisassociateFleet"})]
+    [AWSCmdlet("Calls the AWS AppStream DisassociateFleet API operation.", Operation = new[] {"DisassociateFleet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AppStream.Model.DisassociateFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

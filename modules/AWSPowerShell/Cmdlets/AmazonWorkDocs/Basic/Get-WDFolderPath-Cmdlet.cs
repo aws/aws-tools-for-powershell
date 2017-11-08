@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDFolderPath")]
     [OutputType("Amazon.WorkDocs.Model.ResourcePath")]
-    [AWSCmdlet("Invokes the GetFolderPath operation against Amazon WorkDocs.", Operation = new[] {"GetFolderPath"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs GetFolderPath API operation.", Operation = new[] {"GetFolderPath"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.ResourcePath",
         "This cmdlet returns a ResourcePath object.",
         "The service call response (type Amazon.WorkDocs.Model.GetFolderPathResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

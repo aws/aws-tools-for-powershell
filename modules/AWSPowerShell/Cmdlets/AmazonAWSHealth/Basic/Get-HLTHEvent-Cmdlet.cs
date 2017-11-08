@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.HLTH
     /// </summary>
     [Cmdlet("Get", "HLTHEvent")]
     [OutputType("Amazon.AWSHealth.Model.Event")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against AWS Health.", Operation = new[] {"DescribeEvents"})]
+    [AWSCmdlet("Calls the AWS Health DescribeEvents API operation.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.AWSHealth.Model.Event",
         "This cmdlet returns a collection of Event objects.",
         "The service call response (type Amazon.AWSHealth.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

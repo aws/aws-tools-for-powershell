@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Get", "SESReceiptRuleSet")]
     [OutputType("Amazon.SimpleEmail.Model.DescribeReceiptRuleSetResponse")]
-    [AWSCmdlet("Invokes the DescribeReceiptRuleSet operation against Amazon Simple Email Service.", Operation = new[] {"DescribeReceiptRuleSet"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DescribeReceiptRuleSet API operation.", Operation = new[] {"DescribeReceiptRuleSet"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.DescribeReceiptRuleSetResponse",
         "This cmdlet returns a Amazon.SimpleEmail.Model.DescribeReceiptRuleSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

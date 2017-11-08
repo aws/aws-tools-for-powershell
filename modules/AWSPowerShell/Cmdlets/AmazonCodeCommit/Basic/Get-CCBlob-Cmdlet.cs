@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Get", "CCBlob")]
     [OutputType("System.IO.MemoryStream")]
-    [AWSCmdlet("Invokes the GetBlob operation against AWS CodeCommit.", Operation = new[] {"GetBlob"})]
+    [AWSCmdlet("Calls the AWS CodeCommit GetBlob API operation.", Operation = new[] {"GetBlob"})]
     [AWSCmdletOutput("System.IO.MemoryStream",
         "This cmdlet returns a MemoryStream object.",
         "The service call response (type Amazon.CodeCommit.Model.GetBlobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

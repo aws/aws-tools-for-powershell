@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("New", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpsWorksCM.Model.CMServer")]
-    [AWSCmdlet("Invokes the CreateServer operation against AWS OpsWorksCM.", Operation = new[] {"CreateServer"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM CreateServer API operation.", Operation = new[] {"CreateServer"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.CMServer",
         "This cmdlet returns a CMServer object.",
         "The service call response (type Amazon.OpsWorksCM.Model.CreateServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

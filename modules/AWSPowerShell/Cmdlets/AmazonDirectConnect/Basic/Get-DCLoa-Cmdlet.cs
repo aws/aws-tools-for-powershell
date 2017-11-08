@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCLoa")]
     [OutputType("Amazon.DirectConnect.Model.DescribeLoaResponse")]
-    [AWSCmdlet("Invokes the DescribeLoa operation against AWS Direct Connect.", Operation = new[] {"DescribeLoa"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeLoa API operation.", Operation = new[] {"DescribeLoa"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DescribeLoaResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.DescribeLoaResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

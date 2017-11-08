@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMAssumeRolePolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateAssumeRolePolicy operation against AWS Identity and Access Management.", Operation = new[] {"UpdateAssumeRolePolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateAssumeRolePolicy API operation.", Operation = new[] {"UpdateAssumeRolePolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RoleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateAssumeRolePolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

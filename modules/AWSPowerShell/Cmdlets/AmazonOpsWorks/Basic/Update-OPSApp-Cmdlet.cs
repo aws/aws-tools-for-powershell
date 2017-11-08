@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Update", "OPSApp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateApp operation against AWS OpsWorks.", Operation = new[] {"UpdateApp"})]
+    [AWSCmdlet("Calls the AWS OpsWorks UpdateApp API operation.", Operation = new[] {"UpdateApp"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AppId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.UpdateAppResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

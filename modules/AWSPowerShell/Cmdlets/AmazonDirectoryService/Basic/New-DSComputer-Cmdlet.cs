@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("New", "DSComputer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectoryService.Model.Computer")]
-    [AWSCmdlet("Invokes the CreateComputer operation against AWS Directory Service.", Operation = new[] {"CreateComputer"})]
+    [AWSCmdlet("Calls the AWS Directory Service CreateComputer API operation.", Operation = new[] {"CreateComputer"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Computer",
         "This cmdlet returns a Computer object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateComputerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

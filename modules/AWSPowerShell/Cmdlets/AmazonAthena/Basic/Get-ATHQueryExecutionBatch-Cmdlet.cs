@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// </summary>
     [Cmdlet("Get", "ATHQueryExecutionBatch")]
     [OutputType("Amazon.Athena.Model.BatchGetQueryExecutionResponse")]
-    [AWSCmdlet("Invokes the BatchGetQueryExecution operation against Amazon Athena.", Operation = new[] {"BatchGetQueryExecution"})]
+    [AWSCmdlet("Calls the Amazon Athena BatchGetQueryExecution API operation.", Operation = new[] {"BatchGetQueryExecution"})]
     [AWSCmdletOutput("Amazon.Athena.Model.BatchGetQueryExecutionResponse",
         "This cmdlet returns a Amazon.Athena.Model.BatchGetQueryExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

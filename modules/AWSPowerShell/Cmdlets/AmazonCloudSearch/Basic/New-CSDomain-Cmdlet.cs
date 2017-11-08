@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("New", "CSDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearch.Model.DomainStatus")]
-    [AWSCmdlet("Invokes the CreateDomain operation against Amazon CloudSearch.", Operation = new[] {"CreateDomain"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch CreateDomain API operation.", Operation = new[] {"CreateDomain"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.DomainStatus",
         "This cmdlet returns a DomainStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.CreateDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

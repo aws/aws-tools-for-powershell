@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Update", "PINApnsVoipSandboxChannel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.APNSVoipSandboxChannelResponse")]
-    [AWSCmdlet("Invokes the UpdateApnsVoipSandboxChannel operation against Amazon Pinpoint.", Operation = new[] {"UpdateApnsVoipSandboxChannel"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint UpdateApnsVoipSandboxChannel API operation.", Operation = new[] {"UpdateApnsVoipSandboxChannel"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.APNSVoipSandboxChannelResponse",
         "This cmdlet returns a APNSVoipSandboxChannelResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.UpdateApnsVoipSandboxChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

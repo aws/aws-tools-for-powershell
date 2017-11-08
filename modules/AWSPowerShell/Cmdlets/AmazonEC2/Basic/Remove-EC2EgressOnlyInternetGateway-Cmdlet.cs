@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2EgressOnlyInternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the DeleteEgressOnlyInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteEgressOnlyInternetGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteEgressOnlyInternetGateway API operation.", Operation = new[] {"DeleteEgressOnlyInternetGateway"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.DeleteEgressOnlyInternetGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

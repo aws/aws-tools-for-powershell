@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("New", "CDIRDirectory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.CreateDirectoryResponse")]
-    [AWSCmdlet("Invokes the CreateDirectory operation against AWS Cloud Directory.", Operation = new[] {"CreateDirectory"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory CreateDirectory API operation.", Operation = new[] {"CreateDirectory"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.CreateDirectoryResponse",
         "This cmdlet returns a Amazon.CloudDirectory.Model.CreateDirectoryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

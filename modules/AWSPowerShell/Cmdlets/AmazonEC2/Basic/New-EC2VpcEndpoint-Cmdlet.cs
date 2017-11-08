@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateVpcEndpointResponse")]
-    [AWSCmdlet("Invokes the CreateVpcEndpoint operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcEndpoint"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpcEndpoint API operation.", Operation = new[] {"CreateVpcEndpoint"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateVpcEndpointResponse",
         "This cmdlet returns a Amazon.EC2.Model.CreateVpcEndpointResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

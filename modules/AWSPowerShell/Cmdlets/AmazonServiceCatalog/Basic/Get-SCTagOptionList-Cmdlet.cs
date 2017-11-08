@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCTagOptionList")]
     [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
-    [AWSCmdlet("Invokes the ListTagOptions operation against AWS Service Catalog.", Operation = new[] {"ListTagOptions"})]
+    [AWSCmdlet("Calls the AWS Service Catalog ListTagOptions API operation.", Operation = new[] {"ListTagOptions"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.TagOptionDetail",
         "This cmdlet returns a collection of TagOptionDetail objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.ListTagOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

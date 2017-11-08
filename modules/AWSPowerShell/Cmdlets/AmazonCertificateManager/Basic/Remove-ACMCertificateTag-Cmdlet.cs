@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </summary>
     [Cmdlet("Remove", "ACMCertificateTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromCertificate operation against AWS Certificate Manager.", Operation = new[] {"RemoveTagsFromCertificate"})]
+    [AWSCmdlet("Calls the AWS Certificate Manager RemoveTagsFromCertificate API operation.", Operation = new[] {"RemoveTagsFromCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CertificateManager.Model.RemoveTagsFromCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

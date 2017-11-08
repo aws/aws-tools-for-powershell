@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSInstancePortStateList")]
     [OutputType("Amazon.Lightsail.Model.InstancePortState")]
-    [AWSCmdlet("Invokes the GetInstancePortStates operation against Amazon Lightsail.", Operation = new[] {"GetInstancePortStates"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetInstancePortStates API operation.", Operation = new[] {"GetInstancePortStates"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.InstancePortState",
         "This cmdlet returns a collection of InstancePortState objects.",
         "The service call response (type Amazon.Lightsail.Model.GetInstancePortStatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Send", "SFNTaskSuccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SendTaskSuccess operation against Amazon Step Functions.", Operation = new[] {"SendTaskSuccess"})]
+    [AWSCmdlet("Calls the Amazon Step Functions SendTaskSuccess API operation.", Operation = new[] {"SendTaskSuccess"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TaskToken parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.StepFunctions.Model.SendTaskSuccessResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

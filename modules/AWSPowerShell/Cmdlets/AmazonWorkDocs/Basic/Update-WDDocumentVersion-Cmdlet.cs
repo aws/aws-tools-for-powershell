@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Update", "WDDocumentVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateDocumentVersion operation against Amazon WorkDocs.", Operation = new[] {"UpdateDocumentVersion"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs UpdateDocumentVersion API operation.", Operation = new[] {"UpdateDocumentVersion"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DocumentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.UpdateDocumentVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

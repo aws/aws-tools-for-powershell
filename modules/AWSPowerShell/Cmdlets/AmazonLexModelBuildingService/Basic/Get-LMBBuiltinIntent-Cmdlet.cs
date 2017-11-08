@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Get", "LMBBuiltinIntent")]
     [OutputType("Amazon.LexModelBuildingService.Model.GetBuiltinIntentResponse")]
-    [AWSCmdlet("Invokes the GetBuiltinIntent operation against Amazon Lex Model Building Service.", Operation = new[] {"GetBuiltinIntent"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service GetBuiltinIntent API operation.", Operation = new[] {"GetBuiltinIntent"})]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.GetBuiltinIntentResponse",
         "This cmdlet returns a Amazon.LexModelBuildingService.Model.GetBuiltinIntentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

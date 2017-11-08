@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Update", "MTRQualificationType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MTurk.Model.QualificationType")]
-    [AWSCmdlet("Invokes the UpdateQualificationType operation against Amazon MTurk Service.", Operation = new[] {"UpdateQualificationType"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service UpdateQualificationType API operation.", Operation = new[] {"UpdateQualificationType"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.QualificationType",
         "This cmdlet returns a QualificationType object.",
         "The service call response (type Amazon.MTurk.Model.UpdateQualificationTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

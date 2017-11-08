@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Get", "MHCreatedArtifactList")]
     [OutputType("Amazon.MigrationHub.Model.CreatedArtifact")]
-    [AWSCmdlet("Invokes the ListCreatedArtifacts operation against AWS Migration Hub.", Operation = new[] {"ListCreatedArtifacts"})]
+    [AWSCmdlet("Calls the AWS Migration Hub ListCreatedArtifacts API operation.", Operation = new[] {"ListCreatedArtifacts"})]
     [AWSCmdletOutput("Amazon.MigrationHub.Model.CreatedArtifact",
         "This cmdlet returns a collection of CreatedArtifact objects.",
         "The service call response (type Amazon.MigrationHub.Model.ListCreatedArtifactsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

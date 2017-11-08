@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AllocateHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AllocateHosts"}, LegacyAlias="New-EC2Hosts")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AllocateHosts API operation.", Operation = new[] {"AllocateHosts"}, LegacyAlias="New-EC2Hosts")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.EC2.Model.AllocateHostsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

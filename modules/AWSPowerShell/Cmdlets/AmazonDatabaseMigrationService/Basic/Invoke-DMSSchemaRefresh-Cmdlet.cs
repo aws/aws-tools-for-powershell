@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Invoke", "DMSSchemaRefresh", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.RefreshSchemasStatus")]
-    [AWSCmdlet("Invokes the RefreshSchemas operation against AWS Database Migration Service.", Operation = new[] {"RefreshSchemas"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service RefreshSchemas API operation.", Operation = new[] {"RefreshSchemas"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.RefreshSchemasStatus",
         "This cmdlet returns a RefreshSchemasStatus object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.RefreshSchemasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

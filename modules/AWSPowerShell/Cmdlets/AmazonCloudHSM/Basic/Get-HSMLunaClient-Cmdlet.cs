@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Get", "HSMLunaClient")]
     [OutputType("Amazon.CloudHSM.Model.DescribeLunaClientResponse")]
-    [AWSCmdlet("Invokes the DescribeLunaClient operation against AWS Cloud HSM.", Operation = new[] {"DescribeLunaClient"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM DescribeLunaClient API operation.", Operation = new[] {"DescribeLunaClient"})]
     [AWSCmdletOutput("Amazon.CloudHSM.Model.DescribeLunaClientResponse",
         "This cmdlet returns a Amazon.CloudHSM.Model.DescribeLunaClientResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

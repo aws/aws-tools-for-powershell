@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Start", "INSAssessmentRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the StartAssessmentRun operation against Amazon Inspector.", Operation = new[] {"StartAssessmentRun"})]
+    [AWSCmdlet("Calls the Amazon Inspector StartAssessmentRun API operation.", Operation = new[] {"StartAssessmentRun"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Inspector.Model.StartAssessmentRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

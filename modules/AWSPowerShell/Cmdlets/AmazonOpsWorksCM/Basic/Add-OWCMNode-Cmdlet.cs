@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Add", "OWCMNode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AssociateNode operation against AWS OpsWorksCM.", Operation = new[] {"AssociateNode"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM AssociateNode API operation.", Operation = new[] {"AssociateNode"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorksCM.Model.AssociateNodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

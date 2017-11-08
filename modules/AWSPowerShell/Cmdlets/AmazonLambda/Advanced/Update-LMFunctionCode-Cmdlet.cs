@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Update", "LMFunctionCode", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = FromZipFile)]
     [OutputType("Amazon.Lambda.Model.UpdateFunctionCodeResponse")]
-    [AWSCmdlet("Invokes the UpdateFunctionCode operation against Amazon Lambda.", Operation = new[] {"UpdateFunctionCode"})]
+    [AWSCmdlet("Calls the Amazon Lambda UpdateFunctionCode API operation.", Operation = new[] { "UpdateFunctionCode" })]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateFunctionCodeResponse",
         "This cmdlet returns a Amazon.Lambda.Model.UpdateFunctionCodeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstanceCount")]
     [OutputType("System.Int32")]
-    [AWSCmdlet("Invokes the GetTrafficPolicyInstanceCount operation against Amazon Route 53.", Operation = new[] {"GetTrafficPolicyInstanceCount"})]
+    [AWSCmdlet("Calls the Amazon Route 53 GetTrafficPolicyInstanceCount API operation.", Operation = new[] {"GetTrafficPolicyInstanceCount"})]
     [AWSCmdletOutput("System.Int32",
         "This cmdlet returns a Int32 object.",
         "The service call response (type Amazon.Route53.Model.GetTrafficPolicyInstanceCountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

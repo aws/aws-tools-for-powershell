@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("Get", "WKSWorkspacesConnectionStatus")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus")]
-    [AWSCmdlet("Invokes the DescribeWorkspacesConnectionStatus operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspacesConnectionStatus"})]
+    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeWorkspacesConnectionStatus API operation.", Operation = new[] {"DescribeWorkspacesConnectionStatus"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus",
         "This cmdlet returns a collection of WorkspaceConnectionStatus objects.",
         "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesConnectionStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

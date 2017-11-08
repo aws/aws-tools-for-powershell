@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Restore", "S3Object", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.S3.RequestCharged")]
-    [AWSCmdlet("Invokes the RestoreObject operation against Amazon Simple Storage Service.", Operation = new[] {"RestoreObject"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service RestoreObject API operation.", Operation = new[] {"RestoreObject"})]
     [AWSCmdletOutput("Amazon.S3.RequestCharged",
         "This cmdlet returns a RequestCharged object.",
         "The service call response (type Amazon.S3.Model.RestoreObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

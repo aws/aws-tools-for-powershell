@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Find", "SCProduct")]
     [OutputType("Amazon.ServiceCatalog.Model.SearchProductsResponse")]
-    [AWSCmdlet("Invokes the SearchProducts operation against AWS Service Catalog.", Operation = new[] {"SearchProducts"})]
+    [AWSCmdlet("Calls the AWS Service Catalog SearchProducts API operation.", Operation = new[] {"SearchProducts"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.SearchProductsResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.SearchProductsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

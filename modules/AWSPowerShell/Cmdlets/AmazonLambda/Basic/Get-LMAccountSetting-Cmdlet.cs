@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMAccountSetting")]
     [OutputType("Amazon.Lambda.Model.GetAccountSettingsResponse")]
-    [AWSCmdlet("Invokes the GetAccountSettings operation against Amazon Lambda.", Operation = new[] {"GetAccountSettings"})]
+    [AWSCmdlet("Calls the Amazon Lambda GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetAccountSettingsResponse",
         "This cmdlet returns a Amazon.Lambda.Model.GetAccountSettingsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

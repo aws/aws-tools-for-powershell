@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// </summary>
     [Cmdlet("Remove", "KINAApplicationCloudWatchLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteApplicationCloudWatchLoggingOption operation against Amazon Kinesis Analytics.", Operation = new[] {"DeleteApplicationCloudWatchLoggingOption"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Analytics DeleteApplicationCloudWatchLoggingOption API operation.", Operation = new[] {"DeleteApplicationCloudWatchLoggingOption"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CloudWatchLoggingOptionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

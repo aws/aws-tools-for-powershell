@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2InstancePlacement", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the ModifyInstancePlacement operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyInstancePlacement"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyInstancePlacement API operation.", Operation = new[] {"ModifyInstancePlacement"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.ModifyInstancePlacementResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

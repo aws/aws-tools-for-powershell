@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Set", "DPTaskStatus", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetTaskStatus operation against AWS Data Pipeline.", Operation = new[] {"SetTaskStatus"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline SetTaskStatus API operation.", Operation = new[] {"SetTaskStatus"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TaskId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DataPipeline.Model.SetTaskStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

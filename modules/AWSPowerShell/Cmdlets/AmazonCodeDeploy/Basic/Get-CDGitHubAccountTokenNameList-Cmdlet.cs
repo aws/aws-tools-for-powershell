@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDGitHubAccountTokenNameList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListGitHubAccountTokenNames operation against AWS CodeDeploy.", Operation = new[] {"ListGitHubAccountTokenNames"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy ListGitHubAccountTokenNames API operation.", Operation = new[] {"ListGitHubAccountTokenNames"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CodeDeploy.Model.ListGitHubAccountTokenNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Invoke", "KMSEncrypt", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.EncryptResponse")]
-    [AWSCmdlet("Invokes the Encrypt operation against AWS Key Management Service.", Operation = new[] {"Encrypt"})]
+    [AWSCmdlet("Calls the AWS Key Management Service Encrypt API operation.", Operation = new[] {"Encrypt"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.EncryptResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.EncryptResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

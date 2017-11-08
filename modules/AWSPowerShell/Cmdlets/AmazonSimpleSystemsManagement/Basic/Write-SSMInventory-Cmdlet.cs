@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Write", "SSMInventory", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutInventory operation against Amazon Simple Systems Management.", Operation = new[] {"PutInventory"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management PutInventory API operation.", Operation = new[] {"PutInventory"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.PutInventoryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

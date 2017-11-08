@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGAccountCreationStatusList")]
     [OutputType("Amazon.Organizations.Model.CreateAccountStatus")]
-    [AWSCmdlet("Invokes the ListCreateAccountStatus operation against AWS Organizations.", Operation = new[] {"ListCreateAccountStatus"})]
+    [AWSCmdlet("Calls the AWS Organizations ListCreateAccountStatus API operation.", Operation = new[] {"ListCreateAccountStatus"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.CreateAccountStatus",
         "This cmdlet returns a collection of CreateAccountStatus objects.",
         "The service call response (type Amazon.Organizations.Model.ListCreateAccountStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

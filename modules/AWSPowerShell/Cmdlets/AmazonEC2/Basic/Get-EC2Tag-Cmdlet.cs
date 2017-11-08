@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Tag")]
     [OutputType("Amazon.EC2.Model.TagDescription")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeTags"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeTags API operation.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.EC2.Model.TagDescription",
         "This cmdlet returns a collection of TagDescription objects.",
         "The service call response (type Amazon.EC2.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSTrust")]
     [OutputType("Amazon.DirectoryService.Model.Trust")]
-    [AWSCmdlet("Invokes the DescribeTrusts operation against AWS Directory Service.", Operation = new[] {"DescribeTrusts"})]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeTrusts API operation.", Operation = new[] {"DescribeTrusts"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Trust",
         "This cmdlet returns a collection of Trust objects.",
         "The service call response (type Amazon.DirectoryService.Model.DescribeTrustsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Edit", "RSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
-    [AWSCmdlet("Invokes the ModifyCluster operation against Amazon Redshift.", Operation = new[] {"ModifyCluster"})]
+    [AWSCmdlet("Calls the Amazon Redshift ModifyCluster API operation.", Operation = new[] {"ModifyCluster"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.Redshift.Model.ModifyClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

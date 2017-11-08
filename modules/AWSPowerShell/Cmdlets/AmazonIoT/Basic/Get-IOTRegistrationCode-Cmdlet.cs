@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Get", "IOTRegistrationCode")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetRegistrationCode operation against AWS IoT.", Operation = new[] {"GetRegistrationCode"})]
+    [AWSCmdlet("Calls the AWS IoT GetRegistrationCode API operation.", Operation = new[] {"GetRegistrationCode"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.IoT.Model.GetRegistrationCodeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

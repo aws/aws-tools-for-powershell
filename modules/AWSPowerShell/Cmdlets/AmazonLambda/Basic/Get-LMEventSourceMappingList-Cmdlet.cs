@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMappingList")]
     [OutputType("Amazon.Lambda.Model.EventSourceMappingConfiguration")]
-    [AWSCmdlet("Invokes the ListEventSourceMappings operation against Amazon Lambda.", Operation = new[] {"ListEventSourceMappings"}, LegacyAlias="Get-LMEventSourceMappings")]
+    [AWSCmdlet("Calls the Amazon Lambda ListEventSourceMappings API operation.", Operation = new[] {"ListEventSourceMappings"}, LegacyAlias="Get-LMEventSourceMappings")]
     [AWSCmdletOutput("Amazon.Lambda.Model.EventSourceMappingConfiguration",
         "This cmdlet returns a collection of EventSourceMappingConfiguration objects.",
         "The service call response (type Amazon.Lambda.Model.ListEventSourceMappingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

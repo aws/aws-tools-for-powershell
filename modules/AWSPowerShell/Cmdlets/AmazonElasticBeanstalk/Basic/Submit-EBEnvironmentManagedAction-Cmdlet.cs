@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Submit", "EBEnvironmentManagedAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse")]
-    [AWSCmdlet("Invokes the ApplyEnvironmentManagedAction operation against AWS Elastic Beanstalk.", Operation = new[] {"ApplyEnvironmentManagedAction"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk ApplyEnvironmentManagedAction API operation.", Operation = new[] {"ApplyEnvironmentManagedAction"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse",
         "This cmdlet returns a Amazon.ElasticBeanstalk.Model.ApplyEnvironmentManagedActionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

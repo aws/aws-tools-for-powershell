@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2FpgaImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the DeleteFpgaImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteFpgaImage"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteFpgaImage API operation.", Operation = new[] {"DeleteFpgaImage"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.DeleteFpgaImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

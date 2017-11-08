@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2SubnetCidrBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse")]
-    [AWSCmdlet("Invokes the DisassociateSubnetCidrBlock operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DisassociateSubnetCidrBlock"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DisassociateSubnetCidrBlock API operation.", Operation = new[] {"DisassociateSubnetCidrBlock"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse",
         "This cmdlet returns a Amazon.EC2.Model.DisassociateSubnetCidrBlockResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

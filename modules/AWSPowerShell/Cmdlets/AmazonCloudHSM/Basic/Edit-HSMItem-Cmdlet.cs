@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Edit", "HSMItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ModifyHsm operation against AWS Cloud HSM.", Operation = new[] {"ModifyHsm"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM ModifyHsm API operation.", Operation = new[] {"ModifyHsm"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.ModifyHsmResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

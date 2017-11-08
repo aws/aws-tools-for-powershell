@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Add", "SGUploadBuffer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AddUploadBuffer operation against AWS Storage Gateway.", Operation = new[] {"AddUploadBuffer"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway AddUploadBuffer API operation.", Operation = new[] {"AddUploadBuffer"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.AddUploadBufferResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

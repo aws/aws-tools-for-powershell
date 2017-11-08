@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Confirm", "EC2ProductInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ConfirmProductInstanceResponse")]
-    [AWSCmdlet("Invokes the ConfirmProductInstance operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ConfirmProductInstance"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ConfirmProductInstance API operation.", Operation = new[] {"ConfirmProductInstance"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ConfirmProductInstanceResponse",
         "This cmdlet returns a Amazon.EC2.Model.ConfirmProductInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

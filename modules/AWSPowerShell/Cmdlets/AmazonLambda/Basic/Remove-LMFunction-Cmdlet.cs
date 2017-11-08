@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Remove", "LMFunction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteFunction operation against Amazon Lambda.", Operation = new[] {"DeleteFunction"})]
+    [AWSCmdlet("Calls the Amazon Lambda DeleteFunction API operation.", Operation = new[] {"DeleteFunction"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Lambda.Model.DeleteFunctionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Get", "CFDistribution")]
     [OutputType("Amazon.CloudFront.Model.Distribution")]
-    [AWSCmdlet("Invokes the GetDistribution operation against Amazon CloudFront.", Operation = new[] {"GetDistribution"})]
+    [AWSCmdlet("Calls the Amazon CloudFront GetDistribution API operation.", Operation = new[] {"GetDistribution"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Distribution",
         "This cmdlet returns a Distribution object.",
         "The service call response (type Amazon.CloudFront.Model.GetDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Update", "GMLFleetPortSetting", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateFleetPortSettings operation against Amazon GameLift Service.", Operation = new[] {"UpdateFleetPortSettings"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateFleetPortSettings API operation.", Operation = new[] {"UpdateFleetPortSettings"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.GameLift.Model.UpdateFleetPortSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

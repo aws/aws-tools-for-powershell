@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Remove", "WDNotificationSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteNotificationSubscription operation against Amazon WorkDocs.", Operation = new[] {"DeleteNotificationSubscription"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DeleteNotificationSubscription API operation.", Operation = new[] {"DeleteNotificationSubscription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubscriptionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.DeleteNotificationSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

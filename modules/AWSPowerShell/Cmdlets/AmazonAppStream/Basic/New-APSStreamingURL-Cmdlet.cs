@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("New", "APSStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]
-    [AWSCmdlet("Invokes the CreateStreamingURL operation against AWS AppStream.", Operation = new[] {"CreateStreamingURL"})]
+    [AWSCmdlet("Calls the AWS AppStream CreateStreamingURL API operation.", Operation = new[] {"CreateStreamingURL"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.CreateStreamingURLResponse",
         "This cmdlet returns a Amazon.AppStream.Model.CreateStreamingURLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

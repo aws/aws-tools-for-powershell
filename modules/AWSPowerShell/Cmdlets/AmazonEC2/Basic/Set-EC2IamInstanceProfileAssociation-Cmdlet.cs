@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2IamInstanceProfileAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.IamInstanceProfileAssociation")]
-    [AWSCmdlet("Invokes the ReplaceIamInstanceProfileAssociation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceIamInstanceProfileAssociation"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceIamInstanceProfileAssociation API operation.", Operation = new[] {"ReplaceIamInstanceProfileAssociation"})]
     [AWSCmdletOutput("Amazon.EC2.Model.IamInstanceProfileAssociation",
         "This cmdlet returns a IamInstanceProfileAssociation object.",
         "The service call response (type Amazon.EC2.Model.ReplaceIamInstanceProfileAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

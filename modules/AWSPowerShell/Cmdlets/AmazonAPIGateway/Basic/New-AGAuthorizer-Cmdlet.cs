@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("New", "AGAuthorizer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateAuthorizerResponse")]
-    [AWSCmdlet("Invokes the CreateAuthorizer operation against Amazon API Gateway.", Operation = new[] {"CreateAuthorizer"})]
+    [AWSCmdlet("Calls the Amazon API Gateway CreateAuthorizer API operation.", Operation = new[] {"CreateAuthorizer"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateAuthorizerResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateAuthorizerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

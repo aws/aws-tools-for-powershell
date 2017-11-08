@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCVirtualInterface")]
     [OutputType("Amazon.DirectConnect.Model.VirtualInterface")]
-    [AWSCmdlet("Invokes the DescribeVirtualInterfaces operation against AWS Direct Connect.", Operation = new[] {"DescribeVirtualInterfaces"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeVirtualInterfaces API operation.", Operation = new[] {"DescribeVirtualInterfaces"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualInterface",
         "This cmdlet returns a collection of VirtualInterface objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeVirtualInterfacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

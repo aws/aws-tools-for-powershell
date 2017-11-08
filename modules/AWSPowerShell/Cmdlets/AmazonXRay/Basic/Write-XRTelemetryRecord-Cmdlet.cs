@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// </summary>
     [Cmdlet("Write", "XRTelemetryRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutTelemetryRecords operation against AWS X-Ray.", Operation = new[] {"PutTelemetryRecords"})]
+    [AWSCmdlet("Calls the AWS X-Ray PutTelemetryRecords API operation.", Operation = new[] {"PutTelemetryRecords"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EC2InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.XRay.Model.PutTelemetryRecordsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

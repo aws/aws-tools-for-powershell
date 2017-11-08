@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Connect", "CDIRObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AttachObject operation against AWS Cloud Directory.", Operation = new[] {"AttachObject"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory AttachObject API operation.", Operation = new[] {"AttachObject"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.AttachObjectResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

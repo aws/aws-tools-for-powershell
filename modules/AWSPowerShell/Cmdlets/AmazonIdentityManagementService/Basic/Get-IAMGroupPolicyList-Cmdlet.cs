@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMGroupPolicyList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListGroupPolicies operation against AWS Identity and Access Management.", Operation = new[] {"ListGroupPolicies"}, LegacyAlias="Get-IAMGroupPolicies")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListGroupPolicies API operation.", Operation = new[] {"ListGroupPolicies"}, LegacyAlias="Get-IAMGroupPolicies")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListGroupPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

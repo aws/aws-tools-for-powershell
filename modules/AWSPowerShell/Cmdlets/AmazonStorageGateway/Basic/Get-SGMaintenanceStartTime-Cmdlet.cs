@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGMaintenanceStartTime")]
     [OutputType("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse")]
-    [AWSCmdlet("Invokes the DescribeMaintenanceStartTime operation against AWS Storage Gateway.", Operation = new[] {"DescribeMaintenanceStartTime"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DescribeMaintenanceStartTime API operation.", Operation = new[] {"DescribeMaintenanceStartTime"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.DescribeMaintenanceStartTimeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

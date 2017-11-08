@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </summary>
     [Cmdlet("New", "ASACase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateCase operation against AWS Support API.", Operation = new[] {"CreateCase"})]
+    [AWSCmdlet("Calls the AWS Support API CreateCase API operation.", Operation = new[] {"CreateCase"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AWSSupport.Model.CreateCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

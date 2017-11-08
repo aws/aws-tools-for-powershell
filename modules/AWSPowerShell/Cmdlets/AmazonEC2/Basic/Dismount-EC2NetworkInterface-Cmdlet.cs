@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DetachNetworkInterface operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DetachNetworkInterface"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachNetworkInterface API operation.", Operation = new[] {"DetachNetworkInterface"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AttachmentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DetachNetworkInterfaceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

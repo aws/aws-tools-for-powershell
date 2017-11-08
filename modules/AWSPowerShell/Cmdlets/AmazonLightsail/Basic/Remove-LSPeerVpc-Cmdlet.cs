@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Remove", "LSPeerVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Invokes the UnpeerVpc operation against Amazon Lightsail.", Operation = new[] {"UnpeerVpc"})]
+    [AWSCmdlet("Calls the Amazon Lightsail UnpeerVpc API operation.", Operation = new[] {"UnpeerVpc"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a Operation object.",
         "The service call response (type Amazon.Lightsail.Model.UnpeerVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

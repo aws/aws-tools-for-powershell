@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Remove", "CFResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UntagResource operation against Amazon CloudFront.", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Calls the Amazon CloudFront UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Resource parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFront.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

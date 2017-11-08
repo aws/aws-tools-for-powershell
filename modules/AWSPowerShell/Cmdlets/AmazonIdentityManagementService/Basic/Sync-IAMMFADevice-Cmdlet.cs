@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Sync", "IAMMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ResyncMFADevice operation against AWS Identity and Access Management.", Operation = new[] {"ResyncMFADevice"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ResyncMFADevice API operation.", Operation = new[] {"ResyncMFADevice"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.ResyncMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

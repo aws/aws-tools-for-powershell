@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("New", "RSSnapshotCopyGrant", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.SnapshotCopyGrant")]
-    [AWSCmdlet("Invokes the CreateSnapshotCopyGrant operation against Amazon Redshift.", Operation = new[] {"CreateSnapshotCopyGrant"})]
+    [AWSCmdlet("Calls the Amazon Redshift CreateSnapshotCopyGrant API operation.", Operation = new[] {"CreateSnapshotCopyGrant"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.SnapshotCopyGrant",
         "This cmdlet returns a SnapshotCopyGrant object.",
         "The service call response (type Amazon.Redshift.Model.CreateSnapshotCopyGrantResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

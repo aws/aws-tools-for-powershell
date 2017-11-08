@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMGroupPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteGroupPolicy operation against AWS Identity and Access Management.", Operation = new[] {"DeleteGroupPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteGroupPolicy API operation.", Operation = new[] {"DeleteGroupPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteGroupPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

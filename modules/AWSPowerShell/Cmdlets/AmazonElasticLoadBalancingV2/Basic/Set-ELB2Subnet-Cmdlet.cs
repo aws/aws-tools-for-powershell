@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone")]
-    [AWSCmdlet("Invokes the SetSubnets operation against Elastic Load Balancing V2.", Operation = new[] {"SetSubnets"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetSubnets API operation.", Operation = new[] {"SetSubnets"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone",
         "This cmdlet returns a collection of AvailabilityZone objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

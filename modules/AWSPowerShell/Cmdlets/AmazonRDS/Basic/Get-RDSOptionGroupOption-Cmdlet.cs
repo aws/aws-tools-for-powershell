@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSOptionGroupOption")]
     [OutputType("Amazon.RDS.Model.OptionGroupOption")]
-    [AWSCmdlet("Invokes the DescribeOptionGroupOptions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeOptionGroupOptions"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeOptionGroupOptions API operation.", Operation = new[] {"DescribeOptionGroupOptions"})]
     [AWSCmdletOutput("Amazon.RDS.Model.OptionGroupOption",
         "This cmdlet returns a collection of OptionGroupOption objects.",
         "The service call response (type Amazon.RDS.Model.DescribeOptionGroupOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

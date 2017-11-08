@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Dismount", "ELBLoadBalancerFromSubnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DetachLoadBalancerFromSubnets operation against Elastic Load Balancing.", Operation = new[] {"DetachLoadBalancerFromSubnets"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing DetachLoadBalancerFromSubnets API operation.", Operation = new[] {"DetachLoadBalancerFromSubnets"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.DetachLoadBalancerFromSubnetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

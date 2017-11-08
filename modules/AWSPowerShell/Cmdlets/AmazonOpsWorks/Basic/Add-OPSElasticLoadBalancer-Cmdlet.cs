@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Add", "OPSElasticLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachElasticLoadBalancer operation against AWS OpsWorks.", Operation = new[] {"AttachElasticLoadBalancer"})]
+    [AWSCmdlet("Calls the AWS OpsWorks AttachElasticLoadBalancer API operation.", Operation = new[] {"AttachElasticLoadBalancer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ElasticLoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.AttachElasticLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

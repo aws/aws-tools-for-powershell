@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Set", "SESReceiptRuleSetOrder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ReorderReceiptRuleSet operation against Amazon Simple Email Service.", Operation = new[] {"ReorderReceiptRuleSet"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ReorderReceiptRuleSet API operation.", Operation = new[] {"ReorderReceiptRuleSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.ReorderReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
-    [AWSCmdlet("Invokes the DeleteDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBInstance"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBInstance API operation.", Operation = new[] {"DeleteDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
         "The service call response (type Amazon.RDS.Model.DeleteDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

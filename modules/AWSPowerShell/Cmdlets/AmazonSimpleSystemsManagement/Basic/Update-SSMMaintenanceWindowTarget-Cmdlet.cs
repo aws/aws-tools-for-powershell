@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMMaintenanceWindowTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse")]
-    [AWSCmdlet("Invokes the UpdateMaintenanceWindowTarget operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateMaintenanceWindowTarget"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management UpdateMaintenanceWindowTarget API operation.", Operation = new[] {"UpdateMaintenanceWindowTarget"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.UpdateMaintenanceWindowTargetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

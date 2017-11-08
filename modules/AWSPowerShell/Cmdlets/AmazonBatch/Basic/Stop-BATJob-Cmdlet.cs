@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Stop", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CancelJob operation against AWS Batch.", Operation = new[] {"CancelJob"})]
+    [AWSCmdlet("Calls the AWS Batch CancelJob API operation.", Operation = new[] {"CancelJob"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Batch.Model.CancelJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

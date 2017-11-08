@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// </summary>
     [Cmdlet("Set", "CGIIdentityPoolRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetIdentityPoolRoles operation against Amazon Cognito Identity.", Operation = new[] {"SetIdentityPoolRoles"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity SetIdentityPoolRoles API operation.", Operation = new[] {"SetIdentityPoolRoles"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the IdentityPoolId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentity.Model.SetIdentityPoolRolesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

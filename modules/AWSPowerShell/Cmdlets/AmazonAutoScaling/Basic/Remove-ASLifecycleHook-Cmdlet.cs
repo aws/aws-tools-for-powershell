@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Remove", "ASLifecycleHook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLifecycleHook operation against Auto Scaling.", Operation = new[] {"DeleteLifecycleHook"})]
+    [AWSCmdlet("Calls the Auto Scaling DeleteLifecycleHook API operation.", Operation = new[] {"DeleteLifecycleHook"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.DeleteLifecycleHookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

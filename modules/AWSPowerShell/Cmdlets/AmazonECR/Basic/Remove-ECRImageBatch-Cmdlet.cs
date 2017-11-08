@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Remove", "ECRImageBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECR.Model.BatchDeleteImageResponse")]
-    [AWSCmdlet("Invokes the BatchDeleteImage operation against Amazon EC2 Container Registry.", Operation = new[] {"BatchDeleteImage"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchDeleteImage API operation.", Operation = new[] {"BatchDeleteImage"})]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchDeleteImageResponse",
         "This cmdlet returns a Amazon.ECR.Model.BatchDeleteImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

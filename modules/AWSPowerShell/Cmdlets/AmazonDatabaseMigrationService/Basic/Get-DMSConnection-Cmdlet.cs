@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSConnection")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Connection")]
-    [AWSCmdlet("Invokes the DescribeConnections operation against AWS Database Migration Service.", Operation = new[] {"DescribeConnections"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeConnections API operation.", Operation = new[] {"DescribeConnections"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Connection",
         "This cmdlet returns a collection of Connection objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

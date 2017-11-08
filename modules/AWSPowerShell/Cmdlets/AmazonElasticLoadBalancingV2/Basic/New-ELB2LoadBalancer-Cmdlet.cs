@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("New", "ELB2LoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.LoadBalancer")]
-    [AWSCmdlet("Invokes the CreateLoadBalancer operation against Elastic Load Balancing V2.", Operation = new[] {"CreateLoadBalancer"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 CreateLoadBalancer API operation.", Operation = new[] {"CreateLoadBalancer"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.LoadBalancer",
         "This cmdlet returns a collection of LoadBalancer objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.CreateLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

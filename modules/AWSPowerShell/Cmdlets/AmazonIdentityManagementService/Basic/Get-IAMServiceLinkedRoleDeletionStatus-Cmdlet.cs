@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMServiceLinkedRoleDeletionStatus")]
     [OutputType("Amazon.IdentityManagement.Model.GetServiceLinkedRoleDeletionStatusResponse")]
-    [AWSCmdlet("Invokes the GetServiceLinkedRoleDeletionStatus operation against AWS Identity and Access Management.", Operation = new[] {"GetServiceLinkedRoleDeletionStatus"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetServiceLinkedRoleDeletionStatus API operation.", Operation = new[] {"GetServiceLinkedRoleDeletionStatus"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetServiceLinkedRoleDeletionStatusResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GetServiceLinkedRoleDeletionStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

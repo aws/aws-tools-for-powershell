@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ReservedInstancesOffering")]
     [OutputType("Amazon.EC2.Model.ReservedInstancesOffering")]
-    [AWSCmdlet("Invokes the DescribeReservedInstancesOfferings operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeReservedInstancesOfferings"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeReservedInstancesOfferings API operation.", Operation = new[] {"DescribeReservedInstancesOfferings"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ReservedInstancesOffering",
         "This cmdlet returns a collection of ReservedInstancesOffering objects.",
         "The service call response (type Amazon.EC2.Model.DescribeReservedInstancesOfferingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

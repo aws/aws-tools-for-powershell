@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </summary>
     [Cmdlet("Get", "ASACase")]
     [OutputType("Amazon.AWSSupport.Model.CaseDetails")]
-    [AWSCmdlet("Invokes the DescribeCases operation against AWS Support API.", Operation = new[] {"DescribeCases"}, LegacyAlias="Get-ASACases")]
+    [AWSCmdlet("Calls the AWS Support API DescribeCases API operation.", Operation = new[] {"DescribeCases"}, LegacyAlias="Get-ASACases")]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.CaseDetails",
         "This cmdlet returns a collection of CaseDetails objects.",
         "The service call response (type Amazon.AWSSupport.Model.DescribeCasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

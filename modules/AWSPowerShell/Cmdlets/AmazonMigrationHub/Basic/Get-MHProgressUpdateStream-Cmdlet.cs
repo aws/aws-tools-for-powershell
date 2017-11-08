@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Get", "MHProgressUpdateStream")]
     [OutputType("Amazon.MigrationHub.Model.ProgressUpdateStreamSummary")]
-    [AWSCmdlet("Invokes the ListProgressUpdateStreams operation against AWS Migration Hub.", Operation = new[] {"ListProgressUpdateStreams"})]
+    [AWSCmdlet("Calls the AWS Migration Hub ListProgressUpdateStreams API operation.", Operation = new[] {"ListProgressUpdateStreams"})]
     [AWSCmdletOutput("Amazon.MigrationHub.Model.ProgressUpdateStreamSummary",
         "This cmdlet returns a collection of ProgressUpdateStreamSummary objects.",
         "The service call response (type Amazon.MigrationHub.Model.ListProgressUpdateStreamsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

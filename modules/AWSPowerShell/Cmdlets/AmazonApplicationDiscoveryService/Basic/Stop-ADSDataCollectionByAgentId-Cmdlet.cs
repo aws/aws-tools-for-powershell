@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Stop", "ADSDataCollectionByAgentId", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus")]
-    [AWSCmdlet("Invokes the StopDataCollectionByAgentIds operation against Application Discovery Service.", Operation = new[] {"StopDataCollectionByAgentIds"})]
+    [AWSCmdlet("Calls the Application Discovery Service StopDataCollectionByAgentIds API operation.", Operation = new[] {"StopDataCollectionByAgentIds"})]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.AgentConfigurationStatus",
         "This cmdlet returns a collection of AgentConfigurationStatus objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.StopDataCollectionByAgentIdsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

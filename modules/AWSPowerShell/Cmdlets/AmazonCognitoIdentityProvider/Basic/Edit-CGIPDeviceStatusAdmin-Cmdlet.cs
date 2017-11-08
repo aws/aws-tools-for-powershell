@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Edit", "CGIPDeviceStatusAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AdminUpdateDeviceStatus operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminUpdateDeviceStatus"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminUpdateDeviceStatus API operation.", Operation = new[] {"AdminUpdateDeviceStatus"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeviceKey parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.AdminUpdateDeviceStatusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Get", "MHDiscoveredResourceList")]
     [OutputType("Amazon.MigrationHub.Model.DiscoveredResource")]
-    [AWSCmdlet("Invokes the ListDiscoveredResources operation against AWS Migration Hub.", Operation = new[] {"ListDiscoveredResources"})]
+    [AWSCmdlet("Calls the AWS Migration Hub ListDiscoveredResources API operation.", Operation = new[] {"ListDiscoveredResources"})]
     [AWSCmdletOutput("Amazon.MigrationHub.Model.DiscoveredResource",
         "This cmdlet returns a collection of DiscoveredResource objects.",
         "The service call response (type Amazon.MigrationHub.Model.ListDiscoveredResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

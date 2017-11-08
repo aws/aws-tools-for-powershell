@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// </summary>
     [Cmdlet("Start", "CBBuild", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.Build")]
-    [AWSCmdlet("Invokes the StartBuild operation against AWS CodeBuild.", Operation = new[] {"StartBuild"})]
+    [AWSCmdlet("Calls the AWS CodeBuild StartBuild API operation.", Operation = new[] {"StartBuild"})]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Build",
         "This cmdlet returns a Build object.",
         "The service call response (type Amazon.CodeBuild.Model.StartBuildResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

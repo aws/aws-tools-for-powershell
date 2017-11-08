@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Remove", "CFServiceLinkedRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteServiceLinkedRole operation against Amazon CloudFront.", Operation = new[] {"DeleteServiceLinkedRole"})]
+    [AWSCmdlet("Calls the Amazon CloudFront DeleteServiceLinkedRole API operation.", Operation = new[] {"DeleteServiceLinkedRole"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RoleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFront.Model.DeleteServiceLinkedRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

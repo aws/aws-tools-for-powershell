@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("New", "MTRWorkerBlock", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateWorkerBlock operation against Amazon MTurk Service.", Operation = new[] {"CreateWorkerBlock"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service CreateWorkerBlock API operation.", Operation = new[] {"CreateWorkerBlock"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the WorkerId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MTurk.Model.CreateWorkerBlockResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

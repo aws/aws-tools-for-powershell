@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("New", "ELBLBCookieStickinessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateLBCookieStickinessPolicy operation against Elastic Load Balancing.", Operation = new[] {"CreateLBCookieStickinessPolicy"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing CreateLBCookieStickinessPolicy API operation.", Operation = new[] {"CreateLBCookieStickinessPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.CreateLBCookieStickinessPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

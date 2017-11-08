@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Get", "INSRulesPackage")]
     [OutputType("Amazon.Inspector.Model.DescribeRulesPackagesResponse")]
-    [AWSCmdlet("Invokes the DescribeRulesPackages operation against Amazon Inspector.", Operation = new[] {"DescribeRulesPackages"})]
+    [AWSCmdlet("Calls the Amazon Inspector DescribeRulesPackages API operation.", Operation = new[] {"DescribeRulesPackages"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeRulesPackagesResponse",
         "This cmdlet returns a Amazon.Inspector.Model.DescribeRulesPackagesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCPrincipalsForPortfolio")]
     [OutputType("Amazon.ServiceCatalog.Model.Principal")]
-    [AWSCmdlet("Invokes the ListPrincipalsForPortfolio operation against AWS Service Catalog.", Operation = new[] {"ListPrincipalsForPortfolio"})]
+    [AWSCmdlet("Calls the AWS Service Catalog ListPrincipalsForPortfolio API operation.", Operation = new[] {"ListPrincipalsForPortfolio"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.Principal",
         "This cmdlet returns a collection of Principal objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.ListPrincipalsForPortfolioResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

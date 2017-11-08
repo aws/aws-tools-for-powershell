@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Get", "DPPipelineDescription")]
     [OutputType("Amazon.DataPipeline.Model.PipelineDescription")]
-    [AWSCmdlet("Invokes the DescribePipelines operation against AWS Data Pipeline.", Operation = new[] {"DescribePipelines"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline DescribePipelines API operation.", Operation = new[] {"DescribePipelines"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.PipelineDescription",
         "This cmdlet returns a collection of PipelineDescription objects.",
         "The service call response (type Amazon.DataPipeline.Model.DescribePipelinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

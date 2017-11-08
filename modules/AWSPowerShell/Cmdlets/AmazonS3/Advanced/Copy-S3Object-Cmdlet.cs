@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Copy", "S3Object", DefaultParameterSetName = CopySingleObjectToLocalFile, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
     [OutputType(new[] { typeof(CopyObjectResponse), typeof(FileInfo), typeof(DirectoryInfo) })]
-    [AWSCmdlet("Invokes the CopyObject operation to copy an existing S3 object to another S3 destination (bucket and/or object),"
+    [AWSCmdlet("Calls the Amazon S3 CopyObject API operation to copy an existing S3 object to another S3 destination (bucket and/or object),"
                     + " or download a single S3 object to a local file or folder or download object(s) matching a supplied"
                     + " key prefix to a folder.",
                     Operation = new [] {"CopyObject"})]

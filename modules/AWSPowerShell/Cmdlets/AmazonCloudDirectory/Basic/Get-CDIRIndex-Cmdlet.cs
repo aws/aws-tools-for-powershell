@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRIndex")]
     [OutputType("Amazon.CloudDirectory.Model.IndexAttachment")]
-    [AWSCmdlet("Invokes the ListIndex operation against AWS Cloud Directory.", Operation = new[] {"ListIndex"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListIndex API operation.", Operation = new[] {"ListIndex"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.IndexAttachment",
         "This cmdlet returns a collection of IndexAttachment objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

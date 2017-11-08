@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Enable", "KMSKeyRotation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the EnableKeyRotation operation against AWS Key Management Service.", Operation = new[] {"EnableKeyRotation"})]
+    [AWSCmdlet("Calls the AWS Key Management Service EnableKeyRotation API operation.", Operation = new[] {"EnableKeyRotation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.EnableKeyRotationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

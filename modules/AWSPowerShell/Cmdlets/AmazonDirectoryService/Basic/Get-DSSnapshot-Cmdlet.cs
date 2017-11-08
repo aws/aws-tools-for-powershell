@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSSnapshot")]
     [OutputType("Amazon.DirectoryService.Model.Snapshot")]
-    [AWSCmdlet("Invokes the DescribeSnapshots operation against AWS Directory Service.", Operation = new[] {"DescribeSnapshots"})]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeSnapshots API operation.", Operation = new[] {"DescribeSnapshots"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
         "The service call response (type Amazon.DirectoryService.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

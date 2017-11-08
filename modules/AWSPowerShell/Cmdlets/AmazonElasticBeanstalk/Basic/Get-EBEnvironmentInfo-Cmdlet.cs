@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBEnvironmentInfo")]
     [OutputType("Amazon.ElasticBeanstalk.Model.EnvironmentInfoDescription")]
-    [AWSCmdlet("Invokes the RetrieveEnvironmentInfo operation against AWS Elastic Beanstalk.", Operation = new[] {"RetrieveEnvironmentInfo"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk RetrieveEnvironmentInfo API operation.", Operation = new[] {"RetrieveEnvironmentInfo"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentInfoDescription",
         "This cmdlet returns a collection of EnvironmentInfoDescription objects.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.RetrieveEnvironmentInfoResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Set", "ASDesiredCapacity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetDesiredCapacity operation against Auto Scaling.", Operation = new[] {"SetDesiredCapacity"})]
+    [AWSCmdlet("Calls the Auto Scaling SetDesiredCapacity API operation.", Operation = new[] {"SetDesiredCapacity"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.SetDesiredCapacityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

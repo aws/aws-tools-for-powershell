@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Reset", "CGIPUserPasswordAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AdminResetUserPassword operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminResetUserPassword"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminResetUserPassword API operation.", Operation = new[] {"AdminResetUserPassword"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserPoolId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.AdminResetUserPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

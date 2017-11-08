@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Reset", "GGDeployment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.ResetDeploymentsResponse")]
-    [AWSCmdlet("Invokes the ResetDeployments operation against AWS Greengrass.", Operation = new[] {"ResetDeployments"})]
+    [AWSCmdlet("Calls the AWS Greengrass ResetDeployments API operation.", Operation = new[] {"ResetDeployments"})]
     [AWSCmdletOutput("Amazon.Greengrass.Model.ResetDeploymentsResponse",
         "This cmdlet returns a Amazon.Greengrass.Model.ResetDeploymentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

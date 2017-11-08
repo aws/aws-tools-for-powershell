@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Remove", "DMSReplicationSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteReplicationSubnetGroup operation against AWS Database Migration Service.", Operation = new[] {"DeleteReplicationSubnetGroup"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DeleteReplicationSubnetGroup API operation.", Operation = new[] {"DeleteReplicationSubnetGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ReplicationSubnetGroupIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DatabaseMigrationService.Model.DeleteReplicationSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

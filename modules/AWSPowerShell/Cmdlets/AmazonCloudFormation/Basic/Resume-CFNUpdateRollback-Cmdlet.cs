@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Resume", "CFNUpdateRollback", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ContinueUpdateRollback operation against AWS CloudFormation.", Operation = new[] {"ContinueUpdateRollback"})]
+    [AWSCmdlet("Calls the AWS CloudFormation ContinueUpdateRollback API operation.", Operation = new[] {"ContinueUpdateRollback"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFormation.Model.ContinueUpdateRollbackResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Get", "APSImageBuilderList")]
     [OutputType("Amazon.AppStream.Model.ImageBuilder")]
-    [AWSCmdlet("Invokes the DescribeImageBuilders operation against AWS AppStream.", Operation = new[] {"DescribeImageBuilders"})]
+    [AWSCmdlet("Calls the AWS AppStream DescribeImageBuilders API operation.", Operation = new[] {"DescribeImageBuilders"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.ImageBuilder",
         "This cmdlet returns a collection of ImageBuilder objects.",
         "The service call response (type Amazon.AppStream.Model.DescribeImageBuildersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

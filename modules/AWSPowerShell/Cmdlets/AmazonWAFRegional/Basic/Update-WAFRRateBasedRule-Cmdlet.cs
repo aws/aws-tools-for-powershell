@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Update", "WAFRRateBasedRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateRateBasedRule operation against AWS WAF Regional.", Operation = new[] {"UpdateRateBasedRule"})]
+    [AWSCmdlet("Calls the AWS WAF Regional UpdateRateBasedRule API operation.", Operation = new[] {"UpdateRateBasedRule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.UpdateRateBasedRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

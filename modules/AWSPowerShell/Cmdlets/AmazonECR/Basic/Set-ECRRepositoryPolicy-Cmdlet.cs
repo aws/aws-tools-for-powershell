@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Set", "ECRRepositoryPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.SetRepositoryPolicyResponse")]
-    [AWSCmdlet("Invokes the SetRepositoryPolicy operation against Amazon EC2 Container Registry.", Operation = new[] {"SetRepositoryPolicy"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry SetRepositoryPolicy API operation.", Operation = new[] {"SetRepositoryPolicy"})]
     [AWSCmdletOutput("Amazon.ECR.Model.SetRepositoryPolicyResponse",
         "This cmdlet returns a Amazon.ECR.Model.SetRepositoryPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMRoleList")]
     [OutputType("Amazon.IdentityManagement.Model.Role")]
-    [AWSCmdlet("Invokes the ListRoles operation against AWS Identity and Access Management.", Operation = new[] {"ListRoles"}, LegacyAlias="Get-IAMRoles")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListRoles API operation.", Operation = new[] {"ListRoles"}, LegacyAlias="Get-IAMRoles")]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role",
         "This cmdlet returns a collection of Role objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListRolesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

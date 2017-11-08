@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </summary>
     [Cmdlet("Get", "KINFDeliveryStream")]
     [OutputType("Amazon.KinesisFirehose.Model.DeliveryStreamDescription")]
-    [AWSCmdlet("Invokes the DescribeDeliveryStream operation against Amazon Kinesis Firehose.", Operation = new[] {"DescribeDeliveryStream"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Firehose DescribeDeliveryStream API operation.", Operation = new[] {"DescribeDeliveryStream"})]
     [AWSCmdletOutput("Amazon.KinesisFirehose.Model.DeliveryStreamDescription",
         "This cmdlet returns a DeliveryStreamDescription object.",
         "The service call response (type Amazon.KinesisFirehose.Model.DescribeDeliveryStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

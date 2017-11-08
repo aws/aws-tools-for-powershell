@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Exit", "ASStandby", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AutoScaling.Model.Activity")]
-    [AWSCmdlet("Invokes the ExitStandby operation against Auto Scaling.", Operation = new[] {"ExitStandby"})]
+    [AWSCmdlet("Calls the Auto Scaling ExitStandby API operation.", Operation = new[] {"ExitStandby"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
         "The service call response (type Amazon.AutoScaling.Model.ExitStandbyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

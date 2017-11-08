@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Remove", "R53QueryLoggingConfig", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteQueryLoggingConfig operation against Amazon Route 53.", Operation = new[] {"DeleteQueryLoggingConfig"})]
+    [AWSCmdlet("Calls the Amazon Route 53 DeleteQueryLoggingConfig API operation.", Operation = new[] {"DeleteQueryLoggingConfig"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Route53.Model.DeleteQueryLoggingConfigResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Add", "INSFindingAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AddAttributesToFindings operation against Amazon Inspector.", Operation = new[] {"AddAttributesToFindings"})]
+    [AWSCmdlet("Calls the Amazon Inspector AddAttributesToFindings API operation.", Operation = new[] {"AddAttributesToFindings"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Inspector.Model.AddAttributesToFindingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

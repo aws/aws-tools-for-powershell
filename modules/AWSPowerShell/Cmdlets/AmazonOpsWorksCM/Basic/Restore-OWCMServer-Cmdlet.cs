@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Restore", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RestoreServer operation against AWS OpsWorksCM.", Operation = new[] {"RestoreServer"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM RestoreServer API operation.", Operation = new[] {"RestoreServer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorksCM.Model.RestoreServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

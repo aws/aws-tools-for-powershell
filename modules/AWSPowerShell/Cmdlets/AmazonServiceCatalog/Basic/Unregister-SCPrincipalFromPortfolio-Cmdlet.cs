@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Unregister", "SCPrincipalFromPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociatePrincipalFromPortfolio operation against AWS Service Catalog.", Operation = new[] {"DisassociatePrincipalFromPortfolio"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DisassociatePrincipalFromPortfolio API operation.", Operation = new[] {"DisassociatePrincipalFromPortfolio"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PrincipalARN parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DisassociatePrincipalFromPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

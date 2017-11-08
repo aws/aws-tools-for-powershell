@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Update", "EC2SecurityGroupRuleIngressDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the UpdateSecurityGroupRuleDescriptionsIngress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"UpdateSecurityGroupRuleDescriptionsIngress"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UpdateSecurityGroupRuleDescriptionsIngress API operation.", Operation = new[] {"UpdateSecurityGroupRuleDescriptionsIngress"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.UpdateSecurityGroupRuleDescriptionsIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Update", "SGBandwidthRateLimit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateBandwidthRateLimit operation against AWS Storage Gateway.", Operation = new[] {"UpdateBandwidthRateLimit"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway UpdateBandwidthRateLimit API operation.", Operation = new[] {"UpdateBandwidthRateLimit"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.UpdateBandwidthRateLimitResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

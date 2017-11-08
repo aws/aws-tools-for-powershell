@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcPeeringConnection")]
-    [AWSCmdlet("Invokes the CreateVpcPeeringConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateVpcPeeringConnection"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateVpcPeeringConnection API operation.", Operation = new[] {"CreateVpcPeeringConnection"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpcPeeringConnection",
         "This cmdlet returns a VpcPeeringConnection object.",
         "The service call response (type Amazon.EC2.Model.CreateVpcPeeringConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

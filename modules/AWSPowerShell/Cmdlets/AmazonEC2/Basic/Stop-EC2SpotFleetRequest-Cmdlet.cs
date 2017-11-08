@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Stop", "EC2SpotFleetRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CancelSpotFleetRequestsResponse")]
-    [AWSCmdlet("Invokes the CancelSpotFleetRequests operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CancelSpotFleetRequests"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CancelSpotFleetRequests API operation.", Operation = new[] {"CancelSpotFleetRequests"})]
     [AWSCmdletOutput("Amazon.EC2.Model.CancelSpotFleetRequestsResponse",
         "This cmdlet returns a Amazon.EC2.Model.CancelSpotFleetRequestsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

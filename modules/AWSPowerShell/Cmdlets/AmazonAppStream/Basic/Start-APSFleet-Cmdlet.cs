@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Start", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StartFleet operation against AWS AppStream.", Operation = new[] {"StartFleet"})]
+    [AWSCmdlet("Calls the AWS AppStream StartFleet API operation.", Operation = new[] {"StartFleet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AppStream.Model.StartFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

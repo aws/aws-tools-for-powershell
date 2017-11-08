@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDUserList")]
     [OutputType("Amazon.WorkDocs.Model.User")]
-    [AWSCmdlet("Invokes the DescribeUsers operation against Amazon WorkDocs.", Operation = new[] {"DescribeUsers"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DescribeUsers API operation.", Operation = new[] {"DescribeUsers"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.User",
         "This cmdlet returns a collection of User objects.",
         "The service call response (type Amazon.WorkDocs.Model.DescribeUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

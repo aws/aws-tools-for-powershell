@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AccountAttribute")]
     [OutputType("Amazon.EC2.Model.AccountAttribute")]
-    [AWSCmdlet("Invokes the DescribeAccountAttributes operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeAccountAttributes"}, LegacyAlias="Get-EC2AccountAttributes")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"}, LegacyAlias="Get-EC2AccountAttributes")]
     [AWSCmdletOutput("Amazon.EC2.Model.AccountAttribute",
         "This cmdlet returns a collection of AccountAttribute objects.",
         "The service call response (type Amazon.EC2.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

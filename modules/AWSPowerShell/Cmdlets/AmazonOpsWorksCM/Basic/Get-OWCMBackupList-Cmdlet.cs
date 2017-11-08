@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Get", "OWCMBackupList")]
     [OutputType("Amazon.OpsWorksCM.Model.Backup")]
-    [AWSCmdlet("Invokes the DescribeBackups operation against AWS OpsWorksCM.", Operation = new[] {"DescribeBackups"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DescribeBackups API operation.", Operation = new[] {"DescribeBackups"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.Backup",
         "This cmdlet returns a collection of Backup objects.",
         "The service call response (type Amazon.OpsWorksCM.Model.DescribeBackupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Register", "CWLKmsKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociateKmsKey operation against Amazon CloudWatch Logs.", Operation = new[] {"AssociateKmsKey"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs AssociateKmsKey API operation.", Operation = new[] {"AssociateKmsKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KmsKeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.AssociateKmsKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

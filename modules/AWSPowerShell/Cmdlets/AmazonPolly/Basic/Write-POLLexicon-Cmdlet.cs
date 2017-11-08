@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     /// </summary>
     [Cmdlet("Write", "POLLexicon", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutLexicon operation against Amazon Polly.", Operation = new[] {"PutLexicon"})]
+    [AWSCmdlet("Calls the Amazon Polly PutLexicon API operation.", Operation = new[] {"PutLexicon"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Content parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Polly.Model.PutLexiconResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

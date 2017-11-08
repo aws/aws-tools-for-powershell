@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Enter", "ASStandby", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AutoScaling.Model.Activity")]
-    [AWSCmdlet("Invokes the EnterStandby operation against Auto Scaling.", Operation = new[] {"EnterStandby"})]
+    [AWSCmdlet("Calls the Auto Scaling EnterStandby API operation.", Operation = new[] {"EnterStandby"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
         "The service call response (type Amazon.AutoScaling.Model.EnterStandbyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

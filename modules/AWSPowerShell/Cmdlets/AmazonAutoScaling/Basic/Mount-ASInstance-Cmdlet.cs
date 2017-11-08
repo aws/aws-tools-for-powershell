@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Mount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachInstances operation against Auto Scaling.", Operation = new[] {"AttachInstances"}, LegacyAlias="Add-ASInstances")]
+    [AWSCmdlet("Calls the Auto Scaling AttachInstances API operation.", Operation = new[] {"AttachInstances"}, LegacyAlias="Add-ASInstances")]
     [AWSCmdletOutput("None or System.String",
         "Returns the ids of the EC2 instances that were attached when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.AttachInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

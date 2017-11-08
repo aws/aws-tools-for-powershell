@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.MCA
     /// </summary>
     [Cmdlet("Start", "MCASupportDataExport")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the StartSupportDataExport operation against AWS Marketplace Commerce Analytics.", Operation = new[] {"StartSupportDataExport"})]
+    [AWSCmdlet("Calls the AWS Marketplace Commerce Analytics StartSupportDataExport API operation.", Operation = new[] {"StartSupportDataExport"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.AWSMarketplaceCommerceAnalytics.Model.StartSupportDataExportResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

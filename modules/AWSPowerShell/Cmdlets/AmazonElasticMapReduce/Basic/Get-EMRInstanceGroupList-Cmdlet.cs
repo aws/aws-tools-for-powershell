@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Get", "EMRInstanceGroupList")]
     [OutputType("Amazon.ElasticMapReduce.Model.InstanceGroup")]
-    [AWSCmdlet("Invokes the ListInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"ListInstanceGroups"}, LegacyAlias="Get-EMRInstanceGroups")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce ListInstanceGroups API operation.", Operation = new[] {"ListInstanceGroups"}, LegacyAlias="Get-EMRInstanceGroups")]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.InstanceGroup",
         "This cmdlet returns a collection of InstanceGroup objects.",
         "The service call response (type Amazon.ElasticMapReduce.Model.ListInstanceGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

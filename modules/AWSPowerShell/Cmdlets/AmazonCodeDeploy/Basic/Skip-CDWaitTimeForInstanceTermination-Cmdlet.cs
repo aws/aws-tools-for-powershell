@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Skip", "CDWaitTimeForInstanceTermination", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SkipWaitTimeForInstanceTermination operation against AWS CodeDeploy.", Operation = new[] {"SkipWaitTimeForInstanceTermination"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy SkipWaitTimeForInstanceTermination API operation.", Operation = new[] {"SkipWaitTimeForInstanceTermination"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeploymentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.SkipWaitTimeForInstanceTerminationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

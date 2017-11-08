@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// </summary>
     [Cmdlet("Update", "IEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ImportExport.Model.UpdateJobResponse")]
-    [AWSCmdlet("Invokes the UpdateJob operation against AWS Import/Export.", Operation = new[] {"UpdateJob"})]
+    [AWSCmdlet("Calls the AWS Import/Export UpdateJob API operation.", Operation = new[] {"UpdateJob"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.UpdateJobResponse",
         "This cmdlet returns a Amazon.ImportExport.Model.UpdateJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

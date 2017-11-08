@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Stop", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse")]
-    [AWSCmdlet("Invokes the TerminateEnvironment operation against AWS Elastic Beanstalk.", Operation = new[] {"TerminateEnvironment"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk TerminateEnvironment API operation.", Operation = new[] {"TerminateEnvironment"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse",
         "This cmdlet returns a Amazon.ElasticBeanstalk.Model.TerminateEnvironmentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

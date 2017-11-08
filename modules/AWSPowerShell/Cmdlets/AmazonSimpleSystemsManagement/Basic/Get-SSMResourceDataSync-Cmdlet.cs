@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceDataSync")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem")]
-    [AWSCmdlet("Invokes the ListResourceDataSync operation against Amazon Simple Systems Management.", Operation = new[] {"ListResourceDataSync"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management ListResourceDataSync API operation.", Operation = new[] {"ListResourceDataSync"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceDataSyncItem",
         "This cmdlet returns a collection of ResourceDataSyncItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceDataSyncResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

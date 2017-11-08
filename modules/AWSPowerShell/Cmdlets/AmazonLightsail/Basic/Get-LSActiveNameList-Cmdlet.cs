@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSActiveNameList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetActiveNames operation against Amazon Lightsail.", Operation = new[] {"GetActiveNames"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetActiveNames API operation.", Operation = new[] {"GetActiveNames"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Lightsail.Model.GetActiveNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

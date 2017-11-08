@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMOpenIDConnectProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"DeleteOpenIDConnectProvider"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteOpenIDConnectProvider API operation.", Operation = new[] {"DeleteOpenIDConnectProvider"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OpenIDConnectProviderArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

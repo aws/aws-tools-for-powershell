@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Send", "MTRWorkerNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.MTurk.Model.NotifyWorkersFailureStatus")]
-    [AWSCmdlet("Invokes the NotifyWorkers operation against Amazon MTurk Service.", Operation = new[] {"NotifyWorkers"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service NotifyWorkers API operation.", Operation = new[] {"NotifyWorkers"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.NotifyWorkersFailureStatus",
         "This cmdlet returns a collection of NotifyWorkersFailureStatus objects.",
         "The service call response (type Amazon.MTurk.Model.NotifyWorkersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

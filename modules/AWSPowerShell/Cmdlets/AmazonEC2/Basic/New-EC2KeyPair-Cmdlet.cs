@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2KeyPair", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.KeyPair")]
-    [AWSCmdlet("Invokes the CreateKeyPair operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateKeyPair"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateKeyPair API operation.", Operation = new[] {"CreateKeyPair"})]
     [AWSCmdletOutput("Amazon.EC2.Model.KeyPair",
         "This cmdlet returns a KeyPair object.",
         "The service call response (type Amazon.EC2.Model.CreateKeyPairResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

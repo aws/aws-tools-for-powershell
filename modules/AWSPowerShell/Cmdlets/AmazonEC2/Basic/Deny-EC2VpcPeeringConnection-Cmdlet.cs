@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Deny", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RejectVpcPeeringConnection operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RejectVpcPeeringConnection"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RejectVpcPeeringConnection API operation.", Operation = new[] {"RejectVpcPeeringConnection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcPeeringConnectionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.RejectVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

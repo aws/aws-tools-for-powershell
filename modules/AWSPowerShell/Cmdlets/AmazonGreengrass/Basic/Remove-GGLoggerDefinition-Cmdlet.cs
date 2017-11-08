@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Remove", "GGLoggerDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLoggerDefinition operation against AWS Greengrass.", Operation = new[] {"DeleteLoggerDefinition"})]
+    [AWSCmdlet("Calls the AWS Greengrass DeleteLoggerDefinition API operation.", Operation = new[] {"DeleteLoggerDefinition"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoggerDefinitionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Greengrass.Model.DeleteLoggerDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

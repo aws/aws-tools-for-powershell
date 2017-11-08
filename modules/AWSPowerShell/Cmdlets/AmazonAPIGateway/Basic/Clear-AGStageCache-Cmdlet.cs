@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Clear", "AGStageCache", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the FlushStageCache operation against Amazon API Gateway.", Operation = new[] {"FlushStageCache"})]
+    [AWSCmdlet("Calls the Amazon API Gateway FlushStageCache API operation.", Operation = new[] {"FlushStageCache"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RestApiId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.FlushStageCacheResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

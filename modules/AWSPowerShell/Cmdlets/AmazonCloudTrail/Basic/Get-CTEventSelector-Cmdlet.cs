@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Get", "CTEventSelector")]
     [OutputType("Amazon.CloudTrail.Model.GetEventSelectorsResponse")]
-    [AWSCmdlet("Invokes the GetEventSelectors operation against AWS CloudTrail.", Operation = new[] {"GetEventSelectors"}, LegacyAlias="Get-CTEventSelectors")]
+    [AWSCmdlet("Calls the AWS CloudTrail GetEventSelectors API operation.", Operation = new[] {"GetEventSelectors"}, LegacyAlias="Get-CTEventSelectors")]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.GetEventSelectorsResponse",
         "This cmdlet returns a Amazon.CloudTrail.Model.GetEventSelectorsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

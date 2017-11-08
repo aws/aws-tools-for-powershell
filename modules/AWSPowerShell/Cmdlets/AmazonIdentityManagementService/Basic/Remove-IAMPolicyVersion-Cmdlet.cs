@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeletePolicyVersion operation against AWS Identity and Access Management.", Operation = new[] {"DeletePolicyVersion"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeletePolicyVersion API operation.", Operation = new[] {"DeletePolicyVersion"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeletePolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

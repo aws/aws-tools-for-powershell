@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Get", "SESIdentityNotificationAttribute")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetIdentityNotificationAttributes operation against Amazon Simple Email Service.", Operation = new[] {"GetIdentityNotificationAttributes"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service GetIdentityNotificationAttributes API operation.", Operation = new[] {"GetIdentityNotificationAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleEmail.Model.GetIdentityNotificationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

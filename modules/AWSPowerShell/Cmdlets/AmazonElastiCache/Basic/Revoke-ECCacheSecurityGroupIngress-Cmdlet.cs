@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Revoke", "ECCacheSecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CacheSecurityGroup")]
-    [AWSCmdlet("Invokes the RevokeCacheSecurityGroupIngress operation against Amazon ElastiCache.", Operation = new[] {"RevokeCacheSecurityGroupIngress"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache RevokeCacheSecurityGroupIngress API operation.", Operation = new[] {"RevokeCacheSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheSecurityGroup",
         "This cmdlet returns a CacheSecurityGroup object.",
         "The service call response (type Amazon.ElastiCache.Model.RevokeCacheSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

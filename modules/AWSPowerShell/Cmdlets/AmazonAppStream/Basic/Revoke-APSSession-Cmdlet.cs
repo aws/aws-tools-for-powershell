@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Revoke", "APSSession", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ExpireSession operation against AWS AppStream.", Operation = new[] {"ExpireSession"})]
+    [AWSCmdlet("Calls the AWS AppStream ExpireSession API operation.", Operation = new[] {"ExpireSession"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SessionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AppStream.Model.ExpireSessionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

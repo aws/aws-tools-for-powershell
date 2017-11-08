@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Disable", "ORGPolicyType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Root")]
-    [AWSCmdlet("Invokes the DisablePolicyType operation against AWS Organizations.", Operation = new[] {"DisablePolicyType"})]
+    [AWSCmdlet("Calls the AWS Organizations DisablePolicyType API operation.", Operation = new[] {"DisablePolicyType"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Root",
         "This cmdlet returns a Root object.",
         "The service call response (type Amazon.Organizations.Model.DisablePolicyTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

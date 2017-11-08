@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Send", "SESTemplatedEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the SendTemplatedEmail operation against Amazon Simple Email Service.", Operation = new[] {"SendTemplatedEmail"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SendTemplatedEmail API operation.", Operation = new[] {"SendTemplatedEmail"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleEmail.Model.SendTemplatedEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

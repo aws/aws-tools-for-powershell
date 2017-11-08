@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Unregister", "OPSEcsCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterEcsCluster operation against AWS OpsWorks.", Operation = new[] {"DeregisterEcsCluster"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DeregisterEcsCluster API operation.", Operation = new[] {"DeregisterEcsCluster"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EcsClusterArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeregisterEcsClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("Stop", "ETSJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CancelJob operation against Amazon Elastic Transcoder.", Operation = new[] {"CancelJob"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder CancelJob API operation.", Operation = new[] {"CancelJob"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticTranscoder.Model.CancelJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

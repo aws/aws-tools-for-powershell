@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
-    [AWSCmdlet("Invokes the ListCertificates operation against AWS Certificate Manager.", Operation = new[] {"ListCertificates"})]
+    [AWSCmdlet("Calls the AWS Certificate Manager ListCertificates API operation.", Operation = new[] {"ListCertificates"})]
     [AWSCmdletOutput("Amazon.CertificateManager.Model.CertificateSummary",
         "This cmdlet returns a collection of CertificateSummary objects.",
         "The service call response (type Amazon.CertificateManager.Model.ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

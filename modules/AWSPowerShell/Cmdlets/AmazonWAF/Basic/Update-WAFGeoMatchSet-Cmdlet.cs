@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Update", "WAFGeoMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateGeoMatchSet operation against AWS WAF.", Operation = new[] {"UpdateGeoMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF UpdateGeoMatchSet API operation.", Operation = new[] {"UpdateGeoMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.UpdateGeoMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

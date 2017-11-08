@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Get", "ECSTaskDefinitionDetail")]
     [OutputType("Amazon.ECS.Model.TaskDefinition")]
-    [AWSCmdlet("Invokes the DescribeTaskDefinition operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeTaskDefinition"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DescribeTaskDefinition API operation.", Operation = new[] {"DescribeTaskDefinition"})]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
         "This cmdlet returns a TaskDefinition object.",
         "The service call response (type Amazon.ECS.Model.DescribeTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

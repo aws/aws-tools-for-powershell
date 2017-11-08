@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSDBLogFile")]
     [OutputType("Amazon.RDS.Model.DescribeDBLogFilesDetails")]
-    [AWSCmdlet("Invokes the DescribeDBLogFiles operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBLogFiles"}, LegacyAlias="Get-RDSDBLogFiles")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeDBLogFiles API operation.", Operation = new[] {"DescribeDBLogFiles"}, LegacyAlias="Get-RDSDBLogFiles")]
     [AWSCmdletOutput("Amazon.RDS.Model.DescribeDBLogFilesDetails",
         "This cmdlet returns a collection of DescribeDBLogFilesDetails objects.",
         "The service call response (type Amazon.RDS.Model.DescribeDBLogFilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

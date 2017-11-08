@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRLayerAvailabilityBatch")]
     [OutputType("Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse")]
-    [AWSCmdlet("Invokes the BatchCheckLayerAvailability operation against Amazon EC2 Container Registry.", Operation = new[] {"BatchCheckLayerAvailability"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry BatchCheckLayerAvailability API operation.", Operation = new[] {"BatchCheckLayerAvailability"})]
     [AWSCmdletOutput("Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse",
         "This cmdlet returns a Amazon.ECR.Model.BatchCheckLayerAvailabilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

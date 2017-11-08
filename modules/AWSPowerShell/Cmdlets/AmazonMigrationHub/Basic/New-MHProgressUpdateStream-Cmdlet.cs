@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("New", "MHProgressUpdateStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateProgressUpdateStream operation against AWS Migration Hub.", Operation = new[] {"CreateProgressUpdateStream"})]
+    [AWSCmdlet("Calls the AWS Migration Hub CreateProgressUpdateStream API operation.", Operation = new[] {"CreateProgressUpdateStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProgressUpdateStreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.CreateProgressUpdateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

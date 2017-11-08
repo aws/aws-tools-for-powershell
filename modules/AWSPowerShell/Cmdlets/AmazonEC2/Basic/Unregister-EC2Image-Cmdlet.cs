@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2Image", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterImage operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeregisterImage"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeregisterImage API operation.", Operation = new[] {"DeregisterImage"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ImageId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeregisterImageResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

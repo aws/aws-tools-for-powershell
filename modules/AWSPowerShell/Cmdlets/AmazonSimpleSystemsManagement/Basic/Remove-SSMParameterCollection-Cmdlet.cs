@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMParameterCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse")]
-    [AWSCmdlet("Invokes the DeleteParameters operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteParameters"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DeleteParameters API operation.", Operation = new[] {"DeleteParameters"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.DeleteParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

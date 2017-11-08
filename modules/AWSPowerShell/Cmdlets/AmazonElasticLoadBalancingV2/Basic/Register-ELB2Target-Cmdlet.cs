@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Register", "ELB2Target", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RegisterTargets operation against Elastic Load Balancing V2.", Operation = new[] {"RegisterTargets"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 RegisterTargets API operation.", Operation = new[] {"RegisterTargets"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetGroupArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.RegisterTargetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

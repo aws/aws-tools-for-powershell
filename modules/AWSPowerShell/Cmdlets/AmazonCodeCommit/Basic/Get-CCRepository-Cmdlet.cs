@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Get", "CCRepository")]
     [OutputType("Amazon.CodeCommit.Model.RepositoryMetadata")]
-    [AWSCmdlet("Invokes the GetRepository operation against AWS CodeCommit.", Operation = new[] {"GetRepository"})]
+    [AWSCmdlet("Calls the AWS CodeCommit GetRepository API operation.", Operation = new[] {"GetRepository"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryMetadata",
         "This cmdlet returns a RepositoryMetadata object.",
         "The service call response (type Amazon.CodeCommit.Model.GetRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

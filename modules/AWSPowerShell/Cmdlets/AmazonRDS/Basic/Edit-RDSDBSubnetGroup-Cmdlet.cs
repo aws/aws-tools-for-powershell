@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Edit", "RDSDBSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSubnetGroup")]
-    [AWSCmdlet("Invokes the ModifyDBSubnetGroup operation against Amazon Relational Database Service.", Operation = new[] {"ModifyDBSubnetGroup"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service ModifyDBSubnetGroup API operation.", Operation = new[] {"ModifyDBSubnetGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSubnetGroup",
         "This cmdlet returns a DBSubnetGroup object.",
         "The service call response (type Amazon.RDS.Model.ModifyDBSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

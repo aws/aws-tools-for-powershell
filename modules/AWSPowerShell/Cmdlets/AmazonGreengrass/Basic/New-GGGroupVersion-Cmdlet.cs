@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("New", "GGGroupVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.CreateGroupVersionResponse")]
-    [AWSCmdlet("Invokes the CreateGroupVersion operation against AWS Greengrass.", Operation = new[] {"CreateGroupVersion"})]
+    [AWSCmdlet("Calls the AWS Greengrass CreateGroupVersion API operation.", Operation = new[] {"CreateGroupVersion"})]
     [AWSCmdletOutput("Amazon.Greengrass.Model.CreateGroupVersionResponse",
         "This cmdlet returns a Amazon.Greengrass.Model.CreateGroupVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Update", "SGSnapshotSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateSnapshotSchedule operation against AWS Storage Gateway.", Operation = new[] {"UpdateSnapshotSchedule"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway UpdateSnapshotSchedule API operation.", Operation = new[] {"UpdateSnapshotSchedule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.UpdateSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

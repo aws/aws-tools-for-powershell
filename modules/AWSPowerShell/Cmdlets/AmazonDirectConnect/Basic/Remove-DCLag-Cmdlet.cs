@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Remove", "DCLag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.Model.DeleteLagResponse")]
-    [AWSCmdlet("Invokes the DeleteLag operation against AWS Direct Connect.", Operation = new[] {"DeleteLag"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DeleteLag API operation.", Operation = new[] {"DeleteLag"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.DeleteLagResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.DeleteLagResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

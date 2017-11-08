@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Dismount", "CDIRTypedLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DetachTypedLink operation against AWS Cloud Directory.", Operation = new[] {"DetachTypedLink"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory DetachTypedLink API operation.", Operation = new[] {"DetachTypedLink"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.DetachTypedLinkResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

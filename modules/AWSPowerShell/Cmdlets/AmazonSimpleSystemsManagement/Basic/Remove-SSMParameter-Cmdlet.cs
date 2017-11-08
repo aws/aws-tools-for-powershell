@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMParameter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteParameter operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteParameter"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DeleteParameter API operation.", Operation = new[] {"DeleteParameter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeleteParameterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

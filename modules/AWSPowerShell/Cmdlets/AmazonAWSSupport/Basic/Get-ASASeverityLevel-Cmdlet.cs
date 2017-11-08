@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </summary>
     [Cmdlet("Get", "ASASeverityLevel")]
     [OutputType("Amazon.AWSSupport.Model.SeverityLevel")]
-    [AWSCmdlet("Invokes the DescribeSeverityLevels operation against AWS Support API.", Operation = new[] {"DescribeSeverityLevels"}, LegacyAlias="Get-ASASeverityLevels")]
+    [AWSCmdlet("Calls the AWS Support API DescribeSeverityLevels API operation.", Operation = new[] {"DescribeSeverityLevels"}, LegacyAlias="Get-ASASeverityLevels")]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.SeverityLevel",
         "This cmdlet returns a collection of SeverityLevel objects.",
         "The service call response (type Amazon.AWSSupport.Model.DescribeSeverityLevelsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

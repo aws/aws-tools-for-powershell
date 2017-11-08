@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSEngineDefaultParameter")]
     [OutputType("Amazon.RDS.Model.EngineDefaults")]
-    [AWSCmdlet("Invokes the DescribeEngineDefaultParameters operation against Amazon Relational Database Service.", Operation = new[] {"DescribeEngineDefaultParameters"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeEngineDefaultParameters API operation.", Operation = new[] {"DescribeEngineDefaultParameters"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EngineDefaults",
         "This cmdlet returns a EngineDefaults object.",
         "The service call response (type Amazon.RDS.Model.DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

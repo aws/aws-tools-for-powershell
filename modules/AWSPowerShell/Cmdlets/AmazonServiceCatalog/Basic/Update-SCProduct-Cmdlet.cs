@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Update", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdateProductResponse")]
-    [AWSCmdlet("Invokes the UpdateProduct operation against AWS Service Catalog.", Operation = new[] {"UpdateProduct"})]
+    [AWSCmdlet("Calls the AWS Service Catalog UpdateProduct API operation.", Operation = new[] {"UpdateProduct"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdateProductResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.UpdateProductResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

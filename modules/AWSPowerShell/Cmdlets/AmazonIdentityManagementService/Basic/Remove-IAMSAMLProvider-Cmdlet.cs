@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMSAMLProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"DeleteSAMLProvider"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteSAMLProvider API operation.", Operation = new[] {"DeleteSAMLProvider"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SAMLProviderArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteSAMLProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

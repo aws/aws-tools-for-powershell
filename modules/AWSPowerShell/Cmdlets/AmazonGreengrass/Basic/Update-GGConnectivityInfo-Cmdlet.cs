@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Update", "GGConnectivityInfo", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Greengrass.Model.UpdateConnectivityInfoResponse")]
-    [AWSCmdlet("Invokes the UpdateConnectivityInfo operation against AWS Greengrass.", Operation = new[] {"UpdateConnectivityInfo"})]
+    [AWSCmdlet("Calls the AWS Greengrass UpdateConnectivityInfo API operation.", Operation = new[] {"UpdateConnectivityInfo"})]
     [AWSCmdletOutput("Amazon.Greengrass.Model.UpdateConnectivityInfoResponse",
         "This cmdlet returns a Amazon.Greengrass.Model.UpdateConnectivityInfoResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

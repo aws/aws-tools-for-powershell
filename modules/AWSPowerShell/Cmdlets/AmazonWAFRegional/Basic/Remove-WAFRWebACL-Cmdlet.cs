@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Remove", "WAFRWebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteWebACL operation against AWS WAF Regional.", Operation = new[] {"DeleteWebACL"})]
+    [AWSCmdlet("Calls the AWS WAF Regional DeleteWebACL API operation.", Operation = new[] {"DeleteWebACL"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.DeleteWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("New", "S3Bucket", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
     [OutputType("Amazon.S3.Model.S3Bucket")]
-    [AWSCmdlet("Invokes the PutBucket operation against Amazon S3.", Operation = new [] {"PutBucket"})]
+    [AWSCmdlet("Creates a new bucket in Amazon S3.", Operation = new [] {"PutBucket"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket",
         "Returns an Amazon.S3.Model.S3Bucket instance representing the new bucket.",
         "The service response (type Amazon.S3.Model.PutBucketResponse) is added to the cmdlet entry in the $AWSHistory stack."

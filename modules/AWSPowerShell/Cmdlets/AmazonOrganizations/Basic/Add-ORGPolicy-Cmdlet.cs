@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Add", "ORGPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachPolicy operation against AWS Organizations.", Operation = new[] {"AttachPolicy"})]
+    [AWSCmdlet("Calls the AWS Organizations AttachPolicy API operation.", Operation = new[] {"AttachPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PolicyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Organizations.Model.AttachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

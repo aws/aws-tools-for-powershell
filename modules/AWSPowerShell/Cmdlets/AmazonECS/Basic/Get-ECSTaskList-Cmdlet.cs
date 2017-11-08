@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Get", "ECSTaskList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListTasks operation against Amazon EC2 Container Service.", Operation = new[] {"ListTasks"}, LegacyAlias="Get-ECSTasks")]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service ListTasks API operation.", Operation = new[] {"ListTasks"}, LegacyAlias="Get-ECSTasks")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ECS.Model.ListTasksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

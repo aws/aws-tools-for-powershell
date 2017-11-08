@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("New", "SESConfigurationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateConfigurationSet operation against Amazon Simple Email Service.", Operation = new[] {"CreateConfigurationSet"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service CreateConfigurationSet API operation.", Operation = new[] {"CreateConfigurationSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationSet_Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.CreateConfigurationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

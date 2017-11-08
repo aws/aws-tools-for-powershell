@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Write", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PutRule operation against Amazon CloudWatch Events.", Operation = new[] {"PutRule"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events PutRule API operation.", Operation = new[] {"PutRule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudWatchEvents.Model.PutRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

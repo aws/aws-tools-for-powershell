@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Test", "R53DDomainAvailability")]
     [OutputType("Amazon.Route53Domains.DomainAvailability")]
-    [AWSCmdlet("Invokes the CheckDomainAvailability operation against Amazon Route 53 Domains.", Operation = new[] {"CheckDomainAvailability"}, LegacyAlias="Get-R53DDomainAvailability")]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains CheckDomainAvailability API operation.", Operation = new[] {"CheckDomainAvailability"}, LegacyAlias="Get-R53DDomainAvailability")]
     [AWSCmdletOutput("Amazon.Route53Domains.DomainAvailability",
         "This cmdlet returns a DomainAvailability object.",
         "The service call response (type Amazon.Route53Domains.Model.CheckDomainAvailabilityResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

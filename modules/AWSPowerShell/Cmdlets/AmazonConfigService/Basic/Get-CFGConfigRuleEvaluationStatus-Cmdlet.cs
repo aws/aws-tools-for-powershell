@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGConfigRuleEvaluationStatus")]
     [OutputType("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus")]
-    [AWSCmdlet("Invokes the DescribeConfigRuleEvaluationStatus operation against AWS Config.", Operation = new[] {"DescribeConfigRuleEvaluationStatus"})]
+    [AWSCmdlet("Calls the AWS Config DescribeConfigRuleEvaluationStatus API operation.", Operation = new[] {"DescribeConfigRuleEvaluationStatus"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ConfigRuleEvaluationStatus",
         "This cmdlet returns a collection of ConfigRuleEvaluationStatus objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeConfigRuleEvaluationStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

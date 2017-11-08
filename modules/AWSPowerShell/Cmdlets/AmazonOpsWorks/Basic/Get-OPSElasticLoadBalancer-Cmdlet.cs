@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSElasticLoadBalancer")]
     [OutputType("Amazon.OpsWorks.Model.ElasticLoadBalancer")]
-    [AWSCmdlet("Invokes the DescribeElasticLoadBalancers operation against AWS OpsWorks.", Operation = new[] {"DescribeElasticLoadBalancers"}, LegacyAlias="Get-OPSElasticLoadBalancers")]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeElasticLoadBalancers API operation.", Operation = new[] {"DescribeElasticLoadBalancers"}, LegacyAlias="Get-OPSElasticLoadBalancers")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.ElasticLoadBalancer",
         "This cmdlet returns a collection of ElasticLoadBalancer objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeElasticLoadBalancersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

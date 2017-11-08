@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// </summary>
     [Cmdlet("Get", "XRTraceBatch")]
     [OutputType("Amazon.XRay.Model.BatchGetTracesResponse")]
-    [AWSCmdlet("Invokes the BatchGetTraces operation against AWS X-Ray.", Operation = new[] {"BatchGetTraces"})]
+    [AWSCmdlet("Calls the AWS X-Ray BatchGetTraces API operation.", Operation = new[] {"BatchGetTraces"})]
     [AWSCmdletOutput("Amazon.XRay.Model.BatchGetTracesResponse",
         "This cmdlet returns a Amazon.XRay.Model.BatchGetTracesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

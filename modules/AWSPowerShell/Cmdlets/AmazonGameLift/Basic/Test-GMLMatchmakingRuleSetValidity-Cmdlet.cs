@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Test", "GMLMatchmakingRuleSetValidity")]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the ValidateMatchmakingRuleSet operation against Amazon GameLift Service.", Operation = new[] {"ValidateMatchmakingRuleSet"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service ValidateMatchmakingRuleSet API operation.", Operation = new[] {"ValidateMatchmakingRuleSet"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.GameLift.Model.ValidateMatchmakingRuleSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

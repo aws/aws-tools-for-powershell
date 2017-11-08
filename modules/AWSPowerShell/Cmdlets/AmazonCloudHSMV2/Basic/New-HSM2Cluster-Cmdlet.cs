@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
     /// </summary>
     [Cmdlet("New", "HSM2Cluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudHSMV2.Model.Cluster")]
-    [AWSCmdlet("Invokes the CreateCluster operation against AWS Cloud HSM V2.", Operation = new[] {"CreateCluster"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM V2 CreateCluster API operation.", Operation = new[] {"CreateCluster"})]
     [AWSCmdletOutput("Amazon.CloudHSMV2.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.CloudHSMV2.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

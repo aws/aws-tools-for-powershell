@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Get", "CSTTeamMemberList")]
     [OutputType("Amazon.CodeStar.Model.TeamMember")]
-    [AWSCmdlet("Invokes the ListTeamMembers operation against AWS CodeStar.", Operation = new[] {"ListTeamMembers"})]
+    [AWSCmdlet("Calls the AWS CodeStar ListTeamMembers API operation.", Operation = new[] {"ListTeamMembers"})]
     [AWSCmdletOutput("Amazon.CodeStar.Model.TeamMember",
         "This cmdlet returns a collection of TeamMember objects.",
         "The service call response (type Amazon.CodeStar.Model.ListTeamMembersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

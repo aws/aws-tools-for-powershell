@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Get", "SQSQueueUrl")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetQueueUrl operation against Amazon Simple Queue Service.", Operation = new[] {"GetQueueUrl"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service GetQueueUrl API operation.", Operation = new[] {"GetQueueUrl"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SQS.Model.GetQueueUrlResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

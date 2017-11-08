@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Update", "CDIRFacet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateFacet operation against AWS Cloud Directory.", Operation = new[] {"UpdateFacet"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory UpdateFacet API operation.", Operation = new[] {"UpdateFacet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SchemaArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.UpdateFacetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

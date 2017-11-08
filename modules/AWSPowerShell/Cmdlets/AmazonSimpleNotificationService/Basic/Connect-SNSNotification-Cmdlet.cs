@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Connect", "SNSNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the Subscribe operation against Amazon Simple Notification Service.", Operation = new[] {"Subscribe"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service Subscribe API operation.", Operation = new[] {"Subscribe"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleNotificationService.Model.SubscribeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

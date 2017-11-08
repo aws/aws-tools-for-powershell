@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMDocument", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.DocumentDescription")]
-    [AWSCmdlet("Invokes the UpdateDocument operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateDocument"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management UpdateDocument API operation.", Operation = new[] {"UpdateDocument"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.DocumentDescription",
         "This cmdlet returns a DocumentDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateDocumentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

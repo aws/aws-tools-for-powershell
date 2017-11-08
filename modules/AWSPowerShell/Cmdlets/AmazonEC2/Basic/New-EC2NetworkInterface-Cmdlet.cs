@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2NetworkInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.NetworkInterface")]
-    [AWSCmdlet("Invokes the CreateNetworkInterface operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateNetworkInterface"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateNetworkInterface API operation.", Operation = new[] {"CreateNetworkInterface"})]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterface",
         "This cmdlet returns a NetworkInterface object.",
         "The service call response (type Amazon.EC2.Model.CreateNetworkInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

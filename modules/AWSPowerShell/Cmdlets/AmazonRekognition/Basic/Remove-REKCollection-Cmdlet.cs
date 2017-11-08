@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </summary>
     [Cmdlet("Remove", "REKCollection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.Int32")]
-    [AWSCmdlet("Invokes the DeleteCollection operation against Amazon Rekognition.", Operation = new[] {"DeleteCollection"})]
+    [AWSCmdlet("Calls the Amazon Rekognition DeleteCollection API operation.", Operation = new[] {"DeleteCollection"})]
     [AWSCmdletOutput("System.Int32",
         "This cmdlet returns a Int32 object.",
         "The service call response (type Amazon.Rekognition.Model.DeleteCollectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

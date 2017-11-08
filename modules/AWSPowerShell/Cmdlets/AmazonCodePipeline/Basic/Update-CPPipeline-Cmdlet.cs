@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Update", "CPPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodePipeline.Model.PipelineDeclaration")]
-    [AWSCmdlet("Invokes the UpdatePipeline operation against AWS CodePipeline.", Operation = new[] {"UpdatePipeline"})]
+    [AWSCmdlet("Calls the AWS CodePipeline UpdatePipeline API operation.", Operation = new[] {"UpdatePipeline"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.PipelineDeclaration",
         "This cmdlet returns a PipelineDeclaration object.",
         "The service call response (type Amazon.CodePipeline.Model.UpdatePipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

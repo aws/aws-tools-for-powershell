@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Disable", "SGGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DisableGateway operation against AWS Storage Gateway.", Operation = new[] {"DisableGateway"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DisableGateway API operation.", Operation = new[] {"DisableGateway"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.DisableGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

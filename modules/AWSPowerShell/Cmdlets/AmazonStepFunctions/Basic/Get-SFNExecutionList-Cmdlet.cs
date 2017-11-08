@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Get", "SFNExecutionList")]
     [OutputType("Amazon.StepFunctions.Model.ExecutionListItem")]
-    [AWSCmdlet("Invokes the ListExecutions operation against Amazon Step Functions.", Operation = new[] {"ListExecutions"})]
+    [AWSCmdlet("Calls the Amazon Step Functions ListExecutions API operation.", Operation = new[] {"ListExecutions"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.ExecutionListItem",
         "This cmdlet returns a collection of ExecutionListItem objects.",
         "The service call response (type Amazon.StepFunctions.Model.ListExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

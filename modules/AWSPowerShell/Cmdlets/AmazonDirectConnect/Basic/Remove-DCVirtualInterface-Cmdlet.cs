@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Remove", "DCVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DirectConnect.VirtualInterfaceState")]
-    [AWSCmdlet("Invokes the DeleteVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"DeleteVirtualInterface"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DeleteVirtualInterface API operation.", Operation = new[] {"DeleteVirtualInterface"})]
     [AWSCmdletOutput("Amazon.DirectConnect.VirtualInterfaceState",
         "This cmdlet returns a VirtualInterfaceState object.",
         "The service call response (type Amazon.DirectConnect.Model.DeleteVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

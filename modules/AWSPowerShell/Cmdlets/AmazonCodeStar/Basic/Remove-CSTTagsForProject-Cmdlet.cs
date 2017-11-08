@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Remove", "CSTTagsForProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UntagProject operation against AWS CodeStar.", Operation = new[] {"UntagProject"})]
+    [AWSCmdlet("Calls the AWS CodeStar UntagProject API operation.", Operation = new[] {"UntagProject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeStar.Model.UntagProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

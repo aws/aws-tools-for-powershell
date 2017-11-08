@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Register", "ELBInstanceWithLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancing.Model.Instance")]
-    [AWSCmdlet("Invokes the RegisterInstancesWithLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"RegisterInstancesWithLoadBalancer"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing RegisterInstancesWithLoadBalancer API operation.", Operation = new[] {"RegisterInstancesWithLoadBalancer"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.Instance",
         "This cmdlet returns a collection of Instance objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.RegisterInstancesWithLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Copy", "RDSDBClusterParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBClusterParameterGroup")]
-    [AWSCmdlet("Invokes the CopyDBClusterParameterGroup operation against Amazon Relational Database Service.", Operation = new[] {"CopyDBClusterParameterGroup"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service CopyDBClusterParameterGroup API operation.", Operation = new[] {"CopyDBClusterParameterGroup"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterParameterGroup",
         "This cmdlet returns a DBClusterParameterGroup object.",
         "The service call response (type Amazon.RDS.Model.CopyDBClusterParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

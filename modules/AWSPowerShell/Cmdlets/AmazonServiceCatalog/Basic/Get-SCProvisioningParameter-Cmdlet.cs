@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCProvisioningParameter")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningParameters operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningParameters"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisioningParameters API operation.", Operation = new[] {"DescribeProvisioningParameters"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningParametersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Remove", "WDLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLabels operation against Amazon WorkDocs.", Operation = new[] {"DeleteLabels"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DeleteLabels API operation.", Operation = new[] {"DeleteLabels"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Label parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.DeleteLabelsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

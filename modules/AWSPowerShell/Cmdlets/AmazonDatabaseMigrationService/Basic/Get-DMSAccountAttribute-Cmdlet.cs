@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSAccountAttribute")]
     [OutputType("Amazon.DatabaseMigrationService.Model.AccountQuota")]
-    [AWSCmdlet("Invokes the DescribeAccountAttributes operation against AWS Database Migration Service.", Operation = new[] {"DescribeAccountAttributes"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.AccountQuota",
         "This cmdlet returns a collection of AccountQuota objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

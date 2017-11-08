@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("New", "WAFRWebACL")]
     [OutputType("Amazon.WAFRegional.Model.CreateWebACLResponse")]
-    [AWSCmdlet("Invokes the CreateWebACL operation against AWS WAF Regional.", Operation = new[] {"CreateWebACL"})]
+    [AWSCmdlet("Calls the AWS WAF Regional CreateWebACL API operation.", Operation = new[] {"CreateWebACL"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateWebACLResponse",
         "This cmdlet returns a Amazon.WAFRegional.Model.CreateWebACLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

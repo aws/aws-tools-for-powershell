@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMVirtualMFADevice")]
     [OutputType("Amazon.IdentityManagement.Model.VirtualMFADevice")]
-    [AWSCmdlet("Invokes the ListVirtualMFADevices operation against AWS Identity and Access Management.", Operation = new[] {"ListVirtualMFADevices"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListVirtualMFADevices API operation.", Operation = new[] {"ListVirtualMFADevices"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.VirtualMFADevice",
         "This cmdlet returns a collection of VirtualMFADevice objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListVirtualMFADevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

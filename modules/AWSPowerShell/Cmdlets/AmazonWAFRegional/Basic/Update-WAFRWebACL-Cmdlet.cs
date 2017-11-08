@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Update", "WAFRWebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateWebACL operation against AWS WAF Regional.", Operation = new[] {"UpdateWebACL"})]
+    [AWSCmdlet("Calls the AWS WAF Regional UpdateWebACL API operation.", Operation = new[] {"UpdateWebACL"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.UpdateWebACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

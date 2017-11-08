@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Update", "SESTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.SimpleEmail.Model.Template")]
-    [AWSCmdlet("Invokes the UpdateTemplate operation against Amazon Simple Email Service.", Operation = new[] {"UpdateTemplate"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service UpdateTemplate API operation.", Operation = new[] {"UpdateTemplate"})]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.Template",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Template parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.UpdateTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

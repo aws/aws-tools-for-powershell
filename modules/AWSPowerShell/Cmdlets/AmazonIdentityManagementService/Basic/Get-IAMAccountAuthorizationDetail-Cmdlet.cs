@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMAccountAuthorizationDetail")]
     [OutputType("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse")]
-    [AWSCmdlet("Invokes the GetAccountAuthorizationDetails operation against AWS Identity and Access Management.", Operation = new[] {"GetAccountAuthorizationDetails"}, LegacyAlias="Get-IAMAccountAuthorizationDetails")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetAccountAuthorizationDetails API operation.", Operation = new[] {"GetAccountAuthorizationDetails"}, LegacyAlias="Get-IAMAccountAuthorizationDetails")]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GetAccountAuthorizationDetailsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2ListenerCertificate")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Certificate")]
-    [AWSCmdlet("Invokes the DescribeListenerCertificates operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeListenerCertificates"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeListenerCertificates API operation.", Operation = new[] {"DescribeListenerCertificates"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Certificate",
         "This cmdlet returns a collection of Certificate objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeListenerCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

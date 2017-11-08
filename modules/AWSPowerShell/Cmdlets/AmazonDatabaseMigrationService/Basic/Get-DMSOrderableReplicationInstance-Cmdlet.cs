@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSOrderableReplicationInstance")]
     [OutputType("Amazon.DatabaseMigrationService.Model.OrderableReplicationInstance")]
-    [AWSCmdlet("Invokes the DescribeOrderableReplicationInstances operation against AWS Database Migration Service.", Operation = new[] {"DescribeOrderableReplicationInstances"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeOrderableReplicationInstances API operation.", Operation = new[] {"DescribeOrderableReplicationInstances"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.OrderableReplicationInstance",
         "This cmdlet returns a collection of OrderableReplicationInstance objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeOrderableReplicationInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

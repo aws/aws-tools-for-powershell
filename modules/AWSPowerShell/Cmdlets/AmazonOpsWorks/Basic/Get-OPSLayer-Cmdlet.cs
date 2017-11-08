@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSLayer")]
     [OutputType("Amazon.OpsWorks.Model.Layer")]
-    [AWSCmdlet("Invokes the DescribeLayers operation against AWS OpsWorks.", Operation = new[] {"DescribeLayers"}, LegacyAlias="Get-OPSLayers")]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeLayers API operation.", Operation = new[] {"DescribeLayers"}, LegacyAlias="Get-OPSLayers")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Layer",
         "This cmdlet returns a collection of Layer objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeLayersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

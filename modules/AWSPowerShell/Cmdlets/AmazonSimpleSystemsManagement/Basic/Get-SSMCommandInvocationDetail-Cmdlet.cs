@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMCommandInvocationDetail")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse")]
-    [AWSCmdlet("Invokes the GetCommandInvocation operation against Amazon Simple Systems Management.", Operation = new[] {"GetCommandInvocation"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management GetCommandInvocation API operation.", Operation = new[] {"GetCommandInvocation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetCommandInvocationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

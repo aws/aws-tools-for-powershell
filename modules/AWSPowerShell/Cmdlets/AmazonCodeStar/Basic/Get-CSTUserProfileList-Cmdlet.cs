@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Get", "CSTUserProfileList")]
     [OutputType("Amazon.CodeStar.Model.UserProfileSummary")]
-    [AWSCmdlet("Invokes the ListUserProfiles operation against AWS CodeStar.", Operation = new[] {"ListUserProfiles"})]
+    [AWSCmdlet("Calls the AWS CodeStar ListUserProfiles API operation.", Operation = new[] {"ListUserProfiles"})]
     [AWSCmdletOutput("Amazon.CodeStar.Model.UserProfileSummary",
         "This cmdlet returns a collection of UserProfileSummary objects.",
         "The service call response (type Amazon.CodeStar.Model.ListUserProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

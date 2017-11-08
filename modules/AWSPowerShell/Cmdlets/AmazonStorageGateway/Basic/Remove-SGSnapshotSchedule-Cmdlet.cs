@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Remove", "SGSnapshotSchedule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteSnapshotSchedule operation against AWS Storage Gateway.", Operation = new[] {"DeleteSnapshotSchedule"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DeleteSnapshotSchedule API operation.", Operation = new[] {"DeleteSnapshotSchedule"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.DeleteSnapshotScheduleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

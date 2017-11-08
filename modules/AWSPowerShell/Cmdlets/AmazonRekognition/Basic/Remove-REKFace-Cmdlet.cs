@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </summary>
     [Cmdlet("Remove", "REKFace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteFaces operation against Amazon Rekognition.", Operation = new[] {"DeleteFaces"})]
+    [AWSCmdlet("Calls the Amazon Rekognition DeleteFaces API operation.", Operation = new[] {"DeleteFaces"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Rekognition.Model.DeleteFacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

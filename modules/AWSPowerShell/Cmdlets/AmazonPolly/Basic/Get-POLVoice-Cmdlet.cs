@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     /// </summary>
     [Cmdlet("Get", "POLVoice")]
     [OutputType("Amazon.Polly.Model.Voice")]
-    [AWSCmdlet("Invokes the DescribeVoices operation against Amazon Polly.", Operation = new[] {"DescribeVoices"})]
+    [AWSCmdlet("Calls the Amazon Polly DescribeVoices API operation.", Operation = new[] {"DescribeVoices"})]
     [AWSCmdletOutput("Amazon.Polly.Model.Voice",
         "This cmdlet returns a collection of Voice objects.",
         "The service call response (type Amazon.Polly.Model.DescribeVoicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VpcAttribute", DefaultParameterSetName = ParamSet_DnsSupport, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the ModifyVpcAttribute against Amazon Elastic Compute Cloud.", Operation = new [] {"ModifyVpcAttribute"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVpcAttribute API operation.", Operation = new[] { "ModifyVpcAttribute" })]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. Only one attribute can be modified per call."
             + "The service response (type Amazon.EC2.Model.ModifyVpcAttributeResponse) is added to the cmdlet entry in the $AWSHistory stack."

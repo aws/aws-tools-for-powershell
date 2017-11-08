@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Get", "WAFChangeTokenStatus")]
     [OutputType("Amazon.WAF.ChangeTokenStatus")]
-    [AWSCmdlet("Invokes the GetChangeTokenStatus operation against AWS WAF.", Operation = new[] {"GetChangeTokenStatus"})]
+    [AWSCmdlet("Calls the AWS WAF GetChangeTokenStatus API operation.", Operation = new[] {"GetChangeTokenStatus"})]
     [AWSCmdletOutput("Amazon.WAF.ChangeTokenStatus",
         "This cmdlet returns a ChangeTokenStatus object.",
         "The service call response (type Amazon.WAF.Model.GetChangeTokenStatusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

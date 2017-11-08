@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("New", "OPSLayer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateLayer operation against AWS OpsWorks.", Operation = new[] {"CreateLayer"})]
+    [AWSCmdlet("Calls the AWS OpsWorks CreateLayer API operation.", Operation = new[] {"CreateLayer"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.CreateLayerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Set", "CSAnalysisScheme", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearch.Model.AnalysisSchemeStatus")]
-    [AWSCmdlet("Invokes the DefineAnalysisScheme operation against Amazon CloudSearch.", Operation = new[] {"DefineAnalysisScheme"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch DefineAnalysisScheme API operation.", Operation = new[] {"DefineAnalysisScheme"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AnalysisSchemeStatus",
         "This cmdlet returns a AnalysisSchemeStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DefineAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

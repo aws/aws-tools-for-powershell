@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRTypedLinkFacetInformation")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetTypedLinkFacetInformation operation against AWS Cloud Directory.", Operation = new[] {"GetTypedLinkFacetInformation"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory GetTypedLinkFacetInformation API operation.", Operation = new[] {"GetTypedLinkFacetInformation"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudDirectory.Model.GetTypedLinkFacetInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

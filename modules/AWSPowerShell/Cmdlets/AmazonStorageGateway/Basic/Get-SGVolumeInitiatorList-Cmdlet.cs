@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGVolumeInitiatorList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListVolumeInitiators operation against AWS Storage Gateway.", Operation = new[] {"ListVolumeInitiators"}, LegacyAlias="Get-SGVolumeInitiators")]
+    [AWSCmdlet("Calls the AWS Storage Gateway ListVolumeInitiators API operation.", Operation = new[] {"ListVolumeInitiators"}, LegacyAlias="Get-SGVolumeInitiators")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.StorageGateway.Model.ListVolumeInitiatorsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

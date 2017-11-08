@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Update", "SESConfigurationSetTrackingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.SimpleEmail.Model.TrackingOptions")]
-    [AWSCmdlet("Invokes the UpdateConfigurationSetTrackingOptions operation against Amazon Simple Email Service.", Operation = new[] {"UpdateConfigurationSetTrackingOptions"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service UpdateConfigurationSetTrackingOptions API operation.", Operation = new[] {"UpdateConfigurationSetTrackingOptions"})]
     [AWSCmdletOutput("None or Amazon.SimpleEmail.Model.TrackingOptions",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TrackingOption parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.UpdateConfigurationSetTrackingOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

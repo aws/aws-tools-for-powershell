@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2VpcClassicLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the EnableVpcClassicLink operation against Amazon Elastic Compute Cloud.", Operation = new[] {"EnableVpcClassicLink"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableVpcClassicLink API operation.", Operation = new[] {"EnableVpcClassicLink"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.EnableVpcClassicLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

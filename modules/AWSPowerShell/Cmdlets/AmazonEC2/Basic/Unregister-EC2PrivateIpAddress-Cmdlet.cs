@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2PrivateIpAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UnassignPrivateIpAddresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"UnassignPrivateIpAddresses"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UnassignPrivateIpAddresses API operation.", Operation = new[] {"UnassignPrivateIpAddresses"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the secondary private IP addresses when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.UnassignPrivateIpAddressesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

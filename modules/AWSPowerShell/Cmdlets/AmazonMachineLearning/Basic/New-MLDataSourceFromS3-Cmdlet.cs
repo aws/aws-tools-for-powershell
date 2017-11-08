@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// </summary>
     [Cmdlet("New", "MLDataSourceFromS3", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateDataSourceFromS3 operation against Amazon Machine Learning.", Operation = new[] {"CreateDataSourceFromS3"})]
+    [AWSCmdlet("Calls the Amazon Machine Learning CreateDataSourceFromS3 API operation.", Operation = new[] {"CreateDataSourceFromS3"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MachineLearning.Model.CreateDataSourceFromS3Response) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

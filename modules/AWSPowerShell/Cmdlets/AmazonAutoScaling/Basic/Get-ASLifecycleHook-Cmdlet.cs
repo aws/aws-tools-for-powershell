@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Get", "ASLifecycleHook")]
     [OutputType("Amazon.AutoScaling.Model.LifecycleHook")]
-    [AWSCmdlet("Invokes the DescribeLifecycleHooks operation against Auto Scaling.", Operation = new[] {"DescribeLifecycleHooks"}, LegacyAlias="Get-ASLifecycleHooks")]
+    [AWSCmdlet("Calls the Auto Scaling DescribeLifecycleHooks API operation.", Operation = new[] {"DescribeLifecycleHooks"}, LegacyAlias="Get-ASLifecycleHooks")]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.LifecycleHook",
         "This cmdlet returns a collection of LifecycleHook objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribeLifecycleHooksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

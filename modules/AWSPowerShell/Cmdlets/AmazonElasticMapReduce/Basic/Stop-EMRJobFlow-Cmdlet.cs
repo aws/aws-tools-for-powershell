@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Stop", "EMRJobFlow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the TerminateJobFlows operation against Amazon Elastic MapReduce.", Operation = new[] {"TerminateJobFlows"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce TerminateJobFlows API operation.", Operation = new[] {"TerminateJobFlows"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobFlowId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.TerminateJobFlowsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

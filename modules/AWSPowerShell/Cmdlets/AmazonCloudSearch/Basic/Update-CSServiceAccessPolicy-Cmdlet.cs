@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Update", "CSServiceAccessPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearch.Model.AccessPoliciesStatus")]
-    [AWSCmdlet("Invokes the UpdateServiceAccessPolicies operation against Amazon CloudSearch.", Operation = new[] {"UpdateServiceAccessPolicies"}, LegacyAlias="Update-CSServiceAccessPolicies")]
+    [AWSCmdlet("Calls the Amazon CloudSearch UpdateServiceAccessPolicies API operation.", Operation = new[] {"UpdateServiceAccessPolicies"}, LegacyAlias="Update-CSServiceAccessPolicies")]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AccessPoliciesStatus",
         "This cmdlet returns a AccessPoliciesStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.UpdateServiceAccessPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

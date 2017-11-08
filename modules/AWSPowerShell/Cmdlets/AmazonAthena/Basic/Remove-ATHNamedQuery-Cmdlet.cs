@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// </summary>
     [Cmdlet("Remove", "ATHNamedQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteNamedQuery operation against Amazon Athena.", Operation = new[] {"DeleteNamedQuery"})]
+    [AWSCmdlet("Calls the Amazon Athena DeleteNamedQuery API operation.", Operation = new[] {"DeleteNamedQuery"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NamedQueryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Athena.Model.DeleteNamedQueryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

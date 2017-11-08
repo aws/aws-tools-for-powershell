@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Set", "IOTThingTypeDeprecation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeprecateThingType operation against AWS IoT.", Operation = new[] {"DeprecateThingType"})]
+    [AWSCmdlet("Calls the AWS IoT DeprecateThingType API operation.", Operation = new[] {"DeprecateThingType"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingTypeName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.DeprecateThingTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </summary>
     [Cmdlet("Write", "CWDashboard", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudWatch.Model.DashboardValidationMessage")]
-    [AWSCmdlet("Invokes the PutDashboard operation against Amazon CloudWatch.", Operation = new[] {"PutDashboard"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch PutDashboard API operation.", Operation = new[] {"PutDashboard"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.DashboardValidationMessage",
         "This cmdlet returns a collection of DashboardValidationMessage objects.",
         "The service call response (type Amazon.CloudWatch.Model.PutDashboardResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

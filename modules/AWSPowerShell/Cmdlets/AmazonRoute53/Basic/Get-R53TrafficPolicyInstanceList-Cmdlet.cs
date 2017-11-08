@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53TrafficPolicyInstanceList")]
     [OutputType("Amazon.Route53.Model.ListTrafficPolicyInstancesResponse")]
-    [AWSCmdlet("Invokes the ListTrafficPolicyInstances operation against Amazon Route 53.", Operation = new[] {"ListTrafficPolicyInstances"}, LegacyAlias="Get-R53TrafficPolicyInstances")]
+    [AWSCmdlet("Calls the Amazon Route 53 ListTrafficPolicyInstances API operation.", Operation = new[] {"ListTrafficPolicyInstances"}, LegacyAlias="Get-R53TrafficPolicyInstances")]
     [AWSCmdletOutput("Amazon.Route53.Model.ListTrafficPolicyInstancesResponse",
         "This cmdlet returns a Amazon.Route53.Model.ListTrafficPolicyInstancesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

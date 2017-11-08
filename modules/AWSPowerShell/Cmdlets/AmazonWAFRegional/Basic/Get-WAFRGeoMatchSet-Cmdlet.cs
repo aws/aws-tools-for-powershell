@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRGeoMatchSet")]
     [OutputType("Amazon.WAFRegional.Model.GeoMatchSet")]
-    [AWSCmdlet("Invokes the GetGeoMatchSet operation against AWS WAF Regional.", Operation = new[] {"GetGeoMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF Regional GetGeoMatchSet API operation.", Operation = new[] {"GetGeoMatchSet"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.GeoMatchSet",
         "This cmdlet returns a GeoMatchSet object.",
         "The service call response (type Amazon.WAFRegional.Model.GetGeoMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

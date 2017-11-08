@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("New", "HSMLunaClient", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateLunaClient operation against AWS Cloud HSM.", Operation = new[] {"CreateLunaClient"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM CreateLunaClient API operation.", Operation = new[] {"CreateLunaClient"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudHSM.Model.CreateLunaClientResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

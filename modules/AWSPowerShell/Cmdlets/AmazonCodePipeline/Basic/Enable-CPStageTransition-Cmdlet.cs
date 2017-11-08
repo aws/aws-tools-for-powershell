@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Enable", "CPStageTransition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the EnableStageTransition operation against AWS CodePipeline.", Operation = new[] {"EnableStageTransition"})]
+    [AWSCmdlet("Calls the AWS CodePipeline EnableStageTransition API operation.", Operation = new[] {"EnableStageTransition"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodePipeline.Model.EnableStageTransitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

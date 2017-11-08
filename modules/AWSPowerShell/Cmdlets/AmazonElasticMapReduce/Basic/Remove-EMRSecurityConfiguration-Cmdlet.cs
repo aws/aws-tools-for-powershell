@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Remove", "EMRSecurityConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteSecurityConfiguration operation against Amazon Elastic MapReduce.", Operation = new[] {"DeleteSecurityConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce DeleteSecurityConfiguration API operation.", Operation = new[] {"DeleteSecurityConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.DeleteSecurityConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

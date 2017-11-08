@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("New", "WAFRByteMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFRegional.Model.CreateByteMatchSetResponse")]
-    [AWSCmdlet("Invokes the CreateByteMatchSet operation against AWS WAF Regional.", Operation = new[] {"CreateByteMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF Regional CreateByteMatchSet API operation.", Operation = new[] {"CreateByteMatchSet"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateByteMatchSetResponse",
         "This cmdlet returns a Amazon.WAFRegional.Model.CreateByteMatchSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

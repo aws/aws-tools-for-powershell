@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Write", "LMBSlotType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.LexModelBuildingService.Model.PutSlotTypeResponse")]
-    [AWSCmdlet("Invokes the PutSlotType operation against Amazon Lex Model Building Service.", Operation = new[] {"PutSlotType"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service PutSlotType API operation.", Operation = new[] {"PutSlotType"})]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.PutSlotTypeResponse",
         "This cmdlet returns a Amazon.LexModelBuildingService.Model.PutSlotTypeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

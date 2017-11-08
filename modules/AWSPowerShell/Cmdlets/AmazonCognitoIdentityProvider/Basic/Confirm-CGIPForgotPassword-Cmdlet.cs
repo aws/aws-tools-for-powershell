@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Confirm", "CGIPForgotPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the ConfirmForgotPassword operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ConfirmForgotPassword"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ConfirmForgotPassword API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"ConfirmForgotPassword"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.ConfirmForgotPasswordResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

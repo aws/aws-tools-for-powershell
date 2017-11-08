@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Set", "EC2NetworkAclEntry", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ReplaceNetworkAclEntry operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ReplaceNetworkAclEntry"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ReplaceNetworkAclEntry API operation.", Operation = new[] {"ReplaceNetworkAclEntry"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the NetworkAclId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.ReplaceNetworkAclEntryResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

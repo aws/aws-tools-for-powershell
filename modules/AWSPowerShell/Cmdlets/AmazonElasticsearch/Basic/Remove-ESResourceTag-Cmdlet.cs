@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Remove", "ESResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTags operation against Amazon Elasticsearch.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-ESTag")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch RemoveTags API operation.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-ESTag")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagKey parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Elasticsearch.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

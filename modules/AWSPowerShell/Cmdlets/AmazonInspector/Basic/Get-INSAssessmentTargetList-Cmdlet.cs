@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Get", "INSAssessmentTargetList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListAssessmentTargets operation against Amazon Inspector.", Operation = new[] {"ListAssessmentTargets"})]
+    [AWSCmdlet("Calls the Amazon Inspector ListAssessmentTargets API operation.", Operation = new[] {"ListAssessmentTargets"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Inspector.Model.ListAssessmentTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

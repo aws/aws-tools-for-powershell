@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSResourceTag")]
     [OutputType("Amazon.DirectoryService.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Directory Service.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the AWS Directory Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.DirectoryService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

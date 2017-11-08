@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSOrderableDBInstanceOption")]
     [OutputType("Amazon.RDS.Model.OrderableDBInstanceOption")]
-    [AWSCmdlet("Invokes the DescribeOrderableDBInstanceOptions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeOrderableDBInstanceOptions"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeOrderableDBInstanceOptions API operation.", Operation = new[] {"DescribeOrderableDBInstanceOptions"})]
     [AWSCmdletOutput("Amazon.RDS.Model.OrderableDBInstanceOption",
         "This cmdlet returns a collection of OrderableDBInstanceOption objects.",
         "The service call response (type Amazon.RDS.Model.DescribeOrderableDBInstanceOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

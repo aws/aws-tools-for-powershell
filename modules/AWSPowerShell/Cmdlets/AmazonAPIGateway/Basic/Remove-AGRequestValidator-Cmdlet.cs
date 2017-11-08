@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Remove", "AGRequestValidator", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteRequestValidator operation against Amazon API Gateway.", Operation = new[] {"DeleteRequestValidator"})]
+    [AWSCmdlet("Calls the Amazon API Gateway DeleteRequestValidator API operation.", Operation = new[] {"DeleteRequestValidator"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RequestValidatorId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.DeleteRequestValidatorResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

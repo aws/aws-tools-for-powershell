@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.MM
     /// </summary>
     [Cmdlet("Get", "MMCustomerMetadata")]
     [OutputType("Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse")]
-    [AWSCmdlet("Invokes the ResolveCustomer operation against AWS Marketplace Metering.", Operation = new[] {"ResolveCustomer"})]
+    [AWSCmdlet("Calls the AWS Marketplace Metering ResolveCustomer API operation.", Operation = new[] {"ResolveCustomer"})]
     [AWSCmdletOutput("Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse",
         "This cmdlet returns a Amazon.AWSMarketplaceMetering.Model.ResolveCustomerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

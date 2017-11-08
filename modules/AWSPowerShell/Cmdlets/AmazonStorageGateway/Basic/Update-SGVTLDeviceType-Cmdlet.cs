@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Update", "SGVTLDeviceType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UpdateVTLDeviceType operation against AWS Storage Gateway.", Operation = new[] {"UpdateVTLDeviceType"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway UpdateVTLDeviceType API operation.", Operation = new[] {"UpdateVTLDeviceType"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.StorageGateway.Model.UpdateVTLDeviceTypeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

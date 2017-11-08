@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Enable", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the EnableTopicRule operation against AWS IoT.", Operation = new[] {"EnableTopicRule"})]
+    [AWSCmdlet("Calls the AWS IoT EnableTopicRule API operation.", Operation = new[] {"EnableTopicRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.EnableTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

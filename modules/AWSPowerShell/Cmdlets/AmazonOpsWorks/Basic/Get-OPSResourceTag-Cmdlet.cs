@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListTags operation against AWS OpsWorks.", Operation = new[] {"ListTags"})]
+    [AWSCmdlet("Calls the AWS OpsWorks ListTags API operation.", Operation = new[] {"ListTags"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.OpsWorks.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

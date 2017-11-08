@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Get", "APSDirectoryConfigList")]
     [OutputType("Amazon.AppStream.Model.DirectoryConfig")]
-    [AWSCmdlet("Invokes the DescribeDirectoryConfigs operation against AWS AppStream.", Operation = new[] {"DescribeDirectoryConfigs"})]
+    [AWSCmdlet("Calls the AWS AppStream DescribeDirectoryConfigs API operation.", Operation = new[] {"DescribeDirectoryConfigs"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.DirectoryConfig",
         "This cmdlet returns a collection of DirectoryConfig objects.",
         "The service call response (type Amazon.AppStream.Model.DescribeDirectoryConfigsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

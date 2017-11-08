@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2TargetGroup")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetGroup")]
-    [AWSCmdlet("Invokes the DescribeTargetGroups operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeTargetGroups"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeTargetGroups API operation.", Operation = new[] {"DescribeTargetGroups"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TargetGroup",
         "This cmdlet returns a collection of TargetGroup objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTargetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

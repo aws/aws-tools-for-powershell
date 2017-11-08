@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// </summary>
     [Cmdlet("New", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeBuild.Model.Webhook")]
-    [AWSCmdlet("Invokes the CreateWebhook operation against AWS CodeBuild.", Operation = new[] {"CreateWebhook"})]
+    [AWSCmdlet("Calls the AWS CodeBuild CreateWebhook API operation.", Operation = new[] {"CreateWebhook"})]
     [AWSCmdletOutput("Amazon.CodeBuild.Model.Webhook",
         "This cmdlet returns a Webhook object.",
         "The service call response (type Amazon.CodeBuild.Model.CreateWebhookResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

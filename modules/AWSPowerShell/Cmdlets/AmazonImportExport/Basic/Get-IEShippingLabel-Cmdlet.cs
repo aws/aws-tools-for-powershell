@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// </summary>
     [Cmdlet("Get", "IEShippingLabel")]
     [OutputType("Amazon.ImportExport.Model.GetShippingLabelResponse")]
-    [AWSCmdlet("Invokes the GetShippingLabel operation against AWS Import/Export.", Operation = new[] {"GetShippingLabel"})]
+    [AWSCmdlet("Calls the AWS Import/Export GetShippingLabel API operation.", Operation = new[] {"GetShippingLabel"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.GetShippingLabelResponse",
         "This cmdlet returns a Amazon.ImportExport.Model.GetShippingLabelResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

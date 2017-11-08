@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Get", "ADSConfiguration")]
     [OutputType("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
-    [AWSCmdlet("Invokes the DescribeConfigurations operation against Application Discovery Service.", Operation = new[] {"DescribeConfigurations"})]
+    [AWSCmdlet("Calls the Application Discovery Service DescribeConfigurations API operation.", Operation = new[] {"DescribeConfigurations"})]
     [AWSCmdletOutput("System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "This cmdlet returns a collection of Dictionary`2 objects.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.DescribeConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

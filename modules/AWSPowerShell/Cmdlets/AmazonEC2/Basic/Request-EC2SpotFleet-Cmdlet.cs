@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Request", "EC2SpotFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the RequestSpotFleet operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RequestSpotFleet"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RequestSpotFleet API operation.", Operation = new[] {"RequestSpotFleet"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.EC2.Model.RequestSpotFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

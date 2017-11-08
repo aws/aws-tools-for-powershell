@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Disable", "KINEnhancedMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse")]
-    [AWSCmdlet("Invokes the DisableEnhancedMonitoring operation against Amazon Kinesis.", Operation = new[] {"DisableEnhancedMonitoring"})]
+    [AWSCmdlet("Calls the Amazon Kinesis DisableEnhancedMonitoring API operation.", Operation = new[] {"DisableEnhancedMonitoring"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.DisableEnhancedMonitoringResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

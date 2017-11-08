@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Remove", "ECSAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.Attribute")]
-    [AWSCmdlet("Invokes the DeleteAttributes operation against Amazon EC2 Container Service.", Operation = new[] {"DeleteAttributes"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DeleteAttributes API operation.", Operation = new[] {"DeleteAttributes"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Attribute",
         "This cmdlet returns a collection of Attribute objects.",
         "The service call response (type Amazon.ECS.Model.DeleteAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

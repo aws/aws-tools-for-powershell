@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
     /// </summary>
     [Cmdlet("Remove", "KINFDeliveryStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDeliveryStream operation against Amazon Kinesis Firehose.", Operation = new[] {"DeleteDeliveryStream"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Firehose DeleteDeliveryStream API operation.", Operation = new[] {"DeleteDeliveryStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeliveryStreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisFirehose.Model.DeleteDeliveryStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

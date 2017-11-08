@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("New", "LSInstancesFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Invokes the CreateInstancesFromSnapshot operation against Amazon Lightsail.", Operation = new[] {"CreateInstancesFromSnapshot"})]
+    [AWSCmdlet("Calls the Amazon Lightsail CreateInstancesFromSnapshot API operation.", Operation = new[] {"CreateInstancesFromSnapshot"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a collection of Operation objects.",
         "The service call response (type Amazon.Lightsail.Model.CreateInstancesFromSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Stop", "ASInstanceInAutoScalingGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AutoScaling.Model.Activity")]
-    [AWSCmdlet("Invokes the TerminateInstanceInAutoScalingGroup operation against Auto Scaling.", Operation = new[] {"TerminateInstanceInAutoScalingGroup"})]
+    [AWSCmdlet("Calls the Auto Scaling TerminateInstanceInAutoScalingGroup API operation.", Operation = new[] {"TerminateInstanceInAutoScalingGroup"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a Activity object.",
         "The service call response (type Amazon.AutoScaling.Model.TerminateInstanceInAutoScalingGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

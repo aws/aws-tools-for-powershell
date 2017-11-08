@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// </summary>
     [Cmdlet("New", "ATHNamedQuery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateNamedQuery operation against Amazon Athena.", Operation = new[] {"CreateNamedQuery"})]
+    [AWSCmdlet("Calls the Amazon Athena CreateNamedQuery API operation.", Operation = new[] {"CreateNamedQuery"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Athena.Model.CreateNamedQueryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSEventSubscription")]
     [OutputType("Amazon.DatabaseMigrationService.Model.EventSubscription")]
-    [AWSCmdlet("Invokes the DescribeEventSubscriptions operation against AWS Database Migration Service.", Operation = new[] {"DescribeEventSubscriptions"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeEventSubscriptions API operation.", Operation = new[] {"DescribeEventSubscriptions"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.EventSubscription",
         "This cmdlet returns a collection of EventSubscription objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeEventSubscriptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Enable", "SNSPhoneNumber", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the OptInPhoneNumber operation against Amazon Simple Notification Service.", Operation = new[] {"OptInPhoneNumber"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service OptInPhoneNumber API operation.", Operation = new[] {"OptInPhoneNumber"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PhoneNumber parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.OptInPhoneNumberResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

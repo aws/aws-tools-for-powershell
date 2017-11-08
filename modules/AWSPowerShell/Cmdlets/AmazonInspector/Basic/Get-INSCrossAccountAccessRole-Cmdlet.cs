@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Get", "INSCrossAccountAccessRole")]
     [OutputType("Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse")]
-    [AWSCmdlet("Invokes the DescribeCrossAccountAccessRole operation against Amazon Inspector.", Operation = new[] {"DescribeCrossAccountAccessRole"})]
+    [AWSCmdlet("Calls the Amazon Inspector DescribeCrossAccountAccessRole API operation.", Operation = new[] {"DescribeCrossAccountAccessRole"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse",
         "This cmdlet returns a Amazon.Inspector.Model.DescribeCrossAccountAccessRoleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

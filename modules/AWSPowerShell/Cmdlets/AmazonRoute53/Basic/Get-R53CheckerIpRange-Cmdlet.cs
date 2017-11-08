@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Get", "R53CheckerIpRange")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetCheckerIpRanges operation against Amazon Route 53.", Operation = new[] {"GetCheckerIpRanges"}, LegacyAlias="Get-R53CheckerIpRanges")]
+    [AWSCmdlet("Calls the Amazon Route 53 GetCheckerIpRanges API operation.", Operation = new[] {"GetCheckerIpRanges"}, LegacyAlias="Get-R53CheckerIpRanges")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Route53.Model.GetCheckerIpRangesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

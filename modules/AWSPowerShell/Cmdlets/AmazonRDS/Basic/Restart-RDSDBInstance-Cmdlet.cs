@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Restart", "RDSDBInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
-    [AWSCmdlet("Invokes the RebootDBInstance operation against Amazon Relational Database Service.", Operation = new[] {"RebootDBInstance"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service RebootDBInstance API operation.", Operation = new[] {"RebootDBInstance"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
         "The service call response (type Amazon.RDS.Model.RebootDBInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

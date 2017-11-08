@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Get", "SQSDeadLetterSourceQueue")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListDeadLetterSourceQueues operation against Amazon Simple Queue Service.", Operation = new[] {"ListDeadLetterSourceQueues"}, LegacyAlias="Get-SQSDeadLetterSourceQueues")]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service ListDeadLetterSourceQueues API operation.", Operation = new[] {"ListDeadLetterSourceQueues"}, LegacyAlias="Get-SQSDeadLetterSourceQueues")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SQS.Model.ListDeadLetterSourceQueuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Get", "CCBranch")]
     [OutputType("Amazon.CodeCommit.Model.BranchInfo")]
-    [AWSCmdlet("Invokes the GetBranch operation against AWS CodeCommit.", Operation = new[] {"GetBranch"})]
+    [AWSCmdlet("Calls the AWS CodeCommit GetBranch API operation.", Operation = new[] {"GetBranch"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BranchInfo",
         "This cmdlet returns a BranchInfo object.",
         "The service call response (type Amazon.CodeCommit.Model.GetBranchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

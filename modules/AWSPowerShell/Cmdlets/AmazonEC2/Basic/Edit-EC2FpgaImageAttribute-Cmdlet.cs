@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2FpgaImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.FpgaImageAttribute")]
-    [AWSCmdlet("Invokes the ModifyFpgaImageAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyFpgaImageAttribute"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyFpgaImageAttribute API operation.", Operation = new[] {"ModifyFpgaImageAttribute"})]
     [AWSCmdletOutput("Amazon.EC2.Model.FpgaImageAttribute",
         "This cmdlet returns a FpgaImageAttribute object.",
         "The service call response (type Amazon.EC2.Model.ModifyFpgaImageAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

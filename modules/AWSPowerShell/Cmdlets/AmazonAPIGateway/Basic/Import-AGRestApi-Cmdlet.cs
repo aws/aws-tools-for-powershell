@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Import", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.ImportRestApiResponse")]
-    [AWSCmdlet("Invokes the ImportRestApi operation against Amazon API Gateway.", Operation = new[] {"ImportRestApi"})]
+    [AWSCmdlet("Calls the Amazon API Gateway ImportRestApi API operation.", Operation = new[] {"ImportRestApi"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.ImportRestApiResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.ImportRestApiResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ElasticGpu")]
     [OutputType("Amazon.EC2.Model.ElasticGpus")]
-    [AWSCmdlet("Invokes the DescribeElasticGpus operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeElasticGpus"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeElasticGpus API operation.", Operation = new[] {"DescribeElasticGpus"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ElasticGpus",
         "This cmdlet returns a collection of ElasticGpus objects.",
         "The service call response (type Amazon.EC2.Model.DescribeElasticGpusResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

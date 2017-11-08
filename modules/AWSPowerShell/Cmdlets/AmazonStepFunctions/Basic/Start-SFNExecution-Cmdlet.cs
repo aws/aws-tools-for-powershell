@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Start", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.StartExecutionResponse")]
-    [AWSCmdlet("Invokes the StartExecution operation against Amazon Step Functions.", Operation = new[] {"StartExecution"})]
+    [AWSCmdlet("Calls the Amazon Step Functions StartExecution API operation.", Operation = new[] {"StartExecution"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.StartExecutionResponse",
         "This cmdlet returns a Amazon.StepFunctions.Model.StartExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

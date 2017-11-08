@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Copy", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CopyProduct operation against AWS Service Catalog.", Operation = new[] {"CopyProduct"})]
+    [AWSCmdlet("Calls the AWS Service Catalog CopyProduct API operation.", Operation = new[] {"CopyProduct"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ServiceCatalog.Model.CopyProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

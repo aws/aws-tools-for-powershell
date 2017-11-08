@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Remove", "R53TrafficPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTrafficPolicy operation against Amazon Route 53.", Operation = new[] {"DeleteTrafficPolicy"})]
+    [AWSCmdlet("Calls the Amazon Route 53 DeleteTrafficPolicy API operation.", Operation = new[] {"DeleteTrafficPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Route53.Model.DeleteTrafficPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

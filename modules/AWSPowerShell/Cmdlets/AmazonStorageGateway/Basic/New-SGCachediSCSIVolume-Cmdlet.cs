@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("New", "SGCachediSCSIVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse")]
-    [AWSCmdlet("Invokes the CreateCachediSCSIVolume operation against AWS Storage Gateway.", Operation = new[] {"CreateCachediSCSIVolume"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway CreateCachediSCSIVolume API operation.", Operation = new[] {"CreateCachediSCSIVolume"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.CreateCachediSCSIVolumeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

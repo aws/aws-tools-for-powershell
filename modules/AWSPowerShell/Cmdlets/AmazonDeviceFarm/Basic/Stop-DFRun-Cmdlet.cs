@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Stop", "DFRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.Run")]
-    [AWSCmdlet("Invokes the StopRun operation against AWS Device Farm.", Operation = new[] {"StopRun"})]
+    [AWSCmdlet("Calls the AWS Device Farm StopRun API operation.", Operation = new[] {"StopRun"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Run",
         "This cmdlet returns a Run object.",
         "The service call response (type Amazon.DeviceFarm.Model.StopRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

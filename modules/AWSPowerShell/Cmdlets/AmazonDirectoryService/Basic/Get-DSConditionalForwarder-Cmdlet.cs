@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSConditionalForwarder")]
     [OutputType("Amazon.DirectoryService.Model.ConditionalForwarder")]
-    [AWSCmdlet("Invokes the DescribeConditionalForwarders operation against AWS Directory Service.", Operation = new[] {"DescribeConditionalForwarders"})]
+    [AWSCmdlet("Calls the AWS Directory Service DescribeConditionalForwarders API operation.", Operation = new[] {"DescribeConditionalForwarders"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.ConditionalForwarder",
         "This cmdlet returns a collection of ConditionalForwarder objects.",
         "The service call response (type Amazon.DirectoryService.Model.DescribeConditionalForwardersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

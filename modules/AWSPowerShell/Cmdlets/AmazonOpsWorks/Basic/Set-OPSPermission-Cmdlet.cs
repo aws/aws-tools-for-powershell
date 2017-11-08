@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Set", "OPSPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetPermission operation against AWS OpsWorks.", Operation = new[] {"SetPermission"})]
+    [AWSCmdlet("Calls the AWS OpsWorks SetPermission API operation.", Operation = new[] {"SetPermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.SetPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

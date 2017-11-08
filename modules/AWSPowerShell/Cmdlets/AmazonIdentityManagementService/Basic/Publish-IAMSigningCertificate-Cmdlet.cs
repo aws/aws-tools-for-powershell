@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Publish", "IAMSigningCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.SigningCertificate")]
-    [AWSCmdlet("Invokes the UploadSigningCertificate operation against AWS Identity and Access Management.", Operation = new[] {"UploadSigningCertificate"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UploadSigningCertificate API operation.", Operation = new[] {"UploadSigningCertificate"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SigningCertificate",
         "This cmdlet returns a SigningCertificate object.",
         "The service call response (type Amazon.IdentityManagement.Model.UploadSigningCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

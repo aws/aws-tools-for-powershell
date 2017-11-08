@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Stop", "WDDocumentVersionUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AbortDocumentVersionUpload operation against Amazon WorkDocs.", Operation = new[] {"AbortDocumentVersionUpload"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs AbortDocumentVersionUpload API operation.", Operation = new[] {"AbortDocumentVersionUpload"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DocumentId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.AbortDocumentVersionUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

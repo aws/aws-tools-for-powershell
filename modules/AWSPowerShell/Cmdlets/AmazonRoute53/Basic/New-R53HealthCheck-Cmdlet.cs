@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("New", "R53HealthCheck")]
     [OutputType("Amazon.Route53.Model.CreateHealthCheckResponse")]
-    [AWSCmdlet("Invokes the CreateHealthCheck operation against Amazon Route 53.", Operation = new[] {"CreateHealthCheck"})]
+    [AWSCmdlet("Calls the Amazon Route 53 CreateHealthCheck API operation.", Operation = new[] {"CreateHealthCheck"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateHealthCheckResponse",
         "This cmdlet returns a Amazon.Route53.Model.CreateHealthCheckResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

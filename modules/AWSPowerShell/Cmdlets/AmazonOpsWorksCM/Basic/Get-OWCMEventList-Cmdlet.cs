@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Get", "OWCMEventList")]
     [OutputType("Amazon.OpsWorksCM.Model.ServerEvent")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against AWS OpsWorksCM.", Operation = new[] {"DescribeEvents"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DescribeEvents API operation.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.ServerEvent",
         "This cmdlet returns a collection of ServerEvent objects.",
         "The service call response (type Amazon.OpsWorksCM.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

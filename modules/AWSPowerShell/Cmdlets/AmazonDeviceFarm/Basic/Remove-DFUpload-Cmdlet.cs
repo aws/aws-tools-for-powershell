@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Remove", "DFUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteUpload operation against AWS Device Farm.", Operation = new[] {"DeleteUpload"})]
+    [AWSCmdlet("Calls the AWS Device Farm DeleteUpload API operation.", Operation = new[] {"DeleteUpload"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Arn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DeviceFarm.Model.DeleteUploadResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

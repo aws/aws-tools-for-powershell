@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </summary>
     [Cmdlet("Get", "ASATrustedAdvisorCheckResult")]
     [OutputType("Amazon.AWSSupport.Model.TrustedAdvisorCheckResult")]
-    [AWSCmdlet("Invokes the DescribeTrustedAdvisorCheckResult operation against AWS Support API.", Operation = new[] {"DescribeTrustedAdvisorCheckResult"})]
+    [AWSCmdlet("Calls the AWS Support API DescribeTrustedAdvisorCheckResult API operation.", Operation = new[] {"DescribeTrustedAdvisorCheckResult"})]
     [AWSCmdletOutput("Amazon.AWSSupport.Model.TrustedAdvisorCheckResult",
         "This cmdlet returns a TrustedAdvisorCheckResult object.",
         "The service call response (type Amazon.AWSSupport.Model.DescribeTrustedAdvisorCheckResultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

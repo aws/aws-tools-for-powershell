@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateAccessKey operation against AWS Identity and Access Management.", Operation = new[] {"UpdateAccessKey"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateAccessKey API operation.", Operation = new[] {"UpdateAccessKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateAccessKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

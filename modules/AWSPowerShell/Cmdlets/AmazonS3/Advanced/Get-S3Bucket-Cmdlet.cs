@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3Bucket")]
     [OutputType("Amazon.S3.Model.S3Bucket")]
-    [AWSCmdlet("Invokes the ListBuckets operation against Amazon S3.", Operation = new [] {"ListBuckets"})]
+    [AWSCmdlet("Lists your Amazon S3 buckets.", Operation = new [] {"ListBuckets"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Bucket", 
                      "The cmdlet returns 0 or more Amazon.S3.Model.S3Bucket instances.",
                      "The service response (type Amazon.S3.Model.ListBucketsResponse) is added to the cmdlet entry in the $AWSHistory stack."

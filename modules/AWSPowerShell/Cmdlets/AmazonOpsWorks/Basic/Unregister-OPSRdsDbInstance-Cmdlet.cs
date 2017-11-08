@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Unregister", "OPSRdsDbInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterRdsDbInstance operation against AWS OpsWorks.", Operation = new[] {"DeregisterRdsDbInstance"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DeregisterRdsDbInstance API operation.", Operation = new[] {"DeregisterRdsDbInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RdsDbInstanceArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeregisterRdsDbInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Stop", "GMLMatchmaking", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopMatchmaking operation against Amazon GameLift Service.", Operation = new[] {"StopMatchmaking"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service StopMatchmaking API operation.", Operation = new[] {"StopMatchmaking"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TicketId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.GameLift.Model.StopMatchmakingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

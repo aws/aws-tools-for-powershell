@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Remove", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTrail operation against AWS CloudTrail.", Operation = new[] {"DeleteTrail"})]
+    [AWSCmdlet("Calls the AWS CloudTrail DeleteTrail API operation.", Operation = new[] {"DeleteTrail"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudTrail.Model.DeleteTrailResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

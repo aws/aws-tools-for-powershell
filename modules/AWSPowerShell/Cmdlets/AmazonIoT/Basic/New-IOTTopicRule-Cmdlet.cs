@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("New", "IOTTopicRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the CreateTopicRule operation against AWS IoT.", Operation = new[] {"CreateTopicRule"})]
+    [AWSCmdlet("Calls the AWS IoT CreateTopicRule API operation.", Operation = new[] {"CreateTopicRule"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IoT.Model.CreateTopicRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

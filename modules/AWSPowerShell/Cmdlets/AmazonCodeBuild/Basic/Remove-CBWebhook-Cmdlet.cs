@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// </summary>
     [Cmdlet("Remove", "CBWebhook", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteWebhook operation against AWS CodeBuild.", Operation = new[] {"DeleteWebhook"})]
+    [AWSCmdlet("Calls the AWS CodeBuild DeleteWebhook API operation.", Operation = new[] {"DeleteWebhook"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProjectName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeBuild.Model.DeleteWebhookResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

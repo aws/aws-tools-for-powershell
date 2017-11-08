@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Add", "SQSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the TagQueue operation against Amazon Simple Queue Service.", Operation = new[] {"TagQueue"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service TagQueue API operation.", Operation = new[] {"TagQueue"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.TagQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

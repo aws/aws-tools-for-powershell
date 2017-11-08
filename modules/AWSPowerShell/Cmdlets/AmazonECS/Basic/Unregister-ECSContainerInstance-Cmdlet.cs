@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Unregister", "ECSContainerInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.ContainerInstance")]
-    [AWSCmdlet("Invokes the DeregisterContainerInstance operation against Amazon EC2 Container Service.", Operation = new[] {"DeregisterContainerInstance"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DeregisterContainerInstance API operation.", Operation = new[] {"DeregisterContainerInstance"})]
     [AWSCmdletOutput("Amazon.ECS.Model.ContainerInstance",
         "This cmdlet returns a ContainerInstance object.",
         "The service call response (type Amazon.ECS.Model.DeregisterContainerInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

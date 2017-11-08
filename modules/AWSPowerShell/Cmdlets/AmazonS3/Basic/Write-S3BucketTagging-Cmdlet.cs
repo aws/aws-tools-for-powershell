@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Write", "S3BucketTagging", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.S3.Model.Tag")]
-    [AWSCmdlet("Invokes the PutBucketTagging operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketTagging"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service PutBucketTagging API operation.", Operation = new[] {"PutBucketTagging"})]
     [AWSCmdletOutput("None or Amazon.S3.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.S3.Model.PutBucketTaggingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

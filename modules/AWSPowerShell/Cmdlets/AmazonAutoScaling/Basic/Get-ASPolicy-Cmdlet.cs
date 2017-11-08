@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Get", "ASPolicy")]
     [OutputType("Amazon.AutoScaling.Model.ScalingPolicy")]
-    [AWSCmdlet("Invokes the DescribePolicies operation against Auto Scaling.", Operation = new[] {"DescribePolicies"})]
+    [AWSCmdlet("Calls the Auto Scaling DescribePolicies API operation.", Operation = new[] {"DescribePolicies"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.ScalingPolicy",
         "This cmdlet returns a collection of ScalingPolicy objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribePoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

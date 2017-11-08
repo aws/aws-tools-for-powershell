@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Send", "MTRTestEventNotification")]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the SendTestEventNotification operation against Amazon MTurk Service.", Operation = new[] {"SendTestEventNotification"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service SendTestEventNotification API operation.", Operation = new[] {"SendTestEventNotification"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.MTurk.Model.SendTestEventNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

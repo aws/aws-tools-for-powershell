@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Write", "KINMultipleRecord", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kinesis.Model.PutRecordsResponse")]
-    [AWSCmdlet("Invokes the PutRecords operation against Amazon Kinesis.", Operation = new[] {"PutRecords"})]
+    [AWSCmdlet("Calls the Amazon Kinesis PutRecords API operation.", Operation = new[] {"PutRecords"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.PutRecordsResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.PutRecordsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

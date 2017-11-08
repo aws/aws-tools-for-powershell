@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Remove", "IOTRegistrationCode")]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteRegistrationCode operation against AWS IoT.", Operation = new[] {"DeleteRegistrationCode"})]
+    [AWSCmdlet("Calls the AWS IoT DeleteRegistrationCode API operation.", Operation = new[] {"DeleteRegistrationCode"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IoT.Model.DeleteRegistrationCodeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

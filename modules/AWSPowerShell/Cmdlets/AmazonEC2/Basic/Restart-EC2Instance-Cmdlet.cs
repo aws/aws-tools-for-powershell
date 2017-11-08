@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Restart", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RebootInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RebootInstances"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RebootInstances API operation.", Operation = new[] {"RebootInstances"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.RebootInstancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

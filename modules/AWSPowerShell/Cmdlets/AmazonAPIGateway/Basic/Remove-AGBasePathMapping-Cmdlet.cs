@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Remove", "AGBasePathMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteBasePathMapping operation against Amazon API Gateway.", Operation = new[] {"DeleteBasePathMapping"})]
+    [AWSCmdlet("Calls the Amazon API Gateway DeleteBasePathMapping API operation.", Operation = new[] {"DeleteBasePathMapping"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.APIGateway.Model.DeleteBasePathMappingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

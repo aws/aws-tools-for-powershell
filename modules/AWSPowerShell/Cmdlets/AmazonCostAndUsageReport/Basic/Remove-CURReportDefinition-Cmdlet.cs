@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     /// </summary>
     [Cmdlet("Remove", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteReportDefinition operation against AWS Cost and Usage Report.", Operation = new[] {"DeleteReportDefinition"})]
+    [AWSCmdlet("Calls the AWS Cost and Usage Report DeleteReportDefinition API operation.", Operation = new[] {"DeleteReportDefinition"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CostAndUsageReport.Model.DeleteReportDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

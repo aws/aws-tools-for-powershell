@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESResourceTag")]
     [OutputType("Amazon.Elasticsearch.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTags operation against Amazon Elasticsearch.", Operation = new[] {"ListTags"}, LegacyAlias="Get-ESTag")]
+    [AWSCmdlet("Calls the Amazon Elasticsearch ListTags API operation.", Operation = new[] {"ListTags"}, LegacyAlias="Get-ESTag")]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.Elasticsearch.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

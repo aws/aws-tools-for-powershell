@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ScheduledInstance")]
     [OutputType("Amazon.EC2.Model.ScheduledInstance")]
-    [AWSCmdlet("Invokes the DescribeScheduledInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeScheduledInstances"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeScheduledInstances API operation.", Operation = new[] {"DescribeScheduledInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ScheduledInstance",
         "This cmdlet returns a collection of ScheduledInstance objects.",
         "The service call response (type Amazon.EC2.Model.DescribeScheduledInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Register", "WAFRWebACL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociateWebACL operation against AWS WAF Regional.", Operation = new[] {"AssociateWebACL"})]
+    [AWSCmdlet("Calls the AWS WAF Regional AssociateWebACL API operation.", Operation = new[] {"AssociateWebACL"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the WebACLId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WAFRegional.Model.AssociateWebACLResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

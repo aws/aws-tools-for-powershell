@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Remove", "PINEventStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Pinpoint.Model.EventStream")]
-    [AWSCmdlet("Invokes the DeleteEventStream operation against Amazon Pinpoint.", Operation = new[] {"DeleteEventStream"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint DeleteEventStream API operation.", Operation = new[] {"DeleteEventStream"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.EventStream",
         "This cmdlet returns a EventStream object.",
         "The service call response (type Amazon.Pinpoint.Model.DeleteEventStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     /// </summary>
     [Cmdlet("Get", "CURReportDefinition")]
     [OutputType("Amazon.CostAndUsageReport.Model.ReportDefinition")]
-    [AWSCmdlet("Invokes the DescribeReportDefinitions operation against AWS Cost and Usage Report.", Operation = new[] {"DescribeReportDefinitions"}, LegacyAlias="Get-CURReportDefinitions")]
+    [AWSCmdlet("Calls the AWS Cost and Usage Report DescribeReportDefinitions API operation.", Operation = new[] {"DescribeReportDefinitions"}, LegacyAlias="Get-CURReportDefinitions")]
     [AWSCmdletOutput("Amazon.CostAndUsageReport.Model.ReportDefinition",
         "This cmdlet returns a collection of ReportDefinition objects.",
         "The service call response (type Amazon.CostAndUsageReport.Model.DescribeReportDefinitionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

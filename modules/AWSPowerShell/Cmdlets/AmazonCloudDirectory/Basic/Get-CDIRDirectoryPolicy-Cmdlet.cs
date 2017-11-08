@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRDirectoryPolicy")]
     [OutputType("Amazon.CloudDirectory.Model.PolicyToPath")]
-    [AWSCmdlet("Invokes the LookupPolicy operation against AWS Cloud Directory.", Operation = new[] {"LookupPolicy"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory LookupPolicy API operation.", Operation = new[] {"LookupPolicy"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.PolicyToPath",
         "This cmdlet returns a collection of PolicyToPath objects.",
         "The service call response (type Amazon.CloudDirectory.Model.LookupPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

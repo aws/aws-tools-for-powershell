@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Move", "EC2AddressToVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.MoveAddressToVpcResponse")]
-    [AWSCmdlet("Invokes the MoveAddressToVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"MoveAddressToVpc"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud MoveAddressToVpc API operation.", Operation = new[] {"MoveAddressToVpc"})]
     [AWSCmdletOutput("Amazon.EC2.Model.MoveAddressToVpcResponse",
         "This cmdlet returns a Amazon.EC2.Model.MoveAddressToVpcResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

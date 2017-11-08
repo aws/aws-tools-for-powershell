@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Remove", "ASTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","Amazon.AutoScaling.Model.Tag")]
-    [AWSCmdlet("Invokes the DeleteTags operation against Auto Scaling.", Operation = new[] {"DeleteTags"})]
+    [AWSCmdlet("Calls the Auto Scaling DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.Tag",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

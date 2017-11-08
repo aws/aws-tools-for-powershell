@@ -90,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("New", "ECSService", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Service")]
-    [AWSCmdlet("Invokes the CreateService operation against Amazon EC2 Container Service.", Operation = new[] {"CreateService"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service CreateService API operation.", Operation = new[] {"CreateService"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Service",
         "This cmdlet returns a Service object.",
         "The service call response (type Amazon.ECS.Model.CreateServiceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

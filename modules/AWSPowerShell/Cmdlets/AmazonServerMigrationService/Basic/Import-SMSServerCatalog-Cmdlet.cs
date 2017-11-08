@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Import", "SMSServerCatalog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the ImportServerCatalog operation against Amazon Server Migration Service.", Operation = new[] {"ImportServerCatalog"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service ImportServerCatalog API operation.", Operation = new[] {"ImportServerCatalog"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ServerMigrationService.Model.ImportServerCatalogResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

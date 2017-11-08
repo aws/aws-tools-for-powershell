@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Set", "SESReceiptRulePosition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the SetReceiptRulePosition operation against Amazon Simple Email Service.", Operation = new[] {"SetReceiptRulePosition"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SetReceiptRulePosition API operation.", Operation = new[] {"SetReceiptRulePosition"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.SimpleEmail.Model.SetReceiptRulePositionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Remove", "CWLLogStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLogStream operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteLogStream"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs DeleteLogStream API operation.", Operation = new[] {"DeleteLogStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogStreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.DeleteLogStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

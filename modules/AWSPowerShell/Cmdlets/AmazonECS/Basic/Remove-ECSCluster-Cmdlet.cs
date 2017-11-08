@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Remove", "ECSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ECS.Model.Cluster")]
-    [AWSCmdlet("Invokes the DeleteCluster operation against Amazon EC2 Container Service.", Operation = new[] {"DeleteCluster"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DeleteCluster API operation.", Operation = new[] {"DeleteCluster"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.ECS.Model.DeleteClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

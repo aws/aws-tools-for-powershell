@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Dismount", "CDIRObjectFromIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DetachFromIndex operation against AWS Cloud Directory.", Operation = new[] {"DetachFromIndex"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory DetachFromIndex API operation.", Operation = new[] {"DetachFromIndex"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.DetachFromIndexResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

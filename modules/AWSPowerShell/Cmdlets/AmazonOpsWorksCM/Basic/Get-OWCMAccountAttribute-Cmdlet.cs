@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Get", "OWCMAccountAttribute")]
     [OutputType("Amazon.OpsWorksCM.Model.AccountAttribute")]
-    [AWSCmdlet("Invokes the DescribeAccountAttributes operation against AWS OpsWorksCM.", Operation = new[] {"DescribeAccountAttributes"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DescribeAccountAttributes API operation.", Operation = new[] {"DescribeAccountAttributes"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.AccountAttribute",
         "This cmdlet returns a collection of AccountAttribute objects.",
         "The service call response (type Amazon.OpsWorksCM.Model.DescribeAccountAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

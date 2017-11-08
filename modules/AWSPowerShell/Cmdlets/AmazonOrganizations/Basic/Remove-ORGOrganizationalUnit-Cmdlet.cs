@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Remove", "ORGOrganizationalUnit", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteOrganizationalUnit operation against AWS Organizations.", Operation = new[] {"DeleteOrganizationalUnit"})]
+    [AWSCmdlet("Calls the AWS Organizations DeleteOrganizationalUnit API operation.", Operation = new[] {"DeleteOrganizationalUnit"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OrganizationalUnitId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Organizations.Model.DeleteOrganizationalUnitResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

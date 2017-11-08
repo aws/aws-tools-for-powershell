@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSResourceTag")]
     [OutputType("Amazon.Redshift.Model.TaggedResource")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Amazon Redshift.", Operation = new[] {"DescribeTags"}, LegacyAlias="Get-RSTags")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeTags API operation.", Operation = new[] {"DescribeTags"}, LegacyAlias="Get-RSTags")]
     [AWSCmdletOutput("Amazon.Redshift.Model.TaggedResource",
         "This cmdlet returns a collection of TaggedResource objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

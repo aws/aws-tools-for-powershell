@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Remove", "R53VPCAssociationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteVPCAssociationAuthorization operation against Amazon Route 53.", Operation = new[] {"DeleteVPCAssociationAuthorization"})]
+    [AWSCmdlet("Calls the Amazon Route 53 DeleteVPCAssociationAuthorization API operation.", Operation = new[] {"DeleteVPCAssociationAuthorization"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Route53.Model.DeleteVPCAssociationAuthorizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

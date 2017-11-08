@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Update", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Invokes the UpdateTable operation against Amazon DynamoDB.", Operation = new[] {"UpdateTable"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB UpdateTable API operation.", Operation = new[] {"UpdateTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
         "The service call response (type Amazon.DynamoDBv2.Model.UpdateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

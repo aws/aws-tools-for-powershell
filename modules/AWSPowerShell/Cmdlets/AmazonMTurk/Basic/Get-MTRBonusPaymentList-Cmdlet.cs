@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Get", "MTRBonusPaymentList")]
     [OutputType("Amazon.MTurk.Model.BonusPayment")]
-    [AWSCmdlet("Invokes the ListBonusPayments operation against Amazon MTurk Service.", Operation = new[] {"ListBonusPayments"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service ListBonusPayments API operation.", Operation = new[] {"ListBonusPayments"})]
     [AWSCmdletOutput("Amazon.MTurk.Model.BonusPayment",
         "This cmdlet returns a collection of BonusPayment objects.",
         "The service call response (type Amazon.MTurk.Model.ListBonusPaymentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

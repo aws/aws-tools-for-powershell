@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2InstanceAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ResetInstanceAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ResetInstanceAttribute"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetInstanceAttribute API operation.", Operation = new[] {"ResetInstanceAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.ResetInstanceAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

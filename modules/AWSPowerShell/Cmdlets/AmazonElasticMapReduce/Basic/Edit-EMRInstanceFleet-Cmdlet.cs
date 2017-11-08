@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Edit", "EMRInstanceFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifyInstanceFleet operation against Amazon Elastic MapReduce.", Operation = new[] {"ModifyInstanceFleet"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce ModifyInstanceFleet API operation.", Operation = new[] {"ModifyInstanceFleet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.ModifyInstanceFleetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

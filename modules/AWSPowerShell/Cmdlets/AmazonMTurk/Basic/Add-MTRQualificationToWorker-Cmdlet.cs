@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Add", "MTRQualificationToWorker", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociateQualificationWithWorker operation against Amazon MTurk Service.", Operation = new[] {"AssociateQualificationWithWorker"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service AssociateQualificationWithWorker API operation.", Operation = new[] {"AssociateQualificationWithWorker"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the WorkerId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MTurk.Model.AssociateQualificationWithWorkerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMAutomationExecutionList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata")]
-    [AWSCmdlet("Invokes the DescribeAutomationExecutions operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeAutomationExecutions"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeAutomationExecutions API operation.", Operation = new[] {"DescribeAutomationExecutions"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AutomationExecutionMetadata",
         "This cmdlet returns a collection of AutomationExecutionMetadata objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeAutomationExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

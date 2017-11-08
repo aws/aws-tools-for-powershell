@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCRecordHistory")]
     [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
-    [AWSCmdlet("Invokes the ListRecordHistory operation against AWS Service Catalog.", Operation = new[] {"ListRecordHistory"})]
+    [AWSCmdlet("Calls the AWS Service Catalog ListRecordHistory API operation.", Operation = new[] {"ListRecordHistory"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail",
         "This cmdlet returns a collection of RecordDetail objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.ListRecordHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

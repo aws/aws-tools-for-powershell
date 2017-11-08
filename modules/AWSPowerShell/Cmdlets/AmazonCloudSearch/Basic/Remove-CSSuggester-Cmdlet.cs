@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Remove", "CSSuggester", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CloudSearch.Model.SuggesterStatus")]
-    [AWSCmdlet("Invokes the DeleteSuggester operation against Amazon CloudSearch.", Operation = new[] {"DeleteSuggester"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch DeleteSuggester API operation.", Operation = new[] {"DeleteSuggester"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.SuggesterStatus",
         "This cmdlet returns a SuggesterStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DeleteSuggesterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Update", "CDIRSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateSchema operation against AWS Cloud Directory.", Operation = new[] {"UpdateSchema"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory UpdateSchema API operation.", Operation = new[] {"UpdateSchema"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.UpdateSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// </summary>
     [Cmdlet("Get", "MLResourceTag")]
     [OutputType("Amazon.MachineLearning.Model.DescribeTagsResponse")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Amazon Machine Learning.", Operation = new[] {"DescribeTags"}, LegacyAlias="Get-MLTag")]
+    [AWSCmdlet("Calls the Amazon Machine Learning DescribeTags API operation.", Operation = new[] {"DescribeTags"}, LegacyAlias="Get-MLTag")]
     [AWSCmdletOutput("Amazon.MachineLearning.Model.DescribeTagsResponse",
         "This cmdlet returns a Amazon.MachineLearning.Model.DescribeTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

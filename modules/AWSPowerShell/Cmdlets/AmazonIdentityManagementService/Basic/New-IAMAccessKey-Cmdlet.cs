@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMAccessKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.AccessKey")]
-    [AWSCmdlet("Invokes the CreateAccessKey operation against AWS Identity and Access Management.", Operation = new[] {"CreateAccessKey"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateAccessKey API operation.", Operation = new[] {"CreateAccessKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AccessKey",
         "This cmdlet returns a AccessKey object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateAccessKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

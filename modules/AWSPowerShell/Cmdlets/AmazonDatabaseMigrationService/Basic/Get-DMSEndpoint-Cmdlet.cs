@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSEndpoint")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Endpoint")]
-    [AWSCmdlet("Invokes the DescribeEndpoints operation against AWS Database Migration Service.", Operation = new[] {"DescribeEndpoints"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeEndpoints API operation.", Operation = new[] {"DescribeEndpoints"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Endpoint",
         "This cmdlet returns a collection of Endpoint objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeEndpointsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

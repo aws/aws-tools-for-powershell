@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Remove", "RSHsmClientCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteHsmClientCertificate operation against Amazon Redshift.", Operation = new[] {"DeleteHsmClientCertificate"})]
+    [AWSCmdlet("Calls the Amazon Redshift DeleteHsmClientCertificate API operation.", Operation = new[] {"DeleteHsmClientCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the HsmClientCertificateIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Redshift.Model.DeleteHsmClientCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

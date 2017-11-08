@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Get", "SNSPlatformApplicationAttribute")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetPlatformApplicationAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetPlatformApplicationAttributes"}, LegacyAlias="Get-SNSPlatformApplicationAttributes")]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service GetPlatformApplicationAttributes API operation.", Operation = new[] {"GetPlatformApplicationAttributes"}, LegacyAlias="Get-SNSPlatformApplicationAttributes")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleNotificationService.Model.GetPlatformApplicationAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

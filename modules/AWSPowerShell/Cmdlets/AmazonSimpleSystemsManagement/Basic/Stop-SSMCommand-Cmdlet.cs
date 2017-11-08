@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Stop", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the CancelCommand operation against Amazon Simple Systems Management.", Operation = new[] {"CancelCommand"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management CancelCommand API operation.", Operation = new[] {"CancelCommand"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.CancelCommandResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
-    [AWSCmdlet("Invokes the DeleteDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBCluster"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBCluster API operation.", Operation = new[] {"DeleteDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
         "The service call response (type Amazon.RDS.Model.DeleteDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

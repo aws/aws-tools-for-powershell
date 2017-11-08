@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Disconnect", "CGIPDeviceGlobal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the GlobalSignOut operation against Amazon Cognito Identity Provider.", Operation = new[] {"GlobalSignOut"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider GlobalSignOut API operation.", Operation = new[] {"GlobalSignOut"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccessToken parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.GlobalSignOutResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Update", "CSTUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodeStar.Model.UpdateUserProfileResponse")]
-    [AWSCmdlet("Invokes the UpdateUserProfile operation against AWS CodeStar.", Operation = new[] {"UpdateUserProfile"})]
+    [AWSCmdlet("Calls the AWS CodeStar UpdateUserProfile API operation.", Operation = new[] {"UpdateUserProfile"})]
     [AWSCmdletOutput("Amazon.CodeStar.Model.UpdateUserProfileResponse",
         "This cmdlet returns a Amazon.CodeStar.Model.UpdateUserProfileResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

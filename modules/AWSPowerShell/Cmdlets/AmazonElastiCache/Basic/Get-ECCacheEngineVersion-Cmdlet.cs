@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECCacheEngineVersion")]
     [OutputType("Amazon.ElastiCache.Model.CacheEngineVersion")]
-    [AWSCmdlet("Invokes the DescribeCacheEngineVersions operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheEngineVersions"}, LegacyAlias="Get-ECCacheEngineVersions")]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeCacheEngineVersions API operation.", Operation = new[] {"DescribeCacheEngineVersions"}, LegacyAlias="Get-ECCacheEngineVersions")]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheEngineVersion",
         "This cmdlet returns a collection of CacheEngineVersion objects.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeCacheEngineVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

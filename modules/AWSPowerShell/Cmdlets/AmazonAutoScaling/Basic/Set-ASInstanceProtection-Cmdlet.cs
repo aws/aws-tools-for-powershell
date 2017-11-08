@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Set", "ASInstanceProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetInstanceProtection operation against Auto Scaling.", Operation = new[] {"SetInstanceProtection"})]
+    [AWSCmdlet("Calls the Auto Scaling SetInstanceProtection API operation.", Operation = new[] {"SetInstanceProtection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutoScalingGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.SetInstanceProtectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

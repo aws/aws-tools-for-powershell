@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Get", "DDBTableList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListTables operation against Amazon DynamoDB.", Operation = new[] {"ListTables"}, LegacyAlias="Get-DDBTables")]
+    [AWSCmdlet("Calls the Amazon DynamoDB ListTables API operation.", Operation = new[] {"ListTables"}, LegacyAlias="Get-DDBTables")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.DynamoDBv2.Model.ListTablesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2HostReservationPurchasePreview")]
     [OutputType("Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse")]
-    [AWSCmdlet("Invokes the GetHostReservationPurchasePreview operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetHostReservationPurchasePreview"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetHostReservationPurchasePreview API operation.", Operation = new[] {"GetHostReservationPurchasePreview"})]
     [AWSCmdletOutput("Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse",
         "This cmdlet returns a Amazon.EC2.Model.GetHostReservationPurchasePreviewResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

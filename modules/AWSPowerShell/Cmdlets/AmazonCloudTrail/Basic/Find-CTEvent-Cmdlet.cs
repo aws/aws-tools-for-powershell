@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Find", "CTEvent")]
     [OutputType("Amazon.CloudTrail.Model.Event")]
-    [AWSCmdlet("Invokes the LookupEvents operation against AWS CloudTrail.", Operation = new[] {"LookupEvents"}, LegacyAlias="Find-CTEvents")]
+    [AWSCmdlet("Calls the AWS CloudTrail LookupEvents API operation.", Operation = new[] {"LookupEvents"}, LegacyAlias="Find-CTEvents")]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.Event",
         "This cmdlet returns a collection of Event objects.",
         "The service call response (type Amazon.CloudTrail.Model.LookupEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

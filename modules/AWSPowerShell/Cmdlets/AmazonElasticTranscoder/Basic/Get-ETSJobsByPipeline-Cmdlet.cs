@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("Get", "ETSJobsByPipeline")]
     [OutputType("Amazon.ElasticTranscoder.Model.Job")]
-    [AWSCmdlet("Invokes the ListJobsByPipeline operation against Amazon Elastic Transcoder.", Operation = new[] {"ListJobsByPipeline"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder ListJobsByPipeline API operation.", Operation = new[] {"ListJobsByPipeline"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Job",
         "This cmdlet returns a collection of Job objects.",
         "The service call response (type Amazon.ElasticTranscoder.Model.ListJobsByPipelineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

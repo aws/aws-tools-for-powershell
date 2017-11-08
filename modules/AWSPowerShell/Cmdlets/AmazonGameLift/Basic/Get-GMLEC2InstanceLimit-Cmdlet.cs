@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Get", "GMLEC2InstanceLimit")]
     [OutputType("Amazon.GameLift.Model.EC2InstanceLimit")]
-    [AWSCmdlet("Invokes the DescribeEC2InstanceLimits operation against Amazon GameLift Service.", Operation = new[] {"DescribeEC2InstanceLimits"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DescribeEC2InstanceLimits API operation.", Operation = new[] {"DescribeEC2InstanceLimits"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.EC2InstanceLimit",
         "This cmdlet returns a collection of EC2InstanceLimit objects.",
         "The service call response (type Amazon.GameLift.Model.DescribeEC2InstanceLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

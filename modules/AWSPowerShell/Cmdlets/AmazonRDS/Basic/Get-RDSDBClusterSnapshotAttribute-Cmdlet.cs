@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSDBClusterSnapshotAttribute")]
     [OutputType("Amazon.RDS.Model.DBClusterSnapshotAttributesResult")]
-    [AWSCmdlet("Invokes the DescribeDBClusterSnapshotAttributes operation against Amazon Relational Database Service.", Operation = new[] {"DescribeDBClusterSnapshotAttributes"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeDBClusterSnapshotAttributes API operation.", Operation = new[] {"DescribeDBClusterSnapshotAttributes"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBClusterSnapshotAttributesResult",
         "This cmdlet returns a DBClusterSnapshotAttributesResult object.",
         "The service call response (type Amazon.RDS.Model.DescribeDBClusterSnapshotAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// </summary>
     [Cmdlet("New", "BGTNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateNotification operation against AWS Budgets.", Operation = new[] {"CreateNotification"})]
+    [AWSCmdlet("Calls the AWS Budgets CreateNotification API operation.", Operation = new[] {"CreateNotification"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BudgetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Budgets.Model.CreateNotificationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

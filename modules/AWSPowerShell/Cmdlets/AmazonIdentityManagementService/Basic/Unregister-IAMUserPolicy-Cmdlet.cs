@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Unregister", "IAMUserPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DetachUserPolicy operation against AWS Identity and Access Management.", Operation = new[] {"DetachUserPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DetachUserPolicy API operation.", Operation = new[] {"DetachUserPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DetachUserPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

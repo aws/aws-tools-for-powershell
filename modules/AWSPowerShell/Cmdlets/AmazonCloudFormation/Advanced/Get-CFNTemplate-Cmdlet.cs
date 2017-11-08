@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Get", "CFNTemplate")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetTemplate operation against AWS CloudFormation.", Operation = new[] {"GetTemplate"})]
+    [AWSCmdlet("Calls the AWS CloudFormation GetTemplate API operation.", Operation = new[] {"GetTemplate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.GetTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

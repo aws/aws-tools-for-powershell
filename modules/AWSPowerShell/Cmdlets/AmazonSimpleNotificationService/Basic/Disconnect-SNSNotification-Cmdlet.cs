@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Disconnect", "SNSNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the Unsubscribe operation against Amazon Simple Notification Service.", Operation = new[] {"Unsubscribe"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service Unsubscribe API operation.", Operation = new[] {"Unsubscribe"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubscriptionArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.UnsubscribeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

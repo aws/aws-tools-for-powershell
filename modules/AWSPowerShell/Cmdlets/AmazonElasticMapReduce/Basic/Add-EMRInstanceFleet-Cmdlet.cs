@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Add", "EMRInstanceFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceFleetResponse")]
-    [AWSCmdlet("Invokes the AddInstanceFleet operation against Amazon Elastic MapReduce.", Operation = new[] {"AddInstanceFleet"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce AddInstanceFleet API operation.", Operation = new[] {"AddInstanceFleet"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AddInstanceFleetResponse",
         "This cmdlet returns a Amazon.ElasticMapReduce.Model.AddInstanceFleetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

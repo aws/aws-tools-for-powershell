@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2VpnConnection")]
     [OutputType("Amazon.EC2.Model.VpnConnection")]
-    [AWSCmdlet("Invokes the DescribeVpnConnections operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVpnConnections"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpnConnections API operation.", Operation = new[] {"DescribeVpnConnections"})]
     [AWSCmdletOutput("Amazon.EC2.Model.VpnConnection",
         "This cmdlet returns a collection of VpnConnection objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVpnConnectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

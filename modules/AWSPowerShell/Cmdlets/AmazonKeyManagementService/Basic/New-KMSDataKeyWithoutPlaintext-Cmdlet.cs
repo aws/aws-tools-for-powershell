@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("New", "KMSDataKeyWithoutPlaintext", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse")]
-    [AWSCmdlet("Invokes the GenerateDataKeyWithoutPlaintext operation against AWS Key Management Service.", Operation = new[] {"GenerateDataKeyWithoutPlaintext"})]
+    [AWSCmdlet("Calls the AWS Key Management Service GenerateDataKeyWithoutPlaintext API operation.", Operation = new[] {"GenerateDataKeyWithoutPlaintext"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.GenerateDataKeyWithoutPlaintextResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

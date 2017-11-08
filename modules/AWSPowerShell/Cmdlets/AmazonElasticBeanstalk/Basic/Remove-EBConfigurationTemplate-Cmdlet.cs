@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Remove", "EBConfigurationTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteConfigurationTemplate operation against AWS Elastic Beanstalk.", Operation = new[] {"DeleteConfigurationTemplate"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DeleteConfigurationTemplate API operation.", Operation = new[] {"DeleteConfigurationTemplate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.DeleteConfigurationTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

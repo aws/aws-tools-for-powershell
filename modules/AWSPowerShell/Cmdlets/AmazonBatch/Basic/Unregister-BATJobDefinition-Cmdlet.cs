@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Unregister", "BATJobDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterJobDefinition operation against AWS Batch.", Operation = new[] {"DeregisterJobDefinition"})]
+    [AWSCmdlet("Calls the AWS Batch DeregisterJobDefinition API operation.", Operation = new[] {"DeregisterJobDefinition"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the JobDefinition parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Batch.Model.DeregisterJobDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

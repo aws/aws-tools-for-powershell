@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMInstanceProfileList")]
     [OutputType("Amazon.IdentityManagement.Model.InstanceProfile")]
-    [AWSCmdlet("Invokes the ListInstanceProfiles operation against AWS Identity and Access Management.", Operation = new[] {"ListInstanceProfiles"}, LegacyAlias="Get-IAMInstanceProfiles")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListInstanceProfiles API operation.", Operation = new[] {"ListInstanceProfiles"}, LegacyAlias="Get-IAMInstanceProfiles")]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.InstanceProfile",
         "This cmdlet returns a collection of InstanceProfile objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListInstanceProfilesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

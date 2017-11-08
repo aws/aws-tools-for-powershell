@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("New", "OWCMBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpsWorksCM.Model.Backup")]
-    [AWSCmdlet("Invokes the CreateBackup operation against AWS OpsWorksCM.", Operation = new[] {"CreateBackup"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM CreateBackup API operation.", Operation = new[] {"CreateBackup"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.Backup",
         "This cmdlet returns a Backup object.",
         "The service call response (type Amazon.OpsWorksCM.Model.CreateBackupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Add", "GGRoleToGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AssociateRoleToGroup operation against AWS Greengrass.", Operation = new[] {"AssociateRoleToGroup"})]
+    [AWSCmdlet("Calls the AWS Greengrass AssociateRoleToGroup API operation.", Operation = new[] {"AssociateRoleToGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Greengrass.Model.AssociateRoleToGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

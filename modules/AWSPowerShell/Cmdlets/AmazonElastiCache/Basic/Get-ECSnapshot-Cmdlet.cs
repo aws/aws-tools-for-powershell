@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECSnapshot")]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]
-    [AWSCmdlet("Invokes the DescribeSnapshots operation against Amazon ElastiCache.", Operation = new[] {"DescribeSnapshots"}, LegacyAlias="Get-ECSnapshots")]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeSnapshots API operation.", Operation = new[] {"DescribeSnapshots"}, LegacyAlias="Get-ECSnapshots")]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot",
         "This cmdlet returns a collection of Snapshot objects.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeSnapshotsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

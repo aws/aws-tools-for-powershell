@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Remove", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteStateMachine operation against Amazon Step Functions.", Operation = new[] {"DeleteStateMachine"})]
+    [AWSCmdlet("Calls the Amazon Step Functions DeleteStateMachine API operation.", Operation = new[] {"DeleteStateMachine"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StateMachineArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.StepFunctions.Model.DeleteStateMachineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMComplianceItemsList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ComplianceItem")]
-    [AWSCmdlet("Invokes the ListComplianceItems operation against Amazon Simple Systems Management.", Operation = new[] {"ListComplianceItems"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management ListComplianceItems API operation.", Operation = new[] {"ListComplianceItems"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ComplianceItem",
         "This cmdlet returns a collection of ComplianceItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListComplianceItemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

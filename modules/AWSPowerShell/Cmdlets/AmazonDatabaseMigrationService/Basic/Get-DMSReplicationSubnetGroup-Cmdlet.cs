@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSReplicationSubnetGroup")]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup")]
-    [AWSCmdlet("Invokes the DescribeReplicationSubnetGroups operation against AWS Database Migration Service.", Operation = new[] {"DescribeReplicationSubnetGroups"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DescribeReplicationSubnetGroups API operation.", Operation = new[] {"DescribeReplicationSubnetGroups"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationSubnetGroup",
         "This cmdlet returns a collection of ReplicationSubnetGroup objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DescribeReplicationSubnetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

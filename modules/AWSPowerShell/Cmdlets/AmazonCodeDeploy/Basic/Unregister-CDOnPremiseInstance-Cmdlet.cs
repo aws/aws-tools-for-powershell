@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Unregister", "CDOnPremiseInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterOnPremisesInstance operation against AWS CodeDeploy.", Operation = new[] {"DeregisterOnPremisesInstance"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy DeregisterOnPremisesInstance API operation.", Operation = new[] {"DeregisterOnPremisesInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.DeregisterOnPremisesInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

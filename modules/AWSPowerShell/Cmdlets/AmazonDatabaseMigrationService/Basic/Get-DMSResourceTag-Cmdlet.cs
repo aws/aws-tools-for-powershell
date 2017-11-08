@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Get", "DMSResourceTag")]
     [OutputType("Amazon.DatabaseMigrationService.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Database Migration Service.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

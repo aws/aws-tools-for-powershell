@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3Bucket", SupportsShouldProcess=true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.S3.Model.DeleteBucketResponse")]
-    [AWSCmdlet("Invokes the DeleteBucket method against Amazon Simple Storage Service. "
+    [AWSCmdlet("Deletes an Amazon S3 bucket. "
                 + "Use the -DeleteBucketContent switch to delete any objects and/or object versions the bucket contains prior to bucket deletion (non-empty buckets cannot be deleted).",
                     Operation = new [] {"DeleteBucket"}
     )]

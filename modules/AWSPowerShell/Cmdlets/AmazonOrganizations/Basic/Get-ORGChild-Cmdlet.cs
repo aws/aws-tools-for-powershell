@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGChild")]
     [OutputType("Amazon.Organizations.Model.Child")]
-    [AWSCmdlet("Invokes the ListChildren operation against AWS Organizations.", Operation = new[] {"ListChildren"})]
+    [AWSCmdlet("Calls the AWS Organizations ListChildren API operation.", Operation = new[] {"ListChildren"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Child",
         "This cmdlet returns a collection of Child objects.",
         "The service call response (type Amazon.Organizations.Model.ListChildrenResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

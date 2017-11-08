@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("New", "ECSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.Cluster")]
-    [AWSCmdlet("Invokes the CreateCluster operation against Amazon EC2 Container Service.", Operation = new[] {"CreateCluster"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service CreateCluster API operation.", Operation = new[] {"CreateCluster"})]
     [AWSCmdletOutput("Amazon.ECS.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.ECS.Model.CreateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

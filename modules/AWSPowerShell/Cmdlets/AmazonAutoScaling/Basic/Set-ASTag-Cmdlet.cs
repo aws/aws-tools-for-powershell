@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Set", "ASTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.AutoScaling.Model.Tag")]
-    [AWSCmdlet("Invokes the CreateOrUpdateTags operation against Auto Scaling.", Operation = new[] {"CreateOrUpdateTags"})]
+    [AWSCmdlet("Calls the Auto Scaling CreateOrUpdateTags API operation.", Operation = new[] {"CreateOrUpdateTags"})]
     [AWSCmdletOutput("None or Amazon.AutoScaling.Model.Tag",
         "Returns the collection of Tag objects that were created or updated when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.AutoScaling.Model.CreateOrUpdateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

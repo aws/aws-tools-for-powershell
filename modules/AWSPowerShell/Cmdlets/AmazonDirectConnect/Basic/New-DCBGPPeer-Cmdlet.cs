@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("New", "DCBGPPeer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.VirtualInterface")]
-    [AWSCmdlet("Invokes the CreateBGPPeer operation against AWS Direct Connect.", Operation = new[] {"CreateBGPPeer"})]
+    [AWSCmdlet("Calls the AWS Direct Connect CreateBGPPeer API operation.", Operation = new[] {"CreateBGPPeer"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.VirtualInterface",
         "This cmdlet returns a VirtualInterface object.",
         "The service call response (type Amazon.DirectConnect.Model.CreateBGPPeerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

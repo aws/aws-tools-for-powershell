@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Get", "CCDifferenceList")]
     [OutputType("Amazon.CodeCommit.Model.Difference")]
-    [AWSCmdlet("Invokes the GetDifferences operation against AWS CodeCommit.", Operation = new[] {"GetDifferences"})]
+    [AWSCmdlet("Calls the AWS CodeCommit GetDifferences API operation.", Operation = new[] {"GetDifferences"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.Difference",
         "This cmdlet returns a collection of Difference objects.",
         "The service call response (type Amazon.CodeCommit.Model.GetDifferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

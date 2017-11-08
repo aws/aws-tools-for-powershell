@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMSAMLProvider")]
     [OutputType("Amazon.IdentityManagement.Model.GetSAMLProviderResponse")]
-    [AWSCmdlet("Invokes the GetSAMLProvider operation against AWS Identity and Access Management.", Operation = new[] {"GetSAMLProvider"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetSAMLProvider API operation.", Operation = new[] {"GetSAMLProvider"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetSAMLProviderResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GetSAMLProviderResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

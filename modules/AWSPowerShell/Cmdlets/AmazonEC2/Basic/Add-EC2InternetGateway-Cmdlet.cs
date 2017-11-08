@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Add", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AttachInternetGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AttachInternetGateway API operation.", Operation = new[] {"AttachInternetGateway"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.AttachInternetGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

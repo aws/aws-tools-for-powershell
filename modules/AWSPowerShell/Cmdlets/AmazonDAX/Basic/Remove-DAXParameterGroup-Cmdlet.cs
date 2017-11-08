@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Remove", "DAXParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteParameterGroup operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"DeleteParameterGroup"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DeleteParameterGroup API operation.", Operation = new[] {"DeleteParameterGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DAX.Model.DeleteParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

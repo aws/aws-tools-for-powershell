@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Write", "SESIdentityPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutIdentityPolicy operation against Amazon Simple Email Service.", Operation = new[] {"PutIdentityPolicy"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service PutIdentityPolicy API operation.", Operation = new[] {"PutIdentityPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Policy parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.PutIdentityPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

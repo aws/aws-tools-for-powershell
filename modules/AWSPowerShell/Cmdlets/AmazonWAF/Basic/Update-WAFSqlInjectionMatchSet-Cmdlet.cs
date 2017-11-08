@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Update", "WAFSqlInjectionMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateSqlInjectionMatchSet operation against AWS WAF.", Operation = new[] {"UpdateSqlInjectionMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF UpdateSqlInjectionMatchSet API operation.", Operation = new[] {"UpdateSqlInjectionMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.UpdateSqlInjectionMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Get", "ESDomainNameList")]
     [OutputType("Amazon.Elasticsearch.Model.DomainInfo")]
-    [AWSCmdlet("Invokes the ListDomainNames operation against Amazon Elasticsearch.", Operation = new[] {"ListDomainNames"})]
+    [AWSCmdlet("Calls the Amazon Elasticsearch ListDomainNames API operation.", Operation = new[] {"ListDomainNames"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.DomainInfo",
         "This cmdlet returns a collection of DomainInfo objects.",
         "The service call response (type Amazon.Elasticsearch.Model.ListDomainNamesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

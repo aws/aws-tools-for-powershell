@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMVersionsByFunction")]
     [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
-    [AWSCmdlet("Invokes the ListVersionsByFunction operation against Amazon Lambda.", Operation = new[] {"ListVersionsByFunction"})]
+    [AWSCmdlet("Calls the Amazon Lambda ListVersionsByFunction API operation.", Operation = new[] {"ListVersionsByFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.FunctionConfiguration",
         "This cmdlet returns a collection of FunctionConfiguration objects.",
         "The service call response (type Amazon.Lambda.Model.ListVersionsByFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Deny", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the DeclineHandshake operation against AWS Organizations.", Operation = new[] {"DeclineHandshake"})]
+    [AWSCmdlet("Calls the AWS Organizations DeclineHandshake API operation.", Operation = new[] {"DeclineHandshake"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
         "This cmdlet returns a Handshake object.",
         "The service call response (type Amazon.Organizations.Model.DeclineHandshakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

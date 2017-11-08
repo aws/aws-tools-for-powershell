@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("New", "ETSPreset", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticTranscoder.Model.CreatePresetResponse")]
-    [AWSCmdlet("Invokes the CreatePreset operation against Amazon Elastic Transcoder.", Operation = new[] {"CreatePreset"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder CreatePreset API operation.", Operation = new[] {"CreatePreset"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.CreatePresetResponse",
         "This cmdlet returns a Amazon.ElasticTranscoder.Model.CreatePresetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

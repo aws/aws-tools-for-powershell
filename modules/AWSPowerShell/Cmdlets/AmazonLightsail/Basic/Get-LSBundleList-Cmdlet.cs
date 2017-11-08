@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSBundleList")]
     [OutputType("Amazon.Lightsail.Model.Bundle")]
-    [AWSCmdlet("Invokes the GetBundles operation against Amazon Lightsail.", Operation = new[] {"GetBundles"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetBundles API operation.", Operation = new[] {"GetBundles"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Bundle",
         "This cmdlet returns a collection of Bundle objects.",
         "The service call response (type Amazon.Lightsail.Model.GetBundlesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

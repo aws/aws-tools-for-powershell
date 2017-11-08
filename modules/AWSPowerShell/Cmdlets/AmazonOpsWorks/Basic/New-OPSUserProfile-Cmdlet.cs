@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("New", "OPSUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateUserProfile operation against AWS OpsWorks.", Operation = new[] {"CreateUserProfile"})]
+    [AWSCmdlet("Calls the AWS OpsWorks CreateUserProfile API operation.", Operation = new[] {"CreateUserProfile"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.CreateUserProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

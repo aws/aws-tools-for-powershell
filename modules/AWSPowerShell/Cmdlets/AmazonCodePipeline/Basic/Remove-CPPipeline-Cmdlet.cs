@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Remove", "CPPipeline", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeletePipeline operation against AWS CodePipeline.", Operation = new[] {"DeletePipeline"})]
+    [AWSCmdlet("Calls the AWS CodePipeline DeletePipeline API operation.", Operation = new[] {"DeletePipeline"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodePipeline.Model.DeletePipelineResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGTape")]
     [OutputType("Amazon.StorageGateway.Model.TapeInfo")]
-    [AWSCmdlet("Invokes the ListTapes operation against AWS Storage Gateway.", Operation = new[] {"ListTapes"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway ListTapes API operation.", Operation = new[] {"ListTapes"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.TapeInfo",
         "This cmdlet returns a collection of TapeInfo objects.",
         "The service call response (type Amazon.StorageGateway.Model.ListTapesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

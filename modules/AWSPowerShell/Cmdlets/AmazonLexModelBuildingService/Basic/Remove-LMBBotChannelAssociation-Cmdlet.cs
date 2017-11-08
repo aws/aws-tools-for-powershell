@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Remove", "LMBBotChannelAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteBotChannelAssociation operation against Amazon Lex Model Building Service.", Operation = new[] {"DeleteBotChannelAssociation"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteBotChannelAssociation API operation.", Operation = new[] {"DeleteBotChannelAssociation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteBotChannelAssociationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

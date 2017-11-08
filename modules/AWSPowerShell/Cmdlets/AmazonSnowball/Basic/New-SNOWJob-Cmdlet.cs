@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
     /// </summary>
     [Cmdlet("New", "SNOWJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateJob operation against AWS Import/Export Snowball.", Operation = new[] {"CreateJob"})]
+    [AWSCmdlet("Calls the AWS Import/Export Snowball CreateJob API operation.", Operation = new[] {"CreateJob"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Snowball.Model.CreateJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

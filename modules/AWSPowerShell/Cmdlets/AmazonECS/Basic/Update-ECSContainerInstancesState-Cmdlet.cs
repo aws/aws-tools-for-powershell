@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Update", "ECSContainerInstancesState", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.UpdateContainerInstancesStateResponse")]
-    [AWSCmdlet("Invokes the UpdateContainerInstancesState operation against Amazon EC2 Container Service.", Operation = new[] {"UpdateContainerInstancesState"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service UpdateContainerInstancesState API operation.", Operation = new[] {"UpdateContainerInstancesState"})]
     [AWSCmdletOutput("Amazon.ECS.Model.UpdateContainerInstancesStateResponse",
         "This cmdlet returns a Amazon.ECS.Model.UpdateContainerInstancesStateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

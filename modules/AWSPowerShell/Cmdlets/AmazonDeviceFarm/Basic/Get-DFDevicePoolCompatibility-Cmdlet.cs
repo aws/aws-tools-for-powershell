@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Get", "DFDevicePoolCompatibility")]
     [OutputType("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse")]
-    [AWSCmdlet("Invokes the GetDevicePoolCompatibility operation against AWS Device Farm.", Operation = new[] {"GetDevicePoolCompatibility"})]
+    [AWSCmdlet("Calls the AWS Device Farm GetDevicePoolCompatibility API operation.", Operation = new[] {"GetDevicePoolCompatibility"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse",
         "This cmdlet returns a Amazon.DeviceFarm.Model.GetDevicePoolCompatibilityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSMyUserProfile")]
     [OutputType("Amazon.OpsWorks.Model.SelfUserProfile")]
-    [AWSCmdlet("Invokes the DescribeMyUserProfile operation against AWS OpsWorks.", Operation = new[] {"DescribeMyUserProfile"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeMyUserProfile API operation.", Operation = new[] {"DescribeMyUserProfile"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.SelfUserProfile",
         "This cmdlet returns a SelfUserProfile object.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeMyUserProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

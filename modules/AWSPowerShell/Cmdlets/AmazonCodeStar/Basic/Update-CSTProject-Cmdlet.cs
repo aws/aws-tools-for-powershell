@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Update", "CSTProject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateProject operation against AWS CodeStar.", Operation = new[] {"UpdateProject"})]
+    [AWSCmdlet("Calls the AWS CodeStar UpdateProject API operation.", Operation = new[] {"UpdateProject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeStar.Model.UpdateProjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

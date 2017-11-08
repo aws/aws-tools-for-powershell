@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Start", "SMSOnDemandReplicationRun", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the StartOnDemandReplicationRun operation against Amazon Server Migration Service.", Operation = new[] {"StartOnDemandReplicationRun"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service StartOnDemandReplicationRun API operation.", Operation = new[] {"StartOnDemandReplicationRun"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ServerMigrationService.Model.StartOnDemandReplicationRunResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Start", "CFGConfigRulesEvaluation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StartConfigRulesEvaluation operation against AWS Config.", Operation = new[] {"StartConfigRulesEvaluation"})]
+    [AWSCmdlet("Calls the AWS Config StartConfigRulesEvaluation API operation.", Operation = new[] {"StartConfigRulesEvaluation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.StartConfigRulesEvaluationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

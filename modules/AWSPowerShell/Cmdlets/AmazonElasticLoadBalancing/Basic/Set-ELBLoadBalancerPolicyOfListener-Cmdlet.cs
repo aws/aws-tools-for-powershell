@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Set", "ELBLoadBalancerPolicyOfListener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetLoadBalancerPoliciesOfListener operation against Elastic Load Balancing.", Operation = new[] {"SetLoadBalancerPoliciesOfListener"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing SetLoadBalancerPoliciesOfListener API operation.", Operation = new[] {"SetLoadBalancerPoliciesOfListener"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.SetLoadBalancerPoliciesOfListenerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

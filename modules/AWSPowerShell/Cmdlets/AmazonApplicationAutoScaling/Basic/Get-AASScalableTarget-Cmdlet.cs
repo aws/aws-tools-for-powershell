@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </summary>
     [Cmdlet("Get", "AASScalableTarget")]
     [OutputType("Amazon.ApplicationAutoScaling.Model.ScalableTarget")]
-    [AWSCmdlet("Invokes the DescribeScalableTargets operation against Application Auto Scaling.", Operation = new[] {"DescribeScalableTargets"})]
+    [AWSCmdlet("Calls the Application Auto Scaling DescribeScalableTargets API operation.", Operation = new[] {"DescribeScalableTargets"})]
     [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.ScalableTarget",
         "This cmdlet returns a collection of ScalableTarget objects.",
         "The service call response (type Amazon.ApplicationAutoScaling.Model.DescribeScalableTargetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

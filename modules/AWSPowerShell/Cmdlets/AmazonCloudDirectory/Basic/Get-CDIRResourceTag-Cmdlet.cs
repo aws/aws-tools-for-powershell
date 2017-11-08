@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRResourceTag")]
     [OutputType("Amazon.CloudDirectory.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Cloud Directory.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

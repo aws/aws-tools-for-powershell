@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("New", "CGIPResourceServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.ResourceServerType")]
-    [AWSCmdlet("Invokes the CreateResourceServer operation against Amazon Cognito Identity Provider.", Operation = new[] {"CreateResourceServer"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider CreateResourceServer API operation.", Operation = new[] {"CreateResourceServer"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.ResourceServerType",
         "This cmdlet returns a ResourceServerType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.CreateResourceServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

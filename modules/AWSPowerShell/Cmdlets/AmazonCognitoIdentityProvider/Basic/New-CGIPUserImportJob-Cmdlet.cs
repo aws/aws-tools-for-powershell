@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("New", "CGIPUserImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.UserImportJobType")]
-    [AWSCmdlet("Invokes the CreateUserImportJob operation against Amazon Cognito Identity Provider.", Operation = new[] {"CreateUserImportJob"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider CreateUserImportJob API operation.", Operation = new[] {"CreateUserImportJob"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.UserImportJobType",
         "This cmdlet returns a UserImportJobType object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.CreateUserImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

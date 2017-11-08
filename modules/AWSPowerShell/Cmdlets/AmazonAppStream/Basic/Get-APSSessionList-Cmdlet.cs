@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Get", "APSSessionList")]
     [OutputType("Amazon.AppStream.Model.Session")]
-    [AWSCmdlet("Invokes the DescribeSessions operation against AWS AppStream.", Operation = new[] {"DescribeSessions"})]
+    [AWSCmdlet("Calls the AWS AppStream DescribeSessions API operation.", Operation = new[] {"DescribeSessions"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.Session",
         "This cmdlet returns a collection of Session objects.",
         "The service call response (type Amazon.AppStream.Model.DescribeSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

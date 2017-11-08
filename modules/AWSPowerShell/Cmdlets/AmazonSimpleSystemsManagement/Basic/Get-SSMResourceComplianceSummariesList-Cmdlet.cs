@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMResourceComplianceSummariesList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem")]
-    [AWSCmdlet("Invokes the ListResourceComplianceSummaries operation against Amazon Simple Systems Management.", Operation = new[] {"ListResourceComplianceSummaries"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management ListResourceComplianceSummaries API operation.", Operation = new[] {"ListResourceComplianceSummaries"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.ResourceComplianceSummaryItem",
         "This cmdlet returns a collection of ResourceComplianceSummaryItem objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.ListResourceComplianceSummariesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2ClassicLinkVpc", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the DetachClassicLinkVpc operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DetachClassicLinkVpc"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachClassicLinkVpc API operation.", Operation = new[] {"DetachClassicLinkVpc"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.DetachClassicLinkVpcResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

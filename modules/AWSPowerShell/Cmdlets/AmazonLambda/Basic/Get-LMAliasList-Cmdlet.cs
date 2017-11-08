@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMAliasList")]
     [OutputType("Amazon.Lambda.Model.AliasConfiguration")]
-    [AWSCmdlet("Invokes the ListAliases operation against Amazon Lambda.", Operation = new[] {"ListAliases"})]
+    [AWSCmdlet("Calls the Amazon Lambda ListAliases API operation.", Operation = new[] {"ListAliases"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.AliasConfiguration",
         "This cmdlet returns a collection of AliasConfiguration objects.",
         "The service call response (type Amazon.Lambda.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

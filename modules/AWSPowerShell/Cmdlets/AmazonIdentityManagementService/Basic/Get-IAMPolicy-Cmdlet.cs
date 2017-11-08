@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMPolicy")]
     [OutputType("Amazon.IdentityManagement.Model.ManagedPolicy")]
-    [AWSCmdlet("Invokes the GetPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetPolicy API operation.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ManagedPolicy",
         "This cmdlet returns a ManagedPolicy object.",
         "The service call response (type Amazon.IdentityManagement.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

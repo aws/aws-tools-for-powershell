@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCResourceTag")]
     [OutputType("Amazon.DirectConnect.Model.ResourceTag")]
-    [AWSCmdlet("Invokes the DescribeTags operation against AWS Direct Connect.", Operation = new[] {"DescribeTags"})]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeTags API operation.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.ResourceTag",
         "This cmdlet returns a collection of ResourceTag objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

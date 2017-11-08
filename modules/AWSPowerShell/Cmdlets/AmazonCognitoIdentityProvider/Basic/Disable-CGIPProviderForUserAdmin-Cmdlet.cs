@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Disable", "CGIPProviderForUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AdminDisableProviderForUser operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminDisableProviderForUser"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminDisableProviderForUser API operation.", Operation = new[] {"AdminDisableProviderForUser"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserPoolId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.AdminDisableProviderForUserResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

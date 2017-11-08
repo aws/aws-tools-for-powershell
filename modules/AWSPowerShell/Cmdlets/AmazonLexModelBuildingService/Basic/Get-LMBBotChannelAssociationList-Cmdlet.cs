@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Get", "LMBBotChannelAssociationList")]
     [OutputType("Amazon.LexModelBuildingService.Model.BotChannelAssociation")]
-    [AWSCmdlet("Invokes the GetBotChannelAssociations operation against Amazon Lex Model Building Service.", Operation = new[] {"GetBotChannelAssociations"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service GetBotChannelAssociations API operation.", Operation = new[] {"GetBotChannelAssociations"})]
     [AWSCmdletOutput("Amazon.LexModelBuildingService.Model.BotChannelAssociation",
         "This cmdlet returns a collection of BotChannelAssociation objects.",
         "The service call response (type Amazon.LexModelBuildingService.Model.GetBotChannelAssociationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

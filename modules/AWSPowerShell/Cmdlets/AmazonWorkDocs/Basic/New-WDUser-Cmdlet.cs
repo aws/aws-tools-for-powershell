@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("New", "WDUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkDocs.Model.User")]
-    [AWSCmdlet("Invokes the CreateUser operation against Amazon WorkDocs.", Operation = new[] {"CreateUser"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs CreateUser API operation.", Operation = new[] {"CreateUser"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.User",
         "This cmdlet returns a User object.",
         "The service call response (type Amazon.WorkDocs.Model.CreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

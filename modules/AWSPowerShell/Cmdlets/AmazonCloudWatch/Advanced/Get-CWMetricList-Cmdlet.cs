@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </summary>
     [Cmdlet("Get", "CWMetricList")]
     [OutputType("Amazon.CloudWatch.Model.Metric")]
-    [AWSCmdlet("Invokes the ListMetrics operation against Amazon CloudWatch.", Operation = new[] { "ListMetrics" }, LegacyAlias = "Get-CWMetrics")]
+    [AWSCmdlet("Calls the Amazon CloudWatch ListMetrics API operation.", Operation = new[] { "ListMetrics" }, LegacyAlias = "Get-CWMetrics")]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.Metric",
         "This cmdlet returns 0 or more Metric instances.",
         "The service response (type Amazon.CloudWatch.Model.ListMetricsResponse) is added to the cmdlet entry in the $AWSHistory stack.",

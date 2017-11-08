@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("New", "DDBTable", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Invokes the CreateTable operation against Amazon DynamoDB.", Operation = new [] {"CreateTable"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB CreateTable API operation.", Operation = new [] {"CreateTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns aN Amazon.DynamoDBv2.Model.TableDescription object.",
         "The service call response (type Amazon.DynamoDBv2.Model.CreateTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

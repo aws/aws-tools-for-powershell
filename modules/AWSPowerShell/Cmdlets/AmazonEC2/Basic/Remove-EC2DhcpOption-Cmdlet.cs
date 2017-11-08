@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2DhcpOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDhcpOptions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteDhcpOptions"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteDhcpOptions API operation.", Operation = new[] {"DeleteDhcpOptions"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DhcpOptionsId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeleteDhcpOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

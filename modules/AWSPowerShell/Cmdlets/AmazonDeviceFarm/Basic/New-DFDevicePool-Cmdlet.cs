@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("New", "DFDevicePool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.DevicePool")]
-    [AWSCmdlet("Invokes the CreateDevicePool operation against AWS Device Farm.", Operation = new[] {"CreateDevicePool"})]
+    [AWSCmdlet("Calls the AWS Device Farm CreateDevicePool API operation.", Operation = new[] {"CreateDevicePool"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.DevicePool",
         "This cmdlet returns a DevicePool object.",
         "The service call response (type Amazon.DeviceFarm.Model.CreateDevicePoolResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

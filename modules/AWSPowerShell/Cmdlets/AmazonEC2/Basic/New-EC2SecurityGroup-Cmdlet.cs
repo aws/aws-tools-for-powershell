@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2SecurityGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateSecurityGroup operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSecurityGroup"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSecurityGroup API operation.", Operation = new[] {"CreateSecurityGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.EC2.Model.CreateSecurityGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

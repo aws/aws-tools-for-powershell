@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCProvisioningArtifact")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningArtifactResponse")]
-    [AWSCmdlet("Invokes the DescribeProvisioningArtifact operation against AWS Service Catalog.", Operation = new[] {"DescribeProvisioningArtifact"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DescribeProvisioningArtifact API operation.", Operation = new[] {"DescribeProvisioningArtifact"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProvisioningArtifactResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProvisioningArtifactResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

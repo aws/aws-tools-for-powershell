@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInstanceInformation")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InstanceInformation")]
-    [AWSCmdlet("Invokes the DescribeInstanceInformation operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeInstanceInformation"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeInstanceInformation API operation.", Operation = new[] {"DescribeInstanceInformation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InstanceInformation",
         "This cmdlet returns a collection of InstanceInformation objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeInstanceInformationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

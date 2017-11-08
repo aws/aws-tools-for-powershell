@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Submit", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Batch.Model.SubmitJobResponse")]
-    [AWSCmdlet("Invokes the SubmitJob operation against AWS Batch.", Operation = new[] {"SubmitJob"})]
+    [AWSCmdlet("Calls the AWS Batch SubmitJob API operation.", Operation = new[] {"SubmitJob"})]
     [AWSCmdletOutput("Amazon.Batch.Model.SubmitJobResponse",
         "This cmdlet returns a Amazon.Batch.Model.SubmitJobResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Test", "SESRenderTemplate")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the TestRenderTemplate operation against Amazon Simple Email Service.", Operation = new[] {"TestRenderTemplate"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service TestRenderTemplate API operation.", Operation = new[] {"TestRenderTemplate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleEmail.Model.TestRenderTemplateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

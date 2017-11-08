@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBConfigurationSetting")]
     [OutputType("Amazon.ElasticBeanstalk.Model.ConfigurationSettingsDescription")]
-    [AWSCmdlet("Invokes the DescribeConfigurationSettings operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeConfigurationSettings"}, LegacyAlias="Get-EBConfigurationSettings")]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeConfigurationSettings API operation.", Operation = new[] {"DescribeConfigurationSettings"}, LegacyAlias="Get-EBConfigurationSettings")]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ConfigurationSettingsDescription",
         "This cmdlet returns a collection of ConfigurationSettingsDescription objects.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeConfigurationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

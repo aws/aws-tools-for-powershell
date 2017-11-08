@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Get", "EBInstanceHealth")]
     [OutputType("Amazon.ElasticBeanstalk.Model.SingleInstanceHealth")]
-    [AWSCmdlet("Invokes the DescribeInstancesHealth operation against AWS Elastic Beanstalk.", Operation = new[] {"DescribeInstancesHealth"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DescribeInstancesHealth API operation.", Operation = new[] {"DescribeInstancesHealth"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.SingleInstanceHealth",
         "This cmdlet returns a collection of SingleInstanceHealth objects.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.DescribeInstancesHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

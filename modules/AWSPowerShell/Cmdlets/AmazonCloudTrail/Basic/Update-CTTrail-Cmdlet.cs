@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Update", "CTTrail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudTrail.Model.UpdateTrailResponse")]
-    [AWSCmdlet("Invokes the UpdateTrail operation against AWS CloudTrail.", Operation = new[] {"UpdateTrail"})]
+    [AWSCmdlet("Calls the AWS CloudTrail UpdateTrail API operation.", Operation = new[] {"UpdateTrail"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.UpdateTrailResponse",
         "This cmdlet returns a Amazon.CloudTrail.Model.UpdateTrailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

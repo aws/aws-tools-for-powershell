@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Set", "IOTDefaultPolicyVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetDefaultPolicyVersion operation against AWS IoT.", Operation = new[] {"SetDefaultPolicyVersion"})]
+    [AWSCmdlet("Calls the AWS IoT SetDefaultPolicyVersion API operation.", Operation = new[] {"SetDefaultPolicyVersion"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PolicyName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.SetDefaultPolicyVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

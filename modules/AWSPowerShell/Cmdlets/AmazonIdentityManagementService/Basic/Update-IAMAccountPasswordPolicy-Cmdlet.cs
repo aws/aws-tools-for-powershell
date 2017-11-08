@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMAccountPasswordPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UpdateAccountPasswordPolicy operation against AWS Identity and Access Management.", Operation = new[] {"UpdateAccountPasswordPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateAccountPasswordPolicy API operation.", Operation = new[] {"UpdateAccountPasswordPolicy"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateAccountPasswordPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

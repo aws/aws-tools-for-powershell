@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Write", "GMLScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PutScalingPolicy operation against Amazon GameLift Service.", Operation = new[] {"PutScalingPolicy"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.GameLift.Model.PutScalingPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

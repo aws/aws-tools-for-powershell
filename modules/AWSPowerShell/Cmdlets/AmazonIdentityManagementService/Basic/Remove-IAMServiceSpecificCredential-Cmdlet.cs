@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMServiceSpecificCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteServiceSpecificCredential operation against AWS Identity and Access Management.", Operation = new[] {"DeleteServiceSpecificCredential"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteServiceSpecificCredential API operation.", Operation = new[] {"DeleteServiceSpecificCredential"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceSpecificCredentialId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteServiceSpecificCredentialResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

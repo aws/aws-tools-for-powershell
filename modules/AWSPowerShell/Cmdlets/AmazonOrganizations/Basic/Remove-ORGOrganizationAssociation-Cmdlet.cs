@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Remove", "ORGOrganizationAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the LeaveOrganization operation against AWS Organizations.", Operation = new[] {"LeaveOrganization"})]
+    [AWSCmdlet("Calls the AWS Organizations LeaveOrganization API operation.", Operation = new[] {"LeaveOrganization"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Organizations.Model.LeaveOrganizationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

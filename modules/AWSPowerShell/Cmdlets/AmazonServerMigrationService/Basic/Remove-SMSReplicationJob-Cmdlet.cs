@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Remove", "SMSReplicationJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteReplicationJob operation against Amazon Server Migration Service.", Operation = new[] {"DeleteReplicationJob"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service DeleteReplicationJob API operation.", Operation = new[] {"DeleteReplicationJob"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ReplicationJobId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServerMigrationService.Model.DeleteReplicationJobResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

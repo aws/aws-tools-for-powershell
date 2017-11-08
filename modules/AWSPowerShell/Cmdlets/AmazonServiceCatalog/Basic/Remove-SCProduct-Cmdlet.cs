@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Remove", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteProduct operation against AWS Service Catalog.", Operation = new[] {"DeleteProduct"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DeleteProduct API operation.", Operation = new[] {"DeleteProduct"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DeleteProductResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

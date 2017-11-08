@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Enable", "ORGAllFeature", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the EnableAllFeatures operation against AWS Organizations.", Operation = new[] {"EnableAllFeatures"}, LegacyAlias="Enable-ORGAllFeatures")]
+    [AWSCmdlet("Calls the AWS Organizations EnableAllFeatures API operation.", Operation = new[] {"EnableAllFeatures"}, LegacyAlias="Enable-ORGAllFeatures")]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
         "This cmdlet returns a Handshake object.",
         "The service call response (type Amazon.Organizations.Model.EnableAllFeaturesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

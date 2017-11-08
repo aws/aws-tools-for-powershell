@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Remove", "DSTrust", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteTrust operation against AWS Directory Service.", Operation = new[] {"DeleteTrust"})]
+    [AWSCmdlet("Calls the AWS Directory Service DeleteTrust API operation.", Operation = new[] {"DeleteTrust"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.DeleteTrustResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

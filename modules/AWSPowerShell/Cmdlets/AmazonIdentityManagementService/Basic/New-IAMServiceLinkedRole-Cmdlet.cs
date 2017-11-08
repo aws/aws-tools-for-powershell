@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMServiceLinkedRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.Role")]
-    [AWSCmdlet("Invokes the CreateServiceLinkedRole operation against AWS Identity and Access Management.", Operation = new[] {"CreateServiceLinkedRole"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateServiceLinkedRole API operation.", Operation = new[] {"CreateServiceLinkedRole"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role",
         "This cmdlet returns a Role object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateServiceLinkedRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

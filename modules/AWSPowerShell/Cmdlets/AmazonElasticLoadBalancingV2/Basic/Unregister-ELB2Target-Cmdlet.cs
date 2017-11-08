@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Unregister", "ELB2Target", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterTargets operation against Elastic Load Balancing V2.", Operation = new[] {"DeregisterTargets"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeregisterTargets API operation.", Operation = new[] {"DeregisterTargets"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TargetGroupArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeregisterTargetsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

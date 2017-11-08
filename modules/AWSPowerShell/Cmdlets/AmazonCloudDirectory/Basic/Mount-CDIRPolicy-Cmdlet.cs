@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Mount", "CDIRPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachPolicy operation against AWS Cloud Directory.", Operation = new[] {"AttachPolicy"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory AttachPolicy API operation.", Operation = new[] {"AttachPolicy"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.AttachPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

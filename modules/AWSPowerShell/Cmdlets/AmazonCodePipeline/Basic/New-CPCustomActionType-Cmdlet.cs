@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("New", "CPCustomActionType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CodePipeline.Model.ActionType")]
-    [AWSCmdlet("Invokes the CreateCustomActionType operation against AWS CodePipeline.", Operation = new[] {"CreateCustomActionType"})]
+    [AWSCmdlet("Calls the AWS CodePipeline CreateCustomActionType API operation.", Operation = new[] {"CreateCustomActionType"})]
     [AWSCmdletOutput("Amazon.CodePipeline.Model.ActionType",
         "This cmdlet returns a ActionType object.",
         "The service call response (type Amazon.CodePipeline.Model.CreateCustomActionTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

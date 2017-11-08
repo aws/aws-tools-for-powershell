@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRDownloadUrlForLayer")]
     [OutputType("Amazon.ECR.Model.GetDownloadUrlForLayerResponse")]
-    [AWSCmdlet("Invokes the GetDownloadUrlForLayer operation against Amazon EC2 Container Registry.", Operation = new[] {"GetDownloadUrlForLayer"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetDownloadUrlForLayer API operation.", Operation = new[] {"GetDownloadUrlForLayer"})]
     [AWSCmdletOutput("Amazon.ECR.Model.GetDownloadUrlForLayerResponse",
         "This cmdlet returns a Amazon.ECR.Model.GetDownloadUrlForLayerResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

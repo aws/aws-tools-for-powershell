@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("New", "ELB2Listener", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Listener")]
-    [AWSCmdlet("Invokes the CreateListener operation against Elastic Load Balancing V2.", Operation = new[] {"CreateListener"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 CreateListener API operation.", Operation = new[] {"CreateListener"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Listener",
         "This cmdlet returns a collection of Listener objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.CreateListenerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

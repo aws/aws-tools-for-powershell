@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Mount", "CDIRTypedLink", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.TypedLinkSpecifier")]
-    [AWSCmdlet("Invokes the AttachTypedLink operation against AWS Cloud Directory.", Operation = new[] {"AttachTypedLink"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory AttachTypedLink API operation.", Operation = new[] {"AttachTypedLink"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.TypedLinkSpecifier",
         "This cmdlet returns a TypedLinkSpecifier object.",
         "The service call response (type Amazon.CloudDirectory.Model.AttachTypedLinkResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

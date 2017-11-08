@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.POL
     /// </summary>
     [Cmdlet("Get", "POLSpeech")]
     [OutputType("Amazon.Polly.Model.SynthesizeSpeechResponse")]
-    [AWSCmdlet("Invokes the SynthesizeSpeech operation against Amazon Polly.", Operation = new[] {"SynthesizeSpeech"})]
+    [AWSCmdlet("Calls the Amazon Polly SynthesizeSpeech API operation.", Operation = new[] {"SynthesizeSpeech"})]
     [AWSCmdletOutput("Amazon.Polly.Model.SynthesizeSpeechResponse",
         "This cmdlet returns a Amazon.Polly.Model.SynthesizeSpeechResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

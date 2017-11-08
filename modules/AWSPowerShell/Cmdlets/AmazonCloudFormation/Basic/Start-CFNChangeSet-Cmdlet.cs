@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Start", "CFNChangeSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ExecuteChangeSet operation against AWS CloudFormation.", Operation = new[] {"ExecuteChangeSet"})]
+    [AWSCmdlet("Calls the AWS CloudFormation ExecuteChangeSet API operation.", Operation = new[] {"ExecuteChangeSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ChangeSetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFormation.Model.ExecuteChangeSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

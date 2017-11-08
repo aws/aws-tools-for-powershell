@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Stop", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.DateTime")]
-    [AWSCmdlet("Invokes the StopExecution operation against Amazon Step Functions.", Operation = new[] {"StopExecution"})]
+    [AWSCmdlet("Calls the Amazon Step Functions StopExecution API operation.", Operation = new[] {"StopExecution"})]
     [AWSCmdletOutput("System.DateTime",
         "This cmdlet returns a DateTime object.",
         "The service call response (type Amazon.StepFunctions.Model.StopExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

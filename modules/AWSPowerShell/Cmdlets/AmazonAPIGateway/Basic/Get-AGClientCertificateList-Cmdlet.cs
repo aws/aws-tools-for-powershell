@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Get", "AGClientCertificateList")]
     [OutputType("Amazon.APIGateway.Model.ClientCertificate")]
-    [AWSCmdlet("Invokes the GetClientCertificates operation against Amazon API Gateway.", Operation = new[] {"GetClientCertificates"})]
+    [AWSCmdlet("Calls the Amazon API Gateway GetClientCertificates API operation.", Operation = new[] {"GetClientCertificates"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.ClientCertificate",
         "This cmdlet returns a collection of ClientCertificate objects.",
         "The service call response (type Amazon.APIGateway.Model.GetClientCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

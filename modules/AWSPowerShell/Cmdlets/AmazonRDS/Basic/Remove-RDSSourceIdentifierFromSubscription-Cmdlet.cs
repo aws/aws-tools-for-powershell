@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSSourceIdentifierFromSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.EventSubscription")]
-    [AWSCmdlet("Invokes the RemoveSourceIdentifierFromSubscription operation against Amazon Relational Database Service.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service RemoveSourceIdentifierFromSubscription API operation.", Operation = new[] {"RemoveSourceIdentifierFromSubscription"})]
     [AWSCmdletOutput("Amazon.RDS.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
         "The service call response (type Amazon.RDS.Model.RemoveSourceIdentifierFromSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

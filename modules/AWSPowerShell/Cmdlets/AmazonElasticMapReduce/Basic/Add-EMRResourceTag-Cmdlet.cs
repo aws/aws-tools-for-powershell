@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Add", "EMRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.ElasticMapReduce.Model.Tag")]
-    [AWSCmdlet("Invokes the AddTags operation against Amazon Elastic MapReduce.", Operation = new[] {"AddTags"}, LegacyAlias="Add-EMRTag")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce AddTags API operation.", Operation = new[] {"AddTags"}, LegacyAlias="Add-EMRTag")]
     [AWSCmdletOutput("None or Amazon.ElasticMapReduce.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

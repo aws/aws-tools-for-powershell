@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Enable", "DCConnectionOnInterconnect", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse")]
-    [AWSCmdlet("Invokes the AllocateConnectionOnInterconnect operation against AWS Direct Connect.", Operation = new[] {"AllocateConnectionOnInterconnect"})]
+    [AWSCmdlet("Calls the AWS Direct Connect AllocateConnectionOnInterconnect API operation.", Operation = new[] {"AllocateConnectionOnInterconnect"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.AllocateConnectionOnInterconnectResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

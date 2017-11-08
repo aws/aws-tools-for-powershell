@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2DhcpOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociateDhcpOptions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssociateDhcpOptions"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateDhcpOptions API operation.", Operation = new[] {"AssociateDhcpOptions"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.AssociateDhcpOptionsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

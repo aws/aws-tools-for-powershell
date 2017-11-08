@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Remove", "CGIPIdentityProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteIdentityProvider operation against Amazon Cognito Identity Provider.", Operation = new[] {"DeleteIdentityProvider"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider DeleteIdentityProvider API operation.", Operation = new[] {"DeleteIdentityProvider"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProviderName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.DeleteIdentityProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

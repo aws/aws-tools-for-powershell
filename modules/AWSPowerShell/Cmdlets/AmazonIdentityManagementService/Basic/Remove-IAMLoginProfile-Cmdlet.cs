@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLoginProfile operation against AWS Identity and Access Management.", Operation = new[] {"DeleteLoginProfile"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteLoginProfile API operation.", Operation = new[] {"DeleteLoginProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteLoginProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

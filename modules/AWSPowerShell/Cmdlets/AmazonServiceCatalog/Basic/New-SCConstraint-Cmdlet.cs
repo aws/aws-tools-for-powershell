@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("New", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateConstraintResponse")]
-    [AWSCmdlet("Invokes the CreateConstraint operation against AWS Service Catalog.", Operation = new[] {"CreateConstraint"})]
+    [AWSCmdlet("Calls the AWS Service Catalog CreateConstraint API operation.", Operation = new[] {"CreateConstraint"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.CreateConstraintResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.CreateConstraintResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

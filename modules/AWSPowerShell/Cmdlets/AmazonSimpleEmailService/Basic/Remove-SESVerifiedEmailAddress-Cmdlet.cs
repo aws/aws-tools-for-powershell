@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Remove", "SESVerifiedEmailAddress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteVerifiedEmailAddress operation against Amazon Simple Email Service.", Operation = new[] {"DeleteVerifiedEmailAddress"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteVerifiedEmailAddress API operation.", Operation = new[] {"DeleteVerifiedEmailAddress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the EmailAddress parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.DeleteVerifiedEmailAddressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

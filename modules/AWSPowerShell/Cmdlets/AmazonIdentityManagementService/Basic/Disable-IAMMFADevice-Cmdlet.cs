@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Disable", "IAMMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeactivateMFADevice operation against AWS Identity and Access Management.", Operation = new[] {"DeactivateMFADevice"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeactivateMFADevice API operation.", Operation = new[] {"DeactivateMFADevice"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeactivateMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

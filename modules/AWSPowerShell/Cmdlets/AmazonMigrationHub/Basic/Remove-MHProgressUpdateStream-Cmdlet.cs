@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Remove", "MHProgressUpdateStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteProgressUpdateStream operation against AWS Migration Hub.", Operation = new[] {"DeleteProgressUpdateStream"})]
+    [AWSCmdlet("Calls the AWS Migration Hub DeleteProgressUpdateStream API operation.", Operation = new[] {"DeleteProgressUpdateStream"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProgressUpdateStreamName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.DeleteProgressUpdateStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

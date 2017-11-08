@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMAccountAlias")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListAccountAliases operation against AWS Identity and Access Management.", Operation = new[] {"ListAccountAliases"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListAccountAliases API operation.", Operation = new[] {"ListAccountAliases"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListAccountAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

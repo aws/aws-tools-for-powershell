@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Start", "RDSDBClusterFailover", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBCluster")]
-    [AWSCmdlet("Invokes the FailoverDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"FailoverDBCluster"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service FailoverDBCluster API operation.", Operation = new[] {"FailoverDBCluster"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBCluster",
         "This cmdlet returns a DBCluster object.",
         "The service call response (type Amazon.RDS.Model.FailoverDBClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

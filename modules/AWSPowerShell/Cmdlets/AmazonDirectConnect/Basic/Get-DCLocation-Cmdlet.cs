@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Get", "DCLocation")]
     [OutputType("Amazon.DirectConnect.Model.Location")]
-    [AWSCmdlet("Invokes the DescribeLocations operation against AWS Direct Connect.", Operation = new[] {"DescribeLocations"}, LegacyAlias="Get-DCLocations")]
+    [AWSCmdlet("Calls the AWS Direct Connect DescribeLocations API operation.", Operation = new[] {"DescribeLocations"}, LegacyAlias="Get-DCLocations")]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.Location",
         "This cmdlet returns a collection of Location objects.",
         "The service call response (type Amazon.DirectConnect.Model.DescribeLocationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

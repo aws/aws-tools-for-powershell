@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("New", "CFStreamingDistributionWithTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsResponse")]
-    [AWSCmdlet("Invokes the CreateStreamingDistributionWithTags operation against Amazon CloudFront.", Operation = new[] {"CreateStreamingDistributionWithTags"})]
+    [AWSCmdlet("Calls the Amazon CloudFront CreateStreamingDistributionWithTags API operation.", Operation = new[] {"CreateStreamingDistributionWithTags"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsResponse",
         "This cmdlet returns a Amazon.CloudFront.Model.CreateStreamingDistributionWithTagsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

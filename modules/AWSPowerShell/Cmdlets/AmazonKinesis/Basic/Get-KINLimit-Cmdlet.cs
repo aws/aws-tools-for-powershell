@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINLimit")]
     [OutputType("Amazon.Kinesis.Model.DescribeLimitsResponse")]
-    [AWSCmdlet("Invokes the DescribeLimits operation against Amazon Kinesis.", Operation = new[] {"DescribeLimits"})]
+    [AWSCmdlet("Calls the Amazon Kinesis DescribeLimits API operation.", Operation = new[] {"DescribeLimits"})]
     [AWSCmdletOutput("Amazon.Kinesis.Model.DescribeLimitsResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.DescribeLimitsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

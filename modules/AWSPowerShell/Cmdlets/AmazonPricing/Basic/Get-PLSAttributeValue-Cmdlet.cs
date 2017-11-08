@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     /// </summary>
     [Cmdlet("Get", "PLSAttributeValue")]
     [OutputType("Amazon.Pricing.Model.AttributeValue")]
-    [AWSCmdlet("Invokes the GetAttributeValues operation against AWS Price List Service.", Operation = new[] {"GetAttributeValues"})]
+    [AWSCmdlet("Calls the AWS Price List Service GetAttributeValues API operation.", Operation = new[] {"GetAttributeValues"})]
     [AWSCmdletOutput("Amazon.Pricing.Model.AttributeValue",
         "This cmdlet returns a collection of AttributeValue objects.",
         "The service call response (type Amazon.Pricing.Model.GetAttributeValuesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

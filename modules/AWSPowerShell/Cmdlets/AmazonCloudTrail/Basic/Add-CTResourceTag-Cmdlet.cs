@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Add", "CTResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddTags operation against AWS CloudTrail.", Operation = new[] {"AddTags"}, LegacyAlias="Add-CTTag")]
+    [AWSCmdlet("Calls the AWS CloudTrail AddTags API operation.", Operation = new[] {"AddTags"}, LegacyAlias="Add-CTTag")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudTrail.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

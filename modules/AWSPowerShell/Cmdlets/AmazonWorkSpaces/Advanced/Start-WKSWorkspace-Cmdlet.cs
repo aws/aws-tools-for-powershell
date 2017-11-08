@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("Start", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = RequestObjectParameterSet)]
     [OutputType("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest")]
-    [AWSCmdlet("Invokes the StartWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"StartWorkspaces"})]
+    [AWSCmdlet("Calls the Amazon WorkSpaces StartWorkspaces API operation.", Operation = new[] { "StartWorkspaces" })]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.FailedWorkspaceChangeRequest",
         "This cmdlet returns a collection of FailedWorkspaceChangeRequest objects.",
         "The service call response (type Amazon.WorkSpaces.Model.StartWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

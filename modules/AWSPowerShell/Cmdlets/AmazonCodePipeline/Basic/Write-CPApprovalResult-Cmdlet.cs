@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Write", "CPApprovalResult", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.DateTime")]
-    [AWSCmdlet("Invokes the PutApprovalResult operation against AWS CodePipeline.", Operation = new[] {"PutApprovalResult"})]
+    [AWSCmdlet("Calls the AWS CodePipeline PutApprovalResult API operation.", Operation = new[] {"PutApprovalResult"})]
     [AWSCmdletOutput("System.DateTime",
         "This cmdlet returns a DateTime object.",
         "The service call response (type Amazon.CodePipeline.Model.PutApprovalResultResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

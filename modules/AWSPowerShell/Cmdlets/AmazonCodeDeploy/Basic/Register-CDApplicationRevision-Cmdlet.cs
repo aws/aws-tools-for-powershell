@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Register", "CDApplicationRevision", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RegisterApplicationRevision operation against AWS CodeDeploy.", Operation = new[] {"RegisterApplicationRevision"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy RegisterApplicationRevision API operation.", Operation = new[] {"RegisterApplicationRevision"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeDeploy.Model.RegisterApplicationRevisionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

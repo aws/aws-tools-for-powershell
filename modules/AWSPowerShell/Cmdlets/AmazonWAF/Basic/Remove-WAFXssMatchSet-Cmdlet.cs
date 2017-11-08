@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Remove", "WAFXssMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteXssMatchSet operation against AWS WAF.", Operation = new[] {"DeleteXssMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF DeleteXssMatchSet API operation.", Operation = new[] {"DeleteXssMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAF.Model.DeleteXssMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

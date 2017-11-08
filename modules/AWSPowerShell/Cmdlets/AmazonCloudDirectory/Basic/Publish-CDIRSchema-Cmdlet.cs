@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Publish", "CDIRSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PublishSchema operation against AWS Cloud Directory.", Operation = new[] {"PublishSchema"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory PublishSchema API operation.", Operation = new[] {"PublishSchema"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.PublishSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Add", "DCResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the TagResource operation against AWS Direct Connect.", Operation = new[] {"TagResource"})]
+    [AWSCmdlet("Calls the AWS Direct Connect TagResource API operation.", Operation = new[] {"TagResource"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.DirectConnect.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

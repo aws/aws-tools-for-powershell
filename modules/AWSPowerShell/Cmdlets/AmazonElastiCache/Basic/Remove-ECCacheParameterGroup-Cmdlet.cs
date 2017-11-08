@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Remove", "ECCacheParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteCacheParameterGroup operation against Amazon ElastiCache.", Operation = new[] {"DeleteCacheParameterGroup"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DeleteCacheParameterGroup API operation.", Operation = new[] {"DeleteCacheParameterGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CacheParameterGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElastiCache.Model.DeleteCacheParameterGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

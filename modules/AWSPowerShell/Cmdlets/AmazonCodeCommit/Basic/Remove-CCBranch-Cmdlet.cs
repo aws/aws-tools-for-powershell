@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Remove", "CCBranch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CodeCommit.Model.BranchInfo")]
-    [AWSCmdlet("Invokes the DeleteBranch operation against AWS CodeCommit.", Operation = new[] {"DeleteBranch"})]
+    [AWSCmdlet("Calls the AWS CodeCommit DeleteBranch API operation.", Operation = new[] {"DeleteBranch"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.BranchInfo",
         "This cmdlet returns a BranchInfo object.",
         "The service call response (type Amazon.CodeCommit.Model.DeleteBranchResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Get", "ADSServerNeighborList")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsResponse")]
-    [AWSCmdlet("Invokes the ListServerNeighbors operation against Application Discovery Service.", Operation = new[] {"ListServerNeighbors"})]
+    [AWSCmdlet("Calls the Application Discovery Service ListServerNeighbors API operation.", Operation = new[] {"ListServerNeighbors"})]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsResponse",
         "This cmdlet returns a Amazon.ApplicationDiscoveryService.Model.ListServerNeighborsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

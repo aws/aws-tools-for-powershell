@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Remove", "APSImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.AppStream.Model.Image")]
-    [AWSCmdlet("Invokes the DeleteImage operation against AWS AppStream.", Operation = new[] {"DeleteImage"})]
+    [AWSCmdlet("Calls the AWS AppStream DeleteImage API operation.", Operation = new[] {"DeleteImage"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.Image",
         "This cmdlet returns a Image object.",
         "The service call response (type Amazon.AppStream.Model.DeleteImageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

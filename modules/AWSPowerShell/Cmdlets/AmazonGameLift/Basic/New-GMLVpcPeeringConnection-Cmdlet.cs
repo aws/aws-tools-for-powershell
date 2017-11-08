@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("New", "GMLVpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateVpcPeeringConnection operation against Amazon GameLift Service.", Operation = new[] {"CreateVpcPeeringConnection"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service CreateVpcPeeringConnection API operation.", Operation = new[] {"CreateVpcPeeringConnection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FleetId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.GameLift.Model.CreateVpcPeeringConnectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

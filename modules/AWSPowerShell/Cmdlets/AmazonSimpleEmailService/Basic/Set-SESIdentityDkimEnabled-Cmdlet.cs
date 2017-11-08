@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Set", "SESIdentityDkimEnabled", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetIdentityDkimEnabled operation against Amazon Simple Email Service.", Operation = new[] {"SetIdentityDkimEnabled"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SetIdentityDkimEnabled API operation.", Operation = new[] {"SetIdentityDkimEnabled"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.SetIdentityDkimEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

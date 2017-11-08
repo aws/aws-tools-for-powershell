@@ -68,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Edit", "SQSMessageVisibility", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ChangeMessageVisibility operation against Amazon Simple Queue Service.", Operation = new[] {"ChangeMessageVisibility"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service ChangeMessageVisibility API operation.", Operation = new[] {"ChangeMessageVisibility"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.ChangeMessageVisibilityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

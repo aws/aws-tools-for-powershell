@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGOrganizationHandshakeList")]
     [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the ListHandshakesForOrganization operation against AWS Organizations.", Operation = new[] {"ListHandshakesForOrganization"})]
+    [AWSCmdlet("Calls the AWS Organizations ListHandshakesForOrganization API operation.", Operation = new[] {"ListHandshakesForOrganization"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
         "This cmdlet returns a collection of Handshake objects.",
         "The service call response (type Amazon.Organizations.Model.ListHandshakesForOrganizationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

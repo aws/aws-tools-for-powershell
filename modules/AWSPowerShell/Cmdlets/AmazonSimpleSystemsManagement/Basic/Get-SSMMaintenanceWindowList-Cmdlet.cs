@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMMaintenanceWindowList")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentity")]
-    [AWSCmdlet("Invokes the DescribeMaintenanceWindows operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeMaintenanceWindows"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeMaintenanceWindows API operation.", Operation = new[] {"DescribeMaintenanceWindows"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.MaintenanceWindowIdentity",
         "This cmdlet returns a collection of MaintenanceWindowIdentity objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeMaintenanceWindowsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

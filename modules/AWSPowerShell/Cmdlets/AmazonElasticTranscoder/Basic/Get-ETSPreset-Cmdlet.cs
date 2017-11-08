@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ETS
     /// </summary>
     [Cmdlet("Get", "ETSPreset")]
     [OutputType("Amazon.ElasticTranscoder.Model.Preset")]
-    [AWSCmdlet("Invokes the ListPresets operation against Amazon Elastic Transcoder.", Operation = new[] {"ListPresets"})]
+    [AWSCmdlet("Calls the Amazon Elastic Transcoder ListPresets API operation.", Operation = new[] {"ListPresets"})]
     [AWSCmdletOutput("Amazon.ElasticTranscoder.Model.Preset",
         "This cmdlet returns a collection of Preset objects.",
         "The service call response (type Amazon.ElasticTranscoder.Model.ListPresetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Group", "EBEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.EnvironmentDescription")]
-    [AWSCmdlet("Invokes the ComposeEnvironments operation against AWS Elastic Beanstalk.", Operation = new[] {"ComposeEnvironments"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk ComposeEnvironments API operation.", Operation = new[] {"ComposeEnvironments"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.EnvironmentDescription",
         "This cmdlet returns a collection of EnvironmentDescription objects.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.ComposeEnvironmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

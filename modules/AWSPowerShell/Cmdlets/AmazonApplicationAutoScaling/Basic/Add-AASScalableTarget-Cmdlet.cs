@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </summary>
     [Cmdlet("Add", "AASScalableTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.ApplicationAutoScaling.ServiceNamespace")]
-    [AWSCmdlet("Invokes the RegisterScalableTarget operation against Application Auto Scaling.", Operation = new[] {"RegisterScalableTarget"})]
+    [AWSCmdlet("Calls the Application Auto Scaling RegisterScalableTarget API operation.", Operation = new[] {"RegisterScalableTarget"})]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.ServiceNamespace",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceNamespace parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationAutoScaling.Model.RegisterScalableTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

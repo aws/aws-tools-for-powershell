@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2FlowLog", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.CreateFlowLogsResponse")]
-    [AWSCmdlet("Invokes the CreateFlowLogs operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateFlowLogs"}, LegacyAlias="New-EC2FlowLogs")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateFlowLogs API operation.", Operation = new[] {"CreateFlowLogs"}, LegacyAlias="New-EC2FlowLogs")]
     [AWSCmdletOutput("Amazon.EC2.Model.CreateFlowLogsResponse",
         "This cmdlet returns a Amazon.EC2.Model.CreateFlowLogsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

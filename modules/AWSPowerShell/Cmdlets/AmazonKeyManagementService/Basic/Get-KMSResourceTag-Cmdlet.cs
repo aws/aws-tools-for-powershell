@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Get", "KMSResourceTag")]
     [OutputType("Amazon.KeyManagementService.Model.Tag")]
-    [AWSCmdlet("Invokes the ListResourceTags operation against AWS Key Management Service.", Operation = new[] {"ListResourceTags"})]
+    [AWSCmdlet("Calls the AWS Key Management Service ListResourceTags API operation.", Operation = new[] {"ListResourceTags"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.KeyManagementService.Model.ListResourceTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

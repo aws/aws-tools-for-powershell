@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Get", "SFNStateMachineList")]
     [OutputType("Amazon.StepFunctions.Model.StateMachineListItem")]
-    [AWSCmdlet("Invokes the ListStateMachines operation against Amazon Step Functions.", Operation = new[] {"ListStateMachines"})]
+    [AWSCmdlet("Calls the Amazon Step Functions ListStateMachines API operation.", Operation = new[] {"ListStateMachines"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.StateMachineListItem",
         "This cmdlet returns a collection of StateMachineListItem objects.",
         "The service call response (type Amazon.StepFunctions.Model.ListStateMachinesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ObjectTagSet")]
     [OutputType("Amazon.S3.Model.Tag")]
-    [AWSCmdlet("Invokes the GetObjectTagging operation against Amazon Simple Storage Service.", Operation = new[] {"GetObjectTagging"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetObjectTagging API operation.", Operation = new[] {"GetObjectTagging"})]
     [AWSCmdletOutput("Amazon.S3.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.S3.Model.GetObjectTaggingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

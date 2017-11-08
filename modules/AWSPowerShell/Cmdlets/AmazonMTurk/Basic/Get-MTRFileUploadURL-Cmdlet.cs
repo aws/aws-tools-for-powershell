@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.MTR
     /// </summary>
     [Cmdlet("Get", "MTRFileUploadURL")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetFileUploadURL operation against Amazon MTurk Service.", Operation = new[] {"GetFileUploadURL"})]
+    [AWSCmdlet("Calls the Amazon MTurk Service GetFileUploadURL API operation.", Operation = new[] {"GetFileUploadURL"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MTurk.Model.GetFileUploadURLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

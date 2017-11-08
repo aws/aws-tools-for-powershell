@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2Address", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the AssociateAddress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssociateAddress"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssociateAddress API operation.", Operation = new[] {"AssociateAddress"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.EC2.Model.AssociateAddressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

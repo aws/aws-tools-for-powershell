@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Get", "PINAdmChannel")]
     [OutputType("Amazon.Pinpoint.Model.ADMChannelResponse")]
-    [AWSCmdlet("Invokes the GetAdmChannel operation against Amazon Pinpoint.", Operation = new[] {"GetAdmChannel"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetAdmChannel API operation.", Operation = new[] {"GetAdmChannel"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.ADMChannelResponse",
         "This cmdlet returns a ADMChannelResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.GetAdmChannelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

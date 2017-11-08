@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2TargetHealth")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription")]
-    [AWSCmdlet("Invokes the DescribeTargetHealth operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeTargetHealth"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeTargetHealth API operation.", Operation = new[] {"DescribeTargetHealth"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.TargetHealthDescription",
         "This cmdlet returns a collection of TargetHealthDescription objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeTargetHealthResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

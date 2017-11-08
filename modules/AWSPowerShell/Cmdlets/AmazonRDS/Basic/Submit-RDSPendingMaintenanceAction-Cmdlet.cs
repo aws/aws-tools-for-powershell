@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Submit", "RDSPendingMaintenanceAction", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.ResourcePendingMaintenanceActions")]
-    [AWSCmdlet("Invokes the ApplyPendingMaintenanceAction operation against Amazon Relational Database Service.", Operation = new[] {"ApplyPendingMaintenanceAction"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service ApplyPendingMaintenanceAction API operation.", Operation = new[] {"ApplyPendingMaintenanceAction"})]
     [AWSCmdletOutput("Amazon.RDS.Model.ResourcePendingMaintenanceActions",
         "This cmdlet returns a ResourcePendingMaintenanceActions object.",
         "The service call response (type Amazon.RDS.Model.ApplyPendingMaintenanceActionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

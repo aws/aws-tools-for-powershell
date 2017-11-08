@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Add", "ELB2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the AddTags operation against Elastic Load Balancing V2.", Operation = new[] {"AddTags"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 AddTags API operation.", Operation = new[] {"AddTags"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CP
     /// </summary>
     [Cmdlet("Redo", "CPStageExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RetryStageExecution operation against AWS CodePipeline.", Operation = new[] {"RetryStageExecution"})]
+    [AWSCmdlet("Calls the AWS CodePipeline RetryStageExecution API operation.", Operation = new[] {"RetryStageExecution"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodePipeline.Model.RetryStageExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

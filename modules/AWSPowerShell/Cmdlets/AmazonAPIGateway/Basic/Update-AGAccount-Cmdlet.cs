@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Update", "AGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.UpdateAccountResponse")]
-    [AWSCmdlet("Invokes the UpdateAccount operation against Amazon API Gateway.", Operation = new[] {"UpdateAccount"})]
+    [AWSCmdlet("Calls the Amazon API Gateway UpdateAccount API operation.", Operation = new[] {"UpdateAccount"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.UpdateAccountResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.UpdateAccountResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

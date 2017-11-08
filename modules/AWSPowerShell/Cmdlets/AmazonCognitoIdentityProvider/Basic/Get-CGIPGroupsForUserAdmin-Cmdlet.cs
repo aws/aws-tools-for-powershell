@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Get", "CGIPGroupsForUserAdmin")]
     [OutputType("Amazon.CognitoIdentityProvider.Model.GroupType")]
-    [AWSCmdlet("Invokes the AdminListGroupsForUser operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminListGroupsForUser"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminListGroupsForUser API operation.", Operation = new[] {"AdminListGroupsForUser"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.GroupType",
         "This cmdlet returns a collection of GroupType objects.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.AdminListGroupsForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

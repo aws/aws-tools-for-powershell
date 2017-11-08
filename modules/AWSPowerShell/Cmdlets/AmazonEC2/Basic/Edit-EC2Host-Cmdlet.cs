@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2Host", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.ModifyHostsResponse")]
-    [AWSCmdlet("Invokes the ModifyHosts operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyHosts"}, LegacyAlias="Edit-EC2Hosts")]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyHosts API operation.", Operation = new[] {"ModifyHosts"}, LegacyAlias="Edit-EC2Hosts")]
     [AWSCmdletOutput("Amazon.EC2.Model.ModifyHostsResponse",
         "This cmdlet returns a Amazon.EC2.Model.ModifyHostsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

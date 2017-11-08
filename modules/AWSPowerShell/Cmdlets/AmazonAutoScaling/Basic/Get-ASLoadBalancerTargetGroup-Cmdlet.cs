@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Get", "ASLoadBalancerTargetGroup")]
     [OutputType("Amazon.AutoScaling.Model.LoadBalancerTargetGroupState")]
-    [AWSCmdlet("Invokes the DescribeLoadBalancerTargetGroups operation against Auto Scaling.", Operation = new[] {"DescribeLoadBalancerTargetGroups"})]
+    [AWSCmdlet("Calls the Auto Scaling DescribeLoadBalancerTargetGroups API operation.", Operation = new[] {"DescribeLoadBalancerTargetGroups"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.LoadBalancerTargetGroupState",
         "This cmdlet returns a collection of LoadBalancerTargetGroupState objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribeLoadBalancerTargetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

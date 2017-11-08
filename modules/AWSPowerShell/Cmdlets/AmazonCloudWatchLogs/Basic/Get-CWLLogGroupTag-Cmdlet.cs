@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Get", "CWLLogGroupTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListTagsLogGroup operation against Amazon CloudWatch Logs.", Operation = new[] {"ListTagsLogGroup"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs ListTagsLogGroup API operation.", Operation = new[] {"ListTagsLogGroup"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudWatchLogs.Model.ListTagsLogGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

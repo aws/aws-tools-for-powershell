@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Remove", "IOTPrincipalPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DetachPrincipalPolicy operation against AWS IoT.", Operation = new[] {"DetachPrincipalPolicy"})]
+    [AWSCmdlet("Calls the AWS IoT DetachPrincipalPolicy API operation.", Operation = new[] {"DetachPrincipalPolicy"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IoT.Model.DetachPrincipalPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSPermission")]
     [OutputType("Amazon.OpsWorks.Model.Permission")]
-    [AWSCmdlet("Invokes the DescribePermissions operation against AWS OpsWorks.", Operation = new[] {"DescribePermissions"}, LegacyAlias="Get-OPSPermissions")]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribePermissions API operation.", Operation = new[] {"DescribePermissions"}, LegacyAlias="Get-OPSPermissions")]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.Permission",
         "This cmdlet returns a collection of Permission objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

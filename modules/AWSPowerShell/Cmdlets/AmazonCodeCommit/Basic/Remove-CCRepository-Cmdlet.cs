@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Remove", "CCRepository", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteRepository operation against AWS CodeCommit.", Operation = new[] {"DeleteRepository"})]
+    [AWSCmdlet("Calls the AWS CodeCommit DeleteRepository API operation.", Operation = new[] {"DeleteRepository"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodeCommit.Model.DeleteRepositoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

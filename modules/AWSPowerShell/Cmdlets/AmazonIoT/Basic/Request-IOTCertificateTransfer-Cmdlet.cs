@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Request", "IOTCertificateTransfer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the TransferCertificate operation against AWS IoT.", Operation = new[] {"TransferCertificate"})]
+    [AWSCmdlet("Calls the AWS IoT TransferCertificate API operation.", Operation = new[] {"TransferCertificate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.IoT.Model.TransferCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

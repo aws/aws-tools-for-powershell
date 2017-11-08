@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Update", "DPTaskRunnerHeartbeat", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the ReportTaskRunnerHeartbeat operation against AWS Data Pipeline.", Operation = new[] {"ReportTaskRunnerHeartbeat"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline ReportTaskRunnerHeartbeat API operation.", Operation = new[] {"ReportTaskRunnerHeartbeat"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.DataPipeline.Model.ReportTaskRunnerHeartbeatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

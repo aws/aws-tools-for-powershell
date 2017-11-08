@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Get", "ADSExportConfigurationsId")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ExportConfigurations operation against Application Discovery Service.", Operation = new[] {"ExportConfigurations"})]
+    [AWSCmdlet("Calls the Application Discovery Service ExportConfigurations API operation.", Operation = new[] {"ExportConfigurations"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.ExportConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Send", "MHMigrationTaskStateNotification", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.MigrationHub.Model.Task")]
-    [AWSCmdlet("Invokes the NotifyMigrationTaskState operation against AWS Migration Hub.", Operation = new[] {"NotifyMigrationTaskState"})]
+    [AWSCmdlet("Calls the AWS Migration Hub NotifyMigrationTaskState API operation.", Operation = new[] {"NotifyMigrationTaskState"})]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.Task",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Task parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.NotifyMigrationTaskStateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

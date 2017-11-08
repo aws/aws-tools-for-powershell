@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Volume")]
     [OutputType("Amazon.EC2.Model.Volume")]
-    [AWSCmdlet("Invokes the DescribeVolumes operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeVolumes"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVolumes API operation.", Operation = new[] {"DescribeVolumes"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Volume",
         "This cmdlet returns a collection of Volume objects.",
         "The service call response (type Amazon.EC2.Model.DescribeVolumesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

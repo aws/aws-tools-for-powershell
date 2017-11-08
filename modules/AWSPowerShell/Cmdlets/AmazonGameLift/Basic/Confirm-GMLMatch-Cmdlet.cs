@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Confirm", "GMLMatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AcceptMatch operation against Amazon GameLift Service.", Operation = new[] {"AcceptMatch"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service AcceptMatch API operation.", Operation = new[] {"AcceptMatch"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TicketId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.GameLift.Model.AcceptMatchResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Remove", "CWLLogGroupTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UntagLogGroup operation against Amazon CloudWatch Logs.", Operation = new[] {"UntagLogGroup"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs UntagLogGroup API operation.", Operation = new[] {"UntagLogGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LogGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.UntagLogGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

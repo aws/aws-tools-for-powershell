@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Switch", "RSEncryptionKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.Cluster")]
-    [AWSCmdlet("Invokes the RotateEncryptionKey operation against Amazon Redshift.", Operation = new[] {"RotateEncryptionKey"})]
+    [AWSCmdlet("Calls the Amazon Redshift RotateEncryptionKey API operation.", Operation = new[] {"RotateEncryptionKey"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.Redshift.Model.RotateEncryptionKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMUserList")]
     [OutputType("Amazon.IdentityManagement.Model.User")]
-    [AWSCmdlet("Invokes the ListUsers operation against AWS Identity and Access Management.", Operation = new[] {"ListUsers"}, LegacyAlias="Get-IAMUsers")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListUsers API operation.", Operation = new[] {"ListUsers"}, LegacyAlias="Get-IAMUsers")]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.User",
         "This cmdlet returns a collection of User objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListUsersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

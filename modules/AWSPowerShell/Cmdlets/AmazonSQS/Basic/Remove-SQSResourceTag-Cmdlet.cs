@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
     /// </summary>
     [Cmdlet("Remove", "SQSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UntagQueue operation against Amazon Simple Queue Service.", Operation = new[] {"UntagQueue"})]
+    [AWSCmdlet("Calls the Amazon Simple Queue Service UntagQueue API operation.", Operation = new[] {"UntagQueue"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueueUrl parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SQS.Model.UntagQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRRateBasedRuleManagedKey")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetRateBasedRuleManagedKeys operation against AWS WAF Regional.", Operation = new[] {"GetRateBasedRuleManagedKeys"})]
+    [AWSCmdlet("Calls the AWS WAF Regional GetRateBasedRuleManagedKeys API operation.", Operation = new[] {"GetRateBasedRuleManagedKeys"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.WAFRegional.Model.GetRateBasedRuleManagedKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

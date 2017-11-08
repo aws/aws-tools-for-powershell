@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.EC2.Model.Tag")]
-    [AWSCmdlet("Invokes the CreateTags operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateTags"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateTags API operation.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None or Amazon.EC2.Model.Tag",
         "Returns the collection of Tag objects that were created when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

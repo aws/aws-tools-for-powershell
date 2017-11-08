@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Request", "IAMCredentialReport", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.GenerateCredentialReportResponse")]
-    [AWSCmdlet("Invokes the GenerateCredentialReport operation against AWS Identity and Access Management.", Operation = new[] {"GenerateCredentialReport"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GenerateCredentialReport API operation.", Operation = new[] {"GenerateCredentialReport"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GenerateCredentialReportResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GenerateCredentialReportResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Remove", "OWCMBackup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteBackup operation against AWS OpsWorksCM.", Operation = new[] {"DeleteBackup"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DeleteBackup API operation.", Operation = new[] {"DeleteBackup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BackupId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorksCM.Model.DeleteBackupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

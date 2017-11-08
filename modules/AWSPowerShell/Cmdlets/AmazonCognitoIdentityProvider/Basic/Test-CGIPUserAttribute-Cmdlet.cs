@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Test", "CGIPUserAttribute")]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the VerifyUserAttribute operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"VerifyUserAttribute"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider VerifyUserAttribute API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"VerifyUserAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccessToken parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.VerifyUserAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

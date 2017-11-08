@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CUR
     /// </summary>
     [Cmdlet("Write", "CURReportDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the PutReportDefinition operation against AWS Cost and Usage Report.", Operation = new[] {"PutReportDefinition"})]
+    [AWSCmdlet("Calls the AWS Cost and Usage Report PutReportDefinition API operation.", Operation = new[] {"PutReportDefinition"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CostAndUsageReport.Model.PutReportDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

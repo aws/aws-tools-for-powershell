@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSKeypairList")]
     [OutputType("Amazon.Lightsail.Model.KeyPair")]
-    [AWSCmdlet("Invokes the GetKeyPairs operation against Amazon Lightsail.", Operation = new[] {"GetKeyPairs"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetKeyPairs API operation.", Operation = new[] {"GetKeyPairs"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.KeyPair",
         "This cmdlet returns a collection of KeyPair objects.",
         "The service call response (type Amazon.Lightsail.Model.GetKeyPairsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Remove", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
-    [AWSCmdlet("Invokes the TerminateProvisionedProduct operation against AWS Service Catalog.", Operation = new[] {"TerminateProvisionedProduct"})]
+    [AWSCmdlet("Calls the AWS Service Catalog TerminateProvisionedProduct API operation.", Operation = new[] {"TerminateProvisionedProduct"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.RecordDetail",
         "This cmdlet returns a RecordDetail object.",
         "The service call response (type Amazon.ServiceCatalog.Model.TerminateProvisionedProductResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

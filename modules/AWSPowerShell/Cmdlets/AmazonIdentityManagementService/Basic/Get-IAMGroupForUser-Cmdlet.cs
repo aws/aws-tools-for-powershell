@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMGroupForUser")]
     [OutputType("Amazon.IdentityManagement.Model.Group")]
-    [AWSCmdlet("Invokes the ListGroupsForUser operation against AWS Identity and Access Management.", Operation = new[] {"ListGroupsForUser"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListGroupsForUser API operation.", Operation = new[] {"ListGroupsForUser"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Group",
         "This cmdlet returns a collection of Group objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListGroupsForUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

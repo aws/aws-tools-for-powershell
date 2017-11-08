@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SecurityGroupReference")]
     [OutputType("Amazon.EC2.Model.SecurityGroupReference")]
-    [AWSCmdlet("Invokes the DescribeSecurityGroupReferences operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSecurityGroupReferences"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSecurityGroupReferences API operation.", Operation = new[] {"DescribeSecurityGroupReferences"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SecurityGroupReference",
         "This cmdlet returns a collection of SecurityGroupReference objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSecurityGroupReferencesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

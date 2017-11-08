@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Register", "OPSElasticIp", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RegisterElasticIp operation against AWS OpsWorks.", Operation = new[] {"RegisterElasticIp"})]
+    [AWSCmdlet("Calls the AWS OpsWorks RegisterElasticIp API operation.", Operation = new[] {"RegisterElasticIp"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.RegisterElasticIpResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

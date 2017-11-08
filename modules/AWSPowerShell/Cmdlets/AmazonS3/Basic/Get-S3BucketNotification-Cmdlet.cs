@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketNotification")]
     [OutputType("Amazon.S3.Model.GetBucketNotificationResponse")]
-    [AWSCmdlet("Invokes the GetBucketNotification operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketNotification"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketNotification API operation.", Operation = new[] {"GetBucketNotification"})]
     [AWSCmdletOutput("Amazon.S3.Model.GetBucketNotificationResponse",
         "This cmdlet returns a Amazon.S3.Model.GetBucketNotificationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

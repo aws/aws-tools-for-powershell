@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreatePortfolioShare operation against AWS Service Catalog.", Operation = new[] {"CreatePortfolioShare"})]
+    [AWSCmdlet("Calls the AWS Service Catalog CreatePortfolioShare API operation.", Operation = new[] {"CreatePortfolioShare"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.CreatePortfolioShareResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

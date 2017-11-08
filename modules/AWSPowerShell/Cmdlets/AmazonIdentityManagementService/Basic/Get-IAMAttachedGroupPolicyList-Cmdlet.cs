@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMAttachedGroupPolicyList")]
     [OutputType("Amazon.IdentityManagement.Model.AttachedPolicyType")]
-    [AWSCmdlet("Invokes the ListAttachedGroupPolicies operation against AWS Identity and Access Management.", Operation = new[] {"ListAttachedGroupPolicies"}, LegacyAlias="Get-IAMAttachedGroupPolicies")]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListAttachedGroupPolicies API operation.", Operation = new[] {"ListAttachedGroupPolicies"}, LegacyAlias="Get-IAMAttachedGroupPolicies")]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AttachedPolicyType",
         "This cmdlet returns a collection of AttachedPolicyType objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListAttachedGroupPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Update", "EBApplicationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription")]
-    [AWSCmdlet("Invokes the UpdateApplicationVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateApplicationVersion"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk UpdateApplicationVersion API operation.", Operation = new[] {"UpdateApplicationVersion"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationVersionDescription",
         "This cmdlet returns a ApplicationVersionDescription object.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.UpdateApplicationVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

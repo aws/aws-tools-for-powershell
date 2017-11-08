@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3Object", DefaultParameterSetName = ParamSet_WithKey, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType(typeof(DeleteObjectResponse), typeof(DeleteObjectsResponse))]
-    [AWSCmdlet("Invokes the DeleteObjects operation against Amazon S3.", Operation = new [] {"DeleteObjects"})]
+    [AWSCmdlet("Deletes one or more objects in an Amazon S3 bucket.", Operation = new [] {"DeleteObjects"})]
     [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectResponse", "When deleting a single object.")]
     [AWSCmdletOutput("Amazon.S3.Model.DeleteObjectsResponse", "When deleting multiple objects.")]
     public class RemoveS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor

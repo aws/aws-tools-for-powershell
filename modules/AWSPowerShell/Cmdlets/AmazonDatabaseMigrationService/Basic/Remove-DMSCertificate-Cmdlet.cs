@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Remove", "DMSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.DatabaseMigrationService.Model.Certificate")]
-    [AWSCmdlet("Invokes the DeleteCertificate operation against AWS Database Migration Service.", Operation = new[] {"DeleteCertificate"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service DeleteCertificate API operation.", Operation = new[] {"DeleteCertificate"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Certificate",
         "This cmdlet returns a Certificate object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.DeleteCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

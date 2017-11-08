@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("New", "AGClientCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.GenerateClientCertificateResponse")]
-    [AWSCmdlet("Invokes the GenerateClientCertificate operation against Amazon API Gateway.", Operation = new[] {"GenerateClientCertificate"})]
+    [AWSCmdlet("Calls the Amazon API Gateway GenerateClientCertificate API operation.", Operation = new[] {"GenerateClientCertificate"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GenerateClientCertificateResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.GenerateClientCertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

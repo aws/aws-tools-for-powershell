@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Remove", "EBPlatformVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElasticBeanstalk.Model.PlatformSummary")]
-    [AWSCmdlet("Invokes the DeletePlatformVersion operation against AWS Elastic Beanstalk.", Operation = new[] {"DeletePlatformVersion"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DeletePlatformVersion API operation.", Operation = new[] {"DeletePlatformVersion"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.PlatformSummary",
         "This cmdlet returns a PlatformSummary object.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.DeletePlatformVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

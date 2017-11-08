@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2ConsoleScreenshot")]
     [OutputType("Amazon.EC2.Model.GetConsoleScreenshotResponse")]
-    [AWSCmdlet("Invokes the GetConsoleScreenshot operation against Amazon Elastic Compute Cloud.", Operation = new[] {"GetConsoleScreenshot"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetConsoleScreenshot API operation.", Operation = new[] {"GetConsoleScreenshot"})]
     [AWSCmdletOutput("Amazon.EC2.Model.GetConsoleScreenshotResponse",
         "This cmdlet returns a Amazon.EC2.Model.GetConsoleScreenshotResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

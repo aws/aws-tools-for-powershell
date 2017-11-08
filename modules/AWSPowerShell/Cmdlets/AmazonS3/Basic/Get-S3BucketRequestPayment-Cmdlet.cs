@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketRequestPayment")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetBucketRequestPayment operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketRequestPayment"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketRequestPayment API operation.", Operation = new[] {"GetBucketRequestPayment"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.S3.Model.GetBucketRequestPaymentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

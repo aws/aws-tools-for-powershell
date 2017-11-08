@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Remove", "WDFolderContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteFolderContents operation against Amazon WorkDocs.", Operation = new[] {"DeleteFolderContents"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DeleteFolderContents API operation.", Operation = new[] {"DeleteFolderContents"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FolderId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.DeleteFolderContentsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

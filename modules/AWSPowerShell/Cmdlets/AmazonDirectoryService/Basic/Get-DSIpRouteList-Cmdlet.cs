@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSIpRouteList")]
     [OutputType("Amazon.DirectoryService.Model.IpRouteInfo")]
-    [AWSCmdlet("Invokes the ListIpRoutes operation against AWS Directory Service.", Operation = new[] {"ListIpRoutes"}, LegacyAlias="Get-DSIpRoutes")]
+    [AWSCmdlet("Calls the AWS Directory Service ListIpRoutes API operation.", Operation = new[] {"ListIpRoutes"}, LegacyAlias="Get-DSIpRoutes")]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.IpRouteInfo",
         "This cmdlet returns a collection of IpRouteInfo objects.",
         "The service call response (type Amazon.DirectoryService.Model.ListIpRoutesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

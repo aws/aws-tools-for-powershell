@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDOnPremiseInstanceBatch")]
     [OutputType("Amazon.CodeDeploy.Model.InstanceInfo")]
-    [AWSCmdlet("Invokes the BatchGetOnPremisesInstances operation against AWS CodeDeploy.", Operation = new[] {"BatchGetOnPremisesInstances"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy BatchGetOnPremisesInstances API operation.", Operation = new[] {"BatchGetOnPremisesInstances"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.InstanceInfo",
         "This cmdlet returns a collection of InstanceInfo objects.",
         "The service call response (type Amazon.CodeDeploy.Model.BatchGetOnPremisesInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// </summary>
     [Cmdlet("Remove", "SHLDProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteProtection operation against AWS Shield.", Operation = new[] {"DeleteProtection"})]
+    [AWSCmdlet("Calls the AWS Shield DeleteProtection API operation.", Operation = new[] {"DeleteProtection"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProtectionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Shield.Model.DeleteProtectionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

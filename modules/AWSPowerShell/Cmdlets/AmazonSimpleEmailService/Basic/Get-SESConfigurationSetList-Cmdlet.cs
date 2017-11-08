@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Get", "SESConfigurationSetList")]
     [OutputType("Amazon.SimpleEmail.Model.ConfigurationSet")]
-    [AWSCmdlet("Invokes the ListConfigurationSets operation against Amazon Simple Email Service.", Operation = new[] {"ListConfigurationSets"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListConfigurationSets API operation.", Operation = new[] {"ListConfigurationSets"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.ConfigurationSet",
         "This cmdlet returns a collection of ConfigurationSet objects.",
         "The service call response (type Amazon.SimpleEmail.Model.ListConfigurationSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

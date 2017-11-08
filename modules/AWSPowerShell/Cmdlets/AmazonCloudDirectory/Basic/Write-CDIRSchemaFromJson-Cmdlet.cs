@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Write", "CDIRSchemaFromJson", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the PutSchemaFromJson operation against AWS Cloud Directory.", Operation = new[] {"PutSchemaFromJson"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory PutSchemaFromJson API operation.", Operation = new[] {"PutSchemaFromJson"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudDirectory.Model.PutSchemaFromJsonResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("New", "WDNotificationSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkDocs.Model.Subscription")]
-    [AWSCmdlet("Invokes the CreateNotificationSubscription operation against Amazon WorkDocs.", Operation = new[] {"CreateNotificationSubscription"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs CreateNotificationSubscription API operation.", Operation = new[] {"CreateNotificationSubscription"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.Subscription",
         "This cmdlet returns a Subscription object.",
         "The service call response (type Amazon.WorkDocs.Model.CreateNotificationSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

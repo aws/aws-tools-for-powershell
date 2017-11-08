@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </summary>
     [Cmdlet("Remove", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","Amazon.ApplicationAutoScaling.ServiceNamespace")]
-    [AWSCmdlet("Invokes the DeleteScalingPolicy operation against Application Auto Scaling.", Operation = new[] {"DeleteScalingPolicy"})]
+    [AWSCmdlet("Calls the Application Auto Scaling DeleteScalingPolicy API operation.", Operation = new[] {"DeleteScalingPolicy"})]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.ServiceNamespace",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceNamespace parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationAutoScaling.Model.DeleteScalingPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

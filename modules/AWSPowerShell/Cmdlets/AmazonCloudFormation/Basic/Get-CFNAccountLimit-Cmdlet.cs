@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Get", "CFNAccountLimit")]
     [OutputType("Amazon.CloudFormation.Model.AccountLimit")]
-    [AWSCmdlet("Invokes the DescribeAccountLimits operation against AWS CloudFormation.", Operation = new[] {"DescribeAccountLimits"}, LegacyAlias="Get-CFNAccountLimits")]
+    [AWSCmdlet("Calls the AWS CloudFormation DescribeAccountLimits API operation.", Operation = new[] {"DescribeAccountLimits"}, LegacyAlias="Get-CFNAccountLimits")]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.AccountLimit",
         "This cmdlet returns a collection of AccountLimit objects.",
         "The service call response (type Amazon.CloudFormation.Model.DescribeAccountLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

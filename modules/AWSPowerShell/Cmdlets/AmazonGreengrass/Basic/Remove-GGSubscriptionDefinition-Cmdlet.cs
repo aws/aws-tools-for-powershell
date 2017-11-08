@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Remove", "GGSubscriptionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteSubscriptionDefinition operation against AWS Greengrass.", Operation = new[] {"DeleteSubscriptionDefinition"})]
+    [AWSCmdlet("Calls the AWS Greengrass DeleteSubscriptionDefinition API operation.", Operation = new[] {"DeleteSubscriptionDefinition"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubscriptionDefinitionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Greengrass.Model.DeleteSubscriptionDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

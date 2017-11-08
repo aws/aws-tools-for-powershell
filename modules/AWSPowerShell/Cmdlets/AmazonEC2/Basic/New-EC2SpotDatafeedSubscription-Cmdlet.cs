@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2SpotDatafeedSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.SpotDatafeedSubscription")]
-    [AWSCmdlet("Invokes the CreateSpotDatafeedSubscription operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreateSpotDatafeedSubscription"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreateSpotDatafeedSubscription API operation.", Operation = new[] {"CreateSpotDatafeedSubscription"})]
     [AWSCmdletOutput("Amazon.EC2.Model.SpotDatafeedSubscription",
         "This cmdlet returns a SpotDatafeedSubscription object.",
         "The service call response (type Amazon.EC2.Model.CreateSpotDatafeedSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

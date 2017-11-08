@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRObjectParentPath")]
     [OutputType("Amazon.CloudDirectory.Model.PathToObjectIdentifiers")]
-    [AWSCmdlet("Invokes the ListObjectParentPaths operation against AWS Cloud Directory.", Operation = new[] {"ListObjectParentPaths"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListObjectParentPaths API operation.", Operation = new[] {"ListObjectParentPaths"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.PathToObjectIdentifiers",
         "This cmdlet returns a collection of PathToObjectIdentifiers objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListObjectParentPathsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

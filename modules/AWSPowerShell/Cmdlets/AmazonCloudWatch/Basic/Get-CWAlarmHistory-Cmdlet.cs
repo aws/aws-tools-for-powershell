@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// </summary>
     [Cmdlet("Get", "CWAlarmHistory")]
     [OutputType("Amazon.CloudWatch.Model.AlarmHistoryItem")]
-    [AWSCmdlet("Invokes the DescribeAlarmHistory operation against Amazon CloudWatch.", Operation = new[] {"DescribeAlarmHistory"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch DescribeAlarmHistory API operation.", Operation = new[] {"DescribeAlarmHistory"})]
     [AWSCmdletOutput("Amazon.CloudWatch.Model.AlarmHistoryItem",
         "This cmdlet returns a collection of AlarmHistoryItem objects.",
         "The service call response (type Amazon.CloudWatch.Model.DescribeAlarmHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

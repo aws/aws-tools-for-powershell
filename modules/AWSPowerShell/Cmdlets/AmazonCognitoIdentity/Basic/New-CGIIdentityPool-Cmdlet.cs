@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGI
     /// </summary>
     [Cmdlet("New", "CGIIdentityPool", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse")]
-    [AWSCmdlet("Invokes the CreateIdentityPool operation against Amazon Cognito Identity.", Operation = new[] {"CreateIdentityPool"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity CreateIdentityPool API operation.", Operation = new[] {"CreateIdentityPool"})]
     [AWSCmdletOutput("Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse",
         "This cmdlet returns a Amazon.CognitoIdentity.Model.CreateIdentityPoolResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Update", "CCRepositoryDescription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateRepositoryDescription operation against AWS CodeCommit.", Operation = new[] {"UpdateRepositoryDescription"})]
+    [AWSCmdlet("Calls the AWS CodeCommit UpdateRepositoryDescription API operation.", Operation = new[] {"UpdateRepositoryDescription"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RepositoryName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CodeCommit.Model.UpdateRepositoryDescriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

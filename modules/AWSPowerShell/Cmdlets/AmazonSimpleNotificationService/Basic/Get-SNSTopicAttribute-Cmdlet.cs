@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Get", "SNSTopicAttribute")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetTopicAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"GetTopicAttributes"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service GetTopicAttributes API operation.", Operation = new[] {"GetTopicAttributes"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleNotificationService.Model.GetTopicAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

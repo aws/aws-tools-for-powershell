@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGVTLDevice")]
     [OutputType("Amazon.StorageGateway.Model.VTLDevice")]
-    [AWSCmdlet("Invokes the DescribeVTLDevices operation against AWS Storage Gateway.", Operation = new[] {"DescribeVTLDevices"}, LegacyAlias="Get-SGVTLDevices")]
+    [AWSCmdlet("Calls the AWS Storage Gateway DescribeVTLDevices API operation.", Operation = new[] {"DescribeVTLDevices"}, LegacyAlias="Get-SGVTLDevices")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.VTLDevice",
         "This cmdlet returns a collection of VTLDevice objects.",
         "The service call response (type Amazon.StorageGateway.Model.DescribeVTLDevicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

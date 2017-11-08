@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("New", "SSMResourceDataSync", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateResourceDataSync operation against Amazon Simple Systems Management.", Operation = new[] {"CreateResourceDataSync"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management CreateResourceDataSync API operation.", Operation = new[] {"CreateResourceDataSync"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SyncName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.CreateResourceDataSyncResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Stop", "EMRStep", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.CancelStepsInfo")]
-    [AWSCmdlet("Invokes the CancelSteps operation against Amazon Elastic MapReduce.", Operation = new[] {"CancelSteps"}, LegacyAlias="Stop-EMRSteps")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce CancelSteps API operation.", Operation = new[] {"CancelSteps"}, LegacyAlias="Stop-EMRSteps")]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.CancelStepsInfo",
         "This cmdlet returns a collection of CancelStepsInfo objects.",
         "The service call response (type Amazon.ElasticMapReduce.Model.CancelStepsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

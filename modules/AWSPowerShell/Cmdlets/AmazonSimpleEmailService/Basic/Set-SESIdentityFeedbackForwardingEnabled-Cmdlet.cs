@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Set", "SESIdentityFeedbackForwardingEnabled", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetIdentityFeedbackForwardingEnabled operation against Amazon Simple Email Service.", Operation = new[] {"SetIdentityFeedbackForwardingEnabled"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SetIdentityFeedbackForwardingEnabled API operation.", Operation = new[] {"SetIdentityFeedbackForwardingEnabled"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Identity parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.SetIdentityFeedbackForwardingEnabledResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

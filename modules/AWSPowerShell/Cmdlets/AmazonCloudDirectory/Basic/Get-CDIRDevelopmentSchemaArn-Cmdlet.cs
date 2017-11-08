@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRDevelopmentSchemaArn")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListDevelopmentSchemaArns operation against AWS Cloud Directory.", Operation = new[] {"ListDevelopmentSchemaArns"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListDevelopmentSchemaArns API operation.", Operation = new[] {"ListDevelopmentSchemaArns"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListDevelopmentSchemaArnsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

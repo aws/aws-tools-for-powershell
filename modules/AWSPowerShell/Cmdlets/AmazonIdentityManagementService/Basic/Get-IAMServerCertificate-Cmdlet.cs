@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMServerCertificate")]
     [OutputType("Amazon.IdentityManagement.Model.ServerCertificate")]
-    [AWSCmdlet("Invokes the GetServerCertificate operation against AWS Identity and Access Management.", Operation = new[] {"GetServerCertificate"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetServerCertificate API operation.", Operation = new[] {"GetServerCertificate"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.ServerCertificate",
         "This cmdlet returns a ServerCertificate object.",
         "The service call response (type Amazon.IdentityManagement.Model.GetServerCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

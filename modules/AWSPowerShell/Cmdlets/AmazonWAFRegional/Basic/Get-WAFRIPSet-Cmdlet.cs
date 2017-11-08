@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Get", "WAFRIPSet")]
     [OutputType("Amazon.WAFRegional.Model.IPSet")]
-    [AWSCmdlet("Invokes the GetIPSet operation against AWS WAF Regional.", Operation = new[] {"GetIPSet"})]
+    [AWSCmdlet("Calls the AWS WAF Regional GetIPSet API operation.", Operation = new[] {"GetIPSet"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.IPSet",
         "This cmdlet returns a IPSet object.",
         "The service call response (type Amazon.WAFRegional.Model.GetIPSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

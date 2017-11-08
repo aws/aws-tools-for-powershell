@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3ACL")]
     [OutputType("Amazon.S3.Model.S3AccessControlList")]
-    [AWSCmdlet("Invokes the GetACL operation against Amazon Simple Storage Service.", Operation = new[] {"GetACL"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetACL API operation.", Operation = new[] {"GetACL"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3AccessControlList",
         "This cmdlet returns a S3AccessControlList object.",
         "The service call response (type Amazon.S3.Model.GetACLResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

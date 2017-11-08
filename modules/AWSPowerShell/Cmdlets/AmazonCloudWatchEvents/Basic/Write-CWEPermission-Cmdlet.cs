@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Write", "CWEPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the PutPermission operation against Amazon CloudWatch Events.", Operation = new[] {"PutPermission"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events PutPermission API operation.", Operation = new[] {"PutPermission"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CloudWatchEvents.Model.PutPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

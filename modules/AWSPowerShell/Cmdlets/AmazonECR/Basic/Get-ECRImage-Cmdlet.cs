@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRImage")]
     [OutputType("Amazon.ECR.Model.ImageIdentifier")]
-    [AWSCmdlet("Invokes the ListImages operation against Amazon EC2 Container Registry.", Operation = new[] {"ListImages"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry ListImages API operation.", Operation = new[] {"ListImages"})]
     [AWSCmdletOutput("Amazon.ECR.Model.ImageIdentifier",
         "This cmdlet returns a collection of ImageIdentifier objects.",
         "The service call response (type Amazon.ECR.Model.ListImagesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

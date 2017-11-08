@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Get", "ECSService")]
     [OutputType("Amazon.ECS.Model.DescribeServicesResponse")]
-    [AWSCmdlet("Invokes the DescribeServices operation against Amazon EC2 Container Service.", Operation = new[] {"DescribeServices"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DescribeServices API operation.", Operation = new[] {"DescribeServices"})]
     [AWSCmdletOutput("Amazon.ECS.Model.DescribeServicesResponse",
         "This cmdlet returns a Amazon.ECS.Model.DescribeServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

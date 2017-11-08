@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PLS
     /// </summary>
     [Cmdlet("Get", "PLSProduct")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetProducts operation against AWS Price List Service.", Operation = new[] {"GetProducts"})]
+    [AWSCmdlet("Calls the AWS Price List Service GetProducts API operation.", Operation = new[] {"GetProducts"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Pricing.Model.GetProductsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

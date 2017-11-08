@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Get", "PINApplicationSettingList")]
     [OutputType("Amazon.Pinpoint.Model.ApplicationSettingsResource")]
-    [AWSCmdlet("Invokes the GetApplicationSettings operation against Amazon Pinpoint.", Operation = new[] {"GetApplicationSettings"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetApplicationSettings API operation.", Operation = new[] {"GetApplicationSettings"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.ApplicationSettingsResource",
         "This cmdlet returns a ApplicationSettingsResource object.",
         "The service call response (type Amazon.Pinpoint.Model.GetApplicationSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

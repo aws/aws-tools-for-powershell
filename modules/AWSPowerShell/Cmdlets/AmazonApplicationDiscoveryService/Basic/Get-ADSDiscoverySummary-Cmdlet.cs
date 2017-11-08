@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Get", "ADSDiscoverySummary")]
     [OutputType("Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse")]
-    [AWSCmdlet("Invokes the GetDiscoverySummary operation against Application Discovery Service.", Operation = new[] {"GetDiscoverySummary"})]
+    [AWSCmdlet("Calls the Application Discovery Service GetDiscoverySummary API operation.", Operation = new[] {"GetDiscoverySummary"})]
     [AWSCmdletOutput("Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse",
         "This cmdlet returns a Amazon.ApplicationDiscoveryService.Model.GetDiscoverySummaryResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

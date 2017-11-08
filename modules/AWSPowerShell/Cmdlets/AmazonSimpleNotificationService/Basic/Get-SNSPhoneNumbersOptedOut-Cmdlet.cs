@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Get", "SNSPhoneNumbersOptedOut")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListPhoneNumbersOptedOut operation against Amazon Simple Notification Service.", Operation = new[] {"ListPhoneNumbersOptedOut"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service ListPhoneNumbersOptedOut API operation.", Operation = new[] {"ListPhoneNumbersOptedOut"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleNotificationService.Model.ListPhoneNumbersOptedOutResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

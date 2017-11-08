@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("New", "WAFRRegexMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAFRegional.Model.CreateRegexMatchSetResponse")]
-    [AWSCmdlet("Invokes the CreateRegexMatchSet operation against AWS WAF Regional.", Operation = new[] {"CreateRegexMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF Regional CreateRegexMatchSet API operation.", Operation = new[] {"CreateRegexMatchSet"})]
     [AWSCmdletOutput("Amazon.WAFRegional.Model.CreateRegexMatchSetResponse",
         "This cmdlet returns a Amazon.WAFRegional.Model.CreateRegexMatchSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Remove", "ECSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.ElastiCache.Model.Snapshot")]
-    [AWSCmdlet("Invokes the DeleteSnapshot operation against Amazon ElastiCache.", Operation = new[] {"DeleteSnapshot"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DeleteSnapshot API operation.", Operation = new[] {"DeleteSnapshot"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Snapshot",
         "This cmdlet returns a Snapshot object.",
         "The service call response (type Amazon.ElastiCache.Model.DeleteSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

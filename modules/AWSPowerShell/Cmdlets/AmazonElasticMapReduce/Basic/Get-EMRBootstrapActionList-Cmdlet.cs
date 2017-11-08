@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Get", "EMRBootstrapActionList")]
     [OutputType("Amazon.ElasticMapReduce.Model.Command")]
-    [AWSCmdlet("Invokes the ListBootstrapActions operation against Amazon Elastic MapReduce.", Operation = new[] {"ListBootstrapActions"}, LegacyAlias="Get-EMRBootstrapActions")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce ListBootstrapActions API operation.", Operation = new[] {"ListBootstrapActions"}, LegacyAlias="Get-EMRBootstrapActions")]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Command",
         "This cmdlet returns a collection of Command objects.",
         "The service call response (type Amazon.ElasticMapReduce.Model.ListBootstrapActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

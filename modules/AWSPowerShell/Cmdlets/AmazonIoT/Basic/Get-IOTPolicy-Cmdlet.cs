@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Get", "IOTPolicy")]
     [OutputType("Amazon.IoT.Model.GetPolicyResponse")]
-    [AWSCmdlet("Invokes the GetPolicy operation against AWS IoT.", Operation = new[] {"GetPolicy"})]
+    [AWSCmdlet("Calls the AWS IoT GetPolicy API operation.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("Amazon.IoT.Model.GetPolicyResponse",
         "This cmdlet returns a Amazon.IoT.Model.GetPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

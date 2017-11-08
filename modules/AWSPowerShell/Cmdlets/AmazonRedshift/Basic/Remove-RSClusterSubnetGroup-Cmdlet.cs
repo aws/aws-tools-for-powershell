@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Remove", "RSClusterSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteClusterSubnetGroup operation against Amazon Redshift.", Operation = new[] {"DeleteClusterSubnetGroup"})]
+    [AWSCmdlet("Calls the Amazon Redshift DeleteClusterSubnetGroup API operation.", Operation = new[] {"DeleteClusterSubnetGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ClusterSubnetGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Redshift.Model.DeleteClusterSubnetGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

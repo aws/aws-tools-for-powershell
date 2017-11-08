@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Register", "SSMTaskWithMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RegisterTaskWithMaintenanceWindow operation against Amazon Simple Systems Management.", Operation = new[] {"RegisterTaskWithMaintenanceWindow"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management RegisterTaskWithMaintenanceWindow API operation.", Operation = new[] {"RegisterTaskWithMaintenanceWindow"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.RegisterTaskWithMaintenanceWindowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

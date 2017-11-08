@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Reset", "EC2FpgaImageAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the ResetFpgaImageAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ResetFpgaImageAttribute"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ResetFpgaImageAttribute API operation.", Operation = new[] {"ResetFpgaImageAttribute"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.EC2.Model.ResetFpgaImageAttributeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

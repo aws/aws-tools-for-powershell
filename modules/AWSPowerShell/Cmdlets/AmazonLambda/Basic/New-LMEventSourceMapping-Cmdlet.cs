@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("New", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.CreateEventSourceMappingResponse")]
-    [AWSCmdlet("Invokes the CreateEventSourceMapping operation against Amazon Lambda.", Operation = new[] {"CreateEventSourceMapping"})]
+    [AWSCmdlet("Calls the Amazon Lambda CreateEventSourceMapping API operation.", Operation = new[] {"CreateEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.CreateEventSourceMappingResponse",
         "This cmdlet returns a Amazon.Lambda.Model.CreateEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

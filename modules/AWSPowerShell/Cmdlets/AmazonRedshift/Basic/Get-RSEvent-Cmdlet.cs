@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSEvent")]
     [OutputType("Amazon.Redshift.Model.Event")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against Amazon Redshift.", Operation = new[] {"DescribeEvents"}, LegacyAlias="Get-RSEvents")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeEvents API operation.", Operation = new[] {"DescribeEvents"}, LegacyAlias="Get-RSEvents")]
     [AWSCmdletOutput("Amazon.Redshift.Model.Event",
         "This cmdlet returns a collection of Event objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

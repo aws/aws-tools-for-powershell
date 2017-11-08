@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGComplianceSummaryByResourceType")]
     [OutputType("Amazon.ConfigService.Model.ComplianceSummaryByResourceType")]
-    [AWSCmdlet("Invokes the GetComplianceSummaryByResourceType operation against AWS Config.", Operation = new[] {"GetComplianceSummaryByResourceType"})]
+    [AWSCmdlet("Calls the AWS Config GetComplianceSummaryByResourceType API operation.", Operation = new[] {"GetComplianceSummaryByResourceType"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceSummaryByResourceType",
         "This cmdlet returns a collection of ComplianceSummaryByResourceType objects.",
         "The service call response (type Amazon.ConfigService.Model.GetComplianceSummaryByResourceTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

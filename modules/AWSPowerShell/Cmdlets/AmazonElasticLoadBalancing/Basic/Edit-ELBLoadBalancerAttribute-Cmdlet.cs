@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Edit", "ELBLoadBalancerAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse")]
-    [AWSCmdlet("Invokes the ModifyLoadBalancerAttributes operation against Elastic Load Balancing.", Operation = new[] {"ModifyLoadBalancerAttributes"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing ModifyLoadBalancerAttributes API operation.", Operation = new[] {"ModifyLoadBalancerAttributes"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse",
         "This cmdlet returns a Amazon.ElasticLoadBalancing.Model.ModifyLoadBalancerAttributesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

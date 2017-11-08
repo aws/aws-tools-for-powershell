@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Get", "GMLMatchmakingConfiguration")]
     [OutputType("Amazon.GameLift.Model.MatchmakingConfiguration")]
-    [AWSCmdlet("Invokes the DescribeMatchmakingConfigurations operation against Amazon GameLift Service.", Operation = new[] {"DescribeMatchmakingConfigurations"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DescribeMatchmakingConfigurations API operation.", Operation = new[] {"DescribeMatchmakingConfigurations"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.MatchmakingConfiguration",
         "This cmdlet returns a collection of MatchmakingConfiguration objects.",
         "The service call response (type Amazon.GameLift.Model.DescribeMatchmakingConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

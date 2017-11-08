@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Start", "CSIndex", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the IndexDocuments operation against Amazon CloudSearch.", Operation = new[] {"IndexDocuments"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch IndexDocuments API operation.", Operation = new[] {"IndexDocuments"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudSearch.Model.IndexDocumentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

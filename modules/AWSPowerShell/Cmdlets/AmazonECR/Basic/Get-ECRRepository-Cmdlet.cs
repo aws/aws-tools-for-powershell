@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRRepository")]
     [OutputType("Amazon.ECR.Model.Repository")]
-    [AWSCmdlet("Invokes the DescribeRepositories operation against Amazon EC2 Container Registry.", Operation = new[] {"DescribeRepositories"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry DescribeRepositories API operation.", Operation = new[] {"DescribeRepositories"})]
     [AWSCmdletOutput("Amazon.ECR.Model.Repository",
         "This cmdlet returns a collection of Repository objects.",
         "The service call response (type Amazon.ECR.Model.DescribeRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDRootFolder")]
     [OutputType("Amazon.WorkDocs.Model.FolderMetadata")]
-    [AWSCmdlet("Invokes the DescribeRootFolders operation against Amazon WorkDocs.", Operation = new[] {"DescribeRootFolders"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DescribeRootFolders API operation.", Operation = new[] {"DescribeRootFolders"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.FolderMetadata",
         "This cmdlet returns a collection of FolderMetadata objects.",
         "The service call response (type Amazon.WorkDocs.Model.DescribeRootFoldersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Register", "DSEventTopic", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RegisterEventTopic operation against AWS Directory Service.", Operation = new[] {"RegisterEventTopic"})]
+    [AWSCmdlet("Calls the AWS Directory Service RegisterEventTopic API operation.", Operation = new[] {"RegisterEventTopic"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.RegisterEventTopicResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("Get", "WKSWorkspace")]
     [OutputType("Amazon.WorkSpaces.Model.Workspace")]
-    [AWSCmdlet("Invokes the DescribeWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"DescribeWorkspaces"}, LegacyAlias="Get-WKSWorkspaces")]
+    [AWSCmdlet("Calls the Amazon WorkSpaces DescribeWorkspaces API operation.", Operation = new[] {"DescribeWorkspaces"}, LegacyAlias="Get-WKSWorkspaces")]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.Workspace",
         "This cmdlet returns a collection of Workspace objects.",
         "The service call response (type Amazon.WorkSpaces.Model.DescribeWorkspacesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

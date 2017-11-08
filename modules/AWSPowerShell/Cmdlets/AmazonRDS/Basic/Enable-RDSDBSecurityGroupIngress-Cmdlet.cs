@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Enable", "RDSDBSecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBSecurityGroup")]
-    [AWSCmdlet("Invokes the AuthorizeDBSecurityGroupIngress operation against Amazon Relational Database Service.", Operation = new[] {"AuthorizeDBSecurityGroupIngress"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service AuthorizeDBSecurityGroupIngress API operation.", Operation = new[] {"AuthorizeDBSecurityGroupIngress"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSecurityGroup",
         "This cmdlet returns a DBSecurityGroup object.",
         "The service call response (type Amazon.RDS.Model.AuthorizeDBSecurityGroupIngressResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

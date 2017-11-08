@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Dismount", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DetachInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DetachInternetGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DetachInternetGateway API operation.", Operation = new[] {"DetachInternetGateway"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VpcId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DetachInternetGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

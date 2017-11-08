@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </summary>
     [Cmdlet("New", "EFSFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticFileSystem.Model.CreateFileSystemResponse")]
-    [AWSCmdlet("Invokes the CreateFileSystem operation against Amazon Elastic File System.", Operation = new[] {"CreateFileSystem"})]
+    [AWSCmdlet("Calls the Amazon Elastic File System CreateFileSystem API operation.", Operation = new[] {"CreateFileSystem"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.CreateFileSystemResponse",
         "This cmdlet returns a Amazon.ElasticFileSystem.Model.CreateFileSystemResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

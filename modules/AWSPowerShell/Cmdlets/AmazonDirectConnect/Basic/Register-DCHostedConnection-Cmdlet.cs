@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Register", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.AssociateHostedConnectionResponse")]
-    [AWSCmdlet("Invokes the AssociateHostedConnection operation against AWS Direct Connect.", Operation = new[] {"AssociateHostedConnection"})]
+    [AWSCmdlet("Calls the AWS Direct Connect AssociateHostedConnection API operation.", Operation = new[] {"AssociateHostedConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AssociateHostedConnectionResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.AssociateHostedConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

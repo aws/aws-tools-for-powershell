@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Request", "ECReservedCacheNodesOffering", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.ReservedCacheNode")]
-    [AWSCmdlet("Invokes the PurchaseReservedCacheNodesOffering operation against Amazon ElastiCache.", Operation = new[] {"PurchaseReservedCacheNodesOffering"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache PurchaseReservedCacheNodesOffering API operation.", Operation = new[] {"PurchaseReservedCacheNodesOffering"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReservedCacheNode",
         "This cmdlet returns a ReservedCacheNode object.",
         "The service call response (type Amazon.ElastiCache.Model.PurchaseReservedCacheNodesOfferingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("Edit", "WKSWorkspaceProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifyWorkspaceProperties operation against Amazon WorkSpaces.", Operation = new[] {"ModifyWorkspaceProperties"})]
+    [AWSCmdlet("Calls the Amazon WorkSpaces ModifyWorkspaceProperties API operation.", Operation = new[] {"ModifyWorkspaceProperties"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the WorkspaceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkSpaces.Model.ModifyWorkspacePropertiesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

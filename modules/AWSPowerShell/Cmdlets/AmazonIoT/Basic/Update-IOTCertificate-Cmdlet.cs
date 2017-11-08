@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Update", "IOTCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateCertificate operation against AWS IoT.", Operation = new[] {"UpdateCertificate"})]
+    [AWSCmdlet("Calls the AWS IoT UpdateCertificate API operation.", Operation = new[] {"UpdateCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CertificateId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.UpdateCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

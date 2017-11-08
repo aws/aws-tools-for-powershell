@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Set", "DSDomainControllerCount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.Int32")]
-    [AWSCmdlet("Invokes the UpdateNumberOfDomainControllers operation against AWS Directory Service.", Operation = new[] {"UpdateNumberOfDomainControllers"})]
+    [AWSCmdlet("Calls the AWS Directory Service UpdateNumberOfDomainControllers API operation.", Operation = new[] {"UpdateNumberOfDomainControllers"})]
     [AWSCmdletOutput("None or System.Int32",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DesiredNumber parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.UpdateNumberOfDomainControllersResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

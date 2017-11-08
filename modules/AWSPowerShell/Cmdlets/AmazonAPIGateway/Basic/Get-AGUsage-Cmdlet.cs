@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Get", "AGUsage")]
     [OutputType("Amazon.APIGateway.Model.GetUsageResponse")]
-    [AWSCmdlet("Invokes the GetUsage operation against Amazon API Gateway.", Operation = new[] {"GetUsage"})]
+    [AWSCmdlet("Calls the Amazon API Gateway GetUsage API operation.", Operation = new[] {"GetUsage"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.GetUsageResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.GetUsageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

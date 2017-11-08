@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Remove", "AGDocumentationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDocumentationVersion operation against Amazon API Gateway.", Operation = new[] {"DeleteDocumentationVersion"})]
+    [AWSCmdlet("Calls the Amazon API Gateway DeleteDocumentationVersion API operation.", Operation = new[] {"DeleteDocumentationVersion"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RestApiId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.DeleteDocumentationVersionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

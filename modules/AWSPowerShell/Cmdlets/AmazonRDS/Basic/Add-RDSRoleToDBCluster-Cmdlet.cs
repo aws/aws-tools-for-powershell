@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Add", "RDSRoleToDBCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddRoleToDBCluster operation against Amazon Relational Database Service.", Operation = new[] {"AddRoleToDBCluster"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service AddRoleToDBCluster API operation.", Operation = new[] {"AddRoleToDBCluster"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DBClusterIdentifier parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.AddRoleToDBClusterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

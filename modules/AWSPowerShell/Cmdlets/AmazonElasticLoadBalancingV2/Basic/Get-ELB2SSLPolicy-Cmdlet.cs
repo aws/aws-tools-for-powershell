@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2SSLPolicy")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.SslPolicy")]
-    [AWSCmdlet("Invokes the DescribeSSLPolicies operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeSSLPolicies"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeSSLPolicies API operation.", Operation = new[] {"DescribeSSLPolicies"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.SslPolicy",
         "This cmdlet returns a collection of SslPolicy objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeSSLPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Disable", "DSRadius", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisableRadius operation against AWS Directory Service.", Operation = new[] {"DisableRadius"})]
+    [AWSCmdlet("Calls the AWS Directory Service DisableRadius API operation.", Operation = new[] {"DisableRadius"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.DisableRadiusResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

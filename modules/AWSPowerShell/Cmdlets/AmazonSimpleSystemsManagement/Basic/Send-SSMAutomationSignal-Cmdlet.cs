@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Send", "SSMAutomationSignal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SendAutomationSignal operation against Amazon Simple Systems Management.", Operation = new[] {"SendAutomationSignal"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management SendAutomationSignal API operation.", Operation = new[] {"SendAutomationSignal"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutomationExecutionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.SendAutomationSignalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

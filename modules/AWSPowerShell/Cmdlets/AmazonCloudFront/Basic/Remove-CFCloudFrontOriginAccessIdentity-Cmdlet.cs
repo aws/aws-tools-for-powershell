@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Remove", "CFCloudFrontOriginAccessIdentity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteCloudFrontOriginAccessIdentity operation against Amazon CloudFront.", Operation = new[] {"DeleteCloudFrontOriginAccessIdentity"})]
+    [AWSCmdlet("Calls the Amazon CloudFront DeleteCloudFrontOriginAccessIdentity API operation.", Operation = new[] {"DeleteCloudFrontOriginAccessIdentity"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFront.Model.DeleteCloudFrontOriginAccessIdentityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

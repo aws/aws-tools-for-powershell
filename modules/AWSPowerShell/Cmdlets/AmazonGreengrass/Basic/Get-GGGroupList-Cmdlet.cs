@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Get", "GGGroupList")]
     [OutputType("Amazon.Greengrass.Model.GroupInformation")]
-    [AWSCmdlet("Invokes the ListGroups operation against AWS Greengrass.", Operation = new[] {"ListGroups"})]
+    [AWSCmdlet("Calls the AWS Greengrass ListGroups API operation.", Operation = new[] {"ListGroups"})]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GroupInformation",
         "This cmdlet returns a collection of GroupInformation objects.",
         "The service call response (type Amazon.Greengrass.Model.ListGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Get", "DDBTable")]
     [OutputType("Amazon.DynamoDBv2.Model.TableDescription")]
-    [AWSCmdlet("Invokes the DescribeTable operation against Amazon DynamoDB.", Operation = new[] {"DescribeTable"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB DescribeTable API operation.", Operation = new[] {"DescribeTable"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.TableDescription",
         "This cmdlet returns a TableDescription object.",
         "The service call response (type Amazon.DynamoDBv2.Model.DescribeTableResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Update", "CCRepositoryName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UpdateRepositoryName operation against AWS CodeCommit.", Operation = new[] {"UpdateRepositoryName"})]
+    [AWSCmdlet("Calls the AWS CodeCommit UpdateRepositoryName API operation.", Operation = new[] {"UpdateRepositoryName"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.CodeCommit.Model.UpdateRepositoryNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

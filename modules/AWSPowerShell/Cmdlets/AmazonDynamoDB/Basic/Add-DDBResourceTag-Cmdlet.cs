@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Add", "DDBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the TagResource operation against Amazon DynamoDB.", Operation = new[] {"TagResource"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB TagResource API operation.", Operation = new[] {"TagResource"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.DynamoDBv2.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

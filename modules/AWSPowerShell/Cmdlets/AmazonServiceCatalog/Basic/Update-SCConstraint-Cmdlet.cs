@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Update", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdateConstraintResponse")]
-    [AWSCmdlet("Invokes the UpdateConstraint operation against AWS Service Catalog.", Operation = new[] {"UpdateConstraint"})]
+    [AWSCmdlet("Calls the AWS Service Catalog UpdateConstraint API operation.", Operation = new[] {"UpdateConstraint"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.UpdateConstraintResponse",
         "This cmdlet returns a Amazon.ServiceCatalog.Model.UpdateConstraintResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

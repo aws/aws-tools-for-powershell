@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     /// </summary>
     [Cmdlet("Remove", "BATComputeEnvironment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteComputeEnvironment operation against AWS Batch.", Operation = new[] {"DeleteComputeEnvironment"})]
+    [AWSCmdlet("Calls the AWS Batch DeleteComputeEnvironment API operation.", Operation = new[] {"DeleteComputeEnvironment"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ComputeEnvironment parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Batch.Model.DeleteComputeEnvironmentResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

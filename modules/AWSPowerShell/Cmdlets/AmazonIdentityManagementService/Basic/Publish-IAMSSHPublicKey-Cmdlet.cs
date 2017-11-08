@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Publish", "IAMSSHPublicKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.SSHPublicKey")]
-    [AWSCmdlet("Invokes the UploadSSHPublicKey operation against AWS Identity and Access Management.", Operation = new[] {"UploadSSHPublicKey"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UploadSSHPublicKey API operation.", Operation = new[] {"UploadSSHPublicKey"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKey",
         "This cmdlet returns a SSHPublicKey object.",
         "The service call response (type Amazon.IdentityManagement.Model.UploadSSHPublicKeyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Enable", "EC2VgwRoutePropagation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the EnableVgwRoutePropagation operation against Amazon Elastic Compute Cloud.", Operation = new[] {"EnableVgwRoutePropagation"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud EnableVgwRoutePropagation API operation.", Operation = new[] {"EnableVgwRoutePropagation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RouteTableId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.EnableVgwRoutePropagationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

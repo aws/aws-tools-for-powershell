@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Add", "RDSTagsToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.RDS.Model.Tag")]
-    [AWSCmdlet("Invokes the AddTagsToResource operation against Amazon Relational Database Service.", Operation = new[] {"AddTagsToResource"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service AddTagsToResource API operation.", Operation = new[] {"AddTagsToResource"})]
     [AWSCmdletOutput("None or Amazon.RDS.Model.Tag",
         "Returns the collection of tags that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.AddTagsToResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

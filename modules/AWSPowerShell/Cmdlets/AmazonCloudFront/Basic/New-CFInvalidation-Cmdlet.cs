@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("New", "CFInvalidation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.CreateInvalidationResponse")]
-    [AWSCmdlet("Invokes the CreateInvalidation operation against Amazon CloudFront.", Operation = new[] {"CreateInvalidation"})]
+    [AWSCmdlet("Calls the Amazon CloudFront CreateInvalidation API operation.", Operation = new[] {"CreateInvalidation"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CreateInvalidationResponse",
         "This cmdlet returns a Amazon.CloudFront.Model.CreateInvalidationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

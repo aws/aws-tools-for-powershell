@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Confirm", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.ConnectionState")]
-    [AWSCmdlet("Invokes the ConfirmConnection operation against AWS Direct Connect.", Operation = new[] {"ConfirmConnection"})]
+    [AWSCmdlet("Calls the AWS Direct Connect ConfirmConnection API operation.", Operation = new[] {"ConfirmConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.ConnectionState",
         "This cmdlet returns a ConnectionState object.",
         "The service call response (type Amazon.DirectConnect.Model.ConfirmConnectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

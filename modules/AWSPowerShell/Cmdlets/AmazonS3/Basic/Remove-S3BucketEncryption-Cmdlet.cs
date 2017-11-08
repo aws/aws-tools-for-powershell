@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Remove", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteBucketEncryption operation against Amazon Simple Storage Service.", Operation = new[] {"DeleteBucketEncryption"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service DeleteBucketEncryption API operation.", Operation = new[] {"DeleteBucketEncryption"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.S3.Model.DeleteBucketEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

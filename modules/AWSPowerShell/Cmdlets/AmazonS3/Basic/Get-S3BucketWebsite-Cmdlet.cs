@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketWebsite")]
     [OutputType("Amazon.S3.Model.WebsiteConfiguration")]
-    [AWSCmdlet("Invokes the GetBucketWebsite operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketWebsite"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketWebsite API operation.", Operation = new[] {"GetBucketWebsite"})]
     [AWSCmdletOutput("Amazon.S3.Model.WebsiteConfiguration",
         "This cmdlet returns a WebsiteConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketWebsiteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

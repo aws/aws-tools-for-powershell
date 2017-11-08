@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Get", "CTPublicKey")]
     [OutputType("Amazon.CloudTrail.Model.PublicKey")]
-    [AWSCmdlet("Invokes the ListPublicKeys operation against AWS CloudTrail.", Operation = new[] {"ListPublicKeys"})]
+    [AWSCmdlet("Calls the AWS CloudTrail ListPublicKeys API operation.", Operation = new[] {"ListPublicKeys"})]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.PublicKey",
         "This cmdlet returns a collection of PublicKey objects.",
         "The service call response (type Amazon.CloudTrail.Model.ListPublicKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

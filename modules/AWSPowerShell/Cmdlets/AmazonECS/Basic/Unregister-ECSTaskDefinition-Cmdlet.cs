@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </summary>
     [Cmdlet("Unregister", "ECSTaskDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.TaskDefinition")]
-    [AWSCmdlet("Invokes the DeregisterTaskDefinition operation against Amazon EC2 Container Service.", Operation = new[] {"DeregisterTaskDefinition"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Service DeregisterTaskDefinition API operation.", Operation = new[] {"DeregisterTaskDefinition"})]
     [AWSCmdletOutput("Amazon.ECS.Model.TaskDefinition",
         "This cmdlet returns a TaskDefinition object.",
         "The service call response (type Amazon.ECS.Model.DeregisterTaskDefinitionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDDeploymentConfig")]
     [OutputType("Amazon.CodeDeploy.Model.DeploymentConfigInfo")]
-    [AWSCmdlet("Invokes the GetDeploymentConfig operation against AWS CodeDeploy.", Operation = new[] {"GetDeploymentConfig"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy GetDeploymentConfig API operation.", Operation = new[] {"GetDeploymentConfig"})]
     [AWSCmdletOutput("Amazon.CodeDeploy.Model.DeploymentConfigInfo",
         "This cmdlet returns a DeploymentConfigInfo object.",
         "The service call response (type Amazon.CodeDeploy.Model.GetDeploymentConfigResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

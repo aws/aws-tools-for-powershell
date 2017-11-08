@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMClientIDFromOpenIDConnectProvider", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the RemoveClientIDFromOpenIDConnectProvider operation against AWS Identity and Access Management.", Operation = new[] {"RemoveClientIDFromOpenIDConnectProvider"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management RemoveClientIDFromOpenIDConnectProvider API operation.", Operation = new[] {"RemoveClientIDFromOpenIDConnectProvider"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.IdentityManagement.Model.RemoveClientIDFromOpenIDConnectProviderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

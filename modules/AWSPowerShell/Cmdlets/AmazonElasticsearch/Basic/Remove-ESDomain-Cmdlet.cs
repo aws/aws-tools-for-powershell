@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ES
     /// </summary>
     [Cmdlet("Remove", "ESDomain", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus")]
-    [AWSCmdlet("Invokes the DeleteElasticsearchDomain operation against Amazon Elasticsearch.", Operation = new[] {"DeleteElasticsearchDomain"})]
+    [AWSCmdlet("Calls the Amazon Elasticsearch DeleteElasticsearchDomain API operation.", Operation = new[] {"DeleteElasticsearchDomain"})]
     [AWSCmdletOutput("Amazon.Elasticsearch.Model.ElasticsearchDomainStatus",
         "This cmdlet returns a ElasticsearchDomainStatus object.",
         "The service call response (type Amazon.Elasticsearch.Model.DeleteElasticsearchDomainResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

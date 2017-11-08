@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Get", "HSMAvailableZone")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListAvailableZones operation against AWS Cloud HSM.", Operation = new[] {"ListAvailableZones"}, LegacyAlias="Get-HSMAvailableZones")]
+    [AWSCmdlet("Calls the AWS Cloud HSM ListAvailableZones API operation.", Operation = new[] {"ListAvailableZones"}, LegacyAlias="Get-HSMAvailableZones")]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListAvailableZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

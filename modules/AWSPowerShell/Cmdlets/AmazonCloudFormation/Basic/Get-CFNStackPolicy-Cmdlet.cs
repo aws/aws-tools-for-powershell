@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Get", "CFNStackPolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetStackPolicy operation against AWS CloudFormation.", Operation = new[] {"GetStackPolicy"})]
+    [AWSCmdlet("Calls the AWS CloudFormation GetStackPolicy API operation.", Operation = new[] {"GetStackPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.GetStackPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSStaticIp")]
     [OutputType("Amazon.Lightsail.Model.StaticIp")]
-    [AWSCmdlet("Invokes the GetStaticIp operation against Amazon Lightsail.", Operation = new[] {"GetStaticIp"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetStaticIp API operation.", Operation = new[] {"GetStaticIp"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.StaticIp",
         "This cmdlet returns a StaticIp object.",
         "The service call response (type Amazon.Lightsail.Model.GetStaticIpResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

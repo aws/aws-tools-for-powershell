@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Update", "SSMAssociation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.AssociationDescription")]
-    [AWSCmdlet("Invokes the UpdateAssociation operation against Amazon Simple Systems Management.", Operation = new[] {"UpdateAssociation"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management UpdateAssociation API operation.", Operation = new[] {"UpdateAssociation"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.AssociationDescription",
         "This cmdlet returns a AssociationDescription object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.UpdateAssociationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

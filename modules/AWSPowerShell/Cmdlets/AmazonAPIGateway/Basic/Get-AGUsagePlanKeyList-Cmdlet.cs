@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Get", "AGUsagePlanKeyList")]
     [OutputType("Amazon.APIGateway.Model.UsagePlanKey")]
-    [AWSCmdlet("Invokes the GetUsagePlanKeys operation against Amazon API Gateway.", Operation = new[] {"GetUsagePlanKeys"})]
+    [AWSCmdlet("Calls the Amazon API Gateway GetUsagePlanKeys API operation.", Operation = new[] {"GetUsagePlanKeys"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.UsagePlanKey",
         "This cmdlet returns a collection of UsagePlanKey objects.",
         "The service call response (type Amazon.APIGateway.Model.GetUsagePlanKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

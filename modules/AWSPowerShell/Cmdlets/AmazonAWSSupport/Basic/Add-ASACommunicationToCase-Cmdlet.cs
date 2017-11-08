@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ASA
     /// </summary>
     [Cmdlet("Add", "ASACommunicationToCase", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the AddCommunicationToCase operation against AWS Support API.", Operation = new[] {"AddCommunicationToCase"})]
+    [AWSCmdlet("Calls the AWS Support API AddCommunicationToCase API operation.", Operation = new[] {"AddCommunicationToCase"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.AWSSupport.Model.AddCommunicationToCaseResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

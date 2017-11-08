@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// </summary>
     [Cmdlet("Remove", "SHLDSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteSubscription operation against AWS Shield.", Operation = new[] {"DeleteSubscription"})]
+    [AWSCmdlet("Calls the AWS Shield DeleteSubscription API operation.", Operation = new[] {"DeleteSubscription"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Shield.Model.DeleteSubscriptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSDBSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.RDS.Model.DBSnapshot")]
-    [AWSCmdlet("Invokes the DeleteDBSnapshot operation against Amazon Relational Database Service.", Operation = new[] {"DeleteDBSnapshot"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteDBSnapshot API operation.", Operation = new[] {"DeleteDBSnapshot"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBSnapshot",
         "This cmdlet returns a DBSnapshot object.",
         "The service call response (type Amazon.RDS.Model.DeleteDBSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

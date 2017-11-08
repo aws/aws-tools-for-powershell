@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Remove", "GGDeviceDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDeviceDefinition operation against AWS Greengrass.", Operation = new[] {"DeleteDeviceDefinition"})]
+    [AWSCmdlet("Calls the AWS Greengrass DeleteDeviceDefinition API operation.", Operation = new[] {"DeleteDeviceDefinition"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeviceDefinitionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Greengrass.Model.DeleteDeviceDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

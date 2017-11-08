@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Edit", "EC2VolumeAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifyVolumeAttribute operation against Amazon Elastic Compute Cloud.", Operation = new[] {"ModifyVolumeAttribute"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud ModifyVolumeAttribute API operation.", Operation = new[] {"ModifyVolumeAttribute"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the VolumeId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.ModifyVolumeAttributeResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

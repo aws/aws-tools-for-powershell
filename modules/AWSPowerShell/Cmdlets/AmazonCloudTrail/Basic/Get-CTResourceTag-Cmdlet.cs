@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CT
     /// </summary>
     [Cmdlet("Get", "CTResourceTag")]
     [OutputType("Amazon.CloudTrail.Model.ResourceTag")]
-    [AWSCmdlet("Invokes the ListTags operation against AWS CloudTrail.", Operation = new[] {"ListTags"}, LegacyAlias="Get-CTTag")]
+    [AWSCmdlet("Calls the AWS CloudTrail ListTags API operation.", Operation = new[] {"ListTags"}, LegacyAlias="Get-CTTag")]
     [AWSCmdletOutput("Amazon.CloudTrail.Model.ResourceTag",
         "This cmdlet returns a collection of ResourceTag objects.",
         "The service call response (type Amazon.CloudTrail.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

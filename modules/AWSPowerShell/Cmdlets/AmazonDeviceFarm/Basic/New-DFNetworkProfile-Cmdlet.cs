@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("New", "DFNetworkProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DeviceFarm.Model.NetworkProfile")]
-    [AWSCmdlet("Invokes the CreateNetworkProfile operation against AWS Device Farm.", Operation = new[] {"CreateNetworkProfile"})]
+    [AWSCmdlet("Calls the AWS Device Farm CreateNetworkProfile API operation.", Operation = new[] {"CreateNetworkProfile"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.NetworkProfile",
         "This cmdlet returns a NetworkProfile object.",
         "The service call response (type Amazon.DeviceFarm.Model.CreateNetworkProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

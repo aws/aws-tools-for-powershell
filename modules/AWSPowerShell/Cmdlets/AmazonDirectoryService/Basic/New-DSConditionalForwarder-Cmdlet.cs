@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("New", "DSConditionalForwarder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateConditionalForwarder operation against AWS Directory Service.", Operation = new[] {"CreateConditionalForwarder"})]
+    [AWSCmdlet("Calls the AWS Directory Service CreateConditionalForwarder API operation.", Operation = new[] {"CreateConditionalForwarder"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.CreateConditionalForwarderResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

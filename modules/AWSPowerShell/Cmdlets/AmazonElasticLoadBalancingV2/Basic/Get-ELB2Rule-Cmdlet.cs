@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Get", "ELB2Rule")]
     [OutputType("Amazon.ElasticLoadBalancingV2.Model.Rule")]
-    [AWSCmdlet("Invokes the DescribeRules operation against Elastic Load Balancing V2.", Operation = new[] {"DescribeRules"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DescribeRules API operation.", Operation = new[] {"DescribeRules"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.Rule",
         "This cmdlet returns a collection of Rule objects.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.DescribeRulesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Update", "APSFleet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.Fleet")]
-    [AWSCmdlet("Invokes the UpdateFleet operation against AWS AppStream.", Operation = new[] {"UpdateFleet"})]
+    [AWSCmdlet("Calls the AWS AppStream UpdateFleet API operation.", Operation = new[] {"UpdateFleet"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.Fleet",
         "This cmdlet returns a Fleet object.",
         "The service call response (type Amazon.AppStream.Model.UpdateFleetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

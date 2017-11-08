@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Stop", "CGIPDeviceTrackingAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AdminForgetDevice operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminForgetDevice"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminForgetDevice API operation.", Operation = new[] {"AdminForgetDevice"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DeviceKey parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CognitoIdentityProvider.Model.AdminForgetDeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

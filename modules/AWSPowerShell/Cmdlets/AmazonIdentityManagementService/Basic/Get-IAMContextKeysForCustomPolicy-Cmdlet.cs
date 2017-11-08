@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMContextKeysForCustomPolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetContextKeysForCustomPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetContextKeysForCustomPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetContextKeysForCustomPolicy API operation.", Operation = new[] {"GetContextKeysForCustomPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.IdentityManagement.Model.GetContextKeysForCustomPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

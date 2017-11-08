@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Unregister", "SCProductFromPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateProductFromPortfolio operation against AWS Service Catalog.", Operation = new[] {"DisassociateProductFromPortfolio"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DisassociateProductFromPortfolio API operation.", Operation = new[] {"DisassociateProductFromPortfolio"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProductId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DisassociateProductFromPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

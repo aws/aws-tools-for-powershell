@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Get", "CFCloudFrontOriginAccessIdentityList")]
     [OutputType("Amazon.CloudFront.Model.CloudFrontOriginAccessIdentityList")]
-    [AWSCmdlet("Invokes the ListCloudFrontOriginAccessIdentities operation against Amazon CloudFront.", Operation = new[] {"ListCloudFrontOriginAccessIdentities"}, LegacyAlias="Get-CFCloudFrontOriginAccessIdentities")]
+    [AWSCmdlet("Calls the Amazon CloudFront ListCloudFrontOriginAccessIdentities API operation.", Operation = new[] {"ListCloudFrontOriginAccessIdentities"}, LegacyAlias="Get-CFCloudFrontOriginAccessIdentities")]
     [AWSCmdletOutput("Amazon.CloudFront.Model.CloudFrontOriginAccessIdentityList",
         "This cmdlet returns a CloudFrontOriginAccessIdentityList object.",
         "The service call response (type Amazon.CloudFront.Model.ListCloudFrontOriginAccessIdentitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

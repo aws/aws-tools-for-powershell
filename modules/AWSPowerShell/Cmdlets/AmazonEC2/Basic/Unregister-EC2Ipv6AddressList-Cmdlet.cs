@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Unregister", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.UnassignIpv6AddressesResponse")]
-    [AWSCmdlet("Invokes the UnassignIpv6Addresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"UnassignIpv6Addresses"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud UnassignIpv6Addresses API operation.", Operation = new[] {"UnassignIpv6Addresses"})]
     [AWSCmdletOutput("Amazon.EC2.Model.UnassignIpv6AddressesResponse",
         "This cmdlet returns a Amazon.EC2.Model.UnassignIpv6AddressesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2InternetGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteInternetGateway operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteInternetGateway"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteInternetGateway API operation.", Operation = new[] {"DeleteInternetGateway"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InternetGatewayId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeleteInternetGatewayResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIROutgoingTypedLink")]
     [OutputType("Amazon.CloudDirectory.Model.TypedLinkSpecifier")]
-    [AWSCmdlet("Invokes the ListOutgoingTypedLinks operation against AWS Cloud Directory.", Operation = new[] {"ListOutgoingTypedLinks"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory ListOutgoingTypedLinks API operation.", Operation = new[] {"ListOutgoingTypedLinks"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.TypedLinkSpecifier",
         "This cmdlet returns a collection of TypedLinkSpecifier objects.",
         "The service call response (type Amazon.CloudDirectory.Model.ListOutgoingTypedLinksResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

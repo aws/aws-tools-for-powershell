@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Copy", "OPSStack", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CloneStack operation against AWS OpsWorks.", Operation = new[] {"CloneStack"})]
+    [AWSCmdlet("Calls the AWS OpsWorks CloneStack API operation.", Operation = new[] {"CloneStack"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.CloneStackResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

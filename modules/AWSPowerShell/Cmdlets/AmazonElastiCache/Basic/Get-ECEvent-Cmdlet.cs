@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECEvent")]
     [OutputType("Amazon.ElastiCache.Model.Event")]
-    [AWSCmdlet("Invokes the DescribeEvents operation against Amazon ElastiCache.", Operation = new[] {"DescribeEvents"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeEvents API operation.", Operation = new[] {"DescribeEvents"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.Event",
         "This cmdlet returns a collection of Event objects.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeEventsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

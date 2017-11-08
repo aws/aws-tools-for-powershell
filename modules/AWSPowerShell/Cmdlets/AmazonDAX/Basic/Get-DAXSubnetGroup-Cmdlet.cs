@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Get", "DAXSubnetGroup")]
     [OutputType("Amazon.DAX.Model.SubnetGroup")]
-    [AWSCmdlet("Invokes the DescribeSubnetGroups operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"DescribeSubnetGroups"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) DescribeSubnetGroups API operation.", Operation = new[] {"DescribeSubnetGroups"})]
     [AWSCmdletOutput("Amazon.DAX.Model.SubnetGroup",
         "This cmdlet returns a collection of SubnetGroup objects.",
         "The service call response (type Amazon.DAX.Model.DescribeSubnetGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

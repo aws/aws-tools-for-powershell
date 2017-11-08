@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Remove", "OPSLayer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLayer operation against AWS OpsWorks.", Operation = new[] {"DeleteLayer"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DeleteLayer API operation.", Operation = new[] {"DeleteLayer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LayerId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.DeleteLayerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

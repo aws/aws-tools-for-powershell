@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Restart", "EBAppServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RestartAppServer operation against AWS Elastic Beanstalk.", Operation = new[] {"RestartAppServer"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk RestartAppServer API operation.", Operation = new[] {"RestartAppServer"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the id or name of the environment (depending on which parameter was supplied) when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.RestartAppServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

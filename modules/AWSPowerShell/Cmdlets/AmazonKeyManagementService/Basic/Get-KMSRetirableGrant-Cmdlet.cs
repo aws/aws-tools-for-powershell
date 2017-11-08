@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Get", "KMSRetirableGrant")]
     [OutputType("Amazon.KeyManagementService.Model.GrantListEntry")]
-    [AWSCmdlet("Invokes the ListRetirableGrants operation against AWS Key Management Service.", Operation = new[] {"ListRetirableGrants"})]
+    [AWSCmdlet("Calls the AWS Key Management Service ListRetirableGrants API operation.", Operation = new[] {"ListRetirableGrants"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.GrantListEntry",
         "This cmdlet returns a collection of GrantListEntry objects.",
         "The service call response (type Amazon.KeyManagementService.Model.ListRetirableGrantsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

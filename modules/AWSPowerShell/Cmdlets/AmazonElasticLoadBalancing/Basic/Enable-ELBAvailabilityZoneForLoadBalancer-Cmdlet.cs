@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Enable", "ELBAvailabilityZoneForLoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the EnableAvailabilityZonesForLoadBalancer operation against Elastic Load Balancing.", Operation = new[] {"EnableAvailabilityZonesForLoadBalancer"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing EnableAvailabilityZonesForLoadBalancer API operation.", Operation = new[] {"EnableAvailabilityZonesForLoadBalancer"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.ElasticLoadBalancing.Model.EnableAvailabilityZonesForLoadBalancerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

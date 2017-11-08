@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Get", "DFSuiteList")]
     [OutputType("Amazon.DeviceFarm.Model.Suite")]
-    [AWSCmdlet("Invokes the ListSuites operation against AWS Device Farm.", Operation = new[] {"ListSuites"})]
+    [AWSCmdlet("Calls the AWS Device Farm ListSuites API operation.", Operation = new[] {"ListSuites"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.Suite",
         "This cmdlet returns a collection of Suite objects.",
         "The service call response (type Amazon.DeviceFarm.Model.ListSuitesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

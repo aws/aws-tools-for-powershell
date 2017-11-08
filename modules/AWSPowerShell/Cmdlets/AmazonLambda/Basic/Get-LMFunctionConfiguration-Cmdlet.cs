@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMFunctionConfiguration")]
     [OutputType("Amazon.Lambda.Model.GetFunctionConfigurationResponse")]
-    [AWSCmdlet("Invokes the GetFunctionConfiguration operation against Amazon Lambda.", Operation = new[] {"GetFunctionConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Lambda GetFunctionConfiguration API operation.", Operation = new[] {"GetFunctionConfiguration"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionConfigurationResponse",
         "This cmdlet returns a Amazon.Lambda.Model.GetFunctionConfigurationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

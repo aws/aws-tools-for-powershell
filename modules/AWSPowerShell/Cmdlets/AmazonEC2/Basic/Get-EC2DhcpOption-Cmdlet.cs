@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2DhcpOption")]
     [OutputType("Amazon.EC2.Model.DhcpOptions")]
-    [AWSCmdlet("Invokes the DescribeDhcpOptions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeDhcpOptions"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeDhcpOptions API operation.", Operation = new[] {"DescribeDhcpOptions"})]
     [AWSCmdletOutput("Amazon.EC2.Model.DhcpOptions",
         "This cmdlet returns a collection of DhcpOptions objects.",
         "The service call response (type Amazon.EC2.Model.DescribeDhcpOptionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

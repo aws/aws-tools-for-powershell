@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.BGT
     /// </summary>
     [Cmdlet("New", "BGTBudget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateBudget operation against AWS Budgets.", Operation = new[] {"CreateBudget"})]
+    [AWSCmdlet("Calls the AWS Budgets CreateBudget API operation.", Operation = new[] {"CreateBudget"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Budgets.Model.CreateBudgetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

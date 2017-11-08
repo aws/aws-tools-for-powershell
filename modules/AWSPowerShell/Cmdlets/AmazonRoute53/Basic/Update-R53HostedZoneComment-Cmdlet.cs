@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Update", "R53HostedZoneComment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.HostedZone")]
-    [AWSCmdlet("Invokes the UpdateHostedZoneComment operation against Amazon Route 53.", Operation = new[] {"UpdateHostedZoneComment"})]
+    [AWSCmdlet("Calls the Amazon Route 53 UpdateHostedZoneComment API operation.", Operation = new[] {"UpdateHostedZoneComment"})]
     [AWSCmdletOutput("Amazon.Route53.Model.HostedZone",
         "This cmdlet returns a HostedZone object.",
         "The service call response (type Amazon.Route53.Model.UpdateHostedZoneCommentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

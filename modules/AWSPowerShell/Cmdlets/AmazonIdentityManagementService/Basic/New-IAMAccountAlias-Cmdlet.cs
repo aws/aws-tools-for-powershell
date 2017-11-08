@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMAccountAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateAccountAlias operation against AWS Identity and Access Management.", Operation = new[] {"CreateAccountAlias"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateAccountAlias API operation.", Operation = new[] {"CreateAccountAlias"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AccountAlias parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.CreateAccountAliasResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

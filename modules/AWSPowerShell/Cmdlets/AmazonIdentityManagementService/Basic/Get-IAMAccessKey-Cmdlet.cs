@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMAccessKey")]
     [OutputType("Amazon.IdentityManagement.Model.AccessKeyMetadata")]
-    [AWSCmdlet("Invokes the ListAccessKeys operation against AWS Identity and Access Management.", Operation = new[] {"ListAccessKeys"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListAccessKeys API operation.", Operation = new[] {"ListAccessKeys"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.AccessKeyMetadata",
         "This cmdlet returns a collection of AccessKeyMetadata objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListAccessKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

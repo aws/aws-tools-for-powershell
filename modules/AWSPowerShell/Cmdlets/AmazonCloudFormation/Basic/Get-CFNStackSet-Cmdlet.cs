@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Get", "CFNStackSet")]
     [OutputType("Amazon.CloudFormation.Model.StackSet")]
-    [AWSCmdlet("Invokes the DescribeStackSet operation against AWS CloudFormation.", Operation = new[] {"DescribeStackSet"})]
+    [AWSCmdlet("Calls the AWS CloudFormation DescribeStackSet API operation.", Operation = new[] {"DescribeStackSet"})]
     [AWSCmdletOutput("Amazon.CloudFormation.Model.StackSet",
         "This cmdlet returns a StackSet object.",
         "The service call response (type Amazon.CloudFormation.Model.DescribeStackSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

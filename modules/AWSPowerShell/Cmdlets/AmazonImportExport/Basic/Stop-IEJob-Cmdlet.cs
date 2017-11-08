@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// </summary>
     [Cmdlet("Stop", "IEJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the CancelJob operation against AWS Import/Export.", Operation = new[] {"CancelJob"})]
+    [AWSCmdlet("Calls the AWS Import/Export CancelJob API operation.", Operation = new[] {"CancelJob"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.ImportExport.Model.CancelJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

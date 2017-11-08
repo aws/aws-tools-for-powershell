@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Write", "DPPipelineDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DataPipeline.Model.PutPipelineDefinitionResponse")]
-    [AWSCmdlet("Invokes the PutPipelineDefinition operation against AWS Data Pipeline.", Operation = new[] {"PutPipelineDefinition"})]
+    [AWSCmdlet("Calls the AWS Data Pipeline PutPipelineDefinition API operation.", Operation = new[] {"PutPipelineDefinition"})]
     [AWSCmdletOutput("Amazon.DataPipeline.Model.PutPipelineDefinitionResponse",
         "This cmdlet returns a Amazon.DataPipeline.Model.PutPipelineDefinitionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

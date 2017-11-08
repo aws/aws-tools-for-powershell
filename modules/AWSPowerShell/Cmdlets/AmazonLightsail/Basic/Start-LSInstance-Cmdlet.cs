@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Start", "LSInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lightsail.Model.Operation")]
-    [AWSCmdlet("Invokes the StartInstance operation against Amazon Lightsail.", Operation = new[] {"StartInstance"})]
+    [AWSCmdlet("Calls the Amazon Lightsail StartInstance API operation.", Operation = new[] {"StartInstance"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Operation",
         "This cmdlet returns a collection of Operation objects.",
         "The service call response (type Amazon.Lightsail.Model.StartInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DBillingRecord")]
     [OutputType("Amazon.Route53Domains.Model.BillingRecord")]
-    [AWSCmdlet("Invokes the ViewBilling operation against Amazon Route 53 Domains.", Operation = new[] {"ViewBilling"})]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains ViewBilling API operation.", Operation = new[] {"ViewBilling"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.BillingRecord",
         "This cmdlet returns a collection of BillingRecord objects.",
         "The service call response (type Amazon.Route53Domains.Model.ViewBillingResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

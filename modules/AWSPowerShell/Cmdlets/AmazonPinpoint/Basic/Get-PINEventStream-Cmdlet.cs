@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("Get", "PINEventStream")]
     [OutputType("Amazon.Pinpoint.Model.EventStream")]
-    [AWSCmdlet("Invokes the GetEventStream operation against Amazon Pinpoint.", Operation = new[] {"GetEventStream"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint GetEventStream API operation.", Operation = new[] {"GetEventStream"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.EventStream",
         "This cmdlet returns a EventStream object.",
         "The service call response (type Amazon.Pinpoint.Model.GetEventStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

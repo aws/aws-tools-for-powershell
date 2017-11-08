@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Remove", "SCTagOptionFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateTagOptionFromResource operation against AWS Service Catalog.", Operation = new[] {"DisassociateTagOptionFromResource"})]
+    [AWSCmdlet("Calls the AWS Service Catalog DisassociateTagOptionFromResource API operation.", Operation = new[] {"DisassociateTagOptionFromResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagOptionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.DisassociateTagOptionFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

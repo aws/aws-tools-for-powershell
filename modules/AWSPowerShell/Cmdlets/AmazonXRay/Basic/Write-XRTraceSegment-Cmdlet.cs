@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.XR
     /// </summary>
     [Cmdlet("Write", "XRTraceSegment", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.XRay.Model.UnprocessedTraceSegment")]
-    [AWSCmdlet("Invokes the PutTraceSegments operation against AWS X-Ray.", Operation = new[] {"PutTraceSegments"})]
+    [AWSCmdlet("Calls the AWS X-Ray PutTraceSegments API operation.", Operation = new[] {"PutTraceSegments"})]
     [AWSCmdletOutput("Amazon.XRay.Model.UnprocessedTraceSegment",
         "This cmdlet returns a collection of UnprocessedTraceSegment objects.",
         "The service call response (type Amazon.XRay.Model.PutTraceSegmentsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

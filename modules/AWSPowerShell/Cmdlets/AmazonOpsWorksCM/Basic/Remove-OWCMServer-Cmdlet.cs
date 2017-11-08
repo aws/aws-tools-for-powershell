@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Remove", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteServer operation against AWS OpsWorksCM.", Operation = new[] {"DeleteServer"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DeleteServer API operation.", Operation = new[] {"DeleteServer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServerName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorksCM.Model.DeleteServerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

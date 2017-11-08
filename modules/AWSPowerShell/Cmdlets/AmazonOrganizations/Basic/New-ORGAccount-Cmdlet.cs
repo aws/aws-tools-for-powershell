@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("New", "ORGAccount", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.CreateAccountStatus")]
-    [AWSCmdlet("Invokes the CreateAccount operation against AWS Organizations.", Operation = new[] {"CreateAccount"})]
+    [AWSCmdlet("Calls the AWS Organizations CreateAccount API operation.", Operation = new[] {"CreateAccount"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.CreateAccountStatus",
         "This cmdlet returns a CreateAccountStatus object.",
         "The service call response (type Amazon.Organizations.Model.CreateAccountResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

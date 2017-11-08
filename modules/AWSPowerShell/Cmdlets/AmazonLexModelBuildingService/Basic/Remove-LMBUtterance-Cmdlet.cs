@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// </summary>
     [Cmdlet("Remove", "LMBUtterance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteUtterances operation against Amazon Lex Model Building Service.", Operation = new[] {"DeleteUtterances"})]
+    [AWSCmdlet("Calls the Amazon Lex Model Building Service DeleteUtterances API operation.", Operation = new[] {"DeleteUtterances"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.LexModelBuildingService.Model.DeleteUtterancesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

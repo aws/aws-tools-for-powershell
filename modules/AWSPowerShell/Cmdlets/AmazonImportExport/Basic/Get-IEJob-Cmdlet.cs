@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IE
     /// </summary>
     [Cmdlet("Get", "IEJob")]
     [OutputType("Amazon.ImportExport.Model.Job")]
-    [AWSCmdlet("Invokes the ListJobs operation against AWS Import/Export.", Operation = new[] {"ListJobs"})]
+    [AWSCmdlet("Calls the AWS Import/Export ListJobs API operation.", Operation = new[] {"ListJobs"})]
     [AWSCmdletOutput("Amazon.ImportExport.Model.Job",
         "This cmdlet returns a collection of Job objects.",
         "The service call response (type Amazon.ImportExport.Model.ListJobsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

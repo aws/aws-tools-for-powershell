@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGResourceTag")]
     [OutputType("Amazon.StorageGateway.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsForResource operation against AWS Storage Gateway.", Operation = new[] {"ListTagsForResource"}, LegacyAlias="Get-SGResourceTags")]
+    [AWSCmdlet("Calls the AWS Storage Gateway ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"}, LegacyAlias="Get-SGResourceTags")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.StorageGateway.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

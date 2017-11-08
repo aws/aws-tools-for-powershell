@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2MovingAddress")]
     [OutputType("Amazon.EC2.Model.MovingAddressStatus")]
-    [AWSCmdlet("Invokes the DescribeMovingAddresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeMovingAddresses"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeMovingAddresses API operation.", Operation = new[] {"DescribeMovingAddresses"})]
     [AWSCmdletOutput("Amazon.EC2.Model.MovingAddressStatus",
         "This cmdlet returns a collection of MovingAddressStatus objects.",
         "The service call response (type Amazon.EC2.Model.DescribeMovingAddressesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

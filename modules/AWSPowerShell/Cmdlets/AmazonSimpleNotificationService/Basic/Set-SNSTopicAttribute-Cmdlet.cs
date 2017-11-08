@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Set", "SNSTopicAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetTopicAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"SetTopicAttributes"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service SetTopicAttributes API operation.", Operation = new[] {"SetTopicAttributes"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TopicArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.SetTopicAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

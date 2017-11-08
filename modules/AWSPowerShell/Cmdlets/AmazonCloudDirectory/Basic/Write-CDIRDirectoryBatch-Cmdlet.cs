@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Write", "CDIRDirectoryBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.BatchWriteOperationResponse")]
-    [AWSCmdlet("Invokes the BatchWrite operation against AWS Cloud Directory.", Operation = new[] {"BatchWrite"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory BatchWrite API operation.", Operation = new[] {"BatchWrite"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.BatchWriteOperationResponse",
         "This cmdlet returns a collection of BatchWriteOperationResponse objects.",
         "The service call response (type Amazon.CloudDirectory.Model.BatchWriteResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

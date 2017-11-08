@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Unregister", "SSMManagedInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeregisterManagedInstance operation against Amazon Simple Systems Management.", Operation = new[] {"DeregisterManagedInstance"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DeregisterManagedInstance API operation.", Operation = new[] {"DeregisterManagedInstance"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.DeregisterManagedInstanceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

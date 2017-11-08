@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSDomainList")]
     [OutputType("Amazon.Lightsail.Model.Domain")]
-    [AWSCmdlet("Invokes the GetDomains operation against Amazon Lightsail.", Operation = new[] {"GetDomains"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetDomains API operation.", Operation = new[] {"GetDomains"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Domain",
         "This cmdlet returns a collection of Domain objects.",
         "The service call response (type Amazon.Lightsail.Model.GetDomainsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

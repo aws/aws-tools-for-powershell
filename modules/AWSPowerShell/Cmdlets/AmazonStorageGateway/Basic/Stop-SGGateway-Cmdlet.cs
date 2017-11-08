@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Stop", "SGGateway", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ShutdownGateway operation against AWS Storage Gateway.", Operation = new[] {"ShutdownGateway"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway ShutdownGateway API operation.", Operation = new[] {"ShutdownGateway"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.ShutdownGatewayResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("Confirm", "DCPublicVirtualInterface", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.VirtualInterfaceState")]
-    [AWSCmdlet("Invokes the ConfirmPublicVirtualInterface operation against AWS Direct Connect.", Operation = new[] {"ConfirmPublicVirtualInterface"})]
+    [AWSCmdlet("Calls the AWS Direct Connect ConfirmPublicVirtualInterface API operation.", Operation = new[] {"ConfirmPublicVirtualInterface"})]
     [AWSCmdletOutput("Amazon.DirectConnect.VirtualInterfaceState",
         "This cmdlet returns a VirtualInterfaceState object.",
         "The service call response (type Amazon.DirectConnect.Model.ConfirmPublicVirtualInterfaceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

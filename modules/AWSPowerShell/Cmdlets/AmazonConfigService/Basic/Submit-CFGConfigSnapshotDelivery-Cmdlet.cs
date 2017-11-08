@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Submit", "CFGConfigSnapshotDelivery", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeliverConfigSnapshot operation against AWS Config.", Operation = new[] {"DeliverConfigSnapshot"})]
+    [AWSCmdlet("Calls the AWS Config DeliverConfigSnapshot API operation.", Operation = new[] {"DeliverConfigSnapshot"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ConfigService.Model.DeliverConfigSnapshotResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

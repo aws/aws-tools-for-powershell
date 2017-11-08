@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Get", "GGSubscriptionDefinitionVersion")]
     [OutputType("Amazon.Greengrass.Model.GetSubscriptionDefinitionVersionResponse")]
-    [AWSCmdlet("Invokes the GetSubscriptionDefinitionVersion operation against AWS Greengrass.", Operation = new[] {"GetSubscriptionDefinitionVersion"})]
+    [AWSCmdlet("Calls the AWS Greengrass GetSubscriptionDefinitionVersion API operation.", Operation = new[] {"GetSubscriptionDefinitionVersion"})]
     [AWSCmdletOutput("Amazon.Greengrass.Model.GetSubscriptionDefinitionVersionResponse",
         "This cmdlet returns a Amazon.Greengrass.Model.GetSubscriptionDefinitionVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

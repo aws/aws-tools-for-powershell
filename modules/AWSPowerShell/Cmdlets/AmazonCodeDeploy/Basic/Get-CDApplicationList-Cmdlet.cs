@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
     /// </summary>
     [Cmdlet("Get", "CDApplicationList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListApplications operation against AWS CodeDeploy.", Operation = new[] {"ListApplications"})]
+    [AWSCmdlet("Calls the AWS CodeDeploy ListApplications API operation.", Operation = new[] {"ListApplications"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CodeDeploy.Model.ListApplicationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

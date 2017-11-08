@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Get", "SCConstrainsForPortfolioList")]
     [OutputType("Amazon.ServiceCatalog.Model.ConstraintDetail")]
-    [AWSCmdlet("Invokes the ListConstraintsForPortfolio operation against AWS Service Catalog.", Operation = new[] {"ListConstraintsForPortfolio"})]
+    [AWSCmdlet("Calls the AWS Service Catalog ListConstraintsForPortfolio API operation.", Operation = new[] {"ListConstraintsForPortfolio"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ConstraintDetail",
         "This cmdlet returns a collection of ConstraintDetail objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.ListConstraintsForPortfolioResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

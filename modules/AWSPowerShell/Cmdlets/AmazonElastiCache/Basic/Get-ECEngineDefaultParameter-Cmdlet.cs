@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECEngineDefaultParameter")]
     [OutputType("Amazon.ElastiCache.Model.EngineDefaults")]
-    [AWSCmdlet("Invokes the DescribeEngineDefaultParameters operation against Amazon ElastiCache.", Operation = new[] {"DescribeEngineDefaultParameters"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeEngineDefaultParameters API operation.", Operation = new[] {"DescribeEngineDefaultParameters"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.EngineDefaults",
         "This cmdlet returns a EngineDefaults object.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeEngineDefaultParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

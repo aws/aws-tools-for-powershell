@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CS
     /// </summary>
     [Cmdlet("Remove", "CSAnalysisScheme", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.CloudSearch.Model.AnalysisSchemeStatus")]
-    [AWSCmdlet("Invokes the DeleteAnalysisScheme operation against Amazon CloudSearch.", Operation = new[] {"DeleteAnalysisScheme"})]
+    [AWSCmdlet("Calls the Amazon CloudSearch DeleteAnalysisScheme API operation.", Operation = new[] {"DeleteAnalysisScheme"})]
     [AWSCmdletOutput("Amazon.CloudSearch.Model.AnalysisSchemeStatus",
         "This cmdlet returns a AnalysisSchemeStatus object.",
         "The service call response (type Amazon.CloudSearch.Model.DeleteAnalysisSchemeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Update", "GGFunctionDefinition", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateFunctionDefinition operation against AWS Greengrass.", Operation = new[] {"UpdateFunctionDefinition"})]
+    [AWSCmdlet("Calls the AWS Greengrass UpdateFunctionDefinition API operation.", Operation = new[] {"UpdateFunctionDefinition"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Greengrass.Model.UpdateFunctionDefinitionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

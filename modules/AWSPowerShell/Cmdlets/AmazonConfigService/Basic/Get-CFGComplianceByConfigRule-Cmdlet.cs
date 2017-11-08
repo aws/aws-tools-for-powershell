@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Get", "CFGComplianceByConfigRule")]
     [OutputType("Amazon.ConfigService.Model.ComplianceByConfigRule")]
-    [AWSCmdlet("Invokes the DescribeComplianceByConfigRule operation against AWS Config.", Operation = new[] {"DescribeComplianceByConfigRule"})]
+    [AWSCmdlet("Calls the AWS Config DescribeComplianceByConfigRule API operation.", Operation = new[] {"DescribeComplianceByConfigRule"})]
     [AWSCmdletOutput("Amazon.ConfigService.Model.ComplianceByConfigRule",
         "This cmdlet returns a collection of ComplianceByConfigRule objects.",
         "The service call response (type Amazon.ConfigService.Model.DescribeComplianceByConfigRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

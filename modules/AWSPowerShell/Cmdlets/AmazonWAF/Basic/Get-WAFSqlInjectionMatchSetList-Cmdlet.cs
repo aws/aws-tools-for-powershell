@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("Get", "WAFSqlInjectionMatchSetList")]
     [OutputType("Amazon.WAF.Model.SqlInjectionMatchSetSummary")]
-    [AWSCmdlet("Invokes the ListSqlInjectionMatchSets operation against AWS WAF.", Operation = new[] {"ListSqlInjectionMatchSets"})]
+    [AWSCmdlet("Calls the AWS WAF ListSqlInjectionMatchSets API operation.", Operation = new[] {"ListSqlInjectionMatchSets"})]
     [AWSCmdletOutput("Amazon.WAF.Model.SqlInjectionMatchSetSummary",
         "This cmdlet returns a collection of SqlInjectionMatchSetSummary objects.",
         "The service call response (type Amazon.WAF.Model.ListSqlInjectionMatchSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

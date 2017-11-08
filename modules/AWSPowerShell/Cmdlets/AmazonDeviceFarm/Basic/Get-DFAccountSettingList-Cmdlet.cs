@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Get", "DFAccountSettingList")]
     [OutputType("Amazon.DeviceFarm.Model.AccountSettings")]
-    [AWSCmdlet("Invokes the GetAccountSettings operation against AWS Device Farm.", Operation = new[] {"GetAccountSettings"})]
+    [AWSCmdlet("Calls the AWS Device Farm GetAccountSettings API operation.", Operation = new[] {"GetAccountSettings"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.AccountSettings",
         "This cmdlet returns a AccountSettings object.",
         "The service call response (type Amazon.DeviceFarm.Model.GetAccountSettingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

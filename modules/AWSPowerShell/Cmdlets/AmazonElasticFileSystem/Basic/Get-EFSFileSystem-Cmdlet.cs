@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </summary>
     [Cmdlet("Get", "EFSFileSystem")]
     [OutputType("Amazon.ElasticFileSystem.Model.FileSystemDescription")]
-    [AWSCmdlet("Invokes the DescribeFileSystems operation against Amazon Elastic File System.", Operation = new[] {"DescribeFileSystems"})]
+    [AWSCmdlet("Calls the Amazon Elastic File System DescribeFileSystems API operation.", Operation = new[] {"DescribeFileSystems"})]
     [AWSCmdletOutput("Amazon.ElasticFileSystem.Model.FileSystemDescription",
         "This cmdlet returns a collection of FileSystemDescription objects.",
         "The service call response (type Amazon.ElasticFileSystem.Model.DescribeFileSystemsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

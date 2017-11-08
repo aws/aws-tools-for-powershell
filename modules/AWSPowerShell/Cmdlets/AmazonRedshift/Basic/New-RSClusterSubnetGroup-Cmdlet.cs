@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("New", "RSClusterSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.ClusterSubnetGroup")]
-    [AWSCmdlet("Invokes the CreateClusterSubnetGroup operation against Amazon Redshift.", Operation = new[] {"CreateClusterSubnetGroup"})]
+    [AWSCmdlet("Calls the Amazon Redshift CreateClusterSubnetGroup API operation.", Operation = new[] {"CreateClusterSubnetGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSubnetGroup",
         "This cmdlet returns a ClusterSubnetGroup object.",
         "The service call response (type Amazon.Redshift.Model.CreateClusterSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

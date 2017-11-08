@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMAccountSummary")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetAccountSummary operation against AWS Identity and Access Management.", Operation = new[] {"GetAccountSummary"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetAccountSummary API operation.", Operation = new[] {"GetAccountSummary"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.IdentityManagement.Model.GetAccountSummaryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

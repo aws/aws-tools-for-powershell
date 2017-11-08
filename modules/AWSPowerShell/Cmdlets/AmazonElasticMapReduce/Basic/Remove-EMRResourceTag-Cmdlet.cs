@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Remove", "EMRResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTags operation against Amazon Elastic MapReduce.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-EMRTag")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce RemoveTags API operation.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-EMRTag")]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of Tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticMapReduce.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

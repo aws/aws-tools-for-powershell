@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Get", "ASNotificationConfiguration")]
     [OutputType("Amazon.AutoScaling.Model.NotificationConfiguration")]
-    [AWSCmdlet("Invokes the DescribeNotificationConfigurations operation against Auto Scaling.", Operation = new[] {"DescribeNotificationConfigurations"})]
+    [AWSCmdlet("Calls the Auto Scaling DescribeNotificationConfigurations API operation.", Operation = new[] {"DescribeNotificationConfigurations"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.NotificationConfiguration",
         "This cmdlet returns a collection of NotificationConfiguration objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribeNotificationConfigurationsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

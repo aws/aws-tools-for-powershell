@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Send", "SESBulkTemplatedEmail", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleEmail.Model.BulkEmailDestinationStatus")]
-    [AWSCmdlet("Invokes the SendBulkTemplatedEmail operation against Amazon Simple Email Service.", Operation = new[] {"SendBulkTemplatedEmail"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service SendBulkTemplatedEmail API operation.", Operation = new[] {"SendBulkTemplatedEmail"})]
     [AWSCmdletOutput("Amazon.SimpleEmail.Model.BulkEmailDestinationStatus",
         "This cmdlet returns a collection of BulkEmailDestinationStatus objects.",
         "The service call response (type Amazon.SimpleEmail.Model.SendBulkTemplatedEmailResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

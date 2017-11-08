@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Send", "CFNResourceSignal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SignalResource operation against AWS CloudFormation.", Operation = new[] {"SignalResource"})]
+    [AWSCmdlet("Calls the AWS CloudFormation SignalResource API operation.", Operation = new[] {"SignalResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFormation.Model.SignalResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

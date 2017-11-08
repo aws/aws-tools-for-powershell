@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Remove", "RSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the DeleteTags operation against Amazon Redshift.", Operation = new[] {"DeleteTags"}, LegacyAlias="Remove-RSTags")]
+    [AWSCmdlet("Calls the Amazon Redshift DeleteTags API operation.", Operation = new[] {"DeleteTags"}, LegacyAlias="Remove-RSTags")]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Redshift.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

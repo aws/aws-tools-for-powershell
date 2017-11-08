@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Restore", "DSFromSnapshot", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RestoreFromSnapshot operation against AWS Directory Service.", Operation = new[] {"RestoreFromSnapshot"})]
+    [AWSCmdlet("Calls the AWS Directory Service RestoreFromSnapshot API operation.", Operation = new[] {"RestoreFromSnapshot"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SnapshotId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.RestoreFromSnapshotResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

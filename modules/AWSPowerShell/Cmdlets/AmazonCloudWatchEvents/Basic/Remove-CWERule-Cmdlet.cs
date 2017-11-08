@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Remove", "CWERule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteRule operation against Amazon CloudWatch Events.", Operation = new[] {"DeleteRule"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events DeleteRule API operation.", Operation = new[] {"DeleteRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchEvents.Model.DeleteRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

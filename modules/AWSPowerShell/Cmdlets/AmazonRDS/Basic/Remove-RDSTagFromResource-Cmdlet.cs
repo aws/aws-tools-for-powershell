@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSTagFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTagsFromResource operation against Amazon Relational Database Service.", Operation = new[] {"RemoveTagsFromResource"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service RemoveTagsFromResource API operation.", Operation = new[] {"RemoveTagsFromResource"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the collection of tag keys that were removed when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.RemoveTagsFromResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

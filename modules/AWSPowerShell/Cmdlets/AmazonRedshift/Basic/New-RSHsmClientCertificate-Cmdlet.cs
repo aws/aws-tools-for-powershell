@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("New", "RSHsmClientCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.HsmClientCertificate")]
-    [AWSCmdlet("Invokes the CreateHsmClientCertificate operation against Amazon Redshift.", Operation = new[] {"CreateHsmClientCertificate"})]
+    [AWSCmdlet("Calls the Amazon Redshift CreateHsmClientCertificate API operation.", Operation = new[] {"CreateHsmClientCertificate"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.HsmClientCertificate",
         "This cmdlet returns a HsmClientCertificate object.",
         "The service call response (type Amazon.Redshift.Model.CreateHsmClientCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

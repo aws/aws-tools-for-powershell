@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Get", "GMLScalingPolicy")]
     [OutputType("Amazon.GameLift.Model.ScalingPolicy")]
-    [AWSCmdlet("Invokes the DescribeScalingPolicies operation against Amazon GameLift Service.", Operation = new[] {"DescribeScalingPolicies"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DescribeScalingPolicies API operation.", Operation = new[] {"DescribeScalingPolicies"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.ScalingPolicy",
         "This cmdlet returns a collection of ScalingPolicy objects.",
         "The service call response (type Amazon.GameLift.Model.DescribeScalingPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

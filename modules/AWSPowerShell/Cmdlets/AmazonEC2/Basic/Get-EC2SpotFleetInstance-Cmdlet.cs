@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetInstance")]
     [OutputType("Amazon.EC2.Model.ActiveInstance")]
-    [AWSCmdlet("Invokes the DescribeSpotFleetInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSpotFleetInstances"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSpotFleetInstances API operation.", Operation = new[] {"DescribeSpotFleetInstances"})]
     [AWSCmdletOutput("Amazon.EC2.Model.ActiveInstance",
         "This cmdlet returns a collection of ActiveInstance objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSpotFleetInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

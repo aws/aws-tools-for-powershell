@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CFG
     /// </summary>
     [Cmdlet("Remove", "CFGConfigRule", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteConfigRule operation against AWS Config.", Operation = new[] {"DeleteConfigRule"})]
+    [AWSCmdlet("Calls the AWS Config DeleteConfigRule API operation.", Operation = new[] {"DeleteConfigRule"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigRuleName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ConfigService.Model.DeleteConfigRuleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Update", "GMLRuntimeConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.RuntimeConfiguration")]
-    [AWSCmdlet("Invokes the UpdateRuntimeConfiguration operation against Amazon GameLift Service.", Operation = new[] {"UpdateRuntimeConfiguration"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateRuntimeConfiguration API operation.", Operation = new[] {"UpdateRuntimeConfiguration"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.RuntimeConfiguration",
         "This cmdlet returns a RuntimeConfiguration object.",
         "The service call response (type Amazon.GameLift.Model.UpdateRuntimeConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

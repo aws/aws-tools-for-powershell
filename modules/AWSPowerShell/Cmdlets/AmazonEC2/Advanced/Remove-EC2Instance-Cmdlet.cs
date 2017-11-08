@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.EC2.Model.InstanceStateChange")]
-    [AWSCmdlet("Invokes the TerminateInstances operations on one or more EC2 instances.", Operation = new [] {"TerminateInstances"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud TerminateInstances API operation.", Operation = new[] { "TerminateInstances" })]
     [AWSCmdletOutput("Amazon.EC2.Model.InstanceStateChange",
                      "This cmdlet returns 0 or more Amazon.EC2.Model.InstanceStateChange instances.",
                      "The service response (type Amazon.EC2.Model.TerminateInstancesResponse) is added to the cmdlet entry in the $AWSHistory stack."

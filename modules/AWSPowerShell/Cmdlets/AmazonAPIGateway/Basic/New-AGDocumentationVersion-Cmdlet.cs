@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("New", "AGDocumentationVersion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.CreateDocumentationVersionResponse")]
-    [AWSCmdlet("Invokes the CreateDocumentationVersion operation against Amazon API Gateway.", Operation = new[] {"CreateDocumentationVersion"})]
+    [AWSCmdlet("Calls the Amazon API Gateway CreateDocumentationVersion API operation.", Operation = new[] {"CreateDocumentationVersion"})]
     [AWSCmdletOutput("Amazon.APIGateway.Model.CreateDocumentationVersionResponse",
         "This cmdlet returns a Amazon.APIGateway.Model.CreateDocumentationVersionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

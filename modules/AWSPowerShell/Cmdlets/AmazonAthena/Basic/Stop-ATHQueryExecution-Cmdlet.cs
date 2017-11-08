@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// </summary>
     [Cmdlet("Stop", "ATHQueryExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopQueryExecution operation against Amazon Athena.", Operation = new[] {"StopQueryExecution"})]
+    [AWSCmdlet("Calls the Amazon Athena StopQueryExecution API operation.", Operation = new[] {"StopQueryExecution"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the QueryExecutionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Athena.Model.StopQueryExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

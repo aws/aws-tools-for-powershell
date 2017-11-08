@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Approve", "CGIPDevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the ConfirmDevice operation against Amazon Cognito Identity Provider.", Operation = new[] {"ConfirmDevice"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider ConfirmDevice API operation.", Operation = new[] {"ConfirmDevice"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.ConfirmDeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Remove", "SGFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteFileShare operation against AWS Storage Gateway.", Operation = new[] {"DeleteFileShare"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DeleteFileShare API operation.", Operation = new[] {"DeleteFileShare"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.DeleteFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

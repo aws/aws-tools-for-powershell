@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMRoleFromInstanceProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveRoleFromInstanceProfile operation against AWS Identity and Access Management.", Operation = new[] {"RemoveRoleFromInstanceProfile"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management RemoveRoleFromInstanceProfile API operation.", Operation = new[] {"RemoveRoleFromInstanceProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the InstanceProfileName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.RemoveRoleFromInstanceProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Update", "SGNFSFileShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateNFSFileShare operation against AWS Storage Gateway.", Operation = new[] {"UpdateNFSFileShare"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway UpdateNFSFileShare API operation.", Operation = new[] {"UpdateNFSFileShare"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.StorageGateway.Model.UpdateNFSFileShareResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

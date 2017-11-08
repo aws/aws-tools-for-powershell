@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Test", "LSVpcPeered")]
     [OutputType("System.Boolean")]
-    [AWSCmdlet("Invokes the IsVpcPeered operation against Amazon Lightsail.", Operation = new[] {"IsVpcPeered"})]
+    [AWSCmdlet("Calls the Amazon Lightsail IsVpcPeered API operation.", Operation = new[] {"IsVpcPeered"})]
     [AWSCmdletOutput("System.Boolean",
         "This cmdlet returns a Boolean object.",
         "The service call response (type Amazon.Lightsail.Model.IsVpcPeeredResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </summary>
     [Cmdlet("Import", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ImportCertificate operation against AWS Certificate Manager.", Operation = new[] {"ImportCertificate"})]
+    [AWSCmdlet("Calls the AWS Certificate Manager ImportCertificate API operation.", Operation = new[] {"ImportCertificate"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CertificateManager.Model.ImportCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

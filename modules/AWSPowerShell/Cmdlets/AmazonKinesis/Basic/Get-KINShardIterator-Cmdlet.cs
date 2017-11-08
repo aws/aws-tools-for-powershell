@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINShardIterator")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetShardIterator operation against Amazon Kinesis.", Operation = new[] {"GetShardIterator"})]
+    [AWSCmdlet("Calls the Amazon Kinesis GetShardIterator API operation.", Operation = new[] {"GetShardIterator"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Kinesis.Model.GetShardIteratorResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

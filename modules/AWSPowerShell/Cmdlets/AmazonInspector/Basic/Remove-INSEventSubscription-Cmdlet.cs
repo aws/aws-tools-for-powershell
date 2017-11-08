@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Remove", "INSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the UnsubscribeFromEvent operation against Amazon Inspector.", Operation = new[] {"UnsubscribeFromEvent"})]
+    [AWSCmdlet("Calls the Amazon Inspector UnsubscribeFromEvent API operation.", Operation = new[] {"UnsubscribeFromEvent"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Inspector.Model.UnsubscribeFromEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

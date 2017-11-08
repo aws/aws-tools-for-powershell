@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("New", "RSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the CreateTags operation against Amazon Redshift.", Operation = new[] {"CreateTags"}, LegacyAlias="New-RSTags")]
+    [AWSCmdlet("Calls the Amazon Redshift CreateTags API operation.", Operation = new[] {"CreateTags"}, LegacyAlias="New-RSTags")]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Redshift.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Get", "GGFunctionDefinitionVersionList")]
     [OutputType("Amazon.Greengrass.Model.VersionInformation")]
-    [AWSCmdlet("Invokes the ListFunctionDefinitionVersions operation against AWS Greengrass.", Operation = new[] {"ListFunctionDefinitionVersions"})]
+    [AWSCmdlet("Calls the AWS Greengrass ListFunctionDefinitionVersions API operation.", Operation = new[] {"ListFunctionDefinitionVersions"})]
     [AWSCmdletOutput("Amazon.Greengrass.Model.VersionInformation",
         "This cmdlet returns a collection of VersionInformation objects.",
         "The service call response (type Amazon.Greengrass.Model.ListFunctionDefinitionVersionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

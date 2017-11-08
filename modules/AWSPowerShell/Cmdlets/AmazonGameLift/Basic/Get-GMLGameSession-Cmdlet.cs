@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Get", "GMLGameSession")]
     [OutputType("Amazon.GameLift.Model.GameSession")]
-    [AWSCmdlet("Invokes the DescribeGameSessions operation against Amazon GameLift Service.", Operation = new[] {"DescribeGameSessions"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DescribeGameSessions API operation.", Operation = new[] {"DescribeGameSessions"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.GameSession",
         "This cmdlet returns a collection of GameSession objects.",
         "The service call response (type Amazon.GameLift.Model.DescribeGameSessionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

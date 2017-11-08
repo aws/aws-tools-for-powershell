@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Remove", "CFStreamingDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteStreamingDistribution operation against Amazon CloudFront.", Operation = new[] {"DeleteStreamingDistribution"})]
+    [AWSCmdlet("Calls the Amazon CloudFront DeleteStreamingDistribution API operation.", Operation = new[] {"DeleteStreamingDistribution"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Id parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFront.Model.DeleteStreamingDistributionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

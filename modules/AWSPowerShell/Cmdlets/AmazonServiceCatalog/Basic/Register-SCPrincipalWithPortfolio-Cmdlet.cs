@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Register", "SCPrincipalWithPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AssociatePrincipalWithPortfolio operation against AWS Service Catalog.", Operation = new[] {"AssociatePrincipalWithPortfolio"})]
+    [AWSCmdlet("Calls the AWS Service Catalog AssociatePrincipalWithPortfolio API operation.", Operation = new[] {"AssociatePrincipalWithPortfolio"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PrincipalARN parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ServiceCatalog.Model.AssociatePrincipalWithPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.CSD
     /// </summary>
     [Cmdlet("Write", "CSDDocument", DefaultParameterSetName = ParamSet_FromLocalFile, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudSearchDomain.Model.UploadDocumentsResult")]
-    [AWSCmdlet("Invokes the UploadDocuments operation against Amazon CloudSearchDomain.", Operation = new[] { "UploadDocuments" }, LegacyAlias = "Write-CSDDocuments")]
+    [AWSCmdlet("Calls the Amazon CloudSearchDomain UploadDocuments API operation.", Operation = new[] { "UploadDocuments" }, LegacyAlias = "Write-CSDDocuments")]
     [AWSCmdletOutput("Amazon.CloudSearchDomain.Model.UploadDocumentsResult",
         "This cmdlet returns an Amazon.CloudSearchDomain.Model.UploadDocumentsResult object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

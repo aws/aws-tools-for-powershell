@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Remove", "GMLGameSessionQueue", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteGameSessionQueue operation against Amazon GameLift Service.", Operation = new[] {"DeleteGameSessionQueue"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service DeleteGameSessionQueue API operation.", Operation = new[] {"DeleteGameSessionQueue"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.GameLift.Model.DeleteGameSessionQueueResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Remove", "EBEnvironmentConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteEnvironmentConfiguration operation against AWS Elastic Beanstalk.", Operation = new[] {"DeleteEnvironmentConfiguration"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk DeleteEnvironmentConfiguration API operation.", Operation = new[] {"DeleteEnvironmentConfiguration"})]
     [AWSCmdletOutput("None or System.String",
         "Returns the name of the environment that was updated when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticBeanstalk.Model.DeleteEnvironmentConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

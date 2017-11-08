@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Grant", "OPSAccess", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpsWorks.Model.TemporaryCredential")]
-    [AWSCmdlet("Invokes the GrantAccess operation against AWS OpsWorks.", Operation = new[] {"GrantAccess"})]
+    [AWSCmdlet("Calls the AWS OpsWorks GrantAccess API operation.", Operation = new[] {"GrantAccess"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.TemporaryCredential",
         "This cmdlet returns a TemporaryCredential object.",
         "The service call response (type Amazon.OpsWorks.Model.GrantAccessResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

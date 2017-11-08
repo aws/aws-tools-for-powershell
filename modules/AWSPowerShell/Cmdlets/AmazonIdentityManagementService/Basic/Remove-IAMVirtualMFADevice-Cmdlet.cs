@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Remove", "IAMVirtualMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteVirtualMFADevice operation against AWS Identity and Access Management.", Operation = new[] {"DeleteVirtualMFADevice"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management DeleteVirtualMFADevice API operation.", Operation = new[] {"DeleteVirtualMFADevice"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SerialNumber parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.DeleteVirtualMFADeviceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

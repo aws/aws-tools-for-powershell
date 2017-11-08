@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Get", "DFOfferingStatus")]
     [OutputType("Amazon.DeviceFarm.Model.GetOfferingStatusResponse")]
-    [AWSCmdlet("Invokes the GetOfferingStatus operation against AWS Device Farm.", Operation = new[] {"GetOfferingStatus"})]
+    [AWSCmdlet("Calls the AWS Device Farm GetOfferingStatus API operation.", Operation = new[] {"GetOfferingStatus"})]
     [AWSCmdletOutput("Amazon.DeviceFarm.Model.GetOfferingStatusResponse",
         "This cmdlet returns a Amazon.DeviceFarm.Model.GetOfferingStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

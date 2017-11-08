@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Get", "ASAutoScalingInstance")]
     [OutputType("Amazon.AutoScaling.Model.AutoScalingInstanceDetails")]
-    [AWSCmdlet("Invokes the DescribeAutoScalingInstances operation against Auto Scaling.", Operation = new[] {"DescribeAutoScalingInstances"})]
+    [AWSCmdlet("Calls the Auto Scaling DescribeAutoScalingInstances API operation.", Operation = new[] {"DescribeAutoScalingInstances"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.AutoScalingInstanceDetails",
         "This cmdlet returns a collection of AutoScalingInstanceDetails objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribeAutoScalingInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

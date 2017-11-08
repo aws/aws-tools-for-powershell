@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Remove", "SSMMaintenanceWindow", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteMaintenanceWindow operation against Amazon Simple Systems Management.", Operation = new[] {"DeleteMaintenanceWindow"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DeleteMaintenanceWindow API operation.", Operation = new[] {"DeleteMaintenanceWindow"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DeleteMaintenanceWindowResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("Edit", "R53ResourceRecordSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.ChangeInfo")]
-    [AWSCmdlet("Invokes the ChangeResourceRecordSets operation against Amazon Route 53.", Operation = new[] {"ChangeResourceRecordSets"})]
+    [AWSCmdlet("Calls the Amazon Route 53 ChangeResourceRecordSets API operation.", Operation = new[] {"ChangeResourceRecordSets"})]
     [AWSCmdletOutput("Amazon.Route53.Model.ChangeInfo",
         "This cmdlet returns a ChangeInfo object.",
         "The service call response (type Amazon.Route53.Model.ChangeResourceRecordSetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

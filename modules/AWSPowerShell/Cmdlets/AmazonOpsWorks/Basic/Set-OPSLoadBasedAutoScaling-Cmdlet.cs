@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Set", "OPSLoadBasedAutoScaling", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetLoadBasedAutoScaling operation against AWS OpsWorks.", Operation = new[] {"SetLoadBasedAutoScaling"})]
+    [AWSCmdlet("Calls the AWS OpsWorks SetLoadBasedAutoScaling API operation.", Operation = new[] {"SetLoadBasedAutoScaling"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LayerId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.SetLoadBasedAutoScalingResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

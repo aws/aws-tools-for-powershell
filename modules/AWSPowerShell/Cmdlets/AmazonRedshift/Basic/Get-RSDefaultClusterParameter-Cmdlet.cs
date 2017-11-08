@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSDefaultClusterParameter")]
     [OutputType("Amazon.Redshift.Model.DefaultClusterParameters")]
-    [AWSCmdlet("Invokes the DescribeDefaultClusterParameters operation against Amazon Redshift.", Operation = new[] {"DescribeDefaultClusterParameters"}, LegacyAlias="Get-RSDefaultClusterParameters")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeDefaultClusterParameters API operation.", Operation = new[] {"DescribeDefaultClusterParameters"}, LegacyAlias="Get-RSDefaultClusterParameters")]
     [AWSCmdletOutput("Amazon.Redshift.Model.DefaultClusterParameters",
         "This cmdlet returns a DefaultClusterParameters object.",
         "The service call response (type Amazon.Redshift.Model.DescribeDefaultClusterParametersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

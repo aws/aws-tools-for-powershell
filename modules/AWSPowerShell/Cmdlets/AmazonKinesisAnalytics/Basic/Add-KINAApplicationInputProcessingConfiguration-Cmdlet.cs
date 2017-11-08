@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// </summary>
     [Cmdlet("Add", "KINAApplicationInputProcessingConfiguration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.Int64")]
-    [AWSCmdlet("Invokes the AddApplicationInputProcessingConfiguration operation against Amazon Kinesis Analytics.", Operation = new[] {"AddApplicationInputProcessingConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Analytics AddApplicationInputProcessingConfiguration API operation.", Operation = new[] {"AddApplicationInputProcessingConfiguration"})]
     [AWSCmdletOutput("None or System.Int64",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CurrentApplicationVersionId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.AddApplicationInputProcessingConfigurationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.R53D
     /// </summary>
     [Cmdlet("Get", "R53DDomainDetail")]
     [OutputType("Amazon.Route53Domains.Model.GetDomainDetailResponse")]
-    [AWSCmdlet("Invokes the GetDomainDetail operation against Amazon Route 53 Domains.", Operation = new[] {"GetDomainDetail"})]
+    [AWSCmdlet("Calls the Amazon Route 53 Domains GetDomainDetail API operation.", Operation = new[] {"GetDomainDetail"})]
     [AWSCmdletOutput("Amazon.Route53Domains.Model.GetDomainDetailResponse",
         "This cmdlet returns a Amazon.Route53Domains.Model.GetDomainDetailResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeletePlacementGroup operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeletePlacementGroup"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeletePlacementGroup API operation.", Operation = new[] {"DeletePlacementGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeletePlacementGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

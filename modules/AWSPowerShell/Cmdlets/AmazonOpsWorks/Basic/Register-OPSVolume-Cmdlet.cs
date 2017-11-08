@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Register", "OPSVolume", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RegisterVolume operation against AWS OpsWorks.", Operation = new[] {"RegisterVolume"})]
+    [AWSCmdlet("Calls the AWS OpsWorks RegisterVolume API operation.", Operation = new[] {"RegisterVolume"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.OpsWorks.Model.RegisterVolumeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

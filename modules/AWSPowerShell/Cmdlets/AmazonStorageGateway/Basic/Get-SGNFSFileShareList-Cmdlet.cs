@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Get", "SGNFSFileShareList")]
     [OutputType("Amazon.StorageGateway.Model.NFSFileShareInfo")]
-    [AWSCmdlet("Invokes the DescribeNFSFileShares operation against AWS Storage Gateway.", Operation = new[] {"DescribeNFSFileShares"})]
+    [AWSCmdlet("Calls the AWS Storage Gateway DescribeNFSFileShares API operation.", Operation = new[] {"DescribeNFSFileShares"})]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.NFSFileShareInfo",
         "This cmdlet returns a collection of NFSFileShareInfo objects.",
         "The service call response (type Amazon.StorageGateway.Model.DescribeNFSFileSharesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

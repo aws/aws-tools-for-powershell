@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMUserPolicy")]
     [OutputType("Amazon.IdentityManagement.Model.GetUserPolicyResponse")]
-    [AWSCmdlet("Invokes the GetUserPolicy operation against AWS Identity and Access Management.", Operation = new[] {"GetUserPolicy"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetUserPolicy API operation.", Operation = new[] {"GetUserPolicy"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.GetUserPolicyResponse",
         "This cmdlet returns a Amazon.IdentityManagement.Model.GetUserPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

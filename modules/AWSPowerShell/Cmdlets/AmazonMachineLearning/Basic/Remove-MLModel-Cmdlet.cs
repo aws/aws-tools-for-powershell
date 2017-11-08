@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.ML
     /// </summary>
     [Cmdlet("Remove", "MLModel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteMLModel operation against Amazon Machine Learning.", Operation = new[] {"DeleteMLModel"})]
+    [AWSCmdlet("Calls the Amazon Machine Learning DeleteMLModel API operation.", Operation = new[] {"DeleteMLModel"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.MachineLearning.Model.DeleteMLModelResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

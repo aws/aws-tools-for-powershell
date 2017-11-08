@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Get", "CCRepositoryList")]
     [OutputType("Amazon.CodeCommit.Model.RepositoryNameIdPair")]
-    [AWSCmdlet("Invokes the ListRepositories operation against AWS CodeCommit.", Operation = new[] {"ListRepositories"})]
+    [AWSCmdlet("Calls the AWS CodeCommit ListRepositories API operation.", Operation = new[] {"ListRepositories"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.RepositoryNameIdPair",
         "This cmdlet returns a collection of RepositoryNameIdPair objects.",
         "The service call response (type Amazon.CodeCommit.Model.ListRepositoriesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

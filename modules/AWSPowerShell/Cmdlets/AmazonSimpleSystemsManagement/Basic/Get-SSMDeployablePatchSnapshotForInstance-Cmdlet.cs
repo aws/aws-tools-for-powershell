@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMDeployablePatchSnapshotForInstance")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse")]
-    [AWSCmdlet("Invokes the GetDeployablePatchSnapshotForInstance operation against Amazon Simple Systems Management.", Operation = new[] {"GetDeployablePatchSnapshotForInstance"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management GetDeployablePatchSnapshotForInstance API operation.", Operation = new[] {"GetDeployablePatchSnapshotForInstance"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse",
         "This cmdlet returns a Amazon.SimpleSystemsManagement.Model.GetDeployablePatchSnapshotForInstanceResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
     /// </summary>
     [Cmdlet("Remove", "GGGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteGroup operation against AWS Greengrass.", Operation = new[] {"DeleteGroup"})]
+    [AWSCmdlet("Calls the AWS Greengrass DeleteGroup API operation.", Operation = new[] {"DeleteGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Greengrass.Model.DeleteGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

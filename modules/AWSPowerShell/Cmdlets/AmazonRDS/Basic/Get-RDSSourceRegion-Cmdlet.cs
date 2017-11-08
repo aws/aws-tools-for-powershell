@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSSourceRegion")]
     [OutputType("Amazon.RDS.Model.SourceRegion")]
-    [AWSCmdlet("Invokes the DescribeSourceRegions operation against Amazon Relational Database Service.", Operation = new[] {"DescribeSourceRegions"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeSourceRegions API operation.", Operation = new[] {"DescribeSourceRegions"})]
     [AWSCmdletOutput("Amazon.RDS.Model.SourceRegion",
         "This cmdlet returns a collection of SourceRegion objects.",
         "The service call response (type Amazon.RDS.Model.DescribeSourceRegionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

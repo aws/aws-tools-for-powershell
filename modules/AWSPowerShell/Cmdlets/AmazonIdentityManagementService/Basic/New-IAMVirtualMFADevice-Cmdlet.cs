@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMVirtualMFADevice", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.VirtualMFADevice")]
-    [AWSCmdlet("Invokes the CreateVirtualMFADevice operation against AWS Identity and Access Management.", Operation = new[] {"CreateVirtualMFADevice"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateVirtualMFADevice API operation.", Operation = new[] {"CreateVirtualMFADevice"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.VirtualMFADevice",
         "This cmdlet returns a VirtualMFADevice object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateVirtualMFADeviceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

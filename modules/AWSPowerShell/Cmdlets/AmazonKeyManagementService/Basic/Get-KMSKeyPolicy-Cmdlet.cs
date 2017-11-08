@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Get", "KMSKeyPolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the GetKeyPolicy operation against AWS Key Management Service.", Operation = new[] {"GetKeyPolicy"})]
+    [AWSCmdlet("Calls the AWS Key Management Service GetKeyPolicy API operation.", Operation = new[] {"GetKeyPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.KeyManagementService.Model.GetKeyPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

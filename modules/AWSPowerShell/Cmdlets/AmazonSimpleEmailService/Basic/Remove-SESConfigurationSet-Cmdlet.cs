@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Remove", "SESConfigurationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteConfigurationSet operation against Amazon Simple Email Service.", Operation = new[] {"DeleteConfigurationSet"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteConfigurationSet API operation.", Operation = new[] {"DeleteConfigurationSet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ConfigurationSetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.DeleteConfigurationSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

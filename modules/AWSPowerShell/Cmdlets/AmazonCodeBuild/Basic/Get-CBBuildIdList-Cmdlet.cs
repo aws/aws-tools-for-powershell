@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CB
     /// </summary>
     [Cmdlet("Get", "CBBuildIdList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListBuilds operation against AWS CodeBuild.", Operation = new[] {"ListBuilds"})]
+    [AWSCmdlet("Calls the AWS CodeBuild ListBuilds API operation.", Operation = new[] {"ListBuilds"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CodeBuild.Model.ListBuildsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

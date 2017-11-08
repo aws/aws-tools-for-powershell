@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Add", "CDIRFacetToObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AddFacetToObject operation against AWS Cloud Directory.", Operation = new[] {"AddFacetToObject"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory AddFacetToObject API operation.", Operation = new[] {"AddFacetToObject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.AddFacetToObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

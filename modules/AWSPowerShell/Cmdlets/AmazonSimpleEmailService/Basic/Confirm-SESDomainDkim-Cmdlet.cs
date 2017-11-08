@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Confirm", "SESDomainDkim", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the VerifyDomainDkim operation against Amazon Simple Email Service.", Operation = new[] {"VerifyDomainDkim"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service VerifyDomainDkim API operation.", Operation = new[] {"VerifyDomainDkim"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleEmail.Model.VerifyDomainDkimResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

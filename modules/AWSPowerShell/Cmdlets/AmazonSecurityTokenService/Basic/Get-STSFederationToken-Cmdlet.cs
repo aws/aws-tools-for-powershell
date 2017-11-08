@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.STS
     /// </summary>
     [Cmdlet("Get", "STSFederationToken")]
     [OutputType("Amazon.SecurityToken.Model.GetFederationTokenResponse")]
-    [AWSCmdlet("Invokes the GetFederationToken operation against AWS Security Token Service.", Operation = new[] {"GetFederationToken"})]
+    [AWSCmdlet("Calls the AWS Security Token Service GetFederationToken API operation.", Operation = new[] {"GetFederationToken"})]
     [AWSCmdletOutput("Amazon.SecurityToken.Model.GetFederationTokenResponse",
         "This cmdlet returns a Amazon.SecurityToken.Model.GetFederationTokenResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

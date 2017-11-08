@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketAccelerateConfiguration")]
     [OutputType("Amazon.S3.BucketAccelerateStatus")]
-    [AWSCmdlet("Invokes the GetBucketAccelerateConfiguration operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketAccelerateConfiguration"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketAccelerateConfiguration API operation.", Operation = new[] {"GetBucketAccelerateConfiguration"})]
     [AWSCmdletOutput("Amazon.S3.BucketAccelerateStatus",
         "This cmdlet returns a BucketAccelerateStatus object.",
         "The service call response (type Amazon.S3.Model.GetBucketAccelerateConfigurationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

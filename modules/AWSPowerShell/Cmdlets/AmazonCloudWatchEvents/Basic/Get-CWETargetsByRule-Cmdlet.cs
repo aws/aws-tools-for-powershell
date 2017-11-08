@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWE
     /// </summary>
     [Cmdlet("Get", "CWETargetsByRule")]
     [OutputType("Amazon.CloudWatchEvents.Model.Target")]
-    [AWSCmdlet("Invokes the ListTargetsByRule operation against Amazon CloudWatch Events.", Operation = new[] {"ListTargetsByRule"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Events ListTargetsByRule API operation.", Operation = new[] {"ListTargetsByRule"})]
     [AWSCmdletOutput("Amazon.CloudWatchEvents.Model.Target",
         "This cmdlet returns a collection of Target objects.",
         "The service call response (type Amazon.CloudWatchEvents.Model.ListTargetsByRuleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

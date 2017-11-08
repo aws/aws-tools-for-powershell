@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Edit", "RSClusterSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.ClusterSubnetGroup")]
-    [AWSCmdlet("Invokes the ModifyClusterSubnetGroup operation against Amazon Redshift.", Operation = new[] {"ModifyClusterSubnetGroup"})]
+    [AWSCmdlet("Calls the Amazon Redshift ModifyClusterSubnetGroup API operation.", Operation = new[] {"ModifyClusterSubnetGroup"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSubnetGroup",
         "This cmdlet returns a ClusterSubnetGroup object.",
         "The service call response (type Amazon.Redshift.Model.ModifyClusterSubnetGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

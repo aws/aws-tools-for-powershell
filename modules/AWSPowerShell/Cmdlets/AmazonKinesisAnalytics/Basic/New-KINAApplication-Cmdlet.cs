@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// </summary>
     [Cmdlet("New", "KINAApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KinesisAnalytics.Model.ApplicationSummary")]
-    [AWSCmdlet("Invokes the CreateApplication operation against Amazon Kinesis Analytics.", Operation = new[] {"CreateApplication"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Analytics CreateApplication API operation.", Operation = new[] {"CreateApplication"})]
     [AWSCmdletOutput("Amazon.KinesisAnalytics.Model.ApplicationSummary",
         "This cmdlet returns a ApplicationSummary object.",
         "The service call response (type Amazon.KinesisAnalytics.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

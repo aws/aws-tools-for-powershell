@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMLoginProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.LoginProfile")]
-    [AWSCmdlet("Invokes the CreateLoginProfile operation against AWS Identity and Access Management.", Operation = new[] {"CreateLoginProfile"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateLoginProfile API operation.", Operation = new[] {"CreateLoginProfile"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.LoginProfile",
         "This cmdlet returns a LoginProfile object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateLoginProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

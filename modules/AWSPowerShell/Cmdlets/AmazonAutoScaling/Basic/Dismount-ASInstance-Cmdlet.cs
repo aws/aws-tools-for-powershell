@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Dismount", "ASInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AutoScaling.Model.Activity")]
-    [AWSCmdlet("Invokes the DetachInstances operation against Auto Scaling.", Operation = new[] {"DetachInstances"}, LegacyAlias="Dismount-ASInstances")]
+    [AWSCmdlet("Calls the Auto Scaling DetachInstances API operation.", Operation = new[] {"DetachInstances"}, LegacyAlias="Dismount-ASInstances")]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.Activity",
         "This cmdlet returns a collection of Activity objects.",
         "The service call response (type Amazon.AutoScaling.Model.DetachInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

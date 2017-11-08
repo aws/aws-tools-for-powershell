@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Get", "ORGRoot")]
     [OutputType("Amazon.Organizations.Model.Root")]
-    [AWSCmdlet("Invokes the ListRoots operation against AWS Organizations.", Operation = new[] {"ListRoots"})]
+    [AWSCmdlet("Calls the AWS Organizations ListRoots API operation.", Operation = new[] {"ListRoots"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Root",
         "This cmdlet returns a collection of Root objects.",
         "The service call response (type Amazon.Organizations.Model.ListRootsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Edit", "SSMDocumentPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the ModifyDocumentPermission operation against Amazon Simple Systems Management.", Operation = new[] {"ModifyDocumentPermission"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management ModifyDocumentPermission API operation.", Operation = new[] {"ModifyDocumentPermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Name parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.ModifyDocumentPermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMRole")]
     [OutputType("Amazon.IdentityManagement.Model.Role")]
-    [AWSCmdlet("Invokes the GetRole operation against AWS Identity and Access Management.", Operation = new[] {"GetRole"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management GetRole API operation.", Operation = new[] {"GetRole"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.Role",
         "This cmdlet returns a Role object.",
         "The service call response (type Amazon.IdentityManagement.Model.GetRoleResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

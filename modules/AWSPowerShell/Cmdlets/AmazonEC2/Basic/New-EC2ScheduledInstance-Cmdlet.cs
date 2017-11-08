@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2ScheduledInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the RunScheduledInstances operation against Amazon Elastic Compute Cloud.", Operation = new[] {"RunScheduledInstances"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RunScheduledInstances API operation.", Operation = new[] {"RunScheduledInstances"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.EC2.Model.RunScheduledInstancesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

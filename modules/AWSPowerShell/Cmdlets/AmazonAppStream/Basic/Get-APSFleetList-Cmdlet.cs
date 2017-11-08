@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("Get", "APSFleetList")]
     [OutputType("Amazon.AppStream.Model.Fleet")]
-    [AWSCmdlet("Invokes the DescribeFleets operation against AWS AppStream.", Operation = new[] {"DescribeFleets"})]
+    [AWSCmdlet("Calls the AWS AppStream DescribeFleets API operation.", Operation = new[] {"DescribeFleets"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.Fleet",
         "This cmdlet returns a collection of Fleet objects.",
         "The service call response (type Amazon.AppStream.Model.DescribeFleetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

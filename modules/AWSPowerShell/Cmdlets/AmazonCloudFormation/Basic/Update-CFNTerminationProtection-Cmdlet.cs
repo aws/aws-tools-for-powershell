@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Update", "CFNTerminationProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateTerminationProtection operation against AWS CloudFormation.", Operation = new[] {"UpdateTerminationProtection"})]
+    [AWSCmdlet("Calls the AWS CloudFormation UpdateTerminationProtection API operation.", Operation = new[] {"UpdateTerminationProtection"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CloudFormation.Model.UpdateTerminationProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

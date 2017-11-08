@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Send", "CGIPAuthChallengeResponseAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeResponse")]
-    [AWSCmdlet("Invokes the AdminRespondToAuthChallenge operation against Amazon Cognito Identity Provider.", Operation = new[] {"AdminRespondToAuthChallenge"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider AdminRespondToAuthChallenge API operation.", Operation = new[] {"AdminRespondToAuthChallenge"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeResponse",
         "This cmdlet returns a Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

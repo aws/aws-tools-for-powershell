@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("New", "DAXParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DAX.Model.ParameterGroup")]
-    [AWSCmdlet("Invokes the CreateParameterGroup operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"CreateParameterGroup"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) CreateParameterGroup API operation.", Operation = new[] {"CreateParameterGroup"})]
     [AWSCmdletOutput("Amazon.DAX.Model.ParameterGroup",
         "This cmdlet returns a ParameterGroup object.",
         "The service call response (type Amazon.DAX.Model.CreateParameterGroupResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

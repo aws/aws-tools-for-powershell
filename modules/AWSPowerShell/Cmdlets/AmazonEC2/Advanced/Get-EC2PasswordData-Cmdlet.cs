@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2PasswordData")]
     [OutputType("PasswordData", "string")]
-    [AWSCmdlet("Invokes the GetPasswordData operation against Amazon Elastic Compute Cloud.", Operation = new [] {"GetPasswordData"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetPasswordData API operation.", Operation = new[] { "GetPasswordData" })]
     [AWSCmdletOutput("PasswordData",
         "If -Decrypt or -PemFile are not specified, returns a string containing the encrypted password for later decryption.",
         "The service response (type Amazon.EC2.Model.GetPasswordDataResponse) is added to the cmdlet entry in the $AWSHistory stack."

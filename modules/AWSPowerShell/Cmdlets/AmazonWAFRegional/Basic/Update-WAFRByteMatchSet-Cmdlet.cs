@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.WAFR
     /// </summary>
     [Cmdlet("Update", "WAFRByteMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the UpdateByteMatchSet operation against AWS WAF Regional.", Operation = new[] {"UpdateByteMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF Regional UpdateByteMatchSet API operation.", Operation = new[] {"UpdateByteMatchSet"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.WAFRegional.Model.UpdateByteMatchSetResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

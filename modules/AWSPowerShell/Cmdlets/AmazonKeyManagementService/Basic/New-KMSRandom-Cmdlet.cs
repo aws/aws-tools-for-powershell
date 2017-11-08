@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("New", "KMSRandom", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.IO.MemoryStream")]
-    [AWSCmdlet("Invokes the GenerateRandom operation against AWS Key Management Service.", Operation = new[] {"GenerateRandom"})]
+    [AWSCmdlet("Calls the AWS Key Management Service GenerateRandom API operation.", Operation = new[] {"GenerateRandom"})]
     [AWSCmdletOutput("System.IO.MemoryStream",
         "This cmdlet returns a MemoryStream object.",
         "The service call response (type Amazon.KeyManagementService.Model.GenerateRandomResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

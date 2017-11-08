@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Edit", "DMSReplicationInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.ReplicationInstance")]
-    [AWSCmdlet("Invokes the ModifyReplicationInstance operation against AWS Database Migration Service.", Operation = new[] {"ModifyReplicationInstance"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service ModifyReplicationInstance API operation.", Operation = new[] {"ModifyReplicationInstance"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.ReplicationInstance",
         "This cmdlet returns a ReplicationInstance object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyReplicationInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

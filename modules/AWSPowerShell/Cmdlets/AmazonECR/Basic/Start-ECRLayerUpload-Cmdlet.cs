@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Start", "ECRLayerUpload", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECR.Model.InitiateLayerUploadResponse")]
-    [AWSCmdlet("Invokes the InitiateLayerUpload operation against Amazon EC2 Container Registry.", Operation = new[] {"InitiateLayerUpload"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry InitiateLayerUpload API operation.", Operation = new[] {"InitiateLayerUpload"})]
     [AWSCmdletOutput("Amazon.ECR.Model.InitiateLayerUploadResponse",
         "This cmdlet returns a Amazon.ECR.Model.InitiateLayerUploadResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

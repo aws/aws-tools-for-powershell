@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("New", "RSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Redshift.Model.EventSubscription")]
-    [AWSCmdlet("Invokes the CreateEventSubscription operation against Amazon Redshift.", Operation = new[] {"CreateEventSubscription"})]
+    [AWSCmdlet("Calls the Amazon Redshift CreateEventSubscription API operation.", Operation = new[] {"CreateEventSubscription"})]
     [AWSCmdletOutput("Amazon.Redshift.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
         "The service call response (type Amazon.Redshift.Model.CreateEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

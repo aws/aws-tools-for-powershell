@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Get", "EMRStep")]
     [OutputType("Amazon.ElasticMapReduce.Model.Step")]
-    [AWSCmdlet("Invokes the DescribeStep operation against Amazon Elastic MapReduce.", Operation = new[] {"DescribeStep"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce DescribeStep API operation.", Operation = new[] {"DescribeStep"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.Step",
         "This cmdlet returns a Step object.",
         "The service call response (type Amazon.ElasticMapReduce.Model.DescribeStepResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

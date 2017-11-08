@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Get", "IAMSSHPublicKeyList")]
     [OutputType("Amazon.IdentityManagement.Model.SSHPublicKeyMetadata")]
-    [AWSCmdlet("Invokes the ListSSHPublicKeys operation against AWS Identity and Access Management.", Operation = new[] {"ListSSHPublicKeys"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management ListSSHPublicKeys API operation.", Operation = new[] {"ListSSHPublicKeys"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.SSHPublicKeyMetadata",
         "This cmdlet returns a collection of SSHPublicKeyMetadata objects.",
         "The service call response (type Amazon.IdentityManagement.Model.ListSSHPublicKeysResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// </summary>
     [Cmdlet("Update", "CGIPUserAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType")]
-    [AWSCmdlet("Invokes the UpdateUserAttributes operation against Amazon Cognito Identity Provider. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"UpdateUserAttributes"})]
+    [AWSCmdlet("Calls the Amazon Cognito Identity Provider UpdateUserAttributes API operation. This operation uses anonymous authentication and does not require credential parameters to be supplied.", Operation = new[] {"UpdateUserAttributes"})]
     [AWSCmdletOutput("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType",
         "This cmdlet returns a collection of CodeDeliveryDetailsType objects.",
         "The service call response (type Amazon.CognitoIdentityProvider.Model.UpdateUserAttributesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

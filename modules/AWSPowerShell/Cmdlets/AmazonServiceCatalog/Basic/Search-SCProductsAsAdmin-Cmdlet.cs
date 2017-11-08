@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// </summary>
     [Cmdlet("Search", "SCProductsAsAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.ProductViewDetail")]
-    [AWSCmdlet("Invokes the SearchProductsAsAdmin operation against AWS Service Catalog.", Operation = new[] {"SearchProductsAsAdmin"})]
+    [AWSCmdlet("Calls the AWS Service Catalog SearchProductsAsAdmin API operation.", Operation = new[] {"SearchProductsAsAdmin"})]
     [AWSCmdletOutput("Amazon.ServiceCatalog.Model.ProductViewDetail",
         "This cmdlet returns a collection of ProductViewDetail objects.",
         "The service call response (type Amazon.ServiceCatalog.Model.SearchProductsAsAdminResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

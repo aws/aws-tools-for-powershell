@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("New", "WAFIPSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAF.Model.CreateIPSetResponse")]
-    [AWSCmdlet("Invokes the CreateIPSet operation against AWS WAF.", Operation = new[] {"CreateIPSet"})]
+    [AWSCmdlet("Calls the AWS WAF CreateIPSet API operation.", Operation = new[] {"CreateIPSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.CreateIPSetResponse",
         "This cmdlet returns a Amazon.WAF.Model.CreateIPSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2NetworkInterfacePermission")]
     [OutputType("Amazon.EC2.Model.NetworkInterfacePermission")]
-    [AWSCmdlet("Invokes the DescribeNetworkInterfacePermissions operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeNetworkInterfacePermissions"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeNetworkInterfacePermissions API operation.", Operation = new[] {"DescribeNetworkInterfacePermissions"})]
     [AWSCmdletOutput("Amazon.EC2.Model.NetworkInterfacePermission",
         "This cmdlet returns a collection of NetworkInterfacePermission objects.",
         "The service call response (type Amazon.EC2.Model.DescribeNetworkInterfacePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3BucketReplication")]
     [OutputType("Amazon.S3.Model.ReplicationConfiguration")]
-    [AWSCmdlet("Invokes the GetBucketReplication operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketReplication"})]
+    [AWSCmdlet("Calls the Amazon Simple Storage Service GetBucketReplication API operation.", Operation = new[] {"GetBucketReplication"})]
     [AWSCmdletOutput("Amazon.S3.Model.ReplicationConfiguration",
         "This cmdlet returns a ReplicationConfiguration object.",
         "The service call response (type Amazon.S3.Model.GetBucketReplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

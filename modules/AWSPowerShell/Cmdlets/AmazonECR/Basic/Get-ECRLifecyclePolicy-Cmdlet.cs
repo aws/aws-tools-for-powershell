@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ECR
     /// </summary>
     [Cmdlet("Get", "ECRLifecyclePolicy")]
     [OutputType("Amazon.ECR.Model.GetLifecyclePolicyResponse")]
-    [AWSCmdlet("Invokes the GetLifecyclePolicy operation against Amazon EC2 Container Registry.", Operation = new[] {"GetLifecyclePolicy"})]
+    [AWSCmdlet("Calls the Amazon EC2 Container Registry GetLifecyclePolicy API operation.", Operation = new[] {"GetLifecyclePolicy"})]
     [AWSCmdletOutput("Amazon.ECR.Model.GetLifecyclePolicyResponse",
         "This cmdlet returns a Amazon.ECR.Model.GetLifecyclePolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

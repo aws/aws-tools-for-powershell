@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Grant", "EC2SecurityGroupIngress", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AuthorizeSecurityGroupIngress operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AuthorizeSecurityGroupIngress"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AuthorizeSecurityGroupIngress API operation.", Operation = new[] {"AuthorizeSecurityGroupIngress"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.AuthorizeSecurityGroupIngressResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

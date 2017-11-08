@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Disable", "DSSso", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisableSso operation against AWS Directory Service.", Operation = new[] {"DisableSso"})]
+    [AWSCmdlet("Calls the AWS Directory Service DisableSso API operation.", Operation = new[] {"DisableSso"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DirectoryService.Model.DisableSsoResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

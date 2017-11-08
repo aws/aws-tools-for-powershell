@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("New", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreatePlacementGroup operation against Amazon Elastic Compute Cloud.", Operation = new[] {"CreatePlacementGroup"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud CreatePlacementGroup API operation.", Operation = new[] {"CreatePlacementGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the GroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.CreatePlacementGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

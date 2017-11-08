@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDResourcePermissionList")]
     [OutputType("Amazon.WorkDocs.Model.Principal")]
-    [AWSCmdlet("Invokes the DescribeResourcePermissions operation against Amazon WorkDocs.", Operation = new[] {"DescribeResourcePermissions"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DescribeResourcePermissions API operation.", Operation = new[] {"DescribeResourcePermissions"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.Principal",
         "This cmdlet returns a collection of Principal objects.",
         "The service call response (type Amazon.WorkDocs.Model.DescribeResourcePermissionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

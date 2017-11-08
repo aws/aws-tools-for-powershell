@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("New", "RDSDBInstanceReadReplica", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.RDS.Model.DBInstance")]
-    [AWSCmdlet("Invokes the CreateDBInstanceReadReplica operation against Amazon Relational Database Service.", Operation = new[] {"CreateDBInstanceReadReplica"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service CreateDBInstanceReadReplica API operation.", Operation = new[] {"CreateDBInstanceReadReplica"})]
     [AWSCmdletOutput("Amazon.RDS.Model.DBInstance",
         "This cmdlet returns a DBInstance object.",
         "The service call response (type Amazon.RDS.Model.CreateDBInstanceReadReplicaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

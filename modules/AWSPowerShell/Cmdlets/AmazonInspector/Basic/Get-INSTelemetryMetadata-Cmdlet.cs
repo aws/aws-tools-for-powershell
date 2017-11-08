@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Get", "INSTelemetryMetadata")]
     [OutputType("Amazon.Inspector.Model.TelemetryMetadata")]
-    [AWSCmdlet("Invokes the GetTelemetryMetadata operation against Amazon Inspector.", Operation = new[] {"GetTelemetryMetadata"})]
+    [AWSCmdlet("Calls the Amazon Inspector GetTelemetryMetadata API operation.", Operation = new[] {"GetTelemetryMetadata"})]
     [AWSCmdletOutput("Amazon.Inspector.Model.TelemetryMetadata",
         "This cmdlet returns a collection of TelemetryMetadata objects.",
         "The service call response (type Amazon.Inspector.Model.GetTelemetryMetadataResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

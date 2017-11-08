@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("New", "IAMUser", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.IdentityManagement.Model.User")]
-    [AWSCmdlet("Invokes the CreateUser operation against AWS Identity and Access Management.", Operation = new[] {"CreateUser"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management CreateUser API operation.", Operation = new[] {"CreateUser"})]
     [AWSCmdletOutput("Amazon.IdentityManagement.Model.User",
         "This cmdlet returns a User object.",
         "The service call response (type Amazon.IdentityManagement.Model.CreateUserResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

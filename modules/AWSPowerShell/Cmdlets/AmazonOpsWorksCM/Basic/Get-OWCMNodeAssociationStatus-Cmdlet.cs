@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Get", "OWCMNodeAssociationStatus")]
     [OutputType("Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse")]
-    [AWSCmdlet("Invokes the DescribeNodeAssociationStatus operation against AWS OpsWorksCM.", Operation = new[] {"DescribeNodeAssociationStatus"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM DescribeNodeAssociationStatus API operation.", Operation = new[] {"DescribeNodeAssociationStatus"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse",
         "This cmdlet returns a Amazon.OpsWorksCM.Model.DescribeNodeAssociationStatusResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Get", "CDIRSchemaAsJson")]
     [OutputType("Amazon.CloudDirectory.Model.GetSchemaAsJsonResponse")]
-    [AWSCmdlet("Invokes the GetSchemaAsJson operation against AWS Cloud Directory.", Operation = new[] {"GetSchemaAsJson"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory GetSchemaAsJson API operation.", Operation = new[] {"GetSchemaAsJson"})]
     [AWSCmdletOutput("Amazon.CloudDirectory.Model.GetSchemaAsJsonResponse",
         "This cmdlet returns a Amazon.CloudDirectory.Model.GetSchemaAsJsonResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

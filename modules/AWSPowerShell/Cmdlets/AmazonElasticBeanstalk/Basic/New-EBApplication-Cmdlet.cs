@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("New", "EBApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.ApplicationDescription")]
-    [AWSCmdlet("Invokes the CreateApplication operation against AWS Elastic Beanstalk.", Operation = new[] {"CreateApplication"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk CreateApplication API operation.", Operation = new[] {"CreateApplication"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.ApplicationDescription",
         "This cmdlet returns a ApplicationDescription object.",
         "The service call response (type Amazon.ElasticBeanstalk.Model.CreateApplicationResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

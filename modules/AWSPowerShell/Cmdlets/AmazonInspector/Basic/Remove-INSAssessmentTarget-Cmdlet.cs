@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Remove", "INSAssessmentTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteAssessmentTarget operation against Amazon Inspector.", Operation = new[] {"DeleteAssessmentTarget"})]
+    [AWSCmdlet("Calls the Amazon Inspector DeleteAssessmentTarget API operation.", Operation = new[] {"DeleteAssessmentTarget"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AssessmentTargetArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Inspector.Model.DeleteAssessmentTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

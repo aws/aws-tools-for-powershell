@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Stop", "CFNStackSetOperation", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the StopStackSetOperation operation against AWS CloudFormation.", Operation = new[] {"StopStackSetOperation"})]
+    [AWSCmdlet("Calls the AWS CloudFormation StopStackSetOperation API operation.", Operation = new[] {"StopStackSetOperation"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StackSetName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudFormation.Model.StopStackSetOperationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

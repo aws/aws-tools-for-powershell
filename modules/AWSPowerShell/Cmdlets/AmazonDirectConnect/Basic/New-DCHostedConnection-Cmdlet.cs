@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("New", "DCHostedConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.AllocateHostedConnectionResponse")]
-    [AWSCmdlet("Invokes the AllocateHostedConnection operation against AWS Direct Connect.", Operation = new[] {"AllocateHostedConnection"})]
+    [AWSCmdlet("Calls the AWS Direct Connect AllocateHostedConnection API operation.", Operation = new[] {"AllocateHostedConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.AllocateHostedConnectionResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.AllocateHostedConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

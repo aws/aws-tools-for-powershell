@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Register", "EC2Ipv6AddressList", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.AssignIpv6AddressesResponse")]
-    [AWSCmdlet("Invokes the AssignIpv6Addresses operation against Amazon Elastic Compute Cloud.", Operation = new[] {"AssignIpv6Addresses"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud AssignIpv6Addresses API operation.", Operation = new[] {"AssignIpv6Addresses"})]
     [AWSCmdletOutput("Amazon.EC2.Model.AssignIpv6AddressesResponse",
         "This cmdlet returns a Amazon.EC2.Model.AssignIpv6AddressesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

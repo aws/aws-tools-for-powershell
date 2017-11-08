@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Set", "SNSSMSAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
-    [AWSCmdlet("Invokes the SetSMSAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"SetSMSAttributes"}, LegacyAlias="Set-SNSSMSAttributes")]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service SetSMSAttributes API operation.", Operation = new[] {"SetSMSAttributes"}, LegacyAlias="Set-SNSSMSAttributes")]
     [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Attribute parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.SetSMSAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

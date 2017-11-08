@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMEffectivePatchesForPatchBaseline")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.EffectivePatch")]
-    [AWSCmdlet("Invokes the DescribeEffectivePatchesForPatchBaseline operation against Amazon Simple Systems Management.", Operation = new[] {"DescribeEffectivePatchesForPatchBaseline"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management DescribeEffectivePatchesForPatchBaseline API operation.", Operation = new[] {"DescribeEffectivePatchesForPatchBaseline"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.EffectivePatch",
         "This cmdlet returns a collection of EffectivePatch objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.DescribeEffectivePatchesForPatchBaselineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

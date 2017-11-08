@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Get", "KMSAliasList")]
     [OutputType("Amazon.KeyManagementService.Model.AliasListEntry")]
-    [AWSCmdlet("Invokes the ListAliases operation against AWS Key Management Service.", Operation = new[] {"ListAliases"}, LegacyAlias="Get-KMSAliases")]
+    [AWSCmdlet("Calls the AWS Key Management Service ListAliases API operation.", Operation = new[] {"ListAliases"}, LegacyAlias="Get-KMSAliases")]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.AliasListEntry",
         "This cmdlet returns a collection of AliasListEntry objects.",
         "The service call response (type Amazon.KeyManagementService.Model.ListAliasesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

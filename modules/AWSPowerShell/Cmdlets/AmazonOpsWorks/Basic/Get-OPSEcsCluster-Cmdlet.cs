@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Get", "OPSEcsCluster")]
     [OutputType("Amazon.OpsWorks.Model.EcsCluster")]
-    [AWSCmdlet("Invokes the DescribeEcsClusters operation against AWS OpsWorks.", Operation = new[] {"DescribeEcsClusters"})]
+    [AWSCmdlet("Calls the AWS OpsWorks DescribeEcsClusters API operation.", Operation = new[] {"DescribeEcsClusters"})]
     [AWSCmdletOutput("Amazon.OpsWorks.Model.EcsCluster",
         "This cmdlet returns a collection of EcsCluster objects.",
         "The service call response (type Amazon.OpsWorks.Model.DescribeEcsClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

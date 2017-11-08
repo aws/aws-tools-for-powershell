@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Set", "SNSPlatformApplicationAttribute", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the SetPlatformApplicationAttributes operation against Amazon Simple Notification Service.", Operation = new[] {"SetPlatformApplicationAttributes"}, LegacyAlias="Set-SNSPlatformApplicationAttributes")]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service SetPlatformApplicationAttributes API operation.", Operation = new[] {"SetPlatformApplicationAttributes"}, LegacyAlias="Set-SNSPlatformApplicationAttributes")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PlatformApplicationArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleNotificationService.Model.SetPlatformApplicationAttributesResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Update", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpsWorksCM.Model.CMServer")]
-    [AWSCmdlet("Invokes the UpdateServer operation against AWS OpsWorksCM.", Operation = new[] {"UpdateServer"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM UpdateServer API operation.", Operation = new[] {"UpdateServer"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.CMServer",
         "This cmdlet returns a CMServer object.",
         "The service call response (type Amazon.OpsWorksCM.Model.UpdateServerResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

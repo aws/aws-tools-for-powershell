@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.PIN
     /// </summary>
     [Cmdlet("New", "PINImportJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Pinpoint.Model.ImportJobResponse")]
-    [AWSCmdlet("Invokes the CreateImportJob operation against Amazon Pinpoint.", Operation = new[] {"CreateImportJob"})]
+    [AWSCmdlet("Calls the Amazon Pinpoint CreateImportJob API operation.", Operation = new[] {"CreateImportJob"})]
     [AWSCmdletOutput("Amazon.Pinpoint.Model.ImportJobResponse",
         "This cmdlet returns a ImportJobResponse object.",
         "The service call response (type Amazon.Pinpoint.Model.CreateImportJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteSubnet operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteSubnet"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteSubnet API operation.", Operation = new[] {"DeleteSubnet"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SubnetId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeleteSubnetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

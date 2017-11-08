@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB
     /// </summary>
     [Cmdlet("Add", "ELBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.ElasticLoadBalancing.Model.Tag")]
-    [AWSCmdlet("Invokes the AddTags operation against Elastic Load Balancing.", Operation = new[] {"AddTags"}, LegacyAlias="Add-ELBTags")]
+    [AWSCmdlet("Calls the Elastic Load Balancing AddTags API operation.", Operation = new[] {"AddTags"}, LegacyAlias="Add-ELBTags")]
     [AWSCmdletOutput("None or Amazon.ElasticLoadBalancing.Model.Tag",
         "Returns the collection of Tag objects that were added when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancing.Model.AddTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

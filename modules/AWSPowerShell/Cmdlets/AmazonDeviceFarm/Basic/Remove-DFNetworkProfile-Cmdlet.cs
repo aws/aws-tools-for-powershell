@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DF
     /// </summary>
     [Cmdlet("Remove", "DFNetworkProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteNetworkProfile operation against AWS Device Farm.", Operation = new[] {"DeleteNetworkProfile"})]
+    [AWSCmdlet("Calls the AWS Device Farm DeleteNetworkProfile API operation.", Operation = new[] {"DeleteNetworkProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Arn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DeviceFarm.Model.DeleteNetworkProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

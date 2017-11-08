@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ATH
     /// </summary>
     [Cmdlet("Get", "ATHQueryExecutionList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListQueryExecutions operation against Amazon Athena.", Operation = new[] {"ListQueryExecutions"})]
+    [AWSCmdlet("Calls the Amazon Athena ListQueryExecutions API operation.", Operation = new[] {"ListQueryExecutions"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Athena.Model.ListQueryExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

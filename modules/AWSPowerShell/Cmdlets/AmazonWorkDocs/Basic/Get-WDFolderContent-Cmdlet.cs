@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Get", "WDFolderContent")]
     [OutputType("Amazon.WorkDocs.Model.DescribeFolderContentsResponse")]
-    [AWSCmdlet("Invokes the DescribeFolderContents operation against Amazon WorkDocs.", Operation = new[] {"DescribeFolderContents"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs DescribeFolderContents API operation.", Operation = new[] {"DescribeFolderContents"})]
     [AWSCmdletOutput("Amazon.WorkDocs.Model.DescribeFolderContentsResponse",
         "This cmdlet returns a Amazon.WorkDocs.Model.DescribeFolderContentsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

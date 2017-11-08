@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SNS
     /// </summary>
     [Cmdlet("Get", "SNSTopic")]
     [OutputType("Amazon.SimpleNotificationService.Model.Topic")]
-    [AWSCmdlet("Invokes the ListTopics operation against Amazon Simple Notification Service.", Operation = new[] {"ListTopics"})]
+    [AWSCmdlet("Calls the Amazon Simple Notification Service ListTopics API operation.", Operation = new[] {"ListTopics"})]
     [AWSCmdletOutput("Amazon.SimpleNotificationService.Model.Topic",
         "This cmdlet returns a collection of Topic objects.",
         "The service call response (type Amazon.SimpleNotificationService.Model.ListTopicsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

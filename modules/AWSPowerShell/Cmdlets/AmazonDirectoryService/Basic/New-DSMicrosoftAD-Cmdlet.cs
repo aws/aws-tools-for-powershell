@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("New", "DSMicrosoftAD", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateMicrosoftAD operation against AWS Directory Service.", Operation = new[] {"CreateMicrosoftAD"})]
+    [AWSCmdlet("Calls the AWS Directory Service CreateMicrosoftAD API operation.", Operation = new[] {"CreateMicrosoftAD"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.DirectoryService.Model.CreateMicrosoftADResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

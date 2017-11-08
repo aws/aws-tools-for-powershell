@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
     /// </summary>
     [Cmdlet("New", "APSImageBuilderStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse")]
-    [AWSCmdlet("Invokes the CreateImageBuilderStreamingURL operation against AWS AppStream.", Operation = new[] {"CreateImageBuilderStreamingURL"})]
+    [AWSCmdlet("Calls the AWS AppStream CreateImageBuilderStreamingURL API operation.", Operation = new[] {"CreateImageBuilderStreamingURL"})]
     [AWSCmdletOutput("Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse",
         "This cmdlet returns a Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

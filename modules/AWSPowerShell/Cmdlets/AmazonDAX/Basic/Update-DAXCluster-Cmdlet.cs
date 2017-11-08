@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.DAX
     /// </summary>
     [Cmdlet("Update", "DAXCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DAX.Model.Cluster")]
-    [AWSCmdlet("Invokes the UpdateCluster operation against Amazon DynamoDB Accelerator (DAX).", Operation = new[] {"UpdateCluster"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB Accelerator (DAX) UpdateCluster API operation.", Operation = new[] {"UpdateCluster"})]
     [AWSCmdletOutput("Amazon.DAX.Model.Cluster",
         "This cmdlet returns a Cluster object.",
         "The service call response (type Amazon.DAX.Model.UpdateClusterResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

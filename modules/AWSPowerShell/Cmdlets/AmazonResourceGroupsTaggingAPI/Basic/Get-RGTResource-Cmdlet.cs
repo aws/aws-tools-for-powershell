@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.RGT
     /// </summary>
     [Cmdlet("Get", "RGTResource")]
     [OutputType("Amazon.ResourceGroupsTaggingAPI.Model.ResourceTagMapping")]
-    [AWSCmdlet("Invokes the GetResources operation against AWS Resource Groups Tagging API.", Operation = new[] {"GetResources"})]
+    [AWSCmdlet("Calls the AWS Resource Groups Tagging API GetResources API operation.", Operation = new[] {"GetResources"})]
     [AWSCmdletOutput("Amazon.ResourceGroupsTaggingAPI.Model.ResourceTagMapping",
         "This cmdlet returns a collection of ResourceTagMapping objects.",
         "The service call response (type Amazon.ResourceGroupsTaggingAPI.Model.GetResourcesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

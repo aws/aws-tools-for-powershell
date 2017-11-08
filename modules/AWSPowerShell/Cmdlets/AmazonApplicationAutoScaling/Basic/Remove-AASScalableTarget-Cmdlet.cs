@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// </summary>
     [Cmdlet("Remove", "AASScalableTarget", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","Amazon.ApplicationAutoScaling.ServiceNamespace")]
-    [AWSCmdlet("Invokes the DeregisterScalableTarget operation against Application Auto Scaling.", Operation = new[] {"DeregisterScalableTarget"})]
+    [AWSCmdlet("Calls the Application Auto Scaling DeregisterScalableTarget API operation.", Operation = new[] {"DeregisterScalableTarget"})]
     [AWSCmdletOutput("None or Amazon.ApplicationAutoScaling.ServiceNamespace",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ServiceNamespace parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationAutoScaling.Model.DeregisterScalableTargetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

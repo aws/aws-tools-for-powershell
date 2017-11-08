@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.MH
     /// </summary>
     [Cmdlet("Add", "MHDiscoveredResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.MigrationHub.Model.DiscoveredResource")]
-    [AWSCmdlet("Invokes the AssociateDiscoveredResource operation against AWS Migration Hub.", Operation = new[] {"AssociateDiscoveredResource"})]
+    [AWSCmdlet("Calls the AWS Migration Hub AssociateDiscoveredResource API operation.", Operation = new[] {"AssociateDiscoveredResource"})]
     [AWSCmdletOutput("None or Amazon.MigrationHub.Model.DiscoveredResource",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DiscoveredResource parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.MigrationHub.Model.AssociateDiscoveredResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

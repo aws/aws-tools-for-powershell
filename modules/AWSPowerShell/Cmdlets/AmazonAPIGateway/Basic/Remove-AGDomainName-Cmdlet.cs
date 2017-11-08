@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Remove", "AGDomainName", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteDomainName operation against Amazon API Gateway.", Operation = new[] {"DeleteDomainName"})]
+    [AWSCmdlet("Calls the Amazon API Gateway DeleteDomainName API operation.", Operation = new[] {"DeleteDomainName"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DomainName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.DeleteDomainNameResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

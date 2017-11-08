@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("New", "WDLabel", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateLabels operation against Amazon WorkDocs.", Operation = new[] {"CreateLabels"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs CreateLabels API operation.", Operation = new[] {"CreateLabels"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.CreateLabelsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

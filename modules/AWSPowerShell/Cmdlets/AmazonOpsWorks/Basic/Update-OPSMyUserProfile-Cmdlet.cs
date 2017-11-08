@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.OPS
     /// </summary>
     [Cmdlet("Update", "OPSMyUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateMyUserProfile operation against AWS OpsWorks.", Operation = new[] {"UpdateMyUserProfile"})]
+    [AWSCmdlet("Calls the AWS OpsWorks UpdateMyUserProfile API operation.", Operation = new[] {"UpdateMyUserProfile"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the SshPublicKey parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.OpsWorks.Model.UpdateMyUserProfileResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

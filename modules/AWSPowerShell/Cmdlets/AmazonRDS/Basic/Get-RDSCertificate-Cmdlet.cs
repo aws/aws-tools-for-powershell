@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Get", "RDSCertificate")]
     [OutputType("Amazon.RDS.Model.Certificate")]
-    [AWSCmdlet("Invokes the DescribeCertificates operation against Amazon Relational Database Service.", Operation = new[] {"DescribeCertificates"}, LegacyAlias="Get-RDSCertificates")]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DescribeCertificates API operation.", Operation = new[] {"DescribeCertificates"}, LegacyAlias="Get-RDSCertificates")]
     [AWSCmdletOutput("Amazon.RDS.Model.Certificate",
         "This cmdlet returns a collection of Certificate objects.",
         "The service call response (type Amazon.RDS.Model.DescribeCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

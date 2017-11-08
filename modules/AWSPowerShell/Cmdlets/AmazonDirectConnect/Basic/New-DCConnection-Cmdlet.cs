@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.DC
     /// </summary>
     [Cmdlet("New", "DCConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DirectConnect.Model.CreateConnectionResponse")]
-    [AWSCmdlet("Invokes the CreateConnection operation against AWS Direct Connect.", Operation = new[] {"CreateConnection"})]
+    [AWSCmdlet("Calls the AWS Direct Connect CreateConnection API operation.", Operation = new[] {"CreateConnection"})]
     [AWSCmdletOutput("Amazon.DirectConnect.Model.CreateConnectionResponse",
         "This cmdlet returns a Amazon.DirectConnect.Model.CreateConnectionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

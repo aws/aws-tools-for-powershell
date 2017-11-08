@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// </summary>
     [Cmdlet("Remove", "KINAApplicationOutput", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteApplicationOutput operation against Amazon Kinesis Analytics.", Operation = new[] {"DeleteApplicationOutput"})]
+    [AWSCmdlet("Calls the Amazon Kinesis Analytics DeleteApplicationOutput API operation.", Operation = new[] {"DeleteApplicationOutput"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OutputId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationOutputResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECReplicationGroup")]
     [OutputType("Amazon.ElastiCache.Model.ReplicationGroup")]
-    [AWSCmdlet("Invokes the DescribeReplicationGroups operation against Amazon ElastiCache.", Operation = new[] {"DescribeReplicationGroups"}, LegacyAlias="Get-ECReplicationGroups")]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeReplicationGroups API operation.", Operation = new[] {"DescribeReplicationGroups"}, LegacyAlias="Get-ECReplicationGroups")]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.ReplicationGroup",
         "This cmdlet returns a collection of ReplicationGroup objects.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeReplicationGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

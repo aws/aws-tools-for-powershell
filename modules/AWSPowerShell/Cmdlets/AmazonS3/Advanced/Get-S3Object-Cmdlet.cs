@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </summary>
     [Cmdlet("Get", "S3Object", DefaultParameterSetName = ParamSet_MultipleObject)]
     [OutputType("Amazon.S3.Model.S3Object")]
-    [AWSCmdlet("Invokes the ListObjects call to return a collection of S3Object metadata instances describing S3 objects for a specified bucket."
+    [AWSCmdlet("Lists your Amazon S3 objects in a bucket, returning a collection of S3Object metadata instances describing the objects."
                     + " Repeated calls are made to retrieve metadata for all objects unless a specific object key or key prefix and instance count limiters are specified."
                     , Operation = new [] {"ListObjects"})]
     [AWSCmdletOutput("Amazon.S3.Model.S3Object",

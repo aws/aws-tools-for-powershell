@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
     /// </summary>
     [Cmdlet("Get", "LSInstance")]
     [OutputType("Amazon.Lightsail.Model.Instance")]
-    [AWSCmdlet("Invokes the GetInstance operation against Amazon Lightsail.", Operation = new[] {"GetInstance"})]
+    [AWSCmdlet("Calls the Amazon Lightsail GetInstance API operation.", Operation = new[] {"GetInstance"})]
     [AWSCmdletOutput("Amazon.Lightsail.Model.Instance",
         "This cmdlet returns a Instance object.",
         "The service call response (type Amazon.Lightsail.Model.GetInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

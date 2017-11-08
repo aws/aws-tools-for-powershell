@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Get", "EMRClusterList")]
     [OutputType("Amazon.ElasticMapReduce.Model.ClusterSummary")]
-    [AWSCmdlet("Invokes the ListClusters operation against Amazon Elastic MapReduce.", Operation = new[] {"ListClusters"}, LegacyAlias="Get-EMRClusters")]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce ListClusters API operation.", Operation = new[] {"ListClusters"}, LegacyAlias="Get-EMRClusters")]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.ClusterSummary",
         "This cmdlet returns a collection of ClusterSummary objects.",
         "The service call response (type Amazon.ElasticMapReduce.Model.ListClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

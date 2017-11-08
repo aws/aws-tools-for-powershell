@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// </summary>
     [Cmdlet("Remove", "SGChapCredential", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse")]
-    [AWSCmdlet("Invokes the DeleteChapCredentials operation against AWS Storage Gateway.", Operation = new[] {"DeleteChapCredentials"}, LegacyAlias="Remove-SGChapCredentials")]
+    [AWSCmdlet("Calls the AWS Storage Gateway DeleteChapCredentials API operation.", Operation = new[] {"DeleteChapCredentials"}, LegacyAlias="Remove-SGChapCredentials")]
     [AWSCmdletOutput("Amazon.StorageGateway.Model.DeleteChapCredentialsResponse",
         "This cmdlet returns a Amazon.StorageGateway.Model.DeleteChapCredentialsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

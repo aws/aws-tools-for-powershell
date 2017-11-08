@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Remove", "ELB2LoadBalancer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteLoadBalancer operation against Elastic Load Balancing V2.", Operation = new[] {"DeleteLoadBalancer"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 DeleteLoadBalancer API operation.", Operation = new[] {"DeleteLoadBalancer"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the LoadBalancerArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticLoadBalancingV2.Model.DeleteLoadBalancerResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

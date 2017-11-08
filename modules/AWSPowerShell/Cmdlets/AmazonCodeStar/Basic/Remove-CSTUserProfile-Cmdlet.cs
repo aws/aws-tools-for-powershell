@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CST
     /// </summary>
     [Cmdlet("Remove", "CSTUserProfile", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the DeleteUserProfile operation against AWS CodeStar.", Operation = new[] {"DeleteUserProfile"})]
+    [AWSCmdlet("Calls the AWS CodeStar DeleteUserProfile API operation.", Operation = new[] {"DeleteUserProfile"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.CodeStar.Model.DeleteUserProfileResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

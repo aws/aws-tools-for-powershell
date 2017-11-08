@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// </summary>
     [Cmdlet("New", "R53VPCAssociationAuthorization", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse")]
-    [AWSCmdlet("Invokes the CreateVPCAssociationAuthorization operation against Amazon Route 53.", Operation = new[] {"CreateVPCAssociationAuthorization"})]
+    [AWSCmdlet("Calls the Amazon Route 53 CreateVPCAssociationAuthorization API operation.", Operation = new[] {"CreateVPCAssociationAuthorization"})]
     [AWSCmdletOutput("Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse",
         "This cmdlet returns a Amazon.Route53.Model.CreateVPCAssociationAuthorizationResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

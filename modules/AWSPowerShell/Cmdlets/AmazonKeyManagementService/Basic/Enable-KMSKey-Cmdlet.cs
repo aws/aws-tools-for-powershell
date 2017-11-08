@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Enable", "KMSKey", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the EnableKey operation against AWS Key Management Service.", Operation = new[] {"EnableKey"})]
+    [AWSCmdlet("Calls the AWS Key Management Service EnableKey API operation.", Operation = new[] {"EnableKey"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the KeyId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.KeyManagementService.Model.EnableKeyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

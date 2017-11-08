@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Send", "SSMCommand", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Command")]
-    [AWSCmdlet("Invokes the SendCommand operation against Amazon Simple Systems Management.", Operation = new[] {"SendCommand"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management SendCommand API operation.", Operation = new[] {"SendCommand"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.Command",
         "This cmdlet returns a Command object.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.SendCommandResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

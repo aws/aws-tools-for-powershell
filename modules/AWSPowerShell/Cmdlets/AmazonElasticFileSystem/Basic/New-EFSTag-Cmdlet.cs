@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </summary>
     [Cmdlet("New", "EFSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","Amazon.ElasticFileSystem.Model.Tag")]
-    [AWSCmdlet("Invokes the CreateTags operation against Amazon Elastic File System.", Operation = new[] {"CreateTags"})]
+    [AWSCmdlet("Calls the Amazon Elastic File System CreateTags API operation.", Operation = new[] {"CreateTags"})]
     [AWSCmdletOutput("None or Amazon.ElasticFileSystem.Model.Tag",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticFileSystem.Model.CreateTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

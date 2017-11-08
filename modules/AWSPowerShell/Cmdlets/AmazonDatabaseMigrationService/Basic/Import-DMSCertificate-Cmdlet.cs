@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Import", "DMSCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.Certificate")]
-    [AWSCmdlet("Invokes the ImportCertificate operation against AWS Database Migration Service.", Operation = new[] {"ImportCertificate"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service ImportCertificate API operation.", Operation = new[] {"ImportCertificate"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.Certificate",
         "This cmdlet returns a Certificate object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.ImportCertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

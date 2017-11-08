@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Remove", "EC2Tag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","Amazon.EC2.Model.Tag")]
-    [AWSCmdlet("Invokes the DeleteTags operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DeleteTags"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
     [AWSCmdletOutput("None or Amazon.EC2.Model.Tag",
         "Returns the collection of Tag objects that were deleted when you use the PassThru parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.EC2.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

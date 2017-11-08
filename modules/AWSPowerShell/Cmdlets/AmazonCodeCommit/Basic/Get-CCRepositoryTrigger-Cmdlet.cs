@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CC
     /// </summary>
     [Cmdlet("Get", "CCRepositoryTrigger")]
     [OutputType("Amazon.CodeCommit.Model.GetRepositoryTriggersResponse")]
-    [AWSCmdlet("Invokes the GetRepositoryTriggers operation against AWS CodeCommit.", Operation = new[] {"GetRepositoryTriggers"})]
+    [AWSCmdlet("Calls the AWS CodeCommit GetRepositoryTriggers API operation.", Operation = new[] {"GetRepositoryTriggers"})]
     [AWSCmdletOutput("Amazon.CodeCommit.Model.GetRepositoryTriggersResponse",
         "This cmdlet returns a Amazon.CodeCommit.Model.GetRepositoryTriggersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Get", "SESIdentityPolicyList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListIdentityPolicies operation against Amazon Simple Email Service.", Operation = new[] {"ListIdentityPolicies"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service ListIdentityPolicies API operation.", Operation = new[] {"ListIdentityPolicies"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.SimpleEmail.Model.ListIdentityPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

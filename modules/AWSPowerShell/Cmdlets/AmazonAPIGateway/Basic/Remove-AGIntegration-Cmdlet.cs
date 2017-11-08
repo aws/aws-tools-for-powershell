@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// </summary>
     [Cmdlet("Remove", "AGIntegration", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteIntegration operation against Amazon API Gateway.", Operation = new[] {"DeleteIntegration"})]
+    [AWSCmdlet("Calls the Amazon API Gateway DeleteIntegration API operation.", Operation = new[] {"DeleteIntegration"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RestApiId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.APIGateway.Model.DeleteIntegrationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

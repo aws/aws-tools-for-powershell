@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.HSM
     /// </summary>
     [Cmdlet("Get", "HSMLunaClientList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListLunaClients operation against AWS Cloud HSM.", Operation = new[] {"ListLunaClients"})]
+    [AWSCmdlet("Calls the AWS Cloud HSM ListLunaClients API operation.", Operation = new[] {"ListLunaClients"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudHSM.Model.ListLunaClientsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

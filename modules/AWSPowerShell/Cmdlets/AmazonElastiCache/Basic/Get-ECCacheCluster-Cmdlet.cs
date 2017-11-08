@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// </summary>
     [Cmdlet("Get", "ECCacheCluster")]
     [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
-    [AWSCmdlet("Invokes the DescribeCacheClusters operation against Amazon ElastiCache.", Operation = new[] {"DescribeCacheClusters"})]
+    [AWSCmdlet("Calls the Amazon ElastiCache DescribeCacheClusters API operation.", Operation = new[] {"DescribeCacheClusters"})]
     [AWSCmdletOutput("Amazon.ElastiCache.Model.CacheCluster",
         "This cmdlet returns a collection of CacheCluster objects.",
         "The service call response (type Amazon.ElastiCache.Model.DescribeCacheClustersResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Add", "IOTThingPrincipal", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the AttachThingPrincipal operation against AWS IoT.", Operation = new[] {"AttachThingPrincipal"})]
+    [AWSCmdlet("Calls the AWS IoT AttachThingPrincipal API operation.", Operation = new[] {"AttachThingPrincipal"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ThingName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IoT.Model.AttachThingPrincipalResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

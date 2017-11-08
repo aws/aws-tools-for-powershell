@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2Subnet")]
     [OutputType("Amazon.EC2.Model.Subnet")]
-    [AWSCmdlet("Invokes the DescribeSubnets operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeSubnets"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSubnets API operation.", Operation = new[] {"DescribeSubnets"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Subnet",
         "This cmdlet returns a collection of Subnet objects.",
         "The service call response (type Amazon.EC2.Model.DescribeSubnetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

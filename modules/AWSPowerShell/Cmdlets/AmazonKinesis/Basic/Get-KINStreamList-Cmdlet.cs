@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </summary>
     [Cmdlet("Get", "KINStreamList")]
     [OutputType("Amazon.Kinesis.Model.ListStreamsResponse")]
-    [AWSCmdlet("Invokes the ListStreams operation against Amazon Kinesis.", Operation = new[] {"ListStreams"}, LegacyAlias="Get-KINStreams")]
+    [AWSCmdlet("Calls the Amazon Kinesis ListStreams API operation.", Operation = new[] {"ListStreams"}, LegacyAlias="Get-KINStreams")]
     [AWSCmdletOutput("Amazon.Kinesis.Model.ListStreamsResponse",
         "This cmdlet returns a Amazon.Kinesis.Model.ListStreamsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

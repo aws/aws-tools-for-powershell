@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.EFS
     /// </summary>
     [Cmdlet("Remove", "EFSFileSystem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteFileSystem operation against Amazon Elastic File System.", Operation = new[] {"DeleteFileSystem"})]
+    [AWSCmdlet("Calls the Amazon Elastic File System DeleteFileSystem API operation.", Operation = new[] {"DeleteFileSystem"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FileSystemId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ElasticFileSystem.Model.DeleteFileSystemResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

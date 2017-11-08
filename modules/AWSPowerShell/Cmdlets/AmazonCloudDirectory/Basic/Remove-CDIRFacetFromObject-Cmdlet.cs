@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
     /// </summary>
     [Cmdlet("Remove", "CDIRFacetFromObject", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveFacetFromObject operation against AWS Cloud Directory.", Operation = new[] {"RemoveFacetFromObject"})]
+    [AWSCmdlet("Calls the AWS Cloud Directory RemoveFacetFromObject API operation.", Operation = new[] {"RemoveFacetFromObject"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the DirectoryArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudDirectory.Model.RemoveFacetFromObjectResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

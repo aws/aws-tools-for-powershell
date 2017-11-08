@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.KMS
     /// </summary>
     [Cmdlet("Request", "KMSKeyDeletion", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.KeyManagementService.Model.ScheduleKeyDeletionResponse")]
-    [AWSCmdlet("Invokes the ScheduleKeyDeletion operation against AWS Key Management Service.", Operation = new[] {"ScheduleKeyDeletion"})]
+    [AWSCmdlet("Calls the AWS Key Management Service ScheduleKeyDeletion API operation.", Operation = new[] {"ScheduleKeyDeletion"})]
     [AWSCmdletOutput("Amazon.KeyManagementService.Model.ScheduleKeyDeletionResponse",
         "This cmdlet returns a Amazon.KeyManagementService.Model.ScheduleKeyDeletionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

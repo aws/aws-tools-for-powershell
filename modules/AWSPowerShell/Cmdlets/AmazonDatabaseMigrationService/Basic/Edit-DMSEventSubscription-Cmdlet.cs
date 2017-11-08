@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
     /// </summary>
     [Cmdlet("Edit", "DMSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.DatabaseMigrationService.Model.EventSubscription")]
-    [AWSCmdlet("Invokes the ModifyEventSubscription operation against AWS Database Migration Service.", Operation = new[] {"ModifyEventSubscription"})]
+    [AWSCmdlet("Calls the AWS Database Migration Service ModifyEventSubscription API operation.", Operation = new[] {"ModifyEventSubscription"})]
     [AWSCmdletOutput("Amazon.DatabaseMigrationService.Model.EventSubscription",
         "This cmdlet returns a EventSubscription object.",
         "The service call response (type Amazon.DatabaseMigrationService.Model.ModifyEventSubscriptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

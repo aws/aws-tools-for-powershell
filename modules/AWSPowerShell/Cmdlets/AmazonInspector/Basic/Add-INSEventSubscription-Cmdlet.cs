@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Add", "INSEventSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None")]
-    [AWSCmdlet("Invokes the SubscribeToEvent operation against Amazon Inspector.", Operation = new[] {"SubscribeToEvent"})]
+    [AWSCmdlet("Calls the Amazon Inspector SubscribeToEvent API operation.", Operation = new[] {"SubscribeToEvent"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
         "The service response (type Amazon.Inspector.Model.SubscribeToEventResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

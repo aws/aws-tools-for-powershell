@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DP
     /// </summary>
     [Cmdlet("Remove", "DPResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveTags operation against AWS Data Pipeline.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-DPTags")]
+    [AWSCmdlet("Calls the AWS Data Pipeline RemoveTags API operation.", Operation = new[] {"RemoveTags"}, LegacyAlias="Remove-DPTags")]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the PipelineId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.DataPipeline.Model.RemoveTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

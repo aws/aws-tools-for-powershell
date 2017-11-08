@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.DDB
     /// </summary>
     [Cmdlet("Get", "DDBResourceTag")]
     [OutputType("Amazon.DynamoDBv2.Model.Tag")]
-    [AWSCmdlet("Invokes the ListTagsOfResource operation against Amazon DynamoDB.", Operation = new[] {"ListTagsOfResource"})]
+    [AWSCmdlet("Calls the Amazon DynamoDB ListTagsOfResource API operation.", Operation = new[] {"ListTagsOfResource"})]
     [AWSCmdletOutput("Amazon.DynamoDBv2.Model.Tag",
         "This cmdlet returns a collection of Tag objects.",
         "The service call response (type Amazon.DynamoDBv2.Model.ListTagsOfResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

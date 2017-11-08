@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
     /// </summary>
     [Cmdlet("Get", "ASTag")]
     [OutputType("Amazon.AutoScaling.Model.TagDescription")]
-    [AWSCmdlet("Invokes the DescribeTags operation against Auto Scaling.", Operation = new[] {"DescribeTags"})]
+    [AWSCmdlet("Calls the Auto Scaling DescribeTags API operation.", Operation = new[] {"DescribeTags"})]
     [AWSCmdletOutput("Amazon.AutoScaling.Model.TagDescription",
         "This cmdlet returns a collection of TagDescription objects.",
         "The service call response (type Amazon.AutoScaling.Model.DescribeTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

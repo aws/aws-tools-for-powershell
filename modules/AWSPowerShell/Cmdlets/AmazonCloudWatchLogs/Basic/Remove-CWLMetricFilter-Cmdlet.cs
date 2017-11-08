@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Remove", "CWLMetricFilter", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteMetricFilter operation against Amazon CloudWatch Logs.", Operation = new[] {"DeleteMetricFilter"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs DeleteMetricFilter API operation.", Operation = new[] {"DeleteMetricFilter"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FilterName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.CloudWatchLogs.Model.DeleteMetricFilterResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

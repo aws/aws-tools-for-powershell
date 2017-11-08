@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SMS
     /// </summary>
     [Cmdlet("Get", "SMSServer")]
     [OutputType("Amazon.ServerMigrationService.Model.GetServersResponse")]
-    [AWSCmdlet("Invokes the GetServers operation against Amazon Server Migration Service.", Operation = new[] {"GetServers"})]
+    [AWSCmdlet("Calls the Amazon Server Migration Service GetServers API operation.", Operation = new[] {"GetServers"})]
     [AWSCmdletOutput("Amazon.ServerMigrationService.Model.GetServersResponse",
         "This cmdlet returns a Amazon.ServerMigrationService.Model.GetServersResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

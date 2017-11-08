@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// </summary>
     [Cmdlet("New", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkSpaces.Model.CreateWorkspacesResponse")]
-    [AWSCmdlet("Invokes the CreateWorkspaces operation against Amazon WorkSpaces.", Operation = new[] {"CreateWorkspaces"})]
+    [AWSCmdlet("Calls the Amazon WorkSpaces CreateWorkspaces API operation.", Operation = new[] {"CreateWorkspaces"})]
     [AWSCmdletOutput("Amazon.WorkSpaces.Model.CreateWorkspacesResponse",
         "This cmdlet returns a Amazon.WorkSpaces.Model.CreateWorkspacesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

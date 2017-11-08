@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </summary>
     [Cmdlet("Set", "ELB2IpAddressType", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticLoadBalancingV2.IpAddressType")]
-    [AWSCmdlet("Invokes the SetIpAddressType operation against Elastic Load Balancing V2.", Operation = new[] {"SetIpAddressType"})]
+    [AWSCmdlet("Calls the Elastic Load Balancing V2 SetIpAddressType API operation.", Operation = new[] {"SetIpAddressType"})]
     [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.IpAddressType",
         "This cmdlet returns a IpAddressType object.",
         "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetIpAddressTypeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

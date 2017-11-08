@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// </summary>
     [Cmdlet("Update", "EBApplicationResourceLifecycle", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse")]
-    [AWSCmdlet("Invokes the UpdateApplicationResourceLifecycle operation against AWS Elastic Beanstalk.", Operation = new[] {"UpdateApplicationResourceLifecycle"})]
+    [AWSCmdlet("Calls the AWS Elastic Beanstalk UpdateApplicationResourceLifecycle API operation.", Operation = new[] {"UpdateApplicationResourceLifecycle"})]
     [AWSCmdletOutput("Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse",
         "This cmdlet returns a Amazon.ElasticBeanstalk.Model.UpdateApplicationResourceLifecycleResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

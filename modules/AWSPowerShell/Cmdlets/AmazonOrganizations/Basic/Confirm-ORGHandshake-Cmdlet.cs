@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </summary>
     [Cmdlet("Confirm", "ORGHandshake", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Organizations.Model.Handshake")]
-    [AWSCmdlet("Invokes the AcceptHandshake operation against AWS Organizations.", Operation = new[] {"AcceptHandshake"})]
+    [AWSCmdlet("Calls the AWS Organizations AcceptHandshake API operation.", Operation = new[] {"AcceptHandshake"})]
     [AWSCmdletOutput("Amazon.Organizations.Model.Handshake",
         "This cmdlet returns a Handshake object.",
         "The service call response (type Amazon.Organizations.Model.AcceptHandshakeResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

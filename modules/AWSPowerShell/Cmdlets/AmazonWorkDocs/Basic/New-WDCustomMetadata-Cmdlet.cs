@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("New", "WDCustomMetadata", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the CreateCustomMetadata operation against Amazon WorkDocs.", Operation = new[] {"CreateCustomMetadata"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs CreateCustomMetadata API operation.", Operation = new[] {"CreateCustomMetadata"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.CreateCustomMetadataResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

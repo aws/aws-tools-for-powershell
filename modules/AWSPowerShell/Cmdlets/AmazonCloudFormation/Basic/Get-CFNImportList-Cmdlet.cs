@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
     /// </summary>
     [Cmdlet("Get", "CFNImportList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListImports operation against AWS CloudFormation.", Operation = new[] {"ListImports"})]
+    [AWSCmdlet("Calls the AWS CloudFormation ListImports API operation.", Operation = new[] {"ListImports"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.CloudFormation.Model.ListImportsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

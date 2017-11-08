@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </summary>
     [Cmdlet("Search", "REKFacesByImage", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Rekognition.Model.SearchFacesByImageResponse")]
-    [AWSCmdlet("Invokes the SearchFacesByImage operation against Amazon Rekognition.", Operation = new[] {"SearchFacesByImage"})]
+    [AWSCmdlet("Calls the Amazon Rekognition SearchFacesByImage API operation.", Operation = new[] {"SearchFacesByImage"})]
     [AWSCmdletOutput("Amazon.Rekognition.Model.SearchFacesByImageResponse",
         "This cmdlet returns a Amazon.Rekognition.Model.SearchFacesByImageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

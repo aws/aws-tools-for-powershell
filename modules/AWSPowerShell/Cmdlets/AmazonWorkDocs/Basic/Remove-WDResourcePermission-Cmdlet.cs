@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
     /// </summary>
     [Cmdlet("Remove", "WDResourcePermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RemoveResourcePermission operation against Amazon WorkDocs.", Operation = new[] {"RemoveResourcePermission"})]
+    [AWSCmdlet("Calls the Amazon WorkDocs RemoveResourcePermission API operation.", Operation = new[] {"RemoveResourcePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ResourceId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.WorkDocs.Model.RemoveResourcePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

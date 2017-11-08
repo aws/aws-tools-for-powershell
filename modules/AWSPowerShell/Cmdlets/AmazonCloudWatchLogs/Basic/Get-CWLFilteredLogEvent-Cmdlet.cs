@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.CWL
     /// </summary>
     [Cmdlet("Get", "CWLFilteredLogEvent")]
     [OutputType("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse")]
-    [AWSCmdlet("Invokes the FilterLogEvents operation against Amazon CloudWatch Logs.", Operation = new[] {"FilterLogEvents"})]
+    [AWSCmdlet("Calls the Amazon CloudWatch Logs FilterLogEvents API operation.", Operation = new[] {"FilterLogEvents"})]
     [AWSCmdletOutput("Amazon.CloudWatchLogs.Model.FilterLogEventsResponse",
         "This cmdlet returns a Amazon.CloudWatchLogs.Model.FilterLogEventsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

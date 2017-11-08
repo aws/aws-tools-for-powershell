@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </summary>
     [Cmdlet("Get", "REKCollectionIdList")]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the ListCollections operation against Amazon Rekognition.", Operation = new[] {"ListCollections"})]
+    [AWSCmdlet("Calls the Amazon Rekognition ListCollections API operation.", Operation = new[] {"ListCollections"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Rekognition.Model.ListCollectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

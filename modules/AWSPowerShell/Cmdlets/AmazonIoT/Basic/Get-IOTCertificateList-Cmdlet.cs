@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// </summary>
     [Cmdlet("Get", "IOTCertificateList")]
     [OutputType("Amazon.IoT.Model.Certificate")]
-    [AWSCmdlet("Invokes the ListCertificates operation against AWS IoT.", Operation = new[] {"ListCertificates"})]
+    [AWSCmdlet("Calls the AWS IoT ListCertificates API operation.", Operation = new[] {"ListCertificates"})]
     [AWSCmdletOutput("Amazon.IoT.Model.Certificate",
         "This cmdlet returns a collection of Certificate objects.",
         "The service call response (type Amazon.IoT.Model.ListCertificatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

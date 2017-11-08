@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Remove", "ADSConfigurationItemsFromApplication", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DisassociateConfigurationItemsFromApplication operation against Application Discovery Service.", Operation = new[] {"DisassociateConfigurationItemsFromApplication"})]
+    [AWSCmdlet("Calls the Application Discovery Service DisassociateConfigurationItemsFromApplication API operation.", Operation = new[] {"DisassociateConfigurationItemsFromApplication"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ApplicationConfigurationId parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.ApplicationDiscoveryService.Model.DisassociateConfigurationItemsFromApplicationResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2AvailabilityZone")]
     [OutputType("Amazon.EC2.Model.AvailabilityZone")]
-    [AWSCmdlet("Invokes the DescribeAvailabilityZones operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeAvailabilityZones"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeAvailabilityZones API operation.", Operation = new[] {"DescribeAvailabilityZones"})]
     [AWSCmdletOutput("Amazon.EC2.Model.AvailabilityZone",
         "This cmdlet returns a collection of AvailabilityZone objects.",
         "The service call response (type Amazon.EC2.Model.DescribeAvailabilityZonesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// </summary>
     [Cmdlet("Start", "OWCMMaintenance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.OpsWorksCM.Model.CMServer")]
-    [AWSCmdlet("Invokes the StartMaintenance operation against AWS OpsWorksCM.", Operation = new[] {"StartMaintenance"})]
+    [AWSCmdlet("Calls the AWS OpsWorksCM StartMaintenance API operation.", Operation = new[] {"StartMaintenance"})]
     [AWSCmdletOutput("Amazon.OpsWorksCM.Model.CMServer",
         "This cmdlet returns a CMServer object.",
         "The service call response (type Amazon.OpsWorksCM.Model.StartMaintenanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

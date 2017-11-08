@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// </summary>
     [Cmdlet("Get", "EC2IdentityIdFormat")]
     [OutputType("Amazon.EC2.Model.IdFormat")]
-    [AWSCmdlet("Invokes the DescribeIdentityIdFormat operation against Amazon Elastic Compute Cloud.", Operation = new[] {"DescribeIdentityIdFormat"})]
+    [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeIdentityIdFormat API operation.", Operation = new[] {"DescribeIdentityIdFormat"})]
     [AWSCmdletOutput("Amazon.EC2.Model.IdFormat",
         "This cmdlet returns a collection of IdFormat objects.",
         "The service call response (type Amazon.EC2.Model.DescribeIdentityIdFormatResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

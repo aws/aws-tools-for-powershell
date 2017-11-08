@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// </summary>
     [Cmdlet("Remove", "RDSOptionGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteOptionGroup operation against Amazon Relational Database Service.", Operation = new[] {"DeleteOptionGroup"})]
+    [AWSCmdlet("Calls the Amazon Relational Database Service DeleteOptionGroup API operation.", Operation = new[] {"DeleteOptionGroup"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OptionGroupName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.RDS.Model.DeleteOptionGroupResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

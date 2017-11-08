@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.ADS
     /// </summary>
     [Cmdlet("Start", "ADSExportTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the StartExportTask operation against Application Discovery Service.", Operation = new[] {"StartExportTask"})]
+    [AWSCmdlet("Calls the Application Discovery Service StartExportTask API operation.", Operation = new[] {"StartExportTask"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.ApplicationDiscoveryService.Model.StartExportTaskResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

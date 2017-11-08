@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.INS
     /// </summary>
     [Cmdlet("Register", "INSCrossAccountAccessRole", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the RegisterCrossAccountAccessRole operation against Amazon Inspector.", Operation = new[] {"RegisterCrossAccountAccessRole"})]
+    [AWSCmdlet("Calls the Amazon Inspector RegisterCrossAccountAccessRole API operation.", Operation = new[] {"RegisterCrossAccountAccessRole"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RoleArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Inspector.Model.RegisterCrossAccountAccessRoleResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

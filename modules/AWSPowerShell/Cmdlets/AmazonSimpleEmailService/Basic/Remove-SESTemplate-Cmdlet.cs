@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
     /// </summary>
     [Cmdlet("Remove", "SESTemplate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the DeleteTemplate operation against Amazon Simple Email Service.", Operation = new[] {"DeleteTemplate"})]
+    [AWSCmdlet("Calls the Amazon Simple Email Service DeleteTemplate API operation.", Operation = new[] {"DeleteTemplate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TemplateName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.SimpleEmail.Model.DeleteTemplateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

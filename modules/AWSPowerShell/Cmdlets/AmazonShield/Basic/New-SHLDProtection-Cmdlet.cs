@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
     /// </summary>
     [Cmdlet("New", "SHLDProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Invokes the CreateProtection operation against AWS Shield.", Operation = new[] {"CreateProtection"})]
+    [AWSCmdlet("Calls the AWS Shield CreateProtection API operation.", Operation = new[] {"CreateProtection"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Shield.Model.CreateProtectionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

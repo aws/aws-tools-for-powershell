@@ -40,7 +40,7 @@ namespace Amazon.PowerShell.Cmdlets.GML
     /// </summary>
     [Cmdlet("Update", "GMLAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.GameLift.Model.Alias")]
-    [AWSCmdlet("Invokes the UpdateAlias operation against Amazon GameLift Service.", Operation = new[] {"UpdateAlias"})]
+    [AWSCmdlet("Calls the Amazon GameLift Service UpdateAlias API operation.", Operation = new[] {"UpdateAlias"})]
     [AWSCmdletOutput("Amazon.GameLift.Model.Alias",
         "This cmdlet returns a Alias object.",
         "The service call response (type Amazon.GameLift.Model.UpdateAliasResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
     /// </summary>
     [Cmdlet("Update", "IAMSigningCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the UpdateSigningCertificate operation against AWS Identity and Access Management.", Operation = new[] {"UpdateSigningCertificate"})]
+    [AWSCmdlet("Calls the AWS Identity and Access Management UpdateSigningCertificate API operation.", Operation = new[] {"UpdateSigningCertificate"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the UserName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.IdentityManagement.Model.UpdateSigningCertificateResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

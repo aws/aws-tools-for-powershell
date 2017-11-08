@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.DS
     /// </summary>
     [Cmdlet("Get", "DSDirectoryLimit")]
     [OutputType("Amazon.DirectoryService.Model.DirectoryLimits")]
-    [AWSCmdlet("Invokes the GetDirectoryLimits operation against AWS Directory Service.", Operation = new[] {"GetDirectoryLimits"})]
+    [AWSCmdlet("Calls the AWS Directory Service GetDirectoryLimits API operation.", Operation = new[] {"GetDirectoryLimits"})]
     [AWSCmdletOutput("Amazon.DirectoryService.Model.DirectoryLimits",
         "This cmdlet returns a DirectoryLimits object.",
         "The service call response (type Amazon.DirectoryService.Model.GetDirectoryLimitsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."

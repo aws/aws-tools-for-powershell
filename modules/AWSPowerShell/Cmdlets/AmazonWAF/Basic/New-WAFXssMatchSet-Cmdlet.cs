@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// </summary>
     [Cmdlet("New", "WAFXssMatchSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WAF.Model.CreateXssMatchSetResponse")]
-    [AWSCmdlet("Invokes the CreateXssMatchSet operation against AWS WAF.", Operation = new[] {"CreateXssMatchSet"})]
+    [AWSCmdlet("Calls the AWS WAF CreateXssMatchSet API operation.", Operation = new[] {"CreateXssMatchSet"})]
     [AWSCmdletOutput("Amazon.WAF.Model.CreateXssMatchSetResponse",
         "This cmdlet returns a Amazon.WAF.Model.CreateXssMatchSetResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

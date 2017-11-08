@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// </summary>
     [Cmdlet("Get", "SSMInventorySchema")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.InventoryItemSchema")]
-    [AWSCmdlet("Invokes the GetInventorySchema operation against Amazon Simple Systems Management.", Operation = new[] {"GetInventorySchema"})]
+    [AWSCmdlet("Calls the Amazon Simple Systems Management GetInventorySchema API operation.", Operation = new[] {"GetInventorySchema"})]
     [AWSCmdletOutput("Amazon.SimpleSystemsManagement.Model.InventoryItemSchema",
         "This cmdlet returns a collection of InventoryItemSchema objects.",
         "The service call response (type Amazon.SimpleSystemsManagement.Model.GetInventorySchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

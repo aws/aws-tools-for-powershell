@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RS
     /// </summary>
     [Cmdlet("Get", "RSClusterSecurityGroup")]
     [OutputType("Amazon.Redshift.Model.ClusterSecurityGroup")]
-    [AWSCmdlet("Invokes the DescribeClusterSecurityGroups operation against Amazon Redshift.", Operation = new[] {"DescribeClusterSecurityGroups"}, LegacyAlias="Get-RSClusterSecurityGroups")]
+    [AWSCmdlet("Calls the Amazon Redshift DescribeClusterSecurityGroups API operation.", Operation = new[] {"DescribeClusterSecurityGroups"}, LegacyAlias="Get-RSClusterSecurityGroups")]
     [AWSCmdletOutput("Amazon.Redshift.Model.ClusterSecurityGroup",
         "This cmdlet returns a collection of ClusterSecurityGroup objects.",
         "The service call response (type Amazon.Redshift.Model.DescribeClusterSecurityGroupsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",

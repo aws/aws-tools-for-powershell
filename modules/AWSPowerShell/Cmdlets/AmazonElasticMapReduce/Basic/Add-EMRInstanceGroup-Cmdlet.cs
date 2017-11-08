@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// </summary>
     [Cmdlet("Add", "EMRInstanceGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse")]
-    [AWSCmdlet("Invokes the AddInstanceGroups operation against Amazon Elastic MapReduce.", Operation = new[] {"AddInstanceGroups"})]
+    [AWSCmdlet("Calls the Amazon Elastic MapReduce AddInstanceGroups API operation.", Operation = new[] {"AddInstanceGroups"})]
     [AWSCmdletOutput("Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse",
         "This cmdlet returns a Amazon.ElasticMapReduce.Model.AddInstanceGroupsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]

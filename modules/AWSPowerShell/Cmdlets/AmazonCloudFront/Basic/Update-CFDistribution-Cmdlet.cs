@@ -81,7 +81,7 @@ namespace Amazon.PowerShell.Cmdlets.CF
     /// </summary>
     [Cmdlet("Update", "CFDistribution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudFront.Model.Distribution")]
-    [AWSCmdlet("Invokes the UpdateDistribution operation against Amazon CloudFront.", Operation = new[] {"UpdateDistribution"})]
+    [AWSCmdlet("Calls the Amazon CloudFront UpdateDistribution API operation.", Operation = new[] {"UpdateDistribution"})]
     [AWSCmdletOutput("Amazon.CloudFront.Model.Distribution",
         "This cmdlet returns a Distribution object.",
         "The service call response (type Amazon.CloudFront.Model.UpdateDistributionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
