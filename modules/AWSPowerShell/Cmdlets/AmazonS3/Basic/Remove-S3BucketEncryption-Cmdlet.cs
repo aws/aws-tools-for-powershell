@@ -22,64 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ElasticLoadBalancingV2;
-using Amazon.ElasticLoadBalancingV2.Model;
+using Amazon.S3;
+using Amazon.S3.Model;
 
-namespace Amazon.PowerShell.Cmdlets.ELB2
+namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Enables the Availability Zone for the specified subnets for the specified Application
-    /// Load Balancer. The specified subnets replace the previously enabled subnets.
-    /// 
-    ///  
-    /// <para>
-    /// Note that you can't change the subnets for a Network Load Balancer.
-    /// </para>
+    /// Deletes the server-side encryption configuration from the bucket.
     /// </summary>
-    [Cmdlet("Set", "ELB2Subnet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone")]
-    [AWSCmdlet("Invokes the SetSubnets operation against Elastic Load Balancing V2.", Operation = new[] {"SetSubnets"})]
-    [AWSCmdletOutput("Amazon.ElasticLoadBalancingV2.Model.AvailabilityZone",
-        "This cmdlet returns a collection of AvailabilityZone objects.",
-        "The service call response (type Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("None","System.String")]
+    [AWSCmdlet("Invokes the DeleteBucketEncryption operation against Amazon Simple Storage Service.", Operation = new[] {"DeleteBucketEncryption"})]
+    [AWSCmdletOutput("None or System.String",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.S3.Model.DeleteBucketEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class SetELB2SubnetCmdlet : AmazonElasticLoadBalancingV2ClientCmdlet, IExecutor
+    public partial class RemoveS3BucketEncryptionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
-        #region Parameter LoadBalancerArn
+        #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Name (ARN) of the load balancer.</para>
+        /// The name of the bucket containing the server-side encryption configuration to delete.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String LoadBalancerArn { get; set; }
+        public System.String BucketName { get; set; }
         #endregion
         
-        #region Parameter SubnetMapping
+        #region Parameter UseAccelerateEndpoint
         /// <summary>
-        /// <para>
-        /// <para>The IDs of the subnets. You must specify subnets from at least two Availability Zones.
-        /// You can specify only one subnet per Availability Zone. You must specify either subnets
-        /// or subnet mappings.</para><para>You cannot specify Elastic IP addresses for your subnets.</para>
-        /// </para>
+        /// Enables S3 accelerate by sending requests to the accelerate endpoint instead of the regular region endpoint.
+        /// To use this feature, the bucket name must be DNS compliant and must not contain periods (.). 
         /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("SubnetMappings")]
-        public Amazon.ElasticLoadBalancingV2.Model.SubnetMapping[] SubnetMapping { get; set; }
+        [Parameter]
+        public SwitchParameter UseAccelerateEndpoint { get; set; }
+        
         #endregion
         
-        #region Parameter Subnet
+        #region Parameter UseDualstackEndpoint
         /// <summary>
-        /// <para>
-        /// <para>The IDs of the subnets. You must specify subnets from at least two Availability Zones.
-        /// You can specify only one subnet per Availability Zone. You must specify either subnets
-        /// or subnet mappings.</para>
-        /// </para>
+        /// Configures the request to Amazon S3 to use the dualstack endpoint for a region.
+        /// S3 supports dualstack endpoints which return both IPv6 and IPv4 values.
+        /// The dualstack mode of Amazon S3 cannot be used with accelerate mode.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter UseDualstackEndpoint { get; set; }
+        
+        #endregion
+        
+        #region Parameter PassThru
+        /// <summary>
+        /// Returns the value passed to the BucketName parameter.
+        /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("Subnets")]
-        public System.String[] Subnet { get; set; }
+        public SwitchParameter PassThru { get; set; }
         #endregion
         
         #region Parameter Force
@@ -96,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("LoadBalancerArn", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-ELB2Subnet (SetSubnets)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BucketName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-S3BucketEncryption (DeleteBucketEncryption)"))
             {
                 return;
             }
@@ -111,15 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.LoadBalancerArn = this.LoadBalancerArn;
-            if (this.SubnetMapping != null)
-            {
-                context.SubnetMappings = new List<Amazon.ElasticLoadBalancingV2.Model.SubnetMapping>(this.SubnetMapping);
-            }
-            if (this.Subnet != null)
-            {
-                context.Subnets = new List<System.String>(this.Subnet);
-            }
+            context.BucketName = this.BucketName;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,19 +124,11 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ElasticLoadBalancingV2.Model.SetSubnetsRequest();
+            var request = new Amazon.S3.Model.DeleteBucketEncryptionRequest();
             
-            if (cmdletContext.LoadBalancerArn != null)
+            if (cmdletContext.BucketName != null)
             {
-                request.LoadBalancerArn = cmdletContext.LoadBalancerArn;
-            }
-            if (cmdletContext.SubnetMappings != null)
-            {
-                request.SubnetMappings = cmdletContext.SubnetMappings;
-            }
-            if (cmdletContext.Subnets != null)
-            {
-                request.Subnets = cmdletContext.Subnets;
+                request.BucketName = cmdletContext.BucketName;
             }
             
             CmdletOutput output;
@@ -157,7 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.AvailabilityZones;
+                object pipelineOutput = null;
+                if (this.PassThru.IsPresent)
+                    pipelineOutput = this.BucketName;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -182,16 +166,16 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         #region AWS Service Operation Call
         
-        private Amazon.ElasticLoadBalancingV2.Model.SetSubnetsResponse CallAWSServiceOperation(IAmazonElasticLoadBalancingV2 client, Amazon.ElasticLoadBalancingV2.Model.SetSubnetsRequest request)
+        private Amazon.S3.Model.DeleteBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.DeleteBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Elastic Load Balancing V2", "SetSubnets");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "DeleteBucketEncryption");
             try
             {
                 #if DESKTOP
-                return client.SetSubnets(request);
+                return client.DeleteBucketEncryption(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.SetSubnetsAsync(request);
+                var task = client.DeleteBucketEncryptionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -212,9 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String LoadBalancerArn { get; set; }
-            public List<Amazon.ElasticLoadBalancingV2.Model.SubnetMapping> SubnetMappings { get; set; }
-            public List<System.String> Subnets { get; set; }
+            public System.String BucketName { get; set; }
         }
         
     }

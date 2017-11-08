@@ -109,9 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// using the AWS CLI. </para><para>The presigned URL must be a valid request for the <code>CopyDBSnapshot</code> API
         /// action that can be executed in the source AWS Region that contains the encrypted DB
         /// snapshot to be copied. The presigned URL request must contain the following parameter
-        /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot will
-        /// be copied to. This AWS Region is the same one where the <code>CopyDBSnapshot</code>
-        /// action is called that contains this presigned URL. </para><para>For example, if you copy an encrypted DB snapshot from the us-west-2 region to the
+        /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted DB snapshot is
+        /// copied to. This AWS Region is the same one where the <code>CopyDBSnapshot</code> action
+        /// is called that contains this presigned URL. </para><para>For example, if you copy an encrypted DB snapshot from the us-west-2 region to the
         /// us-east-1 region, then you call the <code>CopyDBSnapshot</code> action in the us-east-1
         /// region and provide a presigned URL that contains a call to the <code>CopyDBSnapshot</code>
         /// action in the us-west-2 region. For this example, the <code>DestinationRegion</code>

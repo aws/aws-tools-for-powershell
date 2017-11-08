@@ -4012,12 +4012,14 @@ Set-Alias -Name R53D-UpdateDomainContactPrivacy -Value Update-R53DDomainContactP
 Set-Alias -Name R53D-UpdateDomainNameservers -Value Update-R53DDomainNameserver
 Set-Alias -Name R53D-UpdateTagsForDomain -Value Update-R53DTagsForDomain
 Set-Alias -Name R53D-ViewBilling -Value Get-R53DBillingRecord
+Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
 Set-Alias -Name List-S3Versions -Value Get-S3Version
 Set-Alias -Name S3-ListVersions -Value Get-S3Version
 Set-Alias -Name Put-S3BucketAccelerateConfiguration -Value Write-S3BucketAccelerateConfiguration
 Set-Alias -Name S3-PutBucketAccelerateConfiguration -Value Write-S3BucketAccelerateConfiguration
 Set-Alias -Name Put-S3BucketAnalyticsConfiguration -Value Write-S3BucketAnalyticsConfiguration
 Set-Alias -Name S3-PutBucketAnalyticsConfiguration -Value Write-S3BucketAnalyticsConfiguration
+Set-Alias -Name S3-PutBucketEncryption -Value Set-S3BucketEncryption
 Set-Alias -Name Put-S3BucketInventoryConfiguration -Value Write-S3BucketInventoryConfiguration
 Set-Alias -Name S3-PutBucketInventoryConfiguration -Value Write-S3BucketInventoryConfiguration
 Set-Alias -Name Put-S3BucketLogging -Value Write-S3BucketLogging
@@ -4045,7 +4047,8 @@ Set-Alias -Name Put-S3LifecycleConfiguration -Value Write-S3LifecycleConfigurati
 Set-Alias -Name S3-PutLifecycleConfiguration -Value Write-S3LifecycleConfiguration
 Set-Alias -Name Put-S3ObjectTagSet -Value Write-S3ObjectTagSet
 Set-Alias -Name S3-PutObjectTagging -Value Write-S3ObjectTagSet
-Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
+Set-Alias -Name S3-GetBucketLocation -Value Get-S3BucketLocation
+Set-Alias -Name S3-GetBucketLogging -Value Get-S3BucketLogging
 Set-Alias -Name S3-GetBucketMetricsConfiguration -Value Get-S3BucketMetricsConfiguration
 Set-Alias -Name S3-GetBucketNotification -Value Get-S3BucketNotification
 Set-Alias -Name S3-GetBucketPolicy -Value Get-S3BucketPolicy
@@ -4063,6 +4066,8 @@ Set-Alias -Name S3-ListBucketInventoryConfigurations -Value Get-S3BucketInventor
 Set-Alias -Name S3-ListBucketMetricsConfigurations -Value Get-S3BucketMetricsConfigurationList
 Set-Alias -Name Delete-S3BucketAnalyticsConfiguration -Value Remove-S3BucketAnalyticsConfiguration
 Set-Alias -Name S3-DeleteBucketAnalyticsConfiguration -Value Remove-S3BucketAnalyticsConfiguration
+Set-Alias -Name Delete-S3BucketEncryption -Value Remove-S3BucketEncryption
+Set-Alias -Name S3-DeleteBucketEncryption -Value Remove-S3BucketEncryption
 Set-Alias -Name Delete-S3BucketInventoryConfiguration -Value Remove-S3BucketInventoryConfiguration
 Set-Alias -Name S3-DeleteBucketInventoryConfiguration -Value Remove-S3BucketInventoryConfiguration
 Set-Alias -Name Delete-S3BucketMetricsConfiguration -Value Remove-S3BucketMetricsConfiguration
@@ -4084,9 +4089,8 @@ Set-Alias -Name S3-DeleteObjectTagging -Value Remove-S3ObjectTagSet
 Set-Alias -Name S3-GetACL -Value Get-S3ACL
 Set-Alias -Name S3-GetBucketAccelerateConfiguration -Value Get-S3BucketAccelerateConfiguration
 Set-Alias -Name S3-GetBucketAnalyticsConfiguration -Value Get-S3BucketAnalyticsConfiguration
+Set-Alias -Name S3-GetBucketEncryption -Value Get-S3BucketEncryption
 Set-Alias -Name S3-GetBucketInventoryConfiguration -Value Get-S3BucketInventoryConfiguration
-Set-Alias -Name S3-GetBucketLocation -Value Get-S3BucketLocation
-Set-Alias -Name S3-GetBucketLogging -Value Get-S3BucketLogging
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object

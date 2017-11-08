@@ -110,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para> The name of the DB cluster parameter group to associate with this DB cluster. If
-        /// this argument is omitted, <code>default.aurora5.6</code> will be used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBClusterParameterGroup.</para></li></ul>
+        /// this argument is omitted, <code>default.aurora5.6</code> is used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBClusterParameterGroup.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -251,8 +251,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A URL that contains a Signature Version 4 signed request for the <code>CreateDBCluster</code>
-        /// action to be called in the source AWS Region where the DB cluster will be replicated
-        /// from. You only need to specify <code>PreSignedUrl</code> when you are performing cross-region
+        /// action to be called in the source AWS Region where the DB cluster is replicated from.
+        /// You only need to specify <code>PreSignedUrl</code> when you are performing cross-region
         /// replication from an encrypted DB cluster.</para><para>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API
         /// action that can be executed in the source AWS Region that contains the encrypted DB
         /// cluster to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the

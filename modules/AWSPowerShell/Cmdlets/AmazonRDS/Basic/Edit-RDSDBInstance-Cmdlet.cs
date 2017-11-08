@@ -62,9 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
         /// (if any), and the number of prior scale storage operations. Typical migration times
         /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance will be available for use, but might experience performance
-        /// degradation. While the migration takes place, nightly backups for the instance will
-        /// be suspended. No other Amazon RDS operations can take place for the instance, including
+        /// the migration, the DB instance is available for use, but might experience performance
+        /// degradation. While the migration takes place, nightly backups for the instance are
+        /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
         /// Read Replica for the instance, and creating a DB snapshot of the instance.</para>
         /// </para>
@@ -92,11 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// are asynchronously applied as soon as possible, regardless of the <code>PreferredMaintenanceWindow</code>
         /// setting for the DB instance. </para><para> If this parameter is set to <code>false</code>, changes to the DB instance are applied
         /// during the next maintenance window. Some parameter changes can cause an outage and
-        /// will be applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
+        /// are applied on the next call to <a>RebootDBInstance</a>, or the next failure reboot.
         /// Review the table of parameters in <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.DBInstance.Modifying.html">Modifying
         /// a DB Instance and Using the Apply Immediately Parameter</a> to see the impact that
         /// setting <code>ApplyImmediately</code> to <code>true</code> or <code>false</code> has
-        /// for each modified parameter and to determine when the changes will be applied. </para><para>Default: <code>false</code></para>
+        /// for each modified parameter and to determine when the changes are applied. </para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,7 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para> Indicates that minor version upgrades will be applied automatically to the DB instance
+        /// <para> Indicates that minor version upgrades are applied automatically to the DB instance
         /// during the maintenance window. Changing this parameter does not result in an outage
         /// except in the following case and the change is asynchronously applied as soon as possible.
         /// An outage will result if this parameter is set to <code>true</code> during the maintenance
@@ -159,16 +159,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para> The new compute and memory capacity of the DB instance. To determine the instance
-        /// classes that are available for a particular DB engine, use the <a>DescribeOrderableDBInstanceOptions</a>
-        /// action. Note that not all instance classes are available in all regions for all DB
-        /// engines. </para><para> Passing a value for this setting causes an outage during the change and is applied
-        /// during the next maintenance window, unless <code>ApplyImmediately</code> is specified
-        /// as <code>true</code> for this request. </para><para>Default: Uses existing setting</para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
-        /// | db.m2.xlarge | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
-        /// | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge
-        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium | db.t2.large</code></para>
+        /// <para>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+        /// Not all DB instance classes are available in all regions, or for all database engines.
+        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Instance Class</a> in the Amazon RDS User Guide. </para><para>If you modify the DB instance class, an outage occurs during the change. The change
+        /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
+        /// is specified as <code>true</code> for this request. </para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -280,7 +276,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>True to enable Performance Insights for the DB instance; otherwise false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -320,9 +316,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
         /// (if any), and the number of prior scale storage operations. Typical migration times
         /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance will be available for use, but might experience performance
-        /// degradation. While the migration takes place, nightly backups for the instance will
-        /// be suspended. No other Amazon RDS operations can take place for the instance, including
+        /// the migration, the DB instance is available for use, but might experience performance
+        /// degradation. While the migration takes place, nightly backups for the instance are
+        /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
         /// Read Replica for the instance, and creating a DB snapshot of the instance.</para>
         /// </para>
@@ -434,7 +430,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The KMS key identifier for encryption of Performance Insights data. The KMS key ID
+        /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
+        /// KMS encryption key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EngineName
         /// <summary>
         /// <para>
-        /// <para>A required parameter. Options available for the given engine name will be described.</para>
+        /// <para>A required parameter. Options available for the given engine name are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

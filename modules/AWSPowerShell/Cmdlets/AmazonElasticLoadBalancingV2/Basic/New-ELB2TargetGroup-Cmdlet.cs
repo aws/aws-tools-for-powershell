@@ -41,6 +41,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
     /// </para><para>
     /// To delete a target group, use <a>DeleteTargetGroup</a>.
     /// </para><para>
+    /// This operation is idempotent, which means that it completes at most one time. If you
+    /// attempt to create multiple target groups with the same settings, each call succeeds.
+    /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-target-groups.html">Target
     /// Groups for Your Application Load Balancers</a> in the <i>Application Load Balancers
     /// Guide</i> or <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-target-groups.html">Target

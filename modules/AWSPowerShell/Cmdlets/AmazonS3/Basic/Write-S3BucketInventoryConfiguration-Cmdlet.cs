@@ -160,6 +160,29 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public System.Boolean InventoryConfiguration_IsEnabled { get; set; }
         #endregion
         
+        #region Parameter SSEKMS_KeyId
+        /// <summary>
+        /// <para>
+        /// Specifies the ID of the AWS Key Management Service (KMS) 
+        /// master encryption key to use for encrypting Inventory reports.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_KeyId")]
+        public System.String SSEKMS_KeyId { get; set; }
+        #endregion
+        
+        #region Parameter InventoryEncryption_SSES3
+        /// <summary>
+        /// <para>
+        /// Specifies the use of SSE-S3 to encrypt delievered Inventory reports.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3")]
+        public Amazon.S3.Model.SSES3 InventoryEncryption_SSES3 { get; set; }
+        #endregion
+        
         #region Parameter S3BucketDestination_Prefix
         /// <summary>
         /// <para>
@@ -236,6 +259,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.InventoryConfiguration_Destination_S3BucketDestination_BucketName = this.S3BucketDestination_BucketName;
             context.InventoryConfiguration_Destination_S3BucketDestination_Prefix = this.S3BucketDestination_Prefix;
             context.InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat = this.S3BucketDestination_InventoryFormat;
+            context.InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3 = this.InventoryEncryption_SSES3;
+            context.InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_KeyId = this.SSEKMS_KeyId;
             if (ParameterWasBound("InventoryConfiguration_IsEnabled"))
                 context.InventoryConfiguration_IsEnabled = this.InventoryConfiguration_IsEnabled;
             context.InventoryConfiguration_InventoryFilter_InventoryFilterPredicate = this.InventoryFilter_InventoryFilterPredicate;
@@ -362,6 +387,56 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_s3BucketDestination_InventoryFormat != null)
             {
                 requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination.InventoryFormat = requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_s3BucketDestination_InventoryFormat;
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestinationIsNull = false;
+            }
+            Amazon.S3.Model.InventoryEncryption requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption = null;
+            
+             // populate InventoryEncryption
+            bool requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryptionIsNull = true;
+            requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption = new Amazon.S3.Model.InventoryEncryption();
+            Amazon.S3.Model.SSES3 requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryEncryption_SSES3 = null;
+            if (cmdletContext.InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3 != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryEncryption_SSES3 = cmdletContext.InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3;
+            }
+            if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryEncryption_SSES3 != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption.SSES3 = requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryEncryption_SSES3;
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryptionIsNull = false;
+            }
+            Amazon.S3.Model.SSEKMS requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS = null;
+            
+             // populate SSEKMS
+            bool requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMSIsNull = true;
+            requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS = new Amazon.S3.Model.SSEKMS();
+            System.String requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_sSEKMS_KeyId = null;
+            if (cmdletContext.InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_KeyId != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_sSEKMS_KeyId = cmdletContext.InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_KeyId;
+            }
+            if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_sSEKMS_KeyId != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS.KeyId = requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_sSEKMS_KeyId;
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMSIsNull = false;
+            }
+             // determine if requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS should be set to null
+            if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMSIsNull)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS = null;
+            }
+            if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption.SSEKMS = requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS;
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryptionIsNull = false;
+            }
+             // determine if requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption should be set to null
+            if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryptionIsNull)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption = null;
+            }
+            if (requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption != null)
+            {
+                requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination.InventoryEncryption = requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination_inventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption;
                 requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestinationIsNull = false;
             }
              // determine if requestInventoryConfiguration_inventoryConfiguration_Destination_inventoryConfiguration_Destination_S3BucketDestination should be set to null
@@ -511,6 +586,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String InventoryConfiguration_Destination_S3BucketDestination_BucketName { get; set; }
             public System.String InventoryConfiguration_Destination_S3BucketDestination_Prefix { get; set; }
             public Amazon.S3.InventoryFormat InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat { get; set; }
+            public Amazon.S3.Model.SSES3 InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSES3 { get; set; }
+            public System.String InventoryConfiguration_Destination_S3BucketDestination_InventoryEncryption_SSEKMS_KeyId { get; set; }
             public System.Boolean? InventoryConfiguration_IsEnabled { get; set; }
             public Amazon.S3.Model.InventoryFilterPredicate InventoryConfiguration_InventoryFilter_InventoryFilterPredicate { get; set; }
             public System.String InventoryConfiguration_InventoryId { get; set; }

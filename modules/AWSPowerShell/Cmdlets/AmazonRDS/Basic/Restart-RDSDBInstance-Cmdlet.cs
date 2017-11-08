@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// to the DB instance any modifications to the associated DB parameter group that were
     /// pending. Rebooting a DB instance results in a momentary outage of the instance, during
     /// which the DB instance status is set to rebooting. If the RDS instance is configured
-    /// for MultiAZ, it is possible that the reboot will be conducted through a failover.
-    /// An Amazon RDS event is created when the reboot is completed.
+    /// for MultiAZ, it is possible that the reboot is conducted through a failover. An Amazon
+    /// RDS event is created when the reboot is completed.
     /// 
     ///  
     /// <para>
@@ -71,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para> When <code>true</code>, the reboot will be conducted through a MultiAZ failover.
-        /// </para><para>Constraint: You cannot specify <code>true</code> if the instance is not configured
+        /// <para> When <code>true</code>, the reboot is conducted through a MultiAZ failover. </para><para>Constraint: You cannot specify <code>true</code> if the instance is not configured
         /// for MultiAZ.</para>
         /// </para>
         /// </summary>

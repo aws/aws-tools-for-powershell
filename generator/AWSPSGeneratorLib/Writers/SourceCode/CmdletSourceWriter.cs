@@ -316,7 +316,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         private void WriteAWSCmdletAttributes(IndentedTextWriter writer)
         {
             var synopsis = new StringBuilder();
-            synopsis.AppendFormat("Invokes the {0} operation against {1}.", Operation.MethodName, ServiceDisplayName);
+            synopsis.AppendFormat("Calls the {0} {1} operation.", ServiceDisplayName, Operation.MethodName);
             if (Operation.RequiresAnonymousAuthentication)
                 synopsis.Append(" This operation uses anonymous authentication and does not require credential parameters to be supplied.");
 

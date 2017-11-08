@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The number of lines to download. If the number of lines specified results in a file
-        /// over 1 MB in size, the file will be truncated at 1 MB in size.</para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
+        /// over 1 MB in size, the file is truncated at 1 MB in size.</para><para>If the NumberOfLines parameter is specified, then the block of lines returned can
         /// be from the beginning or the end of the log file, depending on the value of the Marker
         /// parameter.</para><ul><li><para>If neither Marker or NumberOfLines are specified, the entire log file is returned
         /// up to a maximum of 10000 lines, starting with the most recent log entries first.</para></li><li><para>If NumberOfLines is specified and Marker is not specified, then the most recent lines

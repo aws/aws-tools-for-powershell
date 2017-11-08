@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that minor engine upgrades will be applied automatically to the DB instance
+        /// <para>Indicates that minor engine upgrades are applied automatically to the DB instance
         /// during the maintenance window.</para><para>Default: <code>true</code></para>
         /// </para>
         /// </summary>
@@ -66,7 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para> The EC2 Availability Zone that the database instance will be created in. For information
+        /// <para> The EC2 Availability Zone that the database instance is created in. For information
         /// on regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
         /// and Availability Zones</a>. </para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para><para> Constraint: The AvailabilityZone parameter cannot be specified if the MultiAZ parameter
         /// is set to <code>true</code>. The specified Availability Zone must be in the same AWS
@@ -126,12 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the DB instance. Note that not all instance classes
-        /// are available in all regions for all DB engines.</para><para> Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
-        /// | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge
-        /// | db.m3.2xlarge | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge
-        /// | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro
-        /// | db.t2.small | db.t2.medium | db.t2.large</code></para>
+        /// <para>The compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
+        /// Not all DB instance classes are available in all regions, or for all database engines.
+        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Instance Class</a> in the Amazon RDS User Guide. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -169,7 +167,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB parameter group to associate with this DB instance. If this argument
-        /// is omitted, the default DBParameterGroup for the specified engine will be used.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
+        /// is omitted, the default DBParameterGroup for the specified engine is used.</para><para>Constraints:</para><ul><li><para>Must be 1 to 255 letters, numbers, or hyphens.</para></li><li><para>First character must be a letter</para></li><li><para>Cannot end with a hyphen or contain two consecutive hyphens</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -233,7 +231,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para> True to enable Performance Insights for the DB instance; otherwise false. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -262,7 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>Microsoft SQL Server 2008 R2</b></para><ul><li><para><code>10.50.6529.0.v1</code> (supported for all editions, and all AWS regions except
         /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.6000.34.v1</code> (supported for all editions, and all AWS regions except
         /// us-east-2, ca-central-1, and eu-west-2)</para></li><li><para><code>10.50.2789.0.v1</code> (supported for all editions, and all AWS regions except
-        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><code>5.7.17</code> (supported in all AWS regions)</para></li><li><para><code>5.7.16</code> (supported in all AWS regions)</para></li><li><para><code>5.7.11</code> (supported in all AWS regions)</para></li></ul><ul><li><para><code>5.6.35</code> (supported in all AWS regions)</para></li><li><para><code>5.6.34</code> (supported in all AWS regions)</para></li><li><para><code>5.6.29</code> (supported in all AWS regions)</para></li><li><para><code>5.6.27</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.5.54</code> (supported in all AWS regions)</para></li><li><para><code>5.5.53</code> (supported in all AWS regions)</para></li><li><para><code>5.5.46</code> (supported in all AWS regions)</para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
+        /// us-east-2, ca-central-1, and eu-west-2)</para></li></ul><para><b>MySQL</b></para><ul><li><para><code>5.7.19</code> (supported in all AWS regions)</para></li><li><para><code>5.7.17</code> (supported in all AWS regions)</para></li><li><para><code>5.7.16</code> (supported in all AWS regions)</para></li><li><para><code>5.7.11</code> (supported in all AWS regions)</para></li></ul><ul><li><para><code>5.6.37</code> (supported in all AWS regions)</para></li><li><para><code>5.6.35</code> (supported in all AWS regions)</para></li><li><para><code>5.6.34</code> (supported in all AWS regions)</para></li><li><para><code>5.6.29</code> (supported in all AWS regions)</para></li><li><para><code>5.6.27</code> (supported in all regions except us-east-2, ca-central-1, eu-west-2)</para></li></ul><ul><li><para><code>5.5.57</code> (supported in all AWS regions)</para></li><li><para><code>5.5.54</code> (supported in all AWS regions)</para></li><li><para><code>5.5.53</code> (supported in all AWS regions)</para></li><li><para><code>5.5.46</code> (supported in all AWS regions)</para></li></ul><para><b>Oracle 12c</b></para><ul><li><para><code>12.1.0.2.v9</code> (supported for EE in all AWS regions, and SE2 in all AWS
+        /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v8</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v7</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v6</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v5</code> (supported for EE in all AWS regions, and SE2 in all AWS
@@ -270,7 +269,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v3</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v2</code> (supported for EE in all AWS regions, and SE2 in all AWS
         /// regions except us-gov-west-1)</para></li><li><para><code>12.1.0.2.v1</code> (supported for EE in all AWS regions, and SE2 in all AWS
-        /// regions except us-gov-west-1)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v12</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.6.x:</b><code> 9.6.1 | 9.6.2 | 9.6.3</code></para></li><li><para><b>Version 9.5.x:</b><code>9.5.6 | 9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4.x:</b><code>9.4.11 | 9.4.9 | 9.4.7</code></para></li><li><para><b>Version 9.3.x:</b><code>9.3.16 | 9.3.14 | 9.3.12</code></para></li></ul>
+        /// regions except us-gov-west-1)</para></li></ul><para><b>Oracle 11g</b></para><ul><li><para><code>11.2.0.4.v13</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v12</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v11</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v10</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v9</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v8</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v7</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v6</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v5</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v4</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v3</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li><li><para><code>11.2.0.4.v1</code> (supported for EE, SE1, and SE, in all AWS regions)</para></li></ul><para><b>PostgreSQL</b></para><ul><li><para><b>Version 9.6.x:</b><code> 9.6.5 | 9.6.3 | 9.6.2 | 9.6.1</code></para></li><li><para><b>Version 9.5.x:</b><code> 9.5.9 | 9.5.7 | 9.5.6 | 9.5.4 | 9.5.2</code></para></li><li><para><b>Version 9.4.x:</b><code> 9.4.14 | 9.4.12 | 9.4.11 | 9.4.9 | 9.4.7</code></para></li><li><para><b>Version 9.3.x:</b><code> 9.3.19 | 9.3.17 | 9.3.16 | 9.3.14 | 9.3.12</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -395,7 +394,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The KMS key identifier for encryption of Performance Insights data. The KMS key ID
+        /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
+        /// KMS encryption key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -466,9 +467,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a public IP address. A value of false specifies an internal instance with a DNS name
         /// that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether a VPC has been requested
         /// or not. The following list shows the default behavior in each case.</para><ul><li><para><b>Default VPC:</b> true</para></li><li><para><b>VPC:</b> false</para></li></ul><para>If no DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be publicly accessible. If a specific
-        /// DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be private.</para>
+        /// value has not been set, the DB instance is publicly accessible. If a specific DB subnet
+        /// group has been specified as part of the request and the PubliclyAccessible value has
+        /// not been set, the DB instance is private.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

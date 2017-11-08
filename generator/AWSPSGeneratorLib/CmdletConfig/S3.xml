@@ -73,6 +73,7 @@
     <ServiceOperation MethodName="CopyPart" Exclude="true"/>
     <ServiceOperation MethodName="DeleteBucket" Exclude="true"/>
     <ServiceOperation MethodName="DeleteBucketAnalyticsConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="DeleteBucketEncryption" Output="Void" />
     <ServiceOperation MethodName="DeleteBucketInventoryConfiguration" Output="Void"/>
     <ServiceOperation MethodName="DeleteBucketMetricsConfiguration" Output="Void"/>
     <ServiceOperation MethodName="DeleteBucketPolicy" Output="Void" ShouldProcessTarget="BucketName"/>
@@ -90,6 +91,7 @@
     <ServiceOperation MethodName="GetACL" PositionalParameters="Key;VersionId"/>
     <ServiceOperation MethodName="GetBucketAccelerateConfiguration" />
     <ServiceOperation MethodName="GetBucketAnalyticsConfiguration"/>
+    <ServiceOperation MethodName="GetBucketEncryption" />
     <ServiceOperation MethodName="GetBucketInventoryConfiguration"/>
     <ServiceOperation MethodName="GetBucketMetricsConfiguration"/>
     <ServiceOperation MethodName="GetBucketLocation"/>
@@ -125,6 +127,7 @@
     <ServiceOperation MethodName="PutBucket" Exclude="true"/>
     <ServiceOperation MethodName="PutBucketAccelerateConfiguration" Output="Void"/>
     <ServiceOperation MethodName="PutBucketAnalyticsConfiguration" Output="Void"/>
+    <ServiceOperation MethodName="PutBucketEncryption" Verb="Set" Output="Void" />
     <ServiceOperation MethodName="PutBucketInventoryConfiguration" Output="Void"/>
     <ServiceOperation MethodName="PutBucketMetricsConfiguration" Output="Void"/>
     <ServiceOperation MethodName="PutBucketLogging" Output="Void"/>

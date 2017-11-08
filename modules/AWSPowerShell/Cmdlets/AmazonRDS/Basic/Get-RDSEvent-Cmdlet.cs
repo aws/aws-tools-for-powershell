@@ -91,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter SourceIdentifier
         /// <summary>
         /// <para>
-        /// <para>The identifier of the event source for which events will be returned. If not specified,
+        /// <para>The identifier of the event source for which events are returned. If not specified,
         /// then all sources are included in the response.</para><para>Constraints:</para><ul><li><para>If SourceIdentifier is supplied, SourceType must also be provided.</para></li><li><para>If the source type is <code>DBInstance</code>, then a <code>DBInstanceIdentifier</code>
         /// must be supplied.</para></li><li><para>If the source type is <code>DBSecurityGroup</code>, a <code>DBSecurityGroupName</code>
         /// must be supplied.</para></li><li><para>If the source type is <code>DBParameterGroup</code>, a <code>DBParameterGroupName</code>

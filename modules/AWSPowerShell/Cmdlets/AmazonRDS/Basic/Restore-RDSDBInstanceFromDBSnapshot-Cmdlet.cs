@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that minor version upgrades will be applied automatically to the DB instance
+        /// <para>Indicates that minor version upgrades are applied automatically to the DB instance
         /// during the maintenance window.</para>
         /// </para>
         /// </summary>
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The EC2 Availability Zone that the database instance will be created in.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// <para>The EC2 Availability Zone that the database instance is created in.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.</para><para>Example: <code>us-east-1a</code></para>
         /// </para>
         /// </summary>
@@ -95,11 +95,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the Amazon RDS DB instance.</para><para>Valid Values: <code>db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge
-        /// | db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
-        /// | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large
-        /// | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
-        /// | db.t2.medium | db.t2.large</code></para>
+        /// <para>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
+        /// Not all DB instance classes are available in all regions, or for all database engines.
+        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Instance Class</a> in the Amazon RDS User Guide. </para><para>Default: The same DBInstanceClass as the original DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -194,10 +193,12 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the amount of provisioned IOPS for the DB instance, expressed in I/O operations
-        /// per second. If this parameter is not specified, the IOPS value will be taken from
-        /// the backup. If this parameter is set to 0, the new instance will be converted to a
-        /// non-PIOPS instance, which will take additional time, though your DB instance will
-        /// be available for connections before the conversion starts.</para><para>Constraints: Must be an integer greater than 1000.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para>
+        /// per second. If this parameter is not specified, the IOPS value is taken from the backup.
+        /// If this parameter is set to 0, the new instance is converted to a non-PIOPS instance.
+        /// The conversion takes additional time, though your DB instance is available for connections
+        /// before the conversion starts. </para><para>The provisioned IOPS value must follow the requirements for your database engine.
+        /// For more information, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_Storage.html#USER_PIOPS">Amazon
+        /// RDS Provisioned IOPS Storage to Improve Performance</a>. </para><para>Constraints: Must be an integer greater than 1000.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -256,9 +257,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a public IP address. A value of false specifies an internal instance with a DNS name
         /// that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether a VPC has been requested
         /// or not. The following list shows the default behavior in each case.</para><ul><li><para><b>Default VPC:</b> true</para></li><li><para><b>VPC:</b> false</para></li></ul><para>If no DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be publicly accessible. If a specific
-        /// DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be private.</para>
+        /// value has not been set, the DB instance is publicly accessible. If a specific DB subnet
+        /// group has been specified as part of the request and the PubliclyAccessible value has
+        /// not been set, the DB instance is private.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

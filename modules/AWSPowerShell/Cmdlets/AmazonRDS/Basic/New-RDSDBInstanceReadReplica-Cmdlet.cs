@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AutoMinorVersionUpgrade
         /// <summary>
         /// <para>
-        /// <para>Indicates that minor engine upgrades will be applied automatically to the Read Replica
+        /// <para>Indicates that minor engine upgrades are applied automatically to the Read Replica
         /// during the maintenance window.</para><para>Default: Inherits from the source DB instance</para>
         /// </para>
         /// </summary>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Amazon EC2 Availability Zone that the Read Replica will be created in.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para>
+        /// <para>The Amazon EC2 Availability Zone that the Read Replica is created in.</para><para>Default: A random, system-chosen Availability Zone in the endpoint's AWS Region.</para><para> Example: <code>us-east-1d</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,12 +91,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBInstanceClass
         /// <summary>
         /// <para>
-        /// <para>The compute and memory capacity of the Read Replica. Note that not all instance classes
-        /// are available in all regions for all DB engines.</para><para> Valid Values: <code>db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
-        /// |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge
-        /// | db.m4.large | db.m4.xlarge | db.m4.2xlarge | db.m4.4xlarge | db.m4.10xlarge | db.r3.large
-        /// | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
-        /// | db.t2.medium | db.t2.large</code></para><para>Default: Inherits from the source DB instance.</para>
+        /// <para>The compute and memory capacity of the Read Replica, for example, <code>db.m4.large</code>.
+        /// Not all DB instance classes are available in all regions, or for all database engines.
+        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Instance Class</a> in the Amazon RDS User Guide. </para><para>Default: Inherits from the source DB instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -117,14 +115,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>Specifies a DB subnet group for the DB instance. The new DB instance will be created
-        /// in the VPC associated with the DB subnet group. If no DB subnet group is specified,
-        /// then the new DB instance is not created in a VPC.</para><para>Constraints:</para><ul><li><para>Can only be specified if the source DB instance identifier specifies a DB instance
+        /// <para>Specifies a DB subnet group for the DB instance. The new DB instance is created in
+        /// the VPC associated with the DB subnet group. If no DB subnet group is specified, then
+        /// the new DB instance is not created in a VPC.</para><para>Constraints:</para><ul><li><para>Can only be specified if the source DB instance identifier specifies a DB instance
         /// in another AWS Region.</para></li><li><para>If supplied, must match the name of an existing DBSubnetGroup.</para></li><li><para>The specified DB subnet group must be in the same AWS Region in which the operation
         /// is running.</para></li><li><para>All Read Replicas in one AWS Region that are created from the same source DB instance
-        /// must either:&gt;</para><ul><li><para>Specify DB subnet groups from the same VPC. All these Read Replicas will be created
-        /// in the same VPC.</para></li><li><para>Not specify a DB subnet group. All these Read Replicas will be created outside of
-        /// any VPC.</para></li></ul></li></ul><para>Example: <code>mySubnetgroup</code></para>
+        /// must either:&gt;</para><ul><li><para>Specify DB subnet groups from the same VPC. All these Read Replicas are created in
+        /// the same VPC.</para></li><li><para>Not specify a DB subnet group. All these Read Replicas are created outside of any
+        /// VPC.</para></li></ul></li></ul><para>Example: <code>mySubnetgroup</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para> True to enable Performance Insights for the read replica; otherwise false. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -211,8 +209,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The option group the DB instance will be associated with. If omitted, the default
-        /// option group for the engine specified will be used.</para>
+        /// <para>The option group the DB instance is associated with. If omitted, the default option
+        /// group for the engine specified is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -222,7 +220,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The KMS key identifier for encryption of Performance Insights data. The KMS key ID
+        /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
+        /// KMS encryption key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -249,8 +249,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// by using the AWS CLI. </para><para>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code>
         /// API action that can be executed in the source AWS Region that contains the encrypted
         /// source DB instance. The presigned URL request must contain the following parameter
-        /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted Read Replica will
-        /// be created in. This AWS Region is the same one where the <code>CreateDBInstanceReadReplica</code>
+        /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted Read Replica is
+        /// created in. This AWS Region is the same one where the <code>CreateDBInstanceReadReplica</code>
         /// action is called that contains this presigned URL. </para><para>For example, if you create an encrypted DB instance in the us-west-1 region, from
         /// a source DB instance in the us-east-2 region, then you call the <code>CreateDBInstanceReadReplica</code>
         /// action in the us-east-1 region and provide a presigned URL that contains a call to
@@ -281,9 +281,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// a public IP address. A value of false specifies an internal instance with a DNS name
         /// that resolves to a private IP address.</para><para>Default: The default behavior varies depending on whether a VPC has been requested
         /// or not. The following list shows the default behavior in each case.</para><ul><li><para><b>Default VPC:</b>true</para></li><li><para><b>VPC:</b>false</para></li></ul><para>If no DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be publicly accessible. If a specific
-        /// DB subnet group has been specified as part of the request and the PubliclyAccessible
-        /// value has not been set, the DB instance will be private.</para>
+        /// value has not been set, the DB instance is publicly accessible. If a specific DB subnet
+        /// group has been specified as part of the request and the PubliclyAccessible value has
+        /// not been set, the DB instance is private.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -102,7 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The name of the DB cluster parameter group to associate with the restored DB cluster.
-        /// If this argument is omitted, <code>default.aurora5.6</code> will be used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBClusterParameterGroup.</para></li></ul>
+        /// If this argument is omitted, <code>default.aurora5.6</code> is used. </para><para>Constraints:</para><ul><li><para>If supplied, must match the name of an existing DBClusterParameterGroup.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

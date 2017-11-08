@@ -94,8 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>You can restore to a new DB cluster and encrypt the new DB cluster with a KMS key
         /// that is different than the KMS key used to encrypt the source DB cluster. The new
-        /// DB cluster will be encrypted with the KMS key identified by the <code>KmsKeyId</code>
-        /// parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
+        /// DB cluster is encrypted with the KMS key identified by the <code>KmsKeyId</code> parameter.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following
         /// will occur:</para><ul><li><para>If the DB cluster is encrypted, then the restored DB cluster is encrypted using the
         /// KMS key that was used to encrypt the source DB cluster.</para></li><li><para>If the DB cluster is not encrypted, then the restored DB cluster is not encrypted.</para></li></ul><para>If <code>DBClusterIdentifier</code> refers to a DB cluster that is not encrypted,
         /// then the restore request is rejected.</para>

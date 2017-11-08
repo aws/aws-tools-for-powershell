@@ -28,17 +28,16 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Replaces a policy on a bucket. If the bucket already has a policy, the one in this
-    /// request completely replaces it.
+    /// Returns the server-side encryption configuration of a bucket.
     /// </summary>
-    [Cmdlet("Write", "S3BucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutBucketPolicy operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketPolicy"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.S3.Model.PutBucketPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "S3BucketEncryption")]
+    [OutputType("Amazon.S3.Model.ServerSideEncryptionConfiguration")]
+    [AWSCmdlet("Invokes the GetBucketEncryption operation against Amazon Simple Storage Service.", Operation = new[] {"GetBucketEncryption"})]
+    [AWSCmdletOutput("Amazon.S3.Model.ServerSideEncryptionConfiguration",
+        "This cmdlet returns a ServerSideEncryptionConfiguration object.",
+        "The service call response (type Amazon.S3.Model.GetBucketEncryptionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteS3BucketPolicyCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class GetS3BucketEncryptionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
@@ -49,37 +48,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
-        #endregion
-        
-        #region Parameter ConfirmRemoveSelfBucketAccess
-        /// <summary>
-        /// <para>
-        /// Set this parameter to true to confirm that you want to remove your 
-        /// permissions to change this bucket policy in the future.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean ConfirmRemoveSelfBucketAccess { get; set; }
-        #endregion
-        
-        #region Parameter ContentMD5
-        /// <summary>
-        /// <para>
-        /// The base64 encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. 
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ContentMD5 { get; set; }
-        #endregion
-        
-        #region Parameter Policy
-        /// <summary>
-        /// <para>
-        /// The bucket policy as a JSON document.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String Policy { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -103,34 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #endregion
         
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the BucketName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
-        #endregion
-        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BucketName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3BucketPolicy (PutBucketPolicy)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -142,10 +85,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
             PreExecutionContextLoad(context);
             
             context.BucketName = this.BucketName;
-            context.ContentMD5 = this.ContentMD5;
-            context.Policy = this.Policy;
-            if (ParameterWasBound("ConfirmRemoveSelfBucketAccess"))
-                context.ConfirmRemoveSelfBucketAccess = this.ConfirmRemoveSelfBucketAccess;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,23 +99,11 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3.Model.PutBucketPolicyRequest();
+            var request = new Amazon.S3.Model.GetBucketEncryptionRequest();
             
             if (cmdletContext.BucketName != null)
             {
                 request.BucketName = cmdletContext.BucketName;
-            }
-            if (cmdletContext.ContentMD5 != null)
-            {
-                request.ContentMD5 = cmdletContext.ContentMD5;
-            }
-            if (cmdletContext.Policy != null)
-            {
-                request.Policy = cmdletContext.Policy;
-            }
-            if (cmdletContext.ConfirmRemoveSelfBucketAccess != null)
-            {
-                request.ConfirmRemoveSelfBucketAccess = cmdletContext.ConfirmRemoveSelfBucketAccess.Value;
             }
             
             CmdletOutput output;
@@ -187,9 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.BucketName;
+                object pipelineOutput = response.ServerSideEncryptionConfiguration;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -214,16 +139,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private Amazon.S3.Model.PutBucketPolicyResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketPolicyRequest request)
+        private Amazon.S3.Model.GetBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.GetBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "GetBucketEncryption");
             try
             {
                 #if DESKTOP
-                return client.PutBucketPolicy(request);
+                return client.GetBucketEncryption(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutBucketPolicyAsync(request);
+                var task = client.GetBucketEncryptionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -245,9 +170,6 @@ namespace Amazon.PowerShell.Cmdlets.S3
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String BucketName { get; set; }
-            public System.String ContentMD5 { get; set; }
-            public System.String Policy { get; set; }
-            public System.Boolean? ConfirmRemoveSelfBucketAccess { get; set; }
         }
         
     }

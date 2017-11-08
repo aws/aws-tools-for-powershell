@@ -1,3 +1,15 @@
+### 3.3.186.0 (2017-11-08)
+  * AWS CloudFormation
+    * Fixed issue with the Wait-CFNStack cmdlet not exiting when testing for 'DELETE_COMPLETE' status on a deleted stack.
+  * Amazon S3
+    * Added support for new bucket encryption APIs with three new cmdlets: Get-S3BucketEncryption (GetBucketEnryption API), Set-S3BucketEncryption (PutBucketEncryption API) and Remove-S3BucketEncryption (DeleteBucketEncryption API).
+  * AWS Price List Service
+    * Added cmdlets to support the new service. AWS Price List Service API is a centralized and convenient way to programmatically query Amazon Web Services for services, products, and pricing information. Cmdlets for the service have the noun prefix 'PLS' and can be listed using the command 'Get-AWSCmdletName -Service PLS'.
+  * AWS Cloud HSM V2
+    * Added cmdlets to support the Cloud HSM V2 service. Cmdlets for the service have the noun prefix 'HSM2' and can be listed using the command 'Get-AWSCmdletName -Service HSM2'.
+  * Amazon API Gateway
+    * Added support for new service features to create and manage regional and edge-optimized API endpoints.
+
 ### 3.3.181.0 (2017-11-01)
   * Amazon EC2 Systems Manager
     * Fixed bug in the Get-SSMParametersByPath cmdlet preventing automatic pagination.

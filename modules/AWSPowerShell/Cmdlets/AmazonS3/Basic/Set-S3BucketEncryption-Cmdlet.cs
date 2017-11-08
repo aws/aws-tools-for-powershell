@@ -28,58 +28,48 @@ using Amazon.S3.Model;
 namespace Amazon.PowerShell.Cmdlets.S3
 {
     /// <summary>
-    /// Replaces a policy on a bucket. If the bucket already has a policy, the one in this
-    /// request completely replaces it.
+    /// Creates a new server-side encryption configuration (or replaces an existing one, if
+    /// present).
     /// </summary>
-    [Cmdlet("Write", "S3BucketPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Set", "S3BucketEncryption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Invokes the PutBucketPolicy operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketPolicy"})]
+    [AWSCmdlet("Invokes the PutBucketEncryption operation against Amazon Simple Storage Service.", Operation = new[] {"PutBucketEncryption"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the BucketName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.S3.Model.PutBucketPolicyResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.S3.PutBucketEncryptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteS3BucketPolicyCmdlet : AmazonS3ClientCmdlet, IExecutor
+    public partial class SetS3BucketEncryptionCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
         
         #region Parameter BucketName
         /// <summary>
         /// <para>
-        /// The name of the bucket.
+        /// The name of the bucket for which the server-side encryption configuration is set.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String BucketName { get; set; }
         #endregion
         
-        #region Parameter ConfirmRemoveSelfBucketAccess
-        /// <summary>
-        /// <para>
-        /// Set this parameter to true to confirm that you want to remove your 
-        /// permissions to change this bucket policy in the future.
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.Boolean ConfirmRemoveSelfBucketAccess { get; set; }
-        #endregion
-        
         #region Parameter ContentMD5
         /// <summary>
         /// <para>
-        /// The base64 encoded 128-bit MD5 digest of the message (without the headers) according to RFC 1864. 
+        /// The base64-encoded 128-bit MD5 digest of the server-side encryption configuration.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ContentMD5 { get; set; }
         #endregion
         
-        #region Parameter Policy
+        #region Parameter ServerSideEncryptionConfiguration_ServerSideEncryptionRule
         /// <summary>
         /// <para>
-        /// The bucket policy as a JSON document.
+        /// Container for information about a particular server-side encryption configuration rule.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
-        public System.String Policy { get; set; }
+        [System.Management.Automation.Parameter]
+        [Alias("ServerSideEncryptionConfiguration_ServerSideEncryptionRules")]
+        public Amazon.S3.Model.ServerSideEncryptionRule[] ServerSideEncryptionConfiguration_ServerSideEncryptionRule { get; set; }
         #endregion
         
         #region Parameter UseAccelerateEndpoint
@@ -127,7 +117,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("BucketName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-S3BucketPolicy (PutBucketPolicy)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-S3BucketEncryption (PutBucketEncryption)"))
             {
                 return;
             }
@@ -143,9 +133,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             
             context.BucketName = this.BucketName;
             context.ContentMD5 = this.ContentMD5;
-            context.Policy = this.Policy;
-            if (ParameterWasBound("ConfirmRemoveSelfBucketAccess"))
-                context.ConfirmRemoveSelfBucketAccess = this.ConfirmRemoveSelfBucketAccess;
+            if (this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule != null)
+            {
+                context.ServerSideEncryptionConfiguration_ServerSideEncryptionRules = new List<Amazon.S3.Model.ServerSideEncryptionRule>(this.ServerSideEncryptionConfiguration_ServerSideEncryptionRule);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -160,7 +151,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.S3.Model.PutBucketPolicyRequest();
+            var request = new Amazon.S3.Model.PutBucketEncryptionRequest();
             
             if (cmdletContext.BucketName != null)
             {
@@ -170,13 +161,24 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ContentMD5 = cmdletContext.ContentMD5;
             }
-            if (cmdletContext.Policy != null)
+            
+             // populate ServerSideEncryptionConfiguration
+            bool requestServerSideEncryptionConfigurationIsNull = true;
+            request.ServerSideEncryptionConfiguration = new Amazon.S3.Model.ServerSideEncryptionConfiguration();
+            List<Amazon.S3.Model.ServerSideEncryptionRule> requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ServerSideEncryptionRule = null;
+            if (cmdletContext.ServerSideEncryptionConfiguration_ServerSideEncryptionRules != null)
             {
-                request.Policy = cmdletContext.Policy;
+                requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ServerSideEncryptionRule = cmdletContext.ServerSideEncryptionConfiguration_ServerSideEncryptionRules;
             }
-            if (cmdletContext.ConfirmRemoveSelfBucketAccess != null)
+            if (requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ServerSideEncryptionRule != null)
             {
-                request.ConfirmRemoveSelfBucketAccess = cmdletContext.ConfirmRemoveSelfBucketAccess.Value;
+                request.ServerSideEncryptionConfiguration.ServerSideEncryptionRules = requestServerSideEncryptionConfiguration_serverSideEncryptionConfiguration_ServerSideEncryptionRule;
+                requestServerSideEncryptionConfigurationIsNull = false;
+            }
+             // determine if request.ServerSideEncryptionConfiguration should be set to null
+            if (requestServerSideEncryptionConfigurationIsNull)
+            {
+                request.ServerSideEncryptionConfiguration = null;
             }
             
             CmdletOutput output;
@@ -214,16 +216,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         
         #region AWS Service Operation Call
         
-        private Amazon.S3.Model.PutBucketPolicyResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketPolicyRequest request)
+        private Amazon.S3.PutBucketEncryptionResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.PutBucketEncryptionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Storage Service", "PutBucketEncryption");
             try
             {
                 #if DESKTOP
-                return client.PutBucketPolicy(request);
+                return client.PutBucketEncryption(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.PutBucketPolicyAsync(request);
+                var task = client.PutBucketEncryptionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -246,8 +248,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         {
             public System.String BucketName { get; set; }
             public System.String ContentMD5 { get; set; }
-            public System.String Policy { get; set; }
-            public System.Boolean? ConfirmRemoveSelfBucketAccess { get; set; }
+            public List<Amazon.S3.Model.ServerSideEncryptionRule> ServerSideEncryptionConfiguration_ServerSideEncryptionRules { get; set; }
         }
         
     }
