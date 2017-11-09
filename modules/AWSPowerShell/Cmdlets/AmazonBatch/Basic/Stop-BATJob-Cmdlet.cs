@@ -28,11 +28,11 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Cancels jobs in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>,
+    /// Cancels a job in an AWS Batch job queue. Jobs that are in the <code>SUBMITTED</code>,
     /// <code>PENDING</code>, or <code>RUNNABLE</code> state are cancelled. Jobs that have
     /// progressed to <code>STARTING</code> or <code>RUNNING</code> are not cancelled (but
-    /// the API operation still succeeds, even if no jobs are cancelled); these jobs must
-    /// be terminated with the <a>TerminateJob</a> operation.
+    /// the API operation still succeeds, even if no job is cancelled); these jobs must be
+    /// terminated with the <a>TerminateJob</a> operation.
     /// </summary>
     [Cmdlet("Stop", "BATJob", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 job IDs to cancel.</para>
+        /// <para>The AWS Batch job ID of the job to cancel.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

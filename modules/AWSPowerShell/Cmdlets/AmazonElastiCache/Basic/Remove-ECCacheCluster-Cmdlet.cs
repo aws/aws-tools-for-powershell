@@ -28,16 +28,16 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Deletes a previously provisioned cache cluster. <code>DeleteCacheCluster</code> deletes
-    /// all associated cache nodes, node endpoints and the cache cluster itself. When you
-    /// receive a successful response from this operation, Amazon ElastiCache immediately
-    /// begins deleting the cache cluster; you cannot cancel or revert this operation.
+    /// Deletes a previously provisioned cluster. <code>DeleteCacheCluster</code> deletes
+    /// all associated cache nodes, node endpoints and the cluster itself. When you receive
+    /// a successful response from this operation, Amazon ElastiCache immediately begins deleting
+    /// the cluster; you cannot cancel or revert this operation.
     /// 
     ///  
     /// <para>
-    /// This operation cannot be used to delete a cache cluster that is the last read replica
-    /// of a replication group or node group (shard) that has Multi-AZ mode enabled or a cache
-    /// cluster from a Redis (cluster mode enabled) replication group.
+    /// This operation cannot be used to delete a cluster that is the last read replica of
+    /// a replication group or node group (shard) that has Multi-AZ mode enabled or a cluster
+    /// from a Redis (cluster mode enabled) replication group.
     /// </para><important><para>
     /// Due to current limitations on Redis (cluster mode disabled), this operation or parameter
     /// is not supported on Redis (cluster mode enabled) replication groups.
@@ -56,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The cache cluster identifier for the cluster to be deleted. This parameter is not
-        /// case sensitive.</para>
+        /// <para>The cluster identifier for the cluster to be deleted. This parameter is not case sensitive.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -67,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter FinalSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>The user-supplied name of a final cache cluster snapshot. This is the unique name
-        /// that identifies the snapshot. ElastiCache creates the snapshot, and then deletes the
-        /// cache cluster immediately afterward.</para>
+        /// <para>The user-supplied name of a final cluster snapshot. This is the unique name that identifies
+        /// the snapshot. ElastiCache creates the snapshot, and then deletes the cluster immediately
+        /// afterward.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

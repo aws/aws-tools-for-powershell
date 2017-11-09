@@ -16,7 +16,7 @@
 
   <PipelineParameter>InstanceId</PipelineParameter>
 
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory" />
+  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices" />
 
   <ParamEmitters>
     <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
@@ -197,7 +197,7 @@
     <ServiceOperation MethodName="DescribeVolumeStatus" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVpcAttribute" Output="Response" PipelineParameter="VpcId" PositionalParameters="Attribute"/>
     <ServiceOperation MethodName="DescribeVpcEndpoints" Noun="VpcEndpoint" PipelineParameter="VpcEndpointIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVpcEndpointServices" Noun="VpcEndpointService"/>
+    <ServiceOperation MethodName="DescribeVpcEndpointServices" Noun="VpcEndpointService" Output="Response" />
     <ServiceOperation MethodName="DescribeVpcs" PipelineParameter="VpcIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVpnConnections" PipelineParameter="VpnConnectionIds" PositionalParameters="Filters"/>
     <ServiceOperation MethodName="DescribeVpnGateways" PipelineParameter="VpnGatewayIds" PositionalParameters="Filters"/>

@@ -78,6 +78,7 @@
     <ServiceOperation MethodName="ModifyCacheParameterGroup" PipelineParameter="CacheParameterGroupName" PositionalParameters="ParameterNameValues"/>
     <ServiceOperation MethodName="ModifyCacheSubnetGroup" PipelineParameter="CacheSubnetGroupName" PositionalParameters="CacheSubnetGroupDescription;SubnetIds"/>
     <ServiceOperation MethodName="ModifyReplicationGroup" PipelineParameter="ReplicationGroupId" />
+    <ServiceOperation MethodName="ModifyReplicationGroupShardConfiguration" />
     <ServiceOperation MethodName="PurchaseReservedCacheNodesOffering" PipelineParameter="ReservedCacheNodesOfferingId" PositionalParameters="ReservedCacheNodeId;CacheNodeCount"/>
     <ServiceOperation MethodName="RebootCacheCluster" PositionalParameters="CacheNodeIdsToReboot"/>
     <ServiceOperation MethodName="RemoveTagsFromResource" Noun="Tag" PositionalParameters="ResourceName;Tags" />

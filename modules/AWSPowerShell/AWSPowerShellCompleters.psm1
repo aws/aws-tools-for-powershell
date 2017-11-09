@@ -266,35 +266,35 @@ $AAS_Completers = {
     switch ($("$commandName/$parameterName"))
     {
         # Amazon.ApplicationAutoScaling.AdjustmentType
-        "Write-AASScalingPolicy/StepScalingPolicyConfiguration_AdjustmentType"
+        "Set-AASScalingPolicy/StepScalingPolicyConfiguration_AdjustmentType"
         {
             $v = "ChangeInCapacity","ExactCapacity","PercentChangeInCapacity"
             break
         }
         
         # Amazon.ApplicationAutoScaling.MetricAggregationType
-        "Write-AASScalingPolicy/StepScalingPolicyConfiguration_MetricAggregationType"
+        "Set-AASScalingPolicy/StepScalingPolicyConfiguration_MetricAggregationType"
         {
             $v = "Average","Maximum","Minimum"
             break
         }
         
         # Amazon.ApplicationAutoScaling.MetricStatistic
-        "Write-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic"
+        "Set-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic"
         {
             $v = "Average","Maximum","Minimum","SampleCount","Sum"
             break
         }
         
         # Amazon.ApplicationAutoScaling.MetricType
-        "Write-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
+        "Set-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
         {
             $v = "DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization"
             break
         }
         
         # Amazon.ApplicationAutoScaling.PolicyType
-        "Write-AASScalingPolicy/PolicyType"
+        "Set-AASScalingPolicy/PolicyType"
         {
             $v = "StepScaling","TargetTrackingScaling"
             break
@@ -306,9 +306,12 @@ $AAS_Completers = {
             ($_ -eq "Get-AASScalableTarget/ScalableDimension") -Or
             ($_ -eq "Get-AASScalingActivity/ScalableDimension") -Or
             ($_ -eq "Get-AASScalingPolicy/ScalableDimension") -Or
+            ($_ -eq "Get-AASScheduledAction/ScalableDimension") -Or
             ($_ -eq "Remove-AASScalableTarget/ScalableDimension") -Or
             ($_ -eq "Remove-AASScalingPolicy/ScalableDimension") -Or
-            ($_ -eq "Write-AASScalingPolicy/ScalableDimension")
+            ($_ -eq "Remove-AASScheduledAction/ScalableDimension") -Or
+            ($_ -eq "Set-AASScalingPolicy/ScalableDimension") -Or
+            ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
             $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
@@ -321,9 +324,12 @@ $AAS_Completers = {
             ($_ -eq "Get-AASScalableTarget/ServiceNamespace") -Or
             ($_ -eq "Get-AASScalingActivity/ServiceNamespace") -Or
             ($_ -eq "Get-AASScalingPolicy/ServiceNamespace") -Or
+            ($_ -eq "Get-AASScheduledAction/ServiceNamespace") -Or
             ($_ -eq "Remove-AASScalableTarget/ServiceNamespace") -Or
             ($_ -eq "Remove-AASScalingPolicy/ServiceNamespace") -Or
-            ($_ -eq "Write-AASScalingPolicy/ServiceNamespace")
+            ($_ -eq "Remove-AASScheduledAction/ServiceNamespace") -Or
+            ($_ -eq "Set-AASScalingPolicy/ServiceNamespace") -Or
+            ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
             $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce"
@@ -338,13 +344,13 @@ $AAS_Completers = {
 }
 
 $AAS_map = @{
-    "PolicyType"=@("Write-AASScalingPolicy")
-    "ScalableDimension"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Remove-AASScalableTarget","Remove-AASScalingPolicy","Write-AASScalingPolicy")
-    "ServiceNamespace"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Remove-AASScalableTarget","Remove-AASScalingPolicy","Write-AASScalingPolicy")
-    "StepScalingPolicyConfiguration_AdjustmentType"=@("Write-AASScalingPolicy")
-    "StepScalingPolicyConfiguration_MetricAggregationType"=@("Write-AASScalingPolicy")
-    "TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic"=@("Write-AASScalingPolicy")
-    "TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Write-AASScalingPolicy")
+    "PolicyType"=@("Set-AASScalingPolicy")
+    "ScalableDimension"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Get-AASScheduledAction","Remove-AASScalableTarget","Remove-AASScalingPolicy","Remove-AASScheduledAction","Set-AASScalingPolicy","Set-AASScheduledAction")
+    "ServiceNamespace"=@("Add-AASScalableTarget","Get-AASScalableTarget","Get-AASScalingActivity","Get-AASScalingPolicy","Get-AASScheduledAction","Remove-AASScalableTarget","Remove-AASScalingPolicy","Remove-AASScheduledAction","Set-AASScalingPolicy","Set-AASScheduledAction")
+    "StepScalingPolicyConfiguration_AdjustmentType"=@("Set-AASScalingPolicy")
+    "StepScalingPolicyConfiguration_MetricAggregationType"=@("Set-AASScalingPolicy")
+    "TargetTrackingScalingPolicyConfiguration_CustomizedMetricSpecification_Statistic"=@("Set-AASScalingPolicy")
+    "TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"=@("Set-AASScalingPolicy")
 }
 
 _awsArgumentCompleterRegistration $AAS_Completers $AAS_map
@@ -2531,6 +2537,13 @@ $EC2_Completers = {
             break
         }
         
+        # Amazon.EC2.VpcEndpointType
+        "New-EC2VpcEndpoint/VpcEndpointType"
+        {
+            $v = "Gateway","Interface"
+            break
+        }
+        
         # Amazon.EC2.VpcTenancy
         "Edit-EC2VpcTenancy/InstanceTenancy"
         {
@@ -2581,6 +2594,7 @@ $EC2_map = @{
     "TrafficType"=@("New-EC2FlowLog")
     "Type"=@("New-EC2CustomerGateway","New-EC2VpnGateway","Request-EC2SpotInstance")
     "VolumeType"=@("Edit-EC2Volume","New-EC2Volume")
+    "VpcEndpointType"=@("New-EC2VpcEndpoint")
 }
 
 _awsArgumentCompleterRegistration $EC2_Completers $EC2_map

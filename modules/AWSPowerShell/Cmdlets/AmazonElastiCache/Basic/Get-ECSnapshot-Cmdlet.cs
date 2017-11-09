@@ -28,9 +28,9 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Returns information about cache cluster or replication group snapshots. By default,
-    /// <code>DescribeSnapshots</code> lists all of your snapshots; it can optionally describe
-    /// a single snapshot, or just the snapshots associated with a particular cache cluster.
+    /// Returns information about cluster or replication group snapshots. By default, <code>DescribeSnapshots</code>
+    /// lists all of your snapshots; it can optionally describe a single snapshot, or just
+    /// the snapshots associated with a particular cache cluster.
     /// 
     ///  <note><para>
     /// This operation is valid for Redis only.
@@ -51,7 +51,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A user-supplied cluster identifier. If this parameter is specified, only snapshots
-        /// associated with that specific cache cluster are described.</para>
+        /// associated with that specific cluster are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

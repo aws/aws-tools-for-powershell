@@ -51,9 +51,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The name of the cache cluster you want to scale up to a larger node instanced type.
-        /// ElastiCache uses the cluster id to identify the current node type of this cluster
-        /// and from that to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</para></important>
+        /// <para>The name of the cluster you want to scale up to a larger node instanced type. ElastiCache
+        /// uses the cluster id to identify the current node type of this cluster and from that
+        /// to create a list of node types you can scale up to.</para><important><para>You must provide a value for either the <code>CacheClusterId</code> or the <code>ReplicationGroupId</code>.</para></important>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

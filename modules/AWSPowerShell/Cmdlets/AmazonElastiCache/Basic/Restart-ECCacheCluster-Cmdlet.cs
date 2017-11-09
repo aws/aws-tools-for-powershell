@@ -28,17 +28,17 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Reboots some, or all, of the cache nodes within a provisioned cache cluster. This
-    /// operation applies any modified cache parameter groups to the cache cluster. The reboot
-    /// operation takes place as soon as possible, and results in a momentary outage to the
-    /// cache cluster. During the reboot, the cache cluster status is set to REBOOTING.
+    /// Reboots some, or all, of the cache nodes within a provisioned cluster. This operation
+    /// applies any modified cache parameter groups to the cluster. The reboot operation takes
+    /// place as soon as possible, and results in a momentary outage to the cluster. During
+    /// the reboot, the cluster status is set to REBOOTING.
     /// 
     ///  
     /// <para>
     /// The reboot causes the contents of the cache (for each cache node being rebooted) to
     /// be lost.
     /// </para><para>
-    /// When the reboot is complete, a cache cluster event is created.
+    /// When the reboot is complete, a cluster event is created.
     /// </para><para>
     /// Rebooting a cluster is currently supported on Memcached and Redis (cluster mode disabled)
     /// clusters. Rebooting is not supported on Redis (cluster mode enabled) clusters.
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The cache cluster identifier. This parameter is stored as a lowercase string.</para>
+        /// <para>The cluster identifier. This parameter is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -72,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of cache node IDs to reboot. A node ID is a numeric identifier (0001, 0002,
-        /// etc.). To reboot an entire cache cluster, specify all of the cache node IDs.</para>
+        /// etc.). To reboot an entire cluster, specify all of the cache node IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]

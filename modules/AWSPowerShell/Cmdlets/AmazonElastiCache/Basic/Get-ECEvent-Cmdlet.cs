@@ -28,9 +28,9 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Returns events related to cache clusters, cache security groups, and cache parameter
-    /// groups. You can obtain events specific to a particular cache cluster, cache security
-    /// group, or cache parameter group by providing the name as a parameter.
+    /// Returns events related to clusters, cache security groups, and cache parameter groups.
+    /// You can obtain events specific to a particular cluster, cache security group, or cache
+    /// parameter group by providing the name as a parameter.
     /// 
     ///  
     /// <para>

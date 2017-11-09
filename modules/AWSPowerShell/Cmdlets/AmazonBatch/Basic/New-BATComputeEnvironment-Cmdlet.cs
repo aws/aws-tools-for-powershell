@@ -79,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The name for your compute environment. Up to 128 letters (uppercase and lowercase),
-        /// numbers, and underscores are allowed.</para>
+        /// numbers, hyphens, and underscores are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -134,7 +134,11 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter ComputeResources_InstanceType
         /// <summary>
         /// <para>
-        /// <para>The instances types that may launched.</para>
+        /// <para>The instances types that may be launched. You can specify instance families to launch
+        /// any instance type within those families (for example, <code>c4</code> or <code>p3</code>),
+        /// or you can specify specific sizes within a family (such as <code>c4.8xlarge</code>).
+        /// You can also choose <code>optimal</code> to pick instance types (from the latest C,
+        /// M, and R instance families) on the fly that match the demand of your job queues.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

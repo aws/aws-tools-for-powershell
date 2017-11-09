@@ -13,7 +13,10 @@
   <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
   
   <ServiceOperations>
-    <ServiceOperation MethodName="PutScalingPolicy" Verb="Write" ShouldProcessTarget="PolicyName" Output="Response" />
+    <ServiceOperation MethodName="DeleteScheduledAction" PipelineParameter="ScheduledActionName" Output="Void" />
+    <ServiceOperation MethodName="DescribeScheduledActions" Noun="ScheduledAction" />
+    <ServiceOperation MethodName="PutScalingPolicy" Verb="Set" ShouldProcessTarget="PolicyName" Output="Response" LegacyAlias="Write-AASScalingPolicy" />
+    <ServiceOperation MethodName="PutScheduledAction" Verb="Set" PipelineParameter="ResourceId" Output="Void" />
     <ServiceOperation MethodName="RegisterScalableTarget" Verb="Add" Output="Void" />
     <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Output="Void" ShouldProcessTarget="PolicyName" />
     <ServiceOperation MethodName="DeregisterScalableTarget" Verb="Remove" Output="Void" />

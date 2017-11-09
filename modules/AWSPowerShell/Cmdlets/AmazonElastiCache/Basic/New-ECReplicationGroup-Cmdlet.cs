@@ -33,9 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// 
     ///  
     /// <para>
-    /// A Redis (cluster mode disabled) replication group is a collection of cache clusters,
-    /// where one of the cache clusters is a read/write primary and the others are read-only
-    /// replicas. Writes to the primary are asynchronously propagated to the replicas.
+    /// A Redis (cluster mode disabled) replication group is a collection of clusters, where
+    /// one of the clusters is a read/write primary and the others are read-only replicas.
+    /// Writes to the primary are asynchronously propagated to the replicas.
     /// </para><para>
     /// A Redis (cluster mode enabled) replication group is a collection of 1 to 15 node groups
     /// (shards). Each node group (shard) has one read/write primary node and up to 5 read-only
@@ -124,8 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R3 node types:</b><code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
         /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
         /// <code>cache.m2.4xlarge</code></para></li></ul></li></ul><para><b>Notes:</b></para><ul><li><para>All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).</para></li><li><para>Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2
-        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>Supported node types are available in all regions except as noted in the following
-        /// table.</para><para>For a complete listing of node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
+        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>For a complete listing of node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
         /// ElastiCache Product Features and Details</a> and either <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
         /// Node Type-Specific Parameters for Memcached</a> or <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
         /// Node Type-Specific Parameters for Redis</a>.</para>
@@ -175,8 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the cache engine to be used for the cache clusters in this replication
-        /// group.</para>
+        /// <para>The name of the cache engine to be used for the clusters in this replication group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -186,13 +184,13 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the cache engine to be used for the cache clusters in this replication
+        /// <para>The version number of the cache engine to be used for the clusters in this replication
         /// group. To view the supported cache engine versions, use the <code>DescribeCacheEngineVersions</code>
         /// operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>) in the <i>ElastiCache User Guide</i>, but you cannot
         /// downgrade to an earlier engine version. If you want to use an earlier engine version,
-        /// you must delete the existing cache cluster or replication group and create it anew
-        /// with the earlier engine version. </para>
+        /// you must delete the existing cluster or replication group and create it anew with
+        /// the earlier engine version. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -216,7 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic
-        /// to which notifications are sent.</para><note><para>The Amazon SNS topic owner must be the same as the cache cluster owner.</para></note>
+        /// to which notifications are sent.</para><note><para>The Amazon SNS topic owner must be the same as the cluster owner.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -265,12 +263,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredCacheClusterAZs
         /// <summary>
         /// <para>
-        /// <para>A list of EC2 Availability Zones in which the replication group's cache clusters are
-        /// created. The order of the Availability Zones in the list is the order in which clusters
-        /// are allocated. The primary cluster is created in the first AZ in the list.</para><para>This parameter is not used if there is more than one node group (shard). You should
+        /// <para>A list of EC2 Availability Zones in which the replication group's clusters are created.
+        /// The order of the Availability Zones in the list is the order in which clusters are
+        /// allocated. The primary cluster is created in the first AZ in the list.</para><para>This parameter is not used if there is more than one node group (shard). You should
         /// use <code>NodeGroupConfiguration</code> instead.</para><note><para>If you are creating your replication group in an Amazon VPC (recommended), you can
-        /// only locate cache clusters in Availability Zones associated with the subnets in the
-        /// selected subnet group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheClusters</code>.</para></note><para>Default: system chosen Availability Zones.</para>
+        /// only locate clusters in Availability Zones associated with the subnets in the selected
+        /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheClusters</code>.</para></note><para>Default: system chosen Availability Zones.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -280,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
+        /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
         /// are:</para><para>Specifies the weekly time range during which maintenance on the cluster is performed.
@@ -295,8 +293,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PrimaryClusterId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the cache cluster that serves as the primary for this replication
-        /// group. This cache cluster must already exist and have a status of <code>available</code>.</para><para>This parameter is not required if <code>NumCacheClusters</code>, <code>NumNodeGroups</code>,
+        /// <para>The identifier of the cluster that serves as the primary for this replication group.
+        /// This cluster must already exist and have a status of <code>available</code>.</para><para>This parameter is not required if <code>NumCacheClusters</code>, <code>NumNodeGroups</code>,
         /// or <code>ReplicasPerNodeGroup</code> is specified.</para>
         /// </para>
         /// </summary>
@@ -380,7 +378,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache retains automatic snapshots before deleting
         /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a snapshot
-        /// that was taken today is retained for 5 days before being deleted.</para><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
+        /// that was taken today is retained for 5 days before being deleted.</para><para>Default: 0 (i.e., automatic backups are disabled for this cluster).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -403,7 +401,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of cost allocation tags to be added to this resource. A tag is a key-value
-        /// pair.</para>
+        /// pair. A tag key does not have to be accompanied by a tag value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

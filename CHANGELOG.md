@@ -1,4 +1,4 @@
-### 3.3.186.0 (2017-11-08)
+### 3.3.187.0 (2017-11-09)
   * AWS CloudFormation
     * Fixed issue with the Wait-CFNStack cmdlet not exiting when testing for 'DELETE_COMPLETE' status on a deleted stack.
   * Amazon S3
@@ -9,6 +9,13 @@
     * Added cmdlets to support the Cloud HSM V2 service. Cmdlets for the service have the noun prefix 'HSM2' and can be listed using the command 'Get-AWSCmdletName -Service HSM2'.
   * Amazon API Gateway
     * Added support for new service features to create and manage regional and edge-optimized API endpoints.
+  * Amazon EC2
+    * [BREAKING CHANGE] The DescribeVpcEndpointServices service API, called by the cmdlet Get-EC2VpcEndpointService, has been extended to include an extra collection of service names. This additional collection is incompatible with automatic pagination therefore this cmdlet has had to be updated to disable automatic pagination of all results.
+  * Application Auto Scaling
+    * Added support for new service APIs to enable scheduling adjustments to MinCapacity and MaxCapacity, which makes it possible to pre-provision adequate capacity for anticipated demand and then reduce the provisioned capacity as demand lulls. The new cmdlets are Get-AASScheduledAction (DescribeScheduledActions API), Remove-AASScheduledAction (DeleteScheduledAction API) and Set-AASScheduledAction (PutScheduledAction API).
+    * Renamed the existing Write-AASScalingPolicy cmdlet has been renamed to a more appropriate verb, Set-AASScalingPolicy. An alias for backwards compatibility is automatically enabled by the module.
+  * Amazon ElastiCacheElastiCache
+    * Added cmdlet Edit-ECReplicationGroupShardConfiguration to support the new ModifyReplicationGroupShardConfiguration service API.
 
 ### 3.3.181.0 (2017-11-01)
   * Amazon EC2 Systems Manager
@@ -379,7 +386,7 @@
 ### 3.3.74.0 (2017-04-07)
   * AWS CloudWatch
     - Updated the Write-CWMetricAlarm cmdlet with support for new alarm configurations for missing data treatment and percentile metrics. Missing data can now be treated as alarm threshold breached, alarm threshold not breached, maintain alarm state and the current default treatment. Percentile metric alarms are for alarms that can trigger unnecessarily if the percentile is calculated from a small number of samples. The new rule can treat percentiles with low sample counts as same as missing data. If the first rule is enabled, the same treatment will be applied when an alarm encounters a percentile with low sample counts.
-  * Amazon ElastiCache
+  * Amazon ElastiCacheElastiCache
     - Added support for testing the Elasticache Multi-AZ feature with Automatic Failover. This support includes a new parameter, -NodeGroupId, for the Edit-ECReplicationGroup cmdlet and -ShowCacheClustersNotInReplicationGroup added to Get-ECCacheCluster and a new cmdlet, Test-ECFailover (TestFailover API).
   * Amazon Lex
     - Added a new cmdlet, Send-LEXContent, to support the new PostContent API.

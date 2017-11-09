@@ -28,8 +28,10 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies attributes of a specified VPC endpoint. You can modify the policy associated
-    /// with the endpoint, and you can add and remove route tables associated with the endpoint.
+    /// Modifies attributes of a specified VPC endpoint. The attributes that you can modify
+    /// depend on the type of VPC endpoint (interface or gateway). For more information, see
+    /// <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
+    /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Edit", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -44,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AddRouteTableId
         /// <summary>
         /// <para>
-        /// <para>One or more route tables IDs to associate with the endpoint.</para>
+        /// <para>(Gateway endpoint) One or more route tables IDs to associate with the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,20 +54,55 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] AddRouteTableId { get; set; }
         #endregion
         
+        #region Parameter AddSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>(Interface endpoint) One or more security group IDs to associate with the network
+        /// interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AddSecurityGroupIds")]
+        public System.String[] AddSecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter AddSubnetId
+        /// <summary>
+        /// <para>
+        /// <para>(Interface endpoint) One or more subnet IDs in which to serve the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AddSubnetIds")]
+        public System.String[] AddSubnetId { get; set; }
+        #endregion
+        
         #region Parameter PolicyDocument
         /// <summary>
         /// <para>
-        /// <para>A policy document to attach to the endpoint. The policy must be in valid JSON format.</para>
+        /// <para>(Gateway endpoint) A policy document to attach to the endpoint. The policy must be
+        /// in valid JSON format.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String PolicyDocument { get; set; }
         #endregion
         
+        #region Parameter PrivateDnsEnabled
+        /// <summary>
+        /// <para>
+        /// <para>(Interface endpoint) Indicate whether a private hosted zone is associated with the
+        /// VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean PrivateDnsEnabled { get; set; }
+        #endregion
+        
         #region Parameter RemoveRouteTableId
         /// <summary>
         /// <para>
-        /// <para>One or more route table IDs to disassociate from the endpoint.</para>
+        /// <para>(Gateway endpoint) One or more route table IDs to disassociate from the endpoint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,11 +110,34 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.String[] RemoveRouteTableId { get; set; }
         #endregion
         
+        #region Parameter RemoveSecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>(Interface endpoint) One or more security group IDs to disassociate from the network
+        /// interface.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RemoveSecurityGroupIds")]
+        public System.String[] RemoveSecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter RemoveSubnetId
+        /// <summary>
+        /// <para>
+        /// <para>(Interface endpoint) One or more subnets IDs in which to remove the endpoint.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RemoveSubnetIds")]
+        public System.String[] RemoveSubnetId { get; set; }
+        #endregion
+        
         #region Parameter ResetPolicy
         /// <summary>
         /// <para>
-        /// <para>Specify <code>true</code> to reset the policy document to the default policy. The
-        /// default policy allows access to the service.</para>
+        /// <para>(Gateway endpoint) Specify <code>true</code> to reset the policy document to the default
+        /// policy. The default policy allows full access to the service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,10 +196,28 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 context.AddRouteTableIds = new List<System.String>(this.AddRouteTableId);
             }
+            if (this.AddSecurityGroupId != null)
+            {
+                context.AddSecurityGroupIds = new List<System.String>(this.AddSecurityGroupId);
+            }
+            if (this.AddSubnetId != null)
+            {
+                context.AddSubnetIds = new List<System.String>(this.AddSubnetId);
+            }
             context.PolicyDocument = this.PolicyDocument;
+            if (ParameterWasBound("PrivateDnsEnabled"))
+                context.PrivateDnsEnabled = this.PrivateDnsEnabled;
             if (this.RemoveRouteTableId != null)
             {
                 context.RemoveRouteTableIds = new List<System.String>(this.RemoveRouteTableId);
+            }
+            if (this.RemoveSecurityGroupId != null)
+            {
+                context.RemoveSecurityGroupIds = new List<System.String>(this.RemoveSecurityGroupId);
+            }
+            if (this.RemoveSubnetId != null)
+            {
+                context.RemoveSubnetIds = new List<System.String>(this.RemoveSubnetId);
             }
             if (ParameterWasBound("ResetPolicy"))
                 context.ResetPolicy = this.ResetPolicy;
@@ -164,13 +242,33 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AddRouteTableIds = cmdletContext.AddRouteTableIds;
             }
+            if (cmdletContext.AddSecurityGroupIds != null)
+            {
+                request.AddSecurityGroupIds = cmdletContext.AddSecurityGroupIds;
+            }
+            if (cmdletContext.AddSubnetIds != null)
+            {
+                request.AddSubnetIds = cmdletContext.AddSubnetIds;
+            }
             if (cmdletContext.PolicyDocument != null)
             {
                 request.PolicyDocument = cmdletContext.PolicyDocument;
             }
+            if (cmdletContext.PrivateDnsEnabled != null)
+            {
+                request.PrivateDnsEnabled = cmdletContext.PrivateDnsEnabled.Value;
+            }
             if (cmdletContext.RemoveRouteTableIds != null)
             {
                 request.RemoveRouteTableIds = cmdletContext.RemoveRouteTableIds;
+            }
+            if (cmdletContext.RemoveSecurityGroupIds != null)
+            {
+                request.RemoveSecurityGroupIds = cmdletContext.RemoveSecurityGroupIds;
+            }
+            if (cmdletContext.RemoveSubnetIds != null)
+            {
+                request.RemoveSubnetIds = cmdletContext.RemoveSubnetIds;
             }
             if (cmdletContext.ResetPolicy != null)
             {
@@ -247,8 +345,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> AddRouteTableIds { get; set; }
+            public List<System.String> AddSecurityGroupIds { get; set; }
+            public List<System.String> AddSubnetIds { get; set; }
             public System.String PolicyDocument { get; set; }
+            public System.Boolean? PrivateDnsEnabled { get; set; }
             public List<System.String> RemoveRouteTableIds { get; set; }
+            public List<System.String> RemoveSecurityGroupIds { get; set; }
+            public List<System.String> RemoveSubnetIds { get; set; }
             public System.Boolean? ResetPolicy { get; set; }
             public System.String VpcEndpointId { get; set; }
         }

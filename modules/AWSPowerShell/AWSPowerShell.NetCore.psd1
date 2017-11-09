@@ -417,6 +417,7 @@ AliasesToExport = @(
   "Update-ETSPipelineNotifications",
   "Update-R53DDomainNameservers",
   "Update-SGChapCredentials",
+  "Write-AASScalingPolicy",
   "Write-CFGEvaluations",
   "Write-CSDDocuments",
   "Write-CTEventSelectors",

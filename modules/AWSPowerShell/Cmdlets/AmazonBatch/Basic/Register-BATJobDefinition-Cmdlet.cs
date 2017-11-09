@@ -74,7 +74,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
         /// run</a>.</para><important><para>We do not recommend using plain text environment variables for sensitive information,
-        /// such as credential data.</para></important>
+        /// such as credential data.</para></important><note><para>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
+        /// is reserved for variables that are set by the AWS Batch service.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

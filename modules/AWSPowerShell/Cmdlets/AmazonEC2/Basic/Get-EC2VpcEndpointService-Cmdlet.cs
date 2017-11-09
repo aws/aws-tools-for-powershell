@@ -28,18 +28,38 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes all supported AWS services that can be specified when creating a VPC endpoint.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes all supported AWS services that can be specified when creating a VPC endpoint.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpointService")]
-    [OutputType("System.String")]
+    [OutputType("Amazon.EC2.Model.DescribeVpcEndpointServicesResponse")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVpcEndpointServices API operation.", Operation = new[] {"DescribeVpcEndpointServices"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.EC2.Model.DescribeVpcEndpointServicesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [AWSCmdletOutput("Amazon.EC2.Model.DescribeVpcEndpointServicesResponse",
+        "This cmdlet returns a Amazon.EC2.Model.DescribeVpcEndpointServicesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetEC2VpcEndpointServiceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        
+        #region Parameter Filter
+        /// <summary>
+        /// <para>
+        /// <para>One or more filters.</para><ul><li><para><code>service-name</code>: The name of the service.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Filters")]
+        public Amazon.EC2.Model.Filter[] Filter { get; set; }
+        #endregion
+        
+        #region Parameter ServiceName
+        /// <summary>
+        /// <para>
+        /// <para>One or more service names.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ServiceNames")]
+        public System.String[] ServiceName { get; set; }
+        #endregion
         
         #region Parameter MaxResult
         /// <summary>
@@ -50,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -80,9 +100,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Filter != null)
+            {
+                context.Filters = new List<Amazon.EC2.Model.Filter>(this.Filter);
+            }
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            if (this.ServiceName != null)
+            {
+                context.ServiceNames = new List<System.String>(this.ServiceName);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -96,84 +124,48 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            
-            // create request and set iteration invariants
+            // create request
             var request = new Amazon.EC2.Model.DescribeVpcEndpointServicesRequest();
             
-            // Initialize loop variants and commence piping
-            System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (cmdletContext.Filters != null)
             {
-                _nextMarker = cmdletContext.NextToken;
+                request.Filters = cmdletContext.Filters;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            if (cmdletContext.MaxResults != null)
             {
-                _emitLimit = cmdletContext.MaxResults;
+                request.MaxResults = cmdletContext.MaxResults.Value;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
-            bool _continueIteration = true;
+            if (cmdletContext.NextToken != null)
+            {
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.ServiceNames != null)
+            {
+                request.ServiceNames = cmdletContext.ServiceNames;
+            }
             
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
                 {
-                    request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ServiceNames;
-                        notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        int _receivedThisCall = response.ServiceNames.Count;
-                        if (_userControllingPaging)
-                        {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
-                        }
-                        
-                        _nextMarker = response.NextToken;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -215,8 +207,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResults { get; set; }
+            public List<Amazon.EC2.Model.Filter> Filters { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public List<System.String> ServiceNames { get; set; }
         }
         
     }

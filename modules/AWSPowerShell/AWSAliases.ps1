@@ -151,6 +151,8 @@ Set-Alias -Name AG-DeleteModel -Value Remove-AGModel
 Set-Alias -Name Delete-AGRequestValidator -Value Remove-AGRequestValidator
 Set-Alias -Name AG-DeleteRequestValidator -Value Remove-AGRequestValidator
 Set-Alias -Name AAS-DeleteScalingPolicy -Value Remove-AASScalingPolicy
+Set-Alias -Name Delete-AASScheduledAction -Value Remove-AASScheduledAction
+Set-Alias -Name AAS-DeleteScheduledAction -Value Remove-AASScheduledAction
 Set-Alias -Name AAS-DeregisterScalableTarget -Value Remove-AASScalableTarget
 Set-Alias -Name Describe-AASScalableTarget -Value Get-AASScalableTarget
 Set-Alias -Name AAS-DescribeScalableTargets -Value Get-AASScalableTarget
@@ -158,7 +160,10 @@ Set-Alias -Name Describe-AASScalingActivity -Value Get-AASScalingActivity
 Set-Alias -Name AAS-DescribeScalingActivities -Value Get-AASScalingActivity
 Set-Alias -Name Describe-AASScalingPolicy -Value Get-AASScalingPolicy
 Set-Alias -Name AAS-DescribeScalingPolicies -Value Get-AASScalingPolicy
-Set-Alias -Name AAS-PutScalingPolicy -Value Write-AASScalingPolicy
+Set-Alias -Name Describe-AASScheduledAction -Value Get-AASScheduledAction
+Set-Alias -Name AAS-DescribeScheduledActions -Value Get-AASScheduledAction
+Set-Alias -Name AAS-PutScalingPolicy -Value Set-AASScalingPolicy
+Set-Alias -Name AAS-PutScheduledAction -Value Set-AASScheduledAction
 Set-Alias -Name AAS-RegisterScalableTarget -Value Add-AASScalableTarget
 Set-Alias -Name ADS-AssociateConfigurationItemsToApplication -Value Add-ADSConfigurationItemsToApplication
 Set-Alias -Name Create-ADSApplication -Value New-ADSApplication
@@ -2077,6 +2082,8 @@ Set-Alias -Name Modify-ECCacheSubnetGroup -Value Edit-ECCacheSubnetGroup
 Set-Alias -Name EC-ModifyCacheSubnetGroup -Value Edit-ECCacheSubnetGroup
 Set-Alias -Name Modify-ECReplicationGroup -Value Edit-ECReplicationGroup
 Set-Alias -Name EC-ModifyReplicationGroup -Value Edit-ECReplicationGroup
+Set-Alias -Name Modify-ECReplicationGroupShardConfiguration -Value Edit-ECReplicationGroupShardConfiguration
+Set-Alias -Name EC-ModifyReplicationGroupShardConfiguration -Value Edit-ECReplicationGroupShardConfiguration
 Set-Alias -Name Purchase-ECReservedCacheNodesOffering -Value Request-ECReservedCacheNodesOffering
 Set-Alias -Name EC-PurchaseReservedCacheNodesOffering -Value Request-ECReservedCacheNodesOffering
 Set-Alias -Name Reboot-ECCacheCluster -Value Restart-ECCacheCluster

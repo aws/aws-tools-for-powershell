@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
     /// Deletes a cache subnet group.
     /// 
     ///  <note><para>
-    /// You cannot delete a cache subnet group if it is associated with any cache clusters.
+    /// You cannot delete a cache subnet group if it is associated with any clusters.
     /// </para></note>
     /// </summary>
     [Cmdlet("Remove", "ECCacheSubnetGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]

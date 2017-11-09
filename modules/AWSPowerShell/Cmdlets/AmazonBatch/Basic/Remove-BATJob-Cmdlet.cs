@@ -28,7 +28,7 @@ using Amazon.Batch.Model;
 namespace Amazon.PowerShell.Cmdlets.BAT
 {
     /// <summary>
-    /// Terminates jobs in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code>
+    /// Terminates a job in a job queue. Jobs that are in the <code>STARTING</code> or <code>RUNNING</code>
     /// state are terminated, which causes them to transition to <code>FAILED</code>. Jobs
     /// that have not progressed to the <code>STARTING</code> state are cancelled.
     /// </summary>
@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobId
         /// <summary>
         /// <para>
-        /// <para>Job IDs to be terminated. Up to 100 jobs can be specified.</para>
+        /// <para>The AWS Batch job ID of the job to terminate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

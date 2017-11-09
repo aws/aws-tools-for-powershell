@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of cache security group names to authorize for the clusters in this replication
-        /// group. This change is asynchronously applied as soon as possible.</para><para>This parameter can be used only with replication group containing cache clusters running
+        /// group. This change is asynchronously applied as soon as possible.</para><para>This parameter can be used only with replication group containing clusters running
         /// outside of an Amazon Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be <code>Default</code>.</para>
         /// </para>
         /// </summary>
@@ -120,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The upgraded version of the cache engine to be run on the cache clusters in the replication
+        /// <para>The upgraded version of the cache engine to be run on the clusters in the replication
         /// group.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
         /// If you want to use an earlier engine version, you must delete the existing replication
@@ -210,8 +210,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Specifies the VPC Security Groups associated with the cache clusters in the replication
-        /// group.</para><para>This parameter can be used only with replication group containing cache clusters running
+        /// <para>Specifies the VPC Security Groups associated with the clusters in the replication
+        /// group.</para><para>This parameter can be used only with replication group containing clusters running
         /// in an Amazon Virtual Private Cloud (Amazon VPC).</para>
         /// </para>
         /// </summary>
@@ -236,8 +236,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshottingClusterId
         /// <summary>
         /// <para>
-        /// <para>The cache cluster ID that is used as the daily snapshot source for the replication
-        /// group. This parameter cannot be set for Redis (cluster mode enabled) replication groups.</para>
+        /// <para>The cluster ID that is used as the daily snapshot source for the replication group.
+        /// This parameter cannot be set for Redis (cluster mode enabled) replication groups.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

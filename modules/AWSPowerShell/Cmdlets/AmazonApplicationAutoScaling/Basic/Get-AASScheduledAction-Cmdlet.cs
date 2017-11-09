@@ -28,43 +28,32 @@ using Amazon.ApplicationAutoScaling.Model;
 namespace Amazon.PowerShell.Cmdlets.AAS
 {
     /// <summary>
-    /// Describes the scaling policies for the specified service namespace.
+    /// Describes the scheduled actions for the specified service namespace.
     /// 
     ///  
     /// <para>
     /// You can filter the results using the <code>ResourceId</code>, <code>ScalableDimension</code>,
-    /// and <code>PolicyNames</code> parameters.
+    /// and <code>ScheduledActionNames</code> parameters.
     /// </para><para>
-    /// To create a scaling policy or update an existing one, see <a>PutScalingPolicy</a>.
-    /// If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.
+    /// To create a scheduled action or update an existing one, see <a>PutScheduledAction</a>.
+    /// If you are no longer using a scheduled action, you can delete it using <a>DeleteScheduledAction</a>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "AASScalingPolicy")]
-    [OutputType("Amazon.ApplicationAutoScaling.Model.ScalingPolicy")]
-    [AWSCmdlet("Calls the Application Auto Scaling DescribeScalingPolicies API operation.", Operation = new[] {"DescribeScalingPolicies"})]
-    [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.ScalingPolicy",
-        "This cmdlet returns a collection of ScalingPolicy objects.",
-        "The service call response (type Amazon.ApplicationAutoScaling.Model.DescribeScalingPoliciesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+    [Cmdlet("Get", "AASScheduledAction")]
+    [OutputType("Amazon.ApplicationAutoScaling.Model.ScheduledAction")]
+    [AWSCmdlet("Calls the Application Auto Scaling DescribeScheduledActions API operation.", Operation = new[] {"DescribeScheduledActions"})]
+    [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.ScheduledAction",
+        "This cmdlet returns a collection of ScheduledAction objects.",
+        "The service call response (type Amazon.ApplicationAutoScaling.Model.DescribeScheduledActionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
         "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class GetAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
+    public partial class GetAASScheduledActionCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
-        
-        #region Parameter PolicyName
-        /// <summary>
-        /// <para>
-        /// <para>The names of the scaling policies to describe.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("PolicyNames")]
-        public System.String[] PolicyName { get; set; }
-        #endregion
         
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the resource associated with the scaling policy. This string consists
+        /// <para>The identifier of the resource associated with the scheduled action. This string consists
         /// of the resource type and unique identifier. If you specify a scalable dimension, you
         /// must also specify a resource ID.</para><ul><li><para>ECS service - The resource type is <code>service</code> and the unique identifier
         /// is the cluster name and service name. Example: <code>service/default/sample-webapp</code>.</para></li><li><para>Spot fleet request - The resource type is <code>spot-fleet-request</code> and the
@@ -97,6 +86,17 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.ApplicationAutoScaling.ScalableDimension")]
         public Amazon.ApplicationAutoScaling.ScalableDimension ScalableDimension { get; set; }
+        #endregion
+        
+        #region Parameter ScheduledActionName
+        /// <summary>
+        /// <para>
+        /// <para>The names of the scheduled actions to describe.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ScheduledActionNames")]
+        public System.String[] ScheduledActionName { get; set; }
         #endregion
         
         #region Parameter ServiceNamespace
@@ -156,12 +156,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
-            if (this.PolicyName != null)
-            {
-                context.PolicyNames = new List<System.String>(this.PolicyName);
-            }
             context.ResourceId = this.ResourceId;
             context.ScalableDimension = this.ScalableDimension;
+            if (this.ScheduledActionName != null)
+            {
+                context.ScheduledActionNames = new List<System.String>(this.ScheduledActionName);
+            }
             context.ServiceNamespace = this.ServiceNamespace;
             
             // allow further manipulation of loaded context prior to processing
@@ -178,11 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             var cmdletContext = context as CmdletContext;
             
             // create request and set iteration invariants
-            var request = new Amazon.ApplicationAutoScaling.Model.DescribeScalingPoliciesRequest();
-            if (cmdletContext.PolicyNames != null)
-            {
-                request.PolicyNames = cmdletContext.PolicyNames;
-            }
+            var request = new Amazon.ApplicationAutoScaling.Model.DescribeScheduledActionsRequest();
             if (cmdletContext.ResourceId != null)
             {
                 request.ResourceId = cmdletContext.ResourceId;
@@ -190,6 +186,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             if (cmdletContext.ScalableDimension != null)
             {
                 request.ScalableDimension = cmdletContext.ScalableDimension;
+            }
+            if (cmdletContext.ScheduledActionNames != null)
+            {
+                request.ScheduledActionNames = cmdletContext.ScheduledActionNames;
             }
             if (cmdletContext.ServiceNamespace != null)
             {
@@ -229,7 +229,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                         
                         var response = CallAWSServiceOperation(client, request);
                         Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.ScalingPolicies;
+                        object pipelineOutput = response.ScheduledActions;
                         notes = new Dictionary<string, object>();
                         notes["NextToken"] = response.NextToken;
                         output = new CmdletOutput
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
                             ServiceResponse = response,
                             Notes = notes
                         };
-                        int _receivedThisCall = response.ScalingPolicies.Count;
+                        int _receivedThisCall = response.ScheduledActions.Count;
                         if (_userControllingPaging)
                         {
                             WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
@@ -281,16 +281,16 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         
         #region AWS Service Operation Call
         
-        private Amazon.ApplicationAutoScaling.Model.DescribeScalingPoliciesResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DescribeScalingPoliciesRequest request)
+        private Amazon.ApplicationAutoScaling.Model.DescribeScheduledActionsResponse CallAWSServiceOperation(IAmazonApplicationAutoScaling client, Amazon.ApplicationAutoScaling.Model.DescribeScheduledActionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Auto Scaling", "DescribeScalingPolicies");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Application Auto Scaling", "DescribeScheduledActions");
             try
             {
                 #if DESKTOP
-                return client.DescribeScalingPolicies(request);
+                return client.DescribeScheduledActions(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeScalingPoliciesAsync(request);
+                var task = client.DescribeScheduledActionsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -313,9 +313,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         {
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
-            public List<System.String> PolicyNames { get; set; }
             public System.String ResourceId { get; set; }
             public Amazon.ApplicationAutoScaling.ScalableDimension ScalableDimension { get; set; }
+            public List<System.String> ScheduledActionNames { get; set; }
             public Amazon.ApplicationAutoScaling.ServiceNamespace ServiceNamespace { get; set; }
         }
         

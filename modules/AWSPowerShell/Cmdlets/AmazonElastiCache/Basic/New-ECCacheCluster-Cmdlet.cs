@@ -28,8 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Creates a cache cluster. All nodes in the cache cluster run the same protocol-compliant
-    /// cache engine software, either Memcached or Redis.
+    /// Creates a cluster. All nodes in the cluster run the same protocol-compliant cache
+    /// engine software, either Memcached or Redis.
     /// 
     ///  <important><para>
     /// Due to current limitations on Redis (cluster mode disabled), this operation or parameter
@@ -49,7 +49,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AuthToken
         /// <summary>
         /// <para>
-        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
+        /// <para><b>Reserved parameter.</b> The password used to access a password protected server.</para><para>This parameter is valid only if:</para><ul><li><para>The parameter <code>TransitEncryptionEnabled</code> was set to <code>true</code> when
+        /// the cluster was created.</para></li><li><para>The line <code>requirepass</code> was added to the database configuration file.</para></li></ul><para>Password constraints:</para><ul><li><para>Must be only printable ASCII characters.</para></li><li><para>Must be at least 16 characters and no more than 128 characters in length.</para></li><li><para>Cannot contain any of the following characters: '/', '"', or '@'. </para></li></ul><para>For more information, see <a href="http://redis.io/commands/AUTH">AUTH password</a>
         /// at http://redis.io/commands/AUTH.</para>
         /// </para>
         /// </summary>
@@ -71,7 +72,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>Specifies whether the nodes in this Memcached cluster are created in a single Availability
-        /// Zone or created across multiple Availability Zones in the cluster's region.</para><para>This parameter is only supported for Memcached cache clusters.</para><para>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
+        /// Zone or created across multiple Availability Zones in the cluster's region.</para><para>This parameter is only supported for Memcached clusters.</para><para>If the <code>AZMode</code> and <code>PreferredAvailabilityZones</code> are not specified,
         /// ElastiCache assumes <code>single-az</code> mode.</para>
         /// </para>
         /// </summary>
@@ -101,8 +102,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <code>cache.m1.large</code>, <code>cache.m1.xlarge</code></para></li></ul></li><li><para>Compute optimized:</para><ul><li><para>Previous generation: (not recommended)</para><para><b>C1 node types:</b><code>cache.c1.xlarge</code></para></li></ul></li><li><para>Memory optimized:</para><ul><li><para>Current generation: </para><para><b>R3 node types:</b><code>cache.r3.large</code>, <code>cache.r3.xlarge</code>,
         /// <code>cache.r3.2xlarge</code>, <code>cache.r3.4xlarge</code>, <code>cache.r3.8xlarge</code></para></li><li><para>Previous generation: (not recommended)</para><para><b>M2 node types:</b><code>cache.m2.xlarge</code>, <code>cache.m2.2xlarge</code>,
         /// <code>cache.m2.4xlarge</code></para></li></ul></li></ul><para><b>Notes:</b></para><ul><li><para>All T2 instances are created in an Amazon Virtual Private Cloud (Amazon VPC).</para></li><li><para>Redis (cluster mode disabled): Redis backup/restore is not supported on T1 and T2
-        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>Supported node types are available in all regions except as noted in the following
-        /// table.</para><para>For a complete listing of node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
+        /// instances. </para></li><li><para>Redis (cluster mode enabled): Backup/restore is not supported on T1 instances.</para></li><li><para>Redis Append-only files (AOF) functionality is not supported for T1 or T2 instances.</para></li></ul><para>For a complete listing of node types and specifications, see <a href="http://aws.amazon.com/elasticache/details">Amazon
         /// ElastiCache Product Features and Details</a> and either <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#ParameterGroups.Memcached.NodeSpecific">Cache
         /// Node Type-Specific Parameters for Memcached</a> or <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#ParameterGroups.Redis.NodeSpecific">Cache
         /// Node Type-Specific Parameters for Redis</a>.</para>
@@ -115,8 +115,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter group to associate with this cache cluster. If this argument
-        /// is omitted, the default parameter group for the specified engine is used. You cannot
+        /// <para>The name of the parameter group to associate with this cluster. If this argument is
+        /// omitted, the default parameter group for the specified engine is used. You cannot
         /// use any parameter group which has <code>cluster-enabled='yes'</code> when creating
         /// a cluster.</para>
         /// </para>
@@ -128,8 +128,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>A list of security group names to associate with this cache cluster.</para><para>Use this parameter only when you are creating a cache cluster outside of an Amazon
-        /// Virtual Private Cloud (Amazon VPC).</para>
+        /// <para>A list of security group names to associate with this cluster.</para><para>Use this parameter only when you are creating a cluster outside of an Amazon Virtual
+        /// Private Cloud (Amazon VPC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -140,8 +140,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSubnetGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the subnet group to be used for the cache cluster.</para><para>Use this parameter only when you are creating a cache cluster in an Amazon Virtual
-        /// Private Cloud (Amazon VPC).</para><important><para>If you're going to launch your cluster in an Amazon VPC, you need to create a subnet
+        /// <para>The name of the subnet group to be used for the cluster.</para><para>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
+        /// Cloud (Amazon VPC).</para><important><para>If you're going to launch your cluster in an Amazon VPC, you need to create a subnet
         /// group before you start creating a cluster. For more information, see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SubnetGroups.html">Subnets
         /// and Subnet Groups</a>.</para></important>
         /// </para>
@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the cache engine to be used for this cache cluster.</para><para>Valid values for this parameter are: <code>memcached</code> | <code>redis</code></para>
+        /// <para>The name of the cache engine to be used for this cluster.</para><para>Valid values for this parameter are: <code>memcached</code> | <code>redis</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -163,10 +163,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para>The version number of the cache engine to be used for this cache cluster. To view
-        /// the supported cache engine versions, use the DescribeCacheEngineVersions operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
+        /// <para>The version number of the cache engine to be used for this cluster. To view the supported
+        /// cache engine versions, use the DescribeCacheEngineVersions operation.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
-        /// If you want to use an earlier engine version, you must delete the existing cache cluster
+        /// If you want to use an earlier engine version, you must delete the existing cluster
         /// or replication group and create it anew with the earlier engine version. </para>
         /// </para>
         /// </summary>
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) topic
-        /// to which notifications are sent.</para><note><para>The Amazon SNS topic owner must be the same as the cache cluster owner.</para></note>
+        /// to which notifications are sent.</para><note><para>The Amazon SNS topic owner must be the same as the cluster owner.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -188,7 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumCacheNode
         /// <summary>
         /// <para>
-        /// <para>The initial number of cache nodes that the cache cluster has.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
+        /// <para>The initial number of cache nodes that the cluster has.</para><para>For clusters running Redis, this value must be 1. For clusters running Memcached,
         /// this value must be between 1 and 20.</para><para>If you need more than 20 nodes for your Memcached cluster, please fill out the ElastiCache
         /// Limit Increase Request form at <a href="http://aws.amazon.com/contact-us/elasticache-node-limit-request/">http://aws.amazon.com/contact-us/elasticache-node-limit-request/</a>.</para>
         /// </para>
@@ -211,7 +211,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredAvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The EC2 Availability Zone in which the cache cluster is created.</para><para>All nodes belonging to this Memcached cache cluster are placed in the preferred Availability
+        /// <para>The EC2 Availability Zone in which the cluster is created.</para><para>All nodes belonging to this Memcached cluster are placed in the preferred Availability
         /// Zone. If you want to create your nodes across multiple Availability Zones, use <code>PreferredAvailabilityZones</code>.</para><para>Default: System chosen Availability Zone.</para>
         /// </para>
         /// </summary>
@@ -223,9 +223,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>A list of the Availability Zones in which cache nodes are created. The order of the
-        /// zones in the list is not important.</para><para>This option is only supported on Memcached.</para><note><para>If you are creating your cache cluster in an Amazon VPC (recommended) you can only
-        /// locate nodes in Availability Zones that are associated with the subnets in the selected
-        /// subnet group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheNodes</code>.</para></note><para>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code>
+        /// zones in the list is not important.</para><para>This option is only supported on Memcached.</para><note><para>If you are creating your cluster in an Amazon VPC (recommended) you can only locate
+        /// nodes in Availability Zones that are associated with the subnets in the selected subnet
+        /// group.</para><para>The number of Availability Zones listed must equal the value of <code>NumCacheNodes</code>.</para></note><para>If you want all the nodes in the same Availability Zone, use <code>PreferredAvailabilityZone</code>
         /// instead, or repeat the Availability Zone multiple times in the list.</para><para>Default: System chosen Availability Zones.</para>
         /// </para>
         /// </summary>
@@ -237,7 +237,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para>Specifies the weekly time range during which maintenance on the cache cluster is performed.
+        /// <para>Specifies the weekly time range during which maintenance on the cluster is performed.
         /// It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC).
         /// The minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
         /// are:</para><para>Specifies the weekly time range during which maintenance on the cluster is performed.
@@ -253,12 +253,12 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <important><para>Due to current limitations on Redis (cluster mode disabled), this operation or parameter
-        /// is not supported on Redis (cluster mode enabled) replication groups.</para></important><para>The ID of the replication group to which this cache cluster should belong. If this
-        /// parameter is specified, the cache cluster is added to the specified replication group
-        /// as a read replica; otherwise, the cache cluster is a standalone primary that is not
-        /// part of any replication group.</para><para>If the specified replication group is Multi-AZ enabled and the Availability Zone is
-        /// not specified, the cache cluster is created in Availability Zones that provide the
-        /// best spread of read replicas across Availability Zones.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
+        /// is not supported on Redis (cluster mode enabled) replication groups.</para></important><para>The ID of the replication group to which this cluster should belong. If this parameter
+        /// is specified, the cluster is added to the specified replication group as a read replica;
+        /// otherwise, the cluster is a standalone primary that is not part of any replication
+        /// group.</para><para>If the specified replication group is Multi-AZ enabled and the Availability Zone is
+        /// not specified, the cluster is created in Availability Zones that provide the best
+        /// spread of read replicas across Availability Zones.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -268,8 +268,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>One or more VPC security groups associated with the cache cluster.</para><para>Use this parameter only when you are creating a cache cluster in an Amazon Virtual
-        /// Private Cloud (Amazon VPC).</para>
+        /// <para>One or more VPC security groups associated with the cluster.</para><para>Use this parameter only when you are creating a cluster in an Amazon Virtual Private
+        /// Cloud (Amazon VPC).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -308,7 +308,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The number of days for which ElastiCache retains automatic snapshots before deleting
         /// them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a snapshot
-        /// taken today is retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cache cluster).</para>
+        /// taken today is retained for 5 days before being deleted.</para><note><para>This parameter is only valid if the <code>Engine</code> parameter is <code>redis</code>.</para></note><para>Default: 0 (i.e., automatic backups are disabled for this cluster).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -44,13 +44,13 @@ namespace Amazon.PowerShell.Cmdlets.AAS
     /// If you are no longer using a scaling policy, you can delete it using <a>DeleteScalingPolicy</a>.
     /// </para>
     /// </summary>
-    [Cmdlet("Write", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Set", "AASScalingPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse")]
-    [AWSCmdlet("Calls the Application Auto Scaling PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"})]
+    [AWSCmdlet("Calls the Application Auto Scaling PutScalingPolicy API operation.", Operation = new[] {"PutScalingPolicy"}, LegacyAlias="Write-AASScalingPolicy")]
     [AWSCmdletOutput("Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse",
         "This cmdlet returns a Amazon.ApplicationAutoScaling.Model.PutScalingPolicyResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class WriteAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
+    public partial class SetAASScalingPolicyCmdlet : AmazonApplicationAutoScalingClientCmdlet, IExecutor
     {
         
         #region Parameter StepScalingPolicyConfiguration_AdjustmentType
@@ -342,7 +342,7 @@ namespace Amazon.PowerShell.Cmdlets.AAS
             base.ProcessRecord();
             
             var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("PolicyName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Write-AASScalingPolicy (PutScalingPolicy)"))
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Set-AASScalingPolicy (PutScalingPolicy)"))
             {
                 return;
             }

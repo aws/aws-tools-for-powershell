@@ -28,9 +28,8 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Modifies the settings for a cache cluster. You can use this operation to change one
-    /// or more cluster configuration parameters by specifying the parameters and the new
-    /// values.
+    /// Modifies the settings for a cluster. You can use this operation to change one or more
+    /// cluster configuration parameters by specifying the parameters and the new values.
     /// </summary>
     [Cmdlet("Edit", "ECCacheCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ElastiCache.Model.CacheCluster")]
@@ -47,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>If <code>true</code>, this parameter causes the modifications in this request and
         /// any pending modifications to be applied, asynchronously and as soon as possible, regardless
-        /// of the <code>PreferredMaintenanceWindow</code> setting for the cache cluster.</para><para>If <code>false</code>, changes to the cache cluster are applied on the next maintenance
+        /// of the <code>PreferredMaintenanceWindow</code> setting for the cluster.</para><para>If <code>false</code>, changes to the cluster are applied on the next maintenance
         /// reboot, or the next failure reboot, whichever occurs first.</para><important><para>If you perform a <code>ModifyCacheCluster</code> before a pending modification is
         /// applied, the pending modification is replaced by the newer modification.</para></important><para>Valid values: <code>true</code> | <code>false</code></para><para>Default: <code>false</code></para>
         /// </para>
@@ -69,10 +68,10 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter AZMode
         /// <summary>
         /// <para>
-        /// <para>Specifies whether the new nodes in this Memcached cache cluster are all created in
-        /// a single Availability Zone or created across multiple Availability Zones.</para><para>Valid values: <code>single-az</code> | <code>cross-az</code>.</para><para>This option is only supported for Memcached cache clusters.</para><note><para>You cannot specify <code>single-az</code> if the Memcached cache cluster already has
-        /// cache nodes in different Availability Zones. If <code>cross-az</code> is specified,
-        /// existing Memcached nodes remain in their current Availability Zone.</para><para>Only newly created nodes are located in different Availability Zones. For instructions
+        /// <para>Specifies whether the new nodes in this Memcached cluster are all created in a single
+        /// Availability Zone or created across multiple Availability Zones.</para><para>Valid values: <code>single-az</code> | <code>cross-az</code>.</para><para>This option is only supported for Memcached clusters.</para><note><para>You cannot specify <code>single-az</code> if the Memcached cluster already has cache
+        /// nodes in different Availability Zones. If <code>cross-az</code> is specified, existing
+        /// Memcached nodes remain in their current Availability Zone.</para><para>Only newly created nodes are located in different Availability Zones. For instructions
         /// on how to move existing Memcached nodes to different Availability Zones, see the <b>Availability
         /// Zone Considerations</b> section of <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheNode.Memcached.html">Cache
         /// Node Considerations for Memcached</a>.</para></note>
@@ -86,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The cache cluster identifier. This value is stored as a lowercase string.</para>
+        /// <para>The cluster identifier. This value is stored as a lowercase string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -113,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheNodeType
         /// <summary>
         /// <para>
-        /// <para>A valid cache node type that you want to scale this cache cluster up to.</para>
+        /// <para>A valid cache node type that you want to scale this cluster up to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -123,8 +122,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the cache parameter group to apply to this cache cluster. This change
-        /// is asynchronously applied as soon as possible for parameters when the <code>ApplyImmediately</code>
+        /// <para>The name of the cache parameter group to apply to this cluster. This change is asynchronously
+        /// applied as soon as possible for parameters when the <code>ApplyImmediately</code>
         /// parameter is specified as <code>true</code> for this request.</para>
         /// </para>
         /// </summary>
@@ -135,8 +134,8 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheSecurityGroupName
         /// <summary>
         /// <para>
-        /// <para>A list of cache security group names to authorize on this cache cluster. This change
-        /// is asynchronously applied as soon as possible.</para><para>You can use this parameter only with clusters that are created outside of an Amazon
+        /// <para>A list of cache security group names to authorize on this cluster. This change is
+        /// asynchronously applied as soon as possible.</para><para>You can use this parameter only with clusters that are created outside of an Amazon
         /// Virtual Private Cloud (Amazon VPC).</para><para>Constraints: Must contain no more than 255 alphanumeric characters. Must not be "Default".</para>
         /// </para>
         /// </summary>
@@ -150,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <para>
         /// <para>The upgraded version of the cache engine to be run on the cache nodes.</para><para><b>Important:</b> You can upgrade to a newer engine version (see <a href="http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/SelectEngine.html#VersionManagement">Selecting
         /// a Cache Engine and Version</a>), but you cannot downgrade to an earlier engine version.
-        /// If you want to use an earlier engine version, you must delete the existing cache cluster
+        /// If you want to use an earlier engine version, you must delete the existing cluster
         /// and create it anew with the earlier engine version. </para>
         /// </para>
         /// </summary>
@@ -188,7 +187,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The Amazon Resource Name (ARN) of the Amazon SNS topic to which notifications are
-        /// sent.</para><note><para>The Amazon SNS topic owner must be same as the cache cluster owner.</para></note>
+        /// sent.</para><note><para>The Amazon SNS topic owner must be same as the cluster owner.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -209,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter NumCacheNode
         /// <summary>
         /// <para>
-        /// <para>The number of cache nodes that the cache cluster should have. If the value for <code>NumCacheNodes</code>
+        /// <para>The number of cache nodes that the cluster should have. If the value for <code>NumCacheNodes</code>
         /// is greater than the sum of the number of current cache nodes and the number of cache
         /// nodes pending creation (which may be zero), more nodes are added. If the value is
         /// less than the number of existing cache nodes, nodes are removed. If the value is equal
@@ -229,7 +228,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// or explicitly cancel the pending request and retry the new request. To cancel pending
         /// operations to modify the number of cache nodes in a cluster, use the <code>ModifyCacheCluster</code>
         /// request and set <code>NumCacheNodes</code> equal to the number of cache nodes currently
-        /// in the cache cluster.</para></note>
+        /// in the cluster.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -252,7 +251,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>Specifies the VPC Security Groups associated with the cache cluster.</para><para>This parameter can be used only with clusters that are created in an Amazon Virtual
+        /// <para>Specifies the VPC Security Groups associated with the cluster.</para><para>This parameter can be used only with clusters that are created in an Amazon Virtual
         /// Private Cloud (Amazon VPC).</para>
         /// </para>
         /// </summary>
@@ -264,9 +263,9 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter SnapshotRetentionLimit
         /// <summary>
         /// <para>
-        /// <para>The number of days for which ElastiCache retains automatic cache cluster snapshots
-        /// before deleting them. For example, if you set <code>SnapshotRetentionLimit</code>
-        /// to 5, a snapshot that was taken today is retained for 5 days before being deleted.</para><note><para>If the value of <code>SnapshotRetentionLimit</code> is set to zero (0), backups are
+        /// <para>The number of days for which ElastiCache retains automatic cluster snapshots before
+        /// deleting them. For example, if you set <code>SnapshotRetentionLimit</code> to 5, a
+        /// snapshot that was taken today is retained for 5 days before being deleted.</para><note><para>If the value of <code>SnapshotRetentionLimit</code> is set to zero (0), backups are
         /// turned off.</para></note>
         /// </para>
         /// </summary>
@@ -278,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         /// <summary>
         /// <para>
         /// <para>The daily time range (in UTC) during which ElastiCache begins taking a daily snapshot
-        /// of your cache cluster. </para>
+        /// of your cluster. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

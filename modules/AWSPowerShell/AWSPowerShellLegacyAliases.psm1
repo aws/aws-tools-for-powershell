@@ -188,6 +188,9 @@ Set-Alias -Name Get-WKSWorkspaceBundles -Value Get-WKSWorkspaceBundle
 Set-Alias -Name Get-WKSWorkspaceDirectories -Value Get-WKSWorkspaceDirectory
 Set-Alias -Name Get-WKSWorkspaces -Value Get-WKSWorkspace
 
+# Application Auto Scaling
+Set-Alias -Name Write-AASScalingPolicy -Value Set-AASScalingPolicy
+
 # Application Discovery Service
 Set-Alias -Name Remove-ADSApplications -Value Remove-ADSApplication
 

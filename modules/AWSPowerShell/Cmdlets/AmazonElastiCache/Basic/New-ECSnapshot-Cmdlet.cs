@@ -28,8 +28,7 @@ using Amazon.ElastiCache.Model;
 namespace Amazon.PowerShell.Cmdlets.EC
 {
     /// <summary>
-    /// Creates a copy of an entire cache cluster or replication group at a specific moment
-    /// in time.
+    /// Creates a copy of an entire cluster or replication group at a specific moment in time.
     /// 
     ///  <note><para>
     /// This operation is valid for Redis only.
@@ -48,8 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EC
         #region Parameter CacheClusterId
         /// <summary>
         /// <para>
-        /// <para>The identifier of an existing cache cluster. The snapshot is created from this cache
-        /// cluster.</para>
+        /// <para>The identifier of an existing cluster. The snapshot is created from this cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
