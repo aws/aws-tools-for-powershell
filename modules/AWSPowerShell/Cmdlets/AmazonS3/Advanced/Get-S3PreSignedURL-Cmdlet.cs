@@ -231,7 +231,16 @@ namespace Amazon.PowerShell.Cmdlets.S3
         public SwitchParameter UseDualstackEndpoint { get; set; }
         
         #endregion
-        
+
+        #region Parameter RequestorPay
+        /// <summary>
+        /// Confirms that the requester knows that they will be charged for the request.
+        /// Bucket owners do not need to specify this parameter.
+        /// </summary>
+        [Parameter]
+        public SwitchParameter RequestorPay { get; set; }
+        #endregion
+
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -261,6 +270,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             context.ResponseHeaderOverrides_CacheControl = this.ResponseHeaderOverrides_CacheControl;
             context.ResponseHeaderOverrides_ContentDisposition = this.ResponseHeaderOverrides_ContentDisposition;
             context.ResponseHeaderOverrides_ContentEncoding = this.ResponseHeaderOverrides_ContentEncoding;
+            context.RequestorPays = this.RequestorPay;
             
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
@@ -383,6 +393,10 @@ namespace Amazon.PowerShell.Cmdlets.S3
             {
                 request.ResponseHeaderOverrides = null;
             }
+            if (cmdletContext.RequestorPays)
+            {
+                request.RequestPayer = RequestPayer.Requester;
+            }
             
             CmdletOutput output;
             
@@ -442,6 +456,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public System.String ResponseHeaderOverrides_CacheControl { get; set; }
             public System.String ResponseHeaderOverrides_ContentDisposition { get; set; }
             public System.String ResponseHeaderOverrides_ContentEncoding { get; set; }
+            public bool RequestorPays { get; set; }
         }
         
     }
