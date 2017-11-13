@@ -70,6 +70,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.AllocationStrategy SpotFleetRequestConfig_AllocationStrategy { get; set; }
         #endregion
         
+        #region Parameter ClassicLoadBalancersConfig_ClassicLoadBalancer
+        /// <summary>
+        /// <para>
+        /// <para>One or more Classic Load Balancers.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers")]
+        public Amazon.EC2.Model.ClassicLoadBalancer[] ClassicLoadBalancersConfig_ClassicLoadBalancer { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ClientToken
         /// <summary>
         /// <para>
@@ -171,6 +182,17 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public System.Int32 SpotFleetRequestConfig_TargetCapacity { get; set; }
         #endregion
         
+        #region Parameter TargetGroupsConfig_TargetGroup
+        /// <summary>
+        /// <para>
+        /// <para>One or more target groups.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups")]
+        public Amazon.EC2.Model.TargetGroup[] TargetGroupsConfig_TargetGroup { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_TerminateInstancesWithExpiration
         /// <summary>
         /// <para>
@@ -262,6 +284,14 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
                 context.SpotFleetRequestConfig_LaunchSpecifications = new List<Amazon.EC2.Model.SpotFleetLaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
+            }
+            if (this.ClassicLoadBalancersConfig_ClassicLoadBalancer != null)
+            {
+                context.SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers = new List<Amazon.EC2.Model.ClassicLoadBalancer>(this.ClassicLoadBalancersConfig_ClassicLoadBalancer);
+            }
+            if (this.TargetGroupsConfig_TargetGroup != null)
+            {
+                context.SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups = new List<Amazon.EC2.Model.TargetGroup>(this.TargetGroupsConfig_TargetGroup);
             }
             if (ParameterWasBound("SpotFleetRequestConfig_ReplaceUnhealthyInstance"))
                 context.SpotFleetRequestConfig_ReplaceUnhealthyInstances = this.SpotFleetRequestConfig_ReplaceUnhealthyInstance;
@@ -435,6 +465,71 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 request.SpotFleetRequestConfig.ValidUntil = requestSpotFleetRequestConfig_spotFleetRequestConfig_ValidUntil.Value;
                 requestSpotFleetRequestConfigIsNull = false;
             }
+            Amazon.EC2.Model.LoadBalancersConfig requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig = null;
+            
+             // populate LoadBalancersConfig
+            bool requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfigIsNull = true;
+            requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig = new Amazon.EC2.Model.LoadBalancersConfig();
+            Amazon.EC2.Model.ClassicLoadBalancersConfig requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig = null;
+            
+             // populate ClassicLoadBalancersConfig
+            bool requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfigIsNull = true;
+            requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig = new Amazon.EC2.Model.ClassicLoadBalancersConfig();
+            List<Amazon.EC2.Model.ClassicLoadBalancer> requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_classicLoadBalancersConfig_ClassicLoadBalancer = null;
+            if (cmdletContext.SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_classicLoadBalancersConfig_ClassicLoadBalancer = cmdletContext.SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_classicLoadBalancersConfig_ClassicLoadBalancer != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig.ClassicLoadBalancers = requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_classicLoadBalancersConfig_ClassicLoadBalancer;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfigIsNull = false;
+            }
+             // determine if requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig should be set to null
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfigIsNull)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig = null;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig.ClassicLoadBalancersConfig = requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfigIsNull = false;
+            }
+            Amazon.EC2.Model.TargetGroupsConfig requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig = null;
+            
+             // populate TargetGroupsConfig
+            bool requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfigIsNull = true;
+            requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig = new Amazon.EC2.Model.TargetGroupsConfig();
+            List<Amazon.EC2.Model.TargetGroup> requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_targetGroupsConfig_TargetGroup = null;
+            if (cmdletContext.SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_targetGroupsConfig_TargetGroup = cmdletContext.SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_targetGroupsConfig_TargetGroup != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig.TargetGroups = requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_targetGroupsConfig_TargetGroup;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfigIsNull = false;
+            }
+             // determine if requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig should be set to null
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfigIsNull)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig = null;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig.TargetGroupsConfig = requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig_spotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig;
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfigIsNull = false;
+            }
+             // determine if requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig should be set to null
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfigIsNull)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig = null;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig != null)
+            {
+                request.SpotFleetRequestConfig.LoadBalancersConfig = requestSpotFleetRequestConfig_spotFleetRequestConfig_LoadBalancersConfig;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
              // determine if request.SpotFleetRequestConfig should be set to null
             if (requestSpotFleetRequestConfigIsNull)
             {
@@ -511,6 +606,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public Amazon.EC2.InstanceInterruptionBehavior SpotFleetRequestConfig_InstanceInterruptionBehavior { get; set; }
             public List<Amazon.EC2.Model.SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
+            public List<Amazon.EC2.Model.ClassicLoadBalancer> SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers { get; set; }
+            public List<Amazon.EC2.Model.TargetGroup> SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstances { get; set; }
             public System.String SpotFleetRequestConfig_SpotPrice { get; set; }
             public System.Int32? SpotFleetRequestConfig_TargetCapacity { get; set; }

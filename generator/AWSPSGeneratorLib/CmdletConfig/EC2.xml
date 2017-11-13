@@ -50,6 +50,7 @@
         <!-- maintain compat with v1 sdk name -->
       </Params>
     </ServiceOperation>
+    <ServiceOperation MethodName="CreateDefaultSubnet" />
     <ServiceOperation MethodName="CreateDhcpOptions" />
     <ServiceOperation MethodName="CreateFpgaImage" NoPipelineParameter="true" Output="Response"/>
     <ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName" Noun="FlowLog" LegacyAlias="New-EC2FlowLogs" />

@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>attachment.attach-time</code> - The time stamp when the attachment initiated.</para></li><li><para><code>attachment.delete-on-termination</code> - Whether the volume is deleted on
-        /// instance termination.</para></li><li><para><code>attachment.device</code> - The device name that is exposed to the instance
+        /// instance termination.</para></li><li><para><code>attachment.device</code> - The device name specified in the block device mapping
         /// (for example, <code>/dev/sda1</code>).</para></li><li><para><code>attachment.instance-id</code> - The ID of the instance the volume is attached
         /// to.</para></li><li><para><code>attachment.status</code> - The attachment state (<code>attaching</code> | <code>attached</code>
         /// | <code>detaching</code> | <code>detached</code>).</para></li><li><para><code>availability-zone</code> - The Availability Zone in which the volume was created.</para></li><li><para><code>create-time</code> - The time stamp when the volume was created.</para></li><li><para><code>encrypted</code> - The encryption status of the volume.</para></li><li><para><code>size</code> - The size of the volume, in GiB.</para></li><li><para><code>snapshot-id</code> - The snapshot from which the volume was created.</para></li><li><para><code>status</code> - The status of the volume (<code>creating</code> | <code>available</code>

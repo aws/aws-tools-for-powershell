@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code>).</para></li><li><para><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-        /// whether the Amazon EBS volume is deleted on instance termination.</para></li><li><para><code>block-device-mapping.device-name</code> - The device name for the EBS volume
-        /// (for example, <code>/dev/sdh</code>).</para></li><li><para><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the
+        /// whether the Amazon EBS volume is deleted on instance termination.</para></li><li><para><code>block-device-mapping.device-name</code> - The device name specified in the
+        /// block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the
         /// EBS volume.</para></li><li><para><code>block-device-mapping.volume-size</code> - The volume size of the EBS volume,
         /// in GiB.</para></li><li><para><code>block-device-mapping.volume-type</code> - The volume type of the EBS volume
         /// (<code>gp2</code> | <code>io1</code> | <code>st1 </code>| <code>sc1</code> | <code>standard</code>).</para></li><li><para><code>description</code> - The description of the image (provided during image creation).</para></li><li><para><code>ena-support</code> - A Boolean that indicates whether enhanced networking with
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// | <code>aws-marketplace</code> | <code>microsoft</code>) of snapshot owners. Not to
         /// be confused with the user-configured AWS account alias, which is set from the IAM
         /// console.</para></li><li><para><code>owner-id</code> - The AWS account ID of the image owner.</para></li><li><para><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</para></li><li><para><code>product-code</code> - The product code.</para></li><li><para><code>product-code.type</code> - The type of the product code (<code>devpay</code>
-        /// | <code>marketplace</code>).</para></li><li><para><code>ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>root-device-name</code> - The name of the root device volume (for example,
+        /// | <code>marketplace</code>).</para></li><li><para><code>ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>root-device-name</code> - The device name of the root device volume (for example,
         /// <code>/dev/sda1</code>).</para></li><li><para><code>root-device-type</code> - The type of the root device volume (<code>ebs</code>
         /// | <code>instance-store</code>).</para></li><li><para><code>state</code> - The state of the image (<code>available</code> | <code>pending</code>
         /// | <code>failed</code>).</para></li><li><para><code>state-reason-code</code> - The reason code for the state change.</para></li><li><para><code>state-reason-message</code> - The message for the state change.</para></li><li><para><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced

@@ -61,13 +61,13 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>One or more filters.</para><ul><li><para><code>availability-zone-group</code> - The Availability Zone group.</para></li><li><para><code>create-time</code> - The time stamp when the Spot instance request was created.</para></li><li><para><code>fault-code</code> - The fault code related to the request.</para></li><li><para><code>fault-message</code> - The fault message related to the request.</para></li><li><para><code>instance-id</code> - The ID of the instance that fulfilled the request.</para></li><li><para><code>launch-group</code> - The Spot instance launch group.</para></li><li><para><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether
-        /// the Amazon EBS volume is deleted on instance termination.</para></li><li><para><code>launch.block-device-mapping.device-name</code> - The device name for the Amazon
-        /// EBS volume (for example, <code>/dev/sdh</code>).</para></li><li><para><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot used
-        /// for the Amazon EBS volume.</para></li><li><para><code>launch.block-device-mapping.volume-size</code> - The size of the Amazon EBS
-        /// volume, in GiB.</para></li><li><para><code>launch.block-device-mapping.volume-type</code> - The type of the Amazon EBS
-        /// volume: <code>gp2</code> for General Purpose SSD, <code>io1</code> for Provisioned
-        /// IOPS SSD, <code>st1</code> for Throughput Optimized HDD, <code>sc1</code>for Cold
-        /// HDD, or <code>standard</code> for Magnetic.</para></li><li><para><code>launch.group-id</code> - The security group for the instance.</para></li><li><para><code>launch.image-id</code> - The ID of the AMI.</para></li><li><para><code>launch.instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>launch.kernel-id</code> - The kernel ID.</para></li><li><para><code>launch.key-name</code> - The name of the key pair the instance launched with.</para></li><li><para><code>launch.monitoring-enabled</code> - Whether detailed monitoring is enabled for
+        /// the EBS volume is deleted on instance termination.</para></li><li><para><code>launch.block-device-mapping.device-name</code> - The device name for the volume
+        /// in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot for
+        /// the EBS volume.</para></li><li><para><code>launch.block-device-mapping.volume-size</code> - The size of the EBS volume,
+        /// in GiB.</para></li><li><para><code>launch.block-device-mapping.volume-type</code> - The type of EBS volume: <code>gp2</code>
+        /// for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code>
+        /// for Throughput Optimized HDD, <code>sc1</code>for Cold HDD, or <code>standard</code>
+        /// for Magnetic.</para></li><li><para><code>launch.group-id</code> - The security group for the instance.</para></li><li><para><code>launch.image-id</code> - The ID of the AMI.</para></li><li><para><code>launch.instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>launch.kernel-id</code> - The kernel ID.</para></li><li><para><code>launch.key-name</code> - The name of the key pair the instance launched with.</para></li><li><para><code>launch.monitoring-enabled</code> - Whether detailed monitoring is enabled for
         /// the Spot instance.</para></li><li><para><code>launch.ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>launched-availability-zone</code> - The Availability Zone in which the bid
         /// is launched.</para></li><li><para><code>network-interface.addresses.primary</code> - Indicates whether the IP address
         /// is the primary private IP address.</para></li><li><para><code>network-interface.delete-on-termination</code> - Indicates whether the network

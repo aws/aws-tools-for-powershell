@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Device
         /// <summary>
         /// <para>
-        /// <para>The device name to expose to the instance (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para>
+        /// <para>The device name (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 3)]

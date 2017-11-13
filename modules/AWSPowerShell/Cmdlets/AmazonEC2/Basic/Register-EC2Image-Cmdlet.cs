@@ -169,7 +169,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter RootDeviceName
         /// <summary>
         /// <para>
-        /// <para>The name of the root device (for example, <code>/dev/sda1</code>, or <code>/dev/xvda</code>).</para>
+        /// <para>The device name of the root device volume (for example, <code>/dev/sda1</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
