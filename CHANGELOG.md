@@ -1,3 +1,10 @@
+### 3.3.189.1 (2017-11-13)
+  * Amazon EC2
+    * Added cmdlet New-EC2DefaultSubnet (CreateDefaultSubnet API) enabling creation of a default subnet in an Availability Zone if no default subnet exists.
+  * Amazon S3
+    * Added parameter -RequesterPay to the Get-S3PresignedUrl cmdlet to support 'requester pays' mode when generating a presigned url.
+    * Fixed issue with Test-S3Bucket reporting an exception 'x-amz-security-token cannot be used as both a header and a parameter' when invoked from an EC2 instance launched with an instance profile (this bug was introduced into the 3.3.189.0 release of the AWS SDK for .NET and affected v3.3.189.0 of the AWS Tools for Windows PowerShell, released only as part of the combined AWS Tools for Windows installer).
+
 ### 3.3.187.0 (2017-11-09)
   * AWS CloudFormation
     * Fixed issue with the Wait-CFNStack cmdlet not exiting when testing for 'DELETE_COMPLETE' status on a deleted stack.
