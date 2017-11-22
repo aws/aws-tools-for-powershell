@@ -80,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>True to copy all tags from the Read Replica to snapshots of the Read Replica; otherwise
-        /// false. The default is false.</para>
+        /// <para>True to copy all tags from the Read Replica to snapshots of the Read Replica, and
+        /// otherwise false. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -92,8 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of the Read Replica, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all regions, or for all database engines.
-        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Not all DB instance classes are available in all AWS Regions, or for all database
+        /// engines. For the full list of DB instance classes, and availability for your engine,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the Amazon RDS User Guide. </para><para>Default: Inherits from the source DB instance.</para>
         /// </para>
         /// </summary>
@@ -133,7 +134,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora 5.6 or higher.</para></li></ul><para>Default: <code>false</code></para>
+        /// accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora 5.6 or higher.</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -143,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para> True to enable Performance Insights for the read replica; otherwise false. </para>
+        /// <para>True to enable Performance Insights for the read replica, and otherwise false. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -171,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// then you do not have to specify a value for this parameter. The Read Replica is encrypted
         /// with the same KMS key as the source DB instance. </para><para>If you create an encrypted Read Replica in a different AWS Region, then you must specify
         /// a KMS key for the destination AWS Region. KMS encryption keys are specific to the
-        /// AWS Region that they are created in, and you cannot use encryption keys from one AWS
+        /// AWS Region that they are created in, and you can't use encryption keys from one AWS
         /// Region in another AWS Region. </para>
         /// </para>
         /// </summary>
@@ -195,9 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MonitoringRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
-        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
-        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
+        /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
+        /// For information on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
         /// a <code>MonitoringRoleArn</code> value.</para>
         /// </para>
@@ -220,9 +221,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier for encryption of Performance Insights data. The KMS key ID
-        /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
-        /// KMS encryption key.</para>
+        /// <para>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
+        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
+        /// the KMS encryption key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -244,25 +245,25 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para>The URL that contains a Signature Version 4 signed request for the <code>CreateDBInstanceReadReplica</code>
         /// API action in the source AWS Region that contains the source DB instance. </para><para>You must specify this parameter when you create an encrypted Read Replica from another
-        /// AWS Region by using the Amazon RDS API. You can specify the source region option instead
-        /// of this parameter when you create an encrypted Read Replica from another AWS Region
-        /// by using the AWS CLI. </para><para>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code>
+        /// AWS Region by using the Amazon RDS API. You can specify the <code>--source-region</code>
+        /// option instead of this parameter when you create an encrypted Read Replica from another
+        /// AWS Region by using the AWS CLI. </para><para>The presigned URL must be a valid request for the <code>CreateDBInstanceReadReplica</code>
         /// API action that can be executed in the source AWS Region that contains the encrypted
         /// source DB instance. The presigned URL request must contain the following parameter
         /// values: </para><ul><li><para><code>DestinationRegion</code> - The AWS Region that the encrypted Read Replica is
         /// created in. This AWS Region is the same one where the <code>CreateDBInstanceReadReplica</code>
-        /// action is called that contains this presigned URL. </para><para>For example, if you create an encrypted DB instance in the us-west-1 region, from
-        /// a source DB instance in the us-east-2 region, then you call the <code>CreateDBInstanceReadReplica</code>
-        /// action in the us-east-1 region and provide a presigned URL that contains a call to
-        /// the <code>CreateDBInstanceReadReplica</code> action in the us-west-2 region. For this
-        /// example, the <code>DestinationRegion</code> in the presigned URL must be set to the
-        /// us-east-1 region. </para></li><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
-        /// Read Replica in the destination AWS Region. This is the same identifier for both the
-        /// <code>CreateDBInstanceReadReplica</code> action that is called in the destination
+        /// action is called that contains this presigned URL. </para><para>For example, if you create an encrypted DB instance in the us-west-1 AWS Region, from
+        /// a source DB instance in the us-east-2 AWS Region, then you call the <code>CreateDBInstanceReadReplica</code>
+        /// action in the us-east-1 AWS Region and provide a presigned URL that contains a call
+        /// to the <code>CreateDBInstanceReadReplica</code> action in the us-west-2 AWS Region.
+        /// For this example, the <code>DestinationRegion</code> in the presigned URL must be
+        /// set to the us-east-1 AWS Region. </para></li><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt
+        /// the Read Replica in the destination AWS Region. This is the same identifier for both
+        /// the <code>CreateDBInstanceReadReplica</code> action that is called in the destination
         /// AWS Region, and the action contained in the presigned URL. </para></li><li><para><code>SourceDBInstanceIdentifier</code> - The DB instance identifier for the encrypted
         /// DB instance to be replicated. This identifier must be in the Amazon Resource Name
         /// (ARN) format for the source AWS Region. For example, if you are creating an encrypted
-        /// Read Replica from a DB instance in the us-west-2 region, then your <code>SourceDBInstanceIdentifier</code>
+        /// Read Replica from a DB instance in the us-west-2 AWS Region, then your <code>SourceDBInstanceIdentifier</code>
         /// looks like the following example: <code>arn:aws:rds:us-west-2:123456789012:instance:mysql-instance1-20161115</code>.
         /// </para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">Authenticating
         /// Requests: Using Query Parameters (AWS Signature Version 4)</a> and <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature
@@ -296,7 +297,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>The identifier of the DB instance that will act as the source for the Read Replica.
         /// Each DB instance can have up to five Read Replicas.</para><para>Constraints:</para><ul><li><para>Must be the identifier of an existing MySQL, MariaDB, or PostgreSQL DB instance.</para></li><li><para>Can specify a DB instance that is a MySQL Read Replica only if the source is running
         /// MySQL 5.6.</para></li><li><para>Can specify a DB instance that is a PostgreSQL DB instance only if the source is running
-        /// PostgreSQL 9.3.5 or later (9.4.7 and higher for cross region replication).</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
+        /// PostgreSQL 9.3.5 or later (9.4.7 and higher for cross-region replication).</para></li><li><para>The specified DB instance must have automatic backups enabled, its backup retention
         /// period must be greater than 0.</para></li><li><para>If the source DB instance is in the same AWS Region as the Read Replica, specify a
         /// valid DB instance identifier.</para></li><li><para>If the source DB instance is in a different AWS Region than the Read Replica, specify
         /// a valid DB instance ARN. For more information, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.ARN.html#USER_Tagging.ARN.Constructing">
@@ -324,7 +325,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the storage type to be associated with the Read Replica.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
+        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>standard</code></para>
         /// </para>
         /// </summary>

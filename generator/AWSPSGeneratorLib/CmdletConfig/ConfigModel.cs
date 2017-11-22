@@ -781,6 +781,16 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public OutputMode Output = OutputMode.Default;
 
         /// <summary>
+        /// If set true, the generator disregards any computed result that would conflict
+        /// with the configured Output attribute. In effect, this tells the generator to
+        /// shut up and accept what it is told. This is used mostly in service apis where
+        /// the response contains members that would ordinarily be treated as 'noise'
+        /// metadata but for the api in question, carry real data.
+        /// </summary>
+        [XmlAttribute]
+        public bool SkipOutputComputationCheck;
+
+        /// <summary>
         /// Set to the name of a member of the response class that contains the true output
         /// of the call (happens when the SDK wraps the output into a nested member, instead
         /// of hosting it in the response class itself - it does this with some SWF response 

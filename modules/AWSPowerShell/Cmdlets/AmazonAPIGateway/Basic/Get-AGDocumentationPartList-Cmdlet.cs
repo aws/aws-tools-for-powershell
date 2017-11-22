@@ -41,6 +41,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class GetAGDocumentationPartListCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter LocationStatus
+        /// <summary>
+        /// <para>
+        /// <para>The status of the API documentation parts to retrieve. Valid values are <code>DOCUMENTED</code>
+        /// for retrieving <a>DocumentationPart</a> resources with content and <code>UNDOCUMENTED</code>
+        /// for <a>DocumentationPart</a> resources without content.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.LocationStatusType")]
+        public Amazon.APIGateway.LocationStatusType LocationStatus { get; set; }
+        #endregion
+        
         #region Parameter NameQuery
         /// <summary>
         /// <para>
@@ -122,6 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
+            context.LocationStatus = this.LocationStatus;
             context.NameQuery = this.NameQuery;
             context.Path = this.Path;
             context.Position = this.Position;
@@ -143,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             
             // create request and set iteration invariants
             var request = new Amazon.APIGateway.Model.GetDocumentationPartsRequest();
+            if (cmdletContext.LocationStatus != null)
+            {
+                request.LocationStatus = cmdletContext.LocationStatus;
+            }
             if (cmdletContext.NameQuery != null)
             {
                 request.NameQuery = cmdletContext.NameQuery;
@@ -276,6 +294,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         internal partial class CmdletContext : ExecutorContext
         {
             public int? Limit { get; set; }
+            public Amazon.APIGateway.LocationStatusType LocationStatus { get; set; }
             public System.String NameQuery { get; set; }
             public System.String Path { get; set; }
             public System.String Position { get; set; }

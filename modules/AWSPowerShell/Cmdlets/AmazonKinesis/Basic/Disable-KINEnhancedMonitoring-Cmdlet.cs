@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter StreamName
         /// <summary>
         /// <para>
-        /// <para>The name of the Amazon Kinesis stream for which to disable enhanced monitoring.</para>
+        /// <para>The name of the Kinesis stream for which to disable enhanced monitoring.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

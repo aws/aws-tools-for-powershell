@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
     /// Enables AWS Shield Advanced for a specific AWS resource. The resource can be an Amazon
-    /// CloudFront distribution, Elastic Load Balancing load balancer, or an Amazon Route
-    /// 53 hosted zone.
+    /// CloudFront distribution, Elastic Load Balancing load balancer, Elastic IP Address,
+    /// or an Amazon Route 53 hosted zone.
     /// </summary>
     [Cmdlet("New", "SHLDProtection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para>
+        /// <para>The ARN (Amazon Resource Name) of the resource to be protected.</para><para>The ARN should be in one of the following formats:</para><ul><li><para>For an Application Load Balancer: <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/app/<i>load-balancer-name</i>/<i>load-balancer-id</i></code></para></li><li><para>For an Elastic Load Balancer (Classic Load Balancer): <code>arn:aws:elasticloadbalancing:<i>region</i>:<i>account-id</i>:loadbalancer/<i>load-balancer-name</i></code></para></li><li><para>For AWS CloudFront distribution: <code>arn:aws:cloudfront::<i>account-id</i>:distribution/<i>distribution-id</i></code></para></li><li><para>For Amazon Route 53: <code>arn:aws:route53::<i>account-id</i>:hostedzone/<i>hosted-zone-id</i></code></para></li><li><para>For an Elastic IP address: <code>arn:aws:ec2:<i>region</i>:<i>account-id</i>:eip-allocation/<i>allocation-id</i></code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

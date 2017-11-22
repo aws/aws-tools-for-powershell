@@ -28,7 +28,7 @@ using Amazon.StorageGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
-    /// Updates a file share. This operation is only supported in the file gateway architecture.
+    /// Updates a file share. This operation is only supported in the file gateway type.
     /// 
     ///  <note><para>
     /// To leave a file share field unchanged, set the corresponding input field to null.
@@ -125,6 +125,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         public System.Int64 NFSFileShareDefaults_GroupId { get; set; }
         #endregion
         
+        #region Parameter GuessMIMETypeEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables guessing of the MIME type for uploaded objects based on file extensions: "true"
+        /// to enable MIME type guessing, and otherwise "false".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean GuessMIMETypeEnabled { get; set; }
+        #endregion
+        
         #region Parameter KMSEncrypted
         /// <summary>
         /// <para>
@@ -214,6 +225,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             }
             context.DefaultStorageClass = this.DefaultStorageClass;
             context.FileShareARN = this.FileShareARN;
+            if (ParameterWasBound("GuessMIMETypeEnabled"))
+                context.GuessMIMETypeEnabled = this.GuessMIMETypeEnabled;
             if (ParameterWasBound("KMSEncrypted"))
                 context.KMSEncrypted = this.KMSEncrypted;
             context.KMSKey = this.KMSKey;
@@ -253,6 +266,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.FileShareARN != null)
             {
                 request.FileShareARN = cmdletContext.FileShareARN;
+            }
+            if (cmdletContext.GuessMIMETypeEnabled != null)
+            {
+                request.GuessMIMETypeEnabled = cmdletContext.GuessMIMETypeEnabled.Value;
             }
             if (cmdletContext.KMSEncrypted != null)
             {
@@ -386,6 +403,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public List<System.String> ClientList { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String FileShareARN { get; set; }
+            public System.Boolean? GuessMIMETypeEnabled { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
             public System.String NFSFileShareDefaults_DirectoryMode { get; set; }

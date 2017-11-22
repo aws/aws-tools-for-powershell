@@ -41,11 +41,21 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class NewLSInstancesFromSnapshotCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        #region Parameter AttachedDiskMapping
+        /// <summary>
+        /// <para>
+        /// <para>An object containing information about one or more disk mappings.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Collections.Hashtable AttachedDiskMapping { get; set; }
+        #endregion
+        
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
         /// <para>The Availability Zone where you want to create your instances. Use the following formatting:
-        /// <code>us-east-1a</code> (case sensitive). You can get a list of availability zones
+        /// <code>us-east-2a</code> (case sensitive). You can get a list of availability zones
         /// by using the <a href="http://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRegions.html">get
         /// regions</a> operation. Be sure to add the <code>include availability zones</code>
         /// parameter to your request.</para>
@@ -141,6 +151,26 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.AttachedDiskMapping != null)
+            {
+                context.AttachedDiskMapping = new Dictionary<System.String, List<Amazon.Lightsail.Model.DiskMap>>(StringComparer.Ordinal);
+                foreach (var hashKey in this.AttachedDiskMapping.Keys)
+                {
+                    object hashValue = this.AttachedDiskMapping[hashKey];
+                    if (hashValue == null)
+                    {
+                        context.AttachedDiskMapping.Add((String)hashKey, null);
+                        continue;
+                    }
+                    var enumerable = SafeEnumerable(hashValue);
+                    var valueSet = new List<DiskMap>();
+                    foreach (var s in enumerable)
+                    {
+                        valueSet.Add((DiskMap)s);
+                    }
+                    context.AttachedDiskMapping.Add((String)hashKey, valueSet);
+                }
+            }
             context.AvailabilityZone = this.AvailabilityZone;
             context.BundleId = this.BundleId;
             if (this.InstanceName != null)
@@ -166,6 +196,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.CreateInstancesFromSnapshotRequest();
             
+            if (cmdletContext.AttachedDiskMapping != null)
+            {
+                request.AttachedDiskMapping = cmdletContext.AttachedDiskMapping;
+            }
             if (cmdletContext.AvailabilityZone != null)
             {
                 request.AvailabilityZone = cmdletContext.AvailabilityZone;
@@ -254,6 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Dictionary<System.String, List<Amazon.Lightsail.Model.DiskMap>> AttachedDiskMapping { get; set; }
             public System.String AvailabilityZone { get; set; }
             public System.String BundleId { get; set; }
             public List<System.String> InstanceNames { get; set; }

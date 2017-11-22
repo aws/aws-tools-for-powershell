@@ -101,6 +101,12 @@
 
     <ServiceOperation MethodName="UpdateTerminationProtection" />
 
+    <ServiceOperation MethodName="UpdateStackInstances" Noun="StackInstance" PipelineParameter="StackSetName">
+      <Params>
+        <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false"/>
+      </Params>
+    </ServiceOperation>
+
   </ServiceOperations>
 
   <PipelineByValueProperties>

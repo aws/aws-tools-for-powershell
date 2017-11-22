@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
 {
     /// <summary>
     /// Describes the current user's special folders; the <code>RootFolder</code> and the
-    /// <code>RecyleBin</code>. <code>RootFolder</code> is the root of user's files and folders
-    /// and <code>RecyleBin</code> is the root of recycled items. This is not a valid action
+    /// <code>RecycleBin</code>. <code>RootFolder</code> is the root of user's files and folders
+    /// and <code>RecycleBin</code> is the root of recycled items. This is not a valid action
     /// for SigV4 (administrative API) clients.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WDRootFolder")]
@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>

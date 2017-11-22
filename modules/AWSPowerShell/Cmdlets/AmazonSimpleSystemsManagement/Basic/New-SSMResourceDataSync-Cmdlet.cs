@@ -31,8 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Creates a resource data sync configuration to a single bucket in Amazon S3. This is
     /// an asynchronous operation that returns immediately. After a successful initial sync
     /// is completed, the system continuously syncs data to the Amazon S3 bucket. To check
-    /// the status of the sync, use the <a href="API_ListResourceDataSync.html">ListResourceDataSync</a>
-    /// operation.
+    /// the status of the sync, use the <a>ListResourceDataSync</a>.
     /// 
     ///  
     /// <para>

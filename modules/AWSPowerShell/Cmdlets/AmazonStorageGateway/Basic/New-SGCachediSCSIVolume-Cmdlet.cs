@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Creates a cached volume on a specified cached volume gateway. This operation is only
-    /// supported in the cached volume gateway architecture.
+    /// supported in the cached volume gateway type.
     /// 
     ///  <note><para>
     /// Cache storage must be allocated to the gateway before you can create a cached volume.

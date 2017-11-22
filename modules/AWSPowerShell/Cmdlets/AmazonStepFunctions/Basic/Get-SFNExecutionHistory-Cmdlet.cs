@@ -30,9 +30,14 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// <summary>
     /// Returns the history of the specified execution as a list of events. By default, the
     /// results are returned in ascending order of the <code>timeStamp</code> of the events.
-    /// Use the <code>reverseOrder</code> parameter to get the latest events first. The results
-    /// may be split into multiple pages. To retrieve subsequent pages, make the call again
-    /// using the <code>nextToken</code> returned by the previous call.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Use the <code>reverseOrder</code> parameter to get the latest events first.
+    /// 
+    ///  
+    /// <para>
+    /// If a <code>nextToken</code> is returned by a previous call, there are more results
+    /// available. To retrieve the next page of results, make the call again using the returned
+    /// token in <code>nextToken</code>. Keep all other arguments unchanged.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SFNExecutionHistory")]
     [OutputType("Amazon.StepFunctions.Model.HistoryEvent")]
@@ -68,10 +73,10 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results that will be returned per call. <code>nextToken</code>
-        /// can be used to obtain further pages of results. The default is 100 and the maximum
-        /// allowed page size is 100. A value of 0 means to use the default.</para><para>This is an upper limit only; the actual number of results returned per call may be
-        /// fewer than the specified maximum.</para>
+        /// <para>The maximum number of results that are returned per call. You can use <code>nextToken</code>
+        /// to obtain further pages of results. The default is 100 and the maximum allowed page
+        /// size is 100. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
+        /// be fewer than the specified maximum.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -82,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>If a <code>nextToken</code> was returned by a previous call, there are more results
+        /// <para>If a <code>nextToken</code> is returned by a previous call, there are more results
         /// available. To retrieve the next page of results, make the call again using the returned
         /// token in <code>nextToken</code>. Keep all other arguments unchanged.</para><para>The configured <code>maxResults</code> determines how many results can be returned
         /// in a single call.</para>

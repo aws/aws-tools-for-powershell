@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// the service holds the HTTP connection open and responds as soon as a task becomes
     /// available (i.e. an execution of a task of this type is needed.) The maximum time the
     /// service holds on to the request before responding is 60 seconds. If no task is available
-    /// within 60 seconds, the poll will return a <code>taskToken</code> with a null string.
+    /// within 60 seconds, the poll returns a <code>taskToken</code> with a null string.
     /// 
     ///  <important><para>
     /// Workers should set their client side socket timeout to at least 65 seconds (5 seconds
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// <summary>
         /// <para>
         /// <para>You can provide an arbitrary name in order to identify the worker that the task is
-        /// assigned to. This name will be used when it is logged in the execution history.</para>
+        /// assigned to. This name is used when it is logged in the execution history.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

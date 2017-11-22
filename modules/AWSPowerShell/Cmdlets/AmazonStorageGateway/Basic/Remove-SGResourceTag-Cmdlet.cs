@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Removes one or more tags from the specified resource. This operation is only supported
-    /// in the cached volume, stored volume and tape gateway architectures.
+    /// in the cached volume, stored volume and tape gateway types.
     /// </summary>
     [Cmdlet("Remove", "SGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("System.String")]

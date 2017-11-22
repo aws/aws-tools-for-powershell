@@ -41,15 +41,15 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// </para><para>
     /// You must specify the shard iterator type. For example, you can set the <code>ShardIteratorType</code>
     /// parameter to read exactly from the position denoted by a specific sequence number
-    /// by using the <code>AT_SEQUENCE_NUMBER</code> shard iterator type, or right after the
-    /// sequence number by using the <code>AFTER_SEQUENCE_NUMBER</code> shard iterator type,
-    /// using sequence numbers returned by earlier calls to <a>PutRecord</a>, <a>PutRecords</a>,
-    /// <a>GetRecords</a>, or <a>DescribeStream</a>. In the request, you can specify the shard
-    /// iterator type <code>AT_TIMESTAMP</code> to read records from an arbitrary point in
-    /// time, <code>TRIM_HORIZON</code> to cause <code>ShardIterator</code> to point to the
-    /// last untrimmed record in the shard in the system (the oldest data record in the shard),
-    /// or <code>LATEST</code> so that you always read the most recent data in the shard.
-    /// 
+    /// by using the <code>AT_SEQUENCE_NUMBER</code> shard iterator type. Alternatively, the
+    /// parameter can read right after the sequence number by using the <code>AFTER_SEQUENCE_NUMBER</code>
+    /// shard iterator type, using sequence numbers returned by earlier calls to <a>PutRecord</a>,
+    /// <a>PutRecords</a>, <a>GetRecords</a>, or <a>DescribeStream</a>. In the request, you
+    /// can specify the shard iterator type <code>AT_TIMESTAMP</code> to read records from
+    /// an arbitrary point in time, <code>TRIM_HORIZON</code> to cause <code>ShardIterator</code>
+    /// to point to the last untrimmed record in the shard in the system (the oldest data
+    /// record in the shard), or <code>LATEST</code> so that you always read the most recent
+    /// data in the shard. 
     /// </para><para>
     /// When you read repeatedly from a stream, use a <a>GetShardIterator</a> request to get
     /// the first shard iterator for use in your first <a>GetRecords</a> request and for subsequent
@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>.
     /// </para><para>
     /// If the shard is closed, <a>GetShardIterator</a> returns a valid iterator for the last
-    /// sequence number of the shard. Note that a shard can be closed as a result of using
-    /// <a>SplitShard</a> or <a>MergeShards</a>.
+    /// sequence number of the shard. A shard can be closed as a result of using <a>SplitShard</a>
+    /// or <a>MergeShards</a>.
     /// </para><para><a>GetShardIterator</a> has a limit of 5 transactions per second per account per
     /// open shard.
     /// </para>
@@ -82,7 +82,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter ShardId
         /// <summary>
         /// <para>
-        /// <para>The shard ID of the Amazon Kinesis shard to get the iterator for.</para>
+        /// <para>The shard ID of the Kinesis Streams shard to get the iterator for.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -94,7 +94,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>Determines how the shard iterator is used to start reading data records from the shard.</para><para>The following are the valid Amazon Kinesis shard iterator types:</para><ul><li><para>AT_SEQUENCE_NUMBER - Start reading from the position denoted by a specific sequence
         /// number, provided in the value <code>StartingSequenceNumber</code>.</para></li><li><para>AFTER_SEQUENCE_NUMBER - Start reading right after the position denoted by a specific
-        /// sequence number, provided in the value <code>StartingSequenceNumber</code>.</para></li><li><para>AT_TIMESTAMP - Start reading from the position denoted by a specific timestamp, provided
+        /// sequence number, provided in the value <code>StartingSequenceNumber</code>.</para></li><li><para>AT_TIMESTAMP - Start reading from the position denoted by a specific time stamp, provided
         /// in the value <code>Timestamp</code>.</para></li><li><para>TRIM_HORIZON - Start reading at the last untrimmed record in the shard in the system,
         /// which is the oldest data record in the shard.</para></li><li><para>LATEST - Start reading just after the most recent record in the shard, so that you
         /// always read the most recent data in the shard.</para></li></ul>
@@ -129,11 +129,11 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter Timestamp
         /// <summary>
         /// <para>
-        /// <para>The timestamp of the data record from which to start reading. Used with shard iterator
-        /// type AT_TIMESTAMP. A timestamp is the Unix epoch date with precision in milliseconds.
+        /// <para>The time stamp of the data record from which to start reading. Used with shard iterator
+        /// type AT_TIMESTAMP. A time stamp is the Unix epoch date with precision in milliseconds.
         /// For example, <code>2016-04-04T19:58:46.480-00:00</code> or <code>1459799926.480</code>.
-        /// If a record with this exact timestamp does not exist, the iterator returned is for
-        /// the next (later) record. If the timestamp is older than the current trim horizon,
+        /// If a record with this exact time stamp does not exist, the iterator returned is for
+        /// the next (later) record. If the time stamp is older than the current trim horizon,
         /// the iterator returned is for the oldest untrimmed data record (TRIM_HORIZON).</para>
         /// </para>
         /// </summary>

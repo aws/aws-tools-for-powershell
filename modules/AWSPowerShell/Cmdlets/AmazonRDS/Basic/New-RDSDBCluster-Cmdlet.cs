@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A list of EC2 Availability Zones that instances in the DB cluster can be created in.
-        /// For information on regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
+        /// For information on AWS Regions and Availability Zones, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.RegionsAndAvailabilityZones.html">Regions
         /// and Availability Zones</a>. </para>
         /// </para>
         /// </summary>
@@ -130,8 +130,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that is true to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts, and otherwise false.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code></para>
+        /// <para>The name of the database engine to be used for this DB cluster.</para><para>Valid Values: <code>aurora</code>, <code>aurora-postgresql</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -161,7 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// <para>The AWS KMS key identifier for an encrypted DB cluster.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are creating a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If an encryption key is not specified in <code>KmsKeyId</code>:</para><ul><li><para>If <code>ReplicationSourceIdentifier</code> identifies an encrypted source, then Amazon
@@ -202,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>A value that indicates that the DB cluster should be associated with the specified
-        /// option group.</para><para>Permanent options cannot be removed from an option group. The option group cannot
-        /// be removed from a DB cluster once it is associated with a DB cluster.</para>
+        /// option group.</para><para>Permanent options can't be removed from an option group. The option group can't be
+        /// removed from a DB cluster once it is associated with a DB cluster.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -224,9 +224,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The daily time range during which automated backups are created if automated backups
-        /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>Default: A 30-minute window selected at random from an 8-hour block of time per AWS
-        /// Region. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Times should be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
+        /// are enabled using the <code>BackupRetentionPeriod</code> parameter. </para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// for each AWS Region. To see the time blocks available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Constraints:</para><ul><li><para>Must be in the format <code>hh24:mi-hh24:mi</code>.</para></li><li><para>Must be in Universal Coordinated Time (UTC).</para></li><li><para>Must not conflict with the preferred maintenance window.</para></li><li><para>Must be at least 30 minutes.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,10 +237,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The weekly time range during which system maintenance can occur, in Universal Coordinated
-        /// Time (UTC).</para><para> Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>Default: A 30-minute window selected at random from an 8-hour block of time per AWS
-        /// Region, occurring on a random day of the week. To see the time blocks available, see
-        /// <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
-        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun</para><para>Constraints: Minimum 30-minute window.</para>
+        /// Time (UTC).</para><para>Format: <code>ddd:hh24:mi-ddd:hh24:mi</code></para><para>The default is a 30-minute window selected at random from an 8-hour block of time
+        /// for each AWS Region, occurring on a random day of the week. To see the time blocks
+        /// available, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AdjustingTheMaintenanceWindow.html">
+        /// Adjusting the Preferred Maintenance Window</a> in the <i>Amazon RDS User Guide.</i></para><para>Valid Days: Mon, Tue, Wed, Thu, Fri, Sat, Sun.</para><para>Constraints: Minimum 30-minute window.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -255,14 +255,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// You only need to specify <code>PreSignedUrl</code> when you are performing cross-region
         /// replication from an encrypted DB cluster.</para><para>The pre-signed URL must be a valid request for the <code>CreateDBCluster</code> API
         /// action that can be executed in the source AWS Region that contains the encrypted DB
-        /// cluster to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The KMS key identifier for the key to use to encrypt the
-        /// copy of the DB cluster in the destination AWS Region. This should refer to the same
-        /// KMS key for both the <code>CreateDBCluster</code> action that is called in the destination
-        /// AWS Region, and the action contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that Aurora Read Replica
+        /// cluster to be copied.</para><para>The pre-signed URL request must contain the following parameter values:</para><ul><li><para><code>KmsKeyId</code> - The AWS KMS key identifier for the key to use to encrypt
+        /// the copy of the DB cluster in the destination AWS Region. This should refer to the
+        /// same KMS key for both the <code>CreateDBCluster</code> action that is called in the
+        /// destination AWS Region, and the action contained in the pre-signed URL.</para></li><li><para><code>DestinationRegion</code> - The name of the AWS Region that Aurora Read Replica
         /// will be created in.</para></li><li><para><code>ReplicationSourceIdentifier</code> - The DB cluster identifier for the encrypted
         /// DB cluster to be copied. This identifier must be in the Amazon Resource Name (ARN)
         /// format for the source AWS Region. For example, if you are copying an encrypted DB
-        /// cluster from the us-west-2 region, then your <code>ReplicationSourceIdentifier</code>
+        /// cluster from the us-west-2 AWS Region, then your <code>ReplicationSourceIdentifier</code>
         /// would look like Example: <code>arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster1</code>.</para></li></ul><para>To learn how to generate a Signature Version 4 signed request, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/API/sigv4-query-string-auth.html">
         /// Authenticating Requests: Using Query Parameters (AWS Signature Version 4)</a> and
         /// <a href="http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html"> Signature

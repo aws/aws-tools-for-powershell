@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Returns a list of the source AWS regions where the current AWS Region can create a
+    /// Returns a list of the source AWS Regions where the current AWS Region can create a
     /// Read Replica or copy a DB snapshot from. This API action supports pagination.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "RDSSourceRegion")]
@@ -66,9 +66,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para> An optional pagination token provided by a previous <a>DescribeSourceRegions</a>
-        /// request. If this parameter is specified, the response includes only records beyond
-        /// the marker, up to the value specified by <code>MaxRecords</code>.</para>
+        /// <para>An optional pagination token provided by a previous <a>DescribeSourceRegions</a> request.
+        /// If this parameter is specified, the response includes only records beyond the marker,
+        /// up to the value specified by <code>MaxRecords</code>.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

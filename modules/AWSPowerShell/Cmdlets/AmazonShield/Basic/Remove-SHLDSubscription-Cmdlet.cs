@@ -28,7 +28,9 @@ using Amazon.Shield.Model;
 namespace Amazon.PowerShell.Cmdlets.SHLD
 {
     /// <summary>
-    /// Removes AWS Shield Advanced from an account.
+    /// Removes AWS Shield Advanced from an account. AWS Shield Advanced requires a 1-year
+    /// subscription commitment. You cannot delete a subscription prior to the completion
+    /// of that commitment.
     /// </summary>
     [Cmdlet("Remove", "SHLDSubscription", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

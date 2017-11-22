@@ -12,13 +12,12 @@
     <ServiceOperation MethodName="CreateDeliveryStream" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
     <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" />
     <ServiceOperation MethodName="DescribeDeliveryStream" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="GetKinesisStream" Verb="Get"  Output="Response" />
     <ServiceOperation MethodName="ListDeliveryStreams" Verb="Get" Noun="DeliveryStreamList" NoPipelineParameter="true" Output="Response"/>
     <ServiceOperation MethodName="PutRecord" Exclude="true" />
     <ServiceOperation MethodName="PutRecordBatch" PipelineParameter="Records" Output="Response"/>
     <ServiceOperation MethodName="UpdateDestination" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
   </ServiceOperations>
-  
+
   <TypesNotToFlatten>
     <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
     <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
@@ -26,5 +25,7 @@
     <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
     <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration</Type>
     <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate</Type>
+    <Type>Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration</Type>
+    <Type>Amazon.KinesisFirehose.Model.SplunkDestinationUpdate</Type>
   </TypesNotToFlatten>
 </ConfigModel>

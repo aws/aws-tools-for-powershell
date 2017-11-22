@@ -28,11 +28,12 @@ using Amazon.StepFunctions.Model;
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
-    /// Creates an activity. An Activity is a task which you write, in any language and hosted
-    /// on any machine which has access to AWS Step Functions. Activities must poll Step Functions
-    /// using the <code>GetActivityTask</code> and respond using <code>SendTask*</code> API
-    /// calls. This function lets Step Functions know the existence of your activity and returns
-    /// an identifier for use in a state machine and when polling from the activity.
+    /// Creates an activity. An activity is a task which you write in any programming language
+    /// and host on any machine which has access to AWS Step Functions. Activities must poll
+    /// Step Functions using the <code>GetActivityTask</code> API action and respond using
+    /// <code>SendTask*</code> API actions. This function lets Step Functions know the existence
+    /// of your activity and returns an identifier for use in a state machine and when polling
+    /// from the activity.
     /// </summary>
     [Cmdlet("New", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateActivityResponse")]

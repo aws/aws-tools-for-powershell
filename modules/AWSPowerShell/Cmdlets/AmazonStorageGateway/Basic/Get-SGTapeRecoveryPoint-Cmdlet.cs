@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Retrieves the recovery point for the specified virtual tape. This operation is only
-    /// supported in the tape gateway architecture.
+    /// supported in the tape gateway type.
     /// 
     ///  
     /// <para>

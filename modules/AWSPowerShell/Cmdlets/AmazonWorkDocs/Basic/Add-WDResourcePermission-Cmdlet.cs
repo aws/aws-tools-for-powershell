@@ -44,12 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AuthenticationToken { get; set; }
+        #endregion
+        
+        #region Parameter NotificationOptions_EmailMessage
+        /// <summary>
+        /// <para>
+        /// <para>Text value to be included in the email body.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String NotificationOptions_EmailMessage { get; set; }
         #endregion
         
         #region Parameter Principal
@@ -71,6 +81,16 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String ResourceId { get; set; }
+        #endregion
+        
+        #region Parameter NotificationOptions_SendEmail
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value to indicate an email notification should be sent to the receipients.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean NotificationOptions_SendEmail { get; set; }
         #endregion
         
         #region Parameter Force
@@ -103,6 +123,9 @@ namespace Amazon.PowerShell.Cmdlets.WD
             PreExecutionContextLoad(context);
             
             context.AuthenticationToken = this.AuthenticationToken;
+            context.NotificationOptions_EmailMessage = this.NotificationOptions_EmailMessage;
+            if (ParameterWasBound("NotificationOptions_SendEmail"))
+                context.NotificationOptions_SendEmail = this.NotificationOptions_SendEmail;
             if (this.Principal != null)
             {
                 context.Principals = new List<Amazon.WorkDocs.Model.SharePrincipal>(this.Principal);
@@ -127,6 +150,35 @@ namespace Amazon.PowerShell.Cmdlets.WD
             if (cmdletContext.AuthenticationToken != null)
             {
                 request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
+            
+             // populate NotificationOptions
+            bool requestNotificationOptionsIsNull = true;
+            request.NotificationOptions = new Amazon.WorkDocs.Model.NotificationOptions();
+            System.String requestNotificationOptions_notificationOptions_EmailMessage = null;
+            if (cmdletContext.NotificationOptions_EmailMessage != null)
+            {
+                requestNotificationOptions_notificationOptions_EmailMessage = cmdletContext.NotificationOptions_EmailMessage;
+            }
+            if (requestNotificationOptions_notificationOptions_EmailMessage != null)
+            {
+                request.NotificationOptions.EmailMessage = requestNotificationOptions_notificationOptions_EmailMessage;
+                requestNotificationOptionsIsNull = false;
+            }
+            System.Boolean? requestNotificationOptions_notificationOptions_SendEmail = null;
+            if (cmdletContext.NotificationOptions_SendEmail != null)
+            {
+                requestNotificationOptions_notificationOptions_SendEmail = cmdletContext.NotificationOptions_SendEmail.Value;
+            }
+            if (requestNotificationOptions_notificationOptions_SendEmail != null)
+            {
+                request.NotificationOptions.SendEmail = requestNotificationOptions_notificationOptions_SendEmail.Value;
+                requestNotificationOptionsIsNull = false;
+            }
+             // determine if request.NotificationOptions should be set to null
+            if (requestNotificationOptionsIsNull)
+            {
+                request.NotificationOptions = null;
             }
             if (cmdletContext.Principals != null)
             {
@@ -201,6 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.WD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AuthenticationToken { get; set; }
+            public System.String NotificationOptions_EmailMessage { get; set; }
+            public System.Boolean? NotificationOptions_SendEmail { get; set; }
             public List<Amazon.WorkDocs.Model.SharePrincipal> Principals { get; set; }
             public System.String ResourceId { get; set; }
         }

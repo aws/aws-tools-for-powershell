@@ -77,6 +77,7 @@
     <ServiceOperation MethodName="ListVolumes" MetadataProperties="GatewayARN" />
     <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTag" PipelineParameter="ResourceARN" MetadataProperties="ResourceARN" LegacyAlias="Get-SGResourceTags"/>
     <ServiceOperation MethodName="ListTapes" Noun="Tape" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="NotifyWhenUploaded" Verb="Send" Noun="UploadedNotification" Output="Response" />
     <ServiceOperation MethodName="RefreshCache" Verb="Invoke" Noun="CacheRefresh" />
     <ServiceOperation MethodName="RemoveTagsFromResource" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARN" />
     <ServiceOperation MethodName="SetLocalConsolePassword"/>

@@ -221,6 +221,13 @@ $AG_Completers = {
             break
         }
         
+        # Amazon.APIGateway.LocationStatusType
+        "Get-AGDocumentationPartList/LocationStatus"
+        {
+            $v = "DOCUMENTED","UNDOCUMENTED"
+            break
+        }
+        
         # Amazon.APIGateway.PutMode
         {
             ($_ -eq "Import-AGDocumentationPartList/Mode") -Or
@@ -250,6 +257,7 @@ $AG_map = @{
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
     "Format"=@("Import-AGApiKey")
     "Location_Type"=@("New-AGDocumentationPart")
+    "LocationStatus"=@("Get-AGDocumentationPartList")
     "Mode"=@("Import-AGDocumentationPartList","Write-AGRestApi")
     "Quota_Period"=@("New-AGUsagePlan")
     "ResponseType"=@("Get-AGGatewayResponse","Remove-AGGatewayResponse","Update-AGGatewayResponse","Write-AGGatewayResponse")
@@ -289,7 +297,7 @@ $AAS_Completers = {
         # Amazon.ApplicationAutoScaling.MetricType
         "Set-AASScalingPolicy/TargetTrackingScalingPolicyConfiguration_PredefinedMetricSpecification_PredefinedMetricType"
         {
-            $v = "DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization"
+            $v = "ALBRequestCountPerTarget","DynamoDBReadCapacityUtilization","DynamoDBWriteCapacityUtilization","EC2SpotFleetRequestAverageCPUUtilization","EC2SpotFleetRequestAverageNetworkIn","EC2SpotFleetRequestAverageNetworkOut","RDSReaderAverageCPUUtilization","RDSReaderAverageDatabaseConnections"
             break
         }
         
@@ -314,7 +322,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ScalableDimension")
         }
         {
-            $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount"
+            $v = "appstream:fleet:DesiredCapacity","dynamodb:index:ReadCapacityUnits","dynamodb:index:WriteCapacityUnits","dynamodb:table:ReadCapacityUnits","dynamodb:table:WriteCapacityUnits","ec2:spot-fleet-request:TargetCapacity","ecs:service:DesiredCount","elasticmapreduce:instancegroup:InstanceCount","rds:cluster:ReadReplicaCount"
             break
         }
         
@@ -332,7 +340,7 @@ $AAS_Completers = {
             ($_ -eq "Set-AASScheduledAction/ServiceNamespace")
         }
         {
-            $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce"
+            $v = "appstream","dynamodb","ec2","ecs","elasticmapreduce","rds"
             break
         }
         
@@ -1247,6 +1255,16 @@ $CB_Completers = {
             break
         }
         
+        # Amazon.CodeBuild.CacheType
+        {
+            ($_ -eq "New-CBProject/Cache_Type") -Or
+            ($_ -eq "Update-CBProject/Cache_Type")
+        }
+        {
+            $v = "NO_CACHE","S3"
+            break
+        }
+        
         # Amazon.CodeBuild.ComputeType
         {
             ($_ -eq "New-CBProject/Environment_ComputeType") -Or
@@ -1319,6 +1337,7 @@ $CB_map = @{
     "ArtifactsOverride_NamespaceType"=@("Start-CBBuild")
     "ArtifactsOverride_Packaging"=@("Start-CBBuild")
     "ArtifactsOverride_Type"=@("Start-CBBuild")
+    "Cache_Type"=@("New-CBProject","Update-CBProject")
     "Environment_ComputeType"=@("New-CBProject","Update-CBProject")
     "Environment_Type"=@("New-CBProject","Update-CBProject")
     "SortBy"=@("Get-CBProjectList")
@@ -1336,10 +1355,44 @@ $CC_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CodeCommit.MergeOptionTypeEnum
+        "Get-CCMergeConflict/MergeOption"
+        {
+            $v = "FAST_FORWARD_MERGE"
+            break
+        }
+        
         # Amazon.CodeCommit.OrderEnum
         "Get-CCRepositoryList/Order"
         {
             $v = "ascending","descending"
+            break
+        }
+        
+        # Amazon.CodeCommit.PullRequestEventType
+        "Get-CCPullRequestEvent/PullRequestEventType"
+        {
+            $v = "PULL_REQUEST_CREATED","PULL_REQUEST_MERGE_STATE_CHANGED","PULL_REQUEST_SOURCE_REFERENCE_UPDATED","PULL_REQUEST_STATUS_CHANGED"
+            break
+        }
+        
+        # Amazon.CodeCommit.PullRequestStatusEnum
+        {
+            ($_ -eq "Get-CCPullRequestList/PullRequestStatus") -Or
+            ($_ -eq "Update-CCPullRequestStatus/PullRequestStatus")
+        }
+        {
+            $v = "CLOSED","OPEN"
+            break
+        }
+        
+        # Amazon.CodeCommit.RelativeFileVersionEnum
+        {
+            ($_ -eq "Send-CCCommentForComparedCommit/Location_RelativeFileVersion") -Or
+            ($_ -eq "Send-CCCommentForPullRequest/Location_RelativeFileVersion")
+        }
+        {
+            $v = "AFTER","BEFORE"
             break
         }
         
@@ -1358,7 +1411,11 @@ $CC_Completers = {
 }
 
 $CC_map = @{
+    "Location_RelativeFileVersion"=@("Send-CCCommentForComparedCommit","Send-CCCommentForPullRequest")
+    "MergeOption"=@("Get-CCMergeConflict")
     "Order"=@("Get-CCRepositoryList")
+    "PullRequestEventType"=@("Get-CCPullRequestEvent")
+    "PullRequestStatus"=@("Get-CCPullRequestList","Update-CCPullRequestStatus")
     "SortBy"=@("Get-CCRepositoryList")
 }
 
@@ -2375,7 +2432,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.32xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge"
             break
         }
         
@@ -2657,7 +2714,7 @@ $ECS_Completers = {
         # Amazon.ECS.NetworkMode
         "Register-ECSTaskDefinition/NetworkMode"
         {
-            $v = "bridge","host","none"
+            $v = "awsvpc","bridge","host","none"
             break
         }
         
@@ -4326,7 +4383,7 @@ $POL_Completers = {
         # Amazon.Polly.LanguageCode
         "Get-POLVoice/LanguageCode"
         {
-            $v = "cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","is-IS","it-IT","ja-JP","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
+            $v = "cy-GB","da-DK","de-DE","en-AU","en-GB","en-GB-WLS","en-IN","en-US","es-ES","es-US","fr-CA","fr-FR","is-IS","it-IT","ja-JP","ko-KR","nb-NO","nl-NL","pl-PL","pt-BR","pt-PT","ro-RO","ru-RU","sv-SE","tr-TR"
             break
         }
         
@@ -4347,7 +4404,7 @@ $POL_Completers = {
         # Amazon.Polly.VoiceId
         "Get-POLSpeech/VoiceId"
         {
-            $v = "Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Takumi","Tatyana","Vicki","Vitoria"
+            $v = "Aditi","Amy","Astrid","Brian","Carla","Carmen","Celine","Chantal","Conchita","Cristiano","Dora","Emma","Enrique","Ewa","Filiz","Geraint","Giorgio","Gwyneth","Hans","Ines","Ivy","Jacek","Jan","Joanna","Joey","Justin","Karl","Kendra","Kimberly","Liv","Lotte","Mads","Maja","Marlene","Mathieu","Matthew","Maxim","Miguel","Mizuki","Naja","Nicole","Penelope","Raveena","Ricardo","Ruben","Russell","Salli","Seoyeon","Takumi","Tatyana","Vicki","Vitoria"
             break
         }
         
@@ -4428,6 +4485,13 @@ $R53_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.Route53.AccountLimitType
+        "Get-R53AccountLimit/Type"
+        {
+            $v = "MAX_HEALTH_CHECKS_BY_OWNER","MAX_HOSTED_ZONES_BY_OWNER","MAX_REUSABLE_DELEGATION_SETS_BY_OWNER","MAX_TRAFFIC_POLICIES_BY_OWNER","MAX_TRAFFIC_POLICY_INSTANCES_BY_OWNER"
+            break
+        }
+        
         # Amazon.Route53.CloudWatchRegion
         {
             ($_ -eq "Update-R53HealthCheck/AlarmIdentifier_Region") -Or
@@ -4445,6 +4509,13 @@ $R53_Completers = {
             break
         }
         
+        # Amazon.Route53.HostedZoneLimitType
+        "Get-R53HostedZoneLimit/Type"
+        {
+            $v = "MAX_RRSETS_BY_ZONE","MAX_VPCS_ASSOCIATED_BY_ZONE"
+            break
+        }
+        
         # Amazon.Route53.InsufficientDataHealthStatus
         {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_InsufficientDataHealthStatus") -Or
@@ -4452,6 +4523,13 @@ $R53_Completers = {
         }
         {
             $v = "Healthy","LastKnownStatus","Unhealthy"
+            break
+        }
+        
+        # Amazon.Route53.ReusableDelegationSetLimitType
+        "Get-R53ReusableDelegationSetLimit/Type"
+        {
+            $v = "MAX_ZONES_BY_REUSABLE_DELEGATION_SET"
             break
         }
         
@@ -4509,6 +4587,7 @@ $R53_map = @{
     "ResourceType"=@("Edit-R53TagsForResource","Get-R53TagsForResource","Get-R53TagsForResourceList")
     "StartRecordType"=@("Get-R53ResourceRecordSet")
     "TrafficPolicyInstanceTypeMarker"=@("Get-R53TrafficPolicyInstanceList","Get-R53TrafficPolicyInstancesByHostedZone","Get-R53TrafficPolicyInstancesByPolicy")
+    "Type"=@("Get-R53AccountLimit","Get-R53HostedZoneLimit","Get-R53ReusableDelegationSetLimit")
     "VPC_VPCRegion"=@("New-R53HostedZone","New-R53VPCAssociationAuthorization","Register-R53VPCWithHostedZone","Remove-R53VPCAssociationAuthorization","Unregister-R53VPCFromHostedZone")
 }
 
@@ -4607,7 +4686,7 @@ $S3_Completers = {
         # Amazon.S3.InventoryFormat
         "Write-S3BucketInventoryConfiguration/InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"
         {
-            $v = "CSV"
+            $v = "CSV","ORC"
             break
         }
         
@@ -5216,6 +5295,13 @@ $WD_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkDocs.BooleanEnumType
+        "Update-WDUser/GrantPoweruserPrivileges"
+        {
+            $v = "FALSE","TRUE"
+            break
+        }
+        
         # Amazon.WorkDocs.CommentVisibilityType
         "New-WDComment/Visibility"
         {
@@ -5319,7 +5405,7 @@ $WD_Completers = {
         # Amazon.WorkDocs.UserType
         "Update-WDUser/Type"
         {
-            $v = "ADMIN","USER"
+            $v = "ADMIN","MINIMALUSER","POWERUSER","USER","WORKSPACESUSER"
             break
         }
         
@@ -5331,6 +5417,7 @@ $WD_Completers = {
 }
 
 $WD_map = @{
+    "GrantPoweruserPrivileges"=@("Update-WDUser")
     "Include"=@("Get-WDUserList")
     "Locale"=@("Update-WDUser")
     "Order"=@("Get-WDFolderContent","Get-WDUserList")

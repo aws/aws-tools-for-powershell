@@ -1442,6 +1442,9 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
         private void WriteResultOutput(IndentedTextWriter writer, OperationAnalyzer operationAnalysis, bool errorOnAnalyzedResultMismatch)
         {
             var analyzedResult = operationAnalysis.AnalyzedResult;
+            var emitErrorOnResultMismatch = errorOnAnalyzedResultMismatch;
+            if (operationAnalysis.CurrentOperation.SkipOutputComputationCheck)
+                emitErrorOnResultMismatch = false;
 
             writer.WriteLine("Dictionary<string, object> notes = null;");
 
@@ -1461,7 +1464,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.DecreaseIndent();
                         }
 
-                        if (errorOnAnalyzedResultMismatch)
+                        if (emitErrorOnResultMismatch)
                         {
                             if (Operation.Output != ServiceOperation.OutputMode.Void)
                             {
@@ -1490,7 +1493,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             }
                         }
 
-                        if (errorOnAnalyzedResultMismatch)
+                        if (emitErrorOnResultMismatch)
                         {
                             if (Operation.Output != ServiceOperation.OutputMode.Default)
                             {
@@ -1508,7 +1511,7 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                     {
                         writer.WriteLine("object pipelineOutput = response;");
 
-                        if (errorOnAnalyzedResultMismatch)
+                        if (emitErrorOnResultMismatch)
                         {
                             if (Operation.Output != ServiceOperation.OutputMode.Response)
                             {

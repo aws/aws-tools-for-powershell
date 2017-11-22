@@ -98,9 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter OperatingSystem
         /// <summary>
         /// <para>
-        /// <para>Defines the operating system the patch baseline applies to. Supported operating systems
-        /// include WINDOWS, AMAZON_LINUX, UBUNTU and REDHAT_ENTERPRISE_LINUX. The Default value
-        /// is WINDOWS.</para>
+        /// <para>Defines the operating system the patch baseline applies to. The Default value is WINDOWS.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

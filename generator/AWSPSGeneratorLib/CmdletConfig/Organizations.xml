@@ -30,12 +30,15 @@
     <ServiceOperation MethodName="DescribePolicy"/>
     <ServiceOperation MethodName="DetachPolicy" Output="Void" PipelineParameter="PolicyId"/>
     <ServiceOperation MethodName="DisablePolicyType" PipelineParameter="PolicyType"/>
+    <ServiceOperation MethodName="DisableAWSServiceAccess" Output="Void" />
     <ServiceOperation MethodName="EnableAllFeatures" Noun="AllFeature" LegacyAlias="Enable-ORGAllFeatures"/>
+    <ServiceOperation MethodName="EnableAWSServiceAccess" Output="Void" />
     <ServiceOperation MethodName="EnablePolicyType" PipelineParameter="PolicyType"/>
     <ServiceOperation MethodName="InviteAccountToOrganization" Verb="Create" Noun="AccountInvitation" PipelineParameter="Target"/>
     <ServiceOperation MethodName="LeaveOrganization" Verb="Remove" Noun="OrganizationAssociation" Output="Void"/>
     <ServiceOperation MethodName="ListAccounts" Verb="Get" Noun="AccountList"/>
     <ServiceOperation MethodName="ListAccountsForParent" Verb="Get" Noun="AccountForParent"/>
+    <ServiceOperation MethodName="ListAWSServiceAccessForOrganization" Verb="Get" />
     <ServiceOperation MethodName="ListChildren" Verb="Get" Noun="Child" PipelineParameter="ParentId"/>
     <ServiceOperation MethodName="ListCreateAccountStatus" Verb="Get" Noun="AccountCreationStatusList"/>
     <ServiceOperation MethodName="ListHandshakesForAccount" Verb="Get" Noun="AccountHandshakeList" PipelineParameter="Filter"/>

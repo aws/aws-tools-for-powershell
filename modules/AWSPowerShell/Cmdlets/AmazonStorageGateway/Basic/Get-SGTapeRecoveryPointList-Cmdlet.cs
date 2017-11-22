@@ -36,7 +36,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// A recovery point is a point-in-time view of a virtual tape at which all the data on
     /// the virtual tape is consistent. If your gateway crashes, virtual tapes that have recovery
     /// points can be recovered to a new gateway. This operation is only supported in the
-    /// tape gateway architecture.
+    /// tape gateway type.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGTapeRecoveryPointList")]

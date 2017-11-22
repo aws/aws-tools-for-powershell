@@ -38,15 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:ListCollections</code>
     /// action.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "REKCollectionIdList")]
-    [OutputType("System.String")]
+    [OutputType("Amazon.Rekognition.Model.ListCollectionsResponse")]
     [AWSCmdlet("Calls the Amazon Rekognition ListCollections API operation.", Operation = new[] {"ListCollections"})]
-    [AWSCmdletOutput("System.String",
-        "This cmdlet returns a collection of String objects.",
-        "The service call response (type Amazon.Rekognition.Model.ListCollectionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
-        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
+    [AWSCmdletOutput("Amazon.Rekognition.Model.ListCollectionsResponse",
+        "This cmdlet returns a Amazon.Rekognition.Model.ListCollectionsResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetREKCollectionIdListCmdlet : AmazonRekognitionClientCmdlet, IExecutor
     {
@@ -59,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
-        public int MaxResult { get; set; }
+        public System.Int32 MaxResult { get; set; }
         #endregion
         
         #region Parameter NextToken
@@ -104,84 +102,40 @@ namespace Amazon.PowerShell.Cmdlets.REK
         public object Execute(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
-            
-            // create request and set iteration invariants
+            // create request
             var request = new Amazon.Rekognition.Model.ListCollectionsRequest();
             
-            // Initialize loop variants and commence piping
-            System.String _nextMarker = null;
-            int? _emitLimit = null;
-            int _retrievedSoFar = 0;
-            if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
+            if (cmdletContext.MaxResults != null)
             {
-                _nextMarker = cmdletContext.NextToken;
+                request.MaxResults = cmdletContext.MaxResults.Value;
             }
-            if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
+            if (cmdletContext.NextToken != null)
             {
-                _emitLimit = cmdletContext.MaxResults;
+                request.NextToken = cmdletContext.NextToken;
             }
-            bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
-            bool _continueIteration = true;
             
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
             try
             {
-                do
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response;
+                output = new CmdletOutput
                 {
-                    request.NextToken = _nextMarker;
-                    if (AutoIterationHelpers.HasValue(_emitLimit))
-                    {
-                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
-                    }
-                    
-                    var client = Client ?? CreateClient(context.Credentials, context.Region);
-                    CmdletOutput output;
-                    
-                    try
-                    {
-                        
-                        var response = CallAWSServiceOperation(client, request);
-                        Dictionary<string, object> notes = null;
-                        object pipelineOutput = response.CollectionIds;
-                        notes = new Dictionary<string, object>();
-                        notes["NextToken"] = response.NextToken;
-                        output = new CmdletOutput
-                        {
-                            PipelineOutput = pipelineOutput,
-                            ServiceResponse = response,
-                            Notes = notes
-                        };
-                        int _receivedThisCall = response.CollectionIds.Count;
-                        if (_userControllingPaging)
-                        {
-                            WriteProgressRecord("Retrieving", string.Format("Retrieved {0} records starting from marker '{1}'", _receivedThisCall, request.NextToken));
-                        }
-                        
-                        _nextMarker = response.NextToken;
-                        
-                        _retrievedSoFar += _receivedThisCall;
-                        if (AutoIterationHelpers.HasValue(_emitLimit) && (_retrievedSoFar == 0 || _retrievedSoFar >= _emitLimit.Value))
-                        {
-                            _continueIteration = false;
-                        }
-                    }
-                    catch (Exception e)
-                    {
-                        output = new CmdletOutput { ErrorResponse = e };
-                    }
-                    
-                    ProcessOutput(output);
-                } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
-                
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
             }
-            finally
+            catch (Exception e)
             {
-                if (_userControllingPaging)
-                {
-                    WriteProgressCompleteRecord("Retrieving", "Retrieved records");
-                }
+                output = new CmdletOutput { ErrorResponse = e };
             }
             
-            return null;
+            return output;
         }
         
         public ExecutorContext CreateContext()
@@ -223,7 +177,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public int? MaxResults { get; set; }
+            public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }
         

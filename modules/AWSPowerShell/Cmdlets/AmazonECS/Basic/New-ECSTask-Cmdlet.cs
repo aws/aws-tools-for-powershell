@@ -118,6 +118,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public Amazon.ECS.Model.PlacementStrategy[] PlacementStrategy { get; set; }
         #endregion
         
+        #region Parameter AwsvpcConfiguration_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The security groups associated with the task or service. If you do not specify a security
+        /// group, the default security group for the VPC is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_SecurityGroups")]
+        public System.String[] AwsvpcConfiguration_SecurityGroup { get; set; }
+        #endregion
+        
         #region Parameter StartedBy
         /// <summary>
         /// <para>
@@ -132,6 +144,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String StartedBy { get; set; }
+        #endregion
+        
+        #region Parameter AwsvpcConfiguration_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The subnets associated with the task or service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_Subnets")]
+        public System.String[] AwsvpcConfiguration_Subnet { get; set; }
         #endregion
         
         #region Parameter TaskDefinition
@@ -191,6 +214,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (ParameterWasBound("Count"))
                 context.Count = this.Count;
             context.Group = this.Group;
+            if (this.AwsvpcConfiguration_SecurityGroup != null)
+            {
+                context.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups = new List<System.String>(this.AwsvpcConfiguration_SecurityGroup);
+            }
+            if (this.AwsvpcConfiguration_Subnet != null)
+            {
+                context.NetworkConfiguration_AwsvpcConfiguration_Subnets = new List<System.String>(this.AwsvpcConfiguration_Subnet);
+            }
             if (this.Overrides_ContainerOverride != null)
             {
                 context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
@@ -233,6 +264,50 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Group != null)
             {
                 request.Group = cmdletContext.Group;
+            }
+            
+             // populate NetworkConfiguration
+            bool requestNetworkConfigurationIsNull = true;
+            request.NetworkConfiguration = new Amazon.ECS.Model.NetworkConfiguration();
+            Amazon.ECS.Model.AwsVpcConfiguration requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = null;
+            
+             // populate AwsvpcConfiguration
+            bool requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = new Amazon.ECS.Model.AwsVpcConfiguration();
+            List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.SecurityGroups = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
+            List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_Subnets != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_Subnets;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.Subnets = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration != null)
+            {
+                request.NetworkConfiguration.AwsvpcConfiguration = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration;
+                requestNetworkConfigurationIsNull = false;
+            }
+             // determine if request.NetworkConfiguration should be set to null
+            if (requestNetworkConfigurationIsNull)
+            {
+                request.NetworkConfiguration = null;
             }
             
              // populate Overrides
@@ -346,6 +421,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
             public System.String Group { get; set; }
+            public List<System.String> NetworkConfiguration_AwsvpcConfiguration_SecurityGroups { get; set; }
+            public List<System.String> NetworkConfiguration_AwsvpcConfiguration_Subnets { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
             public System.String Overrides_TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }

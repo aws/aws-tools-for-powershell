@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ID of the DB cluster to retrieve the list of DB cluster snapshots for. This parameter
-        /// cannot be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter.
+        /// can't be used in conjunction with the <code>DBClusterSnapshotIdentifier</code> parameter.
         /// This parameter is not case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBCluster.</para></li></ul>
         /// </para>
         /// </summary>
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBClusterSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para>A specific DB cluster snapshot identifier to describe. This parameter cannot be used
+        /// <para>A specific DB cluster snapshot identifier to describe. This parameter can't be used
         /// in conjunction with the <code>DBClusterIdentifier</code> parameter. This value is
         /// stored as a lowercase string. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBClusterSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
         /// must also be specified.</para></li></ul>
@@ -85,9 +85,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludePublic
         /// <summary>
         /// <para>
-        /// <para>Set this value to <code>true</code> to include manual DB cluster snapshots that are
-        /// public and can be copied or restored by any AWS account, otherwise set this value
-        /// to <code>false</code>. The default is <code>false</code>. The default is false.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
+        /// <para>True to include manual DB cluster snapshots that are public and can be copied or restored
+        /// by any AWS account, and otherwise false. The default is <code>false</code>. The default
+        /// is false.</para><para>You can share a manual DB cluster snapshot as public by using the <a>ModifyDBClusterSnapshotAttribute</a>
         /// API action.</para>
         /// </para>
         /// </summary>
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>Set this value to <code>true</code> to include shared manual DB cluster snapshots
-        /// from other AWS accounts that this AWS account has been given permission to copy or
-        /// restore, otherwise set this value to <code>false</code>. The default is <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB cluster snapshot from
+        /// <para>True to include shared manual DB cluster snapshots from other AWS accounts that this
+        /// AWS account has been given permission to copy or restore, and otherwise false. The
+        /// default is <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB cluster snapshot from
         /// another AWS account by the <a>ModifyDBClusterSnapshotAttribute</a> API action.</para>
         /// </para>
         /// </summary>

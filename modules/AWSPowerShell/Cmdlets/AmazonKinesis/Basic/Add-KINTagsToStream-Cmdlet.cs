@@ -28,8 +28,8 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Adds or updates tags for the specified Amazon Kinesis stream. Each stream can have
-    /// up to 10 tags.
+    /// Adds or updates tags for the specified Kinesis stream. Each stream can have up to
+    /// 10 tags.
     /// 
     ///  
     /// <para>

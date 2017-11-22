@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted cannot be
+    /// Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted can't be
     /// associated with any DB instances.
     /// </summary>
     [Cmdlet("Remove", "RDSDBParameterGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBParameterGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB parameter group</para></li><li><para>You cannot delete a default DB parameter group</para></li><li><para>Cannot be associated with any DB instances</para></li></ul>
+        /// <para>The name of the DB parameter group.</para><para>Constraints:</para><ul><li><para>Must be the name of an existing DB parameter group</para></li><li><para>You can't delete a default DB parameter group</para></li><li><para>Cannot be associated with any DB instances</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

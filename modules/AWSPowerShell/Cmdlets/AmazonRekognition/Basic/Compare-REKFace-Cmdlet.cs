@@ -28,13 +28,18 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Compares a face in the <i>source</i> input image with each face detected in the <i>target</i>
-    /// input image. 
+    /// Compares a face in the <i>source</i> input image with each of the 100 largest faces
+    /// detected in the <i>target</i> input image. 
     /// 
     ///  <note><para>
     ///  If the source image contains multiple faces, the service detects the largest face
     /// and compares it with each face detected in the target image. 
     /// </para></note><para>
+    /// You pass the input and target images either as base64-encoded image bytes or as a
+    /// references to images in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon
+    /// Rekognition operations, passing image bytes is not supported. The image must be either
+    /// a PNG or JPEG formatted file. 
+    /// </para><para>
     /// In response, the operation returns an array of face matches ordered by similarity
     /// score in descending order. For each face match, the response provides a bounding box
     /// of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness
@@ -53,6 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// If the image doesn't contain Exif metadata, <code>CompareFaces</code> returns orientation
     /// information for the source and target images. Use these values to display the images
     /// with the correct image orientation.
+    /// </para><para>
+    /// If no faces are detected in the source or target images, <code>CompareFaces</code>
+    /// returns an <code>InvalidParameterException</code> error. 
     /// </para><note><para>
     ///  This is a stateless API operation. That is, data returned by this operation doesn't
     /// persist.

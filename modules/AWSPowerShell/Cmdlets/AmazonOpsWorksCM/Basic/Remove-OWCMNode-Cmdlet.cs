@@ -28,10 +28,10 @@ using Amazon.OpsWorksCM.Model;
 namespace Amazon.PowerShell.Cmdlets.OWCM
 {
     /// <summary>
-    /// Disassociates a node from a Chef server, and removes the node from the Chef server's
-    /// managed nodes. After a node is disassociated, the node key pair is no longer valid
-    /// for accessing the Chef API. For more information about how to associate a node, see
-    /// <a>AssociateNode</a>. 
+    /// Disassociates a node from an AWS OpsWorks CM server, and removes the node from the
+    /// server's managed nodes. After a node is disassociated, the node key pair is no longer
+    /// valid for accessing the configuration manager's API. For more information about how
+    /// to associate a node, see <a>AssociateNode</a>. 
     /// 
     ///  
     /// <para>
@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter NodeName
         /// <summary>
         /// <para>
-        /// <para>The name of the Chef client node. </para>
+        /// <para>The name of the client node. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -26,6 +26,7 @@
     <ServiceOperation MethodName="DescribeAttack" />
     <ServiceOperation MethodName="DescribeProtection" />
     <ServiceOperation MethodName="DescribeSubscription" />
+    <ServiceOperation MethodName="GetSubscriptionState" />
     <ServiceOperation MethodName="ListAttacks" Verb="Get" Noun="AttackList" NoPipelineParameter="true" />
     <ServiceOperation MethodName="ListProtections" Verb="Get" Noun="ProtectionList" />
   </ServiceOperations>

@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group to be deleted.</para><note><para>You cannot delete default option groups.</para></note>
+        /// <para>The name of the option group to be deleted.</para><note><para>You can't delete default option groups.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

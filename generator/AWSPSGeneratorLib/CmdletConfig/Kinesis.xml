@@ -25,6 +25,7 @@
     <ServiceOperation MethodName="DeleteStream" Output="Void" />
     <ServiceOperation MethodName="DescribeLimits" Verb="Describe" Noun="Limit" Output="Response"/>
     <ServiceOperation MethodName="DescribeStream" PositionalParameters="Limit;ExclusiveStartShardId" PipelineParameter="StreamName"/>
+    <ServiceOperation MethodName="DescribeStreamSummary" />
     <ServiceOperation MethodName="GetRecords" PipelineParameter="ShardIterator" Output="Response"/>
     <ServiceOperation MethodName="GetShardIterator" PipelineParameter="ShardId" />
     <ServiceOperation MethodName="ListStreams" Output="Response" Verb="Get" PipelineParameter="ExclusiveStartStreamName" PositionalParameters="Limit" Noun="StreamList" LegacyAlias="Get-KINStreams"/>

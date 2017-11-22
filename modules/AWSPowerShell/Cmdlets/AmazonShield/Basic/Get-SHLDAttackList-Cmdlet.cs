@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter EndTime_FromInclusive
         /// <summary>
         /// <para>
-        /// <para>The start time, in the format 2016-12-16T13:50Z.</para>
+        /// <para>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter StartTime_FromInclusive
         /// <summary>
         /// <para>
-        /// <para>The start time, in the format 2016-12-16T13:50Z.</para>
+        /// <para>The start time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter EndTime_ToExclusive
         /// <summary>
         /// <para>
-        /// <para>The end time, in the format 2016-12-16T15:50Z.</para>
+        /// <para>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         #region Parameter StartTime_ToExclusive
         /// <summary>
         /// <para>
-        /// <para>The end time, in the format 2016-12-16T15:50Z.</para>
+        /// <para>The end time, in Unix time in seconds. For more information see <a href="http://docs.aws.amazon.com/cli/latest/userguide/cli-using-param.html#parameter-types">timestamp</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

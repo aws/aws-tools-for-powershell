@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The ID of the DB instance to retrieve the list of DB snapshots for. This parameter
-        /// cannot be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
+        /// can't be used in conjunction with <code>DBSnapshotIdentifier</code>. This parameter
         /// is not case-sensitive. </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBInstance.</para></li></ul>
         /// </para>
         /// </summary>
@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter DBSnapshotIdentifier
         /// <summary>
         /// <para>
-        /// <para> A specific DB snapshot identifier to describe. This parameter cannot be used in conjunction
+        /// <para> A specific DB snapshot identifier to describe. This parameter can't be used in conjunction
         /// with <code>DBInstanceIdentifier</code>. This value is stored as a lowercase string.
         /// </para><para>Constraints:</para><ul><li><para>If supplied, must match the identifier of an existing DBSnapshot.</para></li><li><para>If this identifier is for an automated snapshot, the <code>SnapshotType</code> parameter
         /// must also be specified.</para></li></ul>
@@ -80,9 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludePublic
         /// <summary>
         /// <para>
-        /// <para>Set this value to <code>true</code> to include manual DB snapshots that are public
-        /// and can be copied or restored by any AWS account, otherwise set this value to <code>false</code>.
-        /// The default is <code>false</code>.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
+        /// <para>True to include manual DB snapshots that are public and can be copied or restored
+        /// by any AWS account, and otherwise false. The default is false.</para><para>You can share a manual DB snapshot as public by using the <a>ModifyDBSnapshotAttribute</a>
         /// API.</para>
         /// </para>
         /// </summary>
@@ -93,9 +92,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter IncludeShared
         /// <summary>
         /// <para>
-        /// <para>Set this value to <code>true</code> to include shared manual DB snapshots from other
-        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise
-        /// set this value to <code>false</code>. The default is <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB snapshot from another
+        /// <para>True to include shared manual DB snapshots from other AWS accounts that this AWS account
+        /// has been given permission to copy or restore, and otherwise false. The default is
+        /// <code>false</code>.</para><para>You can give an AWS account permission to restore a manual DB snapshot from another
         /// AWS account by using the <a>ModifyDBSnapshotAttribute</a> API action.</para>
         /// </para>
         /// </summary>

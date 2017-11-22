@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
 {
     /// <summary>
     /// Creates a state machine. A state machine consists of a collection of states that can
-    /// do work (<code>Task</code> states), determine which states to transition to next (<code>Choice</code>
+    /// do work (<code>Task</code> states), determine to which states to transition next (<code>Choice</code>
     /// states), stop an execution with an error (<code>Fail</code> states), and so on. State
     /// machines are specified using a JSON-based, structured language.
     /// </summary>

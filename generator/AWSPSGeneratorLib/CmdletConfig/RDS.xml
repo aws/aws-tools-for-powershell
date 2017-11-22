@@ -150,6 +150,8 @@
     <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
     <ServiceOperation MethodName="StartDBInstance" />
     <ServiceOperation MethodName="StopDBInstance" />
+
+    <ServiceOperation MethodName="RestoreDBInstanceFromS3" ShouldProcessTarget="DBInstanceIdentifier" />
   </ServiceOperations>
 
   <NounMappings>

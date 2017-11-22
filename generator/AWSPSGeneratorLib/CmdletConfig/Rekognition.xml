@@ -8,8 +8,8 @@
     <ServiceClient>AmazonRekognitionClient</ServiceClient>
     <ServiceNamespace>Amazon.Rekognition</ServiceNamespace>
 
-    <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" />
-    
+    <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" Exclusions="ListFaces;ListCollections" />
+
     <PipelineParameter>CollectionId</PipelineParameter>
     
     <PipelineByValueProperties>
@@ -51,6 +51,14 @@
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DetectModerationLabels" Verb="Find" Noun="ModerationLabel" NoPipelineParameter="true"/>
+        <ServiceOperation MethodName="DetectText" Verb="Find">
+            <Params>
+                <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Name" NewName="ImageName" AutoApplyAlias="false" />
+                <Param Name="Image_S3Object_Version" NewName="ImageVersion" AutoApplyAlias="false" />
+                <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
+            </Params>
+        </ServiceOperation>
         <ServiceOperation MethodName="GetCelebrityInfo" Output="Response" />
         <ServiceOperation MethodName="IndexFaces" Verb="Add" Noun="DetectedFacesToCollection" Output="Response">
             <Params>
@@ -60,8 +68,8 @@
                 <Param Name="Image_Bytes" NewName="ImageContent" AutoApplyAlias="false" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="ListCollections" Verb="Get" Noun="CollectionIdList" />
-        <ServiceOperation MethodName="ListFaces" Verb="Get" Noun="FaceList" />
+        <ServiceOperation MethodName="ListCollections" Verb="Get" Noun="CollectionIdList" Output="Response" />
+        <ServiceOperation MethodName="ListFaces" Verb="Get" Noun="FaceList" Output="Response" />
         <ServiceOperation MethodName="RecognizeCelebrities" Verb="Find" Noun="Celebrity" Output="Response">
             <Params>
                 <Param Name="Image_S3Object_Bucket" NewName="ImageBucket" AutoApplyAlias="false" />

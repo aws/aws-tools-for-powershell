@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
     /// The DeleteDBInstance action deletes a previously provisioned DB instance. When you
-    /// delete a DB instance, all automated backups for that instance are deleted and cannot
+    /// delete a DB instance, all automated backups for that instance are deleted and can't
     /// be recovered. Manual DB snapshots of the DB instance to be deleted by <code>DeleteDBInstance</code>
     /// are not deleted.
     /// 
@@ -37,14 +37,14 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// <para>
     ///  If you request a final DB snapshot the status of the Amazon RDS DB instance is <code>deleting</code>
     /// until the DB snapshot is created. The API action <code>DescribeDBInstance</code> is
-    /// used to monitor the status of this operation. The action cannot be canceled or reverted
+    /// used to monitor the status of this operation. The action can't be canceled or reverted
     /// once submitted. 
     /// </para><para>
     /// Note that when a DB instance is in a failure state and has a status of <code>failed</code>,
     /// <code>incompatible-restore</code>, or <code>incompatible-network</code>, you can only
     /// delete it when the <code>SkipFinalSnapshot</code> parameter is set to <code>true</code>.
     /// </para><para>
-    /// If the specified DB instance is part of an Amazon Aurora DB cluster, you cannot delete
+    /// If the specified DB instance is part of an Amazon Aurora DB cluster, you can't delete
     /// the DB instance if both of the following conditions are true:
     /// </para><ul><li><para>
     /// The DB cluster is a Read Replica of another Amazon Aurora DB cluster.

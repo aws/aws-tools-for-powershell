@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>
@@ -60,6 +60,18 @@ namespace Amazon.PowerShell.Cmdlets.WD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String GivenName { get; set; }
+        #endregion
+        
+        #region Parameter GrantPoweruserPrivilege
+        /// <summary>
+        /// <para>
+        /// <para>Boolean value to determine whether the user is granted Poweruser privileges.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("GrantPoweruserPrivileges")]
+        [AWSConstantClassSource("Amazon.WorkDocs.BooleanEnumType")]
+        public Amazon.WorkDocs.BooleanEnumType GrantPoweruserPrivilege { get; set; }
         #endregion
         
         #region Parameter Locale
@@ -167,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             
             context.AuthenticationToken = this.AuthenticationToken;
             context.GivenName = this.GivenName;
+            context.GrantPoweruserPrivileges = this.GrantPoweruserPrivilege;
             context.Locale = this.Locale;
             if (ParameterWasBound("StorageRule_StorageAllocatedInByte"))
                 context.StorageRule_StorageAllocatedInBytes = this.StorageRule_StorageAllocatedInByte;
@@ -198,6 +211,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             if (cmdletContext.GivenName != null)
             {
                 request.GivenName = cmdletContext.GivenName;
+            }
+            if (cmdletContext.GrantPoweruserPrivileges != null)
+            {
+                request.GrantPoweruserPrivileges = cmdletContext.GrantPoweruserPrivileges;
             }
             if (cmdletContext.Locale != null)
             {
@@ -314,6 +331,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         {
             public System.String AuthenticationToken { get; set; }
             public System.String GivenName { get; set; }
+            public Amazon.WorkDocs.BooleanEnumType GrantPoweruserPrivileges { get; set; }
             public Amazon.WorkDocs.LocaleType Locale { get; set; }
             public System.Int64? StorageRule_StorageAllocatedInBytes { get; set; }
             public Amazon.WorkDocs.StorageType StorageRule_StorageType { get; set; }

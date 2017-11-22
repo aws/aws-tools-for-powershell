@@ -28,40 +28,39 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Creates an Amazon Kinesis stream. A stream captures and transports data records that
-    /// are continuously emitted from different data sources or <i>producers</i>. Scale-out
-    /// within a stream is explicitly supported by means of shards, which are uniquely identified
-    /// groups of data records in a stream.
+    /// Creates a Kinesis stream. A stream captures and transports data records that are continuously
+    /// emitted from different data sources or <i>producers</i>. Scale-out within a stream
+    /// is explicitly supported by means of shards, which are uniquely identified groups of
+    /// data records in a stream.
     /// 
     ///  
     /// <para>
     /// You specify and control the number of shards that a stream is composed of. Each shard
     /// can support reads up to 5 transactions per second, up to a maximum data read total
     /// of 2 MB per second. Each shard can support writes up to 1,000 records per second,
-    /// up to a maximum data write total of 1 MB per second. You can add shards to a stream
-    /// if the amount of data input increases and you can remove shards if the amount of data
-    /// input decreases.
+    /// up to a maximum data write total of 1 MB per second. I the amount of data input increases
+    /// or decreases, you can add or remove shards.
     /// </para><para>
     /// The stream name identifies the stream. The name is scoped to the AWS account used
     /// by the application. It is also scoped by region. That is, two streams in two different
     /// accounts can have the same name, and two streams in the same account, but in two different
     /// regions, can have the same name.
     /// </para><para><code>CreateStream</code> is an asynchronous operation. Upon receiving a <code>CreateStream</code>
-    /// request, Amazon Kinesis immediately returns and sets the stream status to <code>CREATING</code>.
-    /// After the stream is created, Amazon Kinesis sets the stream status to <code>ACTIVE</code>.
+    /// request, Kinesis Streams immediately returns and sets the stream status to <code>CREATING</code>.
+    /// After the stream is created, Kinesis Streams sets the stream status to <code>ACTIVE</code>.
     /// You should perform read and write operations only on an <code>ACTIVE</code> stream.
     /// 
     /// </para><para>
     /// You receive a <code>LimitExceededException</code> when making a <code>CreateStream</code>
-    /// request if you try to do one of the following:
+    /// request when you try to do one of the following:
     /// </para><ul><li><para>
     /// Have more than five streams in the <code>CREATING</code> state at any point in time.
     /// </para></li><li><para>
     /// Create more shards than are authorized for your account.
     /// </para></li></ul><para>
     /// For the default shard limit for an AWS account, see <a href="http://docs.aws.amazon.com/kinesis/latest/dev/service-sizes-and-limits.html">Streams
-    /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>. If you need to increase
-    /// this limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
+    /// Limits</a> in the <i>Amazon Kinesis Streams Developer Guide</i>. To increase this
+    /// limit, <a href="http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html">contact
     /// AWS Support</a>.
     /// </para><para>
     /// You can use <code>DescribeStream</code> to check the stream status, which is returned
@@ -95,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         /// <para>
         /// <para>A name to identify the stream. The stream name is scoped to the AWS account used by
         /// the application that creates the stream. It is also scoped by region. That is, two
-        /// streams in two different AWS accounts can have the same name, and two streams in the
-        /// same AWS account but in two different regions can have the same name.</para>
+        /// streams in two different AWS accounts can have the same name. Two streams in the same
+        /// AWS account but in two different regions can also have the same name.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

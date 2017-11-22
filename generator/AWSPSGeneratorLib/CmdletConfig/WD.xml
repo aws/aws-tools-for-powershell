@@ -15,6 +15,7 @@
     <ServiceOperation MethodName="InitiateDocumentVersionUpload" Verb="Start" Output="Response" ShouldProcessTarget="Id" PipelineParameter="Id" />
     <ServiceOperation MethodName="DeleteDocument" Output="Void" PipelineParameter="DocumentId" />
     <ServiceOperation MethodName="DescribeDocumentVersions" Noun="DocumentVersionList" PipelineParameter="DocumentId"/>
+    <ServiceOperation MethodName="DescribeGroups" Noun="Group" NoPipelineParameter="true" />
     <ServiceOperation MethodName="GetDocument" PipelineParameter="DocumentId" Output="Response" />
     <ServiceOperation MethodName="GetDocumentPath" PipelineParameter="DocumentId"/>
     <ServiceOperation MethodName="GetDocumentVersion" PipelineParameter="DocumentId" Output="Response" />

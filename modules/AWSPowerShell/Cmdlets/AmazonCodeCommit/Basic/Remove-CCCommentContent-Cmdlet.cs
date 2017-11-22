@@ -22,36 +22,54 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KinesisFirehose;
-using Amazon.KinesisFirehose.Model;
+using Amazon.CodeCommit;
+using Amazon.CodeCommit.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KINF
+namespace Amazon.PowerShell.Cmdlets.CC
 {
     /// <summary>
-    
+    /// Deletes the content of a comment made on a change, file, or commit in a repository.
     /// </summary>
-    [Cmdlet("Get", "KINFKinesisStream")]
-    [OutputType("Amazon.KinesisFirehose.Model.GetKinesisStreamResponse")]
-    [AWSCmdlet("Calls the Amazon Kinesis Firehose GetKinesisStream API operation.", Operation = new[] {"GetKinesisStream"})]
-    [AWSCmdletOutput("Amazon.KinesisFirehose.Model.GetKinesisStreamResponse",
-        "This cmdlet returns a Amazon.KinesisFirehose.Model.GetKinesisStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Remove", "CCCommentContent", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [OutputType("Amazon.CodeCommit.Model.Comment")]
+    [AWSCmdlet("Calls the AWS CodeCommit DeleteCommentContent API operation.", Operation = new[] {"DeleteCommentContent"})]
+    [AWSCmdletOutput("Amazon.CodeCommit.Model.Comment",
+        "This cmdlet returns a Comment object.",
+        "The service call response (type Amazon.CodeCommit.Model.DeleteCommentContentResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetKINFKinesisStreamCmdlet : AmazonKinesisFirehoseClientCmdlet, IExecutor
+    public partial class RemoveCCCommentContentCmdlet : AmazonCodeCommitClientCmdlet, IExecutor
     {
         
-        #region Parameter DeliveryStreamARN
+        #region Parameter CommentId
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The unique, system-generated ID of the comment. To get this ID, use <a>GetCommentsForComparedCommit</a>
+        /// or <a>GetCommentsForPullRequest</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String DeliveryStreamARN { get; set; }
+        public System.String CommentId { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CommentId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-CCCommentContent (DeleteCommentContent)"))
+            {
+                return;
+            }
             
             var context = new CmdletContext
             {
@@ -62,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.DeliveryStreamARN = this.DeliveryStreamARN;
+            context.CommentId = this.CommentId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -77,11 +95,11 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisFirehose.Model.GetKinesisStreamRequest();
+            var request = new Amazon.CodeCommit.Model.DeleteCommentContentRequest();
             
-            if (cmdletContext.DeliveryStreamARN != null)
+            if (cmdletContext.CommentId != null)
             {
-                request.DeliveryStreamARN = cmdletContext.DeliveryStreamARN;
+                request.CommentId = cmdletContext.CommentId;
             }
             
             CmdletOutput output;
@@ -92,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.Comment;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -117,16 +135,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisFirehose.Model.GetKinesisStreamResponse CallAWSServiceOperation(IAmazonKinesisFirehose client, Amazon.KinesisFirehose.Model.GetKinesisStreamRequest request)
+        private Amazon.CodeCommit.Model.DeleteCommentContentResponse CallAWSServiceOperation(IAmazonCodeCommit client, Amazon.CodeCommit.Model.DeleteCommentContentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Firehose", "GetKinesisStream");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS CodeCommit", "DeleteCommentContent");
             try
             {
                 #if DESKTOP
-                return client.GetKinesisStream(request);
+                return client.DeleteCommentContent(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.GetKinesisStreamAsync(request);
+                var task = client.DeleteCommentContentAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -147,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String DeliveryStreamARN { get; set; }
+            public System.String CommentId { get; set; }
         }
         
     }

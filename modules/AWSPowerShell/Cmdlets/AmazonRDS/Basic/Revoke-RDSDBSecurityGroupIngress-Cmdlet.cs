@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <para>
         /// <para> The IP range to revoke access from. Must be a valid CIDR range. If <code>CIDRIP</code>
         /// is specified, <code>EC2SecurityGroupName</code>, <code>EC2SecurityGroupId</code> and
-        /// <code>EC2SecurityGroupOwnerId</code> cannot be provided. </para>
+        /// <code>EC2SecurityGroupOwnerId</code> can't be provided. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

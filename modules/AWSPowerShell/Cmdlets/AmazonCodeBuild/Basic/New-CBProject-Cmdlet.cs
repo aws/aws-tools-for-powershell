@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
     public partial class NewCBProjectCmdlet : AmazonCodeBuildClientCmdlet, IExecutor
     {
         
+        #region Parameter BadgeEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Set this to true to generate a publicly-accessible URL for your project's build badge.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean BadgeEnabled { get; set; }
+        #endregion
+        
         #region Parameter Source_Buildspec
         /// <summary>
         /// <para>
@@ -117,6 +127,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Artifacts_Location { get; set; }
+        #endregion
+        
+        #region Parameter Cache_Location
+        /// <summary>
+        /// <para>
+        /// <para>Information about the cache location, as follows: </para><ul><li><para><code>NO_CACHE</code>: This value will be ignored.</para></li><li><para><code>S3</code>: This is the S3 bucket name/prefix.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Cache_Location { get; set; }
         #endregion
         
         #region Parameter Source_Location
@@ -262,6 +282,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public System.String Auth_Resource { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more security groups IDs in your Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_SecurityGroupIds")]
+        public System.String[] VpcConfig_SecurityGroupId { get; set; }
+        #endregion
+        
         #region Parameter ServiceRole
         /// <summary>
         /// <para>
@@ -271,6 +302,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceRole { get; set; }
+        #endregion
+        
+        #region Parameter VpcConfig_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>A list of one or more subnet IDs in your Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("VpcConfig_Subnets")]
+        public System.String[] VpcConfig_Subnet { get; set; }
         #endregion
         
         #region Parameter Tag
@@ -310,6 +352,17 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
         #endregion
         
+        #region Parameter Cache_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of cache used by the build project. Valid values include:</para><ul><li><para><code>NO_CACHE</code>: The build project will not use any cache.</para></li><li><para><code>S3</code>: The build project will read and write from/to S3.</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeBuild.CacheType")]
+        public Amazon.CodeBuild.CacheType Cache_Type { get; set; }
+        #endregion
+        
         #region Parameter Environment_Type
         /// <summary>
         /// <para>
@@ -347,6 +400,16 @@ namespace Amazon.PowerShell.Cmdlets.CB
         public Amazon.CodeBuild.SourceType Source_Type { get; set; }
         #endregion
         
+        #region Parameter VpcConfig_VpcId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the Amazon VPC.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String VpcConfig_VpcId { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -382,6 +445,10 @@ namespace Amazon.PowerShell.Cmdlets.CB
             context.Artifacts_Packaging = this.Artifacts_Packaging;
             context.Artifacts_Path = this.Artifacts_Path;
             context.Artifacts_Type = this.Artifacts_Type;
+            if (ParameterWasBound("BadgeEnabled"))
+                context.BadgeEnabled = this.BadgeEnabled;
+            context.Cache_Location = this.Cache_Location;
+            context.Cache_Type = this.Cache_Type;
             context.Description = this.Description;
             context.EncryptionKey = this.EncryptionKey;
             context.Environment_ComputeType = this.Environment_ComputeType;
@@ -406,6 +473,15 @@ namespace Amazon.PowerShell.Cmdlets.CB
             }
             if (ParameterWasBound("TimeoutInMinute"))
                 context.TimeoutInMinutes = this.TimeoutInMinute;
+            if (this.VpcConfig_SecurityGroupId != null)
+            {
+                context.VpcConfig_SecurityGroupIds = new List<System.String>(this.VpcConfig_SecurityGroupId);
+            }
+            if (this.VpcConfig_Subnet != null)
+            {
+                context.VpcConfig_Subnets = new List<System.String>(this.VpcConfig_Subnet);
+            }
+            context.VpcConfig_VpcId = this.VpcConfig_VpcId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -490,6 +566,39 @@ namespace Amazon.PowerShell.Cmdlets.CB
             if (requestArtifactsIsNull)
             {
                 request.Artifacts = null;
+            }
+            if (cmdletContext.BadgeEnabled != null)
+            {
+                request.BadgeEnabled = cmdletContext.BadgeEnabled.Value;
+            }
+            
+             // populate Cache
+            bool requestCacheIsNull = true;
+            request.Cache = new Amazon.CodeBuild.Model.ProjectCache();
+            System.String requestCache_cache_Location = null;
+            if (cmdletContext.Cache_Location != null)
+            {
+                requestCache_cache_Location = cmdletContext.Cache_Location;
+            }
+            if (requestCache_cache_Location != null)
+            {
+                request.Cache.Location = requestCache_cache_Location;
+                requestCacheIsNull = false;
+            }
+            Amazon.CodeBuild.CacheType requestCache_cache_Type = null;
+            if (cmdletContext.Cache_Type != null)
+            {
+                requestCache_cache_Type = cmdletContext.Cache_Type;
+            }
+            if (requestCache_cache_Type != null)
+            {
+                request.Cache.Type = requestCache_cache_Type;
+                requestCacheIsNull = false;
+            }
+             // determine if request.Cache should be set to null
+            if (requestCacheIsNull)
+            {
+                request.Cache = null;
             }
             if (cmdletContext.Description != null)
             {
@@ -649,6 +758,45 @@ namespace Amazon.PowerShell.Cmdlets.CB
                 request.TimeoutInMinutes = cmdletContext.TimeoutInMinutes.Value;
             }
             
+             // populate VpcConfig
+            bool requestVpcConfigIsNull = true;
+            request.VpcConfig = new Amazon.CodeBuild.Model.VpcConfig();
+            List<System.String> requestVpcConfig_vpcConfig_SecurityGroupId = null;
+            if (cmdletContext.VpcConfig_SecurityGroupIds != null)
+            {
+                requestVpcConfig_vpcConfig_SecurityGroupId = cmdletContext.VpcConfig_SecurityGroupIds;
+            }
+            if (requestVpcConfig_vpcConfig_SecurityGroupId != null)
+            {
+                request.VpcConfig.SecurityGroupIds = requestVpcConfig_vpcConfig_SecurityGroupId;
+                requestVpcConfigIsNull = false;
+            }
+            List<System.String> requestVpcConfig_vpcConfig_Subnet = null;
+            if (cmdletContext.VpcConfig_Subnets != null)
+            {
+                requestVpcConfig_vpcConfig_Subnet = cmdletContext.VpcConfig_Subnets;
+            }
+            if (requestVpcConfig_vpcConfig_Subnet != null)
+            {
+                request.VpcConfig.Subnets = requestVpcConfig_vpcConfig_Subnet;
+                requestVpcConfigIsNull = false;
+            }
+            System.String requestVpcConfig_vpcConfig_VpcId = null;
+            if (cmdletContext.VpcConfig_VpcId != null)
+            {
+                requestVpcConfig_vpcConfig_VpcId = cmdletContext.VpcConfig_VpcId;
+            }
+            if (requestVpcConfig_vpcConfig_VpcId != null)
+            {
+                request.VpcConfig.VpcId = requestVpcConfig_vpcConfig_VpcId;
+                requestVpcConfigIsNull = false;
+            }
+             // determine if request.VpcConfig should be set to null
+            if (requestVpcConfigIsNull)
+            {
+                request.VpcConfig = null;
+            }
+            
             CmdletOutput output;
             
             // issue call
@@ -718,6 +866,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.ArtifactPackaging Artifacts_Packaging { get; set; }
             public System.String Artifacts_Path { get; set; }
             public Amazon.CodeBuild.ArtifactsType Artifacts_Type { get; set; }
+            public System.Boolean? BadgeEnabled { get; set; }
+            public System.String Cache_Location { get; set; }
+            public Amazon.CodeBuild.CacheType Cache_Type { get; set; }
             public System.String Description { get; set; }
             public System.String EncryptionKey { get; set; }
             public Amazon.CodeBuild.ComputeType Environment_ComputeType { get; set; }
@@ -734,6 +885,9 @@ namespace Amazon.PowerShell.Cmdlets.CB
             public Amazon.CodeBuild.SourceType Source_Type { get; set; }
             public List<Amazon.CodeBuild.Model.Tag> Tags { get; set; }
             public System.Int32? TimeoutInMinutes { get; set; }
+            public List<System.String> VpcConfig_SecurityGroupIds { get; set; }
+            public List<System.String> VpcConfig_Subnets { get; set; }
+            public System.String VpcConfig_VpcId { get; set; }
         }
         
     }

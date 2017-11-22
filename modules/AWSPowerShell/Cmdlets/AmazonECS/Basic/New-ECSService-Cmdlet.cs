@@ -208,10 +208,15 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The name or full Amazon Resource Name (ARN) of the IAM role that allows Amazon ECS
-        /// to make calls to your load balancer on your behalf. This parameter is required if
-        /// you are using a load balancer with your service. If you specify the <code>role</code>
-        /// parameter, you must also specify a load balancer object with the <code>loadBalancers</code>
-        /// parameter.</para><para>If your specified role has a path other than <code>/</code>, then you must either
+        /// to make calls to your load balancer on your behalf. This parameter is only permitted
+        /// if you are using a load balancer with your service and your task definition does not
+        /// use the <code>awsvpc</code> network mode. If you specify the <code>role</code> parameter,
+        /// you must also specify a load balancer object with the <code>loadBalancers</code> parameter.</para><important><para>If your account has already created the Amazon ECS service-linked role, that role
+        /// is used by default for your service unless you specify a role here. The service-linked
+        /// role is required if your task definition uses the <code>awsvpc</code> network mode,
+        /// in which case you should not specify a role here. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguideusing-service-linked-roles.html">Using
+        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon EC2 Container Service Developer
+        /// Guide</i>.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.
         /// For example, if a role with the name <code>bar</code> has a path of <code>/foo/</code>
         /// then you would specify <code>/foo/bar</code> as the role name. For more information,
@@ -221,6 +226,18 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Role { get; set; }
+        #endregion
+        
+        #region Parameter AwsvpcConfiguration_SecurityGroup
+        /// <summary>
+        /// <para>
+        /// <para>The security groups associated with the task or service. If you do not specify a security
+        /// group, the default security group for the VPC is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_SecurityGroups")]
+        public System.String[] AwsvpcConfiguration_SecurityGroup { get; set; }
         #endregion
         
         #region Parameter ServiceName
@@ -234,6 +251,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ServiceName { get; set; }
+        #endregion
+        
+        #region Parameter AwsvpcConfiguration_Subnet
+        /// <summary>
+        /// <para>
+        /// <para>The subnets associated with the task or service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_Subnets")]
+        public System.String[] AwsvpcConfiguration_Subnet { get; set; }
         #endregion
         
         #region Parameter TaskDefinition
@@ -289,6 +317,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (this.LoadBalancer != null)
             {
                 context.LoadBalancers = new List<Amazon.ECS.Model.LoadBalancer>(this.LoadBalancer);
+            }
+            if (this.AwsvpcConfiguration_SecurityGroup != null)
+            {
+                context.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups = new List<System.String>(this.AwsvpcConfiguration_SecurityGroup);
+            }
+            if (this.AwsvpcConfiguration_Subnet != null)
+            {
+                context.NetworkConfiguration_AwsvpcConfiguration_Subnets = new List<System.String>(this.AwsvpcConfiguration_Subnet);
             }
             if (this.PlacementConstraint != null)
             {
@@ -361,6 +397,50 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.LoadBalancers != null)
             {
                 request.LoadBalancers = cmdletContext.LoadBalancers;
+            }
+            
+             // populate NetworkConfiguration
+            bool requestNetworkConfigurationIsNull = true;
+            request.NetworkConfiguration = new Amazon.ECS.Model.NetworkConfiguration();
+            Amazon.ECS.Model.AwsVpcConfiguration requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = null;
+            
+             // populate AwsvpcConfiguration
+            bool requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = true;
+            requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = new Amazon.ECS.Model.AwsVpcConfiguration();
+            List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.SecurityGroups = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
+            List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_Subnets != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_Subnets;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.Subnets = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_Subnet;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
+             // determine if requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration should be set to null
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = null;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration != null)
+            {
+                request.NetworkConfiguration.AwsvpcConfiguration = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration;
+                requestNetworkConfigurationIsNull = false;
+            }
+             // determine if request.NetworkConfiguration should be set to null
+            if (requestNetworkConfigurationIsNull)
+            {
+                request.NetworkConfiguration = null;
             }
             if (cmdletContext.PlacementConstraints != null)
             {
@@ -452,6 +532,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancers { get; set; }
+            public List<System.String> NetworkConfiguration_AwsvpcConfiguration_SecurityGroups { get; set; }
+            public List<System.String> NetworkConfiguration_AwsvpcConfiguration_Subnets { get; set; }
             public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }
             public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
             public System.String Role { get; set; }

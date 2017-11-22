@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>
@@ -85,7 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter ResourceState
         /// <summary>
         /// <para>
-        /// <para>The resource state of the document. Note that only ACTIVE and RECYCLED are supported.</para>
+        /// <para>The resource state of the document. Only ACTIVE and RECYCLED are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

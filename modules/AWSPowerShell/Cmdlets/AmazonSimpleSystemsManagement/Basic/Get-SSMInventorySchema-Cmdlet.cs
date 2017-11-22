@@ -42,6 +42,19 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMInventorySchemaCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Aggregator
+        /// <summary>
+        /// <para>
+        /// <para>Returns inventory schemas that support aggregation. For example, this call returns
+        /// the <code>AWS:InstanceInformation</code> type, because it supports aggregation based
+        /// on the <code>PlatformName</code>, <code>PlatformType</code>, and <code>PlatformVersion</code>
+        /// attributes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Aggregator { get; set; }
+        #endregion
+        
         #region Parameter SubType
         /// <summary>
         /// <para>
@@ -101,6 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("Aggregator"))
+                context.Aggregator = this.Aggregator;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -123,6 +138,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             // create request and set iteration invariants
             var request = new Amazon.SimpleSystemsManagement.Model.GetInventorySchemaRequest();
+            if (cmdletContext.Aggregator != null)
+            {
+                request.Aggregator = cmdletContext.Aggregator.Value;
+            }
             if (cmdletContext.SubType != null)
             {
                 request.SubType = cmdletContext.SubType.Value;
@@ -277,6 +296,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? Aggregator { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
             public System.Boolean? SubType { get; set; }

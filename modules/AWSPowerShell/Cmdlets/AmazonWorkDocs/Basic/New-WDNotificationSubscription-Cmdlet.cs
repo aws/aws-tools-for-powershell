@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Protocol
         /// <summary>
         /// <para>
-        /// <para>The protocol to use. The supported value is https, which delivers JSON-encoded messasges
+        /// <para>The protocol to use. The supported value is https, which delivers JSON-encoded messages
         /// using HTTPS POST.</para>
         /// </para>
         /// </summary>

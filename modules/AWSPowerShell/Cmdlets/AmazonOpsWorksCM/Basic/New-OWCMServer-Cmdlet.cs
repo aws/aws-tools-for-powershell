@@ -44,14 +44,18 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
     /// are not valid. 
     /// </para><para>
     ///  If you do not specify a security group by adding the <code>SecurityGroupIds</code>
-    /// parameter, AWS OpsWorks creates a new security group. The default security group opens
-    /// the Chef server to the world on TCP port 443. If a KeyName is present, AWS OpsWorks
-    /// enables SSH access. SSH is also open to the world on TCP port 22. 
+    /// parameter, AWS OpsWorks creates a new security group. 
+    /// </para><para><i>Chef Automate:</i> The default security group opens the Chef server to the world
+    /// on TCP port 443. If a KeyName is present, AWS OpsWorks enables SSH access. SSH is
+    /// also open to the world on TCP port 22. 
+    /// </para><para><i>Puppet Enterprise:</i> The default security group opens TCP ports 22, 443, 4433,
+    /// 8140, 8142, 8143, and 8170. If a KeyName is present, AWS OpsWorks enables SSH access.
+    /// SSH is also open to the world on TCP port 22. 
     /// </para><para>
-    /// By default, the Chef Server is accessible from any IP address. We recommend that you
-    /// update your security group rules to allow access from known IP addresses and address
-    /// ranges only. To edit security group rules, open Security Groups in the navigation
-    /// pane of the EC2 management console. 
+    /// By default, your server is accessible from any IP address. We recommend that you update
+    /// your security group rules to allow access from known IP addresses and address ranges
+    /// only. To edit security group rules, open Security Groups in the navigation pane of
+    /// the EC2 management console. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "OWCMServer", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -79,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter BackupId
         /// <summary>
         /// <para>
-        /// <para> If you specify this field, AWS OpsWorks for Chef Automate creates the server by using
-        /// the backup represented by BackupId. </para>
+        /// <para> If you specify this field, AWS OpsWorks CM creates the server by using the backup
+        /// represented by BackupId. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,8 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <summary>
         /// <para>
         /// <para> The number of automated backups that you want to keep. Whenever a new backup is created,
-        /// AWS OpsWorks for Chef Automate deletes the oldest backups if this number is exceeded.
-        /// The default value is <code>1</code>. </para>
+        /// AWS OpsWorks CM deletes the oldest backups if this number is exceeded. The default
+        /// value is <code>1</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,8 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter Engine
         /// <summary>
         /// <para>
-        /// <para> The configuration management engine to use. Valid values include <code>Chef</code>.
-        /// </para>
+        /// <para> The configuration management engine to use. Valid values include <code>Chef</code>
+        /// and <code>Puppet</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,7 +139,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineModel
         /// <summary>
         /// <para>
-        /// <para> The engine model, or option. Valid values include <code>Single</code>. </para>
+        /// <para> The engine model of the server. Valid values in this release include <code>Monolithic</code>
+        /// for Puppet and <code>Single</code> for Chef. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -145,8 +150,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter EngineVersion
         /// <summary>
         /// <para>
-        /// <para> The major release version of the engine that you want to use. Values depend on the
-        /// engine that you choose. </para>
+        /// <para> The major release version of the engine that you want to use. For a Chef server,
+        /// the valid value for EngineVersion is currently <code>12</code>. For a Puppet server,
+        /// the valid value is <code>2017</code>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -171,9 +177,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para> The Amazon EC2 instance type to use. Valid values must be specified in the following
-        /// format: <code>^([cm][34]|t2).*</code> For example, <code>m4.large</code>. Valid values
-        /// are <code>t2.medium</code>, <code>m4.large</code>, or <code>m4.2xlarge</code>. </para>
+        /// <para> The Amazon EC2 instance type to use. For example, <code>m4.large</code>. Recommended
+        /// instance types include <code>t2.medium</code> and greater, <code>m4.*</code>, or <code>c4.xlarge</code>
+        /// and greater. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -194,9 +200,9 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter PreferredBackupWindow
         /// <summary>
         /// <para>
-        /// <para> The start time for a one-hour period during which AWS OpsWorks for Chef Automate
-        /// backs up application-level data on your server if automated backups are enabled. Valid
-        /// values must be specified in one of the following formats: </para><ul><li><para><code>HH:MM</code> for daily backups</para></li><li><para><code>DDD:HH:MM</code> for weekly backups</para></li></ul><para>The specified time is in coordinated universal time (UTC). The default value is a
+        /// <para> The start time for a one-hour period during which AWS OpsWorks CM backs up application-level
+        /// data on your server if automated backups are enabled. Valid values must be specified
+        /// in one of the following formats: </para><ul><li><para><code>HH:MM</code> for daily backups</para></li><li><para><code>DDD:HH:MM</code> for weekly backups</para></li></ul><para>The specified time is in coordinated universal time (UTC). The default value is a
         /// random, daily start time.</para><para><b>Example:</b><code>08:00</code>, which represents a daily start time of 08:00
         /// UTC.</para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
         /// at 08:00 UTC. (8:00 a.m.)</para>
@@ -209,11 +215,11 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter PreferredMaintenanceWindow
         /// <summary>
         /// <para>
-        /// <para> The start time for a one-hour period each week during which AWS OpsWorks for Chef
-        /// Automate performs maintenance on the instance. Valid values must be specified in the
-        /// following format: <code>DDD:HH:MM</code>. The specified time is in coordinated universal
-        /// time (UTC). The default value is a random one-hour period on Tuesday, Wednesday, or
-        /// Friday. See <code>TimeWindowDefinition</code> for more information. </para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
+        /// <para> The start time for a one-hour period each week during which AWS OpsWorks CM performs
+        /// maintenance on the instance. Valid values must be specified in the following format:
+        /// <code>DDD:HH:MM</code>. The specified time is in coordinated universal time (UTC).
+        /// The default value is a random one-hour period on Tuesday, Wednesday, or Friday. See
+        /// <code>TimeWindowDefinition</code> for more information. </para><para><b>Example:</b><code>Mon:08:00</code>, which represents a start time of every Monday
         /// at 08:00 UTC. (8:00 a.m.) </para>
         /// </para>
         /// </summary>
@@ -226,8 +232,8 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         /// <para>
         /// <para> A list of security group IDs to attach to the Amazon EC2 instance. If you add this
         /// parameter, the specified security groups must be within the VPC that is specified
-        /// by <code>SubnetIds</code>. </para><para> If you do not specify this parameter, AWS OpsWorks for Chef Automate creates one
-        /// new security group that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone). </para>
+        /// by <code>SubnetIds</code>. </para><para> If you do not specify this parameter, AWS OpsWorks CM creates one new security group
+        /// that uses TCP ports 22 and 443, open to 0.0.0.0/0 (everyone). </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -250,12 +256,12 @@ namespace Amazon.PowerShell.Cmdlets.OWCM
         #region Parameter ServiceRoleArn
         /// <summary>
         /// <para>
-        /// <para> The service role that the AWS OpsWorks for Chef Automate service backend uses to
-        /// work with your account. Although the AWS OpsWorks management console typically creates
-        /// the service role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml
+        /// <para> The service role that the AWS OpsWorks CM service backend uses to work with your
+        /// account. Although the AWS OpsWorks management console typically creates the service
+        /// role for you, if you are using the AWS CLI or API commands, run the service-role-creation.yaml
         /// AWS CloudFormation template, located at https://s3.amazonaws.com/opsworks-cm-us-east-1-prod-default-assets/misc/opsworks-cm-roles.yaml.
-        /// This template creates a CloudFormation stack that includes the service role that you
-        /// need. </para>
+        /// This template creates a CloudFormation stack that includes the service role and instance
+        /// profile that you need. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

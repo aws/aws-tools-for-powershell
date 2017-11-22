@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         /// <summary>
         /// <para>
         /// <para>A Boolean value indicating whether to also include Availability Zones in your get
-        /// regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-1a</code>.</para>
+        /// regions request. Availability Zones are indicated with a letter: e.g., <code>us-east-2a</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

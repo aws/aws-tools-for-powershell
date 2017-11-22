@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Configures one or more gateway local disks as upload buffer for a specified gateway.
     /// This operation is supported for the stored volume, cached volume and tape gateway
-    /// architectures.
+    /// types.
     /// 
     ///  
     /// <para>

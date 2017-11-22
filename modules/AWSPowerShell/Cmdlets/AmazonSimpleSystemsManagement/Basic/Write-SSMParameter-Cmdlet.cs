@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>Information about the parameter that you want to add to the system</para>
+        /// <para>Information about the parameter that you want to add to the system.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +77,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// <para>The name of the parameter that you want to add to the system.</para>
+        /// <para>The fully qualified name of the parameter that you want to add to the system. The
+        /// fully qualified name includes the complete hierarchy of the parameter path and name.
+        /// For example: <code>/Dev/DBServer/MySQL/db-string13</code></para><note><para>The maximum length constraint listed below includes capacity for additional system
+        /// attributes that are not part of the name. The maximum length for the fully qualified
+        /// parameter name is 1011 characters. </para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

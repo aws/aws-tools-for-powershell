@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// AWS Storage Gateway Console. In response, AWS Storage Gateway returns you a snapshot
     /// ID. You can use this snapshot ID to check the snapshot progress or later use it when
     /// you want to create a volume from a snapshot. This operation is only supported in stored
-    /// and cached volume gateway architecture.
+    /// and cached volume gateway type.
     /// </para><note><para>
     /// To list or delete a snapshot, you must use the Amazon EC2 API. For more information,
     /// see DescribeSnapshots or DeleteSnapshot in the <a href="http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Operations.html">EC2

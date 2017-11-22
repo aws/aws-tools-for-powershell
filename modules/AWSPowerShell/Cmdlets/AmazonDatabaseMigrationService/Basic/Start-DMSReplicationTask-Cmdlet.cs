@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter ReplicationTaskArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) of the replication task to be started.</para>
+        /// <para>The Amazon Resource Name (ARN) of the replication task to be started.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

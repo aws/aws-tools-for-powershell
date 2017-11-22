@@ -41,6 +41,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMInventoryCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter Aggregator
+        /// <summary>
+        /// <para>
+        /// <para>Returns counts of inventory types based on one or more expressions. For example, if
+        /// you aggregate by using an expression that uses the <code>AWS:InstanceInformation.PlatformType</code>
+        /// type, you can see a count of how many Windows and Linux instances exist in your inventoried
+        /// fleet.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Aggregators")]
+        public Amazon.SimpleSystemsManagement.Model.InventoryAggregator[] Aggregator { get; set; }
+        #endregion
+        
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -102,6 +116,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (this.Aggregator != null)
+            {
+                context.Aggregators = new List<Amazon.SimpleSystemsManagement.Model.InventoryAggregator>(this.Aggregator);
+            }
             if (this.Filter != null)
             {
                 context.Filters = new List<Amazon.SimpleSystemsManagement.Model.InventoryFilter>(this.Filter);
@@ -129,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             
             // create request and set iteration invariants
             var request = new Amazon.SimpleSystemsManagement.Model.GetInventoryRequest();
+            if (cmdletContext.Aggregators != null)
+            {
+                request.Aggregators = cmdletContext.Aggregators;
+            }
             if (cmdletContext.Filters != null)
             {
                 request.Filters = cmdletContext.Filters;
@@ -283,6 +305,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public List<Amazon.SimpleSystemsManagement.Model.InventoryAggregator> Aggregators { get; set; }
             public List<Amazon.SimpleSystemsManagement.Model.InventoryFilter> Filters { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }

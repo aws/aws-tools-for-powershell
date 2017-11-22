@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// <summary>
     /// Gets a list of the file shares for a specific file gateway, or the list of file shares
     /// that belong to the calling user account. This operation is only supported in the file
-    /// gateway architecture.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// gateway type.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SGFileShareList")]
     [OutputType("Amazon.StorageGateway.Model.FileShareInfo")]

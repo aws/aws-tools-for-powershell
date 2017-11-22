@@ -28,7 +28,7 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Enables enhanced Amazon Kinesis stream monitoring for shard-level metrics.
+    /// Enables enhanced Kinesis stream monitoring for shard-level metrics.
     /// </summary>
     [Cmdlet("Enable", "KINEnhancedMonitoring", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Kinesis.Model.EnableEnhancedMonitoringResponse")]

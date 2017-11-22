@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Creates a volume on a specified gateway. This operation is only supported in the stored
-    /// volume gateway architecture.
+    /// volume gateway type.
     /// 
     ///  
     /// <para>

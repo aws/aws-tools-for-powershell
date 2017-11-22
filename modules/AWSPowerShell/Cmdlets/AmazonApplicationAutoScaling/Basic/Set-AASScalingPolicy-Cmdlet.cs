@@ -186,7 +186,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PredefinedMetricSpecification_PredefinedMetricType
         /// <summary>
         /// <para>
-        /// <para>The metric type.</para>
+        /// <para>The metric type. The <code>ALBRequestCountPerTarget</code> metric type applies only
+        /// to Spot fleet requests.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -205,7 +206,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li><li><para>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier
         /// is the fleet name. Example: <code>fleet/sample-fleet</code>.</para></li><li><para>DynamoDB table - The resource type is <code>table</code> and the unique identifier
         /// is the resource ID. Example: <code>table/my-table</code>.</para></li><li><para>DynamoDB global secondary index - The resource type is <code>index</code> and the
-        /// unique identifier is the resource ID. Example: <code>table/my-table/index/my-table-index</code>.</para></li></ul>
+        /// unique identifier is the resource ID. Example: <code>table/my-table/index/my-table-index</code>.</para></li><li><para>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier
+        /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -215,7 +217,12 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         #region Parameter PredefinedMetricSpecification_ResourceLabel
         /// <summary>
         /// <para>
-        /// <para>Reserved for future use.</para>
+        /// <para>Identifies the resource associated with the metric type. You can't specify a resource
+        /// label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is
+        /// a target group attached to the Spot fleet request.</para><para>The format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;,
+        /// where:</para><ul><li><para>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the
+        /// load balancer ARN</para></li><li><para>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion
+        /// of the target group ARN.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -234,7 +241,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
-        /// a DynamoDB global secondary index.</para></li></ul>
+        /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
+        /// DB cluster. Available for Aurora MySQL-compatible edition.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

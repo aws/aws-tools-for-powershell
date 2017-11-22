@@ -98,8 +98,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnableIAMDatabaseAuthentication
         /// <summary>
         /// <para>
-        /// <para>A Boolean value that is true to enable mapping of AWS Identity and Access Management
-        /// (IAM) accounts to database accounts, and otherwise false.</para><para>Default: <code>false</code></para>
+        /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
+        /// accounts, and otherwise false.</para><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,8 +129,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter KmsKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier to use when restoring an encrypted DB cluster from a DB snapshot
-        /// or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
+        /// <para>The AWS KMS key identifier to use when restoring an encrypted DB cluster from a DB
+        /// snapshot or DB cluster snapshot.</para><para>The KMS key identifier is the Amazon Resource Name (ARN) for the KMS encryption key.
         /// If you are restoring a DB cluster with the same AWS account that owns the KMS encryption
         /// key used to encrypt the new DB cluster, then you can use the KMS key alias instead
         /// of the ARN for the KMS encryption key.</para><para>If you do not specify a value for the <code>KmsKeyId</code> parameter, then the following

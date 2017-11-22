@@ -175,6 +175,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String RestApiId { get; set; }
         #endregion
         
+        #region Parameter TimeoutInMilli
+        /// <summary>
+        /// <para>
+        /// <para>Custom timeout between 50 and 29,000 milliseconds. The default value is 29,000 milliseconds
+        /// or 29 seconds.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TimeoutInMillis")]
+        public System.Int32 TimeoutInMilli { get; set; }
+        #endregion
+        
         #region Parameter Type
         /// <summary>
         /// <para>
@@ -261,6 +273,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             }
             context.ResourceId = this.ResourceId;
             context.RestApiId = this.RestApiId;
+            if (ParameterWasBound("TimeoutInMilli"))
+                context.TimeoutInMillis = this.TimeoutInMilli;
             context.Type = this.Type;
             context.Uri = this.Uri;
             
@@ -322,6 +336,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.RestApiId != null)
             {
                 request.RestApiId = cmdletContext.RestApiId;
+            }
+            if (cmdletContext.TimeoutInMillis != null)
+            {
+                request.TimeoutInMillis = cmdletContext.TimeoutInMillis.Value;
             }
             if (cmdletContext.Type != null)
             {
@@ -406,6 +424,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public Dictionary<System.String, System.String> RequestTemplates { get; set; }
             public System.String ResourceId { get; set; }
             public System.String RestApiId { get; set; }
+            public System.Int32? TimeoutInMillis { get; set; }
             public Amazon.APIGateway.IntegrationType Type { get; set; }
             public System.String Uri { get; set; }
         }

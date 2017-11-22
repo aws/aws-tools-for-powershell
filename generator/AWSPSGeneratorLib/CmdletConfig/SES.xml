@@ -101,6 +101,11 @@
     <ServiceOperation MethodName="UpdateTemplate" Output="Void" />
     <ServiceOperation MethodName="CreateTemplate" Output="Void" />
     <ServiceOperation MethodName="DeleteTemplate" Output="Void" />
+
+    <ServiceOperation MethodName="GetAccountSendingEnabled" />
+    <ServiceOperation MethodName="UpdateConfigurationSetReputationMetricsEnabled" PipelineParameter="Enabled" Output="Void" />
+    <ServiceOperation MethodName="UpdateAccountSendingEnabled" Output="Void" />
+    <ServiceOperation MethodName="UpdateConfigurationSetSendingEnabled" PipelineParameter="Enabled" Output="Void" />
   </ServiceOperations>
 
   <PipelineByValueProperties>

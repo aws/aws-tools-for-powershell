@@ -148,7 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>True to copy all tags from the DB instance to snapshots of the DB instance; otherwise
+        /// <para>True to copy all tags from the DB instance to snapshots of the DB instance, and otherwise
         /// false. The default is false.</para>
         /// </para>
         /// </summary>
@@ -160,8 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The new compute and memory capacity of the DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all regions, or for all database engines.
-        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Not all DB instance classes are available in all AWS Regions, or for all database
+        /// engines. For the full list of DB instance classes, and availability for your engine,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the Amazon RDS User Guide. </para><para>If you modify the DB instance class, an outage occurs during the change. The change
         /// is applied during the next maintenance window, unless <code>ApplyImmediately</code>
         /// is specified as <code>true</code> for this request. </para><para>Default: Uses existing setting</para>
@@ -265,7 +266,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false.</para><para> You can enable IAM database authentication for the following database engines</para><para><b>Amazon Aurora</b></para><para>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
+        /// accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><para><b>Amazon Aurora</b></para><para>Not applicable. Mapping AWS IAM accounts to database accounts is managed by the DB
         /// cluster. For more information, see <a>ModifyDBCluster</a>.</para><para><b>MySQL</b></para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
@@ -276,7 +277,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter EnablePerformanceInsight
         /// <summary>
         /// <para>
-        /// <para>True to enable Performance Insights for the DB instance; otherwise false.</para>
+        /// <para>True to enable Performance Insights for the DB instance, and otherwise false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -341,8 +342,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MasterUserPassword
         /// <summary>
         /// <para>
-        /// <para>The new password for the master user. Can be any printable ASCII character except
-        /// "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
+        /// <para>The new password for the master user. The password can include any printable ASCII
+        /// character except "/", """, or "@".</para><para> Changing this parameter does not result in an outage and the change is asynchronously
         /// applied as soon as possible. Between the time of the request and the completion of
         /// the request, the <code>MasterUserPassword</code> element exists in the <code>PendingModifiedValues</code>
         /// element of the operation response. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The password for the master user is managed by the DB cluster. For
@@ -371,9 +372,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MonitoringRoleArn
         /// <summary>
         /// <para>
-        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch
-        /// Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>. For information
-        /// on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
+        /// <para>The ARN for the IAM role that permits RDS to send enhanced monitoring metrics to Amazon
+        /// CloudWatch Logs. For example, <code>arn:aws:iam:123456789012:role/emaccess</code>.
+        /// For information on creating a monitoring role, go to <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html#USER_Monitoring.OS.IAMRole">To
         /// create an IAM role for Amazon RDS Enhanced Monitoring</a>.</para><para>If <code>MonitoringInterval</code> is set to a value other than 0, then you must supply
         /// a <code>MonitoringRoleArn</code> value.</para>
         /// </para>
@@ -418,8 +419,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// parameter is set to <code>true</code> for this request. If the parameter change results
         /// in an option group that enables OEM, this change can cause a brief (sub-second) period
         /// during which new connections are rejected but existing connections are not interrupted.
-        /// </para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
-        /// be removed from an option group, and that option group cannot be removed from a DB
+        /// </para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// be removed from an option group, and that option group can't be removed from a DB
         /// instance once it is associated with a DB instance</para>
         /// </para>
         /// </summary>
@@ -430,9 +431,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter PerformanceInsightsKMSKeyId
         /// <summary>
         /// <para>
-        /// <para>The KMS key identifier for encryption of Performance Insights data. The KMS key ID
-        /// is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for the
-        /// KMS encryption key.</para>
+        /// <para>The AWS KMS key identifier for encryption of Performance Insights data. The KMS key
+        /// ID is the Amazon Resource Name (ARN), KMS key identifier, or the KMS key alias for
+        /// the KMS encryption key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -446,7 +447,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// are enabled, as determined by the <code>BackupRetentionPeriod</code> parameter. Changing
         /// this parameter does not result in an outage and the change is asynchronously applied
         /// as soon as possible. </para><para><b>Amazon Aurora</b></para><para>Not applicable. The daily time range for creating automated backups is managed by
-        /// the DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Times should be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
+        /// the DB cluster. For more information, see <a>ModifyDBCluster</a>.</para><para>Constraints:</para><ul><li><para>Must be in the format hh24:mi-hh24:mi</para></li><li><para>Must be in Universal Time Coordinated (UTC)</para></li><li><para>Must not conflict with the preferred maintenance window</para></li><li><para>Must be at least 30 minutes</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -503,7 +504,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the storage type to be associated with the DB instance.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
+        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>standard</code></para>
         /// </para>
         /// </summary>
@@ -514,7 +515,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para>The ARN from the Key Store with which to associate the instance for TDE encryption.</para>
+        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -524,7 +525,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the given ARN from the Key Store in order to access the device.</para>
+        /// <para>The password for the given ARN from the key store in order to access the device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

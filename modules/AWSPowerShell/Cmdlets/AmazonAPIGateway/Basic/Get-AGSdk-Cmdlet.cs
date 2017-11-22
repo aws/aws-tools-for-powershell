@@ -70,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <summary>
         /// <para>
         /// <para>The language for the generated SDK. Currently <code>java</code>, <code>javascript</code>,
-        /// <code>android</code>, <code>objectivec</code> and <code>swift</code> (for iOS) are
-        /// supported.</para>
+        /// <code>android</code>, <code>objectivec</code> (for iOS), <code>swift</code> (for iOS),
+        /// and <code>ruby</code> are supported.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

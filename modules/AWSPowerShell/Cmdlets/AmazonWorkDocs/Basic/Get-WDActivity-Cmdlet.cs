@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter EndTime
         /// <summary>
         /// <para>
-        /// <para>The timestamp that determines the end time of the activities; the response includes
+        /// <para>The timestamp that determines the end time of the activities. The response includes
         /// the activities performed before the specified timestamp.</para>
         /// </para>
         /// </summary>
@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter StartTime
         /// <summary>
         /// <para>
-        /// <para>The timestamp that determines the starting time of the activities; the response includes
+        /// <para>The timestamp that determines the starting time of the activities. The response includes
         /// the activities performed after the specified timestamp.</para>
         /// </para>
         /// </summary>
@@ -111,8 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The marker for the next set of results. (You received this marker from a previous
-        /// call.)</para>
+        /// <para>The marker for the next set of results.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -80,6 +80,27 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreference { get; set; }
         #endregion
         
+        #region Parameter ParameterOverride
+        /// <summary>
+        /// <para>
+        /// <para>A list of stack set parameters whose values you want to override in the selected stack
+        /// instances.</para><para>Any overridden parameter values will be applied to all stack instances in the specified
+        /// accounts and regions. When specifying parameters and their values, be aware of how
+        /// AWS CloudFormation sets parameter values during stack instance operations:</para><ul><li><para>To override the current value for a parameter, include the parameter and specify its
+        /// value.</para></li><li><para>To leave a parameter set to its present value, you can do one of the following:</para><ul><li><para>Do not include the parameter in the list.</para></li><li><para>Include the parameter and specify <code>UsePreviousValue</code> as <code>true</code>.
+        /// (You cannot specify both a value and set <code>UsePreviousValue</code> to <code>true</code>.)</para></li></ul></li><li><para>To set all overridden parameter back to the values specified in the stack set, specify
+        /// a parameter list but do not include any parameters.</para></li><li><para>To leave all parameters set to their present values, do not specify this property
+        /// at all.</para></li></ul><para>During stack set updates, any parameter values overridden for a stack instance are
+        /// not updated, but retain their overridden value.</para><para>You can only override the parameter <i>values</i> that are specified in the stack
+        /// set; to add or delete a parameter itself, use <a href="http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_UpdateStackSet.html">UpdateStackSet</a>
+        /// to update the stack set template.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ParameterOverrides")]
+        public Amazon.CloudFormation.Model.Parameter[] ParameterOverride { get; set; }
+        #endregion
+        
         #region Parameter StackInstanceRegion
         /// <summary>
         /// <para>
@@ -136,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             }
             context.OperationId = this.OperationId;
             context.OperationPreferences = this.OperationPreference;
+            if (this.ParameterOverride != null)
+            {
+                context.ParameterOverrides = new List<Amazon.CloudFormation.Model.Parameter>(this.ParameterOverride);
+            }
             if (this.StackInstanceRegion != null)
             {
                 context.StackInstanceRegion = new List<System.String>(this.StackInstanceRegion);
@@ -168,6 +193,10 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             if (cmdletContext.OperationPreferences != null)
             {
                 request.OperationPreferences = cmdletContext.OperationPreferences;
+            }
+            if (cmdletContext.ParameterOverrides != null)
+            {
+                request.ParameterOverrides = cmdletContext.ParameterOverrides;
             }
             if (cmdletContext.StackInstanceRegion != null)
             {
@@ -244,6 +273,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
             public List<System.String> Accounts { get; set; }
             public System.String OperationId { get; set; }
             public Amazon.CloudFormation.Model.StackSetOperationPreferences OperationPreferences { get; set; }
+            public List<Amazon.CloudFormation.Model.Parameter> ParameterOverrides { get; set; }
             public List<System.String> StackInstanceRegion { get; set; }
             public System.String StackSetName { get; set; }
         }

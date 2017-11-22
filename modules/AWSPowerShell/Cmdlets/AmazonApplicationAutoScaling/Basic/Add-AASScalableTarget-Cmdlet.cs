@@ -84,7 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// is the cluster ID and instance group ID. Example: <code>instancegroup/j-2EEZNYKUA1NTV/ig-1791Y4E1L8YI0</code>.</para></li><li><para>AppStream 2.0 fleet - The resource type is <code>fleet</code> and the unique identifier
         /// is the fleet name. Example: <code>fleet/sample-fleet</code>.</para></li><li><para>DynamoDB table - The resource type is <code>table</code> and the unique identifier
         /// is the resource ID. Example: <code>table/my-table</code>.</para></li><li><para>DynamoDB global secondary index - The resource type is <code>index</code> and the
-        /// unique identifier is the resource ID. Example: <code>table/my-table/index/my-table-index</code>.</para></li></ul>
+        /// unique identifier is the resource ID. Example: <code>table/my-table/index/my-table-index</code>.</para></li><li><para>Aurora DB cluster - The resource type is <code>cluster</code> and the unique identifier
+        /// is the cluster name. Example: <code>cluster:my-db-cluster</code>.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -95,8 +96,10 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// <summary>
         /// <para>
         /// <para>The ARN of an IAM role that allows Application Auto Scaling to modify the scalable
-        /// target on your behalf. This parameter is required when you register a scalable target
-        /// and optional when you update one.</para>
+        /// target on your behalf.</para><para>With Amazon RDS resources, permissions are granted using a service-linked role. For
+        /// more information, see <a href="http://docs.aws.amazon.com/ApplicationAutoScaling/latest/APIReference/application-autoscaling-service-linked-roles.html">Service-Linked
+        /// Roles for Application Auto Scaling</a>.</para><para>For resources that are not supported using a service-linked role, this parameter is
+        /// required when you register a scalable target and optional when you update one.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -114,7 +117,8 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:table:WriteCapacityUnits</code> - The provisioned write capacity for
         /// a DynamoDB table.</para></li><li><para><code>dynamodb:index:ReadCapacityUnits</code> - The provisioned read capacity for
         /// a DynamoDB global secondary index.</para></li><li><para><code>dynamodb:index:WriteCapacityUnits</code> - The provisioned write capacity for
-        /// a DynamoDB global secondary index.</para></li></ul>
+        /// a DynamoDB global secondary index.</para></li><li><para><code>rds:cluster:ReadReplicaCount</code> - The count of Aurora Replicas in an Aurora
+        /// DB cluster. Available for Aurora MySQL-compatible edition.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

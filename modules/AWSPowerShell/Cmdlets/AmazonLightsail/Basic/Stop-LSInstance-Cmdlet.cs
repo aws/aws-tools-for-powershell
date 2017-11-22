@@ -40,6 +40,19 @@ namespace Amazon.PowerShell.Cmdlets.LS
     public partial class StopLSInstanceCmdlet : AmazonLightsailClientCmdlet, IExecutor
     {
         
+        #region Parameter OverrideStuck
+        /// <summary>
+        /// <para>
+        /// <para>When set to <code>True</code>, forces a Lightsail instance that is stuck in a <code>stopping</code>
+        /// state to stop.</para><important><para>Only use the <code>force</code> parameter if your instance is stuck in the <code>stopping</code>
+        /// state. In any other state, your instance should stop normally without adding this
+        /// parameter to your API request.</para></important>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean OverrideStuck { get; set; }
+        #endregion
+        
         #region Parameter InstanceName
         /// <summary>
         /// <para>
@@ -79,6 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("OverrideStuck"))
+                context.OverrideStuck = this.OverrideStuck;
             context.InstanceName = this.InstanceName;
             
             // allow further manipulation of loaded context prior to processing
@@ -96,6 +111,10 @@ namespace Amazon.PowerShell.Cmdlets.LS
             // create request
             var request = new Amazon.Lightsail.Model.StopInstanceRequest();
             
+            if (cmdletContext.OverrideStuck != null)
+            {
+                request.Force = cmdletContext.OverrideStuck.Value;
+            }
             if (cmdletContext.InstanceName != null)
             {
                 request.InstanceName = cmdletContext.InstanceName;
@@ -164,6 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Boolean? OverrideStuck { get; set; }
             public System.String InstanceName { get; set; }
         }
         

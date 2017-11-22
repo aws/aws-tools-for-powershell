@@ -101,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         #region Parameter CertificateArn
         /// <summary>
         /// <para>
-        /// <para>The Amazon Resource Number (ARN) for the certificate.</para>
+        /// <para>The Amazon Resource Name (ARN) for the certificate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

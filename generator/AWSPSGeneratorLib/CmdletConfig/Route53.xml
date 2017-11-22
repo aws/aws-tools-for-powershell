@@ -54,13 +54,16 @@
     <ServiceOperation MethodName="DeleteQueryLoggingConfig" PipelineParameter="Id" Output="Void" />
     <ServiceOperation MethodName="DeleteTrafficPolicy" PipelineParameter="Id" Output="Void" />
     <ServiceOperation MethodName="DeleteTrafficPolicyInstance" Output="Void" />
+    <ServiceOperation MethodName="GetAccountLimit" NoPipelineParameter="true" Output="Response" SkipOutputComputationCheck="true" />
     <ServiceOperation MethodName="GetChange" />
     <ServiceOperation MethodName="GetCheckerIpRanges" Noun="CheckerIpRange" LegacyAlias="Get-R53CheckerIpRanges"/>
     <ServiceOperation MethodName="GetGeoLocation" NoPipelineParameter="true"/>
     <ServiceOperation MethodName="GetHealthCheck" />
     <ServiceOperation MethodName="GetHealthCheckCount" />
     <ServiceOperation MethodName="GetHostedZone" Output="Response" />
+    <ServiceOperation MethodName="GetHostedZoneLimit" PipelineParameter="HostedZoneId" Output="Response" SkipOutputComputationCheck="true" />
     <ServiceOperation MethodName="GetQueryLoggingConfig" PipelineParameter="Id" />
+    <ServiceOperation MethodName="GetReusableDelegationSetLimit" PipelineParameter="DelegationSetId" Output="Response" SkipOutputComputationCheck="true" />
     <ServiceOperation MethodName="GetTrafficPolicy" PipelineParameter="Id" />
     <ServiceOperation MethodName="GetTrafficPolicyInstance" />
     <ServiceOperation MethodName="GetTrafficPolicyInstanceCount" />

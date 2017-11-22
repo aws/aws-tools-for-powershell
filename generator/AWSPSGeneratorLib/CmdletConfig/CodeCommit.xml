@@ -15,20 +15,37 @@
   <ServiceOperations>
     <ServiceOperation MethodName="BatchGetRepositories" Verb="Get" Noun="RepositoryBatch" Output="Response"/>
     <ServiceOperation MethodName="CreateBranch" Output="Void" />
+    <ServiceOperation MethodName="CreatePullRequest" NoPipelineParameter="true" ShouldProcessTarget="Title" />
     <ServiceOperation MethodName="DeleteBranch" PipelineParameter="BranchName" />
+    <ServiceOperation MethodName="DeleteCommentContent" />
     <ServiceOperation MethodName="CreateRepository"/>
     <ServiceOperation MethodName="DeleteRepository" ShouldProcessTarget="RepositoryName"/>
+    <ServiceOperation MethodName="DescribePullRequestEvents" Noun="PullRequestEvent" PipelineParameter="PullRequestId" />
     <ServiceOperation MethodName="GetBlob"/>
     <ServiceOperation MethodName="GetBranch"/>
+    <ServiceOperation MethodName="GetComment" />
     <ServiceOperation MethodName="GetCommit" PipelineParameter="CommitId" />
+    <ServiceOperation MethodName="GetCommentsForComparedCommit" PipelineParameter="AfterCommitId" />
+    <ServiceOperation MethodName="GetCommentsForPullRequest" PipelineParameter="PullRequestId" />
     <ServiceOperation MethodName="GetDifferences" Noun="DifferenceList"/>
+    <ServiceOperation MethodName="GetMergeConflicts" Noun="MergeConflict" Output="Response" />
+    <ServiceOperation MethodName="GetPullRequest" />
     <ServiceOperation MethodName="GetRepository"/>
     <ServiceOperation MethodName="GetRepositoryTriggers" Noun="RepositoryTrigger" Output="Response" />
     <ServiceOperation MethodName="ListBranches" Verb="Get" Noun="BranchList"/>
+    <ServiceOperation MethodName="ListPullRequests" Verb="Get" Noun="PullRequestList" />
     <ServiceOperation MethodName="ListRepositories" Verb="Get" Noun="RepositoryList"/>
+    <ServiceOperation MethodName="MergePullRequestByFastForward" PipelineParameter="PullRequestId" />
+    <ServiceOperation MethodName="PostCommentForComparedCommit" Verb="Send" PipelineParameter="Content" Output="Response" ShouldProcessTarget="AfterCommitId" />
+    <ServiceOperation MethodName="PostCommentForPullRequest" Verb="Send" PipelineParameter="Content" Output="Response" ShouldProcessTarget="PullRequestId" />
+    <ServiceOperation MethodName="PostCommentReply" Verb="Send" PipelineParameter="Content" />
     <ServiceOperation MethodName="PutRepositoryTriggers" Verb="Set" Noun="RepositoryTrigger" PipelineParameter="Trigger" />
     <ServiceOperation MethodName="TestRepositoryTriggers" Noun="RepositoryTrigger" PipelineParameter="Trigger" Output="Response" />
+    <ServiceOperation MethodName="UpdateComment" PipelineParameter="Content" />
     <ServiceOperation MethodName="UpdateDefaultBranch" Output="Void"/>
+    <ServiceOperation MethodName="UpdatePullRequestDescription" PipelineParameter="Description" />
+    <ServiceOperation MethodName="UpdatePullRequestStatus" PipelineParameter="PullRequestStatus" />
+    <ServiceOperation MethodName="UpdatePullRequestTitle" PipelineParameter="Title" />
     <ServiceOperation MethodName="UpdateRepositoryDescription" Output="Void"/>
     <ServiceOperation MethodName="UpdateRepositoryName" Output="Void" ShouldProcessTarget="OldName"/>
   </ServiceOperations>

@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
     /// require more than 256 steps to process your data. You can bypass the 256-step limitation
     /// in various ways, including using the SSH shell to connect to the master node and submitting
     /// queries directly to the software running on the master node, such as Hive and Hadoop.
-    /// For more information on how to do this, see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/Management/Guide/AddMoreThan256Steps.html">Add
+    /// For more information on how to do this, see <a href="http://docs.aws.amazon.com/emr/latest/ManagementGuide/AddMoreThan256Steps.html">Add
     /// More than 256 Steps to a Cluster</a> in the <i>Amazon EMR Management Guide</i>.
     /// </para><para>
     /// For long running clusters, we recommend that you periodically store your results.
@@ -99,6 +99,27 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String[] Instances_AdditionalSlaveSecurityGroup { get; set; }
         #endregion
         
+        #region Parameter KerberosAttributes_ADDomainJoinPassword
+        /// <summary>
+        /// <para>
+        /// <para>The Active Directory password for <code>ADDomainJoinUser</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KerberosAttributes_ADDomainJoinPassword { get; set; }
+        #endregion
+        
+        #region Parameter KerberosAttributes_ADDomainJoinUser
+        /// <summary>
+        /// <para>
+        /// <para>Required only when establishing a cross-realm trust with an Active Directory domain.
+        /// A user with sufficient privileges to join resources to the domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KerberosAttributes_ADDomainJoinUser { get; set; }
+        #endregion
+        
         #region Parameter AmiVersion
         /// <summary>
         /// <para>
@@ -106,7 +127,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// Linux AMI is determined by the <code>ReleaseLabel</code> specified or by <code>CustomAmiID</code>.
         /// The version of the Amazon Machine Image (AMI) to use when launching Amazon EC2 instances
         /// in the job flow. For details about the AMI versions currently supported in EMR version
-        /// 3.x and 2.x, see <a href="ElasticMapReduce/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
+        /// 3.x and 2.x, see <a href="emr/latest/DeveloperGuide/emr-dg.pdf#nameddest=ami-versions-supported">AMI
         /// Versions Supported in EMR</a> in the <i>Amazon EMR Developer Guide</i>. </para><para>If the AMI supports multiple versions of Hadoop (for example, AMI 1.0 supports both
         /// Hadoop 0.18 and 0.20), you can use the <a>JobFlowInstancesConfig</a><code>HadoopVersion</code>
         /// parameter to modify the version of Hadoop from the defaults shown above.</para><note><para>Previously, the EMR AMI version API parameter options allowed you to use latest for
@@ -190,6 +211,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("Configurations")]
         public Amazon.ElasticMapReduce.Model.Configuration[] Configuration { get; set; }
+        #endregion
+        
+        #region Parameter KerberosAttributes_CrossRealmTrustPrincipalPassword
+        /// <summary>
+        /// <para>
+        /// <para>Required only when establishing a cross-realm trust with a KDC in a different realm.
+        /// The cross-realm principal password, which must be identical across realms.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KerberosAttributes_CrossRealmTrustPrincipalPassword { get; set; }
         #endregion
         
         #region Parameter CustomAmiId
@@ -342,6 +374,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         public System.String JobFlowRole { get; set; }
         #endregion
         
+        #region Parameter KerberosAttributes_KdcAdminPassword
+        /// <summary>
+        /// <para>
+        /// <para>The password used within the cluster for the kadmin service on the cluster-dedicated
+        /// KDC, which maintains Kerberos principals, password policies, and keytabs for the cluster.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KerberosAttributes_KdcAdminPassword { get; set; }
+        #endregion
+        
         #region Parameter Instances_KeepJobFlowAliveWhenNoStep
         /// <summary>
         /// <para>
@@ -390,7 +433,7 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use with the job flow that
         /// accepts a user argument list. EMR accepts and forwards the argument list to the corresponding
         /// installation script as bootstrap action arguments. For more information, see "Launch
-        /// a Job Flow on the MapR Distribution for Hadoop" in the <a href="http://docs.aws.amazon.com/http:/docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
+        /// a Job Flow on the MapR Distribution for Hadoop" in the <a href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
         /// EMR Developer Guide</a>. Supported values are:</para><ul><li><para>"mapr-m3" - launch the cluster using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the cluster using MapR M5 Edition.</para></li><li><para>"mapr" with the user arguments specifying "--edition,m3" or "--edition,m5" - launch
         /// the job flow using MapR M3 or M5 Edition respectively.</para></li><li><para>"mapr-m7" - launch the cluster using MapR M7 Edition.</para></li><li><para>"hunk" - launch the cluster with the Hunk Big Data Analtics Platform.</para></li><li><para>"hue"- launch the cluster with Hue installed.</para></li><li><para>"spark" - launch the cluster with Apache Spark installed.</para></li><li><para>"ganglia" - launch the cluster with the Ganglia Monitoring System installed.</para></li></ul>
         /// </para>
@@ -398,6 +441,17 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         [System.Management.Automation.Parameter]
         [Alias("NewSupportedProducts")]
         public Amazon.ElasticMapReduce.Model.SupportedProductConfig[] NewSupportedProduct { get; set; }
+        #endregion
+        
+        #region Parameter KerberosAttributes_Realm
+        /// <summary>
+        /// <para>
+        /// <para>The name of the Kerberos realm to which all nodes in a cluster belong. For example,
+        /// <code>EC2.INTERNAL</code>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KerberosAttributes_Realm { get; set; }
         #endregion
         
         #region Parameter ReleaseLabel
@@ -504,8 +558,8 @@ namespace Amazon.PowerShell.Cmdlets.EMR
         /// <summary>
         /// <para>
         /// <note><para>For Amazon EMR releases 3.x and 2.x. For Amazon EMR releases 4.x and later, use Applications.</para></note><para>A list of strings that indicates third-party software to use. For more information,
-        /// see <a href="http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-supported-products.html">Use
-        /// Third Party Applications with Amazon EMR</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
+        /// see the <a href="http://docs.aws.amazon.com/emr/latest/DeveloperGuide/emr-dg.pdf">Amazon
+        /// EMR Developer Guide</a>. Currently supported values are:</para><ul><li><para>"mapr-m3" - launch the job flow using MapR M3 Edition.</para></li><li><para>"mapr-m5" - launch the job flow using MapR M5 Edition.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -637,6 +691,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             if (ParameterWasBound("Instances_TerminationProtected"))
                 context.Instances_TerminationProtected = this.Instances_TerminationProtected;
             context.JobFlowRole = this.JobFlowRole;
+            context.KerberosAttributes_ADDomainJoinPassword = this.KerberosAttributes_ADDomainJoinPassword;
+            context.KerberosAttributes_ADDomainJoinUser = this.KerberosAttributes_ADDomainJoinUser;
+            context.KerberosAttributes_CrossRealmTrustPrincipalPassword = this.KerberosAttributes_CrossRealmTrustPrincipalPassword;
+            context.KerberosAttributes_KdcAdminPassword = this.KerberosAttributes_KdcAdminPassword;
+            context.KerberosAttributes_Realm = this.KerberosAttributes_Realm;
             context.LogUri = this.LogUri;
             context.Name = this.Name;
             if (this.NewSupportedProduct != null)
@@ -918,6 +977,65 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             {
                 request.JobFlowRole = cmdletContext.JobFlowRole;
             }
+            
+             // populate KerberosAttributes
+            bool requestKerberosAttributesIsNull = true;
+            request.KerberosAttributes = new Amazon.ElasticMapReduce.Model.KerberosAttributes();
+            System.String requestKerberosAttributes_kerberosAttributes_ADDomainJoinPassword = null;
+            if (cmdletContext.KerberosAttributes_ADDomainJoinPassword != null)
+            {
+                requestKerberosAttributes_kerberosAttributes_ADDomainJoinPassword = cmdletContext.KerberosAttributes_ADDomainJoinPassword;
+            }
+            if (requestKerberosAttributes_kerberosAttributes_ADDomainJoinPassword != null)
+            {
+                request.KerberosAttributes.ADDomainJoinPassword = requestKerberosAttributes_kerberosAttributes_ADDomainJoinPassword;
+                requestKerberosAttributesIsNull = false;
+            }
+            System.String requestKerberosAttributes_kerberosAttributes_ADDomainJoinUser = null;
+            if (cmdletContext.KerberosAttributes_ADDomainJoinUser != null)
+            {
+                requestKerberosAttributes_kerberosAttributes_ADDomainJoinUser = cmdletContext.KerberosAttributes_ADDomainJoinUser;
+            }
+            if (requestKerberosAttributes_kerberosAttributes_ADDomainJoinUser != null)
+            {
+                request.KerberosAttributes.ADDomainJoinUser = requestKerberosAttributes_kerberosAttributes_ADDomainJoinUser;
+                requestKerberosAttributesIsNull = false;
+            }
+            System.String requestKerberosAttributes_kerberosAttributes_CrossRealmTrustPrincipalPassword = null;
+            if (cmdletContext.KerberosAttributes_CrossRealmTrustPrincipalPassword != null)
+            {
+                requestKerberosAttributes_kerberosAttributes_CrossRealmTrustPrincipalPassword = cmdletContext.KerberosAttributes_CrossRealmTrustPrincipalPassword;
+            }
+            if (requestKerberosAttributes_kerberosAttributes_CrossRealmTrustPrincipalPassword != null)
+            {
+                request.KerberosAttributes.CrossRealmTrustPrincipalPassword = requestKerberosAttributes_kerberosAttributes_CrossRealmTrustPrincipalPassword;
+                requestKerberosAttributesIsNull = false;
+            }
+            System.String requestKerberosAttributes_kerberosAttributes_KdcAdminPassword = null;
+            if (cmdletContext.KerberosAttributes_KdcAdminPassword != null)
+            {
+                requestKerberosAttributes_kerberosAttributes_KdcAdminPassword = cmdletContext.KerberosAttributes_KdcAdminPassword;
+            }
+            if (requestKerberosAttributes_kerberosAttributes_KdcAdminPassword != null)
+            {
+                request.KerberosAttributes.KdcAdminPassword = requestKerberosAttributes_kerberosAttributes_KdcAdminPassword;
+                requestKerberosAttributesIsNull = false;
+            }
+            System.String requestKerberosAttributes_kerberosAttributes_Realm = null;
+            if (cmdletContext.KerberosAttributes_Realm != null)
+            {
+                requestKerberosAttributes_kerberosAttributes_Realm = cmdletContext.KerberosAttributes_Realm;
+            }
+            if (requestKerberosAttributes_kerberosAttributes_Realm != null)
+            {
+                request.KerberosAttributes.Realm = requestKerberosAttributes_kerberosAttributes_Realm;
+                requestKerberosAttributesIsNull = false;
+            }
+             // determine if request.KerberosAttributes should be set to null
+            if (requestKerberosAttributesIsNull)
+            {
+                request.KerberosAttributes = null;
+            }
             if (cmdletContext.LogUri != null)
             {
                 request.LogUri = cmdletContext.LogUri;
@@ -1057,6 +1175,11 @@ namespace Amazon.PowerShell.Cmdlets.EMR
             public System.String Instances_SlaveInstanceType { get; set; }
             public System.Boolean? Instances_TerminationProtected { get; set; }
             public System.String JobFlowRole { get; set; }
+            public System.String KerberosAttributes_ADDomainJoinPassword { get; set; }
+            public System.String KerberosAttributes_ADDomainJoinUser { get; set; }
+            public System.String KerberosAttributes_CrossRealmTrustPrincipalPassword { get; set; }
+            public System.String KerberosAttributes_KdcAdminPassword { get; set; }
+            public System.String KerberosAttributes_Realm { get; set; }
             public System.String LogUri { get; set; }
             public System.String Name { get; set; }
             public List<Amazon.ElasticMapReduce.Model.SupportedProductConfig> NewSupportedProducts { get; set; }

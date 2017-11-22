@@ -18,6 +18,7 @@
     <ServiceOperation MethodName="DescribeActivity" Output="Response"/>
     <ServiceOperation MethodName="DescribeExecution" Output="Response"/>
     <ServiceOperation MethodName="DescribeStateMachine" Output="Response"/>
+    <ServiceOperation MethodName="DescribeStateMachineForExecution" Output="Response" />
     <ServiceOperation MethodName="GetActivityTask" PipelineParameter="ActivityArn" Output="Response"/>
     <ServiceOperation MethodName="GetExecutionHistory" PipelineParameter="ExecutionArn"/>
     <ServiceOperation MethodName="ListActivities" Verb="Get" Noun="ActivityList"/>
@@ -28,5 +29,6 @@
     <ServiceOperation MethodName="SendTaskSuccess" PipelineParameter="TaskToken" Output="Void"/>
     <ServiceOperation MethodName="StartExecution" PipelineParameter="StateMachineArn" Output="Response"/>
     <ServiceOperation MethodName="StopExecution" PipelineParameter="ExecutionArn"/>
+    <ServiceOperation MethodName="UpdateStateMachine" PipelineParameter="StateMachineArn"/>
   </ServiceOperations>
 </ConfigModel>

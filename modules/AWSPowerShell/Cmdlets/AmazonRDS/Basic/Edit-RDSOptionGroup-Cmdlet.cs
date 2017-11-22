@@ -54,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group to be modified.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
-        /// be removed from an option group, and that option group cannot be removed from a DB
+        /// <para>The name of the option group to be modified.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// be removed from an option group, and that option group can't be removed from a DB
         /// instance once it is associated with a DB instance</para>
         /// </para>
         /// </summary>

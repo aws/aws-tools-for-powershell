@@ -340,6 +340,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32 BufferingHints_SizeInMBs { get; set; }
         #endregion
         
+        #region Parameter SplunkDestinationConfiguration
+        /// <summary>
+        /// <para>
+        /// <para>The destination in Splunk. You can specify only one destination.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchDestinationConfiguration_TypeName
         /// <summary>
         /// <para>
@@ -409,6 +419,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.KinesisStreamSourceConfiguration_RoleARN = this.KinesisStreamSourceConfiguration_RoleARN;
             context.RedshiftDestinationConfiguration = this.RedshiftDestinationConfiguration;
             context.S3DestinationConfiguration = this.S3DestinationConfiguration;
+            context.SplunkDestinationConfiguration = this.SplunkDestinationConfiguration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -693,6 +704,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.S3DestinationConfiguration = cmdletContext.S3DestinationConfiguration;
             }
+            if (cmdletContext.SplunkDestinationConfiguration != null)
+            {
+                request.SplunkDestinationConfiguration = cmdletContext.SplunkDestinationConfiguration;
+            }
             
             CmdletOutput output;
             
@@ -779,6 +794,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public System.String KinesisStreamSourceConfiguration_RoleARN { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration RedshiftDestinationConfiguration { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationConfiguration S3DestinationConfiguration { get; set; }
+            public Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration SplunkDestinationConfiguration { get; set; }
         }
         
     }

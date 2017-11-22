@@ -68,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end
-        /// with the parameter name. A hierarchy can have a maximum of five levels. Examples:
-        /// /Environment/Test/DBString003</para><para>/Finance/Prod/IAD/OS/WinServ2016/license15</para>
+        /// with the parameter name. A hierarchy can have a maximum of five levels. For example:
+        /// <code>/Finance/Prod/IAD/WinServ2016/license15</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

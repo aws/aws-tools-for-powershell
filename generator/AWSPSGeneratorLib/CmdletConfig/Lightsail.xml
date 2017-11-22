@@ -27,19 +27,26 @@
   
   <ServiceOperations>
     <ServiceOperation MethodName="AllocateStaticIp" Verb="New" />
+    <ServiceOperation MethodName="AttachDisk" PipelineParameter="InstanceName" />
     <ServiceOperation MethodName="AttachStaticIp" Verb="Mount" PipelineParameter="StaticIpName" />
     <ServiceOperation MethodName="CloseInstancePublicPorts" Noun="InstancePublicPort" PipelineParameter="InstanceName" />
+    <ServiceOperation MethodName="CreateDisk" PipelineParameter="DiskName" />
+    <ServiceOperation MethodName="CreateDiskFromSnapshot" PipelineParameter="DiskSnapshotName" />
+    <ServiceOperation MethodName="CreateDiskSnapshot" PipelineParameter="DiskSnapshotName" />
     <ServiceOperation MethodName="CreateDomain" />
     <ServiceOperation MethodName="CreateDomainEntry" PipelineParameter="DomainName" />
     <ServiceOperation MethodName="CreateInstanceSnapshot" PipelineParameter="InstanceName" />
     <ServiceOperation MethodName="CreateInstances" Noun="Instance" PipelineParameter="InstanceNames" />
     <ServiceOperation MethodName="CreateInstancesFromSnapshot" PipelineParameter="InstanceNames" />
     <ServiceOperation MethodName="CreateKeyPair" Output="Response" />
+    <ServiceOperation MethodName="DeleteDisk" />
+    <ServiceOperation MethodName="DeleteDiskSnapshot" />
     <ServiceOperation MethodName="DeleteDomain" />
     <ServiceOperation MethodName="DeleteDomainEntry" PipelineParameter="DomainName" />
     <ServiceOperation MethodName="DeleteInstance" />
     <ServiceOperation MethodName="DeleteInstanceSnapshot" />
     <ServiceOperation MethodName="DeleteKeyPair" />
+    <ServiceOperation MethodName="DetachDisk" Verb="Dismount" />
     <ServiceOperation MethodName="DetachStaticIp" Verb="Dismount" />
     <ServiceOperation MethodName="DownloadDefaultKeyPair" Output="Response" Verb="Read" />
     <ServiceOperation MethodName="GetActiveNames" Noun="ActiveNameList" />
@@ -47,6 +54,10 @@
     <ServiceOperation MethodName="GetBundles" Noun="BundleList" />
     <ServiceOperation MethodName="GetDomain" />
     <ServiceOperation MethodName="GetDomains" Noun="DomainList" />
+    <ServiceOperation MethodName="GetDisk" />
+    <ServiceOperation MethodName="GetDisks" Noun="DiskList" />
+    <ServiceOperation MethodName="GetDiskSnapshot" />
+    <ServiceOperation MethodName="GetDiskSnapshots" Noun="DiskSnapshotList" />
     <ServiceOperation MethodName="GetInstance" />
     <ServiceOperation MethodName="GetInstanceAccessDetails" Noun="InstanceAccessDetail" PipelineParameter="InstanceName" />
     <ServiceOperation MethodName="GetInstanceMetricData" PipelineParameter="InstanceName" Output="Response" />
@@ -71,7 +82,11 @@
     <ServiceOperation MethodName="RebootInstance" Verb="Restart" />
     <ServiceOperation MethodName="ReleaseStaticIp" Verb="Remove" />
     <ServiceOperation MethodName="StartInstance" />
-    <ServiceOperation MethodName="StopInstance" />
+    <ServiceOperation MethodName="StopInstance" PipelineParameter="InstanceName">
+      <Params>
+        <Param Name="Force" NewName="OverrideStuck" AutoApplyAlias="false" />
+      </Params>
+    </ServiceOperation>
     <ServiceOperation MethodName="UnpeerVpc" Verb="Remove" Noun="PeerVpc" AnonymousShouldProcssTarget="true" />
     <ServiceOperation MethodName="UpdateDomainEntry" PipelineParameter="DomainName" />
   </ServiceOperations>

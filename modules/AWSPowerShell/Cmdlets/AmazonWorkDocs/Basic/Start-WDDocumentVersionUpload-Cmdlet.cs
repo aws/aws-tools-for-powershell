@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter ContentCreatedTimestamp
         /// <summary>
         /// <para>
-        /// <para>The time stamp when the content of the document was originally created.</para>
+        /// <para>The timestamp when the content of the document was originally created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter ContentModifiedTimestamp
         /// <summary>
         /// <para>
-        /// <para>The time stamp when the content of the document was modified.</para>
+        /// <para>The timestamp when the content of the document was modified.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

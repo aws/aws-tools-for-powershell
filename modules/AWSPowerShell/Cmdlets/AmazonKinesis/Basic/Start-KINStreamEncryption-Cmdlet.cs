@@ -33,20 +33,20 @@ namespace Amazon.PowerShell.Cmdlets.KIN
     /// 
     ///  
     /// <para>
-    /// Starting encryption is an asynchronous operation. Upon receiving the request, Amazon
-    /// Kinesis returns immediately and sets the status of the stream to <code>UPDATING</code>.
-    /// After the update is complete, Amazon Kinesis sets the status of the stream back to
+    /// Starting encryption is an asynchronous operation. Upon receiving the request, Kinesis
+    /// Streams returns immediately and sets the status of the stream to <code>UPDATING</code>.
+    /// After the update is complete, Kinesis Streams sets the status of the stream back to
     /// <code>ACTIVE</code>. Updating or applying encryption normally takes a few seconds
-    /// to complete but it can take minutes. You can continue to read and write data to your
+    /// to complete, but it can take minutes. You can continue to read and write data to your
     /// stream while its status is <code>UPDATING</code>. Once the status of the stream is
-    /// <code>ACTIVE</code>, records written to the stream will begin to be encrypted. 
+    /// <code>ACTIVE</code>, encryption begins for records written to the stream. 
     /// </para><para>
     /// API Limits: You can successfully apply a new AWS KMS key for server-side encryption
-    /// 25 times in a rolling 24 hour period.
+    /// 25 times in a rolling 24-hour period.
     /// </para><para>
-    /// Note: It can take up to 5 seconds after the stream is in an <code>ACTIVE</code> status
-    /// before all records written to the stream are encrypted. After you’ve enabled encryption,
-    /// you can verify encryption was applied by inspecting the API response from <code>PutRecord</code>
+    /// Note: It can take up to five seconds after the stream is in an <code>ACTIVE</code>
+    /// status before all records written to the stream are encrypted. After you enable encryption,
+    /// you can verify that encryption is applied by inspecting the API response from <code>PutRecord</code>
     /// or <code>PutRecords</code>.
     /// </para>
     /// </summary>
@@ -63,9 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter EncryptionType
         /// <summary>
         /// <para>
-        /// <para>The encryption type to use. This parameter can be one of the following values:</para><ul><li><para><code>NONE</code>: Not valid for this operation. An <code>InvalidOperationException</code>
-        /// will be thrown.</para></li><li><para><code>KMS</code>: Use server-side encryption on the records in the stream using a
-        /// customer-managed KMS key.</para></li></ul>
+        /// <para>The encryption type to use. The only valid value is <code>KMS</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,8 +74,10 @@ namespace Amazon.PowerShell.Cmdlets.KIN
         #region Parameter KeyId
         /// <summary>
         /// <para>
-        /// <para>The GUID for the customer-managed KMS key to use for encryption. You can also use
-        /// a Kinesis-owned master key by specifying the alias <code>aws/kinesis</code>.</para>
+        /// <para>The GUID for the customer-managed KMS key to use for encryption. This value can be
+        /// a globally unique identifier, a fully specified ARN to either an alias or a key, or
+        /// an alias name prefixed by "alias/".You can also use a master key owned by Kinesis
+        /// Streams by specifying the alias <code>aws/kinesis</code>.</para><ul><li><para>Key ARN example: <code>arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012</code></para></li><li><para>Alias ARN example: <code>arn:aws:kms:us-east-1:123456789012:alias/MyAliasName</code></para></li><li><para>Globally unique key ID example: <code>12345678-1234-1234-1234-123456789012</code></para></li><li><para>Alias name example: <code>alias/MyAliasName</code></para></li><li><para>Master key owned by Kinesis Streams: <code>alias/aws/kinesis</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

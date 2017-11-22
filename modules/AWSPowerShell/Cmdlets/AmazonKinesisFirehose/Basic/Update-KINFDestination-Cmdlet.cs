@@ -288,6 +288,16 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         public System.Int32 BufferingHints_SizeInMBs { get; set; }
         #endregion
         
+        #region Parameter SplunkDestinationUpdate
+        /// <summary>
+        /// <para>
+        /// <para>Describes an update for a destination in Splunk.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public Amazon.KinesisFirehose.Model.SplunkDestinationUpdate SplunkDestinationUpdate { get; set; }
+        #endregion
+        
         #region Parameter ElasticsearchDestinationUpdate_TypeName
         /// <summary>
         /// <para>
@@ -355,6 +365,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             context.ExtendedS3DestinationUpdate = this.ExtendedS3DestinationUpdate;
             context.RedshiftDestinationUpdate = this.RedshiftDestinationUpdate;
             context.S3DestinationUpdate = this.S3DestinationUpdate;
+            context.SplunkDestinationUpdate = this.SplunkDestinationUpdate;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -604,6 +615,10 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             {
                 request.S3DestinationUpdate = cmdletContext.S3DestinationUpdate;
             }
+            if (cmdletContext.SplunkDestinationUpdate != null)
+            {
+                request.SplunkDestinationUpdate = cmdletContext.SplunkDestinationUpdate;
+            }
             
             CmdletOutput output;
             
@@ -688,6 +703,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
             public Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate ExtendedS3DestinationUpdate { get; set; }
             public Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate RedshiftDestinationUpdate { get; set; }
             public Amazon.KinesisFirehose.Model.S3DestinationUpdate S3DestinationUpdate { get; set; }
+            public Amazon.KinesisFirehose.Model.SplunkDestinationUpdate SplunkDestinationUpdate { get; set; }
         }
         
     }

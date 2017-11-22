@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
     /// and either EC2SecurityGroupName or EC2SecurityGroupId for non-VPC).
     /// 
     ///  <note><para>
-    /// You cannot authorize ingress from an EC2 security group in one AWS Region to an Amazon
-    /// RDS DB instance in another. You cannot authorize ingress from a VPC security group
+    /// You can't authorize ingress from an EC2 security group in one AWS Region to an Amazon
+    /// RDS DB instance in another. You can't authorize ingress from a VPC security group
     /// in one VPC to an Amazon RDS DB instance in another.
     /// </para></note><para>
     /// For an overview of CIDR ranges, go to the <a href="http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing">Wikipedia

@@ -1544,7 +1544,10 @@ namespace AWSPowerShellGenerator.Analysis
             if (processedParameters.ContainsKey(newName))
             {
                 var msg = new StringBuilder();
-                msg.AppendFormat("Operation '{0}' has a duplicate parameter name {1}: ", CurrentOperation.MethodName, property.AnalyzedName);
+                msg.AppendFormat("{0} operation '{1}' has a duplicate parameter name {2}: ", 
+                                 CurrentModel.ServiceName,
+                                 CurrentOperation.MethodName, 
+                                 property.AnalyzedName);
                 msg.AppendFormat(property.Customization != null && property.Customization.Origin == Param.CustomizationOrigin.FromConfig
                                     ? "config file requested '{0}' but that name used by '{1}'."
                                     : "auto-rename yielded '{0}' but that name used by '{1}'.",

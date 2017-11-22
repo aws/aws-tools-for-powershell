@@ -19,7 +19,7 @@
   <AutoIterate EmitLimit="MaxRecords"
                Start="Marker"
                Next="Marker" 
-			   Exclusions="DescribeTableStatistics"
+			   Exclusions="DescribeTableStatistics;DescribeReplicationTaskAssessmentResults"
                ServicePageSize="100" />
 
   <PipelineByValueProperties>
@@ -67,6 +67,7 @@
 	  <ServiceOperation MethodName="DescribeReplicationInstances" Noun="ReplicationInstance" NoPipelineParameter="true" />
 	  <ServiceOperation MethodName="DescribeReplicationSubnetGroups" Noun="ReplicationSubnetGroup" NoPipelineParameter="true" />
 	  <ServiceOperation MethodName="DescribeReplicationTasks" Noun="ReplicationTask" NoPipelineParameter="true" />
+	  <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" Noun="ReplicationTaskAssessmentResult" Output="Response" />
 	  <ServiceOperation MethodName="DescribeSchemas" Noun="Schema" />
 	  <ServiceOperation MethodName="DescribeTableStatistics" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" Output="Response"/>
 	  <ServiceOperation MethodName="ImportCertificate" PipelineParameter="CertificatePem" />
@@ -88,6 +89,8 @@
 	  <ServiceOperation MethodName="DescribeEventCategories" Noun="EventCategory" PipelineParameter="SourceType" />
 	  <ServiceOperation MethodName="DescribeEvents" Noun="Event" PipelineParameter="SourceIdentifier" />
 	  <ServiceOperation MethodName="DescribeEventSubscriptions" Noun="EventSubscription" PipelineParameter="SubscriptionName" />
+
+	  <ServiceOperation MethodName="StartReplicationTaskAssessment" />
   </ServiceOperations>
 
 </ConfigModel>

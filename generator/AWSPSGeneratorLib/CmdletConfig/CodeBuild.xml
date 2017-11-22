@@ -18,6 +18,7 @@
     <ServiceOperation MethodName="CreateWebhook" />
     <ServiceOperation MethodName="DeleteProject" Output="Void" />
     <ServiceOperation MethodName="DeleteWebhook" Output="Void" />
+    <ServiceOperation MethodName="InvalidateProjectCache" Output="Void" Verb="Reset" />
     <ServiceOperation MethodName="ListBuilds" NoPipelineParameter="true" Verb="Get" Noun="BuildIdList" />
     <ServiceOperation MethodName="ListBuildsForProject" PipelineParameter="ProjectName" Verb="Get" Noun="BuildIdListForProject" />
     <ServiceOperation MethodName="ListCuratedEnvironmentImages" Verb="Get" Noun=    "CuratedEnvironmentImageList" />

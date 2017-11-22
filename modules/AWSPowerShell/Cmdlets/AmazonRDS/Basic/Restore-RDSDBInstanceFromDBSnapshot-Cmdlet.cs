@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The EC2 Availability Zone that the database instance is created in.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// <para>The EC2 Availability Zone that the DB instance is created in.</para><para>Default: A random, system-chosen Availability Zone.</para><para>Constraint: You can't specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.</para><para>Example: <code>us-east-1a</code></para>
         /// </para>
         /// </summary>
@@ -84,8 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter CopyTagsToSnapshot
         /// <summary>
         /// <para>
-        /// <para>True to copy all tags from the restored DB instance to snapshots of the DB instance;
-        /// otherwise false. The default is false.</para>
+        /// <para>True to copy all tags from the restored DB instance to snapshots of the DB instance,
+        /// and otherwise false. The default is false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +96,9 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The compute and memory capacity of the Amazon RDS DB instance, for example, <code>db.m4.large</code>.
-        /// Not all DB instance classes are available in all regions, or for all database engines.
-        /// For the full list of DB instance classes, and availability for your engine, see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
+        /// Not all DB instance classes are available in all AWS Regions, or for all database
+        /// engines. For the full list of DB instance classes, and availability for your engine,
+        /// see <a href="http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html">DB
         /// Instance Class</a> in the Amazon RDS User Guide. </para><para>Default: The same DBInstanceClass as the original DB instance.</para>
         /// </para>
         /// </summary>
@@ -171,7 +172,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>True to enable mapping of AWS Identity and Access Management (IAM) accounts to database
-        /// accounts; otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora 5.6 or higher.</para></li></ul><para>Default: <code>false</code></para>
+        /// accounts, and otherwise false.</para><para>You can enable IAM database authentication for the following database engines</para><ul><li><para>For MySQL 5.6, minor version 5.6.34 or higher</para></li><li><para>For MySQL 5.7, minor version 5.7.16 or higher</para></li><li><para>Aurora 5.6 or higher.</para></li></ul><para>Default: <code>false</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -182,7 +183,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>The database engine to use for the new instance.</para><para>Default: The same as source</para><para>Constraint: Must be compatible with the engine of the source. You can restore a MariaDB
-        /// 10.1 DB instance from a MySQL 5.6 snapshot.</para><para>Valid Values:</para><ul><li><para><code>aurora</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
+        /// 10.1 DB instance from a MySQL 5.6 snapshot.</para><para>Valid Values:</para><ul><li><para><code>aurora</code></para></li><li><para><code>aurora-postgresql</code></para></li><li><para><code>mariadb</code></para></li><li><para><code>mysql</code></para></li><li><para><code>oracle-ee</code></para></li><li><para><code>oracle-se2</code></para></li><li><para><code>oracle-se1</code></para></li><li><para><code>oracle-se</code></para></li><li><para><code>postgres</code></para></li><li><para><code>sqlserver-ee</code></para></li><li><para><code>sqlserver-se</code></para></li><li><para><code>sqlserver-ex</code></para></li><li><para><code>sqlserver-web</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -219,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter MultiAZ
         /// <summary>
         /// <para>
-        /// <para>Specifies if the DB instance is a Multi-AZ deployment.</para><para>Constraint: You cannot specify the AvailabilityZone parameter if the MultiAZ parameter
+        /// <para>Specifies if the DB instance is a Multi-AZ deployment.</para><para>Constraint: You can't specify the AvailabilityZone parameter if the MultiAZ parameter
         /// is set to <code>true</code>.</para>
         /// </para>
         /// </summary>
@@ -230,8 +231,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter OptionGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the option group to be used for the restored DB instance.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, cannot
-        /// be removed from an option group, and that option group cannot be removed from a DB
+        /// <para>The name of the option group to be used for the restored DB instance.</para><para>Permanent options, such as the TDE option for Oracle Advanced Security TDE, can't
+        /// be removed from an option group, and that option group can't be removed from a DB
         /// instance once it is associated with a DB instance</para>
         /// </para>
         /// </summary>
@@ -270,7 +271,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// <summary>
         /// <para>
         /// <para>Specifies the storage type to be associated with the DB instance.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified; otherwise
+        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>standard</code></para>
         /// </para>
         /// </summary>
@@ -292,7 +293,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialArn
         /// <summary>
         /// <para>
-        /// <para>The ARN from the Key Store with which to associate the instance for TDE encryption.</para>
+        /// <para>The ARN from the key store with which to associate the instance for TDE encryption.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -302,7 +303,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter TdeCredentialPassword
         /// <summary>
         /// <para>
-        /// <para>The password for the given ARN from the Key Store in order to access the device.</para>
+        /// <para>The password for the given ARN from the key store in order to access the device.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

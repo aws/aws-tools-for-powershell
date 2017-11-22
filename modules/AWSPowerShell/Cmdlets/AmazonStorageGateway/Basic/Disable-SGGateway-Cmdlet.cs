@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     ///  
     /// <para>
     /// Use this operation for a tape gateway that is not reachable or not functioning. This
-    /// operation is only supported in the tape gateway architectures.
+    /// operation is only supported in the tape gateway type.
     /// </para><important><para>
     /// Once a gateway is disabled it cannot be enabled.
     /// </para></important>

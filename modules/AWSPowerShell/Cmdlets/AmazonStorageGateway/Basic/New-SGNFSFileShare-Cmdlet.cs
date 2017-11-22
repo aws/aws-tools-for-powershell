@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
     /// Creates a file share on an existing file gateway. In Storage Gateway, a file share
     /// is a file system mount point backed by Amazon S3 cloud storage. Storage Gateway exposes
     /// file shares using a Network File System (NFS) interface. This operation is only supported
-    /// in the file gateway architecture.
+    /// in the file gateway type.
     /// 
     ///  <important><para>
     /// File gateway requires AWS Security Token Service (AWS STS) to be activated to enable
@@ -129,6 +129,17 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int64 NFSFileShareDefaults_GroupId { get; set; }
+        #endregion
+        
+        #region Parameter GuessMIMETypeEnabled
+        /// <summary>
+        /// <para>
+        /// <para>Enables guessing of the MIME type for uploaded objects based on file extensions: "true"
+        /// to enable MIME type guessing, and otherwise "false".</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean GuessMIMETypeEnabled { get; set; }
         #endregion
         
         #region Parameter KMSEncrypted
@@ -242,6 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
             context.ClientToken = this.ClientToken;
             context.DefaultStorageClass = this.DefaultStorageClass;
             context.GatewayARN = this.GatewayARN;
+            if (ParameterWasBound("GuessMIMETypeEnabled"))
+                context.GuessMIMETypeEnabled = this.GuessMIMETypeEnabled;
             if (ParameterWasBound("KMSEncrypted"))
                 context.KMSEncrypted = this.KMSEncrypted;
             context.KMSKey = this.KMSKey;
@@ -287,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.SG
             if (cmdletContext.GatewayARN != null)
             {
                 request.GatewayARN = cmdletContext.GatewayARN;
+            }
+            if (cmdletContext.GuessMIMETypeEnabled != null)
+            {
+                request.GuessMIMETypeEnabled = cmdletContext.GuessMIMETypeEnabled.Value;
             }
             if (cmdletContext.KMSEncrypted != null)
             {
@@ -429,6 +446,7 @@ namespace Amazon.PowerShell.Cmdlets.SG
             public System.String ClientToken { get; set; }
             public System.String DefaultStorageClass { get; set; }
             public System.String GatewayARN { get; set; }
+            public System.Boolean? GuessMIMETypeEnabled { get; set; }
             public System.Boolean? KMSEncrypted { get; set; }
             public System.String KMSKey { get; set; }
             public System.String LocationARN { get; set; }

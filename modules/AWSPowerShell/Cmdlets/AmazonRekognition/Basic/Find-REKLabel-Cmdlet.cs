@@ -35,6 +35,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
+    /// You pass the input image as base64-encoded image bytes or as a reference to an image
+    /// in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations,
+    /// passing image bytes is not supported. The image must be either a PNG or JPEG formatted
+    /// file. 
+    /// </para><para>
     ///  For each object, scene, and concept the API returns one or more labels. Each label
     /// provides the object name, and the level of confidence that the image contains the
     /// object. For example, suppose the input image has a lighthouse, the sea, and a rock.
@@ -48,11 +53,11 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// In this example, the detection algorithm more precisely identifies the flower as a
     /// tulip.
     /// </para><para>
-    /// You can provide the input image as an S3 object or as base64-encoded bytes. In response,
-    /// the API returns an array of labels. In addition, the response also includes the orientation
-    /// correction. Optionally, you can specify <code>MinConfidence</code> to control the
-    /// confidence threshold for the labels returned. The default is 50%. You can also add
-    /// the <code>MaxLabels</code> parameter to limit the number of labels returned. 
+    /// In response, the API returns an array of labels. In addition, the response also includes
+    /// the orientation correction. Optionally, you can specify <code>MinConfidence</code>
+    /// to control the confidence threshold for the labels returned. The default is 50%. You
+    /// can also add the <code>MaxLabels</code> parameter to limit the number of labels returned.
+    /// 
     /// </para><note><para>
     /// If the object detected is a person, the operation doesn't provide the same facial
     /// details that the <a>DetectFaces</a> operation provides.

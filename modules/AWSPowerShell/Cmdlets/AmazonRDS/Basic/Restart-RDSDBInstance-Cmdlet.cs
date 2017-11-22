@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter ForceFailover
         /// <summary>
         /// <para>
-        /// <para> When <code>true</code>, the reboot is conducted through a MultiAZ failover. </para><para>Constraint: You cannot specify <code>true</code> if the instance is not configured
+        /// <para> When <code>true</code>, the reboot is conducted through a MultiAZ failover. </para><para>Constraint: You can't specify <code>true</code> if the instance is not configured
         /// for MultiAZ.</para>
         /// </para>
         /// </summary>

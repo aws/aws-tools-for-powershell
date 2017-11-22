@@ -45,10 +45,10 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// </para><para>
     /// The user in the master account who calls this API must also have the <code>iam:CreateRole</code>
     /// permission because AWS Organizations preconfigures the new member account with a role
-    /// (named <code>OrganizationAccountAccessRole</code>) that grants users in the master
-    /// account administrator permissions in the new member account. Principals in the master
-    /// account can assume the role. AWS Organizations clones the company name and address
-    /// information for the new account from the organization's master account.
+    /// (named <code>OrganizationAccountAccessRole</code> by default) that grants users in
+    /// the master account administrator permissions in the new member account. Principals
+    /// in the master account can assume the role. AWS Organizations clones the company name
+    /// and address information for the new account from the organization's master account.
     /// </para><para>
     /// This operation can be called only from the organization's master account.
     /// </para><para>
@@ -71,7 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
     /// root user can access billing information. For information about how to disable this
     /// for an account, see <a href="http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/grantaccess.html">Granting
     /// Access to Your Billing Information and Tools</a>.
-    /// </para></note><important><para>
+    /// </para></note><para>
+    /// This operation can be called only from the organization's master account.
+    /// </para><important><para>
     /// If you get an exception that indicates that you exceeded your account limits for the
     /// organization or that you can"t add an account because your organization is still initializing,
     /// please contact <a href="https://console.aws.amazon.com/support/home#/"> AWS Customer

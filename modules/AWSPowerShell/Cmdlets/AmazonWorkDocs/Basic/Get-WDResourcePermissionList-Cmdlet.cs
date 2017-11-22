@@ -44,12 +44,22 @@ namespace Amazon.PowerShell.Cmdlets.WD
         #region Parameter AuthenticationToken
         /// <summary>
         /// <para>
-        /// <para>Amazon WorkDocs authentication token. This field should not be set when using administrative
+        /// <para>Amazon WorkDocs authentication token. Do not set this field when using administrative
         /// API actions, as in accessing the API using AWS credentials.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String AuthenticationToken { get; set; }
+        #endregion
+        
+        #region Parameter PrincipalId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the principal to filter permissions by.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PrincipalId { get; set; }
         #endregion
         
         #region Parameter ResourceId
@@ -105,6 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             if (ParameterWasBound("Limit"))
                 context.Limit = this.Limit;
             context.Marker = this.Marker;
+            context.PrincipalId = this.PrincipalId;
             context.ResourceId = this.ResourceId;
             
             // allow further manipulation of loaded context prior to processing
@@ -125,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.WD
             if (cmdletContext.AuthenticationToken != null)
             {
                 request.AuthenticationToken = cmdletContext.AuthenticationToken;
+            }
+            if (cmdletContext.PrincipalId != null)
+            {
+                request.PrincipalId = cmdletContext.PrincipalId;
             }
             if (cmdletContext.ResourceId != null)
             {
@@ -249,6 +264,7 @@ namespace Amazon.PowerShell.Cmdlets.WD
             public System.String AuthenticationToken { get; set; }
             public int? Limit { get; set; }
             public System.String Marker { get; set; }
+            public System.String PrincipalId { get; set; }
             public System.String ResourceId { get; set; }
         }
         

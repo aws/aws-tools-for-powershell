@@ -28,7 +28,7 @@ using Amazon.RDS.Model;
 namespace Amazon.PowerShell.Cmdlets.RDS
 {
     /// <summary>
-    /// Modifies an existing RDS event notification subscription. Note that you cannot modify
+    /// Modifies an existing RDS event notification subscription. Note that you can't modify
     /// the source identifiers using this call; to change source identifiers for a subscription,
     /// use the <a>AddSourceIdentifierToSubscription</a> and <a>RemoveSourceIdentifierFromSubscription</a>
     /// calls.

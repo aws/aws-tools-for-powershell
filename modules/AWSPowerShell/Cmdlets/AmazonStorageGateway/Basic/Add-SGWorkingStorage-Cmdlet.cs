@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SG
 {
     /// <summary>
     /// Configures one or more gateway local disks as working storage for a gateway. This
-    /// operation is only supported in the stored volume gateway architecture. This operation
-    /// is deprecated in cached volume API version 20120630. Use <a>AddUploadBuffer</a> instead.
+    /// operation is only supported in the stored volume gateway type. This operation is deprecated
+    /// in cached volume API version 20120630. Use <a>AddUploadBuffer</a> instead.
     /// 
     ///  <note><para>
     /// Working storage is also referred to as upload buffer. You can also use the <a>AddUploadBuffer</a>

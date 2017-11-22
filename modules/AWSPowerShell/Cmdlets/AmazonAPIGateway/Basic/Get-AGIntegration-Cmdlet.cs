@@ -28,7 +28,7 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Represents a get integration.
+    /// Get the integration settings.
     /// </summary>
     [Cmdlet("Get", "AGIntegration")]
     [OutputType("Amazon.APIGateway.Model.GetIntegrationResponse")]

@@ -76,7 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.KINF
         #region Parameter Limit
         /// <summary>
         /// <para>
-        /// <para>The maximum number of delivery streams to list.</para>
+        /// <para>The maximum number of delivery streams to list. The default value is 10.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

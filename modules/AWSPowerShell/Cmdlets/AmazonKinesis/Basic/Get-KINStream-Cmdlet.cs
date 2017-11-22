@@ -28,7 +28,7 @@ using Amazon.Kinesis.Model;
 namespace Amazon.PowerShell.Cmdlets.KIN
 {
     /// <summary>
-    /// Describes the specified Amazon Kinesis stream.
+    /// Describes the specified Kinesis stream.
     /// 
     ///  
     /// <para>
