@@ -744,6 +744,33 @@ $BGT_map = @{
 _awsArgumentCompleterRegistration $BGT_Completers $BGT_map
 
 
+# Argument completions for service AWS Certificate Manager
+$ACM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CertificateManager.ValidationMethod
+        "New-ACMCertificate/ValidationMethod"
+        {
+            $v = "DNS","EMAIL"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ACM_map = @{
+    "ValidationMethod"=@("New-ACMCertificate")
+}
+
+_awsArgumentCompleterRegistration $ACM_Completers $ACM_map
+
+
 # Argument completions for service AWS Cloud Directory
 $CDIR_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

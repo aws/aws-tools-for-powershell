@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// Adds one or more tags to an ACM Certificate. Tags are labels that you can use to identify
     /// and organize your AWS resources. Each tag consists of a <code>key</code> and an optional
     /// <code>value</code>. You specify the certificate on input by its Amazon Resource Name
-    /// (ARN). You specify the tag by using a key-value pair.
+    /// (ARN). You specify the tag by using a key-value pair. 
     /// 
     ///  
     /// <para>
@@ -42,11 +42,11 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// among those resources. For example, you can add the same tag to an ACM Certificate
     /// and an Elastic Load Balancing load balancer to indicate that they are both used by
     /// the same website. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/tags.html">Tagging
-    /// ACM Certificates</a>.
+    /// ACM Certificates</a>. 
     /// </para><para>
     /// To remove one or more tags, use the <a>RemoveTagsFromCertificate</a> action. To view
     /// all of the tags that have been applied to the certificate, use the <a>ListTagsForCertificate</a>
-    /// action.
+    /// action. 
     /// </para>
     /// </summary>
     [Cmdlet("Add", "ACMCertificateTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para>
         /// <para>String that contains the ARN of the ACM Certificate to which the tag is to be applied.
         /// This must be of the form:</para><para><code>arn:aws:acm:region:123456789012:certificate/12345678-1234-1234-1234-123456789012</code></para><para>For more information about ARNs, see <a href="http://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon
-        /// Resource Names (ARNs) and AWS Service Namespaces</a>.</para>
+        /// Resource Names (ARNs) and AWS Service Namespaces</a>. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

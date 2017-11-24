@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
     /// </para><para>
     /// After receiving approval from the domain owner, the ACM Certificate is issued. For
     /// more information, see the <a href="http://docs.aws.amazon.com/acm/latest/userguide/">AWS
-    /// Certificate Manager User Guide</a>.
+    /// Certificate Manager User Guide</a>. 
     /// </para>
     /// </summary>
     [Cmdlet("New", "ACMCertificate", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -63,13 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// <para> Fully qualified domain name (FQDN), such as www.example.com, of the site that you
         /// want to secure with an ACM Certificate. Use an asterisk (*) to create a wildcard certificate
         /// that protects several sites in the same domain. For example, *.example.com protects
-        /// www.example.com, site.example.com, and images.example.com. </para><para> The maximum length of a DNS name is 253 octets. The name is made up of multiple labels
-        /// separated by periods. No label can be longer than 63 octets. Consider the following
-        /// examples: </para><para><code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the
-        /// total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets. </para><para><code>(64 octets).(63 octets).(63 octets).(61 octets)</code> is not legal because
-        /// the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds
-        /// 63 octets. </para><para><code>(63 octets).(63 octets).(63 octets).(62 octets)</code> is not legal because
-        /// the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets. </para>
+        /// www.example.com, site.example.com, and images.example.com. </para><para> The first domain name you enter cannot exceed 63 octets, including periods. Each
+        /// subsequent Subject Alternative Name (SAN), however, can be up to 253 octets in length.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -79,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter DomainValidationOption
         /// <summary>
         /// <para>
-        /// <para>The domain name that you want ACM to use to send you emails to validate your ownership
-        /// of the domain.</para>
+        /// <para>The domain name that you want ACM to use to send you emails so taht your can validate
+        /// domain ownership.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,12 +106,29 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// the <code>DomainName</code> field is www.example.com if users can reach your site
         /// by using either name. The maximum number of domain names that you can add to an ACM
         /// Certificate is 100. However, the initial limit is 10 domain names. If you need more
-        /// than 10 names, you must request a limit increase. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para>
+        /// than 10 names, you must request a limit increase. For more information, see <a href="http://docs.aws.amazon.com/acm/latest/userguide/acm-limits.html">Limits</a>.</para><para> The maximum length of a SAN DNS name is 253 octets. The name is made up of multiple
+        /// labels separated by periods. No label can be longer than 63 octets. Consider the following
+        /// examples: </para><ul><li><para><code>(63 octets).(63 octets).(63 octets).(61 octets)</code> is legal because the
+        /// total length is 253 octets (63+1+63+1+63+1+61) and no label exceeds 63 octets.</para></li><li><para><code>(64 octets).(63 octets).(63 octets).(61 octets)</code> is not legal because
+        /// the total length exceeds 253 octets (64+1+63+1+63+1+61) and the first label exceeds
+        /// 63 octets.</para></li><li><para><code>(63 octets).(63 octets).(63 octets).(62 octets)</code> is not legal because
+        /// the total length of the DNS name (63+1+63+1+63+1+62) exceeds 253 octets.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("SubjectAlternativeNames")]
         public System.String[] SubjectAlternativeName { get; set; }
+        #endregion
+        
+        #region Parameter ValidationMethod
+        /// <summary>
+        /// <para>
+        /// <para>The method you want to use to validate your domain.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CertificateManager.ValidationMethod")]
+        public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }
         #endregion
         
         #region Parameter Force
@@ -157,6 +170,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 context.SubjectAlternativeNames = new List<System.String>(this.SubjectAlternativeName);
             }
+            context.ValidationMethod = this.ValidationMethod;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -188,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.SubjectAlternativeNames != null)
             {
                 request.SubjectAlternativeNames = cmdletContext.SubjectAlternativeNames;
+            }
+            if (cmdletContext.ValidationMethod != null)
+            {
+                request.ValidationMethod = cmdletContext.ValidationMethod;
             }
             
             CmdletOutput output;
@@ -257,6 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             public List<Amazon.CertificateManager.Model.DomainValidationOption> DomainValidationOptions { get; set; }
             public System.String IdempotencyToken { get; set; }
             public List<System.String> SubjectAlternativeNames { get; set; }
+            public Amazon.CertificateManager.ValidationMethod ValidationMethod { get; set; }
         }
         
     }

@@ -28,8 +28,9 @@ using Amazon.CertificateManager.Model;
 namespace Amazon.PowerShell.Cmdlets.ACM
 {
     /// <summary>
-    /// Retrieves a list of ACM Certificates and the domain name for each. You can optionally
-    /// filter the list to return only the certificates that match the specified status.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Retrieves a list of certificate ARNs and domain names. You can request that only certificates
+    /// that match a specific status be listed. You can also filter by specific attributes
+    /// of the certificate.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ACMCertificateList")]
     [OutputType("Amazon.CertificateManager.Model.CertificateSummary")]
@@ -45,12 +46,43 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         #region Parameter CertificateStatus
         /// <summary>
         /// <para>
-        /// <para>The status or statuses on which to filter the list of ACM Certificates.</para>
+        /// <para>Filter the certificate list by status value.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("CertificateStatuses")]
         public System.String[] CertificateStatus { get; set; }
+        #endregion
+        
+        #region Parameter Includes_ExtendedKeyUsage
+        /// <summary>
+        /// <para>
+        /// <para>Specify one or more <a>ExtendedKeyUsage</a> extension values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Includes_ExtendedKeyUsage { get; set; }
+        #endregion
+        
+        #region Parameter Includes_KeyType
+        /// <summary>
+        /// <para>
+        /// <para>Specify one or more algorithms that can be used to generate key pairs.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Includes_KeyTypes")]
+        public System.String[] Includes_KeyType { get; set; }
+        #endregion
+        
+        #region Parameter Includes_KeyUsage
+        /// <summary>
+        /// <para>
+        /// <para>Specify one or more <a>KeyUsage</a> extension values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Includes_KeyUsage { get; set; }
         #endregion
         
         #region Parameter MaxItem
@@ -99,6 +131,18 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             {
                 context.CertificateStatuses = new List<System.String>(this.CertificateStatus);
             }
+            if (this.Includes_ExtendedKeyUsage != null)
+            {
+                context.Includes_ExtendedKeyUsage = new List<System.String>(this.Includes_ExtendedKeyUsage);
+            }
+            if (this.Includes_KeyType != null)
+            {
+                context.Includes_KeyTypes = new List<System.String>(this.Includes_KeyType);
+            }
+            if (this.Includes_KeyUsage != null)
+            {
+                context.Includes_KeyUsage = new List<System.String>(this.Includes_KeyUsage);
+            }
             if (ParameterWasBound("MaxItem"))
                 context.MaxItems = this.MaxItem;
             context.NextToken = this.NextToken;
@@ -121,6 +165,45 @@ namespace Amazon.PowerShell.Cmdlets.ACM
             if (cmdletContext.CertificateStatuses != null)
             {
                 request.CertificateStatuses = cmdletContext.CertificateStatuses;
+            }
+            
+             // populate Includes
+            bool requestIncludesIsNull = true;
+            request.Includes = new Amazon.CertificateManager.Model.Filters();
+            List<System.String> requestIncludes_includes_ExtendedKeyUsage = null;
+            if (cmdletContext.Includes_ExtendedKeyUsage != null)
+            {
+                requestIncludes_includes_ExtendedKeyUsage = cmdletContext.Includes_ExtendedKeyUsage;
+            }
+            if (requestIncludes_includes_ExtendedKeyUsage != null)
+            {
+                request.Includes.ExtendedKeyUsage = requestIncludes_includes_ExtendedKeyUsage;
+                requestIncludesIsNull = false;
+            }
+            List<System.String> requestIncludes_includes_KeyType = null;
+            if (cmdletContext.Includes_KeyTypes != null)
+            {
+                requestIncludes_includes_KeyType = cmdletContext.Includes_KeyTypes;
+            }
+            if (requestIncludes_includes_KeyType != null)
+            {
+                request.Includes.KeyTypes = requestIncludes_includes_KeyType;
+                requestIncludesIsNull = false;
+            }
+            List<System.String> requestIncludes_includes_KeyUsage = null;
+            if (cmdletContext.Includes_KeyUsage != null)
+            {
+                requestIncludes_includes_KeyUsage = cmdletContext.Includes_KeyUsage;
+            }
+            if (requestIncludes_includes_KeyUsage != null)
+            {
+                request.Includes.KeyUsage = requestIncludes_includes_KeyUsage;
+                requestIncludesIsNull = false;
+            }
+             // determine if request.Includes should be set to null
+            if (requestIncludesIsNull)
+            {
+                request.Includes = null;
             }
             
             // Initialize loop variants and commence piping
@@ -239,6 +322,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> CertificateStatuses { get; set; }
+            public List<System.String> Includes_ExtendedKeyUsage { get; set; }
+            public List<System.String> Includes_KeyTypes { get; set; }
+            public List<System.String> Includes_KeyUsage { get; set; }
             public int? MaxItems { get; set; }
             public System.String NextToken { get; set; }
         }
