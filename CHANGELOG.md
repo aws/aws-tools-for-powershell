@@ -1,3 +1,53 @@
+### 3.3.196.0 (2017-11-25)
+  * AWS Certificate Manager
+    * Updated the New-ACMCertificate and Get-ACMCertificateList cmdlets for new service features enabling the ability to import domainless certs and additional Key Types as well as an additional validation method for DNS.
+  * Amazon API Gateway
+    * Updated the Get-AGDocumentationPartList and Write-AGIntegration cmdlets for new service features enabling support for access logs and customizable integration timeouts.
+  * AWS CloudFormation
+    * Updated the New-CFNStackInstance cmdlet to support instance-level parameter overrides.
+    * Added new cmdlet Update-CFNStackInstance to support the new UpdateStackInstances API.
+  * AWS CodeBuild
+    * Updated the New-CBProject and Update-CBProject cmdlets to support new service features for accessing Amazon VPC resources from AWS CodeBuild, dependency caching and build badges.
+    * Added the cmdlet Reset-CBProjectCache to support the new InvalidateProjectCache API.
+  * AWS CodeCommit
+    * Added new cmdlets for the new service feature supporting pull requests.
+  * AWS Database Migration Service
+    * Added cmdlet Start-DMSReplicationTaskAssessment to support the new StartReplicationTaskAssessment API.
+  * Amazon ECS
+    * Updated the New-ECSTask, New-ECSService, Start-ECSTask and Update-ECSService cmdlets to add support for new mode for Task Networking in ECS, called awsvpc mode.
+  * Amazon Elastic Map Reduce
+    * Updated the Start-EMRJobFlow cmdlet to support new service feature enabling Kerberos.
+  * Amazon Kinesis
+    * Added cmdlet Get-KINStreamSummary to support the new DescribeStreamSummary API.
+  * Amazon Kinesis Firehose
+    * Updated the New-KINFDeliveryStream and Update-KINFDestination cmdlets to support Splunk as Kinesis Firehose delivery destination. You can now use Kinesis Firehose to ingest real-time data to Splunk in a serverless, reliable, and salable manner. This release also includes a new feature that allows you to configure Lambda buffer size in Kinesis Firehose data transformation feature. You can now customize the data buffer size before invoking Lambda function in Kinesis Firehose for data transformation. This feature allows you to flexibly trade-off processing and delivery latency with cost and efficiency based on your specific use cases and requirements.
+  * Amazon Lightsail
+    * Added cmdlets to support the new service feature enabling attached block storage, which allows you to scale your applications and protect application data with additional SSD-backed storage disks. This feature allows Lightsail customers to attach secure storage disks to their Lightsail instances and manage their attached disks, including creating and deleting disks, attaching and detaching disks from instances, and backing up disks via snapshot.
+  * AWS Organizations
+    * Added cmdlets to support new service APIs to enable and disable integration with AWS services designed to work with AWS Organizations. This integration allows the AWS service to perform operations on your behalf on all of the accounts in your organization. Although you can use these APIs yourself, we recommend that you instead use the commands provided in the other AWS service to enable integration with AWS Organizations.
+  * Amazon Relational Database Service
+    * Added new cmdlet Restore-RDSDBInstanceFromS3 to support the new RestoreDBInstanceFromS3 API. This feature supports importing MySQL databases by using backup files from Amazon S3.
+  * Amazon Rekognition
+    * Added new cmdlet Find-REKText to support the new DetectText service API. This API allows you to recognize and extract textual content from images.
+    * Updated cmdlets related to face detection to support the new Face Model Versioning feature.
+    * [BREAKING CHANGE] The service output for the APIs called by the Get-REKCollectionIdList and Get-REKFaceList cmdlet has been updated and it is no longer possible for these cmdlets to return all available data using automatic pagination. You script will need to be updated to manually paginate the returned data using the *NextToken* parameter and field in the returned service response.
+  * Amazon Route53
+    * Added cmdlets Get-R53AccountLimit (GetAccountLimit API), Get-R53HostedZoneLimit (GetHostedZoneLimit API) and Get-R53ReusableDelegationSetLimit (GetReusableDelegationSetLimit API). These cmdlets enable you to view your current limits (including custom set limits) on Route 53 resources such as hosted zones and health checks. These APIs also return the number of each resource you're currently using to enable comparison against your current limits.
+  * AWS Shield
+    * Added cmdlet Get-SHLDSubscriptionState to support the new GetSubscriptionState API.
+  * Amazon Simple Email Service
+    * Added and updated cmdlets to support new service features enabling Reputation Metrics and Email Pausing Today, two features that build upon the capabilities of the reputation dashboard. The first is the ability to export reputation metrics for individual configuration sets. The second is the ability to temporarily pause email sending, either at the configuration set level, or across your entire Amazon SES account.
+  * Amazon EC2 Systems Manager
+    * Updated the Get-SSMInventory and Get-SSMInventorySchema cmdlets to support aggregation.
+  * Amazon Set Functions
+    * Added cmdlets Get-SFNStateMachineForExecution (DescribeStateMachineForExecution API) and Update-SFNStateMachine (UpdateStateMachine API). The new APIs enable you to update your state machine definition and role ARN. Existing executions will continue to use the previous definition and role ARN. You can use the DescribeStateMachineForExecution API to determine which state machine definition and role ARN is associated with an execution.
+  * AWS Storage Gateway
+    * Updated the New-SGNFileShare and Update-SGNFileShare cmdlets to enable guessing of MIME types for uploaded files based on the file extension.
+    * Added cmdlet Send-SGUploadedNotification (NotifyWhenUploaded API). This API enables you to get notification when all your files written to your NFS file share have been uploaded.
+  * Amazon WorkDocs
+    * Added cmdlet Get-WDGroup to support the new DescribeGroups API.
+    * Updated cmdlets to support new service features.
+
 ### 3.3.189.1 (2017-11-13)
   * Amazon EC2
     * Added cmdlet New-EC2DefaultSubnet (CreateDefaultSubnet API) enabling creation of a default subnet in an Availability Zone if no default subnet exists.
