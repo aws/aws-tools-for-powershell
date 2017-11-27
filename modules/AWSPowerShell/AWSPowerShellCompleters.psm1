@@ -3961,6 +3961,33 @@ $EMC_map = @{
 _awsArgumentCompleterRegistration $EMC_Completers $EMC_map
 
 
+# Argument completions for service AWS Elemental MediaLive
+$EML_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaLive.InputType
+        "New-EMLInput/Type"
+        {
+            $v = "RTMP_PULL","RTMP_PUSH","RTP_PUSH","UDP_PUSH","URL_PULL"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EML_map = @{
+    "Type"=@("New-EMLInput")
+}
+
+_awsArgumentCompleterRegistration $EML_Completers $EML_map
+
+
 # Argument completions for service AWS Migration Hub
 $MH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

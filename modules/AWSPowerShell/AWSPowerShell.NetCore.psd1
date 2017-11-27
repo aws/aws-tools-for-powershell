@@ -122,6 +122,7 @@ RequiredAssemblies = @(
   "AWSSDK.MachineLearning.dll",
   "AWSSDK.MarketplaceEntitlementService.dll",
   "AWSSDK.MediaConvert.dll",
+  "AWSSDK.MediaLive.dll",
   "AWSSDK.MigrationHub.dll",
   "AWSSDK.MTurk.dll",
   "AWSSDK.OpsWorks.dll",

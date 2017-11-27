@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EML</ServiceNounPrefix>
+  <ServiceName>AWS Elemental MediaLive</ServiceName>
+  <ServiceNamespace>Amazon.MediaLive</ServiceNamespace>
+  <ServiceClientInterface>IAmazonMediaLive</ServiceClientInterface>
+  <ServiceClient>AmazonMediaLiveClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateChannel" PipelineParameter="Name" />
+    <ServiceOperation MethodName="CreateInput" PipelineParameter="Name" />
+    <ServiceOperation MethodName="CreateInputSecurityGroup" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="DeleteChannel" Output="Response" />
+    <ServiceOperation MethodName="DeleteInput" Output="Void" />
+    <ServiceOperation MethodName="DeleteInputSecurityGroup" Output="Void" />
+    <ServiceOperation MethodName="DescribeChannel" Output="Response" />
+    <ServiceOperation MethodName="DescribeInput" Output="Response" />
+    <ServiceOperation MethodName="DescribeInputSecurityGroup" Output="Response" />
+    <ServiceOperation MethodName="ListChannels" Verb="Get" Noun="ChannelList" />
+    <ServiceOperation MethodName="ListInputSecurityGroups" Verb="Get" Noun="InputSecurityGroupList" />
+    <ServiceOperation MethodName="ListInputs" Verb="Get" Noun="InputList" />
+    <ServiceOperation MethodName="StartChannel" Output="Response" />
+    <ServiceOperation MethodName="StopChannel" Output="Response" />
+  </ServiceOperations>
+
+  <TypesNotToFlatten>
+    <Type>Amazon.MediaLive.Model.EncoderSettings</Type>
+    <Type>Amazon.MediaLive.Model.AvailBlanking</Type>
+    <Type>Amazon.MediaLive.Model.InputLocation</Type>
+  </TypesNotToFlatten>
+</ConfigModel>
