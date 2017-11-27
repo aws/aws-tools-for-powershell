@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EMS</ServiceNounPrefix>
+  <ServiceName>AWS Elemental MediaStore</ServiceName>
+  <ServiceNamespace>Amazon.MediaStore</ServiceNamespace>
+  <ServiceClientInterface>IAmazonMediaStore</ServiceClientInterface>
+  <ServiceClient>AmazonMediaStoreClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateContainer">
+      <Params>
+        <Param Name="ContainerName" NewName="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteContainer" Output="Void">
+      <Params>
+        <Param Name="ContainerName" NewName="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DeleteContainerPolicy" Output="Void">
+      <Params>
+        <Param Name="ContainerName" NewName="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="DescribeContainer">
+      <Params>
+        <Param Name="ContainerName" NewName="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="GetContainerPolicy">
+      <Params>
+        <Param Name="ContainerName" NewName="Name" />
+      </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListContainers" Verb="Get" Noun="ContainerList" />
+    <ServiceOperation MethodName="PutContainerPolicy" PipelineParameter="Policy" Output="Void">
+      <Params>
+        <Param Name="ContainerName" NewName="Name" />
+      </Params>
+    </ServiceOperation>
+  </ServiceOperations>
+
+</ConfigModel>
