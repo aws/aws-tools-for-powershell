@@ -99,6 +99,9 @@
     <Reference Include="AWSSDK.MediaLive">
       <HintPath>..\..\packages\AWSSDK.MediaLive.3.3.0\lib\net35\AWSSDK.MediaLive.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MediaPackage">
+      <HintPath>..\..\packages\AWSSDK.MediaPackage.3.3.0\lib\net35\AWSSDK.MediaPackage.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MigrationHub">
       <HintPath>..\..\packages\AWSSDK.MigrationHub.3.3.0.3\lib\net35\AWSSDK.MigrationHub.dll</HintPath>
     </Reference>

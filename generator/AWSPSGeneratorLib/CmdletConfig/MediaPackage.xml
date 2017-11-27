@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EMP</ServiceNounPrefix>
+  <ServiceName>AWS Elemental MediaPackage</ServiceName>
+  <ServiceNamespace>Amazon.MediaPackage</ServiceNamespace>
+  <ServiceClientInterface>IAmazonMediaPackage</ServiceClientInterface>
+  <ServiceClient>AmazonMediaPackageClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CreateChannel" PipelineParameter="Id" Output="Response" />
+    <ServiceOperation MethodName="CreateOriginEndpoint" PipelineParameter="Id" Output="Response" />
+    <ServiceOperation MethodName="DeleteChannel" Output="Void" />
+    <ServiceOperation MethodName="DeleteOriginEndpoint" Output="Void" />
+    <ServiceOperation MethodName="DescribeChannel" Output="Response" />
+    <ServiceOperation MethodName="DescribeOriginEndpoint" Output="Response" />
+    <ServiceOperation MethodName="ListChannels" Verb="Get" Noun="ChannelList" />
+    <ServiceOperation MethodName="ListOriginEndpoints" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" />
+    <ServiceOperation MethodName="RotateChannelCredentials" Output="Response" Verb="Invoke" Noun="ChannelCredentialRotation" />
+    <ServiceOperation MethodName="UpdateChannel" PipelineParameter="Id" Output="Response" />
+    <ServiceOperation MethodName="UpdateOriginEndpoint" PipelineParameter="Id" Output="Response" />
+  </ServiceOperations>
+
+  <TypesNotToFlatten>
+    <Type>Amazon.MediaPackage.Model.DashPackage</Type>
+    <Type>Amazon.MediaPackage.Model.HlsPackage</Type>
+    <Type>Amazon.MediaPackage.Model.MssPackage</Type>
+  </TypesNotToFlatten>
+</ConfigModel>

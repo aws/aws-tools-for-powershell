@@ -72,6 +72,7 @@
     <Path>MarketplaceMetering.xml</Path>
     <Path>MediaConvert.xml</Path>
     <Path>MediaLive.xml</Path>
+    <Path>MediaPackage.xml</Path>
     <Path>MigrationHub.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>OpsWorksCM.xml</Path>

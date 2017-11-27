@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>EMC</ServiceNounPrefix>
   <ServiceName>AWS Elemental MediaConvert</ServiceName>
