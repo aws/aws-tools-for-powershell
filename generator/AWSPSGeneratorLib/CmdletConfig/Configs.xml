@@ -70,6 +70,7 @@
     <Path>MTR.xml</Path>
     <Path>MarketplaceEntitlements.xml</Path>
     <Path>MarketplaceMetering.xml</Path>
+    <Path>MediaConvert.xml</Path>
     <Path>MigrationHub.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>OpsWorksCM.xml</Path>

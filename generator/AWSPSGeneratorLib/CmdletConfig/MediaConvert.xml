@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EMC</ServiceNounPrefix>
+  <ServiceName>AWS Elemental MediaConvert</ServiceName>
+  <ServiceNamespace>Amazon.MediaConvert</ServiceNamespace>
+  <ServiceClientInterface>IAmazonMediaConvert</ServiceClientInterface>
+  <ServiceClient>AmazonMediaConvertClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="20" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="CancelJob" Output="Void" />
+    <ServiceOperation MethodName="CreateJob" PipelineParameter="JobTemplate" />
+    <ServiceOperation MethodName="CreateJobTemplate" PipelineParameter="Queue" />
+    <ServiceOperation MethodName="CreatePreset" PipelineParameter="Name" />
+    <ServiceOperation MethodName="CreateQueue" PipelineParameter="Queue" />
+    <ServiceOperation MethodName="DeleteJobTemplate" Output="Void" />
+    <ServiceOperation MethodName="DeletePreset" Output="Void" />
+    <ServiceOperation MethodName="DeleteQueue" Output="Void" />
+    <ServiceOperation MethodName="DescribeEndpoints" Noun="Endpoint"  />
+    <ServiceOperation MethodName="GetJob" />
+    <ServiceOperation MethodName="GetJobTemplate">
+        <Params>
+            <Param Name="Name" Alias="JobTemplate" />
+        </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="GetPreset" />
+    <ServiceOperation MethodName="GetQueue" />
+    <ServiceOperation MethodName="ListJobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="Category" />
+    <ServiceOperation MethodName="ListJobs" Verb="Get" Noun="JobList" PipelineParameter="Queue">
+        <Params>
+            <Param Name="Queue" Alias="Name" />
+        </Params>
+    </ServiceOperation>
+    <ServiceOperation MethodName="ListPresets" Verb="Get" Noun="PresetList" PipelineParameter="Category" />
+    <ServiceOperation MethodName="ListQueues" Verb="Get" Noun="QueueList" NoPipelineParameter="true" />
+    <ServiceOperation MethodName="UpdateJobTemplate" PipelineParameter="Name" />
+    <ServiceOperation MethodName="UpdatePreset" PipelineParameter="Name" />
+    <ServiceOperation MethodName="UpdateQueue" PipelineParameter="Name" />
+  </ServiceOperations>
+
+  <TypesNotToFlatten>
+    <Type>Amazon.MediaConvert.Model.JobSettings</Type>
+    <Type>Amazon.MediaConvert.Model.JobTemplateSettings</Type>
+    <Type>Amazon.MediaConvert.Model.Input</Type>
+    <Type>Amazon.MediaConvert.Model.PresetSettings</Type>
+  </TypesNotToFlatten>
+</ConfigModel>

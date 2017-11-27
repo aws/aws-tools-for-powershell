@@ -3892,6 +3892,75 @@ $MCA_map = @{
 _awsArgumentCompleterRegistration $MCA_Completers $MCA_map
 
 
+# Argument completions for service AWS Elemental MediaConvert
+$EMC_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaConvert.JobStatus
+        "Get-EMCJobList/Status"
+        {
+            $v = "CANCELED","COMPLETE","ERROR","PROGRESSING","SUBMITTED"
+            break
+        }
+        
+        # Amazon.MediaConvert.JobTemplateListBy
+        "Get-EMCJobTemplateList/ListBy"
+        {
+            $v = "CREATION_DATE","NAME","SYSTEM"
+            break
+        }
+        
+        # Amazon.MediaConvert.Order
+        {
+            ($_ -eq "Get-EMCJobList/Order") -Or
+            ($_ -eq "Get-EMCJobTemplateList/Order") -Or
+            ($_ -eq "Get-EMCPresetList/Order") -Or
+            ($_ -eq "Get-EMCQueueList/Order")
+        }
+        {
+            $v = "ASCENDING","DESCENDING"
+            break
+        }
+        
+        # Amazon.MediaConvert.PresetListBy
+        "Get-EMCPresetList/ListBy"
+        {
+            $v = "CREATION_DATE","NAME","SYSTEM"
+            break
+        }
+        
+        # Amazon.MediaConvert.QueueListBy
+        "Get-EMCQueueList/ListBy"
+        {
+            $v = "CREATION_DATE","NAME"
+            break
+        }
+        
+        # Amazon.MediaConvert.QueueStatus
+        "Update-EMCQueue/Status"
+        {
+            $v = "ACTIVE","PAUSED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMC_map = @{
+    "ListBy"=@("Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "Order"=@("Get-EMCJobList","Get-EMCJobTemplateList","Get-EMCPresetList","Get-EMCQueueList")
+    "Status"=@("Get-EMCJobList","Update-EMCQueue")
+}
+
+_awsArgumentCompleterRegistration $EMC_Completers $EMC_map
+
+
 # Argument completions for service AWS Migration Hub
 $MH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
