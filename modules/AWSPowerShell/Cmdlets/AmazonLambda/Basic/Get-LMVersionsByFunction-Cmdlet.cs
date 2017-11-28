@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMVersionsByFunction")]
     [OutputType("Amazon.Lambda.Model.FunctionConfiguration")]
-    [AWSCmdlet("Calls the Amazon Lambda ListVersionsByFunction API operation.", Operation = new[] {"ListVersionsByFunction"})]
+    [AWSCmdlet("Calls the AWS Lambda ListVersionsByFunction API operation.", Operation = new[] {"ListVersionsByFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.FunctionConfiguration",
         "This cmdlet returns a collection of FunctionConfiguration objects.",
         "The service call response (type Amazon.Lambda.Model.ListVersionsByFunctionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -207,7 +207,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.ListVersionsByFunctionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListVersionsByFunctionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListVersionsByFunction");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "ListVersionsByFunction");
             try
             {
                 #if DESKTOP

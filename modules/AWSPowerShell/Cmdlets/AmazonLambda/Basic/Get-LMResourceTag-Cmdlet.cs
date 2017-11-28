@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMResourceTag")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Lambda ListTags API operation.", Operation = new[] {"ListTags"})]
+    [AWSCmdlet("Calls the AWS Lambda ListTags API operation.", Operation = new[] {"ListTags"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a collection of String objects.",
         "The service call response (type Amazon.Lambda.Model.ListTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.ListTagsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "ListTags");
             try
             {
                 #if DESKTOP

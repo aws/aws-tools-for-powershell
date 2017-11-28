@@ -47,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMappingList")]
     [OutputType("Amazon.Lambda.Model.EventSourceMappingConfiguration")]
-    [AWSCmdlet("Calls the Amazon Lambda ListEventSourceMappings API operation.", Operation = new[] {"ListEventSourceMappings"}, LegacyAlias="Get-LMEventSourceMappings")]
+    [AWSCmdlet("Calls the AWS Lambda ListEventSourceMappings API operation.", Operation = new[] {"ListEventSourceMappings"}, LegacyAlias="Get-LMEventSourceMappings")]
     [AWSCmdletOutput("Amazon.Lambda.Model.EventSourceMappingConfiguration",
         "This cmdlet returns a collection of EventSourceMappingConfiguration objects.",
         "The service call response (type Amazon.Lambda.Model.ListEventSourceMappingsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -238,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.ListEventSourceMappingsResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.ListEventSourceMappingsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "ListEventSourceMappings");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "ListEventSourceMappings");
             try
             {
                 #if DESKTOP

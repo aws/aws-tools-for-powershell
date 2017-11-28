@@ -3,7 +3,7 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
   xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ServiceNounPrefix>LM</ServiceNounPrefix>
-  <ServiceName>Amazon Lambda</ServiceName>
+  <ServiceName>AWS Lambda</ServiceName>
   <ServiceClientInterface>IAmazonLambda</ServiceClientInterface>
   <ServiceClient>AmazonLambdaClient</ServiceClient>
   <ServiceNamespace>Amazon.Lambda</ServiceNamespace>

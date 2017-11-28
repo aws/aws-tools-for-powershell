@@ -27,7 +27,7 @@ using Amazon.Lambda.Model;
 
 namespace Amazon.PowerShell.Cmdlets.LM
 {
-    [AWSClientCmdlet("Amazon Lambda", "LM", "2015-03-31")]
+    [AWSClientCmdlet("AWS Lambda", "LM", "2015-03-31")]
     public abstract partial class AmazonLambdaClientCmdlet : ServiceCmdlet
     {
         protected IAmazonLambda Client { get; private set; }

@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Update", "LMAlias", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Lambda.Model.UpdateAliasResponse")]
-    [AWSCmdlet("Calls the Amazon Lambda UpdateAlias API operation.", Operation = new[] {"UpdateAlias"})]
+    [AWSCmdlet("Calls the AWS Lambda UpdateAlias API operation.", Operation = new[] {"UpdateAlias"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.UpdateAliasResponse",
         "This cmdlet returns a Amazon.Lambda.Model.UpdateAliasResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.UpdateAliasResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.UpdateAliasRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "UpdateAlias");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "UpdateAlias");
             try
             {
                 #if DESKTOP

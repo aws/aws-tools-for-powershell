@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Remove", "LMResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Lambda UntagResource API operation.", Operation = new[] {"UntagResource"})]
+    [AWSCmdlet("Calls the AWS Lambda UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagKey parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Lambda.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "UntagResource");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "UntagResource");
             try
             {
                 #if DESKTOP

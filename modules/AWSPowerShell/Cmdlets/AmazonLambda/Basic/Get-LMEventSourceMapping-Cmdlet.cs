@@ -38,7 +38,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMEventSourceMapping")]
     [OutputType("Amazon.Lambda.Model.GetEventSourceMappingResponse")]
-    [AWSCmdlet("Calls the Amazon Lambda GetEventSourceMapping API operation.", Operation = new[] {"GetEventSourceMapping"})]
+    [AWSCmdlet("Calls the AWS Lambda GetEventSourceMapping API operation.", Operation = new[] {"GetEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetEventSourceMappingResponse",
         "This cmdlet returns a Amazon.Lambda.Model.GetEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -125,7 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.GetEventSourceMappingResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetEventSourceMappingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetEventSourceMapping");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetEventSourceMapping");
             try
             {
                 #if DESKTOP

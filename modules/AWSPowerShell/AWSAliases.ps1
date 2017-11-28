@@ -3350,7 +3350,6 @@ Set-Alias -Name Describe-EMSDObjectMetadata -Value Get-EMSDObjectMetadata
 Set-Alias -Name EMSD-DescribeObject -Value Get-EMSDObjectMetadata
 Set-Alias -Name EMSD-GetObject -Value Get-EMSDObject
 Set-Alias -Name EMSD-ListItems -Value Get-EMSDItemList
-Set-Alias -Name EMSD-PutObject -Value Write-EMSDObject
 Set-Alias -Name MH-AssociateCreatedArtifact -Value Add-MHCreatedArtifact
 Set-Alias -Name MH-AssociateDiscoveredResource -Value Add-MHDiscoveredResource
 Set-Alias -Name Create-MHProgressUpdateStream -Value New-MHProgressUpdateStream

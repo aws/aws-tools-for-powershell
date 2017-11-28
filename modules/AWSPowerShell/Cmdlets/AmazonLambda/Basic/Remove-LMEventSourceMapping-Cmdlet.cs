@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Remove", "LMEventSourceMapping", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("Amazon.Lambda.Model.DeleteEventSourceMappingResponse")]
-    [AWSCmdlet("Calls the Amazon Lambda DeleteEventSourceMapping API operation.", Operation = new[] {"DeleteEventSourceMapping"})]
+    [AWSCmdlet("Calls the AWS Lambda DeleteEventSourceMapping API operation.", Operation = new[] {"DeleteEventSourceMapping"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.DeleteEventSourceMappingResponse",
         "This cmdlet returns a Amazon.Lambda.Model.DeleteEventSourceMappingResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.DeleteEventSourceMappingResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.DeleteEventSourceMappingRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "DeleteEventSourceMapping");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "DeleteEventSourceMapping");
             try
             {
                 #if DESKTOP

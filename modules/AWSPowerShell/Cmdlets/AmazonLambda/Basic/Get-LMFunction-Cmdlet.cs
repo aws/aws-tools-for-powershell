@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMFunction")]
     [OutputType("Amazon.Lambda.Model.GetFunctionResponse")]
-    [AWSCmdlet("Calls the Amazon Lambda GetFunction API operation.", Operation = new[] {"GetFunction"})]
+    [AWSCmdlet("Calls the AWS Lambda GetFunction API operation.", Operation = new[] {"GetFunction"})]
     [AWSCmdletOutput("Amazon.Lambda.Model.GetFunctionResponse",
         "This cmdlet returns a Amazon.Lambda.Model.GetFunctionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.GetFunctionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetFunctionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetFunction");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetFunction");
             try
             {
                 #if DESKTOP

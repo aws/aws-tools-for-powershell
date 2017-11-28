@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Get", "LMPolicy")]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Lambda GetPolicy API operation.", Operation = new[] {"GetPolicy"})]
+    [AWSCmdlet("Calls the AWS Lambda GetPolicy API operation.", Operation = new[] {"GetPolicy"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Lambda.Model.GetPolicyResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -155,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.GetPolicyResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.GetPolicyRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "GetPolicy");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "GetPolicy");
             try
             {
                 #if DESKTOP

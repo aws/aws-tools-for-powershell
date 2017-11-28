@@ -96,10 +96,6 @@ Set-Alias -Name Remove-ESTag -Value Remove-ESResourceTag
 # Amazon Kinesis
 Set-Alias -Name Get-KINStreams -Value Get-KINStreamList
 
-# Amazon Lambda
-Set-Alias -Name Get-LMEventSourceMappings -Value Get-LMEventSourceMappingList
-Set-Alias -Name Get-LMFunctions -Value Get-LMFunctionList
-
 # Amazon Machine Learning
 Set-Alias -Name Add-MLTag -Value Add-MLResourceTag
 Set-Alias -Name Get-MLBatchPredictions -Value Get-MLBatchPredictionList
@@ -287,6 +283,10 @@ Set-Alias -Name Get-KMSAliases -Value Get-KMSAliasList
 Set-Alias -Name Get-KMSGrants -Value Get-KMSGrantList
 Set-Alias -Name Get-KMSKeyPolicies -Value Get-KMSKsyPolicyList
 Set-Alias -Name Get-KMSKeys -Value Get-KMSKeyList
+
+# AWS Lambda
+Set-Alias -Name Get-LMEventSourceMappings -Value Get-LMEventSourceMappingList
+Set-Alias -Name Get-LMFunctions -Value Get-LMFunctionList
 
 # AWS OpsWorks
 Set-Alias -Name Get-OPSApps -Value Get-OPSApp

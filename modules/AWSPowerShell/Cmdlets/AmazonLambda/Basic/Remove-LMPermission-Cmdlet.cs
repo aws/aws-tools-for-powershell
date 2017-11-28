@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Remove", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Lambda RemovePermission API operation.", Operation = new[] {"RemovePermission"})]
+    [AWSCmdlet("Calls the AWS Lambda RemovePermission API operation.", Operation = new[] {"RemovePermission"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the FunctionName parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.Lambda.Model.RemovePermissionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -197,7 +197,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.RemovePermissionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.RemovePermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "RemovePermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "RemovePermission");
             try
             {
                 #if DESKTOP

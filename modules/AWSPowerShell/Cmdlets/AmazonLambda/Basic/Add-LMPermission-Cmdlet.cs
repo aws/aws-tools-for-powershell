@@ -49,7 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
     /// </summary>
     [Cmdlet("Add", "LMPermission", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
-    [AWSCmdlet("Calls the Amazon Lambda AddPermission API operation.", Operation = new[] {"AddPermission"})]
+    [AWSCmdlet("Calls the AWS Lambda AddPermission API operation.", Operation = new[] {"AddPermission"})]
     [AWSCmdletOutput("System.String",
         "This cmdlet returns a String object.",
         "The service call response (type Amazon.Lambda.Model.AddPermissionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -286,7 +286,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         
         private Amazon.Lambda.Model.AddPermissionResponse CallAWSServiceOperation(IAmazonLambda client, Amazon.Lambda.Model.AddPermissionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Lambda", "AddPermission");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Lambda", "AddPermission");
             try
             {
                 #if DESKTOP

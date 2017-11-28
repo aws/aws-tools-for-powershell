@@ -3655,7 +3655,7 @@ $KMS_map = @{
 _awsArgumentCompleterRegistration $KMS_Completers $KMS_map
 
 
-# Argument completions for service Amazon Lambda
+# Argument completions for service AWS Lambda
 $LM_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     
