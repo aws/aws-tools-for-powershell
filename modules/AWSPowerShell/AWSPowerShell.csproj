@@ -105,6 +105,9 @@
     <Reference Include="AWSSDK.MediaStore">
       <HintPath>..\..\packages\AWSSDK.MediaStore.3.3.0\lib\net35\AWSSDK.MediaStore.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.MediaStoreData">
+      <HintPath>..\..\packages\AWSSDK.MediaStoreData.3.3.0\lib\net35\AWSSDK.MediaStoreData.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.MigrationHub">
       <HintPath>..\..\packages\AWSSDK.MigrationHub.3.3.0.3\lib\net35\AWSSDK.MigrationHub.dll</HintPath>
     </Reference>

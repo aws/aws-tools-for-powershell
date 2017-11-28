@@ -125,6 +125,7 @@ RequiredAssemblies = @(
   "AWSSDK.MediaLive.dll",
   "AWSSDK.MediaPackage.dll",
   "AWSSDK.MediaStore.dll",
+  "AWSSDK.MediaStoreData.dll",
   "AWSSDK.MigrationHub.dll",
   "AWSSDK.MTurk.dll",
   "AWSSDK.OpsWorks.dll",

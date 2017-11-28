@@ -3988,6 +3988,33 @@ $EML_map = @{
 _awsArgumentCompleterRegistration $EML_Completers $EML_map
 
 
+# Argument completions for service AWS Elemental MediaStore Data Plane
+$EMSD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MediaStoreData.StorageClass
+        "Write-EMSDObject/StorageClass"
+        {
+            $v = "TEMPORAL"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$EMSD_map = @{
+    "StorageClass"=@("Write-EMSDObject")
+}
+
+_awsArgumentCompleterRegistration $EMSD_Completers $EMSD_map
+
+
 # Argument completions for service AWS Migration Hub
 $MH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

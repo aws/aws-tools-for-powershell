@@ -1,3 +1,15 @@
+### 3.3.197.0 (2017-11-27)
+  * AWS Elemental Media Convert
+    * Added support for the new service. Cmdlets for the service have the noun prefix 'EMC'.
+  * AWS Elemental Media Live
+    * Added support for the new service. Cmdlets for the service have the noun prefix 'EML'.
+  * AWS Elemental Media Package
+    * Added support for the new service. Cmdlets for the service have the noun prefix 'EMP'.
+  * AWS Elemental Media Store
+    * Added support for the new service. Cmdlets for the service have the noun prefix 'EMS'.
+  * AWS Elemental Media Data Plane
+    * Added support for the new service. Cmdlets for the service have the noun prefix 'EMSD'.
+
 ### 3.3.196.0 (2017-11-25)
   * AWS Certificate Manager
     * Updated the New-ACMCertificate and Get-ACMCertificateList cmdlets for new service features enabling the ability to import domainless certs and additional Key Types as well as an additional validation method for DNS.

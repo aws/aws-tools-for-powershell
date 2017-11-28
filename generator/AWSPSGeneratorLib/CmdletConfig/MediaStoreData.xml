@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ConfigModel
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ServiceNounPrefix>EMSD</ServiceNounPrefix>
+  <ServiceName>AWS Elemental MediaStore Data Plane</ServiceName>
+  <ServiceNamespace>Amazon.MediaStoreData</ServiceNamespace>
+  <ServiceClientInterface>IAmazonMediaStoreData</ServiceClientInterface>
+  <ServiceClient>AmazonMediaStoreDataClient</ServiceClient>
+
+  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
+
+  <ServiceOperations>
+    <ServiceOperation MethodName="DeleteObject" Output="Void" />
+    <ServiceOperation MethodName="DescribeObject" Output="Response" Noun="ObjectMetadata" />
+    <ServiceOperation MethodName="GetObject" PipelineParameter="Path" Output="Response" />
+    <ServiceOperation MethodName="ListItems" Verb="Get" Noun="ItemList" />
+    <ServiceOperation MethodName="PutObject" Exclude="true" />
+  </ServiceOperations>
+
+</ConfigModel>
