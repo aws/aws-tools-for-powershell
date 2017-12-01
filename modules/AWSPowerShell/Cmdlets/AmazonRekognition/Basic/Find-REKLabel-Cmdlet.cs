@@ -28,13 +28,15 @@ using Amazon.Rekognition.Model;
 namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
-    /// Detects instances of real-world labels within an image (JPEG or PNG) provided as input.
-    /// This includes objects like flower, tree, and table; events like wedding, graduation,
+    /// Detects instances of real-world entities within an image (JPEG or PNG) provided as
+    /// input. This includes objects like flower, tree, and table; events like wedding, graduation,
     /// and birthday party; and concepts like landscape, evening, and nature. For an example,
-    /// see <a>get-started-exercise-detect-labels</a>.
+    /// see <a>images-s3</a>.
     /// 
-    ///  
-    /// <para>
+    ///  <note><para><code>DetectLabels</code> does not support the detection of activities. However,
+    /// activity detection is supported for label detection in videos. For more information,
+    /// see .
+    /// </para></note><para>
     /// You pass the input image as base64-encoded image bytes or as a reference to an image
     /// in an Amazon S3 bucket. If you use the Amazon CLI to call Amazon Rekognition operations,
     /// passing image bytes is not supported. The image must be either a PNG or JPEG formatted

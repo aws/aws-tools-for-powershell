@@ -28,29 +28,32 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Modifies the specified Spot fleet request.
+    /// Modifies the specified Spot Fleet request.
     /// 
     ///  
     /// <para>
-    /// While the Spot fleet request is being modified, it is in the <code>modifying</code>
+    /// While the Spot Fleet request is being modified, it is in the <code>modifying</code>
     /// state.
     /// </para><para>
-    /// To scale up your Spot fleet, increase its target capacity. The Spot fleet launches
-    /// the additional Spot instances according to the allocation strategy for the Spot fleet
-    /// request. If the allocation strategy is <code>lowestPrice</code>, the Spot fleet launches
+    /// To scale up your Spot Fleet, increase its target capacity. The Spot Fleet launches
+    /// the additional Spot Instances according to the allocation strategy for the Spot Fleet
+    /// request. If the allocation strategy is <code>lowestPrice</code>, the Spot Fleet launches
     /// instances using the Spot pool with the lowest price. If the allocation strategy is
-    /// <code>diversified</code>, the Spot fleet distributes the instances across the Spot
+    /// <code>diversified</code>, the Spot Fleet distributes the instances across the Spot
     /// pools.
     /// </para><para>
-    /// To scale down your Spot fleet, decrease its target capacity. First, the Spot fleet
-    /// cancels any open bids that exceed the new target capacity. You can request that the
-    /// Spot fleet terminate Spot instances until the size of the fleet no longer exceeds
+    /// To scale down your Spot Fleet, decrease its target capacity. First, the Spot Fleet
+    /// cancels any open requests that exceed the new target capacity. You can request that
+    /// the Spot Fleet terminate Spot Instances until the size of the fleet no longer exceeds
     /// the new target capacity. If the allocation strategy is <code>lowestPrice</code>, the
-    /// Spot fleet terminates the instances with the highest price per unit. If the allocation
-    /// strategy is <code>diversified</code>, the Spot fleet terminates instances across the
-    /// Spot pools. Alternatively, you can request that the Spot fleet keep the fleet at its
-    /// current size, but not replace any Spot instances that are interrupted or that you
+    /// Spot Fleet terminates the instances with the highest price per unit. If the allocation
+    /// strategy is <code>diversified</code>, the Spot Fleet terminates instances across the
+    /// Spot pools. Alternatively, you can request that the Spot Fleet keep the fleet at its
+    /// current size, but not replace any Spot Instances that are interrupted or that you
     /// terminate manually.
+    /// </para><para>
+    /// If you are finished with your Spot Fleet for now, but will use it again later, you
+    /// can set the target capacity to 0.
     /// </para>
     /// </summary>
     [Cmdlet("Edit", "EC2SpotFleetRequest", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -66,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
-        /// <para>Indicates whether running Spot instances should be terminated if the target capacity
-        /// of the Spot fleet request is decreased below the current size of the Spot fleet.</para>
+        /// <para>Indicates whether running Spot Instances should be terminated if the target capacity
+        /// of the Spot Fleet request is decreased below the current size of the Spot Fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -88,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Spot fleet request.</para>
+        /// <para>The ID of the Spot Fleet request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

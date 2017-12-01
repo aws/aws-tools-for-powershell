@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter Reason
         /// <summary>
         /// <para>
-        /// <para>A message to attach to the job that explains the reason for cancelling it. This message
+        /// <para>A message to attach to the job that explains the reason for canceling it. This message
         /// is returned by future <a>DescribeJobs</a> operations on the job. This message is also
         /// recorded in the AWS Batch activity logs. </para>
         /// </para>

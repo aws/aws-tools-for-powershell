@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter LoggingOptionsPayload_LogLevel
         /// <summary>
         /// <para>
-        /// <para>The logging level.</para>
+        /// <para>The log level.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

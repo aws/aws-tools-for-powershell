@@ -182,6 +182,13 @@ $AG_Completers = {
             break
         }
         
+        # Amazon.APIGateway.ConnectionType
+        "Write-AGIntegration/ConnectionType"
+        {
+            $v = "INTERNET","VPC_LINK"
+            break
+        }
+        
         # Amazon.APIGateway.ContentHandlingStrategy
         {
             ($_ -eq "Write-AGIntegration/ContentHandling") -Or
@@ -254,6 +261,7 @@ $AG_Completers = {
 
 $AG_map = @{
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
+    "ConnectionType"=@("Write-AGIntegration")
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
     "Format"=@("Import-AGApiKey")
     "Location_Type"=@("New-AGDocumentationPart")
@@ -1469,7 +1477,17 @@ $CD_Completers = {
             ($_ -eq "Register-CDApplicationRevision/Revision_S3Location_BundleType")
         }
         {
-            $v = "tar","tgz","zip"
+            $v = "JSON","tar","tgz","YAML","zip"
+            break
+        }
+        
+        # Amazon.CodeDeploy.ComputePlatform
+        {
+            ($_ -eq "New-CDApplication/ComputePlatform") -Or
+            ($_ -eq "New-CDDeploymentConfig/ComputePlatform")
+        }
+        {
+            $v = "Lambda","Server"
             break
         }
         
@@ -1530,6 +1548,13 @@ $CD_Completers = {
             break
         }
         
+        # Amazon.CodeDeploy.LifecycleEventStatus
+        "Write-CDLifecycleEventHookExecutionStatus/Status"
+        {
+            $v = "Failed","InProgress","Pending","Skipped","Succeeded","Unknown"
+            break
+        }
+        
         # Amazon.CodeDeploy.ListStateFilterAction
         "Get-CDApplicationRevisionList/Deployed"
         {
@@ -1558,7 +1583,7 @@ $CD_Completers = {
             ($_ -eq "Register-CDApplicationRevision/Revision_RevisionType")
         }
         {
-            $v = "GitHub","S3"
+            $v = "GitHub","S3","String"
             break
         }
         
@@ -1566,6 +1591,13 @@ $CD_Completers = {
         "Get-CDApplicationRevisionList/SortOrder"
         {
             $v = "ascending","descending"
+            break
+        }
+        
+        # Amazon.CodeDeploy.TrafficRoutingType
+        "New-CDDeploymentConfig/TrafficRoutingConfig_Type"
+        {
+            $v = "AllAtOnce","TimeBasedCanary","TimeBasedLinear"
             break
         }
         
@@ -1580,6 +1612,7 @@ $CD_map = @{
     "BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
+    "ComputePlatform"=@("New-CDApplication","New-CDDeploymentConfig")
     "Deployed"=@("Get-CDApplicationRevisionList")
     "DeploymentStyle_DeploymentOption"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
     "DeploymentStyle_DeploymentType"=@("New-CDDeploymentGroup","Update-CDDeploymentGroup")
@@ -1590,6 +1623,8 @@ $CD_map = @{
     "Revision_S3Location_BundleType"=@("Get-CDApplicationRevision","New-CDDeployment","Register-CDApplicationRevision")
     "SortBy"=@("Get-CDApplicationRevisionList")
     "SortOrder"=@("Get-CDApplicationRevisionList")
+    "Status"=@("Write-CDLifecycleEventHookExecutionStatus")
+    "TrafficRoutingConfig_Type"=@("New-CDDeploymentConfig")
 }
 
 _awsArgumentCompleterRegistration $CD_Completers $CD_map
@@ -1685,6 +1720,27 @@ $CGIP_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.CognitoIdentityProvider.AccountTakeoverEventActionType
+        {
+            ($_ -eq "Set-CGIPRiskConfiguration/AccountTakeoverRiskConfiguration_Actions_HighAction_EventAction") -Or
+            ($_ -eq "Set-CGIPRiskConfiguration/AccountTakeoverRiskConfiguration_Actions_LowAction_EventAction") -Or
+            ($_ -eq "Set-CGIPRiskConfiguration/AccountTakeoverRiskConfiguration_Actions_MediumAction_EventAction")
+        }
+        {
+            $v = "BLOCK","MFA_IF_CONFIGURED","MFA_REQUIRED","NO_ACTION"
+            break
+        }
+        
+        # Amazon.CognitoIdentityProvider.AdvancedSecurityModeType
+        {
+            ($_ -eq "New-CGIPUserPool/UserPoolAddOns_AdvancedSecurityMode") -Or
+            ($_ -eq "Update-CGIPUserPool/UserPoolAddOns_AdvancedSecurityMode")
+        }
+        {
+            $v = "AUDIT","ENFORCED","OFF"
+            break
+        }
+        
         # Amazon.CognitoIdentityProvider.AuthFlowType
         {
             ($_ -eq "Start-CGIPAuth/AuthFlow") -Or
@@ -1701,7 +1757,14 @@ $CGIP_Completers = {
             ($_ -eq "Send-CGIPAuthChallengeResponseAdmin/ChallengeName")
         }
         {
-            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","NEW_PASSWORD_REQUIRED","PASSWORD_VERIFIER","SMS_MFA"
+            $v = "ADMIN_NO_SRP_AUTH","CUSTOM_CHALLENGE","DEVICE_PASSWORD_VERIFIER","DEVICE_SRP_AUTH","MFA_SETUP","NEW_PASSWORD_REQUIRED","PASSWORD_VERIFIER","SELECT_MFA_TYPE","SMS_MFA","SOFTWARE_TOKEN_MFA"
+            break
+        }
+        
+        # Amazon.CognitoIdentityProvider.CompromisedCredentialsEventActionType
+        "Set-CGIPRiskConfiguration/CompromisedCredentialsRiskConfiguration_Actions_EventAction"
+        {
+            $v = "BLOCK","NO_ACTION"
             break
         }
         
@@ -1725,6 +1788,16 @@ $CGIP_Completers = {
             break
         }
         
+        # Amazon.CognitoIdentityProvider.FeedbackValueType
+        {
+            ($_ -eq "Update-CGIPAuthEventFeedback/FeedbackValue") -Or
+            ($_ -eq "Update-CGIPAuthEventFeedbackAdmin/FeedbackValue")
+        }
+        {
+            $v = "Invalid","Valid"
+            break
+        }
+        
         # Amazon.CognitoIdentityProvider.IdentityProviderTypeType
         "New-CGIPIdentityProvider/ProviderType"
         {
@@ -1742,6 +1815,7 @@ $CGIP_Completers = {
         # Amazon.CognitoIdentityProvider.UserPoolMfaType
         {
             ($_ -eq "New-CGIPUserPool/MfaConfiguration") -Or
+            ($_ -eq "Set-CGIPUserPoolMfaConfig/MfaConfiguration") -Or
             ($_ -eq "Update-CGIPUserPool/MfaConfiguration")
         }
         {
@@ -1757,12 +1831,18 @@ $CGIP_Completers = {
 }
 
 $CGIP_map = @{
+    "AccountTakeoverRiskConfiguration_Actions_HighAction_EventAction"=@("Set-CGIPRiskConfiguration")
+    "AccountTakeoverRiskConfiguration_Actions_LowAction_EventAction"=@("Set-CGIPRiskConfiguration")
+    "AccountTakeoverRiskConfiguration_Actions_MediumAction_EventAction"=@("Set-CGIPRiskConfiguration")
     "AuthFlow"=@("Start-CGIPAuth","Start-CGIPAuthAdmin")
     "ChallengeName"=@("Send-CGIPAuthChallengeResponse","Send-CGIPAuthChallengeResponseAdmin")
+    "CompromisedCredentialsRiskConfiguration_Actions_EventAction"=@("Set-CGIPRiskConfiguration")
     "DeviceRememberedStatus"=@("Edit-CGIPDeviceStatus","Edit-CGIPDeviceStatusAdmin")
+    "FeedbackValue"=@("Update-CGIPAuthEventFeedback","Update-CGIPAuthEventFeedbackAdmin")
     "MessageAction"=@("New-CGIPUserAdmin")
-    "MfaConfiguration"=@("New-CGIPUserPool","Update-CGIPUserPool")
+    "MfaConfiguration"=@("New-CGIPUserPool","Set-CGIPUserPoolMfaConfig","Update-CGIPUserPool")
     "ProviderType"=@("New-CGIPIdentityProvider")
+    "UserPoolAddOns_AdvancedSecurityMode"=@("New-CGIPUserPool","Update-CGIPUserPool")
     "VerificationMessageTemplate_DefaultEmailOption"=@("New-CGIPUserPool","Update-CGIPUserPool")
 }
 
@@ -2448,7 +2528,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotFleet/SpotFleetRequestConfig_InstanceInterruptionBehavior")
         }
         {
-            $v = "stop","terminate"
+            $v = "hibernate","stop","terminate"
             break
         }
         
@@ -2459,7 +2539,7 @@ $EC2_Completers = {
             ($_ -eq "Request-EC2SpotInstance/LaunchSpecification_InstanceType")
         }
         {
-            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge"
+            $v = "c1.medium","c1.xlarge","c3.2xlarge","c3.4xlarge","c3.8xlarge","c3.large","c3.xlarge","c4.2xlarge","c4.4xlarge","c4.8xlarge","c4.large","c4.xlarge","c5.18xlarge","c5.2xlarge","c5.4xlarge","c5.9xlarge","c5.large","c5.xlarge","cc1.4xlarge","cc2.8xlarge","cg1.4xlarge","cr1.8xlarge","d2.2xlarge","d2.4xlarge","d2.8xlarge","d2.xlarge","f1.16xlarge","f1.2xlarge","g2.2xlarge","g2.8xlarge","g3.16xlarge","g3.4xlarge","g3.8xlarge","h1.16xlarge","h1.2xlarge","h1.4xlarge","h1.8xlarge","hi1.4xlarge","hs1.8xlarge","i2.2xlarge","i2.4xlarge","i2.8xlarge","i2.xlarge","i3.16xlarge","i3.2xlarge","i3.4xlarge","i3.8xlarge","i3.large","i3.xlarge","m1.large","m1.medium","m1.small","m1.xlarge","m2.2xlarge","m2.4xlarge","m2.xlarge","m3.2xlarge","m3.large","m3.medium","m3.xlarge","m4.10xlarge","m4.16xlarge","m4.2xlarge","m4.4xlarge","m4.large","m4.xlarge","m5.12xlarge","m5.24xlarge","m5.2xlarge","m5.4xlarge","m5.large","m5.xlarge","p2.16xlarge","p2.8xlarge","p2.xlarge","p3.16xlarge","p3.2xlarge","p3.8xlarge","r3.2xlarge","r3.4xlarge","r3.8xlarge","r3.large","r3.xlarge","r4.16xlarge","r4.2xlarge","r4.4xlarge","r4.8xlarge","r4.large","r4.xlarge","t1.micro","t2.2xlarge","t2.large","t2.medium","t2.micro","t2.nano","t2.small","t2.xlarge","x1.16xlarge","x1.32xlarge","x1e.16xlarge","x1e.2xlarge","x1e.32xlarge","x1e.4xlarge","x1e.8xlarge","x1e.xlarge"
             break
         }
         
@@ -2511,7 +2591,7 @@ $EC2_Completers = {
         # Amazon.EC2.PlacementStrategy
         "New-EC2PlacementGroup/Strategy"
         {
-            $v = "cluster"
+            $v = "cluster","spread"
             break
         }
         
@@ -2721,6 +2801,18 @@ $ECS_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.ECS.AssignPublicIp
+        {
+            ($_ -eq "New-ECSService/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "New-ECSTask/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Start-ECSTask/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp") -Or
+            ($_ -eq "Update-ECSService/NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")
+        }
+        {
+            $v = "DISABLED","ENABLED"
+            break
+        }
+        
         # Amazon.ECS.ContainerInstanceStatus
         {
             ($_ -eq "Get-ECSContainerInstanceList/Status") -Or
@@ -2735,6 +2827,18 @@ $ECS_Completers = {
         "Get-ECSTaskList/DesiredStatus"
         {
             $v = "PENDING","RUNNING","STOPPED"
+            break
+        }
+        
+        # Amazon.ECS.LaunchType
+        {
+            ($_ -eq "Get-ECSClusterService/LaunchType") -Or
+            ($_ -eq "Get-ECSTaskList/LaunchType") -Or
+            ($_ -eq "New-ECSService/LaunchType") -Or
+            ($_ -eq "New-ECSTask/LaunchType")
+        }
+        {
+            $v = "EC2","FARGATE"
             break
         }
         
@@ -2782,6 +2886,8 @@ $ECS_Completers = {
 
 $ECS_map = @{
     "DesiredStatus"=@("Get-ECSTaskList")
+    "LaunchType"=@("Get-ECSClusterService","Get-ECSTaskList","New-ECSService","New-ECSTask")
+    "NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp"=@("New-ECSService","New-ECSTask","Start-ECSTask","Update-ECSService")
     "NetworkMode"=@("Register-ECSTaskDefinition")
     "Sort"=@("Get-ECSTaskDefinitionList")
     "Status"=@("Get-ECSContainerInstanceList","Get-ECSTaskDefinitionFamilyList","Get-ECSTaskDefinitionList","Update-ECSContainerInstancesState")
@@ -3159,6 +3265,34 @@ $GG_Completers = {
             break
         }
         
+        # Amazon.Greengrass.SoftwareToUpdate
+        "New-GGSoftwareUpdateJob/SoftwareToUpdate"
+        {
+            $v = "core","ota_agent"
+            break
+        }
+        
+        # Amazon.Greengrass.UpdateAgentLogLevel
+        "New-GGSoftwareUpdateJob/UpdateAgentLogLevel"
+        {
+            $v = "DEBUG","ERROR","FATAL","INFO","NONE","TRACE","VERBOSE","WARN"
+            break
+        }
+        
+        # Amazon.Greengrass.UpdateTargetsArchitecture
+        "New-GGSoftwareUpdateJob/UpdateTargetsArchitecture"
+        {
+            $v = "aarch64","armv7l","x86_64"
+            break
+        }
+        
+        # Amazon.Greengrass.UpdateTargetsOperatingSystem
+        "New-GGSoftwareUpdateJob/UpdateTargetsOperatingSystem"
+        {
+            $v = "amazon_linux","raspbian","ubuntu"
+            break
+        }
+        
     }
     
     $v |
@@ -3168,6 +3302,10 @@ $GG_Completers = {
 
 $GG_map = @{
     "DeploymentType"=@("New-GGDeployment")
+    "SoftwareToUpdate"=@("New-GGSoftwareUpdateJob")
+    "UpdateAgentLogLevel"=@("New-GGSoftwareUpdateJob")
+    "UpdateTargetsArchitecture"=@("New-GGSoftwareUpdateJob")
+    "UpdateTargetsOperatingSystem"=@("New-GGSoftwareUpdateJob")
 }
 
 _awsArgumentCompleterRegistration $GG_Completers $GG_map
@@ -3400,6 +3538,17 @@ $IOT_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.IoT.AuthorizerStatus
+        {
+            ($_ -eq "Get-IOTAuthorizersList/Status") -Or
+            ($_ -eq "New-IOTAuthorizer/Status") -Or
+            ($_ -eq "Update-IOTAuthorizer/Status")
+        }
+        {
+            $v = "ACTIVE","INACTIVE"
+            break
+        }
+        
         # Amazon.IoT.AutoRegistrationStatus
         "Update-IOTCACertificate/NewAutoRegistrationStatus"
         {
@@ -3424,10 +3573,73 @@ $IOT_Completers = {
             break
         }
         
+        # Amazon.IoT.JobExecutionStatus
+        {
+            ($_ -eq "Get-IOTJobExecutionsForJobList/Status") -Or
+            ($_ -eq "Get-IOTJobExecutionsForThingList/Status")
+        }
+        {
+            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","REMOVED","SUCCEEDED"
+            break
+        }
+        
+        # Amazon.IoT.JobStatus
+        "Get-IOTJobsList/Status"
+        {
+            $v = "CANCELED","COMPLETED","IN_PROGRESS"
+            break
+        }
+        
         # Amazon.IoT.LogLevel
-        "Set-IOTLoggingOption/LoggingOptionsPayload_LogLevel"
+        {
+            ($_ -eq "Set-IOTV2LoggingOption/DefaultLogLevel") -Or
+            ($_ -eq "Set-IOTLoggingOption/LoggingOptionsPayload_LogLevel") -Or
+            ($_ -eq "Set-IOTV2LoggingLevel/LogLevel")
+        }
         {
             $v = "DEBUG","DISABLED","ERROR","INFO","WARN"
+            break
+        }
+        
+        # Amazon.IoT.LogTargetType
+        {
+            ($_ -eq "Set-IOTV2LoggingLevel/LogTarget_TargetType") -Or
+            ($_ -eq "Get-IOTV2LoggingLevelsList/TargetType") -Or
+            ($_ -eq "Remove-IOTV2LoggingLevel/TargetType")
+        }
+        {
+            $v = "DEFAULT","THING_GROUP"
+            break
+        }
+        
+        # Amazon.IoT.ReportType
+        "Get-IOTThingRegistrationTaskReportsList/ReportType"
+        {
+            $v = "ERRORS","RESULTS"
+            break
+        }
+        
+        # Amazon.IoT.Status
+        "Get-IOTThingRegistrationTasksList/Status"
+        {
+            $v = "Cancelled","Cancelling","Completed","Failed","InProgress"
+            break
+        }
+        
+        # Amazon.IoT.TargetSelection
+        {
+            ($_ -eq "Get-IOTJobsList/TargetSelection") -Or
+            ($_ -eq "New-IOTJob/TargetSelection")
+        }
+        {
+            $v = "CONTINUOUS","SNAPSHOT"
+            break
+        }
+        
+        # Amazon.IoT.ThingIndexingMode
+        "Update-IOTIndexingConfiguration/ThingIndexingConfiguration_ThingIndexingMode"
+        {
+            $v = "OFF","REGISTRY","REGISTRY_AND_SHADOW"
             break
         }
         
@@ -3439,10 +3651,17 @@ $IOT_Completers = {
 }
 
 $IOT_map = @{
+    "DefaultLogLevel"=@("Set-IOTV2LoggingOption")
     "LoggingOptionsPayload_LogLevel"=@("Set-IOTLoggingOption")
+    "LogLevel"=@("Set-IOTV2LoggingLevel")
+    "LogTarget_TargetType"=@("Set-IOTV2LoggingLevel")
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
-    "Status"=@("Register-IOTCertificate")
+    "ReportType"=@("Get-IOTThingRegistrationTaskReportsList")
+    "Status"=@("Get-IOTAuthorizersList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobsList","Get-IOTThingRegistrationTasksList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer")
+    "TargetSelection"=@("Get-IOTJobsList","New-IOTJob")
+    "TargetType"=@("Get-IOTV2LoggingLevelsList","Remove-IOTV2LoggingLevel")
+    "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
 }
 
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map
@@ -3824,8 +4043,25 @@ $LS_Completers = {
             break
         }
         
+        # Amazon.Lightsail.LoadBalancerAttributeName
+        "Update-LSLoadBalancerAttribute/AttributeName"
+        {
+            $v = "HealthCheckPath","SessionStickinessEnabled","SessionStickiness_LB_CookieDurationSeconds"
+            break
+        }
+        
+        # Amazon.Lightsail.LoadBalancerMetricName
+        "Get-LSLoadBalancerMetricData/MetricName"
+        {
+            $v = "ClientTLSNegotiationErrorCount","HealthyHostCount","HTTPCode_Instance_2XX_Count","HTTPCode_Instance_3XX_Count","HTTPCode_Instance_4XX_Count","HTTPCode_Instance_5XX_Count","HTTPCode_LB_4XX_Count","HTTPCode_LB_5XX_Count","InstanceResponseTime","RejectedConnectionCount","RequestCount","UnhealthyHostCount"
+            break
+        }
+        
         # Amazon.Lightsail.MetricUnit
-        "Get-LSInstanceMetricData/Unit"
+        {
+            ($_ -eq "Get-LSInstanceMetricData/Unit") -Or
+            ($_ -eq "Get-LSLoadBalancerMetricData/Unit")
+        }
         {
             $v = "Bits","Bits/Second","Bytes","Bytes/Second","Count","Count/Second","Gigabits","Gigabits/Second","Gigabytes","Gigabytes/Second","Kilobits","Kilobits/Second","Kilobytes","Kilobytes/Second","Megabits","Megabits/Second","Megabytes","Megabytes/Second","Microseconds","Milliseconds","None","Percent","Seconds","Terabits","Terabits/Second","Terabytes","Terabytes/Second"
             break
@@ -3849,10 +4085,11 @@ $LS_Completers = {
 }
 
 $LS_map = @{
-    "MetricName"=@("Get-LSInstanceMetricData")
+    "AttributeName"=@("Update-LSLoadBalancerAttribute")
+    "MetricName"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData")
     "PortInfo_Protocol"=@("Close-LSInstancePublicPort","Open-LSInstancePublicPort")
     "Protocol"=@("Get-LSInstanceAccessDetail")
-    "Unit"=@("Get-LSInstanceMetricData")
+    "Unit"=@("Get-LSInstanceMetricData","Get-LSLoadBalancerMetricData")
 }
 
 _awsArgumentCompleterRegistration $LS_Completers $LS_map
@@ -4629,6 +4866,69 @@ $RS_map = @{
 _awsArgumentCompleterRegistration $RS_Completers $RS_map
 
 
+# Argument completions for service Amazon Rekognition
+$REK_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Rekognition.CelebrityRecognitionSortBy
+        "Get-REKCelebrityRecognition/SortBy"
+        {
+            $v = "ID","TIMESTAMP"
+            break
+        }
+        
+        # Amazon.Rekognition.ContentModerationSortBy
+        "Get-REKContentModeration/SortBy"
+        {
+            $v = "NAME","TIMESTAMP"
+            break
+        }
+        
+        # Amazon.Rekognition.FaceAttributes
+        "Start-REKFaceDetection/FaceAttributes"
+        {
+            $v = "ALL","DEFAULT"
+            break
+        }
+        
+        # Amazon.Rekognition.FaceSearchSortBy
+        "Get-REKFaceSearch/SortBy"
+        {
+            $v = "INDEX","TIMESTAMP"
+            break
+        }
+        
+        # Amazon.Rekognition.LabelDetectionSortBy
+        "Get-REKLabelDetection/SortBy"
+        {
+            $v = "NAME","TIMESTAMP"
+            break
+        }
+        
+        # Amazon.Rekognition.PersonTrackingSortBy
+        "Get-REKPersonTracking/SortBy"
+        {
+            $v = "INDEX","TIMESTAMP"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$REK_map = @{
+    "FaceAttributes"=@("Start-REKFaceDetection")
+    "SortBy"=@("Get-REKCelebrityRecognition","Get-REKContentModeration","Get-REKFaceSearch","Get-REKLabelDetection","Get-REKPersonTracking")
+}
+
+_awsArgumentCompleterRegistration $REK_Completers $REK_map
+
+
 # Argument completions for service Amazon Route 53
 $R53_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
@@ -4827,7 +5127,10 @@ $S3_Completers = {
         }
         
         # Amazon.S3.GlacierJobTier
-        "Restore-S3Object/Tier"
+        {
+            ($_ -eq "Restore-S3Object/RetrievalTier") -Or
+            ($_ -eq "Restore-S3Object/Tier")
+        }
         {
             $v = "Bulk","Expedited","Standard"
             break
@@ -4864,15 +5167,30 @@ $S3_Completers = {
             break
         }
         
+        # Amazon.S3.RestoreRequestType
+        "Restore-S3Object/RestoreRequestType"
+        {
+            $v = "SELECT"
+            break
+        }
+        
         # Amazon.S3.S3CannedACL
         {
             ($_ -eq "Copy-S3Object/CannedACLName") -Or
             ($_ -eq "New-S3Bucket/CannedACLName") -Or
             ($_ -eq "Set-S3ACL/CannedACLName") -Or
-            ($_ -eq "Write-S3Object/CannedACLName")
+            ($_ -eq "Write-S3Object/CannedACLName") -Or
+            ($_ -eq "Restore-S3Object/OutputLocation_S3_CannedACL")
         }
         {
             $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","log-delivery-write","NoACL","private","public-read","public-read-write"
+            break
+        }
+        
+        # Amazon.S3.S3StorageClass
+        "Restore-S3Object/OutputLocation_S3_StorageClass"
+        {
+            $v = "GLACIER","REDUCED_REDUNDANCY","STANDARD","STANDARD_IA"
             break
         }
         
@@ -4892,6 +5210,7 @@ $S3_Completers = {
         
         # Amazon.S3.ServerSideEncryptionMethod
         {
+            ($_ -eq "Restore-S3Object/OutputLocation_S3_Encryption_EncryptionType") -Or
             ($_ -eq "Copy-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Write-S3Object/ServerSideEncryption") -Or
             ($_ -eq "Get-S3PreSignedURL/ServerSideEncryptionMethod")
@@ -4931,7 +5250,12 @@ $S3_map = @{
     "InventoryConfiguration_Destination_S3BucketDestination_InventoryFormat"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_IncludedObjectVersions"=@("Write-S3BucketInventoryConfiguration")
     "InventoryConfiguration_Schedule_Frequency"=@("Write-S3BucketInventoryConfiguration")
+    "OutputLocation_S3_CannedACL"=@("Restore-S3Object")
+    "OutputLocation_S3_Encryption_EncryptionType"=@("Restore-S3Object")
+    "OutputLocation_S3_StorageClass"=@("Restore-S3Object")
     "RequestPayer"=@("Get-S3ObjectMetadata","Restore-S3Object")
+    "RestoreRequestType"=@("Restore-S3Object")
+    "RetrievalTier"=@("Restore-S3Object")
     "ServerSideEncryption"=@("Copy-S3Object","Write-S3Object")
     "ServerSideEncryptionCustomerMethod"=@("Copy-S3Object","Get-S3ObjectMetadata","Get-S3PreSignedURL","Read-S3Object","Write-S3Object")
     "ServerSideEncryptionMethod"=@("Get-S3PreSignedURL")
@@ -5230,6 +5554,17 @@ $SSM_Completers = {
             break
         }
         
+        # Amazon.SimpleSystemsManagement.DocumentFormat
+        {
+            ($_ -eq "Get-SSMDocument/DocumentFormat") -Or
+            ($_ -eq "New-SSMDocument/DocumentFormat") -Or
+            ($_ -eq "Update-SSMDocument/DocumentFormat")
+        }
+        {
+            $v = "JSON","YAML"
+            break
+        }
+        
         # Amazon.SimpleSystemsManagement.DocumentHashType
         {
             ($_ -eq "Send-SSMCommand/DocumentHashType") -Or
@@ -5255,6 +5590,13 @@ $SSM_Completers = {
         "New-SSMDocument/DocumentType"
         {
             $v = "Automation","Command","Policy"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.ExecutionMode
+        "Start-SSMAutomationExecution/Mode"
+        {
+            $v = "Auto","Interactive"
             break
         }
         
@@ -5332,7 +5674,14 @@ $SSM_Completers = {
         # Amazon.SimpleSystemsManagement.SignalType
         "Send-SSMAutomationSignal/SignalType"
         {
-            $v = "Approve","Reject"
+            $v = "Approve","Reject","Resume","StartStep","StopStep"
+            break
+        }
+        
+        # Amazon.SimpleSystemsManagement.StopType
+        "Stop-SSMAutomationExecution/Type"
+        {
+            $v = "Cancel","Complete"
             break
         }
         
@@ -5346,8 +5695,10 @@ $SSM_Completers = {
 $SSM_map = @{
     "ApprovedPatchesComplianceLevel"=@("New-SSMPatchBaseline","Update-SSMPatchBaseline")
     "AssociationStatus_Name"=@("Update-SSMAssociationStatus")
+    "DocumentFormat"=@("Get-SSMDocument","New-SSMDocument","Update-SSMDocument")
     "DocumentHashType"=@("Send-SSMCommand")
     "DocumentType"=@("New-SSMDocument")
+    "Mode"=@("Start-SSMAutomationExecution")
     "NotificationConfig_NotificationType"=@("Send-SSMCommand")
     "OperatingSystem"=@("Get-SSMDefaultPatchBaseline","Get-SSMPatchBaselineForPatchGroup","New-SSMPatchBaseline")
     "PermissionType"=@("Edit-SSMDocumentPermission","Get-SSMDocumentPermission")
@@ -5357,7 +5708,7 @@ $SSM_map = @{
     "TaskInvocationParameters_RunCommand_DocumentHashType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskInvocationParameters_RunCommand_NotificationConfig_NotificationType"=@("Register-SSMTaskWithMaintenanceWindow","Update-SSMMaintenanceWindowTask")
     "TaskType"=@("Register-SSMTaskWithMaintenanceWindow")
-    "Type"=@("Write-SSMParameter")
+    "Type"=@("Stop-SSMAutomationExecution","Write-SSMParameter")
 }
 
 _awsArgumentCompleterRegistration $SSM_Completers $SSM_map

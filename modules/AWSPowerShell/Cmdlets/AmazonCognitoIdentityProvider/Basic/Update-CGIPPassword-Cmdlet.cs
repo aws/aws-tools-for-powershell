@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter AccessToken
         /// <summary>
         /// <para>
-        /// <para>The access token in the change password request.</para>
+        /// <para>The access token.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter PreviousPassword
         /// <summary>
         /// <para>
-        /// <para>The old password in the change password request.</para>
+        /// <para>The old password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         #region Parameter ProposedPassword
         /// <summary>
         /// <para>
-        /// <para>The new password in the change password request.</para>
+        /// <para>The new password.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

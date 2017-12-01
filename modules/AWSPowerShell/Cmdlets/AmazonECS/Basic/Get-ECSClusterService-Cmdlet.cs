@@ -52,6 +52,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.String Cluster { get; set; }
         #endregion
         
+        #region Parameter LaunchType
+        /// <summary>
+        /// <para>
+        /// <para>The launch type for services you want to list.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.LaunchType")]
+        public Amazon.ECS.LaunchType LaunchType { get; set; }
+        #endregion
+        
         #region Parameter MaxResult
         /// <summary>
         /// <para>
@@ -75,8 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListServices</code>
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// returned the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>
@@ -101,6 +111,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             PreExecutionContextLoad(context);
             
             context.Cluster = this.Cluster;
+            context.LaunchType = this.LaunchType;
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
@@ -123,6 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Cluster != null)
             {
                 request.Cluster = cmdletContext.Cluster;
+            }
+            if (cmdletContext.LaunchType != null)
+            {
+                request.LaunchType = cmdletContext.LaunchType;
             }
             
             // Initialize loop variants and commence piping
@@ -241,6 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Cluster { get; set; }
+            public Amazon.ECS.LaunchType LaunchType { get; set; }
             public int? MaxResults { get; set; }
             public System.String NextToken { get; set; }
         }

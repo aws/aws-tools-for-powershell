@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     public partial class GetIOTEndpointCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
+        #region Parameter EndpointType
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint type.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String EndpointType { get; set; }
+        #endregion
+        
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
@@ -53,6 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.EndpointType = this.EndpointType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -69,6 +80,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             // create request
             var request = new Amazon.IoT.Model.DescribeEndpointRequest();
             
+            if (cmdletContext.EndpointType != null)
+            {
+                request.EndpointType = cmdletContext.EndpointType;
+            }
             
             CmdletOutput output;
             
@@ -133,6 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String EndpointType { get; set; }
         }
         
     }

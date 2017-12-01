@@ -366,6 +366,11 @@ namespace AWSPowerShellGenerator.Generators
                     GenerateArgumentCompleters(CurrentModel);
                     ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
 
+                    if (CurrentModel.ModelUpdated)
+                    {
+                        CurrentModel.Serialize(configurationsFolder);
+                    }
+
                     if (!Options.BreakOnOutputMismatchError)
                     {
                         Console.WriteLine("Completed processing for {0}", CurrentModel.ServiceName);
@@ -935,28 +940,47 @@ namespace AWSPowerShellGenerator.Generators
             if (method.Name.StartsWith("Begin") || method.Name.StartsWith("End"))
                 return false;
 
-            if (CurrentModel.ServiceOperations.ContainsKey(method.Name))
+            // we're looking for methods that have a single parameter that is
+            // derived from the AmazonWebServiceRequest type -- all other methods
+            // are convenience overloads
+            var parameters = method.GetParameters();
+            if (parameters.Count() == 1 && parameters[0].ParameterType.IsSubclassOf(SdkBaseRequestType))
             {
-                if (CurrentModel.ServiceOperations[method.Name].Exclude)
-                    return false;
+                if (CurrentModel.ServiceOperations.ContainsKey(method.Name))
+                {
+                    if (CurrentModel.ServiceOperations[method.Name].Exclude)
+                        return false;
+                }
+                else
+                {
+                    // unknown operation, so have a stab at what it should be
+                    Logger.Log("Method {0} has no ServiceOperation defined in model {1}, auto-generating", method.Name, CurrentModel.ServiceNamespace);
+                    var serviceOperation = new ServiceOperation
+                    {
+                        MethodName = method.Name,
+                        IsAutoConfiguring = true
+                    };
+                    CurrentModel.ServiceOperationsList.Add(serviceOperation);
+                    CurrentModel.ServiceOperations.Add(method.Name, serviceOperation);
 
-                // we're looking for methods that have a single parameter that is
-                // derived from the AmazonWebServiceRequest type -- all other methods
-                // are convenience overloads
-                var parameters = method.GetParameters();
-                return (parameters.Count() == 1 && parameters[0].ParameterType.IsSubclassOf(SdkBaseRequestType));
-            }
+                    // this triggers the generator to write out the modified config file
+                    // with the changes
+                    CurrentModel.ModelUpdated = true;
+                }
 
-            if (Options.BreakOnUnknownOperationError)
-            {
-                Logger.LogError("Method {0} has no ServiceOperation definition in model {1}", method.Name, CurrentModel.ServiceNamespace);
-            }
-            else
-            {
-                Logger.Log("Method {0} has no ServiceOperation definition in model {1}, IGNORING as BreakOnUnknownOperationError option FALSE", method.Name, CurrentModel.ServiceNamespace);
-            }
+                //if (Options.BreakOnUnknownOperationError)
+                //{
+                //    Logger.LogError("Method {0} has no ServiceOperation definition in model {1}", method.Name, CurrentModel.ServiceNamespace);
+                //}
+                //else
+                //{
+                //    Logger.Log("Method {0} has no ServiceOperation definition in model {1}, IGNORING as BreakOnUnknownOperationError option FALSE", method.Name, CurrentModel.ServiceNamespace);
+                //}
 
-            return false; 
+                return true;
+            }
+                
+            return false;
         }
 
         #endregion

@@ -30,7 +30,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// <summary>
     /// Gets the name and additional information about a celebrity based on his or her Rekognition
     /// ID. The additional information is returned as an array of URLs. If there is no additional
-    /// information about the celebrity, this list is empty. For more information, see <a>celebrity-recognition</a>.
+    /// information about the celebrity, this list is empty. For more information, see <a>get-celebrity-info-procedure</a>.
     /// 
     ///  
     /// <para>

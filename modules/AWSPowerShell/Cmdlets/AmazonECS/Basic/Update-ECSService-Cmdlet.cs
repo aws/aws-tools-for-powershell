@@ -107,6 +107,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class UpdateECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        #region Parameter AwsvpcConfiguration_AssignPublicIp
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not the task's elastic network interface receives a public IP
+        /// address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")]
+        [AWSConstantClassSource("Amazon.ECS.AssignPublicIp")]
+        public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
+        #endregion
+        
         #region Parameter Cluster
         /// <summary>
         /// <para>
@@ -128,6 +141,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32 DesiredCount { get; set; }
         #endregion
         
+        #region Parameter ForceNewDeployment
+        /// <summary>
+        /// <para>
+        /// <para>Whether or not to force a new deployment of the service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean ForceNewDeployment { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfiguration_MaximumPercent
         /// <summary>
         /// <para>
@@ -147,13 +170,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The lower limit (as a percentage of the service's <code>desiredCount</code>) of the
         /// number of running tasks that must remain in the <code>RUNNING</code> state in a service
-        /// during a deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code>
-        /// multiplied by <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer
-        /// value.</para>
+        /// during a deployment. The minimum number of healthy tasks during a deployment is the
+        /// <code>desiredCount</code> multiplied by <code>minimumHealthyPercent</code>/100, rounded
+        /// up to the nearest integer value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DeploymentConfiguration_MinimumHealthyPercent { get; set; }
+        #endregion
+        
+        #region Parameter PlatformVersion
+        /// <summary>
+        /// <para>
+        /// <para>The platform version you want to update your service to run.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlatformVersion { get; set; }
         #endregion
         
         #region Parameter AwsvpcConfiguration_SecurityGroup
@@ -193,11 +226,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition to run in your service. If
-        /// a <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision
-        /// is used. If you modify the task definition with <code>UpdateService</code>, Amazon
-        /// ECS spawns a task with the new version of the task definition and then stops an old
-        /// task after the new version is running.</para>
+        /// full ARN of the task definition to run in your service. If a <code>revision</code>
+        /// is not specified, the latest <code>ACTIVE</code> revision is used. If you modify the
+        /// task definition with <code>UpdateService</code>, Amazon ECS spawns a task with the
+        /// new version of the task definition and then stops an old task after the new version
+        /// is running.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -240,6 +273,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             if (ParameterWasBound("DesiredCount"))
                 context.DesiredCount = this.DesiredCount;
+            if (ParameterWasBound("ForceNewDeployment"))
+                context.ForceNewDeployment = this.ForceNewDeployment;
+            context.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
             {
                 context.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups = new List<System.String>(this.AwsvpcConfiguration_SecurityGroup);
@@ -248,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.NetworkConfiguration_AwsvpcConfiguration_Subnets = new List<System.String>(this.AwsvpcConfiguration_Subnet);
             }
+            context.PlatformVersion = this.PlatformVersion;
             context.Service = this.Service;
             context.TaskDefinition = this.TaskDefinition;
             
@@ -303,6 +340,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.DesiredCount = cmdletContext.DesiredCount.Value;
             }
+            if (cmdletContext.ForceNewDeployment != null)
+            {
+                request.ForceNewDeployment = cmdletContext.ForceNewDeployment.Value;
+            }
             
              // populate NetworkConfiguration
             bool requestNetworkConfigurationIsNull = true;
@@ -312,6 +353,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate AwsvpcConfiguration
             bool requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = true;
             requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = new Amazon.ECS.Model.AwsVpcConfiguration();
+            Amazon.ECS.AssignPublicIp requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.AssignPublicIp = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
             List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = null;
             if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups != null)
             {
@@ -346,6 +397,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (requestNetworkConfigurationIsNull)
             {
                 request.NetworkConfiguration = null;
+            }
+            if (cmdletContext.PlatformVersion != null)
+            {
+                request.PlatformVersion = cmdletContext.PlatformVersion;
             }
             if (cmdletContext.Service != null)
             {
@@ -423,8 +478,11 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
+            public System.Boolean? ForceNewDeployment { get; set; }
+            public Amazon.ECS.AssignPublicIp NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_SecurityGroups { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_Subnets { get; set; }
+            public System.String PlatformVersion { get; set; }
             public System.String Service { get; set; }
             public System.String TaskDefinition { get; set; }
         }

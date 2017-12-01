@@ -1,99 +1,261 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>GG</ServiceNounPrefix>
-  <ServiceName>AWS Greengrass</ServiceName>
-  <ServiceNamespace>Amazon.Greengrass</ServiceNamespace>
-  <ServiceClientInterface>IAmazonGreengrass</ServiceClientInterface>
-  <ServiceClient>AmazonGreengrassClient</ServiceClient>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-
-  <PipelineByValueProperties>
-    <Property>GroupId</Property>
-    <Property>RoleArn</Property>
-    <Property>CertificateArn</Property>
-    <Property>ThingArn</Property>
-    <Property>DeploymentArn</Property>
-    <Property>DeploymentId</Property>
-    <Property>GroupArn</Property>
-    <Property>FunctionArn</Property>
-  </PipelineByValueProperties>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="AssociateRoleToGroup" Verb="Add" PipelineParameter="RoleArn" />
-    <ServiceOperation MethodName="AssociateServiceRoleToAccount" Verb="Add"  />
-    <ServiceOperation MethodName="CreateCoreDefinition" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateCoreDefinitionVersion" PipelineParameter="CoreDefinitionId" Output="Response" />
-    <ServiceOperation MethodName="CreateDeployment" PipelineParameter="GroupId" Output="Response" />
-    <ServiceOperation MethodName="CreateDeviceDefinition" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateDeviceDefinitionVersion" PipelineParameter="DeviceDefinitionId" Output="Response" />
-    <ServiceOperation MethodName="CreateFunctionDefinition" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateFunctionDefinitionVersion" PipelineParameter="FunctionDefinitionId" Output="Response" />
-    <ServiceOperation MethodName="CreateGroup" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateGroupCertificateAuthority" PipelineParameter="GroupId" />
-    <ServiceOperation MethodName="CreateGroupVersion" PipelineParameter="GroupId" Output="Response" />
-    <ServiceOperation MethodName="CreateLoggerDefinition" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateLoggerDefinitionVersion" PipelineParameter="LoggerDefinitionId" Output="Response" />
-    <ServiceOperation MethodName="CreateSubscriptionDefinition" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateSubscriptionDefinitionVersion" PipelineParameter="SubscriptionDefinitionId" Output="Response" />
-    <ServiceOperation MethodName="DeleteCoreDefinition" Output="Void" />
-    <ServiceOperation MethodName="DeleteDeviceDefinition" Output="Void" />
-    <ServiceOperation MethodName="DeleteFunctionDefinition" Output="Void" />
-    <ServiceOperation MethodName="DeleteGroup" Output="Void" />
-    <ServiceOperation MethodName="DeleteLoggerDefinition" Output="Void" />
-    <ServiceOperation MethodName="DeleteSubscriptionDefinition" Output="Void" />
-    <ServiceOperation MethodName="DisassociateRoleFromGroup" Verb="Remove" />
-    <ServiceOperation MethodName="DisassociateServiceRoleFromAccount" Verb="Remove" />
-    <ServiceOperation MethodName="GetAssociatedRole" Output="Response" />
-    <ServiceOperation MethodName="GetConnectivityInfo" Output="Response" />
-    <ServiceOperation MethodName="GetCoreDefinition" Output="Response" />
-    <ServiceOperation MethodName="GetCoreDefinitionVersion" PipelineParameter="CoreDefinitionVersionId" Output="Response" />
-    <ServiceOperation MethodName="GetDeploymentStatus" PipelineParameter="DeploymentId" Output="Response" />
-    <ServiceOperation MethodName="GetDeviceDefinition" Output="Response" />
-    <ServiceOperation MethodName="GetDeviceDefinitionVersion" PipelineParameter="DeviceDefinitionVersionId" Output="Response" />
-    <ServiceOperation MethodName="GetFunctionDefinition" Output="Response" />
-    <ServiceOperation MethodName="GetFunctionDefinitionVersion" PipelineParameter="FunctionDefinitionVersionId" Output="Response" />
-    <ServiceOperation MethodName="GetGroup" Output="Response" />
-    <ServiceOperation MethodName="GetGroupCertificateAuthority" PipelineParameter="CertificateAuthorityId" Output="Response" />
-    <ServiceOperation MethodName="GetGroupCertificateConfiguration" Output="Response" />
-    <ServiceOperation MethodName="GetGroupVersion" PipelineParameter="GroupVersionId" Output="Response" />
-    <ServiceOperation MethodName="GetLoggerDefinition" Output="Response" />
-    <ServiceOperation MethodName="GetLoggerDefinitionVersion" PipelineParameter="LoggerDefinitionVersionId" Output="Response" />
-    <ServiceOperation MethodName="GetServiceRoleForAccount" Output="Response" />
-    <ServiceOperation MethodName="GetSubscriptionDefinition" Output="Response" />
-    <ServiceOperation MethodName="GetSubscriptionDefinitionVersion" PipelineParameter="SubscriptionDefinitionVersionId" Output="Response" />
-    <ServiceOperation MethodName="ListCoreDefinitionVersions" Noun="CoreDefinitionVersionList" />
-    <ServiceOperation MethodName="ListCoreDefinitions" Noun="CoreDefinitionList" />
-    <ServiceOperation MethodName="ListDeployments" Noun="DeploymentList" />
-    <ServiceOperation MethodName="ListDeviceDefinitionVersions" Noun="DeviceDefinitionVersionList" />
-    <ServiceOperation MethodName="ListDeviceDefinitions" Noun="DeviceDefinitionList" />
-    <ServiceOperation MethodName="ListFunctionDefinitionVersions" Noun="FunctionDefinitionVersionList" />
-    <ServiceOperation MethodName="ListFunctionDefinitions" Noun="FunctionDefinitionList" />
-    <ServiceOperation MethodName="ListGroupCertificateAuthorities" Noun="GroupCertificateAuthorityList" />
-    <ServiceOperation MethodName="ListGroupVersions" Noun="GroupVersionList" />
-    <ServiceOperation MethodName="ListGroups" Noun="GroupList" />
-    <ServiceOperation MethodName="ListLoggerDefinitionVersions" Noun="LoggerDefinitionVersionList" />
-    <ServiceOperation MethodName="ListLoggerDefinitions" Noun="LoggerDefinitionList" />
-    <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" Noun="SubscriptionDefinitionVersionList" />
-    <ServiceOperation MethodName="ListSubscriptionDefinitions" Noun="SubscriptionDefinitionList" />
-    <ServiceOperation MethodName="ResetDeployments" Noun="Deployment" PipelineParameter="GroupId" Output="Response">
-      <Params>
-        <Param Name="Force" NewName="BestEffort" AutoApplyAlias="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="UpdateConnectivityInfo" PipelineParameter="ThingName" Output="Response" />
-    <ServiceOperation MethodName="UpdateCoreDefinition" PipelineParameter="Name" Output="Void" />
-    <ServiceOperation MethodName="UpdateDeviceDefinition" PipelineParameter="Name" Output="Void" />
-    <ServiceOperation MethodName="UpdateFunctionDefinition" PipelineParameter="Name" Output="Void" />
-    <ServiceOperation MethodName="UpdateGroup" PipelineParameter="Name" Output="Void" />
-    <ServiceOperation MethodName="UpdateGroupCertificateConfiguration" PipelineParameter="CertificateExpiryInMilliseconds" Output="Response" />
-    <ServiceOperation MethodName="UpdateLoggerDefinition" PipelineParameter="Name" Output="Void" />
-    <ServiceOperation MethodName="UpdateSubscriptionDefinition" PipelineParameter="Name" Output="Void" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonGreengrass</SourceGenerationRoot>
+    <ServiceNounPrefix>GG</ServiceNounPrefix>
+    <ServiceName>AWS Greengrass</ServiceName>
+    <ServiceClientInterface>IAmazonGreengrass</ServiceClientInterface>
+    <ServiceClient>AmazonGreengrassClient</ServiceClient>
+    <ServiceNamespace>Amazon.Greengrass</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>GroupId</Property>
+        <Property>RoleArn</Property>
+        <Property>CertificateArn</Property>
+        <Property>ThingArn</Property>
+        <Property>DeploymentArn</Property>
+        <Property>DeploymentId</Property>
+        <Property>GroupArn</Property>
+        <Property>FunctionArn</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateRoleToGroup" Output="Default" SkipOutputComputationCheck="false" Verb="Add" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateServiceRoleToAccount" Output="Default" SkipOutputComputationCheck="false" Verb="Add" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoreDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCoreDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CoreDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeployment" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeviceDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDeviceDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DeviceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFunctionDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFunctionDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FunctionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroupCertificateAuthority" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroupVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoggerDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoggerDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoggerDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriptionDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubscriptionDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCoreDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CoreDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeviceDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DeviceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFunctionDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FunctionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoggerDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoggerDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubscriptionDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRoleFromGroup" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateServiceRoleFromAccount" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssociatedRole" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectivityInfo" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CoreDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCoreDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CoreDefinitionVersionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeploymentStatus" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DeploymentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeviceDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DeviceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeviceDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DeviceDefinitionVersionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FunctionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetFunctionDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FunctionDefinitionVersionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupCertificateAuthority" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CertificateAuthorityId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupCertificateConfiguration" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroupVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupVersionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoggerDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoggerDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLoggerDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoggerDefinitionVersionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceRoleForAccount" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionDefinition" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubscriptionDefinitionVersionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreDefinitionVersions" Output="Default" SkipOutputComputationCheck="false" Noun="CoreDefinitionVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CoreDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCoreDefinitions" Output="Default" SkipOutputComputationCheck="false" Noun="CoreDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeployments" Output="Default" SkipOutputComputationCheck="false" Noun="DeploymentList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeviceDefinitionVersions" Output="Default" SkipOutputComputationCheck="false" Noun="DeviceDefinitionVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DeviceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeviceDefinitions" Output="Default" SkipOutputComputationCheck="false" Noun="DeviceDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctionDefinitionVersions" Output="Default" SkipOutputComputationCheck="false" Noun="FunctionDefinitionVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FunctionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFunctionDefinitions" Output="Default" SkipOutputComputationCheck="false" Noun="FunctionDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupCertificateAuthorities" Output="Default" SkipOutputComputationCheck="false" Noun="GroupCertificateAuthorityList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroupVersions" Output="Default" SkipOutputComputationCheck="false" Noun="GroupVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" Output="Default" SkipOutputComputationCheck="false" Noun="GroupList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLoggerDefinitionVersions" Output="Default" SkipOutputComputationCheck="false" Noun="LoggerDefinitionVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoggerDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLoggerDefinitions" Output="Default" SkipOutputComputationCheck="false" Noun="LoggerDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptionDefinitionVersions" Output="Default" SkipOutputComputationCheck="false" Noun="SubscriptionDefinitionVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubscriptionDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptionDefinitions" Output="Default" SkipOutputComputationCheck="false" Noun="SubscriptionDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetDeployments" Output="Response" SkipOutputComputationCheck="false" Noun="Deployment" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Force" NewName="BestEffort" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConnectivityInfo" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateCoreDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeviceDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateFunctionDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroupCertificateConfiguration" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="CertificateExpiryInMilliseconds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateLoggerDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSubscriptionDefinition" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceDefinitions" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="ResourceDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceDefinitionVersions" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="ResourceDefinitionVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceDefinition" Output="Void" SkipOutputComputationCheck="false" Verb="Update" Noun="ResourceDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceDefinitionId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="Name" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceDefinition" Output="Response" SkipOutputComputationCheck="false" Verb="Get" Noun="ResourceDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Verb="Get" Noun="ResourceDefinitionVersion" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="ResourceDefinitionVersionId" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceDefinition" Output="Response" SkipOutputComputationCheck="false" Verb="New" Noun="ResourceDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" PipelineParameter="Name" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceDefinitionVersion" Output="Response" SkipOutputComputationCheck="false" Verb="New" Noun="ResourceDefinitionVersion" Exclude="false" PipelineParameter="ResourceDefinitionId" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSoftwareUpdateJob" Output="Response" SkipOutputComputationCheck="false" Verb="New" Noun="SoftwareUpdateJob" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceDefinition" Output="Void" SkipOutputComputationCheck="false" Verb="Remove" Noun="ResourceDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceDefinitionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

@@ -43,12 +43,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the peer VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the
-        /// peer VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the peer VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's
+        /// <para>One or more filters.</para><ul><li><para><code>accepter-vpc-info.cidr-block</code> - The IPv4 CIDR block of the accepter VPC.</para></li><li><para><code>accepter-vpc-info.owner-id</code> - The AWS account ID of the owner of the
+        /// accepter VPC.</para></li><li><para><code>accepter-vpc-info.vpc-id</code> - The ID of the accepter VPC.</para></li><li><para><code>expiration-time</code> - The expiration date and time for the VPC peering connection.</para></li><li><para><code>requester-vpc-info.cidr-block</code> - The IPv4 CIDR block of the requester's
         /// VPC.</para></li><li><para><code>requester-vpc-info.owner-id</code> - The AWS account ID of the owner of the
         /// requester VPC.</para></li><li><para><code>requester-vpc-info.vpc-id</code> - The ID of the requester VPC.</para></li><li><para><code>status-code</code> - The status of the VPC peering connection (<code>pending-acceptance</code>
         /// | <code>failed</code> | <code>expired</code> | <code>provisioning</code> | <code>active</code>
-        /// | <code>deleted</code> | <code>rejected</code>).</para></li><li><para><code>status-message</code> - A message that provides more information about the
+        /// | <code>deleting</code> | <code>deleted</code> | <code>rejected</code>).</para></li><li><para><code>status-message</code> - A message that provides more information about the
         /// status of the VPC peering connection, if applicable.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource. Specify the key of the tag in the filter name and the value of the
         /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>

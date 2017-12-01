@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// Returns a list of container instances in a specified cluster. You can filter the results
     /// of a <code>ListContainerInstances</code> operation with cluster query language statements
     /// inside the <code>filter</code> parameter. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-    /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "ECSContainerInstanceList")]
     [OutputType("System.String")]
@@ -60,7 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>You can filter the results of a <code>ListContainerInstances</code> operation with
         /// cluster query language statements. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html">Cluster
-        /// Query Language</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.</para>
+        /// Query Language</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,8 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListContainerInstances</code>
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// returned the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Removes the specified policy from the specified certificate.
+    /// 
+    ///  
+    /// <para><b>Note:</b> This API is deprecated. Please use <a>DetachPolicy</a> instead.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "IOTPrincipalPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]

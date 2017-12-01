@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// <summary>
         /// <para>
         /// <para>The JSON document that describes the policy. Minimum length of 1. Maximum length of
-        /// 2048, excluding whitespaces</para>
+        /// 2048, excluding whitespace.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

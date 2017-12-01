@@ -30,7 +30,11 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// <summary>
     /// Lists the policies attached to the specified principal. If you use an Cognito identity,
     /// the ID must be in <a href="http://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetCredentialsForIdentity.html#API_GetCredentialsForIdentity_RequestSyntax">AmazonCognito
-    /// Identity format</a>.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Identity format</a>.
+    /// 
+    ///  
+    /// <para><b>Note:</b> This API is deprecated. Please use <a>ListAttachedPolicies</a> instead.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTPrincipalPolicyList")]
     [OutputType("Amazon.IoT.Model.Policy")]

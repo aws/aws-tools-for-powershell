@@ -28,7 +28,7 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
-    /// Inserts or deletes <a>RegexMatchSetUpdate</a> objects (filters) in a <a>RegexMatchSet</a>.
+    /// Inserts or deletes <a>RegexMatchTuple</a> objects (filters) in a <a>RegexMatchSet</a>.
     /// For each <code>RegexMatchSetUpdate</code> object, you specify the following values:
     /// 
     /// 
@@ -36,8 +36,8 @@ namespace Amazon.PowerShell.Cmdlets.WAF
     /// Whether to insert or delete the object from the array. If you want to change a <code>RegexMatchSetUpdate</code>
     /// object, you delete the existing object and add a new one.
     /// </para></li><li><para>
-    /// The part of a web request that you want AWS WAF to inspect, such as a query string
-    /// or the value of the <code>User-Agent</code> header. 
+    /// The part of a web request that you want AWS WAF to inspectupdate, such as a query
+    /// string or the value of the <code>User-Agent</code> header. 
     /// </para></li><li><para>
     /// The identifier of the pattern (a regular expression) that you want AWS WAF to look
     /// for. For more information, see <a>RegexPatternSet</a>. 

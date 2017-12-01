@@ -1,87 +1,239 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>WAFR</ServiceNounPrefix>
-  <ServiceName>AWS WAF Regional</ServiceName>
-  <ServiceNamespace>Amazon.WAFRegional</ServiceNamespace>
-  <ServiceClientInterface>IAmazonWAFRegional</ServiceClientInterface>
-  <ServiceClient>AmazonWAFRegionalClient</ServiceClient>
-
-  <AutoIterate EmitLimit="Limit" Start="NextMarker" Next="NextMarker" ServicePageSize="100"/>
-  
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AssociateWebACL" Verb="Register" Output="Void" PipelineParameter="WebACLId"/>
-    <ServiceOperation MethodName="DisassociateWebACL" Verb="Unregister" Output="Void"/>
-    <ServiceOperation MethodName="ListByteMatchSets" Noun="ByteMatchSetList" />
-    <ServiceOperation MethodName="ListResourcesForWebACL" Noun="ResourceForWebACLList" />
-    <ServiceOperation MethodName="ListRules" Noun="RuleList" />
-    <ServiceOperation MethodName="ListSqlInjectionMatchSets" Noun="SqlInjectionMatchSetList" />
-    <ServiceOperation MethodName="ListWebACLs" Noun="WebACLList" />
-    <ServiceOperation MethodName="ListIPSets" Noun="IPSetList" />
-    <ServiceOperation MethodName="CreateByteMatchSet" Output="Response" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DeleteByteMatchSet" PipelineParameter="ByteMatchSetId" />
-    <ServiceOperation MethodName="GetByteMatchSet" />
-    <ServiceOperation MethodName="UpdateByteMatchSet" PipelineParameter="ByteMatchSetId" />
-    <ServiceOperation MethodName="CreateRule" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DeleteRule" PipelineParameter="RuleId" />
-    <ServiceOperation MethodName="GetRule" />
-    <ServiceOperation MethodName="UpdateRule" PipelineParameter="RuleId" />
-    <ServiceOperation MethodName="CreateSqlInjectionMatchSet" Output="Response" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DeleteSqlInjectionMatchSet" PipelineParameter="SqlInjectionMatchSetId" />
-    <ServiceOperation MethodName="GetSqlInjectionMatchSet" />
-    <ServiceOperation MethodName="UpdateSqlInjectionMatchSet" PipelineParameter="SqlInjectionMatchSetId" />
-    <ServiceOperation MethodName="CreateWebACL" Output="Response" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" />
-    <ServiceOperation MethodName="DeleteWebACL" PipelineParameter="WebACLId" />
-    <ServiceOperation MethodName="GetWebACL" />
-    <ServiceOperation MethodName="GetWebACLForResource" />
-    <ServiceOperation MethodName="UpdateWebACL" PipelineParameter="WebACLId" />
-    <ServiceOperation MethodName="CreateIPSet" Output="Response" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DeleteIPSet" PipelineParameter="IPSetId" />
-    <ServiceOperation MethodName="GetIPSet" />
-    <ServiceOperation MethodName="UpdateIPSet" PipelineParameter="IPSetId" />
-    <ServiceOperation MethodName="GetChangeToken" />
-    <ServiceOperation MethodName="GetChangeTokenStatus" />
-    <ServiceOperation MethodName="GetSampledRequests" Noun="SampledRequestList" Output="Response" PipelineParameter="WebACLId" />
-    <ServiceOperation MethodName="ListSizeConstraintSets" Noun="SizeConstraintSetList" />
-    <ServiceOperation MethodName="UpdateSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />
-    <ServiceOperation MethodName="CreateSizeConstraintSet" PipelineParameter="ChangeToken" Output="Response" ShouldProcessTarget="Name"/>
-    <ServiceOperation MethodName="DeleteSizeConstraintSet" PipelineParameter="ChangeToken" ShouldProcessTarget="SizeConstraintSetId" />
-    <ServiceOperation MethodName="GetSizeConstraintSet" />
-    <ServiceOperation MethodName="GetXssMatchSet" />
-    <ServiceOperation MethodName="ListXssMatchSets" Noun="XssMatchSetList" />
-    <ServiceOperation MethodName="UpdateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
-    <ServiceOperation MethodName="CreateXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="Name" Output="Response"/>
-    <ServiceOperation MethodName="DeleteXssMatchSet" PipelineParameter="ChangeToken" ShouldProcessTarget="XssMatchSetId" />
-
-    <ServiceOperation MethodName="ListRateBasedRules" Noun="RateBasedRuleList" />
-    <ServiceOperation MethodName="UpdateRateBasedRule" PipelineParameter="RuleId" />
-    <ServiceOperation MethodName="CreateRateBasedRule" Output="Response" PipelineParameter="Name" />
-    <ServiceOperation MethodName="DeleteRateBasedRule" PipelineParameter="RuleId" />
-    <ServiceOperation MethodName="GetRateBasedRule" />
-    <ServiceOperation MethodName="GetRateBasedRuleManagedKeys" Noun="RateBasedRuleManagedKey">
-      <AutoIterate Start="NextMarker" Next="NextMarker" ServicePageSize="100" EmitLimit="" />
-    </ServiceOperation>
-
-    <ServiceOperation MethodName="UpdateRegexMatchSet" PipelineParameter="RegexMatchSetId" />
-    <ServiceOperation MethodName="UpdateRegexPatternSet" PipelineParameter="RegexPatternSetId" />
-    <ServiceOperation MethodName="GetGeoMatchSet" />
-    <ServiceOperation MethodName="GetRegexMatchSet" />
-    <ServiceOperation MethodName="GetRegexPatternSet" />
-    <ServiceOperation MethodName="ListGeoMatchSets" Noun="GeoMatchSetList" />
-    <ServiceOperation MethodName="ListRegexMatchSets" Noun="RegexMatchSetList" />
-    <ServiceOperation MethodName="ListRegexPatternSets" Noun="RegexPatternSetList" />
-    <ServiceOperation MethodName="UpdateGeoMatchSet" PipelineParameter="GeoMatchSetId" />
-    <ServiceOperation MethodName="CreateGeoMatchSet" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateRegexMatchSet" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="CreateRegexPatternSet" PipelineParameter="Name" Output="Response" />
-    <ServiceOperation MethodName="DeleteGeoMatchSet" PipelineParameter="GeoMatchSetId" />
-    <ServiceOperation MethodName="DeleteRegexMatchSet" PipelineParameter="RegexMatchSetId" />
-    <ServiceOperation MethodName="DeleteRegexPatternSet" PipelineParameter="RegexPatternSetId" />
-
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonWAFRegional</SourceGenerationRoot>
+    <ServiceNounPrefix>WAFR</ServiceNounPrefix>
+    <ServiceName>AWS WAF Regional</ServiceName>
+    <ServiceClientInterface>IAmazonWAFRegional</ServiceClientInterface>
+    <ServiceClient>AmazonWAFRegionalClient</ServiceClient>
+    <ServiceNamespace>Amazon.WAFRegional</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextMarker" Next="NextMarker" EmitLimit="Limit" ServicePageSize="100" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateWebACL" Output="Void" SkipOutputComputationCheck="false" Verb="Register" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateWebACL" Output="Void" SkipOutputComputationCheck="false" Verb="Unregister" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListByteMatchSets" Output="Default" SkipOutputComputationCheck="false" Noun="ByteMatchSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourcesForWebACL" Output="Default" SkipOutputComputationCheck="false" Noun="ResourceForWebACLList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRules" Output="Default" SkipOutputComputationCheck="false" Noun="RuleList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSqlInjectionMatchSets" Output="Default" SkipOutputComputationCheck="false" Noun="SqlInjectionMatchSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListWebACLs" Output="Default" SkipOutputComputationCheck="false" Noun="WebACLList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIPSets" Output="Default" SkipOutputComputationCheck="false" Noun="IPSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateByteMatchSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteByteMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ByteMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetByteMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ByteMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateByteMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ByteMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRule" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRule" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSqlInjectionMatchSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSqlInjectionMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SqlInjectionMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSqlInjectionMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SqlInjectionMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSqlInjectionMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SqlInjectionMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateWebACL" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="true" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteWebACL" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWebACL" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetWebACLForResource" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateWebACL" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIPSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIPSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="IPSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIPSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="IPSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIPSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="IPSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChangeToken" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetChangeTokenStatus" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSampledRequests" Output="Response" SkipOutputComputationCheck="false" Noun="SampledRequestList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WebACLId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSizeConstraintSets" Output="Default" SkipOutputComputationCheck="false" Noun="SizeConstraintSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSizeConstraintSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SizeConstraintSetId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSizeConstraintSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSizeConstraintSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SizeConstraintSetId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSizeConstraintSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SizeConstraintSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetXssMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="XssMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListXssMatchSets" Output="Default" SkipOutputComputationCheck="false" Noun="XssMatchSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateXssMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="XssMatchSetId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateXssMatchSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteXssMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="XssMatchSetId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ChangeToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRateBasedRules" Output="Default" SkipOutputComputationCheck="false" Noun="RateBasedRuleList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRateBasedRule" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRateBasedRule" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRateBasedRule" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRateBasedRule" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRateBasedRuleManagedKeys" Output="Default" SkipOutputComputationCheck="false" Noun="RateBasedRuleManagedKey" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextMarker" Next="NextMarker" EmitLimit="" ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegexMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RegexMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRegexPatternSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RegexPatternSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGeoMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GeoMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegexMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RegexMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRegexPatternSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RegexPatternSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGeoMatchSets" Output="Default" SkipOutputComputationCheck="false" Noun="GeoMatchSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegexMatchSets" Output="Default" SkipOutputComputationCheck="false" Noun="RegexMatchSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRegexPatternSets" Output="Default" SkipOutputComputationCheck="false" Noun="RegexPatternSetList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGeoMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GeoMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGeoMatchSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegexMatchSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRegexPatternSet" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGeoMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GeoMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegexMatchSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RegexMatchSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRegexPatternSet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RegexPatternSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscribedRuleGroups" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="SubscribedRuleGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateRuleGroup" Output="Default" SkipOutputComputationCheck="false" Verb="Update" Noun="RuleGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="RuleGroupId" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetRuleGroup" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="RuleGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleGroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListActivatedRulesInRuleGroup" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="ActivatedRulesInRuleGroupList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleGroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRuleGroups" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="RuleGroupList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRuleGroup" Output="Response" SkipOutputComputationCheck="false" Verb="New" Noun="RuleGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="Name" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRuleGroup" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="RuleGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="RuleGroupId" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

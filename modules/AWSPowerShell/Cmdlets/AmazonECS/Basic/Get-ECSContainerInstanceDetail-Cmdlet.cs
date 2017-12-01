@@ -28,7 +28,7 @@ using Amazon.ECS.Model;
 namespace Amazon.PowerShell.Cmdlets.ECS
 {
     /// <summary>
-    /// Describes Amazon EC2 Container Service container instances. Returns metadata about
+    /// Describes Amazon Elastic Container Service container instances. Returns metadata about
     /// registered and remaining resources on each container instance requested.
     /// </summary>
     [Cmdlet("Get", "ECSContainerInstanceDetail")]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>A list of container instance IDs or full Amazon Resource Name (ARN) entries.</para>
+        /// <para>A list of container instance IDs or full ARN entries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

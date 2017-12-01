@@ -64,6 +64,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String CaCertificate { get; set; }
         #endregion
         
+        #region Parameter RegistrationConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegistrationConfig_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SetAsActive
         /// <summary>
         /// <para>
@@ -72,6 +82,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Boolean SetAsActive { get; set; }
+        #endregion
+        
+        #region Parameter RegistrationConfig_TemplateBody
+        /// <summary>
+        /// <para>
+        /// <para>The template body.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegistrationConfig_TemplateBody { get; set; }
         #endregion
         
         #region Parameter VerificationCertificate
@@ -100,6 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (ParameterWasBound("AllowAutoRegistration"))
                 context.AllowAutoRegistration = this.AllowAutoRegistration;
             context.CaCertificate = this.CaCertificate;
+            context.RegistrationConfig_RoleArn = this.RegistrationConfig_RoleArn;
+            context.RegistrationConfig_TemplateBody = this.RegistrationConfig_TemplateBody;
             if (ParameterWasBound("SetAsActive"))
                 context.SetAsActive = this.SetAsActive;
             context.VerificationCertificate = this.VerificationCertificate;
@@ -126,6 +148,35 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.CaCertificate != null)
             {
                 request.CaCertificate = cmdletContext.CaCertificate;
+            }
+            
+             // populate RegistrationConfig
+            bool requestRegistrationConfigIsNull = true;
+            request.RegistrationConfig = new Amazon.IoT.Model.RegistrationConfig();
+            System.String requestRegistrationConfig_registrationConfig_RoleArn = null;
+            if (cmdletContext.RegistrationConfig_RoleArn != null)
+            {
+                requestRegistrationConfig_registrationConfig_RoleArn = cmdletContext.RegistrationConfig_RoleArn;
+            }
+            if (requestRegistrationConfig_registrationConfig_RoleArn != null)
+            {
+                request.RegistrationConfig.RoleArn = requestRegistrationConfig_registrationConfig_RoleArn;
+                requestRegistrationConfigIsNull = false;
+            }
+            System.String requestRegistrationConfig_registrationConfig_TemplateBody = null;
+            if (cmdletContext.RegistrationConfig_TemplateBody != null)
+            {
+                requestRegistrationConfig_registrationConfig_TemplateBody = cmdletContext.RegistrationConfig_TemplateBody;
+            }
+            if (requestRegistrationConfig_registrationConfig_TemplateBody != null)
+            {
+                request.RegistrationConfig.TemplateBody = requestRegistrationConfig_registrationConfig_TemplateBody;
+                requestRegistrationConfigIsNull = false;
+            }
+             // determine if request.RegistrationConfig should be set to null
+            if (requestRegistrationConfigIsNull)
+            {
+                request.RegistrationConfig = null;
             }
             if (cmdletContext.SetAsActive != null)
             {
@@ -201,6 +252,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         {
             public System.Boolean? AllowAutoRegistration { get; set; }
             public System.String CaCertificate { get; set; }
+            public System.String RegistrationConfig_RoleArn { get; set; }
+            public System.String RegistrationConfig_TemplateBody { get; set; }
             public System.Boolean? SetAsActive { get; set; }
             public System.String VerificationCertificate { get; set; }
         }

@@ -1,490 +1,965 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>EC2</ServiceNounPrefix>
-  <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
-  <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
-  <ServiceClient>AmazonEC2Client</ServiceClient>
-  <ServiceNamespace>Amazon.EC2</ServiceNamespace>
-
-  <Params>
-    <Param Name="DryRun" Exclude="true" />
-  </Params>
-
-  <PositionalParameters>InstanceId</PositionalParameters>
-
-  <PipelineParameter>InstanceId</PipelineParameter>
-
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices" />
-
-  <ParamEmitters>
-    <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" />
-  </ParamEmitters>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Verb="Confirm" />
-    <ServiceOperation MethodName="AllocateAddress" Output="Response" AnonymousShouldProcessTarget="true" />
-    <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses"/>
-    <ServiceOperation MethodName="AssociateAddress" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId"/>
-    <ServiceOperation MethodName="AssociateDhcpOptions" Output="Void" PipelineParameter="VpcId" PositionalParameters="DhcpOptionsId"/>
-    <ServiceOperation MethodName="AssociateRouteTable" PipelineParameter="RouteTableId" PositionalParameters="SubnetId"/>
-    <ServiceOperation MethodName="AttachInternetGateway" Output="Void" PipelineParameter="VpcId" PositionalParameters="InternetGatewayId"/>
-    <ServiceOperation MethodName="AttachNetworkInterface" PositionalParameters="NetworkInterfaceId;InstanceId;DeviceIndex"/>
-    <ServiceOperation MethodName="AttachVolume" PositionalParameters="VolumeId;InstanceId;Device"/>
-    <ServiceOperation MethodName="AttachVpnGateway" PipelineParameter="VpcId" PositionalParameters="VpnGatewayId"/>
-    <ServiceOperation MethodName="AuthorizeSecurityGroupEgress" Output="Void" PipelineParameter="GroupId" PositionalParameters="IpPermissions"/>
-    <ServiceOperation MethodName="AuthorizeSecurityGroupIngress" Output="Void" PipelineParameter="GroupId"/>
-    <ServiceOperation MethodName="BundleInstance" Verb="New" Noun="InstanceBundle" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix"/>
-    <ServiceOperation MethodName="CancelBundleTask" />
-    <ServiceOperation MethodName="CancelConversionTask" Exclude="true" />
-    <ServiceOperation MethodName="CancelExportTask" Output="Void" />
-    <ServiceOperation MethodName="CancelReservedInstancesListing" />
-    <ServiceOperation MethodName="CancelSpotInstanceRequests" />
-    <ServiceOperation MethodName="ConfirmProductInstance" PositionalParameters="ProductCode;InstanceId" Output="Response"/>
-    <ServiceOperation MethodName="CopyImage" PipelineParameter="SourceImageId" PositionalParameters="SourceRegion;Description;Name;ClientToken"/>
-    <ServiceOperation MethodName="CopySnapshot" PipelineParameter="SourceSnapshotId" PositionalParameters="SourceRegion;Description"/>
-    <ServiceOperation MethodName="CreateCustomerGateway" PipelineParameter="Type" PositionalParameters="PublicIp;BgpAsn">
-      <Params>
-        <Param Name="PublicIp" Alias="IpAddress" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateDefaultSubnet" />
-    <ServiceOperation MethodName="CreateDhcpOptions" />
-    <ServiceOperation MethodName="CreateFpgaImage" NoPipelineParameter="true" Output="Response"/>
-    <ServiceOperation MethodName="CreateFlowLogs" Output="Response" PipelineParameter="LogGroupName" Noun="FlowLog" LegacyAlias="New-EC2FlowLogs" />
-    <ServiceOperation MethodName="CreateImage" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings"/>
-    <ServiceOperation MethodName="CreateInstanceExportTask" PositionalParameters="TargetEnvironment;Description"/>
-    <ServiceOperation MethodName="CreateInternetGateway"/>
-    <ServiceOperation MethodName="CreateKeyPair" />
-    <ServiceOperation MethodName="CreateNetworkAcl" />
-    <ServiceOperation MethodName="CreateNetworkAclEntry" Output="Void" PipelineParameter="NetworkAclId"/>
-    <ServiceOperation MethodName="CreateNetworkInterface" PipelineParameter="SubnetId" PositionalParameters="Description;PrivateIpAddress;Groups">
-      <Params>
-        <Param Name="PrivateIpAddresses" NewName="PrivateIpAddressSet" />
-        <Param Name="Groups" Alias="GroupId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreatePlacementGroup" Output="Void" PipelineParameter="GroupName" PositionalParameters="Strategy"/>
-    <ServiceOperation MethodName="CreateReservedInstancesListing" PipelineParameter="ReservedInstancesId" PositionalParameters="InstanceCount;PriceSchedules;ClientToken">
-      <Params>
-        <Param Name="PriceSchedules" Alias="PricingSchedules" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateRoute" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
-    <ServiceOperation MethodName="CreateRouteTable" />
-    <ServiceOperation MethodName="CreateSecurityGroup" PipelineParameter="GroupName" PositionalParameters="Description;VpcId">
-      <Params>
-        <Param Name="Description" Alias="GroupDescription" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateSnapshot" PipelineParameter="VolumeId" PositionalParameters="Description"/>
-    <ServiceOperation MethodName="CreateSpotDatafeedSubscription" PipelineParameter="Bucket" PositionalParameters="Prefix"/>
-    <ServiceOperation MethodName="CreateSubnet" PipelineParameter="VpcId" PositionalParameters="CidrBlock;AvailabilityZone"/>
-    <ServiceOperation MethodName="CreateTags" Output="Void" PipelineParameter="Resources" PositionalParameters="Tags">
-      <Params>
-        <Param Name="Resources" Alias="ResourceId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-      <PassThru>
-        <Expression>cmdletContext.Tags</Expression>
-        <Documentation>Returns the collection of Tag objects that were created</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateVolume" PipelineParameter="SnapshotId" PositionalParameters="Size;AvailabilityZone;IOPS;VolumeType;Encrypted"/>
-    <ServiceOperation MethodName="CreateVpc" PipelineParameter="CidrBlock" PositionalParameters="InstanceTenancy"/>
-    <ServiceOperation MethodName="CreateVpnConnection" PipelineParameter="Type" PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" ShouldProcessTarget="VpnGatewayId">
-      <Params>
-        <Param Name="Options_StaticRoutesOnly" Alias="StaticRoutesOnly" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateVpnConnectionRoute" Output="Void" PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
-    <ServiceOperation MethodName="CreateVpcEndpoint" PipelineParameter="VpcId" Output="Response"/>
-    <ServiceOperation MethodName="CreateVpnGateway" PipelineParameter="Type" PositionalParameters="AvailabilityZone"/>
-    <ServiceOperation MethodName="DeleteCustomerGateway" Output="Void" ShouldProcessMsgNoun="Customer Gateway" />
-    <ServiceOperation MethodName="DeleteDhcpOptions" Output="Void" />
-    <ServiceOperation MethodName="DeleteFlowLogs" Noun="FlowLog" LegacyAlias="Remove-EC2FlowLogs" />
-    <ServiceOperation MethodName="DeleteInternetGateway" Output="Void" ShouldProcessMsgNoun="Internet Gateway" />
-    <ServiceOperation MethodName="DeleteKeyPair" Output="Void" />
-    <ServiceOperation MethodName="DeleteNetworkAcl" Output="Void" ShouldProcessMsgNoun="Network ACL" />
-    <ServiceOperation MethodName="DeleteNetworkAclEntry" Output="Void" ShouldProcessTarget="NetworkAclId" ShouldProcessMsgNoun="Network ACL Entry" PipelineParameter="NetworkAclId" PositionalParameters="RuleNumber;Egress"/>
-    <ServiceOperation MethodName="DeleteNetworkInterface" Output="Void" ShouldProcessMsgNoun="Network Interface" />
-    <ServiceOperation MethodName="DeletePlacementGroup" Output="Void" ShouldProcessMsgNoun="Placement Group" />
-    <ServiceOperation MethodName="DeleteRoute" Output="Void" ShouldProcessTarget="RouteTableId" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock"/>
-    <ServiceOperation MethodName="DeleteRouteTable" Output="Void" ShouldProcessMsgNoun="Route Table" />
-    <ServiceOperation MethodName="DeleteSecurityGroup" Output="Void" ShouldProcessMsgNoun="Security Group" ShouldProcessTarget="GroupId|GroupName" PipelineParameter="GroupId"/>
-    <ServiceOperation MethodName="DeleteSnapshot" Output="Void" />
-    <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Output="Void" ShouldProcessMsgNoun="Spot Datafeed Subscription" />
-    <ServiceOperation MethodName="DeleteSubnet" Output="Void" />
-    <ServiceOperation MethodName="DeleteTags" Output="Void" ShouldProcessTarget="Resources" PipelineParameter="Resources" PositionalParameters="Tags">
-      <Params>
-        <Param Name="Resources" Alias="ResourceId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-      <PassThru>
-        <Expression>cmdletContext.Tags</Expression>
-        <Documentation>Returns the collection of Tag objects that were deleted</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteVolume" Output="Void" />
-    <ServiceOperation MethodName="DeleteVpc" Output="Void" />
-    <ServiceOperation MethodName="DeleteVpnConnection" Output="Void" ShouldProcessMsgNoun="VPN Connection" />
-    <ServiceOperation MethodName="DeleteVpnConnectionRoute" Output="Void" ShouldProcessTarget="VpnConnectionId" ShouldProcessMsgNoun="VPN Connection Route" PipelineParameter="VpnConnectionId" PositionalParameters="DestinationCidrBlock"/>
-    <ServiceOperation MethodName="DeleteVpcEndpoints" Noun="VpcEndpoint"/>
-    <ServiceOperation MethodName="DeleteVpnGateway" Output="Void" ShouldProcessMsgNoun="VPN Gateway" />
-    <ServiceOperation MethodName="DeregisterImage" Output="Void" />
-    <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute" LegacyAlias="Get-EC2AccountAttributes">
-      <Params>
-        <Param Name="AttributeNames" Alias="AccountAttributeNames" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeAddresses" PipelineParameter="PublicIps" PositionalParameters="AllocationIds;Filters"/>
-    <ServiceOperation MethodName="DescribeAvailabilityZones" PipelineParameter="ZoneNames" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeBundleTasks" PipelineParameter="BundleIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeConversionTasks" Exclude="true" />
-    <ServiceOperation MethodName="DescribeCustomerGateways" PipelineParameter="CustomerGatewayIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeDhcpOptions" PipelineParameter="DhcpOptionsIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeExportTasks" Noun="ExportTask" LegacyAlias="Get-EC2ExportTasks" />
-    <ServiceOperation MethodName="DescribeFlowLogs" PipelineParameter="FlowLogIds" Noun="FlowLog" LegacyAlias="Get-EC2FlowLogs" />
-    <ServiceOperation MethodName="DescribeIdentityIdFormat" PipelineParameter="PrincipalArn" PositionalParameters="Resource"/>
-    <ServiceOperation MethodName="DescribeImageAttribute" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="DescribeImages" PipelineParameter="ImageIds" PositionalParameters="Owners;ExecutableUsers;Filters">
-      <Params>
-        <Param Name="ExecutableUsers" Alias="ExecutableBy" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeInstanceAttribute" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="DescribeInstances" Exclude="true"/>
-    <ServiceOperation MethodName="DescribeInstanceStatus" PipelineParameter="InstanceIds" PositionalParameters="Filters" />
-    <ServiceOperation MethodName="DescribeInternetGateways" PipelineParameter="InternetGatewayIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeKeyPairs" PipelineParameter="KeyNames" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeMovingAddresses" Noun="MovingAddress" PipelineParameter="PublicIps" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeNetworkAcls" PipelineParameter="NetworkAclIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeNetworkInterfaceAttribute" Output="Response" PipelineParameter="NetworkInterfaceId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="DescribeNetworkInterfaces" PipelineParameter="NetworkInterfaceIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribePlacementGroups" PipelineParameter="GroupNames" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribePrefixLists" Noun="PrefixList" PipelineParameter="PrefixListIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeRegions" PipelineParameter="RegionNames" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeReservedInstances" PipelineParameter="ReservedInstancesIds" PositionalParameters="Filters;OfferingType"/>
-    <ServiceOperation MethodName="DescribeReservedInstancesListings" PipelineParameter="ReservedInstancesListingId" PositionalParameters="ReservedInstancesId;Filters"/>
-    <ServiceOperation MethodName="DescribeReservedInstancesModifications" Noun="ReservedInstancesModification" LegacyAlias="Get-EC2ReservedInstancesModifications" />
-    <ServiceOperation MethodName="DescribeReservedInstancesOfferings" PipelineParameter="ReservedInstancesOfferingIds" PositionalParameters="InstanceType;AvailabilityZone">
-      <Params>
-        <Param Name="ReservedInstancesOfferingIds" Alias="ReservedInstancesId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeRouteTables" PipelineParameter="RouteTableIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeSecurityGroups" PipelineParameter="GroupIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeSecurityGroupReferences" Noun="SecurityGroupReference" />
-    <ServiceOperation MethodName="DescribeSnapshotAttribute" Output="Response" PipelineParameter="SnapshotId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="DescribeSnapshots" PipelineParameter="SnapshotIds" PositionalParameters="OwnerIds;RestorableByUserIds;Filters"/>
-    <ServiceOperation MethodName="DescribeSpotDatafeedSubscription"/>
-    <ServiceOperation MethodName="DescribeSpotInstanceRequests" PipelineParameter="SpotInstanceRequestIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeSpotPriceHistory"/>
-    <ServiceOperation MethodName="DescribeStaleSecurityGroups" Noun="StaleSecurityGroup" PipelineParameter="VpcId" />
-    <ServiceOperation MethodName="DescribeSubnets" PipelineParameter="SubnetIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeTags" />
-    <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" PipelineParameter="VolumeId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="DescribeVolumes" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVolumesModifications" Noun="VolumeModification" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVolumeStatus" PipelineParameter="VolumeIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVpcAttribute" Output="Response" PipelineParameter="VpcId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="DescribeVpcEndpoints" Noun="VpcEndpoint" PipelineParameter="VpcEndpointIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVpcEndpointServices" Noun="VpcEndpointService" Output="Response" />
-    <ServiceOperation MethodName="DescribeVpcs" PipelineParameter="VpcIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVpnConnections" PipelineParameter="VpnConnectionIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DescribeVpnGateways" PipelineParameter="VpnGatewayIds" PositionalParameters="Filters"/>
-    <ServiceOperation MethodName="DetachInternetGateway" Output="Void" PipelineParameter="VpcId" PositionalParameters="InternetGatewayId"/>
-    <ServiceOperation MethodName="DetachNetworkInterface" Output="Void" PipelineParameter="AttachmentId">
-      <Params>
-        <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false"/>
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DetachVolume" PositionalParameters="VolumeId;InstanceId;Device">
-      <Params>
-        <Param Name="Force" NewName="ForceDismount" AutoApplyAlias="false"/>
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DetachVpnGateway" Output="Void" PipelineParameter="VpcId" PositionalParameters="VpnGatewayId"/>
-    <ServiceOperation MethodName="DisableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
-    <ServiceOperation MethodName="DisassociateAddress" Output="Void" PipelineParameter="PublicIp" PositionalParameters="AssociationId"/>
-    <ServiceOperation MethodName="DisassociateRouteTable" Output="Void" />
-    <ServiceOperation MethodName="EnableVgwRoutePropagation" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="GatewayId"/>
-    <ServiceOperation MethodName="EnableVolumeIO" Output="Void" />
-    <ServiceOperation MethodName="GetConsoleOutput" Output="Response"/>
-    <ServiceOperation MethodName="GetConsoleScreenshot" Output="Response" />
-    <ServiceOperation MethodName="GetPasswordData" Exclude="true"/>
-    <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" PipelineParameter="ReservedInstanceIds" Output="Response" />
-    <ServiceOperation MethodName="ImportInstance" Exclude="true"/>
-    <ServiceOperation MethodName="ImportKeyPair" Output="Response" PipelineParameter="KeyName" PositionalParameters="PublicKeyMaterial"/>
-    <ServiceOperation MethodName="ImportVolume" Exclude="true"/>
-    <!-- Import V2 (these replace the V1 Import-EC2Instance and Import-EC2Volume, which are documented as deprecated) -->
-    <ServiceOperation MethodName="CancelImportTask" PipelineParameter="ImportTaskId" Output="Response" />
-    <ServiceOperation MethodName="DescribeImportImageTasks" Noun="ImportImageTask" PipelineParameter="ImportTaskIds" />
-    <ServiceOperation MethodName="DescribeImportSnapshotTasks" Noun="ImportSnapshotTask" PipelineParameter="ImportTaskIds" />
-    <ServiceOperation MethodName="ImportImage" NoPipelineParameter="true" Output="Response"/>
-    <ServiceOperation MethodName="ImportSnapshot" NoPipelineParameter="true" Output="Response">
-      <Params>
-        <Param Name="DiskContainer_UserBucket_S3Bucket" NewName="DiskContainer_S3Bucket" />
-        <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" />
-      </Params>
-    </ServiceOperation>
-    <!-- Spot Fleet -->
-    <ServiceOperation MethodName="CancelSpotFleetRequests" Noun="SpotFleetRequest" Output="Response" PipelineParameter="SpotFleetRequestIds" />
-    <ServiceOperation MethodName="DescribeSpotFleetInstances" Noun="SpotFleetInstance" PipelineParameter="SpotFleetRequestId" />
-    <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" Output="Response" PipelineParameter="SpotFleetRequestId" />
-    <ServiceOperation MethodName="DescribeSpotFleetRequests" Noun="SpotFleetRequest" PipelineParameter="SpotFleetRequestId" />
-    <ServiceOperation MethodName="RequestSpotFleet" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" Output="Void"/>
-    <ServiceOperation MethodName="ModifySpotFleetRequest" />
-    <ServiceOperation MethodName="ModifyIdentityIdFormat" Output="Void" PipelineParameter="PrincipalArn" PositionalParameters="Resource"/>
-    <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" PipelineParameter="ImageId"/>
-    <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void">
-      <Params>
-        <Param Name="Groups" Alias="GroupId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ModifyNetworkInterfaceAttribute" Output="Void" PipelineParameter="NetworkInterfaceId">
-      <Params>
-        <Param Name="Groups" Alias="GroupId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ModifyReservedInstances" />
-    <ServiceOperation MethodName="ModifySubnetAttribute" Output="Void" PipelineParameter="SubnetId" PositionalParameters="MapPublicIpOnLaunch"/>
-    <ServiceOperation MethodName="ModifySnapshotAttribute" Output="Void" PipelineParameter="SnapshotId">
-      <Params>
-        <Param Name="GroupNames" Alias="UserGroup" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ModifyVolume" PipelineParameter="VolumeId"/>
-    <ServiceOperation MethodName="ModifyVolumeAttribute" Output="Void" PipelineParameter="VolumeId" PositionalParameters="AutoEnableIO"/>
-    <ServiceOperation MethodName="ModifyVpcAttribute" Exclude="true"/>
-    <ServiceOperation MethodName="ModifyVpcPeeringConnectionOptions" Noun="VpcPeeringConnectionOption" PipelineParameter="VpcPeeringConnectionId" Output="Response" />
-    <ServiceOperation MethodName="ModifyVpcEndpoint" PipelineParameter="VpcEndpointId" Output="Void"/>
-    <ServiceOperation MethodName="MonitorInstances" Verb="Start" Noun="InstanceMonitoring" />
-    <ServiceOperation MethodName="MoveAddressToVpc" Output="Response"/>
-    <ServiceOperation MethodName="PurchaseReservedInstancesOffering" Verb="New" Noun="ReservedInstance" PipelineParameter="ReservedInstancesOfferingId" PositionalParameters="InstanceCount;LimitPrice_Amount;LimitPrice_CurrencyCode"/>
-    <ServiceOperation MethodName="RebootInstances" Output="Void" />
-    <ServiceOperation MethodName="RegisterImage" PipelineParameter="ImageLocation" PositionalParameters="Name;Description" ShouldProcessTarget="ImageLocation"/>
-    <ServiceOperation MethodName="ReleaseAddress" Output="Void" ShouldProcessTarget="PublicIp" PipelineParameter="PublicIp" PositionalParameters="AllocationId"/>
-    <ServiceOperation MethodName="ReplaceNetworkAclAssociation" PipelineParameter="AssociationId" PositionalParameters="NetworkAclId"/>
-    <ServiceOperation MethodName="ReplaceNetworkAclEntry" Output="Void" PipelineParameter="NetworkAclId">
-      <Params>
-        <!-- maintain compat with v1 sdk name -->
-        <Param Name="IcmpTypeCode_Code" Alias="Icmp_Code" />
-        <Param Name="IcmpTypeCode_Type" Alias="Icmp_Type" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ReplaceRoute" Output="Void" PipelineParameter="RouteTableId" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId"/>
-    <ServiceOperation MethodName="ReplaceRouteTableAssociation" PipelineParameter="AssociationId" PositionalParameters="RouteTableId"/>
-    <ServiceOperation MethodName="ReportInstanceStatus" Output="Void" PipelineParameter="Instances" PositionalParameters="Status;StartTime;EndTime;ReasonCodes;Description">
-      <Params>
-        <Param Name="Instances" Alias="InstanceId" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="RequestSpotInstances" ShouldProcessTarget="SpotPrice"/>
-    <ServiceOperation MethodName="ResetImageAttribute" Output="Void" PipelineParameter="ImageId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="ResetInstanceAttribute" Output="Void" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="ResetNetworkInterfaceAttribute" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="ResetSnapshotAttribute" Output="Void" PipelineParameter="SnapshotId" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="RestoreAddressToClassic" Output="Response"/>
-    <ServiceOperation MethodName="RevokeSecurityGroupEgress" Output="Void" PipelineParameter="GroupId" PositionalParameters="IpPermissions"/>
-    <ServiceOperation MethodName="RevokeSecurityGroupIngress" Output="Void" PipelineParameter="GroupId"/>
-    <ServiceOperation MethodName="RunInstances" PipelineParameter="ImageId" Exclude="true"/>
-    <ServiceOperation MethodName="StartInstances" PipelineParameter="InstanceIds">
-      <Params>
-        <Param Name="InstanceIds" Alias="Instance" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="StopInstances" Exclude="true"/>
-    <ServiceOperation MethodName="TerminateInstances" Exclude="true"/>
-    <ServiceOperation MethodName="UnassignPrivateIpAddresses" Output="Void" PipelineParameter="NetworkInterfaceId" PositionalParameters="PrivateIpAddresses">
-      <PassThru>
-        <Expression>cmdletContext.PrivateIpAddresses</Expression>
-        <Documentation>Returns the secondary private IP addresses</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="UnmonitorInstances" Verb="Stop" Noun="InstanceMonitoring" />
-    <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsEgress" Noun="SecurityGroupRuleEgressDescription" ShouldProcessTarget="GroupId" />
-    <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsIngress" Noun="SecurityGroupRuleIngressDescription" ShouldProcessTarget="GroupId" />
-    <ServiceOperation MethodName="DescribeVpcPeeringConnections" PipelineParameter="VpcPeeringConnectionIds" PositionalParameters="Filters" Noun="VpcPeeringConnection" LegacyAlias="Get-EC2VpcPeeringConnections" />
-    <ServiceOperation MethodName="CreateVpcPeeringConnection" PipelineParameter="VpcId" PositionalParameters="PeerVpcId;PeerOwnerId"/>
-    <ServiceOperation MethodName="AcceptVpcPeeringConnection" Verb="Approve" />
-    <ServiceOperation MethodName="RejectVpcPeeringConnection" Verb="Deny" Output="Void" />
-    <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void" />
-    <ServiceOperation MethodName="AttachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId;Groups"/>
-    <ServiceOperation MethodName="DescribeClassicLinkInstances" PipelineParameter="InstanceIds" Noun="ClassicLinkInstance"/>
-    <ServiceOperation MethodName="DescribeVpcClassicLink" PipelineParameter="VpcIds" />
-    <ServiceOperation MethodName="DetachClassicLinkVpc" PipelineParameter="VpcId" PositionalParameters="InstanceId"/>
-    <ServiceOperation MethodName="DisableVpcClassicLink" />
-    <ServiceOperation MethodName="EnableVpcClassicLink" />
-    <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" />
-    <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" />
-    <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" />
-    <ServiceOperation MethodName="AllocateHosts" Verb="New" ShouldProcessTarget="InstanceType" Noun="Host" LegacyAlias="New-EC2Hosts" />
-    <ServiceOperation MethodName="DescribeHosts" PipelineParameter="HostIds" PositionalParameters="Filters" Noun="Host" LegacyAlias="Get-EC2Hosts"/>
-    <ServiceOperation MethodName="ModifyHosts" Output="Response" PipelineParameter="HostIds" PositionalParameters="AutoPlacement" Noun="Host" LegacyAlias="Edit-EC2Hosts" />
-    <ServiceOperation MethodName="ModifyInstancePlacement"/>
-    <ServiceOperation MethodName="ReleaseHosts" Output="Response" Noun="Host" LegacyAlias="ReleaseHosts" />
-    <ServiceOperation MethodName="DescribeIdFormat"/>
-    <ServiceOperation MethodName="ModifyIdFormat" Output="Void" PipelineParameter="Resource"/>
-    <ServiceOperation MethodName="CreateNatGateway" PipelineParameter="SubnetId" Output="Response" />
-    <ServiceOperation MethodName="DescribeNatGateways" Noun="NatGateway" PipelineParameter="NatGatewayIds" />
-    <ServiceOperation MethodName="DeleteNatGateway" />
-    <ServiceOperation MethodName="RunScheduledInstances" Noun="ScheduledInstance" PipelineParameter="LaunchSpecification" ShouldProcessTarget="ScheduledInstanceId" />
-    <ServiceOperation MethodName="PurchaseScheduledInstances" Verb="New" Noun="ScheduledInstancePurchase" PipelineParameter="PurchaseRequests"/>
-    <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" />
-    <ServiceOperation MethodName="DescribeScheduledInstances" Noun="ScheduledInstance" />
-    <ServiceOperation MethodName="PurchaseHostReservation" Verb="New" PipelineParameter="OfferingId" Output="Response" />
-    <ServiceOperation MethodName="GetHostReservationPurchasePreview" PipelineParameter="OfferingId" Output="Response" />
-    <ServiceOperation MethodName="DescribeHostReservationOfferings" Noun="HostReservationOffering" PipelineParameter="OfferingId" />
-    <ServiceOperation MethodName="DescribeHostReservations" Noun="HostReservation" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="UnassignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
-    <ServiceOperation MethodName="DisassociateSubnetCidrBlock" Output="Response"/>
-    <ServiceOperation MethodName="DisassociateVpcCidrBlock" Output="Response"/>
-    <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" Noun="EgressOnlyInternetGatewayList" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="DeleteEgressOnlyInternetGateway" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="CreateEgressOnlyInternetGateway" Output="Response" PipelineParameter="VpcId" />
-    <ServiceOperation MethodName="AssignIpv6Addresses" Noun="Ipv6AddressList" Output="Response" PipelineParameter="NetworkInterfaceId" />
-    <ServiceOperation MethodName="AssociateSubnetCidrBlock" Output="Response" PipelineParameter="SubnetId" />
-    <ServiceOperation MethodName="AssociateVpcCidrBlock" Output="Response" PipelineParameter="VpcId" />
-    <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" ShouldProcessTarget="AssociationId"/>
-    <ServiceOperation MethodName="DisassociateIamInstanceProfile" />
-    <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Noun="IamInstanceProfileAssociation"/>
-    <ServiceOperation MethodName="AssociateIamInstanceProfile" />
-
-    <ServiceOperation MethodName="DescribeElasticGpus" Noun="ElasticGpu" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DescribeFpgaImages" Noun="FpgaImage" NoPipelineParameter="true" />
-
-    <ServiceOperation MethodName="ResetFpgaImageAttribute" PipelineParameter="Attribute" />
-    <ServiceOperation MethodName="ModifyFpgaImageAttribute" PipelineParameter="Attribute" ShouldProcessTarget="Attribute" />
-    <ServiceOperation MethodName="DescribeFpgaImageAttribute" PipelineParameter="Attribute" />
-    <ServiceOperation MethodName="DeleteFpgaImage" />
-    <ServiceOperation MethodName="CopyFpgaImage" PipelineParameter="SourceFpgaImageId" />
-
-    <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" Noun="NetworkInterfacePermission" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DeleteNetworkInterfacePermission">
-      <Params>
-        <Param Name="Force" NewName="IgnoreAttachedStatus" AutoApplyAlias="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateNetworkInterfacePermission" PipelineParameter="NetworkInterfaceId"  />
-
-    <ServiceOperation MethodName="CreateDefaultVpc" />
-
-    <ServiceOperation MethodName="ModifyVpcTenancy" PipelineParameter="VpcId" />
-  </ServiceOperations>
-
-  <!-- define zero or more custom aliases here; these are emitted in addition to automatic
-       noun-operation aliases
-  -->
-  <CustomAliases>
-    <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
-  </CustomAliases>
-  
-  <!-- verb mappings contains service-specific verb remaps, augmenting (or overriding) the global map
-  -->
-  <VerbMappings>
-    <Map From="Associate" To="Register" />
-    <Map From="Disassociate" To="Unregister" />
-    <Map From="Replace" To="Set" />
-    <Map From="Report" To="Send" />
-    <Map From="Authorize" To="Grant" />
-    <Map From="Assign" To="Register" />
-    <Map From="Unassign" To="Unregister" />
-    <Map From="Deregister" To="Unregister" />
-    <Map From="Reboot" To="Restart" />
-    <Map From="Release" To="Remove" />
-    <Map From="Run" To="New" />
-  </VerbMappings>
-  
-  <MetadataProperties>
-    <Property>SpotFleetRequestId</Property>
-  </MetadataProperties>
-
-  <!-- noun mappings contains service-specific noun remaps, augmenting the global map
-  -->
-  <NounMappings>
-    <Map From="Addresses" To="Address" />
-    <Map From="AvailabilityZones" To="AvailabilityZone" />
-    <Map From="BundleTasks" To="BundleTask" />
-    <Map From="CustomerGateways" To="CustomerGateway" />
-    <Map From="DhcpOptions" To="DhcpOption" />
-    <Map From="Images" To="Image" />
-    <Map From="Instances" To="Instance" />
-    <Map From="InternetGateways" To="InternetGateway" />
-    <Map From="KeyPairs" To="KeyPair" />
-    <Map From="Licenses" To="License" />
-    <Map From="NetworkAcls" To="NetworkAcl" />
-    <Map From="NetworkInterfaces" To="NetworkInterface" />
-    <Map From="PlacementGroups" To="PlacementGroup" />
-    <Map From="PrivateIpAddresses" To="PrivateIpAddress" />
-    <Map From="Regions" To="Region" />
-    <Map From="ReservedInstances" To="ReservedInstance" />
-    <Map From="ReservedInstancesListings" To="ReservedInstancesListing" />
-    <Map From="ReservedInstancesOfferings" To="ReservedInstancesOffering" />
-    <Map From="RouteTables" To="RouteTable" />
-    <Map From="SecurityGroups" To="SecurityGroup" />
-    <Map From="Snapshots" To="Snapshot" />
-    <Map From="SpotInstances" To="SpotInstance" />
-    <Map From="SpotInstanceRequests" To="SpotInstanceRequest" />
-    <Map From="Subnets" To="Subnet" />
-    <Map From="Tags" To="Tag" />
-    <Map From="Volumes" To="Volume" />
-    <Map From="Vpcs" To="Vpc" />
-    <Map From="VpnConnections" To="VpnConnection" />
-    <Map From="VpnGateways" To="VpnGateway" />
-    <!--<Map From="DhcpOptions" To="DhcpOption" />-->
-  </NounMappings>
-  
-  <PipelineByValueProperties>
-    <Property>InstanceId</Property>
-    <Property>ImageId</Property>
-    <Property>VolumeId</Property>
-    <Property>SnapshotId</Property>
-    <Property>ReservationId</Property>
-    <Property>ReservedInstancesId</Property>
-    <Property>ReservedInstancesListingId</Property>
-    <Property>ReservedInstancesOfferingId</Property>
-    <Property>VpnGatewayId</Property>
-    <Property>VpnConnectionId</Property>
-    <Property>VpcId</Property>
-    <Property>SubnetId</Property>
-    <Property>GroupId</Property>
-    <Property>ScheduledInstanceId</Property>
-    <!-- excluded so we don't take both values and trigger 'cannot specify both
-         values' ec2 error
-    <Property>GroupName</Property>
-    -->
-    <Property>RouteTableId</Property>
-    <Property>DestinationCidrBlock</Property>
-    <Property>GatewayId</Property>
-    <Property>InternetGatewayId</Property>
-    <Property>CustomerGatewayId</Property>
-    <Property>NetworkInterfaceId</Property>
-    <Property>NetworkAclId</Property>
-    <Property>ResourceId</Property>
-    <Property>ZoneName</Property>
-    <Property>DhcpOptionsId</Property>
-    <Property>SpotInstanceRequestId</Property>
-    <Property>AvailabilityZone</Property>
-    <Property>AssociationId</Property>
-    <Property>BundleId</Property>
-    <Property>ConversionTaskId</Property>
-    <Property>SpotInstanceRequestId</Property>
-    <Property>KeyName</Property>
-    <Property>ImportTaskId</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonEC2</SourceGenerationRoot>
+    <ServiceNounPrefix>EC2</ServiceNounPrefix>
+    <ServiceName>Amazon Elastic Compute Cloud</ServiceName>
+    <ServiceClientInterface>IAmazonEC2</ServiceClientInterface>
+    <ServiceClient>AmazonEC2Client</ServiceClient>
+    <ServiceNamespace>Amazon.EC2</ServiceNamespace>
+    <PositionalParameters>InstanceId</PositionalParameters>
+    <PipelineParameter>InstanceId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="DescribeSpotFleetRequestHistory;DescribeVpcEndpointServices" />
+    <VerbMappings>
+        <Map From="Associate" To="Register" />
+        <Map From="Disassociate" To="Unregister" />
+        <Map From="Replace" To="Set" />
+        <Map From="Report" To="Send" />
+        <Map From="Authorize" To="Grant" />
+        <Map From="Assign" To="Register" />
+        <Map From="Unassign" To="Unregister" />
+        <Map From="Deregister" To="Unregister" />
+        <Map From="Reboot" To="Restart" />
+        <Map From="Release" To="Remove" />
+        <Map From="Run" To="New" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Addresses" To="Address" />
+        <Map From="AvailabilityZones" To="AvailabilityZone" />
+        <Map From="BundleTasks" To="BundleTask" />
+        <Map From="CustomerGateways" To="CustomerGateway" />
+        <Map From="DhcpOptions" To="DhcpOption" />
+        <Map From="Images" To="Image" />
+        <Map From="Instances" To="Instance" />
+        <Map From="InternetGateways" To="InternetGateway" />
+        <Map From="KeyPairs" To="KeyPair" />
+        <Map From="Licenses" To="License" />
+        <Map From="NetworkAcls" To="NetworkAcl" />
+        <Map From="NetworkInterfaces" To="NetworkInterface" />
+        <Map From="PlacementGroups" To="PlacementGroup" />
+        <Map From="PrivateIpAddresses" To="PrivateIpAddress" />
+        <Map From="Regions" To="Region" />
+        <Map From="ReservedInstances" To="ReservedInstance" />
+        <Map From="ReservedInstancesListings" To="ReservedInstancesListing" />
+        <Map From="ReservedInstancesOfferings" To="ReservedInstancesOffering" />
+        <Map From="RouteTables" To="RouteTable" />
+        <Map From="SecurityGroups" To="SecurityGroup" />
+        <Map From="Snapshots" To="Snapshot" />
+        <Map From="SpotInstances" To="SpotInstance" />
+        <Map From="SpotInstanceRequests" To="SpotInstanceRequest" />
+        <Map From="Subnets" To="Subnet" />
+        <Map From="Tags" To="Tag" />
+        <Map From="Volumes" To="Volume" />
+        <Map From="Vpcs" To="Vpc" />
+        <Map From="VpnConnections" To="VpnConnection" />
+        <Map From="VpnGateways" To="VpnGateway" />
+    </NounMappings>
+    <Params>
+        <Param Name="DryRun" NewName="" AutoRename="true" Exclude="true" AutoApplyAlias="true" Alias="" />
+    </Params>
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Stop-EC2Instance">EC2-StopInstance</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters>
+        <ParamEmitter ParamType="System.Collections.Generic.List`1&lt;System.String&gt;" ParamName="InstanceIds" EmitterType="Generators.ParamEmitters.AmazonEC2.InstanceIdsParamEmitter" Exclude="" />
+    </ParamEmitters>
+    <MetadataProperties>
+        <Property>SpotFleetRequestId</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties>
+        <Property>InstanceId</Property>
+        <Property>ImageId</Property>
+        <Property>VolumeId</Property>
+        <Property>SnapshotId</Property>
+        <Property>ReservationId</Property>
+        <Property>ReservedInstancesId</Property>
+        <Property>ReservedInstancesListingId</Property>
+        <Property>ReservedInstancesOfferingId</Property>
+        <Property>VpnGatewayId</Property>
+        <Property>VpnConnectionId</Property>
+        <Property>VpcId</Property>
+        <Property>SubnetId</Property>
+        <Property>GroupId</Property>
+        <Property>ScheduledInstanceId</Property>
+        <Property>RouteTableId</Property>
+        <Property>DestinationCidrBlock</Property>
+        <Property>GatewayId</Property>
+        <Property>InternetGatewayId</Property>
+        <Property>CustomerGatewayId</Property>
+        <Property>NetworkInterfaceId</Property>
+        <Property>NetworkAclId</Property>
+        <Property>ResourceId</Property>
+        <Property>ZoneName</Property>
+        <Property>DhcpOptionsId</Property>
+        <Property>SpotInstanceRequestId</Property>
+        <Property>AvailabilityZone</Property>
+        <Property>AssociationId</Property>
+        <Property>BundleId</Property>
+        <Property>ConversionTaskId</Property>
+        <Property>SpotInstanceRequestId</Property>
+        <Property>KeyName</Property>
+        <Property>ImportTaskId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AcceptReservedInstancesExchangeQuote" Output="Default" SkipOutputComputationCheck="false" Verb="Confirm" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AllocateAddress" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssignPrivateIpAddresses" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="SecondaryPrivateIpAddressCount;AllowReassignment;PrivateIpAddresses" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateAddress" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="PublicIp;AllocationId;NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDhcpOptions" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="DhcpOptionsId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateRouteTable" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="SubnetId" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachInternetGateway" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InternetGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachNetworkInterface" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="NetworkInterfaceId;InstanceId;DeviceIndex" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachVolume" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="VolumeId;InstanceId;Device" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachVpnGateway" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="VpnGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeSecurityGroupEgress" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="IpPermissions" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeSecurityGroupIngress" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BundleInstance" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="InstanceBundle" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Storage_S3_Bucket;Storage_S3_Prefix" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelBundleTask" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BundleId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelConversionTask" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelExportTask" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ExportTaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelReservedInstancesListing" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ReservedInstancesListingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSpotInstanceRequests" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SpotInstanceRequestIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmProductInstance" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="ProductCode;InstanceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyImage" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="SourceRegion;Description;Name;ClientToken" PipelineParameter="SourceImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopySnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="SourceRegion;Description" PipelineParameter="SourceSnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCustomerGateway" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="PublicIp;BgpAsn" PipelineParameter="Type" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="PublicIp" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="IpAddress" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDefaultSubnet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AvailabilityZone" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDhcpOptions" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DhcpConfigurations" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFpgaImage" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateFlowLogs" Output="Response" SkipOutputComputationCheck="false" Noun="FlowLog" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LogGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="New-EC2FlowLogs">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateImage" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Name;Description;NoReboot;BlockDeviceMappings" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInstanceExportTask" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="TargetEnvironment;Description" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateInternetGateway" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKeyPair" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="KeyName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkAcl" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkAclEntry" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NetworkAclId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkInterface" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Description;PrivateIpAddress;Groups" PipelineParameter="SubnetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="PrivateIpAddresses" NewName="PrivateIpAddressSet" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Groups" NewName="Group" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GroupId" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlacementGroup" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Strategy" PipelineParameter="GroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReservedInstancesListing" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InstanceCount;PriceSchedules;ClientToken" PipelineParameter="ReservedInstancesId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="PriceSchedules" NewName="PriceSchedule" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="PricingSchedules" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRoute" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRouteTable" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSecurityGroup" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Description;VpcId" PipelineParameter="GroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Description" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GroupDescription" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Description" PipelineParameter="VolumeId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSpotDatafeedSubscription" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Prefix" PipelineParameter="Bucket" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateSubnet" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="CidrBlock;AvailabilityZone" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="Resources" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Resources" NewName="Resource" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ResourceId" />
+            </Params>
+            <PassThru>
+                <Expression>cmdletContext.Tags</Expression>
+                <Documentation>Returns the collection of Tag objects that were created</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVolume" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Size;AvailabilityZone;IOPS;VolumeType;Encrypted" PipelineParameter="SnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpc" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InstanceTenancy" PipelineParameter="CidrBlock" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnConnection" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VpnGatewayId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="CustomerGatewayId;VpnGatewayId;Options_StaticRoutesOnly" PipelineParameter="Type" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Options_StaticRoutesOnly" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StaticRoutesOnly" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnConnectionRoute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="DestinationCidrBlock" PipelineParameter="VpnConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpoint" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpnGateway" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="AvailabilityZone" PipelineParameter="Type" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCustomerGateway" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Customer Gateway" AnonymousAuthentication="Never" PipelineParameter="CustomerGatewayId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDhcpOptions" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DhcpOptionsId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFlowLogs" Output="Default" SkipOutputComputationCheck="false" Noun="FlowLog" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FlowLogIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Remove-EC2FlowLogs">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteInternetGateway" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Internet Gateway" AnonymousAuthentication="Never" PipelineParameter="InternetGatewayId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteKeyPair" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="KeyName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkAcl" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Network ACL" AnonymousAuthentication="Never" PipelineParameter="NetworkAclId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkAclEntry" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="NetworkAclId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Network ACL Entry" AnonymousAuthentication="Never" PositionalParameters="RuleNumber;Egress" PipelineParameter="NetworkAclId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInterface" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Network Interface" AnonymousAuthentication="Never" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlacementGroup" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Placement Group" AnonymousAuthentication="Never" PipelineParameter="GroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRoute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RouteTableId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="DestinationCidrBlock" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRouteTable" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Route Table" AnonymousAuthentication="Never" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSecurityGroup" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId|GroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Security Group" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSnapshot" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSpotDatafeedSubscription" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="Spot Datafeed Subscription" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSubnet" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubnetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Resources" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="Resources" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Resources" NewName="Resource" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ResourceId" />
+            </Params>
+            <PassThru>
+                <Expression>cmdletContext.Tags</Expression>
+                <Documentation>Returns the collection of Tag objects that were deleted</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVolume" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VolumeId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpc" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnConnection" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="VPN Connection" AnonymousAuthentication="Never" PipelineParameter="VpnConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnConnectionRoute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VpnConnectionId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="VPN Connection Route" AnonymousAuthentication="Never" PositionalParameters="DestinationCidrBlock" PipelineParameter="VpnConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpoints" Output="Default" SkipOutputComputationCheck="false" Noun="VpcEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcEndpointIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpnGateway" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="VPN Gateway" AnonymousAuthentication="Never" PipelineParameter="VpnGatewayId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterImage" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" Output="Default" SkipOutputComputationCheck="false" Noun="AccountAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AttributeNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EC2AccountAttributes">
+            <Params>
+                <Param Name="AttributeNames" NewName="AttributeName" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="AccountAttributeNames" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAddresses" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="AllocationIds;Filters" PipelineParameter="PublicIps" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAvailabilityZones" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="ZoneNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBundleTasks" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="BundleIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConversionTasks" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCustomerGateways" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="CustomerGatewayIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDhcpOptions" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="DhcpOptionsIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportTasks" Output="Default" SkipOutputComputationCheck="false" Noun="ExportTask" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ExportTaskIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EC2ExportTasks">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFlowLogs" Output="Default" SkipOutputComputationCheck="false" Noun="FlowLog" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FlowLogIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EC2FlowLogs">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityIdFormat" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Resource" PipelineParameter="PrincipalArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImageAttribute" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="ImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImages" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Owners;ExecutableUsers;Filters" PipelineParameter="ImageIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ExecutableUsers" NewName="ExecutableUser" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ExecutableBy" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceAttribute" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceStatus" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInternetGateways" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="InternetGatewayIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKeyPairs" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="KeyNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMovingAddresses" Output="Default" SkipOutputComputationCheck="false" Noun="MovingAddress" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="PublicIps" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkAcls" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="NetworkAclIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInterfaceAttribute" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInterfaces" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="NetworkInterfaceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePlacementGroups" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="GroupNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePrefixLists" Output="Default" SkipOutputComputationCheck="false" Noun="PrefixList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="PrefixListIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRegions" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="RegionNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters;OfferingType" PipelineParameter="ReservedInstancesIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstancesListings" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="ReservedInstancesId;Filters" PipelineParameter="ReservedInstancesListingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstancesModifications" Output="Default" SkipOutputComputationCheck="false" Noun="ReservedInstancesModification" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EC2ReservedInstancesModifications">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedInstancesOfferings" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InstanceType;AvailabilityZone" PipelineParameter="ReservedInstancesOfferingIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ReservedInstancesOfferingIds" NewName="ReservedInstancesOfferingId" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ReservedInstancesId" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRouteTables" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="RouteTableIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityGroups" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="GroupIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSecurityGroupReferences" Output="Default" SkipOutputComputationCheck="false" Noun="SecurityGroupReference" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshotAttribute" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="SnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSnapshots" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="OwnerIds;RestorableByUserIds;Filters" PipelineParameter="SnapshotIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotDatafeedSubscription" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotInstanceRequests" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="SpotInstanceRequestIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotPriceHistory" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStaleSecurityGroups" Output="Default" SkipOutputComputationCheck="false" Noun="StaleSecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSubnets" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="SubnetIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumeAttribute" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="VolumeId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumes" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumesModifications" Output="Default" SkipOutputComputationCheck="false" Noun="VolumeModification" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVolumeStatus" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VolumeIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcAttribute" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpoints" Output="Default" SkipOutputComputationCheck="false" Noun="VpcEndpoint" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VpcEndpointIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointServices" Output="Response" SkipOutputComputationCheck="false" Noun="VpcEndpointService" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcs" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VpcIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpnConnections" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VpnConnectionIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpnGateways" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VpnGatewayIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachInternetGateway" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InternetGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachNetworkInterface" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AttachmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Force" NewName="ForceDismount" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachVolume" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="VolumeId;InstanceId;Device" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Force" NewName="ForceDismount" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachVpnGateway" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="VpnGatewayId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableVgwRoutePropagation" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="GatewayId" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateAddress" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="AssociationId" PipelineParameter="PublicIp" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateRouteTable" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVgwRoutePropagation" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="GatewayId" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVolumeIO" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VolumeId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConsoleOutput" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConsoleScreenshot" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPasswordData" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReservedInstancesExchangeQuote" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ReservedInstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportInstance" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportKeyPair" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="PublicKeyMaterial" PipelineParameter="KeyName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportVolume" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelImportTask" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ImportTaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImportImageTasks" Output="Default" SkipOutputComputationCheck="false" Noun="ImportImageTask" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeImportSnapshotTasks" Output="Default" SkipOutputComputationCheck="false" Noun="ImportSnapshotTask" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ImportTaskIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportImage" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportSnapshot" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="DiskContainer_UserBucket_S3Bucket" NewName="DiskContainer_S3Bucket" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="DiskContainer_UserBucket_S3Key" NewName="DiskContainer_S3Key" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelSpotFleetRequests" Output="Response" SkipOutputComputationCheck="false" Noun="SpotFleetRequest" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SpotFleetRequestIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotFleetInstances" Output="Default" SkipOutputComputationCheck="false" Noun="SpotFleetInstance" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotFleetRequestHistory" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSpotFleetRequests" Output="Default" SkipOutputComputationCheck="false" Noun="SpotFleetRequest" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SpotFleetRequestId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestSpotFleet" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SpotFleetRequestConfig_SpotPrice" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySpotFleetRequest" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIdentityIdFormat" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Resource" PipelineParameter="PrincipalArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyImageAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Groups" NewName="Group" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GroupId" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyNetworkInterfaceAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Groups" NewName="Group" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GroupId" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReservedInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySubnetAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="MapPublicIpOnLaunch" PipelineParameter="SubnetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifySnapshotAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="GroupNames" NewName="GroupName" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="UserGroup" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVolume" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VolumeId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVolumeAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="AutoEnableIO" PipelineParameter="VolumeId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcAttribute" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcPeeringConnectionOptions" Output="Response" SkipOutputComputationCheck="false" Noun="VpcPeeringConnectionOption" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpoint" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcEndpointId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MonitorInstances" Output="Default" SkipOutputComputationCheck="false" Verb="Start" Noun="InstanceMonitoring" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="MoveAddressToVpc" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PublicIp" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedInstancesOffering" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="ReservedInstance" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InstanceCount;LimitPrice_Amount;LimitPrice_CurrencyCode" PipelineParameter="ReservedInstancesOfferingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootInstances" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterImage" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ImageLocation" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Name;Description" PipelineParameter="ImageLocation" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseAddress" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PublicIp" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="AllocationId" PipelineParameter="PublicIp" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceNetworkAclAssociation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="NetworkAclId" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceNetworkAclEntry" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NetworkAclId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="IcmpTypeCode_Code" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Icmp_Code" />
+                <Param Name="IcmpTypeCode_Type" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Icmp_Type" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceRoute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="DestinationCidrBlock;GatewayId;InstanceId;NetworkInterfaceId" PipelineParameter="RouteTableId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceRouteTableAssociation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="RouteTableId" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReportInstanceStatus" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Status;StartTime;EndTime;ReasonCodes;Description" PipelineParameter="Instances" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Instances" NewName="Instance" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="InstanceId" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestSpotInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SpotPrice" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetImageAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="ImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetInstanceAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetNetworkInterfaceAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetSnapshotAttribute" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="SnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreAddressToClassic" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PublicIp" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeSecurityGroupEgress" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="IpPermissions" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeSecurityGroupIngress" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GroupId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="InstanceIds" NewName="InstanceId" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Instance" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateInstances" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnassignPrivateIpAddresses" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="PrivateIpAddresses" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.PrivateIpAddresses</Expression>
+                <Documentation>Returns the secondary private IP addresses</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnmonitorInstances" Output="Default" SkipOutputComputationCheck="false" Verb="Stop" Noun="InstanceMonitoring" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsEgress" Output="Default" SkipOutputComputationCheck="false" Noun="SecurityGroupRuleEgressDescription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateSecurityGroupRuleDescriptionsIngress" Output="Default" SkipOutputComputationCheck="false" Noun="SecurityGroupRuleIngressDescription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcPeeringConnections" Output="Default" SkipOutputComputationCheck="false" Noun="VpcPeeringConnection" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="VpcPeeringConnectionIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EC2VpcPeeringConnections">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcPeeringConnection" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="PeerVpcId;PeerOwnerId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptVpcPeeringConnection" Output="Default" SkipOutputComputationCheck="false" Verb="Approve" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectVpcPeeringConnection" Output="Void" SkipOutputComputationCheck="false" Verb="Deny" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcPeeringConnection" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcPeeringConnectionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachClassicLinkVpc" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InstanceId;Groups" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeClassicLinkInstances" Output="Default" SkipOutputComputationCheck="false" Noun="ClassicLinkInstance" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcClassicLink" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachClassicLinkVpc" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="InstanceId" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableVpcClassicLink" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVpcClassicLink" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableVpcClassicLinkDnsSupport" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableVpcClassicLinkDnsSupport" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcClassicLinkDnsSupport" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AllocateHosts" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="Host" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceType" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="New-EC2Hosts">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHosts" Output="Default" SkipOutputComputationCheck="false" Noun="Host" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="Filters" PipelineParameter="HostIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EC2Hosts">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyHosts" Output="Response" SkipOutputComputationCheck="false" Noun="Host" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PositionalParameters="AutoPlacement" PipelineParameter="HostIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Edit-EC2Hosts">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstancePlacement" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReleaseHosts" Output="Response" SkipOutputComputationCheck="false" Noun="Host" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="HostIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="ReleaseHosts">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdFormat" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyIdFormat" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Resource" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNatGateway" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubnetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNatGateways" Output="Default" SkipOutputComputationCheck="false" Noun="NatGateway" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NatGatewayIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNatGateway" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NatGatewayId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RunScheduledInstances" Output="Default" SkipOutputComputationCheck="false" Noun="ScheduledInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScheduledInstanceId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LaunchSpecification" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseScheduledInstances" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="ScheduledInstancePurchase" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PurchaseRequests" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledInstanceAvailability" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledInstances" Output="Default" SkipOutputComputationCheck="false" Noun="ScheduledInstance" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseHostReservation" Output="Response" SkipOutputComputationCheck="false" Verb="New" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetHostReservationPurchasePreview" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHostReservationOfferings" Output="Default" SkipOutputComputationCheck="false" Noun="HostReservationOffering" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="OfferingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHostReservations" Output="Default" SkipOutputComputationCheck="false" Noun="HostReservation" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnassignIpv6Addresses" Output="Response" SkipOutputComputationCheck="false" Noun="Ipv6AddressList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateSubnetCidrBlock" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateVpcCidrBlock" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEgressOnlyInternetGateways" Output="Default" SkipOutputComputationCheck="false" Noun="EgressOnlyInternetGatewayList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEgressOnlyInternetGateway" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEgressOnlyInternetGateway" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssignIpv6Addresses" Output="Response" SkipOutputComputationCheck="false" Noun="Ipv6AddressList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSubnetCidrBlock" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SubnetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateVpcCidrBlock" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReplaceIamInstanceProfileAssociation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AssociationId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateIamInstanceProfile" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIamInstanceProfileAssociations" Output="Default" SkipOutputComputationCheck="false" Noun="IamInstanceProfileAssociation" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateIamInstanceProfile" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeElasticGpus" Output="Default" SkipOutputComputationCheck="false" Noun="ElasticGpu" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFpgaImages" Output="Default" SkipOutputComputationCheck="false" Noun="FpgaImage" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetFpgaImageAttribute" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Attribute" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyFpgaImageAttribute" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Attribute" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Attribute" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFpgaImageAttribute" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Attribute" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteFpgaImage" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="FpgaImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyFpgaImage" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SourceFpgaImageId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNetworkInterfacePermissions" Output="Default" SkipOutputComputationCheck="false" Noun="NetworkInterfacePermission" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNetworkInterfacePermission" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Force" NewName="IgnoreAttachedStatus" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNetworkInterfacePermission" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="NetworkInterfaceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDefaultVpc" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcTenancy" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="VpcId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLaunchTemplate" Output="Default" SkipOutputComputationCheck="false" Verb="Edit" Noun="LaunchTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointConnectionNotification" Output="Default" SkipOutputComputationCheck="false" Verb="Edit" Noun="VpcEndpointConnectionNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionNotificationId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointServiceConfiguration" Output="Default" SkipOutputComputationCheck="false" Verb="Edit" Noun="VpcEndpointServiceConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServiceId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyVpcEndpointServicePermissions" Output="Default" SkipOutputComputationCheck="false" Verb="Edit" Noun="EndpointServicePermission" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RejectVpcEndpointConnections" Output="Default" SkipOutputComputationCheck="false" Verb="Deny" Noun="EndpointConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServiceId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLaunchTemplateData" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="LaunchTemplateData" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyInstanceCreditSpecification" Output="Response" SkipOutputComputationCheck="false" Verb="Edit" Noun="InstanceCreditSpecification" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointConnectionNotifications" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="EndpointConnectionNotification" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointConnections" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="EndpointConnection" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointServiceConfigurations" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="EndpointServiceConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVpcEndpointServicePermissions" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="EndpointServicePermission" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceCreditSpecifications" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="CreditSpecification" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchTemplates" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="Template" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchTemplateVersions" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="TemplateVersion" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpointConnectionNotifications" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="EndpointConnectionNotification" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ConnectionNotificationIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVpcEndpointServiceConfigurations" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="EndpointServiceConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ServiceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpointConnectionNotification" Output="Response" SkipOutputComputationCheck="false" Verb="New" Noun="VpcEndpointConnectionNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ConnectionNotificationArn" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateVpcEndpointServiceConfiguration" Output="Response" SkipOutputComputationCheck="false" Verb="New" Noun="VpcEndpointServiceConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchTemplate" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="LaunchTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchTemplateVersions" Output="Response" SkipOutputComputationCheck="false" Verb="Remove" Noun="TemplateVersion" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchTemplate" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="LaunchTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LaunchTemplateName" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchTemplateVersion" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="LaunchTemplateVersion" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="true" ShouldProcessTarget="LaunchTemplateName" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AcceptVpcEndpointConnections" Output="Default" SkipOutputComputationCheck="false" Verb="Confirm" Noun="EndpointConnection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServiceId" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.EC2.Model.RequestLaunchTemplateData</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

@@ -50,6 +50,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String Content { get; set; }
         #endregion
         
+        #region Parameter DocumentFormat
+        /// <summary>
+        /// <para>
+        /// <para>Specify the document format for the new document version. Systems Manager supports
+        /// JSON and YAML documents. JSON is the default format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.DocumentFormat")]
+        public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
+        #endregion
+        
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
@@ -68,6 +80,16 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter TargetType
+        /// <summary>
+        /// <para>
+        /// <para>Specify a new target type for the document.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TargetType { get; set; }
         #endregion
         
         #region Parameter Force
@@ -100,8 +122,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.Content = this.Content;
+            context.DocumentFormat = this.DocumentFormat;
             context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
+            context.TargetType = this.TargetType;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -122,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.Content = cmdletContext.Content;
             }
+            if (cmdletContext.DocumentFormat != null)
+            {
+                request.DocumentFormat = cmdletContext.DocumentFormat;
+            }
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
@@ -129,6 +157,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            if (cmdletContext.TargetType != null)
+            {
+                request.TargetType = cmdletContext.TargetType;
             }
             
             CmdletOutput output;
@@ -195,8 +227,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Content { get; set; }
+            public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }
+            public System.String TargetType { get; set; }
         }
         
     }

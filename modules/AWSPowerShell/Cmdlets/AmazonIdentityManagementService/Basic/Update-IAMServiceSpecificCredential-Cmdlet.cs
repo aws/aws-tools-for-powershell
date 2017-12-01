@@ -75,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// no spaces. You can also include any of the following characters: =,.@-</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String UserName { get; set; }
         #endregion
         

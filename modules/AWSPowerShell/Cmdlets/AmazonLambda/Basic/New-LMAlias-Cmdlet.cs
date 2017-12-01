@@ -47,6 +47,18 @@ namespace Amazon.PowerShell.Cmdlets.LM
     public partial class NewLMAliasCmdlet : AmazonLambdaClientCmdlet, IExecutor
     {
         
+        #region Parameter RoutingConfig_AdditionalVersionWeight
+        /// <summary>
+        /// <para>
+        /// <para>Set this property value to dictate what percentage of traffic will invoke the updated
+        /// function version. If set to an empty string, 100 percent of traffic will invoke <code>function-version</code>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("RoutingConfig_AdditionalVersionWeights")]
+        public System.Collections.Hashtable RoutingConfig_AdditionalVersionWeight { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
@@ -122,6 +134,14 @@ namespace Amazon.PowerShell.Cmdlets.LM
             context.FunctionName = this.FunctionName;
             context.FunctionVersion = this.FunctionVersion;
             context.Name = this.Name;
+            if (this.RoutingConfig_AdditionalVersionWeight != null)
+            {
+                context.RoutingConfig_AdditionalVersionWeights = new Dictionary<System.String, System.Double>(StringComparer.Ordinal);
+                foreach (var hashKey in this.RoutingConfig_AdditionalVersionWeight.Keys)
+                {
+                    context.RoutingConfig_AdditionalVersionWeights.Add((String)hashKey, (Double)(this.RoutingConfig_AdditionalVersionWeight[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -153,6 +173,25 @@ namespace Amazon.PowerShell.Cmdlets.LM
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
+            }
+            
+             // populate RoutingConfig
+            bool requestRoutingConfigIsNull = true;
+            request.RoutingConfig = new Amazon.Lambda.Model.AliasRoutingConfiguration();
+            Dictionary<System.String, System.Double> requestRoutingConfig_routingConfig_AdditionalVersionWeight = null;
+            if (cmdletContext.RoutingConfig_AdditionalVersionWeights != null)
+            {
+                requestRoutingConfig_routingConfig_AdditionalVersionWeight = cmdletContext.RoutingConfig_AdditionalVersionWeights;
+            }
+            if (requestRoutingConfig_routingConfig_AdditionalVersionWeight != null)
+            {
+                request.RoutingConfig.AdditionalVersionWeights = requestRoutingConfig_routingConfig_AdditionalVersionWeight;
+                requestRoutingConfigIsNull = false;
+            }
+             // determine if request.RoutingConfig should be set to null
+            if (requestRoutingConfigIsNull)
+            {
+                request.RoutingConfig = null;
             }
             
             CmdletOutput output;
@@ -222,6 +261,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
             public System.String FunctionName { get; set; }
             public System.String FunctionVersion { get; set; }
             public System.String Name { get; set; }
+            public Dictionary<System.String, System.Double> RoutingConfig_AdditionalVersionWeights { get; set; }
         }
         
     }

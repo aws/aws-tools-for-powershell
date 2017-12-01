@@ -40,6 +40,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class ConfirmCGIPUserRegistrationCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter AnalyticsMetadata_AnalyticsEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
+        #endregion
+        
         #region Parameter ClientId
         /// <summary>
         /// <para>
@@ -58,6 +68,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String ConfirmationCode { get; set; }
+        #endregion
+        
+        #region Parameter UserContextData_EncodedData
+        /// <summary>
+        /// <para>
+        /// <para>Contextual data such as the user's device fingerprint, IP address, or location used
+        /// for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String UserContextData_EncodedData { get; set; }
         #endregion
         
         #region Parameter ForceAliasCreation
@@ -110,7 +131,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientId", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Username", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Confirm-CGIPUserRegistration (ConfirmSignUp)"))
             {
                 return;
@@ -124,11 +145,13 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AnalyticsMetadata_AnalyticsEndpointId = this.AnalyticsMetadata_AnalyticsEndpointId;
             context.ClientId = this.ClientId;
             context.ConfirmationCode = this.ConfirmationCode;
             if (ParameterWasBound("ForceAliasCreation"))
                 context.ForceAliasCreation = this.ForceAliasCreation;
             context.SecretHash = this.SecretHash;
+            context.UserContextData_EncodedData = this.UserContextData_EncodedData;
             context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
@@ -146,6 +169,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.ConfirmSignUpRequest();
             
+            
+             // populate AnalyticsMetadata
+            bool requestAnalyticsMetadataIsNull = true;
+            request.AnalyticsMetadata = new Amazon.CognitoIdentityProvider.Model.AnalyticsMetadataType();
+            System.String requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = null;
+            if (cmdletContext.AnalyticsMetadata_AnalyticsEndpointId != null)
+            {
+                requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = cmdletContext.AnalyticsMetadata_AnalyticsEndpointId;
+            }
+            if (requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId != null)
+            {
+                request.AnalyticsMetadata.AnalyticsEndpointId = requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId;
+                requestAnalyticsMetadataIsNull = false;
+            }
+             // determine if request.AnalyticsMetadata should be set to null
+            if (requestAnalyticsMetadataIsNull)
+            {
+                request.AnalyticsMetadata = null;
+            }
             if (cmdletContext.ClientId != null)
             {
                 request.ClientId = cmdletContext.ClientId;
@@ -161,6 +203,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.SecretHash != null)
             {
                 request.SecretHash = cmdletContext.SecretHash;
+            }
+            
+             // populate UserContextData
+            bool requestUserContextDataIsNull = true;
+            request.UserContextData = new Amazon.CognitoIdentityProvider.Model.UserContextDataType();
+            System.String requestUserContextData_userContextData_EncodedData = null;
+            if (cmdletContext.UserContextData_EncodedData != null)
+            {
+                requestUserContextData_userContextData_EncodedData = cmdletContext.UserContextData_EncodedData;
+            }
+            if (requestUserContextData_userContextData_EncodedData != null)
+            {
+                request.UserContextData.EncodedData = requestUserContextData_userContextData_EncodedData;
+                requestUserContextDataIsNull = false;
+            }
+             // determine if request.UserContextData should be set to null
+            if (requestUserContextDataIsNull)
+            {
+                request.UserContextData = null;
             }
             if (cmdletContext.Username != null)
             {
@@ -230,10 +291,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
             public System.String ClientId { get; set; }
             public System.String ConfirmationCode { get; set; }
             public System.Boolean? ForceAliasCreation { get; set; }
             public System.String SecretHash { get; set; }
+            public System.String UserContextData_EncodedData { get; set; }
             public System.String Username { get; set; }
         }
         

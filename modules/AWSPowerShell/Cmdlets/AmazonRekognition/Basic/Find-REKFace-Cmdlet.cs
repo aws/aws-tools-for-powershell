@@ -48,7 +48,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><note><para>
     /// This is a stateless API operation. That is, the operation does not persist any data.
     /// </para></note><para>
-    /// For an example, see <a>get-started-exercise-detect-faces</a>.
+    /// For an example, see <a>procedure-detecting-faces-in-images</a>.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:DetectFaces</code>
     /// action. 

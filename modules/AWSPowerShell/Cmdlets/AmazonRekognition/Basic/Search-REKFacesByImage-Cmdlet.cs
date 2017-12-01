@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// also returns the bounding box (and a confidence level that the bounding box contains
     /// a face) of the face that Amazon Rekognition used for the input image. 
     /// </para><para>
-    /// For an example, see <a>example3</a>.
+    /// For an example, see <a>search-face-with-image-procedure</a>.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:SearchFacesByImage</code>
     /// action.

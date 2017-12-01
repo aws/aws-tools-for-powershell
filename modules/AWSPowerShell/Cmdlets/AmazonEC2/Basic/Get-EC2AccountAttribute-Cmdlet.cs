@@ -80,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.AttributeName != null)
             {
-                context.AttributeNames = new List<System.String>(this.AttributeName);
+                context.AttributeName = new List<System.String>(this.AttributeName);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -98,9 +98,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.DescribeAccountAttributesRequest();
             
-            if (cmdletContext.AttributeNames != null)
+            if (cmdletContext.AttributeName != null)
             {
-                request.AttributeNames = cmdletContext.AttributeNames;
+                request.AttributeNames = cmdletContext.AttributeName;
             }
             
             CmdletOutput output;
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> AttributeNames { get; set; }
+            public List<System.String> AttributeName { get; set; }
         }
         
     }

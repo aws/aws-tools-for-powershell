@@ -64,8 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>The <code>nextToken</code> value returned from a previous paginated <code>ListClusters</code>
         /// request where <code>maxResults</code> was used and the results exceeded the value
         /// of that parameter. Pagination continues from the end of the previous results that
-        /// returned the <code>nextToken</code> value. This value is <code>null</code> when there
-        /// are no more results to return.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
+        /// returned the <code>nextToken</code> value.</para><note><para>This token should be treated as an opaque identifier that is only used to retrieve
         /// the next items in a list and not for other programmatic purposes.</para></note>
         /// </para>
         /// <para>

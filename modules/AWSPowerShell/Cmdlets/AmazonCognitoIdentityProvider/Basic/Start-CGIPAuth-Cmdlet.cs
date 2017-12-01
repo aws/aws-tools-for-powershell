@@ -39,6 +39,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class StartCGIPAuthCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter AnalyticsMetadata_AnalyticsEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
+        #endregion
+        
         #region Parameter AuthFlow
         /// <summary>
         /// <para>
@@ -94,6 +104,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Collections.Hashtable ClientMetadata { get; set; }
         #endregion
         
+        #region Parameter UserContextData_EncodedData
+        /// <summary>
+        /// <para>
+        /// <para>Contextual data such as the user's device fingerprint, IP address, or location used
+        /// for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String UserContextData_EncodedData { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -123,6 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AnalyticsMetadata_AnalyticsEndpointId = this.AnalyticsMetadata_AnalyticsEndpointId;
             context.AuthFlow = this.AuthFlow;
             if (this.AuthParameter != null)
             {
@@ -141,6 +163,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                     context.ClientMetadata.Add((String)hashKey, (String)(this.ClientMetadata[hashKey]));
                 }
             }
+            context.UserContextData_EncodedData = this.UserContextData_EncodedData;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -157,6 +180,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.InitiateAuthRequest();
             
+            
+             // populate AnalyticsMetadata
+            bool requestAnalyticsMetadataIsNull = true;
+            request.AnalyticsMetadata = new Amazon.CognitoIdentityProvider.Model.AnalyticsMetadataType();
+            System.String requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = null;
+            if (cmdletContext.AnalyticsMetadata_AnalyticsEndpointId != null)
+            {
+                requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = cmdletContext.AnalyticsMetadata_AnalyticsEndpointId;
+            }
+            if (requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId != null)
+            {
+                request.AnalyticsMetadata.AnalyticsEndpointId = requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId;
+                requestAnalyticsMetadataIsNull = false;
+            }
+             // determine if request.AnalyticsMetadata should be set to null
+            if (requestAnalyticsMetadataIsNull)
+            {
+                request.AnalyticsMetadata = null;
+            }
             if (cmdletContext.AuthFlow != null)
             {
                 request.AuthFlow = cmdletContext.AuthFlow;
@@ -172,6 +214,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.ClientMetadata != null)
             {
                 request.ClientMetadata = cmdletContext.ClientMetadata;
+            }
+            
+             // populate UserContextData
+            bool requestUserContextDataIsNull = true;
+            request.UserContextData = new Amazon.CognitoIdentityProvider.Model.UserContextDataType();
+            System.String requestUserContextData_userContextData_EncodedData = null;
+            if (cmdletContext.UserContextData_EncodedData != null)
+            {
+                requestUserContextData_userContextData_EncodedData = cmdletContext.UserContextData_EncodedData;
+            }
+            if (requestUserContextData_userContextData_EncodedData != null)
+            {
+                request.UserContextData.EncodedData = requestUserContextData_userContextData_EncodedData;
+                requestUserContextDataIsNull = false;
+            }
+             // determine if request.UserContextData should be set to null
+            if (requestUserContextDataIsNull)
+            {
+                request.UserContextData = null;
             }
             
             CmdletOutput output;
@@ -237,10 +298,12 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
             public Amazon.CognitoIdentityProvider.AuthFlowType AuthFlow { get; set; }
             public Dictionary<System.String, System.String> AuthParameters { get; set; }
             public System.String ClientId { get; set; }
             public Dictionary<System.String, System.String> ClientMetadata { get; set; }
+            public System.String UserContextData_EncodedData { get; set; }
         }
         
     }

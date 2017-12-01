@@ -53,7 +53,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group. This name must be unique within the scope of your AWS account.</para>
+        /// <para>The name of the Auto Scaling group. This name must be unique within the scope of your
+        /// AWS account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -126,8 +127,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter InstanceId
         /// <summary>
         /// <para>
-        /// <para>The ID of the instance used to create a launch configuration for the group. Alternatively,
-        /// specify a launch configuration instead of an EC2 instance.</para><para>When you specify an ID of an instance, Auto Scaling creates a new launch configuration
+        /// <para>The ID of the instance used to create a launch configuration for the group. You must
+        /// specify one of the following: an EC2 instance, a launch configuration, or a launch
+        /// template.</para><para>When you specify an ID of an instance, Auto Scaling creates a new launch configuration
         /// and associates it with the group. This launch configuration derives its attributes
         /// from the specified instance, with the exception of the block device mapping.</para><para>For more information, see <a href="http://docs.aws.amazon.com/autoscaling/latest/userguide/create-asg-from-instance.html">Create
         /// an Auto Scaling Group Using an EC2 Instance</a> in the <i>Auto Scaling User Guide</i>.</para>
@@ -140,12 +142,34 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter LaunchConfigurationName
         /// <summary>
         /// <para>
-        /// <para>The name of the launch configuration. Alternatively, specify an EC2 instance instead
-        /// of a launch configuration.</para>
+        /// <para>The name of the launch configuration. You must specify one of the following: a launch
+        /// configuration, a launch template, or an EC2 instance.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String LaunchConfigurationName { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_LaunchTemplateId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the launch template. You must specify either a template ID or a template
+        /// name.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LaunchTemplate_LaunchTemplateId { get; set; }
+        #endregion
+        
+        #region Parameter LaunchTemplate_LaunchTemplateName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the launch template. You must specify either a template name or a template
+        /// ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LaunchTemplate_LaunchTemplateName { get; set; }
         #endregion
         
         #region Parameter LifecycleHookSpecificationList
@@ -250,6 +274,16 @@ namespace Amazon.PowerShell.Cmdlets.AS
         public System.String[] TerminationPolicy { get; set; }
         #endregion
         
+        #region Parameter LaunchTemplate_Version
+        /// <summary>
+        /// <para>
+        /// <para>The version number. By default, the default version of the launch template is used.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LaunchTemplate_Version { get; set; }
+        #endregion
+        
         #region Parameter VPCZoneIdentifier
         /// <summary>
         /// <para>
@@ -314,6 +348,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             context.HealthCheckType = this.HealthCheckType;
             context.InstanceId = this.InstanceId;
             context.LaunchConfigurationName = this.LaunchConfigurationName;
+            context.LaunchTemplate_LaunchTemplateId = this.LaunchTemplate_LaunchTemplateId;
+            context.LaunchTemplate_LaunchTemplateName = this.LaunchTemplate_LaunchTemplateName;
+            context.LaunchTemplate_Version = this.LaunchTemplate_Version;
             if (this.LifecycleHookSpecificationList != null)
             {
                 context.LifecycleHookSpecificationList = new List<Amazon.AutoScaling.Model.LifecycleHookSpecification>(this.LifecycleHookSpecificationList);
@@ -389,6 +426,45 @@ namespace Amazon.PowerShell.Cmdlets.AS
             if (cmdletContext.LaunchConfigurationName != null)
             {
                 request.LaunchConfigurationName = cmdletContext.LaunchConfigurationName;
+            }
+            
+             // populate LaunchTemplate
+            bool requestLaunchTemplateIsNull = true;
+            request.LaunchTemplate = new Amazon.AutoScaling.Model.LaunchTemplateSpecification();
+            System.String requestLaunchTemplate_launchTemplate_LaunchTemplateId = null;
+            if (cmdletContext.LaunchTemplate_LaunchTemplateId != null)
+            {
+                requestLaunchTemplate_launchTemplate_LaunchTemplateId = cmdletContext.LaunchTemplate_LaunchTemplateId;
+            }
+            if (requestLaunchTemplate_launchTemplate_LaunchTemplateId != null)
+            {
+                request.LaunchTemplate.LaunchTemplateId = requestLaunchTemplate_launchTemplate_LaunchTemplateId;
+                requestLaunchTemplateIsNull = false;
+            }
+            System.String requestLaunchTemplate_launchTemplate_LaunchTemplateName = null;
+            if (cmdletContext.LaunchTemplate_LaunchTemplateName != null)
+            {
+                requestLaunchTemplate_launchTemplate_LaunchTemplateName = cmdletContext.LaunchTemplate_LaunchTemplateName;
+            }
+            if (requestLaunchTemplate_launchTemplate_LaunchTemplateName != null)
+            {
+                request.LaunchTemplate.LaunchTemplateName = requestLaunchTemplate_launchTemplate_LaunchTemplateName;
+                requestLaunchTemplateIsNull = false;
+            }
+            System.String requestLaunchTemplate_launchTemplate_Version = null;
+            if (cmdletContext.LaunchTemplate_Version != null)
+            {
+                requestLaunchTemplate_launchTemplate_Version = cmdletContext.LaunchTemplate_Version;
+            }
+            if (requestLaunchTemplate_launchTemplate_Version != null)
+            {
+                request.LaunchTemplate.Version = requestLaunchTemplate_launchTemplate_Version;
+                requestLaunchTemplateIsNull = false;
+            }
+             // determine if request.LaunchTemplate should be set to null
+            if (requestLaunchTemplateIsNull)
+            {
+                request.LaunchTemplate = null;
             }
             if (cmdletContext.LifecycleHookSpecificationList != null)
             {
@@ -504,6 +580,9 @@ namespace Amazon.PowerShell.Cmdlets.AS
             public System.String HealthCheckType { get; set; }
             public System.String InstanceId { get; set; }
             public System.String LaunchConfigurationName { get; set; }
+            public System.String LaunchTemplate_LaunchTemplateId { get; set; }
+            public System.String LaunchTemplate_LaunchTemplateName { get; set; }
+            public System.String LaunchTemplate_Version { get; set; }
             public List<Amazon.AutoScaling.Model.LifecycleHookSpecification> LifecycleHookSpecificationList { get; set; }
             public List<System.String> LoadBalancerNames { get; set; }
             public System.Int32? MaxSize { get; set; }

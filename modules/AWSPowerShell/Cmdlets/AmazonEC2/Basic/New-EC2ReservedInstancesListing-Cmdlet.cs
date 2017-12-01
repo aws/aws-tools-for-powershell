@@ -145,7 +145,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.InstanceCount = this.InstanceCount;
             if (this.PriceSchedule != null)
             {
-                context.PriceSchedules = new List<Amazon.EC2.Model.PriceScheduleSpecification>(this.PriceSchedule);
+                context.PriceSchedule = new List<Amazon.EC2.Model.PriceScheduleSpecification>(this.PriceSchedule);
             }
             context.ReservedInstancesId = this.ReservedInstancesId;
             
@@ -172,9 +172,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.InstanceCount = cmdletContext.InstanceCount.Value;
             }
-            if (cmdletContext.PriceSchedules != null)
+            if (cmdletContext.PriceSchedule != null)
             {
-                request.PriceSchedules = cmdletContext.PriceSchedules;
+                request.PriceSchedules = cmdletContext.PriceSchedule;
             }
             if (cmdletContext.ReservedInstancesId != null)
             {
@@ -246,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String ClientToken { get; set; }
             public System.Int32? InstanceCount { get; set; }
-            public List<Amazon.EC2.Model.PriceScheduleSpecification> PriceSchedules { get; set; }
+            public List<Amazon.EC2.Model.PriceScheduleSpecification> PriceSchedule { get; set; }
             public System.String ReservedInstancesId { get; set; }
         }
         

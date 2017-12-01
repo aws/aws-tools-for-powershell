@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Deletes a VPC peering connection. Either the owner of the requester VPC or the owner
-    /// of the peer VPC can delete the VPC peering connection if it's in the <code>active</code>
+    /// of the accepter VPC can delete the VPC peering connection if it's in the <code>active</code>
     /// state. The owner of the requester VPC can delete a VPC peering connection in the <code>pending-acceptance</code>
     /// state.
     /// </summary>

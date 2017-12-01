@@ -278,7 +278,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EnaSupport = this.EnaSupport;
             if (this.Group != null)
             {
-                context.Groups = new List<System.String>(this.Group);
+                context.Group = new List<System.String>(this.Group);
             }
             context.InstanceId = this.InstanceId;
             context.InstanceInitiatedShutdownBehavior = this.InstanceInitiatedShutdownBehavior;
@@ -326,9 +326,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.EnaSupport = cmdletContext.EnaSupport.Value;
             }
-            if (cmdletContext.Groups != null)
+            if (cmdletContext.Group != null)
             {
-                request.Groups = cmdletContext.Groups;
+                request.Groups = cmdletContext.Group;
             }
             if (cmdletContext.InstanceId != null)
             {
@@ -437,7 +437,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.Boolean? DisableApiTermination { get; set; }
             public System.Boolean? EbsOptimized { get; set; }
             public System.Boolean? EnaSupport { get; set; }
-            public List<System.String> Groups { get; set; }
+            public List<System.String> Group { get; set; }
             public System.String InstanceId { get; set; }
             public System.String InstanceInitiatedShutdownBehavior { get; set; }
             public System.String InstanceType { get; set; }

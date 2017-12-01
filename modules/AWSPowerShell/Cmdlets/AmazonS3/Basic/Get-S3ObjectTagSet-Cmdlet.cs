@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.S3
         /// The name of the bucket containing the object tagging.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String BucketName { get; set; }
         #endregion
         

@@ -28,9 +28,9 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// A feature of the Amazon API Gateway control service for updating an existing API with
-    /// an input of external API definitions. The update can take the form of merging the
-    /// supplied definition into the existing API or overwriting the existing API.
+    /// A feature of the API Gateway control service for updating an existing API with an
+    /// input of external API definitions. The update can take the form of merging the supplied
+    /// definition into the existing API or overwriting the existing API.
     /// </summary>
     [Cmdlet("Write", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.PutRestApiResponse")]

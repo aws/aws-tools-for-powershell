@@ -158,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                 context.EndTime = this.EndTime;
             if (this.Instance != null)
             {
-                context.Instances = new List<System.String>(this.Instance);
+                context.Instance = new List<System.String>(this.Instance);
             }
             if (this.ReasonCode != null)
             {
@@ -191,9 +191,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.EndTime = cmdletContext.EndTime.Value;
             }
-            if (cmdletContext.Instances != null)
+            if (cmdletContext.Instance != null)
             {
-                request.Instances = cmdletContext.Instances;
+                request.Instances = cmdletContext.Instance;
             }
             if (cmdletContext.ReasonCodes != null)
             {
@@ -275,7 +275,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         {
             public System.String Description { get; set; }
             public System.DateTime? EndTime { get; set; }
-            public List<System.String> Instances { get; set; }
+            public List<System.String> Instance { get; set; }
             public List<System.String> ReasonCodes { get; set; }
             public System.DateTime? StartTime { get; set; }
             public Amazon.EC2.ReportStatusType Status { get; set; }

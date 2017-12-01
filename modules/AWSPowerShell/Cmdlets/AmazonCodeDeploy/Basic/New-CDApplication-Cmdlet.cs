@@ -51,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String ApplicationName { get; set; }
         #endregion
         
+        #region Parameter ComputePlatform
+        /// <summary>
+        /// <para>
+        /// <para>The destination platform type for the deployment <code>Lambda</code> or <code>Server</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.ComputePlatform")]
+        public Amazon.CodeDeploy.ComputePlatform ComputePlatform { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -81,6 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
             PreExecutionContextLoad(context);
             
             context.ApplicationName = this.ApplicationName;
+            context.ComputePlatform = this.ComputePlatform;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -100,6 +112,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (cmdletContext.ApplicationName != null)
             {
                 request.ApplicationName = cmdletContext.ApplicationName;
+            }
+            if (cmdletContext.ComputePlatform != null)
+            {
+                request.ComputePlatform = cmdletContext.ComputePlatform;
             }
             
             CmdletOutput output;
@@ -166,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String ApplicationName { get; set; }
+            public Amazon.CodeDeploy.ComputePlatform ComputePlatform { get; set; }
         }
         
     }

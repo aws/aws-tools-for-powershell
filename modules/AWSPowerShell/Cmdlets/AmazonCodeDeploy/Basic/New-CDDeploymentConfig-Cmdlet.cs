@@ -40,6 +40,41 @@ namespace Amazon.PowerShell.Cmdlets.CD
     public partial class NewCDDeploymentConfigCmdlet : AmazonCodeDeployClientCmdlet, IExecutor
     {
         
+        #region Parameter TimeBasedCanary_CanaryInterval
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes between the first and second traffic shifts of a <code>TimeBasedCanary</code>
+        /// deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TrafficRoutingConfig_TimeBasedCanary_CanaryInterval")]
+        public System.Int32 TimeBasedCanary_CanaryInterval { get; set; }
+        #endregion
+        
+        #region Parameter TimeBasedCanary_CanaryPercentage
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of traffic to shift in the first increment of a <code>TimeBasedCanary</code>
+        /// deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TrafficRoutingConfig_TimeBasedCanary_CanaryPercentage")]
+        public System.Int32 TimeBasedCanary_CanaryPercentage { get; set; }
+        #endregion
+        
+        #region Parameter ComputePlatform
+        /// <summary>
+        /// <para>
+        /// <para>The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>&gt;).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.ComputePlatform")]
+        public Amazon.CodeDeploy.ComputePlatform ComputePlatform { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
@@ -48,6 +83,30 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String DeploymentConfigName { get; set; }
+        #endregion
+        
+        #region Parameter TimeBasedLinear_LinearInterval
+        /// <summary>
+        /// <para>
+        /// <para>The number of minutes between each incremental traffic shift of a <code>TimeBasedLinear</code>
+        /// deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TrafficRoutingConfig_TimeBasedLinear_LinearInterval")]
+        public System.Int32 TimeBasedLinear_LinearInterval { get; set; }
+        #endregion
+        
+        #region Parameter TimeBasedLinear_LinearPercentage
+        /// <summary>
+        /// <para>
+        /// <para>The percentage of traffic that is shifted at the start of each increment of a <code>TimeBasedLinear</code>
+        /// deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("TrafficRoutingConfig_TimeBasedLinear_LinearPercentage")]
+        public System.Int32 TimeBasedLinear_LinearPercentage { get; set; }
         #endregion
         
         #region Parameter MinimumHealthyHosts_Type
@@ -73,6 +132,18 @@ namespace Amazon.PowerShell.Cmdlets.CD
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.CodeDeploy.MinimumHealthyHostsType")]
         public Amazon.CodeDeploy.MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
+        #endregion
+        
+        #region Parameter TrafficRoutingConfig_Type
+        /// <summary>
+        /// <para>
+        /// <para>The type of traffic shifting a deployment configuration uses (<code>TimeBasedCanary</code>
+        /// or <code>TimeBasedLinear</code>).</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CodeDeploy.TrafficRoutingType")]
+        public Amazon.CodeDeploy.TrafficRoutingType TrafficRoutingConfig_Type { get; set; }
         #endregion
         
         #region Parameter MinimumHealthyHosts_Value
@@ -114,10 +185,20 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ComputePlatform = this.ComputePlatform;
             context.DeploymentConfigName = this.DeploymentConfigName;
             context.MinimumHealthyHosts_Type = this.MinimumHealthyHosts_Type;
             if (ParameterWasBound("MinimumHealthyHosts_Value"))
                 context.MinimumHealthyHosts_Value = this.MinimumHealthyHosts_Value;
+            if (ParameterWasBound("TimeBasedCanary_CanaryInterval"))
+                context.TrafficRoutingConfig_TimeBasedCanary_CanaryInterval = this.TimeBasedCanary_CanaryInterval;
+            if (ParameterWasBound("TimeBasedCanary_CanaryPercentage"))
+                context.TrafficRoutingConfig_TimeBasedCanary_CanaryPercentage = this.TimeBasedCanary_CanaryPercentage;
+            if (ParameterWasBound("TimeBasedLinear_LinearInterval"))
+                context.TrafficRoutingConfig_TimeBasedLinear_LinearInterval = this.TimeBasedLinear_LinearInterval;
+            if (ParameterWasBound("TimeBasedLinear_LinearPercentage"))
+                context.TrafficRoutingConfig_TimeBasedLinear_LinearPercentage = this.TimeBasedLinear_LinearPercentage;
+            context.TrafficRoutingConfig_Type = this.TrafficRoutingConfig_Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -134,6 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.CD
             // create request
             var request = new Amazon.CodeDeploy.Model.CreateDeploymentConfigRequest();
             
+            if (cmdletContext.ComputePlatform != null)
+            {
+                request.ComputePlatform = cmdletContext.ComputePlatform;
+            }
             if (cmdletContext.DeploymentConfigName != null)
             {
                 request.DeploymentConfigName = cmdletContext.DeploymentConfigName;
@@ -166,6 +251,95 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestMinimumHealthyHostsIsNull)
             {
                 request.MinimumHealthyHosts = null;
+            }
+            
+             // populate TrafficRoutingConfig
+            bool requestTrafficRoutingConfigIsNull = true;
+            request.TrafficRoutingConfig = new Amazon.CodeDeploy.Model.TrafficRoutingConfig();
+            Amazon.CodeDeploy.TrafficRoutingType requestTrafficRoutingConfig_trafficRoutingConfig_Type = null;
+            if (cmdletContext.TrafficRoutingConfig_Type != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_Type = cmdletContext.TrafficRoutingConfig_Type;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_Type != null)
+            {
+                request.TrafficRoutingConfig.Type = requestTrafficRoutingConfig_trafficRoutingConfig_Type;
+                requestTrafficRoutingConfigIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.TimeBasedCanary requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary = null;
+            
+             // populate TimeBasedCanary
+            bool requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanaryIsNull = true;
+            requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary = new Amazon.CodeDeploy.Model.TimeBasedCanary();
+            System.Int32? requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryInterval = null;
+            if (cmdletContext.TrafficRoutingConfig_TimeBasedCanary_CanaryInterval != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryInterval = cmdletContext.TrafficRoutingConfig_TimeBasedCanary_CanaryInterval.Value;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryInterval != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary.CanaryInterval = requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryInterval.Value;
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanaryIsNull = false;
+            }
+            System.Int32? requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryPercentage = null;
+            if (cmdletContext.TrafficRoutingConfig_TimeBasedCanary_CanaryPercentage != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryPercentage = cmdletContext.TrafficRoutingConfig_TimeBasedCanary_CanaryPercentage.Value;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryPercentage != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary.CanaryPercentage = requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary_timeBasedCanary_CanaryPercentage.Value;
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanaryIsNull = false;
+            }
+             // determine if requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary should be set to null
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanaryIsNull)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary = null;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary != null)
+            {
+                request.TrafficRoutingConfig.TimeBasedCanary = requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedCanary;
+                requestTrafficRoutingConfigIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.TimeBasedLinear requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear = null;
+            
+             // populate TimeBasedLinear
+            bool requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinearIsNull = true;
+            requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear = new Amazon.CodeDeploy.Model.TimeBasedLinear();
+            System.Int32? requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearInterval = null;
+            if (cmdletContext.TrafficRoutingConfig_TimeBasedLinear_LinearInterval != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearInterval = cmdletContext.TrafficRoutingConfig_TimeBasedLinear_LinearInterval.Value;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearInterval != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear.LinearInterval = requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearInterval.Value;
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinearIsNull = false;
+            }
+            System.Int32? requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearPercentage = null;
+            if (cmdletContext.TrafficRoutingConfig_TimeBasedLinear_LinearPercentage != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearPercentage = cmdletContext.TrafficRoutingConfig_TimeBasedLinear_LinearPercentage.Value;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearPercentage != null)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear.LinearPercentage = requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear_timeBasedLinear_LinearPercentage.Value;
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinearIsNull = false;
+            }
+             // determine if requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear should be set to null
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinearIsNull)
+            {
+                requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear = null;
+            }
+            if (requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear != null)
+            {
+                request.TrafficRoutingConfig.TimeBasedLinear = requestTrafficRoutingConfig_trafficRoutingConfig_TimeBasedLinear;
+                requestTrafficRoutingConfigIsNull = false;
+            }
+             // determine if request.TrafficRoutingConfig should be set to null
+            if (requestTrafficRoutingConfigIsNull)
+            {
+                request.TrafficRoutingConfig = null;
             }
             
             CmdletOutput output;
@@ -231,9 +405,15 @@ namespace Amazon.PowerShell.Cmdlets.CD
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.CodeDeploy.ComputePlatform ComputePlatform { get; set; }
             public System.String DeploymentConfigName { get; set; }
             public Amazon.CodeDeploy.MinimumHealthyHostsType MinimumHealthyHosts_Type { get; set; }
             public System.Int32? MinimumHealthyHosts_Value { get; set; }
+            public System.Int32? TrafficRoutingConfig_TimeBasedCanary_CanaryInterval { get; set; }
+            public System.Int32? TrafficRoutingConfig_TimeBasedCanary_CanaryPercentage { get; set; }
+            public System.Int32? TrafficRoutingConfig_TimeBasedLinear_LinearInterval { get; set; }
+            public System.Int32? TrafficRoutingConfig_TimeBasedLinear_LinearPercentage { get; set; }
+            public Amazon.CodeDeploy.TrafficRoutingType TrafficRoutingConfig_Type { get; set; }
         }
         
     }

@@ -28,15 +28,24 @@ using Amazon.CognitoIdentityProvider.Model;
 namespace Amazon.PowerShell.Cmdlets.CGIP
 {
     /// <summary>
-    /// Creates a new user in the specified user pool and sends a welcome message via email
-    /// or phone (SMS). This message is based on a template that you configured in your call
-    /// to <a href="API_CreateUserPool.html">CreateUserPool</a> or <a href="API_UpdateUserPool.html">UpdateUserPool</a>.
-    /// This template includes your custom sign-up instructions and placeholders for user
-    /// name and temporary password.
+    /// Creates a new user in the specified user pool.
     /// 
     ///  
     /// <para>
-    /// Requires developer credentials.
+    /// If <code>MessageAction</code> is not set, the default is to send a welcome message
+    /// via email or phone (SMS).
+    /// </para><note><para>
+    /// This message is based on a template that you configured in your call to or . This
+    /// template includes your custom sign-up instructions and placeholders for user name
+    /// and temporary password.
+    /// </para></note><para>
+    /// Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code>
+    /// parameter, and Amazon Cognito will not send any email. 
+    /// </para><para>
+    /// In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until
+    /// they sign in and change their password.
+    /// </para><para>
+    /// AdminCreateUser requires developer credentials.
     /// </para>
     /// </summary>
     [Cmdlet("New", "CGIPUserAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -113,14 +122,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>An array of name-value pairs that contain user attributes and attribute values to
         /// be set for the user to be created. You can create a user without specifying any attributes
         /// other than <code>Username</code>. However, any attributes that you specify as required
-        /// (in <a href="API_CreateUserPool.html">CreateUserPool</a> or in the <b>Attributes</b>
-        /// tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>)
-        /// or by the user (when he or she signs up in response to your welcome message).</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
+        /// (in or in the <b>Attributes</b> tab of the console) must be supplied either by you
+        /// (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs
+        /// up in response to your welcome message).</para><para>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute
         /// name.</para><para>To send a message inviting the user to sign up, you must specify the user's email
         /// address or phone number. This can be done in your call to AdminCreateUser or in the
         /// <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</para><para>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code>
         /// attribute to <code>True</code>, and you can set the <code>phone_number_verified</code>
-        /// attribute to <code>True</code>. (You can also do this by calling <a href="API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>.)</para><ul><li><para><b>email</b>: The email address of the user to whom the message that contains the
+        /// attribute to <code>True</code>. (You can also do this by calling .)</para><ul><li><para><b>email</b>: The email address of the user to whom the message that contains the
         /// code and username will be sent. Required if the <code>email_verified</code> attribute
         /// is set to <code>True</code>, or if <code>"EMAIL"</code> is specified in the <code>DesiredDeliveryMediums</code>
         /// parameter.</para></li><li><para><b>phone_number</b>: The phone number of the user to whom the message that contains

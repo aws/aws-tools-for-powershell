@@ -28,7 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets information about the specified rule.
+    /// Gets information about the rule.
     /// </summary>
     [Cmdlet("Get", "IOTTopicRule")]
     [OutputType("Amazon.IoT.Model.GetTopicRuleResponse")]

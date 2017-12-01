@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name or ARN of the group.</para>
+        /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -220,7 +220,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         /// group</para></li><li><para><code>ASGAverageNetworkIn</code> - average number of bytes received on all network
         /// interfaces by the Auto Scaling group</para></li><li><para><code>ASGAverageNetworkOut</code> - average number of bytes sent out on all network
         /// interfaces by the Auto Scaling group</para></li><li><para><code>ALBRequestCountPerTarget</code> - number of requests completed per target in
-        /// an Application Load Balancer target group</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>
+        /// an Application Load Balancer target group</para></li></ul><para>For predefined metric types <code>ASGAverageCPUUtilization</code>, <code>ASGAverageNetworkIn</code>,
         /// and <code>ASGAverageNetworkOut</code>, the parameter must not be specified as the
         /// resource associated with the metric type is the Auto Scaling group. For predefined
         /// metric type <code>ALBRequestCountPerTarget</code>, the parameter must be specified

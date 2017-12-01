@@ -174,7 +174,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             }
             if (this.GroupName != null)
             {
-                context.GroupNames = new List<System.String>(this.GroupName);
+                context.GroupName = new List<System.String>(this.GroupName);
             }
             context.OperationType = this.OperationType;
             context.SnapshotId = this.SnapshotId;
@@ -231,9 +231,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.CreateVolumePermission = null;
             }
-            if (cmdletContext.GroupNames != null)
+            if (cmdletContext.GroupName != null)
             {
-                request.GroupNames = cmdletContext.GroupNames;
+                request.GroupNames = cmdletContext.GroupName;
             }
             if (cmdletContext.OperationType != null)
             {
@@ -316,7 +316,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.SnapshotAttributeName Attribute { get; set; }
             public List<Amazon.EC2.Model.CreateVolumePermission> CreateVolumePermission_Add { get; set; }
             public List<Amazon.EC2.Model.CreateVolumePermission> CreateVolumePermission_Remove { get; set; }
-            public List<System.String> GroupNames { get; set; }
+            public List<System.String> GroupName { get; set; }
             public Amazon.EC2.OperationType OperationType { get; set; }
             public System.String SnapshotId { get; set; }
             public List<System.String> UserIds { get; set; }

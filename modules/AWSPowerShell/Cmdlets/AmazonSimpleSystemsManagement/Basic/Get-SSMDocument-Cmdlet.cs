@@ -39,6 +39,18 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     public partial class GetSSMDocumentCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
     {
         
+        #region Parameter DocumentFormat
+        /// <summary>
+        /// <para>
+        /// <para>Returns the document in the specified format. The document format can be either JSON
+        /// or YAML. JSON is the default format.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.DocumentFormat")]
+        public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
+        #endregion
+        
         #region Parameter DocumentVersion
         /// <summary>
         /// <para>
@@ -72,6 +84,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.DocumentFormat = this.DocumentFormat;
             context.DocumentVersion = this.DocumentVersion;
             context.Name = this.Name;
             
@@ -90,6 +103,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             // create request
             var request = new Amazon.SimpleSystemsManagement.Model.GetDocumentRequest();
             
+            if (cmdletContext.DocumentFormat != null)
+            {
+                request.DocumentFormat = cmdletContext.DocumentFormat;
+            }
             if (cmdletContext.DocumentVersion != null)
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
@@ -162,6 +179,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.SimpleSystemsManagement.DocumentFormat DocumentFormat { get; set; }
             public System.String DocumentVersion { get; set; }
             public System.String Name { get; set; }
         }

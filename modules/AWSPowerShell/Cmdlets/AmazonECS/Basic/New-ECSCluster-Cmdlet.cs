@@ -37,9 +37,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// the service-linked role for your account so that required resources in other AWS services
     /// can be managed on your behalf. However, if the IAM user that makes the call does not
     /// have permissions to create the service-linked role, it is not created. For more information,
-    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguideusing-service-linked-roles.html">Using
-    /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon EC2 Container Service Developer
-    /// Guide</i>.
+    /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+    /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
+    /// Developer Guide</i>.
     /// </para></note>
     /// </summary>
     [Cmdlet("New", "ECSCluster", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

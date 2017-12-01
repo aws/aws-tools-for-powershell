@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// identity providers and provider attributes that have been trusted by the application
     /// owner.
     /// </para></important><para>
-    /// See also <a href="API_AdminDisableProviderForUser.html">AdminDisableProviderForUser</a>.
+    /// See also .
     /// </para><para>
     /// This action is enabled only for admin access and requires developer credentials.
     /// </para>

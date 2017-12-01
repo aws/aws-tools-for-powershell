@@ -44,8 +44,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
-        /// between 1 and 10 attempts. If <code>attempts</code> is greater than one, the job is
-        /// retried if it fails until it has moved to <code>RUNNABLE</code> that many times.</para>
+        /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
+        /// the job is retried if it fails until it has moved to <code>RUNNABLE</code> that many
+        /// times.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,8 +68,12 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter DependsOn
         /// <summary>
         /// <para>
-        /// <para>A list of job IDs on which this job depends. A job can depend upon a maximum of 20
-        /// jobs. </para>
+        /// <para>A list of dependencies for the job. A job can depend upon a maximum of 20 jobs. You
+        /// can specify a <code>SEQUENTIAL</code> type dependency without specifying a job ID
+        /// for array jobs so that each child array job completes sequentially, starting at index
+        /// 0. You can also specify an <code>N_TO_N</code> type dependency with a job ID for array
+        /// jobs so that each index child of this job must wait for the corresponding index child
+        /// of each dependency to complete before it can begin.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,8 +118,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         #region Parameter JobQueue
         /// <summary>
         /// <para>
-        /// <para>The job queue into which the job will be submitted. You can specify either the name
-        /// or the Amazon Resource Name (ARN) of the queue. </para>
+        /// <para>The job queue into which the job is submitted. You can specify either the name or
+        /// the Amazon Resource Name (ARN) of the queue. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -144,6 +149,16 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
+        
+        #region Parameter ArrayProperties_Size
+        /// <summary>
+        /// <para>
+        /// <para>The size of the array job.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 ArrayProperties_Size { get; set; }
         #endregion
         
         #region Parameter ContainerOverrides_Vcpu
@@ -187,6 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            if (ParameterWasBound("ArrayProperties_Size"))
+                context.ArrayProperties_Size = this.ArrayProperties_Size;
             if (this.ContainerOverrides_Command != null)
             {
                 context.ContainerOverrides_Command = new List<System.String>(this.ContainerOverrides_Command);
@@ -232,6 +249,25 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // create request
             var request = new Amazon.Batch.Model.SubmitJobRequest();
             
+            
+             // populate ArrayProperties
+            bool requestArrayPropertiesIsNull = true;
+            request.ArrayProperties = new Amazon.Batch.Model.ArrayProperties();
+            System.Int32? requestArrayProperties_arrayProperties_Size = null;
+            if (cmdletContext.ArrayProperties_Size != null)
+            {
+                requestArrayProperties_arrayProperties_Size = cmdletContext.ArrayProperties_Size.Value;
+            }
+            if (requestArrayProperties_arrayProperties_Size != null)
+            {
+                request.ArrayProperties.Size = requestArrayProperties_arrayProperties_Size.Value;
+                requestArrayPropertiesIsNull = false;
+            }
+             // determine if request.ArrayProperties should be set to null
+            if (requestArrayPropertiesIsNull)
+            {
+                request.ArrayProperties = null;
+            }
             
              // populate ContainerOverrides
             bool requestContainerOverridesIsNull = true;
@@ -384,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.Int32? ArrayProperties_Size { get; set; }
             public List<System.String> ContainerOverrides_Command { get; set; }
             public List<Amazon.Batch.Model.KeyValuePair> ContainerOverrides_Environment { get; set; }
             public System.Int32? ContainerOverrides_Memory { get; set; }

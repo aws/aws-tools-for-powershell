@@ -44,10 +44,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class SendCGIPAuthChallengeResponseAdminCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter AnalyticsMetadata_AnalyticsEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
+        #endregion
+        
         #region Parameter ChallengeName
         /// <summary>
         /// <para>
-        /// <para>The challenge name. For more information, see <a href="API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</para>
+        /// <para>The challenge name. For more information, see .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,6 +94,58 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
         public System.String ClientId { get; set; }
+        #endregion
+        
+        #region Parameter ContextData_EncodedData
+        /// <summary>
+        /// <para>
+        /// <para>Encoded data containing device fingerprinting details, collected using the Amazon
+        /// Cognito context data collection library.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ContextData_EncodedData { get; set; }
+        #endregion
+        
+        #region Parameter ContextData_HttpHeader
+        /// <summary>
+        /// <para>
+        /// <para>HttpHeaders received on your server in same order.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("ContextData_HttpHeaders")]
+        public Amazon.CognitoIdentityProvider.Model.HttpHeader[] ContextData_HttpHeader { get; set; }
+        #endregion
+        
+        #region Parameter ContextData_IpAddress
+        /// <summary>
+        /// <para>
+        /// <para>Source IP address of your user.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ContextData_IpAddress { get; set; }
+        #endregion
+        
+        #region Parameter ContextData_ServerName
+        /// <summary>
+        /// <para>
+        /// <para>Your server endpoint where this API is invoked.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ContextData_ServerName { get; set; }
+        #endregion
+        
+        #region Parameter ContextData_ServerPath
+        /// <summary>
+        /// <para>
+        /// <para>Your server path where this API is invoked. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ContextData_ServerPath { get; set; }
         #endregion
         
         #region Parameter Session
@@ -139,6 +201,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AnalyticsMetadata_AnalyticsEndpointId = this.AnalyticsMetadata_AnalyticsEndpointId;
             context.ChallengeName = this.ChallengeName;
             if (this.ChallengeRespons != null)
             {
@@ -149,6 +212,14 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 }
             }
             context.ClientId = this.ClientId;
+            context.ContextData_EncodedData = this.ContextData_EncodedData;
+            if (this.ContextData_HttpHeader != null)
+            {
+                context.ContextData_HttpHeaders = new List<Amazon.CognitoIdentityProvider.Model.HttpHeader>(this.ContextData_HttpHeader);
+            }
+            context.ContextData_IpAddress = this.ContextData_IpAddress;
+            context.ContextData_ServerName = this.ContextData_ServerName;
+            context.ContextData_ServerPath = this.ContextData_ServerPath;
             context.Session = this.Session;
             context.UserPoolId = this.UserPoolId;
             
@@ -167,6 +238,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.AdminRespondToAuthChallengeRequest();
             
+            
+             // populate AnalyticsMetadata
+            bool requestAnalyticsMetadataIsNull = true;
+            request.AnalyticsMetadata = new Amazon.CognitoIdentityProvider.Model.AnalyticsMetadataType();
+            System.String requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = null;
+            if (cmdletContext.AnalyticsMetadata_AnalyticsEndpointId != null)
+            {
+                requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = cmdletContext.AnalyticsMetadata_AnalyticsEndpointId;
+            }
+            if (requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId != null)
+            {
+                request.AnalyticsMetadata.AnalyticsEndpointId = requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId;
+                requestAnalyticsMetadataIsNull = false;
+            }
+             // determine if request.AnalyticsMetadata should be set to null
+            if (requestAnalyticsMetadataIsNull)
+            {
+                request.AnalyticsMetadata = null;
+            }
             if (cmdletContext.ChallengeName != null)
             {
                 request.ChallengeName = cmdletContext.ChallengeName;
@@ -178,6 +268,65 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.ClientId != null)
             {
                 request.ClientId = cmdletContext.ClientId;
+            }
+            
+             // populate ContextData
+            bool requestContextDataIsNull = true;
+            request.ContextData = new Amazon.CognitoIdentityProvider.Model.ContextDataType();
+            System.String requestContextData_contextData_EncodedData = null;
+            if (cmdletContext.ContextData_EncodedData != null)
+            {
+                requestContextData_contextData_EncodedData = cmdletContext.ContextData_EncodedData;
+            }
+            if (requestContextData_contextData_EncodedData != null)
+            {
+                request.ContextData.EncodedData = requestContextData_contextData_EncodedData;
+                requestContextDataIsNull = false;
+            }
+            List<Amazon.CognitoIdentityProvider.Model.HttpHeader> requestContextData_contextData_HttpHeader = null;
+            if (cmdletContext.ContextData_HttpHeaders != null)
+            {
+                requestContextData_contextData_HttpHeader = cmdletContext.ContextData_HttpHeaders;
+            }
+            if (requestContextData_contextData_HttpHeader != null)
+            {
+                request.ContextData.HttpHeaders = requestContextData_contextData_HttpHeader;
+                requestContextDataIsNull = false;
+            }
+            System.String requestContextData_contextData_IpAddress = null;
+            if (cmdletContext.ContextData_IpAddress != null)
+            {
+                requestContextData_contextData_IpAddress = cmdletContext.ContextData_IpAddress;
+            }
+            if (requestContextData_contextData_IpAddress != null)
+            {
+                request.ContextData.IpAddress = requestContextData_contextData_IpAddress;
+                requestContextDataIsNull = false;
+            }
+            System.String requestContextData_contextData_ServerName = null;
+            if (cmdletContext.ContextData_ServerName != null)
+            {
+                requestContextData_contextData_ServerName = cmdletContext.ContextData_ServerName;
+            }
+            if (requestContextData_contextData_ServerName != null)
+            {
+                request.ContextData.ServerName = requestContextData_contextData_ServerName;
+                requestContextDataIsNull = false;
+            }
+            System.String requestContextData_contextData_ServerPath = null;
+            if (cmdletContext.ContextData_ServerPath != null)
+            {
+                requestContextData_contextData_ServerPath = cmdletContext.ContextData_ServerPath;
+            }
+            if (requestContextData_contextData_ServerPath != null)
+            {
+                request.ContextData.ServerPath = requestContextData_contextData_ServerPath;
+                requestContextDataIsNull = false;
+            }
+             // determine if request.ContextData should be set to null
+            if (requestContextDataIsNull)
+            {
+                request.ContextData = null;
             }
             if (cmdletContext.Session != null)
             {
@@ -251,9 +400,15 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
             public Amazon.CognitoIdentityProvider.ChallengeNameType ChallengeName { get; set; }
             public Dictionary<System.String, System.String> ChallengeResponses { get; set; }
             public System.String ClientId { get; set; }
+            public System.String ContextData_EncodedData { get; set; }
+            public List<Amazon.CognitoIdentityProvider.Model.HttpHeader> ContextData_HttpHeaders { get; set; }
+            public System.String ContextData_IpAddress { get; set; }
+            public System.String ContextData_ServerName { get; set; }
+            public System.String ContextData_ServerPath { get; set; }
             public System.String Session { get; set; }
             public System.String UserPoolId { get; set; }
         }

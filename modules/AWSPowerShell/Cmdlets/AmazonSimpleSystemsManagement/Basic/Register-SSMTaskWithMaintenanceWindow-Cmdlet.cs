@@ -190,7 +190,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The different events for which you can receive notifications. These events include
         /// the following: All (events), InProgress, Success, TimedOut, Cancelled, Failed. To
         /// learn more about these events, see <a href="http://docs.aws.amazon.com/systems-manager/latest/userguide/monitor-commands.html">Setting
-        /// Up Events and Notifications</a> in the <i>Amazon EC2 Systems Manager User Guide</i>.</para>
+        /// Up Events and Notifications</a> in the <i>AWS Systems Manager User Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

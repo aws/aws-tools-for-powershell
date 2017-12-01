@@ -47,8 +47,10 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>The SHA256 hash of the deployment package you want to publish. This provides validation
-        /// on the code you are publishing. If you provide this parameter value must match the
-        /// SHA256 of the $LATEST version for the publication to succeed.</para>
+        /// on the code you are publishing. If you provide this parameter, the value must match
+        /// the SHA256 of the $LATEST version for the publication to succeed. You can use the
+        /// <b>DryRun</b> parameter of <a>UpdateFunctionCode</a> to verify the hash value that
+        /// will be returned before publishing your new version.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

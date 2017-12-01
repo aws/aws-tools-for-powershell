@@ -29,9 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Deletes the specified placement group. You must terminate all instances in the placement
-    /// group before you can delete the placement group. For more information about placement
-    /// groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-    /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// group before you can delete the placement group. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+    /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Remove", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]

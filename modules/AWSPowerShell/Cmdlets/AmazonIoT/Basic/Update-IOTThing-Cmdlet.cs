@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter RemoveThingType
         /// <summary>
         /// <para>
-        /// <para>Remove a thing type association. If <b>true</b>, the assocation is removed.</para>
+        /// <para>Remove a thing type association. If <b>true</b>, the association is removed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

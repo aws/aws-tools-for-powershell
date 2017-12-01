@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter InitialVersion_LoggerDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Logger definitionv ersion arn
+        /// Logger definition version arn
         /// for this group.
         /// </para>
         /// </summary>
@@ -103,6 +103,17 @@ namespace Amazon.PowerShell.Cmdlets.GG
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Name { get; set; }
+        #endregion
+        
+        #region Parameter InitialVersion_ResourceDefinitionVersionArn
+        /// <summary>
+        /// <para>
+        /// Resource definition version
+        /// arn for this group.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String InitialVersion_ResourceDefinitionVersionArn { get; set; }
         #endregion
         
         #region Parameter InitialVersion_SubscriptionDefinitionVersionArn
@@ -150,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             context.InitialVersion_DeviceDefinitionVersionArn = this.InitialVersion_DeviceDefinitionVersionArn;
             context.InitialVersion_FunctionDefinitionVersionArn = this.InitialVersion_FunctionDefinitionVersionArn;
             context.InitialVersion_LoggerDefinitionVersionArn = this.InitialVersion_LoggerDefinitionVersionArn;
+            context.InitialVersion_ResourceDefinitionVersionArn = this.InitialVersion_ResourceDefinitionVersionArn;
             context.InitialVersion_SubscriptionDefinitionVersionArn = this.InitialVersion_SubscriptionDefinitionVersionArn;
             context.Name = this.Name;
             
@@ -214,6 +226,16 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (requestInitialVersion_initialVersion_LoggerDefinitionVersionArn != null)
             {
                 request.InitialVersion.LoggerDefinitionVersionArn = requestInitialVersion_initialVersion_LoggerDefinitionVersionArn;
+                requestInitialVersionIsNull = false;
+            }
+            System.String requestInitialVersion_initialVersion_ResourceDefinitionVersionArn = null;
+            if (cmdletContext.InitialVersion_ResourceDefinitionVersionArn != null)
+            {
+                requestInitialVersion_initialVersion_ResourceDefinitionVersionArn = cmdletContext.InitialVersion_ResourceDefinitionVersionArn;
+            }
+            if (requestInitialVersion_initialVersion_ResourceDefinitionVersionArn != null)
+            {
+                request.InitialVersion.ResourceDefinitionVersionArn = requestInitialVersion_initialVersion_ResourceDefinitionVersionArn;
                 requestInitialVersionIsNull = false;
             }
             System.String requestInitialVersion_initialVersion_SubscriptionDefinitionVersionArn = null;
@@ -304,6 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             public System.String InitialVersion_DeviceDefinitionVersionArn { get; set; }
             public System.String InitialVersion_FunctionDefinitionVersionArn { get; set; }
             public System.String InitialVersion_LoggerDefinitionVersionArn { get; set; }
+            public System.String InitialVersion_ResourceDefinitionVersionArn { get; set; }
             public System.String InitialVersion_SubscriptionDefinitionVersionArn { get; set; }
             public System.String Name { get; set; }
         }

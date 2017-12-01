@@ -71,6 +71,50 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         public System.String DocumentVersion { get; set; }
         #endregion
         
+        #region Parameter MaxConcurrency
+        /// <summary>
+        /// <para>
+        /// <para>The maximum number of targets allowed to run this task in parallel. You can specify
+        /// a number, such as 10, or a percentage, such as 10%. The default value is 10.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MaxConcurrency { get; set; }
+        #endregion
+        
+        #region Parameter MaxError
+        /// <summary>
+        /// <para>
+        /// <para>The number of errors that are allowed before the system stops running the automation
+        /// on additional targets. You can specify either an absolute number of errors, for example
+        /// 10, or a percentage of the target set, for example 10%. If you specify 3, for example,
+        /// the system stops running the automation when the fourth error is received. If you
+        /// specify 0, then the system stops running the automation on additional targets after
+        /// the first error result is returned. If you run an automation on 50 resources and set
+        /// max-errors to 10%, then the system stops running the automation on additional targets
+        /// when the sixth error is received.</para><para>Executions that are already running an automation when max-errors is reached are allowed
+        /// to complete, but some of these executions may fail as well. If you need to ensure
+        /// that there won't be more than max-errors failed executions, set max-concurrency to
+        /// 1 so the executions proceed one at a time.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("MaxErrors")]
+        public System.String MaxError { get; set; }
+        #endregion
+        
+        #region Parameter Mode
+        /// <summary>
+        /// <para>
+        /// <para>The execution mode of the automation. Valid modes include the following: Auto and
+        /// Interactive. The default mode is Auto.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.ExecutionMode")]
+        public Amazon.SimpleSystemsManagement.ExecutionMode Mode { get; set; }
+        #endregion
+        
         #region Parameter Parameter
         /// <summary>
         /// <para>
@@ -81,6 +125,28 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         [System.Management.Automation.Parameter]
         [Alias("Parameters")]
         public System.Collections.Hashtable Parameter { get; set; }
+        #endregion
+        
+        #region Parameter TargetParameterName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the parameter used as the target resource for the rate-controlled execution.
+        /// Required if you specify Targets.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String TargetParameterName { get; set; }
+        #endregion
+        
+        #region Parameter Target
+        /// <summary>
+        /// <para>
+        /// <para>A key-value mapping to target resources. Required if you specify TargetParameterName.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Targets")]
+        public Amazon.SimpleSystemsManagement.Model.Target[] Target { get; set; }
         #endregion
         
         #region Parameter Force
@@ -115,6 +181,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             context.ClientToken = this.ClientToken;
             context.DocumentName = this.DocumentName;
             context.DocumentVersion = this.DocumentVersion;
+            context.MaxConcurrency = this.MaxConcurrency;
+            context.MaxErrors = this.MaxError;
+            context.Mode = this.Mode;
             if (this.Parameter != null)
             {
                 context.Parameters = new Dictionary<System.String, List<System.String>>(StringComparer.Ordinal);
@@ -134,6 +203,11 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                     }
                     context.Parameters.Add((String)hashKey, valueSet);
                 }
+            }
+            context.TargetParameterName = this.TargetParameterName;
+            if (this.Target != null)
+            {
+                context.Targets = new List<Amazon.SimpleSystemsManagement.Model.Target>(this.Target);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -163,9 +237,29 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.DocumentVersion = cmdletContext.DocumentVersion;
             }
+            if (cmdletContext.MaxConcurrency != null)
+            {
+                request.MaxConcurrency = cmdletContext.MaxConcurrency;
+            }
+            if (cmdletContext.MaxErrors != null)
+            {
+                request.MaxErrors = cmdletContext.MaxErrors;
+            }
+            if (cmdletContext.Mode != null)
+            {
+                request.Mode = cmdletContext.Mode;
+            }
             if (cmdletContext.Parameters != null)
             {
                 request.Parameters = cmdletContext.Parameters;
+            }
+            if (cmdletContext.TargetParameterName != null)
+            {
+                request.TargetParameterName = cmdletContext.TargetParameterName;
+            }
+            if (cmdletContext.Targets != null)
+            {
+                request.Targets = cmdletContext.Targets;
             }
             
             CmdletOutput output;
@@ -234,7 +328,12 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             public System.String ClientToken { get; set; }
             public System.String DocumentName { get; set; }
             public System.String DocumentVersion { get; set; }
+            public System.String MaxConcurrency { get; set; }
+            public System.String MaxErrors { get; set; }
+            public Amazon.SimpleSystemsManagement.ExecutionMode Mode { get; set; }
             public Dictionary<System.String, List<System.String>> Parameters { get; set; }
+            public System.String TargetParameterName { get; set; }
+            public List<Amazon.SimpleSystemsManagement.Model.Target> Targets { get; set; }
         }
         
     }

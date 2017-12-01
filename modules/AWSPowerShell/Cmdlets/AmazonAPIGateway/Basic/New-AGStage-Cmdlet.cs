@@ -61,10 +61,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public Amazon.APIGateway.CacheClusterSize CacheClusterSize { get; set; }
         #endregion
         
+        #region Parameter CanarySettings_DeploymentId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the canary deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String CanarySettings_DeploymentId { get; set; }
+        #endregion
+        
         #region Parameter DeploymentId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</para>
+        /// <para>[Required] The identifier of the <a>Deployment</a> resource for the <a>Stage</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -91,6 +101,16 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.String DocumentationVersion { get; set; }
         #endregion
         
+        #region Parameter CanarySettings_PercentTraffic
+        /// <summary>
+        /// <para>
+        /// <para>The percent (0-100) of traffic diverted to a canary deployment.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Double CanarySettings_PercentTraffic { get; set; }
+        #endregion
+        
         #region Parameter RestApiId
         /// <summary>
         /// <para>
@@ -104,11 +124,34 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter StageName
         /// <summary>
         /// <para>
-        /// <para>The name for the <a>Stage</a> resource.</para>
+        /// <para>[Required] The name for the <a>Stage</a> resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String StageName { get; set; }
+        #endregion
+        
+        #region Parameter CanarySettings_StageVariableOverride
+        /// <summary>
+        /// <para>
+        /// <para>Stage variables overridden for a canary release deployment, including new stage variables
+        /// introduced in the canary. These stage variables are represented as a string-to-string
+        /// map between stage variable names and their values.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("CanarySettings_StageVariableOverrides")]
+        public System.Collections.Hashtable CanarySettings_StageVariableOverride { get; set; }
+        #endregion
+        
+        #region Parameter CanarySettings_UseStageCache
+        /// <summary>
+        /// <para>
+        /// <para>A Boolean flag to indicate whether the canary deployment uses the stage cache or not.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean CanarySettings_UseStageCache { get; set; }
         #endregion
         
         #region Parameter Variable
@@ -155,6 +198,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (ParameterWasBound("CacheClusterEnabled"))
                 context.CacheClusterEnabled = this.CacheClusterEnabled;
             context.CacheClusterSize = this.CacheClusterSize;
+            context.CanarySettings_DeploymentId = this.CanarySettings_DeploymentId;
+            if (ParameterWasBound("CanarySettings_PercentTraffic"))
+                context.CanarySettings_PercentTraffic = this.CanarySettings_PercentTraffic;
+            if (this.CanarySettings_StageVariableOverride != null)
+            {
+                context.CanarySettings_StageVariableOverrides = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.CanarySettings_StageVariableOverride.Keys)
+                {
+                    context.CanarySettings_StageVariableOverrides.Add((String)hashKey, (String)(this.CanarySettings_StageVariableOverride[hashKey]));
+                }
+            }
+            if (ParameterWasBound("CanarySettings_UseStageCache"))
+                context.CanarySettings_UseStageCache = this.CanarySettings_UseStageCache;
             context.DeploymentId = this.DeploymentId;
             context.Description = this.Description;
             context.DocumentationVersion = this.DocumentationVersion;
@@ -191,6 +247,55 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.CacheClusterSize != null)
             {
                 request.CacheClusterSize = cmdletContext.CacheClusterSize;
+            }
+            
+             // populate CanarySettings
+            bool requestCanarySettingsIsNull = true;
+            request.CanarySettings = new Amazon.APIGateway.Model.CanarySettings();
+            System.String requestCanarySettings_canarySettings_DeploymentId = null;
+            if (cmdletContext.CanarySettings_DeploymentId != null)
+            {
+                requestCanarySettings_canarySettings_DeploymentId = cmdletContext.CanarySettings_DeploymentId;
+            }
+            if (requestCanarySettings_canarySettings_DeploymentId != null)
+            {
+                request.CanarySettings.DeploymentId = requestCanarySettings_canarySettings_DeploymentId;
+                requestCanarySettingsIsNull = false;
+            }
+            System.Double? requestCanarySettings_canarySettings_PercentTraffic = null;
+            if (cmdletContext.CanarySettings_PercentTraffic != null)
+            {
+                requestCanarySettings_canarySettings_PercentTraffic = cmdletContext.CanarySettings_PercentTraffic.Value;
+            }
+            if (requestCanarySettings_canarySettings_PercentTraffic != null)
+            {
+                request.CanarySettings.PercentTraffic = requestCanarySettings_canarySettings_PercentTraffic.Value;
+                requestCanarySettingsIsNull = false;
+            }
+            Dictionary<System.String, System.String> requestCanarySettings_canarySettings_StageVariableOverride = null;
+            if (cmdletContext.CanarySettings_StageVariableOverrides != null)
+            {
+                requestCanarySettings_canarySettings_StageVariableOverride = cmdletContext.CanarySettings_StageVariableOverrides;
+            }
+            if (requestCanarySettings_canarySettings_StageVariableOverride != null)
+            {
+                request.CanarySettings.StageVariableOverrides = requestCanarySettings_canarySettings_StageVariableOverride;
+                requestCanarySettingsIsNull = false;
+            }
+            System.Boolean? requestCanarySettings_canarySettings_UseStageCache = null;
+            if (cmdletContext.CanarySettings_UseStageCache != null)
+            {
+                requestCanarySettings_canarySettings_UseStageCache = cmdletContext.CanarySettings_UseStageCache.Value;
+            }
+            if (requestCanarySettings_canarySettings_UseStageCache != null)
+            {
+                request.CanarySettings.UseStageCache = requestCanarySettings_canarySettings_UseStageCache.Value;
+                requestCanarySettingsIsNull = false;
+            }
+             // determine if request.CanarySettings should be set to null
+            if (requestCanarySettingsIsNull)
+            {
+                request.CanarySettings = null;
             }
             if (cmdletContext.DeploymentId != null)
             {
@@ -282,6 +387,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         {
             public System.Boolean? CacheClusterEnabled { get; set; }
             public Amazon.APIGateway.CacheClusterSize CacheClusterSize { get; set; }
+            public System.String CanarySettings_DeploymentId { get; set; }
+            public System.Double? CanarySettings_PercentTraffic { get; set; }
+            public Dictionary<System.String, System.String> CanarySettings_StageVariableOverrides { get; set; }
+            public System.Boolean? CanarySettings_UseStageCache { get; set; }
             public System.String DeploymentId { get; set; }
             public System.String Description { get; set; }
             public System.String DocumentationVersion { get; set; }

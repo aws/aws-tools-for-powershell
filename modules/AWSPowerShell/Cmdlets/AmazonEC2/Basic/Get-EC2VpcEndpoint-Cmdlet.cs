@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>service-name</code>: The name of the AWS service.</para></li><li><para><code>vpc-id</code>: The ID of the VPC in which the endpoint resides.</para></li><li><para><code>vpc-endpoint-id</code>: The ID of the endpoint.</para></li><li><para><code>vpc-endpoint-state</code>: The state of the endpoint. (<code>pending</code>
+        /// <para>One or more filters.</para><ul><li><para><code>service-name</code>: The name of the service.</para></li><li><para><code>vpc-id</code>: The ID of the VPC in which the endpoint resides.</para></li><li><para><code>vpc-endpoint-id</code>: The ID of the endpoint.</para></li><li><para><code>vpc-endpoint-state</code>: The state of the endpoint. (<code>pending</code>
         /// | <code>available</code> | <code>deleting</code> | <code>deleted</code>)</para></li></ul>
         /// </para>
         /// </summary>

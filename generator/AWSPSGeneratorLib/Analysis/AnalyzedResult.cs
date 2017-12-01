@@ -128,6 +128,10 @@ namespace AWSPowerShellGenerator.Analysis
                         ReturnType = null;
                         returnTypeDescription.Add(string.Format(StringConstants.ServiceResponseFormatText, 
                                                                 OperationAnalyzer.GetValidTypeName(ResponseType, operationAnalyzer.CurrentModel)));
+                        if (operationAnalyzer.CurrentOperation.IsAutoConfiguring)
+                        {
+                            operationAnalyzer.CurrentOperation.Output = ServiceOperation.OutputMode.Void;
+                        }
                     }
                     break;
                 case ResultOutputTypes.MultiProperty:
@@ -135,6 +139,10 @@ namespace AWSPowerShellGenerator.Analysis
                         ReturnType = inspectedType;
                         returnTypeDescription.Add(string.Format(StringConstants.MultipleOutputPropertiesFormatText, 
                                                                 OperationAnalyzer.GetValidTypeName(inspectedType, operationAnalyzer.CurrentModel)));
+                        if (operationAnalyzer.CurrentOperation.IsAutoConfiguring)
+                        {
+                            operationAnalyzer.CurrentOperation.Output = ServiceOperation.OutputMode.Response;
+                        }
                     }
                     break;
                 case ResultOutputTypes.SingleProperty:

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the running instances for the specified Spot fleet.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the running instances for the specified Spot Fleet.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2SpotFleetInstance")]
     [OutputType("Amazon.EC2.Model.ActiveInstance")]
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestId
         /// <summary>
         /// <para>
-        /// <para>The ID of the Spot fleet request.</para>
+        /// <para>The ID of the Spot Fleet request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

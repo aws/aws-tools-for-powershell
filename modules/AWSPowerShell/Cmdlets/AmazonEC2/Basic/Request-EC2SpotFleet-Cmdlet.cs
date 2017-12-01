@@ -28,21 +28,24 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a Spot fleet request.
+    /// Creates a Spot Fleet request.
     /// 
     ///  
     /// <para>
     /// You can submit a single request that includes multiple launch specifications that
     /// vary by instance type, AMI, Availability Zone, or subnet.
     /// </para><para>
-    /// By default, the Spot fleet requests Spot instances in the Spot pool where the price
+    /// By default, the Spot Fleet requests Spot Instances in the Spot pool where the price
     /// per unit is the lowest. Each launch specification can include its own instance weighting
     /// that reflects the value of the instance type to your application workload.
     /// </para><para>
-    /// Alternatively, you can specify that the Spot fleet distribute the target capacity
+    /// Alternatively, you can specify that the Spot Fleet distribute the target capacity
     /// across the Spot pools included in its launch specifications. By ensuring that the
-    /// Spot instances in your Spot fleet are in different Spot pools, you can improve the
+    /// Spot Instances in your Spot Fleet are in different Spot pools, you can improve the
     /// availability of your fleet.
+    /// </para><para>
+    /// You can specify tags for the Spot Instances. You cannot tag other resource types in
+    /// a Spot Fleet request; only the <code>instance</code> resource type is supported.
     /// </para><para>
     /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html">Spot
     /// Fleet Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
@@ -62,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>Indicates how to allocate the target capacity across the Spot pools specified by the
-        /// Spot fleet request. The default is <code>lowestPrice</code>.</para>
+        /// Spot Fleet request. The default is <code>lowestPrice</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_ExcessCapacityTerminationPolicy
         /// <summary>
         /// <para>
-        /// <para>Indicates whether running Spot instances should be terminated if the target capacity
-        /// of the Spot fleet request is decreased below the current size of the Spot fleet.</para>
+        /// <para>Indicates whether running Spot Instances should be terminated if the target capacity
+        /// of the Spot Fleet request is decreased below the current size of the Spot Fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,9 +121,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_IamFleetRole
         /// <summary>
         /// <para>
-        /// <para>Grants the Spot fleet permission to terminate Spot instances on your behalf when you
-        /// cancel its Spot fleet request using <a>CancelSpotFleetRequests</a> or when the Spot
-        /// fleet request expires, if you set <code>terminateInstancesWithExpiration</code>.</para>
+        /// <para>Grants the Spot Fleet permission to terminate Spot Instances on your behalf when you
+        /// cancel its Spot Fleet request using <a>CancelSpotFleetRequests</a> or when the Spot
+        /// Fleet request expires, if you set <code>terminateInstancesWithExpiration</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -130,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_InstanceInterruptionBehavior
         /// <summary>
         /// <para>
-        /// <para>Indicates whether a Spot instance stops or terminates when it is interrupted.</para>
+        /// <para>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -141,7 +144,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_LaunchSpecification
         /// <summary>
         /// <para>
-        /// <para>Information about the launch specifications for the Spot fleet request.</para>
+        /// <para>The launch specifications for the Spot Fleet request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -149,10 +152,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.SpotFleetLaunchSpecification[] SpotFleetRequestConfig_LaunchSpecification { get; set; }
         #endregion
         
+        #region Parameter SpotFleetRequestConfig_LaunchTemplateConfig
+        /// <summary>
+        /// <para>
+        /// <para>The launch template and overrides.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SpotFleetRequestConfig_LaunchTemplateConfigs")]
+        public Amazon.EC2.Model.LaunchTemplateConfig[] SpotFleetRequestConfig_LaunchTemplateConfig { get; set; }
+        #endregion
+        
         #region Parameter SpotFleetRequestConfig_ReplaceUnhealthyInstance
         /// <summary>
         /// <para>
-        /// <para>Indicates whether Spot fleet should replace unhealthy instances.</para>
+        /// <para>Indicates whether Spot Fleet should replace unhealthy instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -163,7 +177,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_SpotPrice
         /// <summary>
         /// <para>
-        /// <para>The bid price per unit hour.</para>
+        /// <para>The maximum price per unit hour that you are willing to pay for a Spot Instance. The
+        /// default is the On-Demand price.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -175,7 +190,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The number of units to request. You can choose to set the target capacity in terms
         /// of instances or a performance characteristic that is important to your application
-        /// workload, such as vCPUs, memory, or I/O.</para>
+        /// workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>,
+        /// you can specify a target capacity of 0 and add capacity later.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -196,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotFleetRequestConfig_TerminateInstancesWithExpiration
         /// <summary>
         /// <para>
-        /// <para>Indicates whether running Spot instances should be terminated when the Spot fleet
+        /// <para>Indicates whether running Spot Instances should be terminated when the Spot Fleet
         /// request expires.</para>
         /// </para>
         /// </summary>
@@ -209,12 +225,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The type of request. Indicates whether the fleet will only <code>request</code> the
         /// target capacity or also attempt to <code>maintain</code> it. When you <code>request</code>
-        /// a certain target capacity, the fleet will only place the required bids. It will not
-        /// attempt to replenish Spot instances if capacity is diminished, nor will it submit
-        /// bids in alternative Spot pools if capacity is not available. When you want to <code>maintain</code>
-        /// a certain target capacity, fleet will place the required bids to meet this target
-        /// capacity. It will also automatically replenish any interrupted instances. Default:
-        /// <code>maintain</code>.</para>
+        /// a certain target capacity, the fleet will only place the required requests. It will
+        /// not attempt to replenish Spot Instances if capacity is diminished, nor will it submit
+        /// requests in alternative Spot pools if capacity is not available. When you want to
+        /// <code>maintain</code> a certain target capacity, fleet will place the required requests
+        /// to meet this target capacity. It will also automatically replenish any interrupted
+        /// instances. Default: <code>maintain</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -237,8 +253,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <summary>
         /// <para>
         /// <para>The end date and time of the request, in UTC format (for example, <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z).
-        /// At this point, no new Spot instance requests are placed or enabled to fulfill the
-        /// request.</para>
+        /// At this point, no new Spot Instance requests are placed or able to fulfill the request.
+        /// The default end date is 7 days from the current date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -284,6 +300,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (this.SpotFleetRequestConfig_LaunchSpecification != null)
             {
                 context.SpotFleetRequestConfig_LaunchSpecifications = new List<Amazon.EC2.Model.SpotFleetLaunchSpecification>(this.SpotFleetRequestConfig_LaunchSpecification);
+            }
+            if (this.SpotFleetRequestConfig_LaunchTemplateConfig != null)
+            {
+                context.SpotFleetRequestConfig_LaunchTemplateConfigs = new List<Amazon.EC2.Model.LaunchTemplateConfig>(this.SpotFleetRequestConfig_LaunchTemplateConfig);
             }
             if (this.ClassicLoadBalancersConfig_ClassicLoadBalancer != null)
             {
@@ -393,6 +413,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification != null)
             {
                 request.SpotFleetRequestConfig.LaunchSpecifications = requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchSpecification;
+                requestSpotFleetRequestConfigIsNull = false;
+            }
+            List<Amazon.EC2.Model.LaunchTemplateConfig> requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig = null;
+            if (cmdletContext.SpotFleetRequestConfig_LaunchTemplateConfigs != null)
+            {
+                requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig = cmdletContext.SpotFleetRequestConfig_LaunchTemplateConfigs;
+            }
+            if (requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig != null)
+            {
+                request.SpotFleetRequestConfig.LaunchTemplateConfigs = requestSpotFleetRequestConfig_spotFleetRequestConfig_LaunchTemplateConfig;
                 requestSpotFleetRequestConfigIsNull = false;
             }
             System.Boolean? requestSpotFleetRequestConfig_spotFleetRequestConfig_ReplaceUnhealthyInstance = null;
@@ -606,6 +636,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String SpotFleetRequestConfig_IamFleetRole { get; set; }
             public Amazon.EC2.InstanceInterruptionBehavior SpotFleetRequestConfig_InstanceInterruptionBehavior { get; set; }
             public List<Amazon.EC2.Model.SpotFleetLaunchSpecification> SpotFleetRequestConfig_LaunchSpecifications { get; set; }
+            public List<Amazon.EC2.Model.LaunchTemplateConfig> SpotFleetRequestConfig_LaunchTemplateConfigs { get; set; }
             public List<Amazon.EC2.Model.ClassicLoadBalancer> SpotFleetRequestConfig_LoadBalancersConfig_ClassicLoadBalancersConfig_ClassicLoadBalancers { get; set; }
             public List<Amazon.EC2.Model.TargetGroup> SpotFleetRequestConfig_LoadBalancersConfig_TargetGroupsConfig_TargetGroups { get; set; }
             public System.Boolean? SpotFleetRequestConfig_ReplaceUnhealthyInstances { get; set; }

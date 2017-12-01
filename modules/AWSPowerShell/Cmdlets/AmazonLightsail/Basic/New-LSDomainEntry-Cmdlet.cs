@@ -62,6 +62,17 @@ namespace Amazon.PowerShell.Cmdlets.LS
         public System.String DomainEntry_Id { get; set; }
         #endregion
         
+        #region Parameter DomainEntry_IsAlias
+        /// <summary>
+        /// <para>
+        /// <para>When <code>true</code>, specifies whether the domain entry is an alias used by the
+        /// Lightsail load balancer.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DomainEntry_IsAlias { get; set; }
+        #endregion
+        
         #region Parameter DomainEntry_Name
         /// <summary>
         /// <para>
@@ -75,7 +86,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
         #region Parameter DomainEntry_Option
         /// <summary>
         /// <para>
-        /// <para>The options for the domain entry.</para>
+        /// <para>(Deprecated) The options for the domain entry.</para><note><para>In releases prior to November 29, 2017, this parameter was not included in the API
+        /// response. It is now deprecated.</para></note>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -133,6 +145,8 @@ namespace Amazon.PowerShell.Cmdlets.LS
             PreExecutionContextLoad(context);
             
             context.DomainEntry_Id = this.DomainEntry_Id;
+            if (ParameterWasBound("DomainEntry_IsAlias"))
+                context.DomainEntry_IsAlias = this.DomainEntry_IsAlias;
             context.DomainEntry_Name = this.DomainEntry_Name;
             if (this.DomainEntry_Option != null)
             {
@@ -173,6 +187,16 @@ namespace Amazon.PowerShell.Cmdlets.LS
             if (requestDomainEntry_domainEntry_Id != null)
             {
                 request.DomainEntry.Id = requestDomainEntry_domainEntry_Id;
+                requestDomainEntryIsNull = false;
+            }
+            System.Boolean? requestDomainEntry_domainEntry_IsAlias = null;
+            if (cmdletContext.DomainEntry_IsAlias != null)
+            {
+                requestDomainEntry_domainEntry_IsAlias = cmdletContext.DomainEntry_IsAlias.Value;
+            }
+            if (requestDomainEntry_domainEntry_IsAlias != null)
+            {
+                request.DomainEntry.IsAlias = requestDomainEntry_domainEntry_IsAlias.Value;
                 requestDomainEntryIsNull = false;
             }
             System.String requestDomainEntry_domainEntry_Name = null;
@@ -289,6 +313,7 @@ namespace Amazon.PowerShell.Cmdlets.LS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DomainEntry_Id { get; set; }
+            public System.Boolean? DomainEntry_IsAlias { get; set; }
             public System.String DomainEntry_Name { get; set; }
             public Dictionary<System.String, System.String> DomainEntry_Options { get; set; }
             public System.String DomainEntry_Target { get; set; }

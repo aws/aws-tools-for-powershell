@@ -69,7 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>The new precedence value for the group. For more information about this parameter,
-        /// see <a href="API_CreateGroup.html">CreateGroup</a>.</para>
+        /// see .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

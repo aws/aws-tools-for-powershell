@@ -28,10 +28,9 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a Spot instance request. Spot instances are instances that Amazon EC2 launches
-    /// when the bid price that you specify exceeds the current Spot price. Amazon EC2 periodically
-    /// sets the Spot price based on available Spot Instance capacity and current Spot instance
-    /// requests. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+    /// Creates a Spot Instance request. Spot Instances are instances that Amazon EC2 launches
+    /// when the maximum price that you specify exceeds the current Spot price. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
     /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </summary>
     [Cmdlet("Request", "EC2SpotInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -81,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_AvailabilityZone
         /// <summary>
         /// <para>
-        /// <para>The Availability Zone.</para><para>[Spot fleet only] To specify multiple Availability Zones, separate them using commas;
+        /// <para>The Availability Zone.</para><para>[Spot Fleet only] To specify multiple Availability Zones, separate them using commas;
         /// for example, "us-west-2a, us-west-2b".</para>
         /// </para>
         /// </summary>
@@ -93,18 +92,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter AvailabilityZoneGroup
         /// <summary>
         /// <para>
-        /// <para>The user-specified name for a logical grouping of bids.</para><para>When you specify an Availability Zone group in a Spot Instance request, all Spot instances
+        /// <para>The user-specified name for a logical grouping of requests.</para><para>When you specify an Availability Zone group in a Spot Instance request, all Spot Instances
         /// in the request are launched in the same Availability Zone. Instance proximity is maintained
         /// with this parameter, but the choice of Availability Zone is not. The group applies
-        /// only to bids for Spot Instances of the same instance type. Any additional Spot instance
-        /// requests that are specified with the same Availability Zone group name are launched
-        /// in that same Availability Zone, as long as at least one instance from the group is
-        /// still active.</para><para>If there is no active instance running in the Availability Zone group that you specify
-        /// for a new Spot instance request (all instances are terminated, the bid is expired,
-        /// or the bid falls below current market), then Amazon EC2 launches the instance in any
-        /// Availability Zone where the constraint can be met. Consequently, the subsequent set
-        /// of Spot instances could be placed in a different zone from the original request, even
-        /// if you specified the same Availability Zone group.</para><para>Default: Instances are launched in any available Availability Zone.</para>
+        /// only to requests for Spot Instances of the same instance type. Any additional Spot
+        /// Instance requests that are specified with the same Availability Zone group name are
+        /// launched in that same Availability Zone, as long as at least one instance from the
+        /// group is still active.</para><para>If there is no active instance running in the Availability Zone group that you specify
+        /// for a new Spot Instance request (all instances are terminated, the request is expired,
+        /// or the maximum price you specified falls below current Spot price), then Amazon EC2
+        /// launches the instance in any Availability Zone where the constraint can be met. Consequently,
+        /// the subsequent set of Spot Instances could be placed in a different zone from the
+        /// original request, even if you specified the same Availability Zone group.</para><para>Default: Instances are launched in any available Availability Zone.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -125,10 +124,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter BlockDurationMinute
         /// <summary>
         /// <para>
-        /// <para>The required duration for the Spot instances (also known as Spot blocks), in minutes.
-        /// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot instance receives its instance ID.
-        /// At the end of the duration period, Amazon EC2 marks the Spot instance for termination
-        /// and provides a Spot instance termination notice, which gives the instance a two-minute
+        /// <para>The required duration for the Spot Instances (also known as Spot blocks), in minutes.
+        /// This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</para><para>The duration period starts as soon as your Spot Instance receives its instance ID.
+        /// At the end of the duration period, Amazon EC2 marks the Spot Instance for termination
+        /// and provides a Spot Instance termination notice, which gives the instance a two-minute
         /// warning before it terminates.</para><para>Note that you can't specify an Availability Zone group or a launch group if you specify
         /// a duration.</para>
         /// </para>
@@ -166,7 +165,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Placement_GroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the placement group (for cluster instances).</para>
+        /// <para>The name of the placement group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -187,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceCount
         /// <summary>
         /// <para>
-        /// <para>The maximum number of Spot instances to launch.</para><para>Default: 1</para>
+        /// <para>The maximum number of Spot Instances to launch.</para><para>Default: 1</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -197,7 +196,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceInterruptionBehavior
         /// <summary>
         /// <para>
-        /// <para>Indicates whether a Spot instance stops or terminates when it is interrupted.</para>
+        /// <para>The behavior when a Spot Instance is interrupted. The default is <code>terminate</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -239,7 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter LaunchGroup
         /// <summary>
         /// <para>
-        /// <para>The instance launch group. Launch groups are Spot instances that launch together and
+        /// <para>The instance launch group. Launch groups are Spot Instances that launch together and
         /// terminate together.</para><para>Default: Instances are launched and terminated individually</para>
         /// </para>
         /// </summary>
@@ -304,7 +303,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotPrice
         /// <summary>
         /// <para>
-        /// <para>The maximum hourly price (bid) for any Spot instance launched to fulfill the request.</para>
+        /// <para>The maximum price per hour that you are willing to pay for a Spot Instance. The default
+        /// is the On-Demand price.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -326,7 +326,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The tenancy of the instance (if the instance is running in a VPC). An instance with
         /// a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code>
-        /// tenancy is not supported for Spot instances.</para>
+        /// tenancy is not supported for Spot Instances.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -338,7 +338,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The Spot instance request type.</para><para>Default: <code>one-time</code></para>
+        /// <para>The Spot Instance request type.</para><para>Default: <code>one-time</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -364,7 +364,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The start date of the request. If this is a one-time request, the request becomes
         /// active at this date and time and remains active until all instances launch, the request
         /// expires, or the request is canceled. If the request is persistent, the request becomes
-        /// active at this date and time and remains active until it expires or is canceled.</para><para>Default: The request is effective indefinitely.</para>
+        /// active at this date and time and remains active until it expires or is canceled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -376,8 +376,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>
         /// <para>The end date of the request. If this is a one-time request, the request remains active
         /// until all instances launch, the request is canceled, or this date is reached. If the
-        /// request is persistent, it remains active until it is canceled or this date and time
-        /// is reached.</para><para>Default: The request is effective indefinitely.</para>
+        /// request is persistent, it remains active until it is canceled or this date is reached.
+        /// The default end date is 7 days from the current date.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

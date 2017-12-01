@@ -43,6 +43,17 @@ namespace Amazon.PowerShell.Cmdlets.BAT
     public partial class GetBATJobsListCmdlet : AmazonBatchClientCmdlet, IExecutor
     {
         
+        #region Parameter ArrayJobId
+        /// <summary>
+        /// <para>
+        /// <para>The job ID for an array job. Specifying an array job ID with this parameter lists
+        /// all child jobs from within the specified array.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ArrayJobId { get; set; }
+        #endregion
+        
         #region Parameter JobQueue
         /// <summary>
         /// <para>
@@ -113,6 +124,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ArrayJobId = this.ArrayJobId;
             context.JobQueue = this.JobQueue;
             context.JobStatus = this.JobStatus;
             if (ParameterWasBound("MaxResult"))
@@ -134,6 +146,10 @@ namespace Amazon.PowerShell.Cmdlets.BAT
             
             // create request and set iteration invariants
             var request = new Amazon.Batch.Model.ListJobsRequest();
+            if (cmdletContext.ArrayJobId != null)
+            {
+                request.ArrayJobId = cmdletContext.ArrayJobId;
+            }
             if (cmdletContext.JobQueue != null)
             {
                 request.JobQueue = cmdletContext.JobQueue;
@@ -258,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String ArrayJobId { get; set; }
             public System.String JobQueue { get; set; }
             public Amazon.Batch.JobStatus JobStatus { get; set; }
             public int? MaxResults { get; set; }

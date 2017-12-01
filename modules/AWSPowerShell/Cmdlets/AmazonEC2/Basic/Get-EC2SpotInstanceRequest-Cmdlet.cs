@@ -28,22 +28,20 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes the Spot instance requests that belong to your account. Spot instances are
-    /// instances that Amazon EC2 launches when the bid price that you specify exceeds the
-    /// current Spot price. Amazon EC2 periodically sets the Spot price based on available
-    /// Spot instance capacity and current Spot instance requests. For more information, see
-    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
+    /// Describes the Spot Instance requests that belong to your account. Spot Instances are
+    /// instances that Amazon EC2 launches when the Spot price that you specify exceeds the
+    /// current Spot price. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-requests.html">Spot
     /// Instance Requests</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot instance
-    /// by examining the response. If the status of the Spot instance is <code>fulfilled</code>,
+    /// You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance
+    /// by examining the response. If the status of the Spot Instance is <code>fulfilled</code>,
     /// the instance ID appears in the response and contains the identifier of the instance.
     /// Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances
     /// where the instance lifecycle is <code>spot</code>.
     /// </para><para>
-    /// Spot instance requests are deleted 4 hours after they are canceled and their instances
+    /// Spot Instance requests are deleted 4 hours after they are canceled and their instances
     /// are terminated.
     /// </para>
     /// </summary>
@@ -60,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>One or more filters.</para><ul><li><para><code>availability-zone-group</code> - The Availability Zone group.</para></li><li><para><code>create-time</code> - The time stamp when the Spot instance request was created.</para></li><li><para><code>fault-code</code> - The fault code related to the request.</para></li><li><para><code>fault-message</code> - The fault message related to the request.</para></li><li><para><code>instance-id</code> - The ID of the instance that fulfilled the request.</para></li><li><para><code>launch-group</code> - The Spot instance launch group.</para></li><li><para><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether
+        /// <para>One or more filters.</para><ul><li><para><code>availability-zone-group</code> - The Availability Zone group.</para></li><li><para><code>create-time</code> - The time stamp when the Spot Instance request was created.</para></li><li><para><code>fault-code</code> - The fault code related to the request.</para></li><li><para><code>fault-message</code> - The fault message related to the request.</para></li><li><para><code>instance-id</code> - The ID of the instance that fulfilled the request.</para></li><li><para><code>launch-group</code> - The Spot Instance launch group.</para></li><li><para><code>launch.block-device-mapping.delete-on-termination</code> - Indicates whether
         /// the EBS volume is deleted on instance termination.</para></li><li><para><code>launch.block-device-mapping.device-name</code> - The device name for the volume
         /// in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</para></li><li><para><code>launch.block-device-mapping.snapshot-id</code> - The ID of the snapshot for
         /// the EBS volume.</para></li><li><para><code>launch.block-device-mapping.volume-size</code> - The size of the EBS volume,
@@ -68,20 +66,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for General Purpose SSD, <code>io1</code> for Provisioned IOPS SSD, <code>st1</code>
         /// for Throughput Optimized HDD, <code>sc1</code>for Cold HDD, or <code>standard</code>
         /// for Magnetic.</para></li><li><para><code>launch.group-id</code> - The security group for the instance.</para></li><li><para><code>launch.image-id</code> - The ID of the AMI.</para></li><li><para><code>launch.instance-type</code> - The type of instance (for example, <code>m3.medium</code>).</para></li><li><para><code>launch.kernel-id</code> - The kernel ID.</para></li><li><para><code>launch.key-name</code> - The name of the key pair the instance launched with.</para></li><li><para><code>launch.monitoring-enabled</code> - Whether detailed monitoring is enabled for
-        /// the Spot instance.</para></li><li><para><code>launch.ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>launched-availability-zone</code> - The Availability Zone in which the bid
+        /// the Spot Instance.</para></li><li><para><code>launch.ramdisk-id</code> - The RAM disk ID.</para></li><li><para><code>launched-availability-zone</code> - The Availability Zone in which the request
         /// is launched.</para></li><li><para><code>network-interface.addresses.primary</code> - Indicates whether the IP address
         /// is the primary private IP address.</para></li><li><para><code>network-interface.delete-on-termination</code> - Indicates whether the network
         /// interface is deleted when the instance is terminated.</para></li><li><para><code>network-interface.description</code> - A description of the network interface.</para></li><li><para><code>network-interface.device-index</code> - The index of the device for the network
         /// interface attachment on the instance.</para></li><li><para><code>network-interface.group-id</code> - The ID of the security group associated
         /// with the network interface.</para></li><li><para><code>network-interface.network-interface-id</code> - The ID of the network interface.</para></li><li><para><code>network-interface.private-ip-address</code> - The primary private IP address
         /// of the network interface.</para></li><li><para><code>network-interface.subnet-id</code> - The ID of the subnet for the instance.</para></li><li><para><code>product-description</code> - The product description associated with the instance
-        /// (<code>Linux/UNIX</code> | <code>Windows</code>).</para></li><li><para><code>spot-instance-request-id</code> - The Spot instance request ID.</para></li><li><para><code>spot-price</code> - The maximum hourly price for any Spot instance launched
-        /// to fulfill the request.</para></li><li><para><code>state</code> - The state of the Spot instance request (<code>open</code> |
+        /// (<code>Linux/UNIX</code> | <code>Windows</code>).</para></li><li><para><code>spot-instance-request-id</code> - The Spot Instance request ID.</para></li><li><para><code>spot-price</code> - The maximum hourly price for any Spot Instance launched
+        /// to fulfill the request.</para></li><li><para><code>state</code> - The state of the Spot Instance request (<code>open</code> |
         /// <code>active</code> | <code>closed</code> | <code>cancelled</code> | <code>failed</code>).
-        /// Spot bid status information can help you track your Amazon EC2 Spot instance requests.
+        /// Spot request status information can help you track your Amazon EC2 Spot Instance requests.
         /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-bid-status.html">Spot
-        /// Bid Status</a> in the Amazon Elastic Compute Cloud User Guide.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
-        /// your Spot instance request.</para></li><li><para><code>status-message</code> - The message explaining the status of the Spot instance
+        /// Request Status</a> in the Amazon Elastic Compute Cloud User Guide.</para></li><li><para><code>status-code</code> - The short code describing the most recent evaluation of
+        /// your Spot Instance request.</para></li><li><para><code>status-message</code> - The message explaining the status of the Spot Instance
         /// request.</para></li><li><para><code>tag</code>:<i>key</i>=<i>value</i> - The key/value combination of a tag assigned
         /// to the resource. Specify the key of the tag in the filter name and the value of the
         /// tag in the filter value. For example, for the tag Purpose=X, specify <code>tag:Purpose</code>
@@ -91,7 +89,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// both the tag key Purpose (regardless of what the tag's value is), and the tag value
         /// X (regardless of what the tag's key is). If you want to list only resources where
         /// Purpose is X, see the <code>tag</code>:<i>key</i>=<i>value</i> filter.</para></li><li><para><code>tag-value</code> - The value of a tag assigned to the resource. This filter
-        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>type</code> - The type of Spot instance request (<code>one-time</code> | <code>persistent</code>).</para></li><li><para><code>valid-from</code> - The start date of the request.</para></li><li><para><code>valid-until</code> - The end date of the request.</para></li></ul>
+        /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>type</code> - The type of Spot Instance request (<code>one-time</code> | <code>persistent</code>).</para></li><li><para><code>valid-from</code> - The start date of the request.</para></li><li><para><code>valid-until</code> - The end date of the request.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -102,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SpotInstanceRequestId
         /// <summary>
         /// <para>
-        /// <para>One or more Spot instance request IDs.</para>
+        /// <para>One or more Spot Instance request IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

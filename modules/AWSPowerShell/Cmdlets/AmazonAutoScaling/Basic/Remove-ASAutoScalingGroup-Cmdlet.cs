@@ -59,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group to delete.</para>
+        /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

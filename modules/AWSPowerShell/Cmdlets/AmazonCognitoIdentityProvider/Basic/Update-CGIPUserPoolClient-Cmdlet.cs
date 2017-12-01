@@ -77,6 +77,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] AllowedOAuthScope { get; set; }
         #endregion
         
+        #region Parameter AnalyticsConfiguration_ApplicationId
+        /// <summary>
+        /// <para>
+        /// <para>The application ID for an Amazon Pinpoint application.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsConfiguration_ApplicationId { get; set; }
+        #endregion
+        
         #region Parameter CallbackURLs
         /// <summary>
         /// <para>
@@ -128,6 +138,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String[] ExplicitAuthFlow { get; set; }
         #endregion
         
+        #region Parameter AnalyticsConfiguration_ExternalId
+        /// <summary>
+        /// <para>
+        /// <para>The external ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsConfiguration_ExternalId { get; set; }
+        #endregion
+        
         #region Parameter LogoutURLs
         /// <summary>
         /// <para>
@@ -160,6 +180,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.Int32 RefreshTokenValidity { get; set; }
         #endregion
         
+        #region Parameter AnalyticsConfiguration_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of an IAM role that authorizes Amazon Cognito to publish events to Amazon
+        /// Pinpoint analytics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsConfiguration_RoleArn { get; set; }
+        #endregion
+        
         #region Parameter SupportedIdentityProvider
         /// <summary>
         /// <para>
@@ -169,6 +200,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         [System.Management.Automation.Parameter]
         [Alias("SupportedIdentityProviders")]
         public System.String[] SupportedIdentityProvider { get; set; }
+        #endregion
+        
+        #region Parameter AnalyticsConfiguration_UserDataShared
+        /// <summary>
+        /// <para>
+        /// <para>If <code>UserDataShared</code> is <code>true</code>, Amazon Cognito will include user
+        /// data in the events it publishes to Amazon Pinpoint analytics.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean AnalyticsConfiguration_UserDataShared { get; set; }
         #endregion
         
         #region Parameter UserPoolId
@@ -231,6 +273,11 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             {
                 context.AllowedOAuthScopes = new List<System.String>(this.AllowedOAuthScope);
             }
+            context.AnalyticsConfiguration_ApplicationId = this.AnalyticsConfiguration_ApplicationId;
+            context.AnalyticsConfiguration_ExternalId = this.AnalyticsConfiguration_ExternalId;
+            context.AnalyticsConfiguration_RoleArn = this.AnalyticsConfiguration_RoleArn;
+            if (ParameterWasBound("AnalyticsConfiguration_UserDataShared"))
+                context.AnalyticsConfiguration_UserDataShared = this.AnalyticsConfiguration_UserDataShared;
             if (this.CallbackURLs != null)
             {
                 context.CallbackURLs = new List<System.String>(this.CallbackURLs);
@@ -288,6 +335,55 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.AllowedOAuthScopes != null)
             {
                 request.AllowedOAuthScopes = cmdletContext.AllowedOAuthScopes;
+            }
+            
+             // populate AnalyticsConfiguration
+            bool requestAnalyticsConfigurationIsNull = true;
+            request.AnalyticsConfiguration = new Amazon.CognitoIdentityProvider.Model.AnalyticsConfigurationType();
+            System.String requestAnalyticsConfiguration_analyticsConfiguration_ApplicationId = null;
+            if (cmdletContext.AnalyticsConfiguration_ApplicationId != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_ApplicationId = cmdletContext.AnalyticsConfiguration_ApplicationId;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_ApplicationId != null)
+            {
+                request.AnalyticsConfiguration.ApplicationId = requestAnalyticsConfiguration_analyticsConfiguration_ApplicationId;
+                requestAnalyticsConfigurationIsNull = false;
+            }
+            System.String requestAnalyticsConfiguration_analyticsConfiguration_ExternalId = null;
+            if (cmdletContext.AnalyticsConfiguration_ExternalId != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_ExternalId = cmdletContext.AnalyticsConfiguration_ExternalId;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_ExternalId != null)
+            {
+                request.AnalyticsConfiguration.ExternalId = requestAnalyticsConfiguration_analyticsConfiguration_ExternalId;
+                requestAnalyticsConfigurationIsNull = false;
+            }
+            System.String requestAnalyticsConfiguration_analyticsConfiguration_RoleArn = null;
+            if (cmdletContext.AnalyticsConfiguration_RoleArn != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_RoleArn = cmdletContext.AnalyticsConfiguration_RoleArn;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_RoleArn != null)
+            {
+                request.AnalyticsConfiguration.RoleArn = requestAnalyticsConfiguration_analyticsConfiguration_RoleArn;
+                requestAnalyticsConfigurationIsNull = false;
+            }
+            System.Boolean? requestAnalyticsConfiguration_analyticsConfiguration_UserDataShared = null;
+            if (cmdletContext.AnalyticsConfiguration_UserDataShared != null)
+            {
+                requestAnalyticsConfiguration_analyticsConfiguration_UserDataShared = cmdletContext.AnalyticsConfiguration_UserDataShared.Value;
+            }
+            if (requestAnalyticsConfiguration_analyticsConfiguration_UserDataShared != null)
+            {
+                request.AnalyticsConfiguration.UserDataShared = requestAnalyticsConfiguration_analyticsConfiguration_UserDataShared.Value;
+                requestAnalyticsConfigurationIsNull = false;
+            }
+             // determine if request.AnalyticsConfiguration should be set to null
+            if (requestAnalyticsConfigurationIsNull)
+            {
+                request.AnalyticsConfiguration = null;
             }
             if (cmdletContext.CallbackURLs != null)
             {
@@ -400,6 +496,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public List<System.String> AllowedOAuthFlows { get; set; }
             public System.Boolean? AllowedOAuthFlowsUserPoolClient { get; set; }
             public List<System.String> AllowedOAuthScopes { get; set; }
+            public System.String AnalyticsConfiguration_ApplicationId { get; set; }
+            public System.String AnalyticsConfiguration_ExternalId { get; set; }
+            public System.String AnalyticsConfiguration_RoleArn { get; set; }
+            public System.Boolean? AnalyticsConfiguration_UserDataShared { get; set; }
             public List<System.String> CallbackURLs { get; set; }
             public System.String ClientId { get; set; }
             public System.String ClientName { get; set; }

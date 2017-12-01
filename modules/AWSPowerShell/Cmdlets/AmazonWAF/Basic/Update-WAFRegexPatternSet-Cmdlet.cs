@@ -28,14 +28,14 @@ using Amazon.WAF.Model;
 namespace Amazon.PowerShell.Cmdlets.WAF
 {
     /// <summary>
-    /// Inserts or deletes <a>RegexMatchSetUpdate</a> objects (filters) in a <a>RegexPatternSet</a>.
-    /// For each <code>RegexPatternSet</code> object, you specify the following values: 
+    /// Inserts or deletes <code>RegexPatternString</code> objects in a <a>RegexPatternSet</a>.
+    /// For each <code>RegexPatternString</code> object, you specify the following values:
+    /// 
     /// 
     ///  <ul><li><para>
-    /// Whether to insert or delete the object from the array. If you want to change a <code>RegexPatternSet</code>
-    /// object, you delete the existing object and add a new one.
+    /// Whether to insert or delete the <code>RegexPatternString</code>.
     /// </para></li><li><para>
-    /// The regular expression pattern that you want AWS WAF to look for. For more information,
+    /// The regular expression pattern that you want to insert or delete. For more information,
     /// see <a>RegexPatternSet</a>. 
     /// </para></li></ul><para>
     ///  For example, you can create a <code>RegexPatternString</code> such as <code>B[a@]dB[o0]t</code>.

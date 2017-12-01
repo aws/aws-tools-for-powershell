@@ -58,6 +58,16 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public System.String CertificateId { get; set; }
         #endregion
         
+        #region Parameter DeleteWithForce
+        /// <summary>
+        /// <para>
+        /// <para>Forces a certificate request to be deleted.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean DeleteWithForce { get; set; }
+        #endregion
+        
         #region Parameter PassThru
         /// <summary>
         /// Returns the value passed to the CertificateId parameter.
@@ -97,6 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             PreExecutionContextLoad(context);
             
             context.CertificateId = this.CertificateId;
+            if (ParameterWasBound("DeleteWithForce"))
+                context.DeleteWithForce = this.DeleteWithForce;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,6 +128,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.CertificateId != null)
             {
                 request.CertificateId = cmdletContext.CertificateId;
+            }
+            if (cmdletContext.DeleteWithForce != null)
+            {
+                request.ForceDelete = cmdletContext.DeleteWithForce.Value;
             }
             
             CmdletOutput output;
@@ -184,6 +200,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String CertificateId { get; set; }
+            public System.Boolean? DeleteWithForce { get; set; }
         }
         
     }

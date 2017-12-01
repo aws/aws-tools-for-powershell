@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.Resource != null)
             {
-                context.Resources = new List<System.String>(this.Resource);
+                context.Resource = new List<System.String>(this.Resource);
             }
             if (this.Tag != null)
             {
@@ -138,9 +138,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.CreateTagsRequest();
             
-            if (cmdletContext.Resources != null)
+            if (cmdletContext.Resource != null)
             {
-                request.Resources = cmdletContext.Resources;
+                request.Resources = cmdletContext.Resource;
             }
             if (cmdletContext.Tags != null)
             {
@@ -212,7 +212,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Resources { get; set; }
+            public List<System.String> Resource { get; set; }
             public List<Amazon.EC2.Model.Tag> Tags { get; set; }
         }
         

@@ -175,7 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             if (this.Group != null)
             {
-                context.Groups = new List<System.String>(this.Group);
+                context.Group = new List<System.String>(this.Group);
             }
             if (ParameterWasBound("Ipv6AddressCount"))
                 context.Ipv6AddressCount = this.Ipv6AddressCount;
@@ -211,9 +211,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Groups != null)
+            if (cmdletContext.Group != null)
             {
-                request.Groups = cmdletContext.Groups;
+                request.Groups = cmdletContext.Group;
             }
             if (cmdletContext.Ipv6AddressCount != null)
             {
@@ -304,7 +304,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String Description { get; set; }
-            public List<System.String> Groups { get; set; }
+            public List<System.String> Group { get; set; }
             public System.Int32? Ipv6AddressCount { get; set; }
             public List<Amazon.EC2.Model.InstanceIpv6Address> Ipv6Addresses { get; set; }
             public System.String PrivateIpAddress { get; set; }

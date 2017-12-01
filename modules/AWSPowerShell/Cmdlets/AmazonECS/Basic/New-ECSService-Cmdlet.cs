@@ -38,12 +38,13 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// In addition to maintaining the desired count of tasks in your service, you can optionally
     /// run your service behind a load balancer. The load balancer distributes traffic across
     /// the tasks that are associated with the service. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/service-load-balancing.html">Service
-    /// Load Balancing</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// Load Balancing</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
-    /// You can optionally specify a deployment configuration for your service. During a deployment
-    /// (which is triggered by changing the task definition or the desired count of a service
-    /// with an <a>UpdateService</a> operation), the service scheduler uses the <code>minimumHealthyPercent</code>
-    /// and <code>maximumPercent</code> parameters to determine the deployment strategy.
+    /// You can optionally specify a deployment configuration for your service. During a deployment,
+    /// the service scheduler uses the <code>minimumHealthyPercent</code> and <code>maximumPercent</code>
+    /// parameters to determine the deployment strategy. The deployment is triggered by changing
+    /// the task definition or the desired count of a service with an <a>UpdateService</a>
+    /// operation.
     /// </para><para>
     /// The <code>minimumHealthyPercent</code> represents a lower limit on the number of your
     /// service's tasks that must remain in the <code>RUNNING</code> state during a deployment,
@@ -98,6 +99,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     public partial class NewECSServiceCmdlet : AmazonECSClientCmdlet, IExecutor
     {
         
+        #region Parameter AwsvpcConfiguration_AssignPublicIp
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not the task's elastic network interface receives a public IP
+        /// address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")]
+        [AWSConstantClassSource("Amazon.ECS.AssignPublicIp")]
+        public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
+        #endregion
+        
         #region Parameter ClientToken
         /// <summary>
         /// <para>
@@ -129,6 +143,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.Int32 DesiredCount { get; set; }
+        #endregion
+        
+        #region Parameter LaunchType
+        /// <summary>
+        /// <para>
+        /// <para>The launch type on which to run your service.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.LaunchType")]
+        public Amazon.ECS.LaunchType LaunchType { get; set; }
         #endregion
         
         #region Parameter LoadBalancer
@@ -171,9 +196,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <para>
         /// <para>The lower limit (as a percentage of the service's <code>desiredCount</code>) of the
         /// number of running tasks that must remain in the <code>RUNNING</code> state in a service
-        /// during a deployment. The minimum healthy tasks during a deployment is the <code>desiredCount</code>
-        /// multiplied by <code>minimumHealthyPercent</code>/100, rounded up to the nearest integer
-        /// value.</para>
+        /// during a deployment. The minimum number of healthy tasks during a deployment is the
+        /// <code>desiredCount</code> multiplied by <code>minimumHealthyPercent</code>/100, rounded
+        /// up to the nearest integer value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -197,11 +222,22 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The placement strategy objects to use for tasks in your service. You can specify a
-        /// maximum of 5 strategy rules per service.</para>
+        /// maximum of five strategy rules per service.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.ECS.Model.PlacementStrategy[] PlacementStrategy { get; set; }
+        #endregion
+        
+        #region Parameter PlatformVersion
+        /// <summary>
+        /// <para>
+        /// <para>The platform version on which to run your service. If one is not specified, the latest
+        /// version is used by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlatformVersion { get; set; }
         #endregion
         
         #region Parameter Role
@@ -214,9 +250,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// you must also specify a load balancer object with the <code>loadBalancers</code> parameter.</para><important><para>If your account has already created the Amazon ECS service-linked role, that role
         /// is used by default for your service unless you specify a role here. The service-linked
         /// role is required if your task definition uses the <code>awsvpc</code> network mode,
-        /// in which case you should not specify a role here. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguideusing-service-linked-roles.html">Using
-        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon EC2 Container Service Developer
-        /// Guide</i>.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
+        /// in which case you should not specify a role here. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/using-service-linked-roles.html">Using
+        /// Service-Linked Roles for Amazon ECS</a> in the <i>Amazon Elastic Container Service
+        /// Developer Guide</i>.</para></important><para>If your specified role has a path other than <code>/</code>, then you must either
         /// specify the full role ARN (this is recommended) or prefix the role name with the path.
         /// For example, if a role with the name <code>bar</code> has a path of <code>/foo/</code>
         /// then you would specify <code>/foo/bar</code> as the role name. For more information,
@@ -268,9 +304,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition to run in your service. If
-        /// a <code>revision</code> is not specified, the latest <code>ACTIVE</code> revision
-        /// is used.</para>
+        /// full ARN of the task definition to run in your service. If a <code>revision</code>
+        /// is not specified, the latest <code>ACTIVE</code> revision is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -314,10 +349,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             if (ParameterWasBound("DesiredCount"))
                 context.DesiredCount = this.DesiredCount;
+            context.LaunchType = this.LaunchType;
             if (this.LoadBalancer != null)
             {
                 context.LoadBalancers = new List<Amazon.ECS.Model.LoadBalancer>(this.LoadBalancer);
             }
+            context.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
             {
                 context.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups = new List<System.String>(this.AwsvpcConfiguration_SecurityGroup);
@@ -334,6 +371,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.PlacementStrategy = new List<Amazon.ECS.Model.PlacementStrategy>(this.PlacementStrategy);
             }
+            context.PlatformVersion = this.PlatformVersion;
             context.Role = this.Role;
             context.ServiceName = this.ServiceName;
             context.TaskDefinition = this.TaskDefinition;
@@ -394,6 +432,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.DesiredCount = cmdletContext.DesiredCount.Value;
             }
+            if (cmdletContext.LaunchType != null)
+            {
+                request.LaunchType = cmdletContext.LaunchType;
+            }
             if (cmdletContext.LoadBalancers != null)
             {
                 request.LoadBalancers = cmdletContext.LoadBalancers;
@@ -407,6 +449,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate AwsvpcConfiguration
             bool requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = true;
             requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = new Amazon.ECS.Model.AwsVpcConfiguration();
+            Amazon.ECS.AssignPublicIp requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.AssignPublicIp = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
             List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = null;
             if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups != null)
             {
@@ -449,6 +501,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.PlacementStrategy != null)
             {
                 request.PlacementStrategy = cmdletContext.PlacementStrategy;
+            }
+            if (cmdletContext.PlatformVersion != null)
+            {
+                request.PlatformVersion = cmdletContext.PlatformVersion;
             }
             if (cmdletContext.Role != null)
             {
@@ -531,11 +587,14 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
+            public Amazon.ECS.LaunchType LaunchType { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancers { get; set; }
+            public Amazon.ECS.AssignPublicIp NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_SecurityGroups { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_Subnets { get; set; }
             public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }
             public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
+            public System.String PlatformVersion { get; set; }
             public System.String Role { get; set; }
             public System.String ServiceName { get; set; }
             public System.String TaskDefinition { get; set; }

@@ -38,12 +38,12 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// <para>
     /// You cannot use an <code>INACTIVE</code> task definition to run new tasks or create
     /// new services, and you cannot update an existing service to reference an <code>INACTIVE</code>
-    /// task definition (although there may be up to a 10 minute window following deregistration
+    /// task definition (although there may be up to a 10-minute window following deregistration
     /// where these restrictions have not yet taken effect).
     /// </para><note><para>
     /// At this time, <code>INACTIVE</code> task definitions remain discoverable in your account
     /// indefinitely; however, this behavior is subject to change in the future, so you should
-    /// not rely on <code>INACTIVE</code> task definitions persisting beyond the life cycle
+    /// not rely on <code>INACTIVE</code> task definitions persisting beyond the lifecycle
     /// of any associated tasks and services.
     /// </para></note>
     /// </summary>

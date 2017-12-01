@@ -873,7 +873,7 @@ namespace AWSPowerShellGenerator.Analysis
             remapped |= AssignVerb(ref verb);
             remapped |= AssignNoun(ref noun);
 
-            // append service prefix
+            // prepend service prefix
             if (!string.IsNullOrEmpty(CurrentModel.ServiceNounPrefix))
             {
                 noun = CurrentModel.ServiceNounPrefix + noun;
@@ -887,7 +887,16 @@ namespace AWSPowerShellGenerator.Analysis
             }
 
             if (!ApprovedVerbs.Contains(verb))
+            {
                 Logger.LogError("Unapproved verb [{0}] in operation [{1}]", verb, CurrentOperation.MethodName);
+            }
+
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                // if we're configuring a new operation, state the verb and noun selected
+                // explicitly in the config file so it can be reviewed and corrected if necessary
+                CurrentOperation.RequestedVerb = verb;
+            }
 
             var nounArray = Regex.Split(noun, @"(?<!^)(?=[A-Z])");
             var nounTermination = nounArray[nounArray.Length - 1];
@@ -909,12 +918,32 @@ namespace AWSPowerShellGenerator.Analysis
                 }
                 suggestedNoun.Append(Pluralization.Singularize(nounTermination));
 
-                Logger.LogError("Plural noun [{0}] in operation [{1} ({2}-{3})]. Suggest noun rename to [{4}].",
-                                    noun,
-                                    CurrentOperation.MethodName,
-                                    verb,
-                                    noun,
-                                    suggestedNoun);
+                if (CurrentOperation.IsAutoConfiguring)
+                {
+                    // be explicit in the config so it can be reviewed, even if we're not 
+                    // auto-configuring the operation as a whole. Don't error here
+                    // as we're assuming someone will review.
+                    noun = CurrentModel.ServiceNounPrefix + suggestedNoun;
+                    Logger.Log("Plural noun for auto-generated ServiceOperation on operation {0} set to {1}", CurrentOperation.MethodName, noun);
+                }
+                else
+                {
+                    // found plural noun that hasn't been manually configured, so error it
+                    Logger.LogError("Plural noun [{0}] in operation [{1} ({2}-{3})]. Suggest noun rename to [{4}].",
+                        noun,
+                        CurrentOperation.MethodName,
+                        verb,
+                        noun,
+                        suggestedNoun);
+                }
+            }
+
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                // if we're configuring a new operation, state the verb and noun selected
+                // explicitly in the config file so it can be reviewed and corrected if necessary
+                CurrentOperation.RequestedVerb = verb;
+                CurrentOperation.RequestedNoun = noun.Substring(CurrentModel.ServiceNounPrefix.Length);
             }
 
             CurrentOperation.SelectedVerb = verb;
@@ -1278,6 +1307,16 @@ namespace AWSPowerShellGenerator.Analysis
                 Logger.Log("Replaced SDK verb [{0}] with PS verb [{1}]", oldVerb, newVerb);
             }
 
+            if (string.IsNullOrEmpty(newVerb) && CurrentOperation.IsAutoConfiguring)
+            {
+                if (verb.Equals("list", StringComparison.OrdinalIgnoreCase))
+                {
+                    Logger.Log("Remapping List SDK verb to Get");
+                    newVerb = "Get";
+                    CurrentOperation.IsRemappedListOperation = true;
+                }                
+            }
+
             if (newVerb == null)
                 return false;
 
@@ -1299,6 +1338,12 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 newNoun = CurrentModel.NounMappings[noun];
                 Logger.Log("Replaced SDK noun [{0}] with PS noun [{1}]", oldNoun, newNoun);
+            }
+
+            if (string.IsNullOrEmpty(newNoun) && CurrentOperation.IsAutoConfiguring && CurrentOperation.IsRemappedListOperation)
+            {
+                Logger.Log("Auto-generating for SDK List operation; setting noun to have List suffix");
+                newNoun = noun + "List";
             }
 
             if (newNoun == null)

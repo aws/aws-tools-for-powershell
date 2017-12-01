@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// 
     ///  
     /// <para>
-    /// For an example, see <a>example1</a>.
+    /// For an example, see <a>list-collection-procedure</a>.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:ListCollections</code>
     /// action.
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>Maximum number of collection IDs to return.</para>
+        /// <para>Maximum number of collection IDs to return. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -70,13 +70,13 @@ namespace Amazon.PowerShell.Cmdlets.LM
         #region Parameter Qualifier
         /// <summary>
         /// <para>
-        /// <para>Using this optional parameter to specify a function version or an alias name. If you
+        /// <para>Use this optional parameter to specify a function version or an alias name. If you
         /// specify function version, the API uses qualified function ARN for the request and
         /// returns information about the specific Lambda function version. If you specify an
         /// alias name, the API uses the alias ARN and returns information about the function
         /// version to which the alias points. If you don't provide this parameter, the API uses
         /// unqualified function ARN and returns information about the <code>$LATEST</code> version
-        /// of the Lambda function.</para>
+        /// of the Lambda function. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -64,7 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// (ARN) that is associated with it.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String StackName { get; set; }
         #endregion
         

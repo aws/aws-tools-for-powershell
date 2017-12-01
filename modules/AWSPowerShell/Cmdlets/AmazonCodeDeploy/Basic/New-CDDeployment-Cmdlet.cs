@@ -98,6 +98,19 @@ namespace Amazon.PowerShell.Cmdlets.CD
         public System.String GitHubLocation_CommitId { get; set; }
         #endregion
         
+        #region Parameter String_Content
+        /// <summary>
+        /// <para>
+        /// <para>The YAML-formatted or JSON-formatted revision string. It includes information about
+        /// what Lambda function to update and optional Lambda functions that validate deployment
+        /// lifecycle events.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Revision_String_Content")]
+        public System.String String_Content { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfigName
         /// <summary>
         /// <para>
@@ -222,13 +235,24 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter RevisionType
         /// <summary>
         /// <para>
-        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub.</para></li></ul>
+        /// <para>The type of application revision:</para><ul><li><para>S3: An application revision stored in Amazon S3.</para></li><li><para>GitHub: An application revision stored in GitHub (EC2/On-premises deployments only)</para></li><li><para>String: A YAML-formatted or JSON-formatted string (AWS Lambda deployments only)</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("Revision_RevisionType")]
         [AWSConstantClassSource("Amazon.CodeDeploy.RevisionLocationType")]
         public Amazon.CodeDeploy.RevisionLocationType RevisionType { get; set; }
+        #endregion
+        
+        #region Parameter String_Sha256
+        /// <summary>
+        /// <para>
+        /// <para>The SHA256 hash value of the revision that is specified as a RawString.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Revision_String_Sha256")]
+        public System.String String_Sha256 { get; set; }
         #endregion
         
         #region Parameter TargetInstancesTagFilter
@@ -329,6 +353,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             context.Revision_S3Location_ETag = this.S3Location_ETag;
             context.Revision_S3Location_Key = this.S3Location_Key;
             context.Revision_S3Location_Version = this.S3Location_Version;
+            context.Revision_String_Content = this.String_Content;
+            context.Revision_String_Sha256 = this.String_Sha256;
             if (this.TargetInstancesAutoScalingGroup != null)
             {
                 context.TargetInstancesAutoScalingGroup = new List<System.String>(this.TargetInstancesAutoScalingGroup);
@@ -463,6 +489,41 @@ namespace Amazon.PowerShell.Cmdlets.CD
             if (requestRevision_revision_GitHubLocation != null)
             {
                 request.Revision.GitHubLocation = requestRevision_revision_GitHubLocation;
+                requestRevisionIsNull = false;
+            }
+            Amazon.CodeDeploy.Model.RawString requestRevision_revision_String = null;
+            
+             // populate String
+            bool requestRevision_revision_StringIsNull = true;
+            requestRevision_revision_String = new Amazon.CodeDeploy.Model.RawString();
+            System.String requestRevision_revision_String_string_Content = null;
+            if (cmdletContext.Revision_String_Content != null)
+            {
+                requestRevision_revision_String_string_Content = cmdletContext.Revision_String_Content;
+            }
+            if (requestRevision_revision_String_string_Content != null)
+            {
+                requestRevision_revision_String.Content = requestRevision_revision_String_string_Content;
+                requestRevision_revision_StringIsNull = false;
+            }
+            System.String requestRevision_revision_String_string_Sha256 = null;
+            if (cmdletContext.Revision_String_Sha256 != null)
+            {
+                requestRevision_revision_String_string_Sha256 = cmdletContext.Revision_String_Sha256;
+            }
+            if (requestRevision_revision_String_string_Sha256 != null)
+            {
+                requestRevision_revision_String.Sha256 = requestRevision_revision_String_string_Sha256;
+                requestRevision_revision_StringIsNull = false;
+            }
+             // determine if requestRevision_revision_String should be set to null
+            if (requestRevision_revision_StringIsNull)
+            {
+                requestRevision_revision_String = null;
+            }
+            if (requestRevision_revision_String != null)
+            {
+                request.Revision.String = requestRevision_revision_String;
                 requestRevisionIsNull = false;
             }
             Amazon.CodeDeploy.Model.S3Location requestRevision_revision_S3Location = null;
@@ -673,6 +734,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
             public System.String Revision_S3Location_ETag { get; set; }
             public System.String Revision_S3Location_Key { get; set; }
             public System.String Revision_S3Location_Version { get; set; }
+            public System.String Revision_String_Content { get; set; }
+            public System.String Revision_String_Sha256 { get; set; }
             public List<System.String> TargetInstancesAutoScalingGroup { get; set; }
             public List<List<Amazon.CodeDeploy.Model.EC2TagFilter>> Ec2TagSetList { get; set; }
             public List<Amazon.CodeDeploy.Model.EC2TagFilter> TargetInstancesTagFilter { get; set; }

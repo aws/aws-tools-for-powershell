@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     /// user, the confirmation code is sent to the phone number. Otherwise, if a verified
     /// email exists, the confirmation code is sent to the email. If neither a verified phone
     /// number nor a verified email exists, <code>InvalidParameterException</code> is thrown.
-    /// To use the confirmation code for resetting the password, call <a href="API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.
+    /// To use the confirmation code for resetting the password, call .
     /// </summary>
     [Cmdlet("Reset", "CGIPForgottenPassword", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CognitoIdentityProvider.Model.CodeDeliveryDetailsType")]
@@ -46,6 +46,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class ResetCGIPForgottenPasswordCmdlet : AnonymousAmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter AnalyticsMetadata_AnalyticsEndpointId
+        /// <summary>
+        /// <para>
+        /// <para>The endpoint ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
+        #endregion
+        
         #region Parameter ClientId
         /// <summary>
         /// <para>
@@ -54,6 +64,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String ClientId { get; set; }
+        #endregion
+        
+        #region Parameter UserContextData_EncodedData
+        /// <summary>
+        /// <para>
+        /// <para>Contextual data such as the user's device fingerprint, IP address, or location used
+        /// for evaluating the risk of an unexpected event by Amazon Cognito advanced security.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String UserContextData_EncodedData { get; set; }
         #endregion
         
         #region Parameter SecretHash
@@ -91,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ClientId", MyInvocation.BoundParameters);
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("Username", MyInvocation.BoundParameters);
             if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Reset-CGIPForgottenPassword (ForgotPassword)"))
             {
                 return;
@@ -105,8 +126,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AnalyticsMetadata_AnalyticsEndpointId = this.AnalyticsMetadata_AnalyticsEndpointId;
             context.ClientId = this.ClientId;
             context.SecretHash = this.SecretHash;
+            context.UserContextData_EncodedData = this.UserContextData_EncodedData;
             context.Username = this.Username;
             
             // allow further manipulation of loaded context prior to processing
@@ -124,6 +147,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             // create request
             var request = new Amazon.CognitoIdentityProvider.Model.ForgotPasswordRequest();
             
+            
+             // populate AnalyticsMetadata
+            bool requestAnalyticsMetadataIsNull = true;
+            request.AnalyticsMetadata = new Amazon.CognitoIdentityProvider.Model.AnalyticsMetadataType();
+            System.String requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = null;
+            if (cmdletContext.AnalyticsMetadata_AnalyticsEndpointId != null)
+            {
+                requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId = cmdletContext.AnalyticsMetadata_AnalyticsEndpointId;
+            }
+            if (requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId != null)
+            {
+                request.AnalyticsMetadata.AnalyticsEndpointId = requestAnalyticsMetadata_analyticsMetadata_AnalyticsEndpointId;
+                requestAnalyticsMetadataIsNull = false;
+            }
+             // determine if request.AnalyticsMetadata should be set to null
+            if (requestAnalyticsMetadataIsNull)
+            {
+                request.AnalyticsMetadata = null;
+            }
             if (cmdletContext.ClientId != null)
             {
                 request.ClientId = cmdletContext.ClientId;
@@ -131,6 +173,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.SecretHash != null)
             {
                 request.SecretHash = cmdletContext.SecretHash;
+            }
+            
+             // populate UserContextData
+            bool requestUserContextDataIsNull = true;
+            request.UserContextData = new Amazon.CognitoIdentityProvider.Model.UserContextDataType();
+            System.String requestUserContextData_userContextData_EncodedData = null;
+            if (cmdletContext.UserContextData_EncodedData != null)
+            {
+                requestUserContextData_userContextData_EncodedData = cmdletContext.UserContextData_EncodedData;
+            }
+            if (requestUserContextData_userContextData_EncodedData != null)
+            {
+                request.UserContextData.EncodedData = requestUserContextData_userContextData_EncodedData;
+                requestUserContextDataIsNull = false;
+            }
+             // determine if request.UserContextData should be set to null
+            if (requestUserContextDataIsNull)
+            {
+                request.UserContextData = null;
             }
             if (cmdletContext.Username != null)
             {
@@ -200,8 +261,10 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AnalyticsMetadata_AnalyticsEndpointId { get; set; }
             public System.String ClientId { get; set; }
             public System.String SecretHash { get; set; }
+            public System.String UserContextData_EncodedData { get; set; }
             public System.String Username { get; set; }
         }
         

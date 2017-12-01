@@ -55,8 +55,8 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <para>The set of compute environments mapped to a job queue and their order relative to
         /// each other. The job scheduler uses this parameter to determine which compute environment
         /// should execute a given job. Compute environments must be in the <code>VALID</code>
-        /// state before you can associate them with a job queue. You can associate up to 3 compute
-        /// environments with a job queue.</para>
+        /// state before you can associate them with a job queue. You can associate up to three
+        /// compute environments with a job queue.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

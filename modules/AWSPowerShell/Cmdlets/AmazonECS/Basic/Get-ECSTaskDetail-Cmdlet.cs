@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Task
         /// <summary>
         /// <para>
-        /// <para>A list of up to 100 task IDs or full Amazon Resource Name (ARN) entries.</para>
+        /// <para>A list of up to 100 task IDs or full ARN entries.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

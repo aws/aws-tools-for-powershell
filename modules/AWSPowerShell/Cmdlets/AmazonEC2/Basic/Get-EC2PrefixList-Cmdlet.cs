@@ -31,7 +31,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// Describes available AWS services in a prefix list format, which includes the prefix
     /// list name and prefix list ID of the service and the IP address range for the service.
     /// A prefix list ID is required for creating an outbound security group rule that allows
-    /// traffic from a VPC to access an AWS service through a VPC endpoint.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// traffic from a VPC to access an AWS service through a gateway VPC endpoint.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "EC2PrefixList")]
     [OutputType("Amazon.EC2.Model.PrefixList")]

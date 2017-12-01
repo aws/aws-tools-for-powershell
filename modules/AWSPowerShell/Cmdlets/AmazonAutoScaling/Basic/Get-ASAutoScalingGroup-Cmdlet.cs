@@ -44,7 +44,8 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The group names. If you omit this parameter, all Auto Scaling groups are described.</para>
+        /// <para>The names of the Auto Scaling groups. If you omit this parameter, all Auto Scaling
+        /// groups are described.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

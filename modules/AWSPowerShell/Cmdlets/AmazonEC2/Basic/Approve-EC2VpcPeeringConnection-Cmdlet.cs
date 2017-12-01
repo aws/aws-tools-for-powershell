@@ -32,6 +32,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// must be in the <code>pending-acceptance</code> state, and you must be the owner of
     /// the peer VPC. Use <a>DescribeVpcPeeringConnections</a> to view your outstanding VPC
     /// peering connection requests.
+    /// 
+    ///  
+    /// <para>
+    /// For an inter-region VPC peering connection request, you must accept the VPC peering
+    /// connection in the region of the accepter VPC.
+    /// </para>
     /// </summary>
     [Cmdlet("Approve", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.EC2.Model.VpcPeeringConnection")]
@@ -46,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcPeeringConnectionId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC peering connection.</para>
+        /// <para>The ID of the VPC peering connection. You must specify this parameter in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

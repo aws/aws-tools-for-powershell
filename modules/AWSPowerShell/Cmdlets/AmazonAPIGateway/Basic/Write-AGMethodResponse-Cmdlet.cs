@@ -75,10 +75,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
         #region Parameter ResponseParameter
         /// <summary>
         /// <para>
-        /// <para>A key-value map specifying required or optional response parameters that Amazon API
-        /// Gateway can send back to the caller. A key defines a method response header name and
-        /// the associated value is a Boolean flag indicating whether the method response parameter
-        /// is required or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>,
+        /// <para>A key-value map specifying required or optional response parameters that API Gateway
+        /// can send back to the caller. A key defines a method response header name and the associated
+        /// value is a Boolean flag indicating whether the method response parameter is required
+        /// or not. The method response header names must match the pattern of <code>method.response.header.{name}</code>,
         /// where <code>name</code> is a valid and unique header name. The response parameter
         /// names defined here are available in the integration response to be mapped from an
         /// integration response header expressed in <code>integration.response.header.{name}</code>,

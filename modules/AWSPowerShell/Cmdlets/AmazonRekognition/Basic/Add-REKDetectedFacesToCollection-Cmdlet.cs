@@ -66,8 +66,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// operations, passing image bytes is not supported. The image must be either a PNG or
     /// JPEG formatted file. 
     /// </para><para>
-    /// For an example, see <a>example2</a>.
-    /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:IndexFaces</code>
     /// action.
     /// </para>

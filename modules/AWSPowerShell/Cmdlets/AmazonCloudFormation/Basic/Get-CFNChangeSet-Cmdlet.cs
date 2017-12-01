@@ -58,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.CFN
         /// change set you want to describe.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
+        [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]
         public System.String StackName { get; set; }
         #endregion
         

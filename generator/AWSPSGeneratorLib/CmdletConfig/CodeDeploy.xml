@@ -144,5 +144,7 @@
     <ServiceOperation MethodName="ListOnPremisesInstances" Verb="Get" Noun="OnPremiseInstanceList"/>
     <ServiceOperation MethodName="RegisterOnPremisesInstance" Noun="OnPremiseInstance" Output="Void" ShouldProcessTarget="InstanceName" />
     <ServiceOperation MethodName="RemoveTagsFromOnPremisesInstances" Noun="OnPremiseInstanceTag" Output="Void" ShouldProcessTarget="InstanceNames"/>
+
+    <ServiceOperation MethodName="PutLifecycleEventHookExecutionStatus" PipelineParameter="LifecycleEventHookExecutionId" />
   </ServiceOperations>
 </ConfigModel>

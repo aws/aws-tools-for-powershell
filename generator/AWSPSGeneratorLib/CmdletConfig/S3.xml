@@ -151,7 +151,7 @@
     <ServiceOperation MethodName="PutLifecycleConfiguration" Output="Void" PositionalParameters="Configuration"/>
     <ServiceOperation MethodName="PutObject" Exclude="true"/>
     <ServiceOperation MethodName="PutObjectTagging" Noun="ObjectTagSet" PipelineParameter="Key" ShouldProcessTarget="Key"/>
-    <ServiceOperation MethodName="RestoreObject" PositionalParameters="Key;Days">
+    <ServiceOperation MethodName="RestoreObject" PositionalParameters="Key;Days" Output="Response">
       <Params>
         <Param Name="Days" NewName="CopyLifetimeInDays" />
       </Params>
@@ -164,4 +164,9 @@
     -->
     <ServiceOperation MethodName="UploadPart" Exclude="true"/>
   </ServiceOperations>
+
+  <TypesNotToFlatten>
+    <Type>Amazon.S3.Model.SelectParameters</Type>
+
+  </TypesNotToFlatten>
 </ConfigModel>

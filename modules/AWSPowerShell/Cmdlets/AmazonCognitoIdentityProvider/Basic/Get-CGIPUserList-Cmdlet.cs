@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <summary>
         /// <para>
         /// <para>An array of strings, where each string is the name of a user attribute to be returned
-        /// for each user in the search results. If the array is empty, all attributes are returned.</para>
+        /// for each user in the search results. If the array is null, all attributes are returned.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -61,7 +61,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// for one attribute at a time.</para></li><li><para><i>Filter-Type</i>: For an exact match, use =, for example, "<code>given_name</code>
         /// = \"Jon\"". For a prefix ("starts with") match, use ^=, for example, "<code>given_name</code>
         /// ^= \"Jon\"". </para></li><li><para><i>AttributeValue</i>: The attribute value that must be matched for each user.</para></li></ul><para>If the filter string is empty, <code>ListUsers</code> returns all users in the user
-        /// pool.</para><para>You can only search for the following standard attributes:</para><ul><li><para><code>username</code> (case-sensitive)</para></li><li><para><code>email</code></para></li><li><para><code>phone_number</code></para></li><li><para><code>name</code></para></li><li><para><code>given_name</code></para></li><li><para><code>family_name</code></para></li><li><para><code>preferred_username</code></para></li><li><para><code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</para></li><li><para><code>status</code> (case-insensitive)</para></li></ul><para>Custom attributes are not searchable.</para><para>For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching
+        /// pool.</para><para>You can only search for the following standard attributes:</para><ul><li><para><code>username</code> (case-sensitive)</para></li><li><para><code>email</code></para></li><li><para><code>phone_number</code></para></li><li><para><code>name</code></para></li><li><para><code>given_name</code></para></li><li><para><code>family_name</code></para></li><li><para><code>preferred_username</code></para></li><li><para><code>cognito:user_status</code> (called <b>Enabled</b> in the Console) (case-sensitive)</para></li><li><para><code>status</code> (case-insensitive)</para></li><li><para><code>sub</code></para></li></ul><para>Custom attributes are not searchable.</para><para>For more information, see <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-using-listusers-api">Searching
         /// for Users Using the ListUsers API</a> and <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/how-to-manage-user-accounts.html#cognito-user-pools-searching-for-users-listusers-api-examples">Examples
         /// of Using the ListUsers API</a> in the <i>Amazon Cognito Developer Guide</i>.</para>
         /// </para>

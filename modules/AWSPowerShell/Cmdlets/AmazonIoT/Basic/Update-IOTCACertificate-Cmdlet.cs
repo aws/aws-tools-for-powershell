@@ -72,6 +72,36 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         public Amazon.IoT.CACertificateStatus NewStatus { get; set; }
         #endregion
         
+        #region Parameter RemoveAutoRegistration
+        /// <summary>
+        /// <para>
+        /// <para>If true, remove auto registration.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean RemoveAutoRegistration { get; set; }
+        #endregion
+        
+        #region Parameter RegistrationConfig_RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The ARN of the role.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegistrationConfig_RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter RegistrationConfig_TemplateBody
+        /// <summary>
+        /// <para>
+        /// <para>The template body.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RegistrationConfig_TemplateBody { get; set; }
+        #endregion
+        
         #region Parameter Force
         /// <summary>
         /// This parameter overrides confirmation prompts to force 
@@ -104,6 +134,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             context.CertificateId = this.CertificateId;
             context.NewAutoRegistrationStatus = this.NewAutoRegistrationStatus;
             context.NewStatus = this.NewStatus;
+            context.RegistrationConfig_RoleArn = this.RegistrationConfig_RoleArn;
+            context.RegistrationConfig_TemplateBody = this.RegistrationConfig_TemplateBody;
+            if (ParameterWasBound("RemoveAutoRegistration"))
+                context.RemoveAutoRegistration = this.RemoveAutoRegistration;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -131,6 +165,39 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             if (cmdletContext.NewStatus != null)
             {
                 request.NewStatus = cmdletContext.NewStatus;
+            }
+            
+             // populate RegistrationConfig
+            bool requestRegistrationConfigIsNull = true;
+            request.RegistrationConfig = new Amazon.IoT.Model.RegistrationConfig();
+            System.String requestRegistrationConfig_registrationConfig_RoleArn = null;
+            if (cmdletContext.RegistrationConfig_RoleArn != null)
+            {
+                requestRegistrationConfig_registrationConfig_RoleArn = cmdletContext.RegistrationConfig_RoleArn;
+            }
+            if (requestRegistrationConfig_registrationConfig_RoleArn != null)
+            {
+                request.RegistrationConfig.RoleArn = requestRegistrationConfig_registrationConfig_RoleArn;
+                requestRegistrationConfigIsNull = false;
+            }
+            System.String requestRegistrationConfig_registrationConfig_TemplateBody = null;
+            if (cmdletContext.RegistrationConfig_TemplateBody != null)
+            {
+                requestRegistrationConfig_registrationConfig_TemplateBody = cmdletContext.RegistrationConfig_TemplateBody;
+            }
+            if (requestRegistrationConfig_registrationConfig_TemplateBody != null)
+            {
+                request.RegistrationConfig.TemplateBody = requestRegistrationConfig_registrationConfig_TemplateBody;
+                requestRegistrationConfigIsNull = false;
+            }
+             // determine if request.RegistrationConfig should be set to null
+            if (requestRegistrationConfigIsNull)
+            {
+                request.RegistrationConfig = null;
+            }
+            if (cmdletContext.RemoveAutoRegistration != null)
+            {
+                request.RemoveAutoRegistration = cmdletContext.RemoveAutoRegistration.Value;
             }
             
             CmdletOutput output;
@@ -199,6 +266,9 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             public System.String CertificateId { get; set; }
             public Amazon.IoT.AutoRegistrationStatus NewAutoRegistrationStatus { get; set; }
             public Amazon.IoT.CACertificateStatus NewStatus { get; set; }
+            public System.String RegistrationConfig_RoleArn { get; set; }
+            public System.String RegistrationConfig_TemplateBody { get; set; }
+            public System.Boolean? RemoveAutoRegistration { get; set; }
         }
         
     }

@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
     /// <summary>
     /// Gets the <a>GatewayResponses</a> collection on the given <a>RestApi</a>. If an API
     /// developer has not added any definitions for gateway responses, the result will be
-    /// the Amazon API Gateway-generated default <a>GatewayResponses</a> collection for the
-    /// supported response types.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// the API Gateway-generated default <a>GatewayResponses</a> collection for the supported
+    /// response types.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "AGGatewayResponseList")]
     [OutputType("Amazon.APIGateway.Model.GatewayResponse")]

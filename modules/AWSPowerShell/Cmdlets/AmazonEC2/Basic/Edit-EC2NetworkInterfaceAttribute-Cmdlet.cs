@@ -153,7 +153,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.Description = this.Description;
             if (this.Group != null)
             {
-                context.Groups = new List<System.String>(this.Group);
+                context.Group = new List<System.String>(this.Group);
             }
             context.NetworkInterfaceId = this.NetworkInterfaceId;
             if (ParameterWasBound("SourceDestCheck"))
@@ -207,9 +207,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.Groups != null)
+            if (cmdletContext.Group != null)
             {
-                request.Groups = cmdletContext.Groups;
+                request.Groups = cmdletContext.Group;
             }
             if (cmdletContext.NetworkInterfaceId != null)
             {
@@ -288,7 +288,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public System.String Attachment_AttachmentId { get; set; }
             public System.Boolean? Attachment_DeleteOnTermination { get; set; }
             public System.String Description { get; set; }
-            public List<System.String> Groups { get; set; }
+            public List<System.String> Group { get; set; }
             public System.String NetworkInterfaceId { get; set; }
             public System.Boolean? SourceDestCheck { get; set; }
         }

@@ -28,7 +28,7 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Describes all supported AWS services that can be specified when creating a VPC endpoint.
+    /// Describes available services to which you can create a VPC endpoint.
     /// </summary>
     [Cmdlet("Get", "EC2VpcEndpointService")]
     [OutputType("Amazon.EC2.Model.DescribeVpcEndpointServicesResponse")]

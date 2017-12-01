@@ -40,6 +40,17 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
     public partial class UpdateCGIPUserPoolCmdlet : AmazonCognitoIdentityProviderClientCmdlet, IExecutor
     {
         
+        #region Parameter UserPoolAddOns_AdvancedSecurityMode
+        /// <summary>
+        /// <para>
+        /// <para>The advanced security mode.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.CognitoIdentityProvider.AdvancedSecurityModeType")]
+        public Amazon.CognitoIdentityProvider.AdvancedSecurityModeType UserPoolAddOns_AdvancedSecurityMode { get; set; }
+        #endregion
+        
         #region Parameter AdminCreateUserConfig_AllowAdminCreateUserOnly
         /// <summary>
         /// <para>
@@ -282,10 +293,20 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         public System.String LambdaConfig_PreSignUp { get; set; }
         #endregion
         
+        #region Parameter LambdaConfig_PreTokenGeneration
+        /// <summary>
+        /// <para>
+        /// <para>A Lambda trigger that is invoked before token generation.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String LambdaConfig_PreTokenGeneration { get; set; }
+        #endregion
+        
         #region Parameter EmailConfiguration_ReplyToEmailAddress
         /// <summary>
         /// <para>
-        /// <para>The REPLY-TO email address.</para>
+        /// <para>The destination to which the receiver of the email should reply to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -511,6 +532,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.LambdaConfig_PostConfirmation = this.LambdaConfig_PostConfirmation;
             context.LambdaConfig_PreAuthentication = this.LambdaConfig_PreAuthentication;
             context.LambdaConfig_PreSignUp = this.LambdaConfig_PreSignUp;
+            context.LambdaConfig_PreTokenGeneration = this.LambdaConfig_PreTokenGeneration;
             context.LambdaConfig_VerifyAuthChallengeResponse = this.LambdaConfig_VerifyAuthChallengeResponse;
             context.MfaConfiguration = this.MfaConfiguration;
             if (ParameterWasBound("PasswordPolicy_MinimumLength"))
@@ -527,6 +549,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             context.SmsConfiguration_ExternalId = this.SmsConfiguration_ExternalId;
             context.SmsConfiguration_SnsCallerArn = this.SmsConfiguration_SnsCallerArn;
             context.SmsVerificationMessage = this.SmsVerificationMessage;
+            context.UserPoolAddOns_AdvancedSecurityMode = this.UserPoolAddOns_AdvancedSecurityMode;
             context.UserPoolId = this.UserPoolId;
             if (this.UserPoolTag != null)
             {
@@ -776,6 +799,16 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
                 request.LambdaConfig.PreSignUp = requestLambdaConfig_lambdaConfig_PreSignUp;
                 requestLambdaConfigIsNull = false;
             }
+            System.String requestLambdaConfig_lambdaConfig_PreTokenGeneration = null;
+            if (cmdletContext.LambdaConfig_PreTokenGeneration != null)
+            {
+                requestLambdaConfig_lambdaConfig_PreTokenGeneration = cmdletContext.LambdaConfig_PreTokenGeneration;
+            }
+            if (requestLambdaConfig_lambdaConfig_PreTokenGeneration != null)
+            {
+                request.LambdaConfig.PreTokenGeneration = requestLambdaConfig_lambdaConfig_PreTokenGeneration;
+                requestLambdaConfigIsNull = false;
+            }
             System.String requestLambdaConfig_lambdaConfig_VerifyAuthChallengeResponse = null;
             if (cmdletContext.LambdaConfig_VerifyAuthChallengeResponse != null)
             {
@@ -905,6 +938,25 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             if (cmdletContext.SmsVerificationMessage != null)
             {
                 request.SmsVerificationMessage = cmdletContext.SmsVerificationMessage;
+            }
+            
+             // populate UserPoolAddOns
+            bool requestUserPoolAddOnsIsNull = true;
+            request.UserPoolAddOns = new Amazon.CognitoIdentityProvider.Model.UserPoolAddOnsType();
+            Amazon.CognitoIdentityProvider.AdvancedSecurityModeType requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityMode = null;
+            if (cmdletContext.UserPoolAddOns_AdvancedSecurityMode != null)
+            {
+                requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityMode = cmdletContext.UserPoolAddOns_AdvancedSecurityMode;
+            }
+            if (requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityMode != null)
+            {
+                request.UserPoolAddOns.AdvancedSecurityMode = requestUserPoolAddOns_userPoolAddOns_AdvancedSecurityMode;
+                requestUserPoolAddOnsIsNull = false;
+            }
+             // determine if request.UserPoolAddOns should be set to null
+            if (requestUserPoolAddOnsIsNull)
+            {
+                request.UserPoolAddOns = null;
             }
             if (cmdletContext.UserPoolId != null)
             {
@@ -1068,6 +1120,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String LambdaConfig_PostConfirmation { get; set; }
             public System.String LambdaConfig_PreAuthentication { get; set; }
             public System.String LambdaConfig_PreSignUp { get; set; }
+            public System.String LambdaConfig_PreTokenGeneration { get; set; }
             public System.String LambdaConfig_VerifyAuthChallengeResponse { get; set; }
             public Amazon.CognitoIdentityProvider.UserPoolMfaType MfaConfiguration { get; set; }
             public System.Int32? Policies_PasswordPolicy_MinimumLength { get; set; }
@@ -1079,6 +1132,7 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
             public System.String SmsConfiguration_ExternalId { get; set; }
             public System.String SmsConfiguration_SnsCallerArn { get; set; }
             public System.String SmsVerificationMessage { get; set; }
+            public Amazon.CognitoIdentityProvider.AdvancedSecurityModeType UserPoolAddOns_AdvancedSecurityMode { get; set; }
             public System.String UserPoolId { get; set; }
             public Dictionary<System.String, System.String> UserPoolTags { get; set; }
             public Amazon.CognitoIdentityProvider.DefaultEmailOptionType VerificationMessageTemplate_DefaultEmailOption { get; set; }

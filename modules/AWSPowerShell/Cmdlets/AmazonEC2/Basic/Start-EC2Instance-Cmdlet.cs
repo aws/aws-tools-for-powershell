@@ -116,7 +116,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.AdditionalInfo = this.AdditionalInfo;
             if (this.InstanceId != null)
             {
-                context.InstanceIds = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
+                context.InstanceId = AmazonEC2Helper.InstanceParamToIDs(this.InstanceId);
             }
             
             
@@ -139,9 +139,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.AdditionalInfo = cmdletContext.AdditionalInfo;
             }
-            if (cmdletContext.InstanceIds != null)
+            if (cmdletContext.InstanceId != null)
             {
-                request.InstanceIds = cmdletContext.InstanceIds;
+                request.InstanceIds = cmdletContext.InstanceId;
             }
             
             CmdletOutput output;
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AdditionalInfo { get; set; }
-            public List<System.String> InstanceIds { get; set; }
+            public List<System.String> InstanceId { get; set; }
         }
         
     }

@@ -29,17 +29,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
     /// Requests a VPC peering connection between two VPCs: a requester VPC that you own and
-    /// a peer VPC with which to create the connection. The peer VPC can belong to another
-    /// AWS account. The requester VPC and peer VPC cannot have overlapping CIDR blocks.
+    /// an accepter VPC with which to create the connection. The accepter VPC can belong to
+    /// another AWS account and can be in a different region to the requester VPC. The requester
+    /// VPC and accepter VPC cannot have overlapping CIDR blocks.
     /// 
     ///  
     /// <para>
-    /// The owner of the peer VPC must accept the peering request to activate the peering
+    /// The owner of the accepter VPC must accept the peering request to activate the peering
     /// connection. The VPC peering connection request expires after 7 days, after which it
     /// cannot be accepted or rejected.
     /// </para><para>
-    /// If you try to create a VPC peering connection between VPCs that have overlapping CIDR
-    /// blocks, the VPC peering connection status goes to <code>failed</code>.
+    /// If you create a VPC peering connection request between VPCs with overlapping CIDR
+    /// blocks, the VPC peering connection has a status of <code>failed</code>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcPeeringConnection", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -55,17 +56,29 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter PeerOwnerId
         /// <summary>
         /// <para>
-        /// <para>The AWS account ID of the owner of the peer VPC.</para><para>Default: Your AWS account ID</para>
+        /// <para>The AWS account ID of the owner of the accepter VPC.</para><para>Default: Your AWS account ID</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 2)]
         public System.String PeerOwnerId { get; set; }
         #endregion
         
+        #region Parameter PeerRegion
+        /// <summary>
+        /// <para>
+        /// <para>The region code for the accepter VPC, if the accepter VPC is located in a region other
+        /// than the region in which you make the request.</para><para>Default: The region in which you make the request.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PeerRegion { get; set; }
+        #endregion
+        
         #region Parameter PeerVpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the VPC with which you are creating the VPC peering connection.</para>
+        /// <para>The ID of the VPC with which you are creating the VPC peering connection. You must
+        /// specify this parameter in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1)]
@@ -75,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcId
         /// <summary>
         /// <para>
-        /// <para>The ID of the requester VPC.</para>
+        /// <para>The ID of the requester VPC. You must specify this parameter in the request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -112,6 +125,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             PreExecutionContextLoad(context);
             
             context.PeerOwnerId = this.PeerOwnerId;
+            context.PeerRegion = this.PeerRegion;
             context.PeerVpcId = this.PeerVpcId;
             context.VpcId = this.VpcId;
             
@@ -133,6 +147,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             if (cmdletContext.PeerOwnerId != null)
             {
                 request.PeerOwnerId = cmdletContext.PeerOwnerId;
+            }
+            if (cmdletContext.PeerRegion != null)
+            {
+                request.PeerRegion = cmdletContext.PeerRegion;
             }
             if (cmdletContext.PeerVpcId != null)
             {
@@ -207,6 +225,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String PeerOwnerId { get; set; }
+            public System.String PeerRegion { get; set; }
             public System.String PeerVpcId { get; set; }
             public System.String VpcId { get; set; }
         }

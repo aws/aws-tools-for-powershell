@@ -29,6 +29,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
     /// Attaches the specified policy to the specified principal (certificate or other credential).
+    /// 
+    ///  
+    /// <para><b>Note:</b> This API is deprecated. Please use <a>AttachPolicy</a> instead.
+    /// </para>
     /// </summary>
     [Cmdlet("Add", "IOTPrincipalPolicy", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

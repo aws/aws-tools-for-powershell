@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter AutoScalingGroupName
         /// <summary>
         /// <para>
-        /// <para>The name of the group.</para>
+        /// <para>The name of the Auto Scaling group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
@@ -54,10 +54,10 @@ namespace Amazon.PowerShell.Cmdlets.AS
         #region Parameter PolicyName
         /// <summary>
         /// <para>
-        /// <para>One or more policy names or policy ARNs to be described. If you omit this parameter,
-        /// all policy names are described. If an group name is provided, the results are limited
-        /// to that group. This list is limited to 50 items. If you specify an unknown policy
-        /// name, it is ignored with no error.</para>
+        /// <para>The names of one or more policies. If you omit this parameter, all policies are described.
+        /// If an group name is provided, the results are limited to that group. This list is
+        /// limited to 50 items. If you specify an unknown policy name, it is ignored with no
+        /// error.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 1, ValueFromPipelineByPropertyName = true)]

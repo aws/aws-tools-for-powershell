@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcEndpointId
         /// <summary>
         /// <para>
-        /// <para>One or more endpoint IDs.</para>
+        /// <para>One or more VPC endpoint IDs.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,8 +28,8 @@ using Amazon.APIGateway.Model;
 namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// A feature of the Amazon API Gateway control service for creating a new API from an
-    /// external API definition file.
+    /// A feature of the API Gateway control service for creating a new API from an external
+    /// API definition file.
     /// </summary>
     [Cmdlet("Import", "AGRestApi", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.APIGateway.Model.ImportRestApiResponse")]

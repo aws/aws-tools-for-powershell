@@ -54,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.IOT
         #region Parameter Marker
         /// <summary>
         /// <para>
-        /// <para>The token for the next set of results, or <b>null</b> if there are no additional results.</para>
+        /// <para>The token used to get the next set of results, or <b>null</b> if there are no additional
+        /// results.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

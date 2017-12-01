@@ -31,11 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.IOT
     /// Describes a registered CA certificate.
     /// </summary>
     [Cmdlet("Get", "IOTCACertificate")]
-    [OutputType("Amazon.IoT.Model.CACertificateDescription")]
+    [OutputType("Amazon.IoT.Model.DescribeCACertificateResponse")]
     [AWSCmdlet("Calls the AWS IoT DescribeCACertificate API operation.", Operation = new[] {"DescribeCACertificate"})]
-    [AWSCmdletOutput("Amazon.IoT.Model.CACertificateDescription",
-        "This cmdlet returns a CACertificateDescription object.",
-        "The service call response (type Amazon.IoT.Model.DescribeCACertificateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [AWSCmdletOutput("Amazon.IoT.Model.DescribeCACertificateResponse",
+        "This cmdlet returns a Amazon.IoT.Model.DescribeCACertificateResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class GetIOTCACertificateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
@@ -93,7 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.IOT
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response.CertificateDescription;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,

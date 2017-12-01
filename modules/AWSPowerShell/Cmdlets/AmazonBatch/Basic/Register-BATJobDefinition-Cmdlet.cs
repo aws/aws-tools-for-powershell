@@ -43,8 +43,9 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// <summary>
         /// <para>
         /// <para>The number of times to move a job to the <code>RUNNABLE</code> status. You may specify
-        /// between 1 and 10 attempts. If <code>attempts</code> is greater than one, the job is
-        /// retried if it fails until it has moved to <code>RUNNABLE</code> that many times.</para>
+        /// between 1 and 10 attempts. If the value of <code>attempts</code> is greater than one,
+        /// the job is retried if it fails until it has moved to <code>RUNNABLE</code> that many
+        /// times.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--env</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>.</para><important><para>We do not recommend using plain text environment variables for sensitive information,
+        /// run</a>.</para><important><para>We do not recommend using plaintext environment variables for sensitive information,
         /// such as credential data.</para></important><note><para>Environment variables must not start with <code>AWS_BATCH</code>; this naming convention
         /// is reserved for variables that are set by the AWS Batch service.</para></note>
         /// </para>
@@ -245,7 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.BAT
         /// in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/#create-a-container">Create
         /// a container</a> section of the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.23/">Docker
         /// Remote API</a> and the <code>--cpu-shares</code> option to <a href="https://docs.docker.com/engine/reference/run/">docker
-        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least 1
+        /// run</a>. Each vCPU is equivalent to 1,024 CPU shares. You must specify at least one
         /// vCPU.</para>
         /// </para>
         /// </summary>

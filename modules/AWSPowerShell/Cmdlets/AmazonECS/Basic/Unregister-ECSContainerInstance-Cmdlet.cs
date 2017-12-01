@@ -34,8 +34,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     ///  
     /// <para>
     /// If you intend to use the container instance for some other purpose after deregistration,
-    /// you should stop all of the tasks running on the container instance before deregistration
-    /// to avoid any orphaned tasks from consuming resources.
+    /// you should stop all of the tasks running on the container instance before deregistration.
+    /// That prevents any orphaned tasks from consuming resources.
     /// </para><para>
     /// Deregistering a container instance removes the instance from a cluster, but it does
     /// not terminate the EC2 instance; if you are finished using the instance, be sure to
@@ -70,11 +70,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter ContainerInstance
         /// <summary>
         /// <para>
-        /// <para>The container instance ID or full Amazon Resource Name (ARN) of the container instance
-        /// to deregister. The ARN contains the <code>arn:aws:ecs</code> namespace, followed by
-        /// the region of the container instance, the AWS account ID of the container instance
-        /// owner, the <code>container-instance</code> namespace, and then the container instance
-        /// ID. For example, <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i></code>.</para>
+        /// <para>The container instance ID or full ARN of the container instance to deregister. The
+        /// ARN contains the <code>arn:aws:ecs</code> namespace, followed by the region of the
+        /// container instance, the AWS account ID of the container instance owner, the <code>container-instance</code>
+        /// namespace, and then the container instance ID. For example, <code>arn:aws:ecs:<i>region</i>:<i>aws_account_id</i>:container-instance/<i>container_instance_ID</i></code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -91,8 +90,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// ECS). If an orphaned task on your container instance is part of an Amazon ECS service,
         /// then the service scheduler starts another copy of that task, on a different container
         /// instance if possible. </para><para>Any containers in orphaned service tasks that are registered with a Classic Load Balancer
-        /// or an Application Load Balancer target group are deregistered, and they will begin
-        /// connection draining according to the settings on the load balancer or target group.</para>
+        /// or an Application Load Balancer target group are deregistered. They begin connection
+        /// draining according to the settings on the load balancer or target group.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,21 +28,25 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a VPC endpoint for a specified AWS service. An endpoint enables you to create
-    /// a private connection between your VPC and another AWS service in your account. You
-    /// can create a gateway endpoint or an interface endpoint. 
+    /// Creates a VPC endpoint for a specified service. An endpoint enables you to create
+    /// a private connection between your VPC and the service. The service may be provided
+    /// by AWS, an AWS Marketplace partner, or another AWS account. For more information,
+    /// see <a href="http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpc-endpoints.html">VPC
+    /// Endpoints</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.
     /// 
     ///  
     /// <para>
-    /// A gateway endpoint serves as a target for a route in your route table for traffic
-    /// destined for the AWS service. You can specify the VPC route tables that use the endpoint,
-    /// and you can optionally specify an endpoint policy to attach to the endpoint that will
-    /// control access to the service from your VPC.
+    /// A <code>gateway</code> endpoint serves as a target for a route in your route table
+    /// for traffic destined for the AWS service. You can specify an endpoint policy to attach
+    /// to the endpoint that will control access to the service from your VPC. You can also
+    /// specify the VPC route tables that use the endpoint.
     /// </para><para>
-    /// An interface endpoint is a network interface in your subnet with a private IP address
-    /// that serves as an entry point for traffic destined to the AWS service. You can specify
-    /// the subnets in which to create an endpoint, and the security groups to associate with
-    /// the network interface.
+    /// An <code>interface</code> endpoint is a network interface in your subnet that serves
+    /// as an endpoint for communicating with the specified service. You can specify the subnets
+    /// in which to create an endpoint, and the security groups to associate with the endpoint
+    /// network interface.
+    /// </para><para>
+    /// Use <a>DescribeVpcEndpointServices</a> to get a list of supported services.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2VpcEndpoint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -110,8 +114,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SecurityGroupId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The ID of one or more security groups to associate with the network
-        /// interface.</para>
+        /// <para>(Interface endpoint) The ID of one or more security groups to associate with the endpoint
+        /// network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -122,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter ServiceName
         /// <summary>
         /// <para>
-        /// <para>The AWS service name, in the form <code>com.amazonaws.<i>region</i>.<i>service</i></code>. To get a list of available services, use the <a>DescribeVpcEndpointServices</a>
+        /// <para>The service name. To get a list of available services, use the <a>DescribeVpcEndpointServices</a>
         /// request.</para>
         /// </para>
         /// </summary>
@@ -133,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter SubnetId
         /// <summary>
         /// <para>
-        /// <para>(Interface endpoint) The ID of one or more subnets in which to create a network interface
-        /// for the endpoint.</para>
+        /// <para>(Interface endpoint) The ID of one or more subnets in which to create an endpoint
+        /// network interface.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
@@ -145,7 +149,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VpcEndpointType
         /// <summary>
         /// <para>
-        /// <para>The type of endpoint. If not specified, the default is a gateway endpoint.</para>
+        /// <para>The type of endpoint.</para><para>Default: Gateway</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

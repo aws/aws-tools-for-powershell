@@ -35,7 +35,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// You can allow Amazon ECS to place tasks for you, or you can customize how Amazon ECS
     /// places tasks using placement constraints and placement strategies. For more information,
     /// see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/scheduling_tasks.html">Scheduling
-    /// Tasks</a> in the <i>Amazon EC2 Container Service Developer Guide</i>.
+    /// Tasks</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.
     /// </para><para>
     /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
     /// manually on specific container instances.
@@ -49,6 +49,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     )]
     public partial class NewECSTaskCmdlet : AmazonECSClientCmdlet, IExecutor
     {
+        
+        #region Parameter AwsvpcConfiguration_AssignPublicIp
+        /// <summary>
+        /// <para>
+        /// <para>Specifies whether or not the task's elastic network interface receives a public IP
+        /// address.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp")]
+        [AWSConstantClassSource("Amazon.ECS.AssignPublicIp")]
+        public Amazon.ECS.AssignPublicIp AwsvpcConfiguration_AssignPublicIp { get; set; }
+        #endregion
         
         #region Parameter Cluster
         /// <summary>
@@ -83,6 +96,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32 Count { get; set; }
         #endregion
         
+        #region Parameter Overrides_ExecutionRoleArn
+        /// <summary>
+        /// <para>
+        /// <para>The Amazon Resource Name (ARN) of the task execution role that the Amazon ECS container
+        /// agent and the Docker daemon can assume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String Overrides_ExecutionRoleArn { get; set; }
+        #endregion
+        
         #region Parameter Group
         /// <summary>
         /// <para>
@@ -92,6 +116,17 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Group { get; set; }
+        #endregion
+        
+        #region Parameter LaunchType
+        /// <summary>
+        /// <para>
+        /// <para>The launch type on which to run your task.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.ECS.LaunchType")]
+        public Amazon.ECS.LaunchType LaunchType { get; set; }
         #endregion
         
         #region Parameter PlacementConstraint
@@ -110,12 +145,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter PlacementStrategy
         /// <summary>
         /// <para>
-        /// <para>The placement strategy objects to use for the task. You can specify a maximum of 5
+        /// <para>The placement strategy objects to use for the task. You can specify a maximum of five
         /// strategy rules per task.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public Amazon.ECS.Model.PlacementStrategy[] PlacementStrategy { get; set; }
+        #endregion
+        
+        #region Parameter PlatformVersion
+        /// <summary>
+        /// <para>
+        /// <para>The platform version on which to run your task. If one is not specified, the latest
+        /// version is used by default.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String PlatformVersion { get; set; }
         #endregion
         
         #region Parameter AwsvpcConfiguration_SecurityGroup
@@ -161,8 +207,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The <code>family</code> and <code>revision</code> (<code>family:revision</code>) or
-        /// full Amazon Resource Name (ARN) of the task definition to run. If a <code>revision</code>
-        /// is not specified, the latest <code>ACTIVE</code> revision is used.</para>
+        /// full ARN of the task definition to run. If a <code>revision</code> is not specified,
+        /// the latest <code>ACTIVE</code> revision is used.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -214,6 +260,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (ParameterWasBound("Count"))
                 context.Count = this.Count;
             context.Group = this.Group;
+            context.LaunchType = this.LaunchType;
+            context.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
             {
                 context.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups = new List<System.String>(this.AwsvpcConfiguration_SecurityGroup);
@@ -226,6 +274,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.Overrides_ContainerOverrides = new List<Amazon.ECS.Model.ContainerOverride>(this.Overrides_ContainerOverride);
             }
+            context.Overrides_ExecutionRoleArn = this.Overrides_ExecutionRoleArn;
             context.Overrides_TaskRoleArn = this.Overrides_TaskRoleArn;
             if (this.PlacementConstraint != null)
             {
@@ -235,6 +284,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 context.PlacementStrategy = new List<Amazon.ECS.Model.PlacementStrategy>(this.PlacementStrategy);
             }
+            context.PlatformVersion = this.PlatformVersion;
             context.StartedBy = this.StartedBy;
             context.TaskDefinition = this.TaskDefinition;
             
@@ -265,6 +315,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             {
                 request.Group = cmdletContext.Group;
             }
+            if (cmdletContext.LaunchType != null)
+            {
+                request.LaunchType = cmdletContext.LaunchType;
+            }
             
              // populate NetworkConfiguration
             bool requestNetworkConfigurationIsNull = true;
@@ -274,6 +328,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
              // populate AwsvpcConfiguration
             bool requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = true;
             requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration = new Amazon.ECS.Model.AwsVpcConfiguration();
+            Amazon.ECS.AssignPublicIp requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp = null;
+            if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp = cmdletContext.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp;
+            }
+            if (requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp != null)
+            {
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration.AssignPublicIp = requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_AssignPublicIp;
+                requestNetworkConfiguration_networkConfiguration_AwsvpcConfigurationIsNull = false;
+            }
             List<System.String> requestNetworkConfiguration_networkConfiguration_AwsvpcConfiguration_awsvpcConfiguration_SecurityGroup = null;
             if (cmdletContext.NetworkConfiguration_AwsvpcConfiguration_SecurityGroups != null)
             {
@@ -323,6 +387,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 request.Overrides.ContainerOverrides = requestOverrides_overrides_ContainerOverride;
                 requestOverridesIsNull = false;
             }
+            System.String requestOverrides_overrides_ExecutionRoleArn = null;
+            if (cmdletContext.Overrides_ExecutionRoleArn != null)
+            {
+                requestOverrides_overrides_ExecutionRoleArn = cmdletContext.Overrides_ExecutionRoleArn;
+            }
+            if (requestOverrides_overrides_ExecutionRoleArn != null)
+            {
+                request.Overrides.ExecutionRoleArn = requestOverrides_overrides_ExecutionRoleArn;
+                requestOverridesIsNull = false;
+            }
             System.String requestOverrides_overrides_TaskRoleArn = null;
             if (cmdletContext.Overrides_TaskRoleArn != null)
             {
@@ -345,6 +419,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.PlacementStrategy != null)
             {
                 request.PlacementStrategy = cmdletContext.PlacementStrategy;
+            }
+            if (cmdletContext.PlatformVersion != null)
+            {
+                request.PlatformVersion = cmdletContext.PlatformVersion;
             }
             if (cmdletContext.StartedBy != null)
             {
@@ -421,12 +499,16 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.String Cluster { get; set; }
             public System.Int32? Count { get; set; }
             public System.String Group { get; set; }
+            public Amazon.ECS.LaunchType LaunchType { get; set; }
+            public Amazon.ECS.AssignPublicIp NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_SecurityGroups { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_Subnets { get; set; }
             public List<Amazon.ECS.Model.ContainerOverride> Overrides_ContainerOverrides { get; set; }
+            public System.String Overrides_ExecutionRoleArn { get; set; }
             public System.String Overrides_TaskRoleArn { get; set; }
             public List<Amazon.ECS.Model.PlacementConstraint> PlacementConstraints { get; set; }
             public List<Amazon.ECS.Model.PlacementStrategy> PlacementStrategy { get; set; }
+            public System.String PlatformVersion { get; set; }
             public System.String StartedBy { get; set; }
             public System.String TaskDefinition { get; set; }
         }

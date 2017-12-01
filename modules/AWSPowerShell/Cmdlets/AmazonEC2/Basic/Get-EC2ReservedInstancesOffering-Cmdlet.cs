@@ -268,7 +268,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             context.ProductDescription = this.ProductDescription;
             if (this.ReservedInstancesOfferingId != null)
             {
-                context.ReservedInstancesOfferingIds = new List<System.String>(this.ReservedInstancesOfferingId);
+                context.ReservedInstancesOfferingId = new List<System.String>(this.ReservedInstancesOfferingId);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -330,9 +330,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.ProductDescription = cmdletContext.ProductDescription;
             }
-            if (cmdletContext.ReservedInstancesOfferingIds != null)
+            if (cmdletContext.ReservedInstancesOfferingId != null)
             {
-                request.ReservedInstancesOfferingIds = cmdletContext.ReservedInstancesOfferingIds;
+                request.ReservedInstancesOfferingIds = cmdletContext.ReservedInstancesOfferingId;
             }
             
             // Initialize loop variants and commence piping
@@ -463,7 +463,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public Amazon.EC2.OfferingClassType OfferingClass { get; set; }
             public Amazon.EC2.OfferingTypeValues OfferingType { get; set; }
             public Amazon.EC2.RIProductDescription ProductDescription { get; set; }
-            public List<System.String> ReservedInstancesOfferingIds { get; set; }
+            public List<System.String> ReservedInstancesOfferingId { get; set; }
         }
         
     }

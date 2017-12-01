@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             if (this.ExecutableUser != null)
             {
-                context.ExecutableUsers = new List<System.String>(this.ExecutableUser);
+                context.ExecutableUser = new List<System.String>(this.ExecutableUser);
             }
             if (this.Filter != null)
             {
@@ -165,9 +165,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             // create request
             var request = new Amazon.EC2.Model.DescribeImagesRequest();
             
-            if (cmdletContext.ExecutableUsers != null)
+            if (cmdletContext.ExecutableUser != null)
             {
-                request.ExecutableUsers = cmdletContext.ExecutableUsers;
+                request.ExecutableUsers = cmdletContext.ExecutableUser;
             }
             if (cmdletContext.Filters != null)
             {
@@ -245,7 +245,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> ExecutableUsers { get; set; }
+            public List<System.String> ExecutableUser { get; set; }
             public List<Amazon.EC2.Model.Filter> Filters { get; set; }
             public List<System.String> ImageIds { get; set; }
             public List<System.String> Owners { get; set; }

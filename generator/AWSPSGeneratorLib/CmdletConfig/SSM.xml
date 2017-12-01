@@ -1,192 +1,362 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>SSM</ServiceNounPrefix>
-  <ServiceName>Amazon Simple Systems Management</ServiceName>
-  <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
-  <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
-  <ServiceNamespace>Amazon.SimpleSystemsManagement</ServiceNamespace>
-
-  <PipelineParameter>InstanceId</PipelineParameter>
-  
-  <!-- note: SSM is not consistent with service page size across its apis, and does
-       not allow calls to be made without a value (1..max) set. Operation specific
-       autoiterate settings are therefore in effect below.
-  -->
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="50" Exclusions="ListInventoryEntries" />
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="CreateAssociation" />
-    <ServiceOperation MethodName="CreateAssociationBatch" Noun="AssociationFromBatch" Output="Response"/>
-    <ServiceOperation MethodName="CreateDocument" PipelineParameter="Content" ShouldProcessTarget="Name"/>
-    <ServiceOperation MethodName="DeleteAssociation" Output="Void" />
-    <ServiceOperation MethodName="DeleteDocument" Output="Void" />
-    <ServiceOperation MethodName="DescribeAssociation" />
-    <ServiceOperation MethodName="DescribeDocument" Noun="DocumentDescription" />
-    <ServiceOperation MethodName="GetDocument" Output="Response" />
-    <ServiceOperation MethodName="ListAssociations" Verb="Get" Noun="AssociationList" />
-    <ServiceOperation MethodName="ListAssociationVersions" Verb="Get" Noun="AssociationVersionList" />
-    <ServiceOperation MethodName="ListDocuments" Verb="Get" Noun="DocumentList" />
-    <ServiceOperation MethodName="UpdateAssociationStatus" />
-    <!-- RunCommand apis -->
-    <ServiceOperation MethodName="CancelCommand" ShouldProcessTarget="InstanceIds" Output="Void" />
-    <ServiceOperation MethodName="ListCommandInvocations" Noun="CommandInvocation" Verb="Get" />
-    <ServiceOperation MethodName="ListCommands" Verb="Get" Noun="Command" />
-    <ServiceOperation MethodName="SendCommand" ShouldProcessTarget="InstanceIds"/>
-    <ServiceOperation MethodName="DescribeInstanceInformation" />
-    <!-- Document sharing apis -->
-    <ServiceOperation MethodName="DescribeDocumentPermission" PipelineParameter="Name" />
-    <ServiceOperation MethodName="ModifyDocumentPermission" PipelineParameter="Name" Output="Void" />
-    <ServiceOperation MethodName="UpdateManagedInstanceRole" Output="Void" />
-    <ServiceOperation MethodName="AddTagsToResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
-    <ServiceOperation MethodName="CreateActivation" NoPipelineParameter="true" Output="Response" />
-    <ServiceOperation MethodName="DeleteActivation" Output="Void" />
-    <ServiceOperation MethodName="DeregisterManagedInstance" Verb="Unregister" Output="Void" />
-    <ServiceOperation MethodName="DescribeActivations" Noun="Activation" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" PipelineParameter="ResourceId" />
-    <ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceId" Output="Void" />
-    <ServiceOperation MethodName="CreateMaintenanceWindow" PipelineParameter="Name" />
-    <ServiceOperation MethodName="DeleteMaintenanceWindow" />
-    <ServiceOperation MethodName="DeleteParameter" Output="Void" />
-    <ServiceOperation MethodName="DeregisterTargetFromMaintenanceWindow" PipelineParameter="WindowTargetId" Output="Response" />
-    <ServiceOperation MethodName="DeregisterTaskFromMaintenanceWindow" PipelineParameter="WindowTaskId" Output="Response" />
-    <ServiceOperation MethodName="DescribeAutomationExecutions" NoPipelineParameter="true" Noun="AutomationExecutionList" />
-    <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Noun="EffectiveInstanceAssociationList">
-      <AutoIterate ServicePageSize="5" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" />
-    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Noun="MaintenanceWindowExecutionTaskInvocationList" PipelineParameter="WindowExecutionId">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" Noun="MaintenanceWindowExecutionTaskList" PipelineParameter="WindowExecutionId">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Noun="MaintenanceWindowExecutionList" PipelineParameter="WindowId">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" Noun="MaintenanceWindowTarget" LegacyAlias="Get-SSMMaintenanceWindowTargets">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Noun="MaintenanceWindowTaskList" PipelineParameter="WindowId">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeMaintenanceWindows" Noun="MaintenanceWindowList">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeParameters" Noun="ParameterList" />
-    <ServiceOperation MethodName="GetAutomationExecution" />
-    <ServiceOperation MethodName="GetCommandInvocation" Output="Response" Noun="CommandInvocationDetail" />
-    <ServiceOperation MethodName="GetInventory" />
-    <ServiceOperation MethodName="GetInventorySchema" PipelineParameter="TypeName">
-      <AutoIterate ServicePageSize="200" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="GetMaintenanceWindow" Output="Response" />
-    <ServiceOperation MethodName="GetMaintenanceWindowExecution" Output="Response" />
-    <ServiceOperation MethodName="GetMaintenanceWindowExecutionTask" PipelineParameter="TaskId" Output="Response" />
-    <ServiceOperation MethodName="GetParameterHistory" PipelineParameter="Name" />
-    <ServiceOperation MethodName="GetParameters" Noun="ParameterValue" NoPipelineParameter="true" Output="Response" LegacyAlias="Get-SSMParameterNameList" />
-    <ServiceOperation MethodName="ListDocumentVersions" Noun="DocumentVersionList" PipelineParameter="Name" />
-    <ServiceOperation MethodName="ListInventoryEntries" Noun="InventoryEntriesList" Output="Response" />
-    <ServiceOperation MethodName="PutInventory" Output="Void" />
-    <ServiceOperation MethodName="PutParameter" PipelineParameter="Name" />
-    <ServiceOperation MethodName="RegisterTargetWithMaintenanceWindow" PipelineParameter="WindowId" />
-    <ServiceOperation MethodName="RegisterTaskWithMaintenanceWindow" PipelineParameter="TaskArn" />
-    <ServiceOperation MethodName="StartAutomationExecution" PipelineParameter="DocumentName" />
-    <ServiceOperation MethodName="StopAutomationExecution" Output="Void" />
-    <ServiceOperation MethodName="UpdateAssociation" PipelineParameter="AssociationId" />
-    <ServiceOperation MethodName="UpdateDocument" PipelineParameter="Content" />
-    <ServiceOperation MethodName="UpdateDocumentDefaultVersion" PipelineParameter="Name" />
-    <ServiceOperation MethodName="UpdateMaintenanceWindow" PipelineParameter="WindowId" Output="Response" />
-    <ServiceOperation MethodName="GetPatchBaselineForPatchGroup" Output="Response" />
-    <ServiceOperation MethodName="RegisterDefaultPatchBaseline" />
-    <ServiceOperation MethodName="RegisterPatchBaselineForPatchGroup" PipelineParameter="BaselineId" Output="Response" />
-    <ServiceOperation MethodName="UpdatePatchBaseline" PipelineParameter="BaselineId" Output="Response" />
-    <ServiceOperation MethodName="DescribeInstancePatches" Noun="InstancePatch">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeInstancePatchStates" Noun="InstancePatchState" NoPipelineParameter="true">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" PipelineParameter="PatchGroup">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribePatchBaselines" NoPipelineParameter="true" Noun="PatchBaseline">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribePatchGroups" Noun="PatchGroup">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribePatchGroupState" Output="Response" />
-    <ServiceOperation MethodName="GetDefaultPatchBaseline" Output="Response" />
-    <ServiceOperation MethodName="GetDeployablePatchSnapshotForInstance" PipelineParameter="SnapshotId" Output="Response" />
-    <ServiceOperation MethodName="GetPatchBaseline" Noun="PatchBaselineDetail" Output="Response" />
-    <ServiceOperation MethodName="CreatePatchBaseline" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DeletePatchBaseline" />
-    <ServiceOperation MethodName="DeregisterPatchBaselineForPatchGroup" PipelineParameter="PatchGroup" Output="Response" />
-    <ServiceOperation MethodName="DescribeAvailablePatches" Noun="AvailablePatch" NoPipelineParameter="true">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-
-    <ServiceOperation MethodName="GetParametersByPath" PipelineParameter="Path">
-      <AutoIterate ServicePageSize="10" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="GetParameter" PipelineParameter="Name" />
-    <ServiceOperation MethodName="DeleteParameters" Noun="ParameterCollection" Output="Response" />
-
-    <ServiceOperation MethodName="ListResourceDataSync" />
-    <ServiceOperation MethodName="CreateResourceDataSync" PipelineParameter="SyncName" Output="Void" />
-    <ServiceOperation MethodName="DeleteResourceDataSync" Output="Void" />
-
-    <ServiceOperation MethodName="SendAutomationSignal" PipelineParameter="AutomationExecutionId" Output="Void" />
-
-    <ServiceOperation MethodName="UpdateMaintenanceWindowTarget" PipelineParameter="WindowTargetId" Output="Response" />
-    <ServiceOperation MethodName="UpdateMaintenanceWindowTask" PipelineParameter="WindowTaskId" Output="Response" />
-    <ServiceOperation MethodName="GetMaintenanceWindowExecutionTaskInvocation" PipelineParameter="TaskId" Output="Response" />
-    <ServiceOperation MethodName="GetMaintenanceWindowTask" PipelineParameter="WindowTaskId" Output="Response" />
-    <ServiceOperation MethodName="ListComplianceItems" Noun="ComplianceItemsList" NoPipelineParameter="true">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListComplianceSummaries" Noun="ComplianceSummariesList" NoPipelineParameter="true">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListResourceComplianceSummaries" Noun="ResourceComplianceSummariesList" NoPipelineParameter="true">
-      <AutoIterate ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="PutComplianceItems" Noun="ComplianceItem" PipelineParameter="ResourceId" Output="Void" />
-
-  </ServiceOperations>
-
-  <VerbMappings>
-    <Map From="Associate" To="Register" />
-    <Map From="Disassociate" To="Unregister" />
-    <Map From="Deregister" To="Unregister" />
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <PipelineByValueProperties>
-    <Property>InstanceId</Property>
-    <Property>Name</Property>
-    <Property>WindowId</Property>
-    <Property>WindowTargetId</Property>
-    <Property>WindowTaskId</Property>
-    <Property>AutomationExecutionId</Property>
-    <Property>CommandId</Property>
-    <Property>PluginName</Property>
-    <Property>TypeName</Property>
-    <Property>TaskArn</Property>
-    <Property>AssociationId</Property>
-    <Property>KeyId</Property>
-    <Property>BaselineId</Property>
-    <Property>PatchGroup</Property>
-    <Property>SnapshotId</Property>
-    <Property>TaskId</Property>
-    <Property>MaintenanceWindowId</Property>
-    <Property>MaintenanceWindowTargetId</Property>
-    <Property>MaintenanceWindowTaskId</Property>
-    <Property>ResourceId</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonSimpleSystemsManagement</SourceGenerationRoot>
+    <ServiceNounPrefix>SSM</ServiceNounPrefix>
+    <ServiceName>Amazon Simple Systems Management</ServiceName>
+    <ServiceClientInterface>IAmazonSimpleSystemsManagement</ServiceClientInterface>
+    <ServiceClient>AmazonSimpleSystemsManagementClient</ServiceClient>
+    <ServiceNamespace>Amazon.SimpleSystemsManagement</ServiceNamespace>
+    <PipelineParameter>InstanceId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="50" Exclusions="ListInventoryEntries" />
+    <VerbMappings>
+        <Map From="Associate" To="Register" />
+        <Map From="Disassociate" To="Unregister" />
+        <Map From="Deregister" To="Unregister" />
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>InstanceId</Property>
+        <Property>Name</Property>
+        <Property>WindowId</Property>
+        <Property>WindowTargetId</Property>
+        <Property>WindowTaskId</Property>
+        <Property>AutomationExecutionId</Property>
+        <Property>CommandId</Property>
+        <Property>PluginName</Property>
+        <Property>TypeName</Property>
+        <Property>TaskArn</Property>
+        <Property>AssociationId</Property>
+        <Property>KeyId</Property>
+        <Property>BaselineId</Property>
+        <Property>PatchGroup</Property>
+        <Property>SnapshotId</Property>
+        <Property>TaskId</Property>
+        <Property>MaintenanceWindowId</Property>
+        <Property>MaintenanceWindowTargetId</Property>
+        <Property>MaintenanceWindowTaskId</Property>
+        <Property>ResourceId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAssociation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssociationBatch" Output="Response" SkipOutputComputationCheck="false" Noun="AssociationFromBatch" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Entries" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDocument" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssociation" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDocument" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssociation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDocument" Output="Default" SkipOutputComputationCheck="false" Noun="DocumentDescription" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDocument" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociations" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="AssociationList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationFilterList" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssociationVersions" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="AssociationVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDocuments" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="DocumentList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssociationStatus" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelCommand" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceIds" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCommandInvocations" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="CommandInvocation" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCommands" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="Command" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendCommand" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceIds" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceInformation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDocumentPermission" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDocumentPermission" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateManagedInstanceRole" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTagsToResource" Output="Void" SkipOutputComputationCheck="false" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateActivation" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteActivation" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ActivationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterManagedInstance" Output="Void" SkipOutputComputationCheck="false" Verb="Unregister" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeActivations" Output="Default" SkipOutputComputationCheck="false" Noun="Activation" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" SkipOutputComputationCheck="false" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateMaintenanceWindow" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMaintenanceWindow" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteParameter" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTargetFromMaintenanceWindow" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowTargetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTaskFromMaintenanceWindow" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowTaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutomationExecutions" Output="Default" SkipOutputComputationCheck="false" Noun="AutomationExecutionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEffectiveInstanceAssociations" Output="Default" SkipOutputComputationCheck="false" Noun="EffectiveInstanceAssociationList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="5" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstanceAssociationsStatus" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTaskInvocations" Output="Default" SkipOutputComputationCheck="false" Noun="MaintenanceWindowExecutionTaskInvocationList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutionTasks" Output="Default" SkipOutputComputationCheck="false" Noun="MaintenanceWindowExecutionTaskList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceWindowExecutions" Output="Default" SkipOutputComputationCheck="false" Noun="MaintenanceWindowExecutionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceWindowTargets" Output="Default" SkipOutputComputationCheck="false" Noun="MaintenanceWindowTarget" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SSMMaintenanceWindowTargets">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceWindowTasks" Output="Default" SkipOutputComputationCheck="false" Noun="MaintenanceWindowTaskList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMaintenanceWindows" Output="Default" SkipOutputComputationCheck="false" Noun="MaintenanceWindowList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeParameters" Output="Default" SkipOutputComputationCheck="false" Noun="ParameterList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAutomationExecution" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AutomationExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCommandInvocation" Output="Response" SkipOutputComputationCheck="false" Noun="CommandInvocationDetail" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInventory" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetInventorySchema" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="TypeName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="200" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMaintenanceWindow" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMaintenanceWindowExecution" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMaintenanceWindowExecutionTask" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="TaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParameterHistory" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParameters" Output="Response" SkipOutputComputationCheck="false" Noun="ParameterValue" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true" LegacyAlias="Get-SSMParameterNameList">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDocumentVersions" Output="Default" SkipOutputComputationCheck="false" Noun="DocumentVersionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListInventoryEntries" Output="Response" SkipOutputComputationCheck="false" Noun="InventoryEntriesList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutInventory" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutParameter" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTargetWithMaintenanceWindow" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTaskWithMaintenanceWindow" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="TaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAutomationExecution" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DocumentName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAutomationExecution" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssociation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AssociationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDocument" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDocumentDefaultVersion" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMaintenanceWindow" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPatchBaselineForPatchGroup" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterDefaultPatchBaseline" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BaselineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterPatchBaselineForPatchGroup" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BaselineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePatchBaseline" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BaselineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstancePatches" Output="Default" SkipOutputComputationCheck="false" Noun="InstancePatch" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstancePatchStates" Output="Default" SkipOutputComputationCheck="false" Noun="InstancePatchState" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstancePatchStatesForPatchGroup" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PatchGroup" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePatchBaselines" Output="Default" SkipOutputComputationCheck="false" Noun="PatchBaseline" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePatchGroups" Output="Default" SkipOutputComputationCheck="false" Noun="PatchGroup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePatchGroupState" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PatchGroup" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDefaultPatchBaseline" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="OperatingSystem" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDeployablePatchSnapshotForInstance" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SnapshotId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPatchBaseline" Output="Response" SkipOutputComputationCheck="false" Noun="PatchBaselineDetail" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BaselineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePatchBaseline" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePatchBaseline" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BaselineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterPatchBaselineForPatchGroup" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PatchGroup" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAvailablePatches" Output="Default" SkipOutputComputationCheck="false" Noun="AvailablePatch" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEffectivePatchesForPatchBaseline" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BaselineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParametersByPath" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="10" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParameter" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteParameters" Output="Response" SkipOutputComputationCheck="false" Noun="ParameterCollection" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="Names" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceDataSync" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceDataSync" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SyncName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceDataSync" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="SyncName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendAutomationSignal" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="AutomationExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMaintenanceWindowTarget" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowTargetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateMaintenanceWindowTask" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowTaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMaintenanceWindowExecutionTaskInvocation" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="TaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMaintenanceWindowTask" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="WindowTaskId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComplianceItems" Output="Default" SkipOutputComputationCheck="false" Noun="ComplianceItemsList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListComplianceSummaries" Output="Default" SkipOutputComputationCheck="false" Noun="ComplianceSummariesList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceComplianceSummaries" Output="Default" SkipOutputComputationCheck="false" Noun="ResourceComplianceSummariesList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutComplianceItems" Output="Void" SkipOutputComputationCheck="false" Noun="ComplianceItem" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutomationStepExecutions" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="AutomationStepExecution" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

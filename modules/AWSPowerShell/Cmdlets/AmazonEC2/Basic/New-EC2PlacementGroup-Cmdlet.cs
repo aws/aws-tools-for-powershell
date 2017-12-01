@@ -28,13 +28,17 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    /// Creates a placement group that you launch cluster instances into. Give the group a
-    /// name that's unique within the scope of your account.
+    /// Creates a placement group in which to launch instances. The strategy of the placement
+    /// group determines how the instances are organized within the group. 
     /// 
     ///  
     /// <para>
-    /// For more information about placement groups and cluster instances, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html">Cluster
-    /// Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
+    /// A <code>cluster</code> placement group is a logical grouping of instances within a
+    /// single Availability Zone that benefit from low network latency, high network throughput.
+    /// A <code>spread</code> placement group places instances on distinct hardware.
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement
+    /// Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para>
     /// </summary>
     [Cmdlet("New", "EC2PlacementGroup", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -50,7 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter GroupName
         /// <summary>
         /// <para>
-        /// <para>A name for the placement group.</para><para>Constraints: Up to 255 ASCII characters</para>
+        /// <para>A name for the placement group. Must be unique within the scope of your account for
+        /// the region.</para><para>Constraints: Up to 255 ASCII characters</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

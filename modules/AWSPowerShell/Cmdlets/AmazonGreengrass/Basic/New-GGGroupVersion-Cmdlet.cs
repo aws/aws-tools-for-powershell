@@ -96,12 +96,23 @@ namespace Amazon.PowerShell.Cmdlets.GG
         #region Parameter LoggerDefinitionVersionArn
         /// <summary>
         /// <para>
-        /// Logger definitionv ersion arn
+        /// Logger definition version arn
         /// for this group.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String LoggerDefinitionVersionArn { get; set; }
+        #endregion
+        
+        #region Parameter ResourceDefinitionVersionArn
+        /// <summary>
+        /// <para>
+        /// Resource definition version
+        /// arn for this group.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceDefinitionVersionArn { get; set; }
         #endregion
         
         #region Parameter SubscriptionDefinitionVersionArn
@@ -150,6 +161,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             context.FunctionDefinitionVersionArn = this.FunctionDefinitionVersionArn;
             context.GroupId = this.GroupId;
             context.LoggerDefinitionVersionArn = this.LoggerDefinitionVersionArn;
+            context.ResourceDefinitionVersionArn = this.ResourceDefinitionVersionArn;
             context.SubscriptionDefinitionVersionArn = this.SubscriptionDefinitionVersionArn;
             
             // allow further manipulation of loaded context prior to processing
@@ -190,6 +202,10 @@ namespace Amazon.PowerShell.Cmdlets.GG
             if (cmdletContext.LoggerDefinitionVersionArn != null)
             {
                 request.LoggerDefinitionVersionArn = cmdletContext.LoggerDefinitionVersionArn;
+            }
+            if (cmdletContext.ResourceDefinitionVersionArn != null)
+            {
+                request.ResourceDefinitionVersionArn = cmdletContext.ResourceDefinitionVersionArn;
             }
             if (cmdletContext.SubscriptionDefinitionVersionArn != null)
             {
@@ -265,6 +281,7 @@ namespace Amazon.PowerShell.Cmdlets.GG
             public System.String FunctionDefinitionVersionArn { get; set; }
             public System.String GroupId { get; set; }
             public System.String LoggerDefinitionVersionArn { get; set; }
+            public System.String ResourceDefinitionVersionArn { get; set; }
             public System.String SubscriptionDefinitionVersionArn { get; set; }
         }
         

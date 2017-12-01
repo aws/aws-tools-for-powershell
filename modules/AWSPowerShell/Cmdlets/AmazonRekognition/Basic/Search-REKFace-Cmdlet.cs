@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// a <code>confidence</code> value for each face match, indicating the confidence that
     /// the specific face matches the input face. 
     /// </para><para>
-    /// For an example, see <a>example3</a>.
+    /// For an example, see <a>search-face-with-id-procedure</a>.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:SearchFaces</code>
     /// action.

@@ -1,52 +1,122 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>DDB</ServiceNounPrefix>
-  <ServiceName>Amazon DynamoDB</ServiceName>
-  <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
-  <ServiceClient>AmazonDynamoDBClient</ServiceClient>
-  <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
-
-  <PositionalParameters>TableName</PositionalParameters>
-  
-  <PipelineParameter>TableName</PipelineParameter>
-  
-  <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit" />
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="BatchGetItem" Exclude="true" Verb="Get" Noun="BatchItem" Output="Response"/>
-    <ServiceOperation MethodName="BatchWriteItem" Exclude="true" Verb="Write" Noun="BatchItem" Output="Response"/>
-    <ServiceOperation MethodName="CreateTable" Exclude="true" />
-    <ServiceOperation MethodName="DeleteItem" Exclude="true" Output="Response" ShouldProcessTarget="Key"/>
-    <ServiceOperation MethodName="DeleteTable" ShouldProcessTarget="TableName"/>
-    <ServiceOperation MethodName="DescribeLimits" Noun="ProvisionLimit" Output="Response" />
-    <ServiceOperation MethodName="DescribeTable"/>
-    <ServiceOperation MethodName="DescribeTimeToLive" />
-    <ServiceOperation MethodName="UpdateTimeToLive" />
-    <ServiceOperation MethodName="GetItem" Exclude="true" Output="Response"/>
-    <ServiceOperation MethodName="ListTables" Verb="Get" Noun="TableList" LegacyAlias="Get-DDBTables" />
-    <ServiceOperation MethodName="PutItem" Exclude="true" Output="Response"/>
-    <ServiceOperation MethodName="Query" Exclude="true" Verb="Select" Noun="Data" Output="Response"/>
-    <ServiceOperation MethodName="Scan" Exclude="true" Verb="Read" Noun="Table" Output="Response"/>
-    <ServiceOperation MethodName="UpdateItem" Exclude="true" Output="Response"/>
-    <ServiceOperation MethodName="UpdateTable">
-      <Params>
-        <Param Name="ProvisionedThroughput_ReadCapacityUnits" NewName="ReadCapacity" />
-        <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListTagsOfResource" Verb="Get" Noun="ResourceTag"/>
-    <ServiceOperation MethodName="TagResource" Verb="Add" Noun="ResourceTag" Output="Void"/>
-    <ServiceOperation MethodName="UntagResource" Verb="Remove" Noun="ResourceTag" Output="Void"/>
-  </ServiceOperations>
-
-  <MetadataProperties>
-    <Property>ExclusiveStartTableName</Property>
-    <Property>LastEvaluatedTableName</Property>
-  </MetadataProperties>
-  
-  <PipelineByValueProperties>
-    <Property>TableName</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonDynamoDB</SourceGenerationRoot>
+    <ServiceNounPrefix>DDB</ServiceNounPrefix>
+    <ServiceName>Amazon DynamoDB</ServiceName>
+    <ServiceClientInterface>IAmazonDynamoDB</ServiceClientInterface>
+    <ServiceClient>AmazonDynamoDBClient</ServiceClient>
+    <ServiceNamespace>Amazon.DynamoDBv2</ServiceNamespace>
+    <PositionalParameters>TableName</PositionalParameters>
+    <PipelineParameter>TableName</PipelineParameter>
+    <AutoIterate Start="ExclusiveStartTableName" Next="LastEvaluatedTableName" EmitLimit="Limit" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>ExclusiveStartTableName</Property>
+        <Property>LastEvaluatedTableName</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties>
+        <Property>TableName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetItem" Output="Response" SkipOutputComputationCheck="false" Verb="Get" Noun="BatchItem" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchWriteItem" Output="Response" SkipOutputComputationCheck="false" Verb="Write" Noun="BatchItem" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTable" Output="Default" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteItem" Output="Response" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Key" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTable" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TableName" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLimits" Output="Response" SkipOutputComputationCheck="false" Noun="ProvisionLimit" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTable" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTimeToLive" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTimeToLive" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetItem" Output="Response" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTables" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="TableList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-DDBTables">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutItem" Output="Response" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Query" Output="Response" SkipOutputComputationCheck="false" Verb="Select" Noun="Data" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Scan" Output="Response" SkipOutputComputationCheck="false" Verb="Read" Noun="Table" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateItem" Output="Response" SkipOutputComputationCheck="false" Exclude="true" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTable" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ProvisionedThroughput_ReadCapacityUnits" NewName="ReadCapacity" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="ProvisionedThroughput_WriteCapacityUnits" NewName="WriteCapacity" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsOfResource" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGlobalTable" Output="Default" SkipOutputComputationCheck="false" Verb="Update" Noun="GlobalTable" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateBackup" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="Backup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGlobalTable" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="GlobalTable" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteBackup" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="Backup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BackupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeBackup" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="Backup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="BackupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContinuousBackups" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="ContinuousBackup" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeGlobalTable" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="GlobalTable" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="GlobalTableName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListBackups" Output="Response" SkipOutputComputationCheck="false" Verb="Get" Noun="BackupsList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGlobalTables" Output="Response" SkipOutputComputationCheck="false" Verb="Get" Noun="GlobalTablesList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreTableFromBackup" Output="Default" SkipOutputComputationCheck="false" Verb="Restore" Noun="TableFromBackup" Exclude="false" ShouldProcessTarget="TargetTableName" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

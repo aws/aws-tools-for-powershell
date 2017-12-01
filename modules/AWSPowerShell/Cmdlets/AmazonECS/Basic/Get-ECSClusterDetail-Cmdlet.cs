@@ -46,9 +46,19 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// If you do not specify a cluster, the default cluster is assumed.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter]
         [Alias("Clusters")]
         public System.String[] Cluster { get; set; }
+        #endregion
+        
+        #region Parameter Include
+        /// <summary>
+        /// <para>
+        /// <para>Additional information about your clusters to be separated by launch type, including:</para><ul><li><para>runningEC2TasksCount</para></li><li><para>RunningFargateTasksCount</para></li><li><para>pendingEC2TasksCount</para></li><li><para>pendingFargateTasksCount</para></li><li><para>activeEC2ServiceCount</para></li><li><para>activeFargateServiceCount</para></li><li><para>drainingEC2ServiceCount</para></li><li><para>drainingFargateServiceCount</para></li></ul>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String[] Include { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -67,6 +77,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (this.Cluster != null)
             {
                 context.Clusters = new List<System.String>(this.Cluster);
+            }
+            if (this.Include != null)
+            {
+                context.Include = new List<System.String>(this.Include);
             }
             
             // allow further manipulation of loaded context prior to processing
@@ -87,6 +101,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.Clusters != null)
             {
                 request.Clusters = cmdletContext.Clusters;
+            }
+            if (cmdletContext.Include != null)
+            {
+                request.Include = cmdletContext.Include;
             }
             
             CmdletOutput output;
@@ -153,6 +171,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         internal partial class CmdletContext : ExecutorContext
         {
             public List<System.String> Clusters { get; set; }
+            public List<System.String> Include { get; set; }
         }
         
     }

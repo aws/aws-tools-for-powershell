@@ -28,7 +28,11 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Lists the principals associated with the specified policy.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the principals associated with the specified policy.
+    /// 
+    ///  
+    /// <para><b>Note:</b> This API is deprecated. Please use <a>ListTargetsForPolicy</a> instead.
+    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "IOTPolicyPrincipalsList")]
     [OutputType("System.String")]

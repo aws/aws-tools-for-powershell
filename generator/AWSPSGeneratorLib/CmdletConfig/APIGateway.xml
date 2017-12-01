@@ -147,5 +147,11 @@
     <ServiceOperation MethodName="GetGatewayResponses" Noun="GatewayResponseList" />
     <ServiceOperation MethodName="DeleteGatewayResponse" Output="Void" />
 
+    <ServiceOperation MethodName="UpdateVpcLink" PipelineParameter="VpcLinkId" Output="Response" />
+    <ServiceOperation MethodName="GetVpcLink" Output="Response" />
+    <ServiceOperation MethodName="GetVpcLinks" Noun="VpcLinkList" />
+    <ServiceOperation MethodName="DeleteVpcLink" Output="Void" />
+    <ServiceOperation MethodName="CreateVpcLink" NoPipelineParameter="true" Output="Response" ShouldProcessTarget="Name" />
+
   </ServiceOperations>
 </ConfigModel>

@@ -4,6 +4,9 @@ using System.Linq;
 using System.Xml.Serialization;
 using System.IO;
 using System.Diagnostics;
+using System.Text;
+using System.Xml;
+using Microsoft.PowerShell.Commands;
 
 namespace AWSPowerShellGenerator.CmdletConfig
 {
@@ -136,7 +139,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
             if (verbose)
                 Console.WriteLine("...loading configuration manifest {0}", manifestConfigFile);
 
-            var manifestConfig = Deserialize<ConfigModelCollection>(manifestConfigFile);
+            var manifestConfig = DeserializeModelCollection(manifestConfigFile);
             foreach (var c in manifestConfig.Configs.OrderBy(c => c))
             {
                 var configFile = Path.GetFullPath(Path.Combine(configurationsFolder, c));
@@ -144,23 +147,45 @@ namespace AWSPowerShellGenerator.CmdletConfig
                 if (verbose)
                     Console.WriteLine("...loading service configuration {0}", configFile);
     
-                var configModel = Deserialize<ConfigModel>(configFile);
+                var configModel = DeserializeModel(configFile);
                 manifestConfig.ConfigModels.Add(configModel);
             }
 
             return manifestConfig;
         }
 
-        private static T Deserialize<T>(string fileName)
+        private static ConfigModelCollection DeserializeModelCollection(string fileName)
         {
             try
             {
-                var serializer = new XmlSerializer(typeof(T));
+                var serializer = new XmlSerializer(typeof(ConfigModelCollection));
                 using (var fs = new FileStream(fileName, FileMode.Open))
                 {
                     using (var reader = new StreamReader(fs))
                     {
-                        return (T)serializer.Deserialize(reader);
+                        return (ConfigModelCollection)serializer.Deserialize(reader);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                throw new InvalidDataException("Unable to retrieve content for file " + fileName, e);
+            }
+        }
+
+        private static ConfigModel DeserializeModel(string fileName)
+        {
+            try
+            {
+                var serializer = new XmlSerializer(typeof(ConfigModel));
+                using (var fs = new FileStream(fileName, FileMode.Open))
+                {
+                    using (var reader = new StreamReader(fs))
+                    {
+                        var model = (ConfigModel)serializer.Deserialize(reader);
+                        // poke the filename into the model in preparation for possible update
+                        model.ModelFilename = Path.GetFileName(fileName);
+                        return model;
                     }
                 }
             }
@@ -305,11 +330,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// <summary>
         /// Default region to use for the cmdlets if Region isn't passed in.
         /// </summary>
-        public string DefaultRegion = string.Empty;
+        public string DefaultRegion;
 
         /// <summary>
         /// For S3 only, switch instructs generator to treat response object as result object.
         /// </summary>
+        [XmlIgnore]
         public bool IsS3
         {
             get
@@ -324,13 +350,22 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// recommendation is no more than 5 per cmdlet. This list will be suffixed with operation-
         /// specific sets of positional data.
         /// </summary>
-        public string PositionalParameters = string.Empty;
+        public string PositionalParameters;
 
         string[] _positionalParametersList;
         [XmlIgnore]
         public string[] PositionalParametersList
         {
-            get { return _positionalParametersList ?? (_positionalParametersList = PositionalParameters.Split(';')); }
+            get
+            {
+                if (_positionalParametersList == null)
+                {
+                    _positionalParametersList = !string.IsNullOrEmpty(PositionalParameters) 
+                        ? PositionalParameters.Split(';') 
+                        : new string[] {};
+                }
+                return _positionalParametersList;
+            }
         }
 
         /// <summary>
@@ -725,6 +760,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
         [XmlIgnore]
         public ArgumentCompleterDetails ArgumentCompleters { get; private set; }
 
+        [XmlIgnore]
+        public string ModelFilename { get; set; }
+
+        [XmlIgnore]
+        public bool ModelUpdated { get; set; }
+
         #endregion
 
         public ConfigModel()
@@ -732,6 +773,38 @@ namespace AWSPowerShellGenerator.CmdletConfig
             ArgumentCompleters = new ArgumentCompleterDetails();
             TypesNotToFlatten = new List<string>();
         }
+
+        public void Serialize(string folderPath)
+        {
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+
+            var filename = Path.Combine(folderPath, ModelFilename);
+            Console.WriteLine("Updating configuration file for service {0}, file {1}", ServiceName, filename);
+            try
+            {
+                var serializer = new XmlSerializer(typeof(ConfigModel));
+                var writerSettings = new XmlWriterSettings
+                {
+                    Encoding = new UTF8Encoding(false),
+                    Indent = true,
+                    IndentChars = "    "
+                };
+
+                using (var writer = XmlWriter.Create(filename, writerSettings))
+                {
+                    serializer.Serialize(writer, this);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new InvalidDataException("Unable to serialize updated model to " + filename, e);
+            }
+        }
+
+
     }
 
     /// <summary>
@@ -740,7 +813,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
     public class ServiceOperation
     {
         [XmlAttribute]
-        public string MethodName = string.Empty;
+        public string MethodName;
 
         /// <summary>
         /// <para>
@@ -800,7 +873,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// class.
         /// </summary>
         [XmlAttribute]
-        public string OutputWrapper = string.Empty;
+        public string OutputWrapper;
 
         /// <summary>
         /// The path to the properties contained in the service call output. Usually this
@@ -820,11 +893,11 @@ namespace AWSPowerShellGenerator.CmdletConfig
             }
         }
 
-        [XmlAttribute("Verb")]
-        public string RequestedVerb = string.Empty;
+        [XmlAttribute("Verb")] 
+        public string RequestedVerb;
 
         [XmlAttribute("Noun")]
-        public string RequestedNoun = string.Empty;
+        public string RequestedNoun;
 
         [XmlArray("Params")]
         [XmlArrayItem("Param")]
@@ -867,7 +940,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// If set, the operation is excluded from generation.
         /// </summary>
         [XmlAttribute]
-        public bool Exclude = false;
+        public bool Exclude;
 
         /// <summary>
         /// Set true to suppresses generation of the SupportsShouldProcess 
@@ -875,7 +948,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// system state but whose verb is not on the 'ignore' list.
         /// </summary>
         [XmlAttribute]
-        public bool IgnoreSupportsShouldProcess = false;
+        public bool IgnoreSupportsShouldProcess;
 
         /// <summary>
         /// If the cmdlet verb is one that needs SupportsShouldProcess
@@ -883,7 +956,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// indicates the name of the cmdlet property that we will prompt
         /// for confirmation on. 
         /// </summary>
-        [XmlAttribute]
+        [XmlAttribute] 
         public string ShouldProcessTarget = string.Empty;
 
         /// <summary>
@@ -894,7 +967,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// target be set in the config.
         /// </summary>
         [XmlAttribute]
-        public bool AnonymousShouldProcessTarget = false;
+        public bool AnonymousShouldProcessTarget;
 
         /// <summary>
         /// If the cmdlet verb is one that needs SupportsShouldProcess
@@ -943,13 +1016,23 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// of PositionalParameters.
         /// </summary>
         [XmlAttribute]
-        public string PositionalParameters = string.Empty;
+        public string PositionalParameters;
 
         string[] _positionalParametersList;
         [XmlIgnore]
         public string[] PositionalParametersList
         {
-            get { return _positionalParametersList ?? (_positionalParametersList = PositionalParameters.Split(';')); }
+            get
+            {
+                if (_positionalParametersList == null)
+                {
+                    _positionalParametersList = !string.IsNullOrEmpty(PositionalParameters) 
+                        ? PositionalParameters.Split(';') 
+                        : new string[] {};
+                }
+
+                return _positionalParametersList;
+            }
         }
 
         /// <summary>
@@ -970,7 +1053,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// than one parameter exists.
         /// </summary>
         [XmlAttribute]
-        public bool NoPipelineParameter = false;
+        public bool NoPipelineParameter;
 
         /// <summary>
         /// Set of response/result names, ;-delimited, that are considered metadata and will
@@ -978,13 +1061,23 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// lost, they will be attached as notes to the service response in the history stack.
         /// </summary>
         [XmlAttribute]
-        public string MetadataProperties = string.Empty;
+        public string MetadataProperties;
 
         string[] _metadataPropertiesList;
         [XmlIgnore]
         public string[] MetadataPropertiesList
         {
-            get { return _metadataPropertiesList ?? (_metadataPropertiesList = MetadataProperties.Split(';')); }
+            get
+            {
+                if (_metadataPropertiesList == null)
+                {
+                    _metadataPropertiesList = !string.IsNullOrEmpty(MetadataProperties) 
+                        ? MetadataProperties.Split(';') 
+                        : new string[] { };
+                }
+
+                return _metadataPropertiesList;
+            }
         }
 
         /// <summary>
@@ -1056,6 +1149,21 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// </summary>
         [XmlIgnore]
         public bool Processed { get; set; }
+
+        /// <summary>
+        /// Set when the generator detects a method that is not configured already.
+        /// The generator will take a best-guess attempt to set up a service operation
+        /// entry that can then be adjusted by hand if needed.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsAutoConfiguring { get; set; }
+
+        /// <summary>
+        /// Set when auto-configuring if we detect an SDK 'List' verb. We'll
+        /// auto-remap to 'Get' and then append 'List' to the noun.
+        /// </summary>
+        [XmlIgnore]
+        public bool IsRemappedListOperation { get; set; }
         #endregion
 
         public ServiceOperation()

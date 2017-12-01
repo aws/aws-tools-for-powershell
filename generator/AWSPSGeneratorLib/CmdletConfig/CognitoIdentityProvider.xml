@@ -1,138 +1,333 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>CGIP</ServiceNounPrefix>
-  <ServiceName>Amazon Cognito Identity Provider</ServiceName>
-  <ServiceNamespace>Amazon.CognitoIdentityProvider</ServiceNamespace>
-  <ServiceClientInterface>IAmazonCognitoIdentityProvider</ServiceClientInterface>
-  <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
-
-  <PipelineParameter>UserPoolId</PipelineParameter>
-  
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
-  
-  <PipelineByValueProperties>
-    <Property>UserPoolId</Property>
-    <Property>UserName</Property>
-    <Property>ClientId</Property>
-    <Property>ClientName</Property>
-    <Property>PoolName</Property>
-    <Property>AccessToken</Property>
-    <Property>AttributeName</Property>
-  </PipelineByValueProperties>
-  
-  <MetadataProperties>
-    <Property>PaginationToken</Property>
-    <Property>NextToken</Property>
-  </MetadataProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AdminAddUserToGroup" Verb="Add" Noun="UserToGroupAdmin" PipelineParameter="Username" Output="Void" ShouldProcessTarget="GroupName"/>
-    <ServiceOperation MethodName="AdminConfirmSignUp" Output="Void" ShouldProcessTarget="UserName" Verb="Confirm" Noun="UserRegistrationAdmin"/>
-    <ServiceOperation MethodName="AdminCreateUser" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Create"/>
-    <ServiceOperation MethodName="AdminDeleteUser" Output="Void" ShouldProcessTarget="UserName" Noun="UserAdmin" Verb="Remove"/>
-    <ServiceOperation MethodName="AdminDeleteUserAttributes" Output="Void" ShouldProcessTarget="UserName" Noun="UserAttributeAdmin" Verb="Remove"/>
-    <ServiceOperation MethodName="AdminDisableUser" Output="Void" ShouldProcessTarget="UserName" Verb="Disable" Noun="UserAdmin"/>
-    <ServiceOperation MethodName="AdminEnableUser" Output="Void" ShouldProcessTarget="UserName" Verb="Enable" Noun="UserAdmin"/>
-    <ServiceOperation MethodName="AdminGetUser" Output="Response" Verb="Get" Noun="UserAdmin"/>
-    <ServiceOperation MethodName="AdminResetUserPassword" Output="Void" Verb="Reset" Noun="UserPasswordAdmin"/>
-    <ServiceOperation MethodName="AdminSetUserSettings" Output="Void" Verb="Set" Noun="UserSettingAdmin"/>
-    <ServiceOperation MethodName="AdminUpdateUserAttributes" Output="Void" Verb="Update" Noun="UserAttributeAdmin"/>
-    <ServiceOperation MethodName="AdminUpdateDeviceStatus" Verb="Edit" Noun="DeviceStatusAdmin" PipelineParameter="DeviceKey" Output="Void" />
-    <ServiceOperation MethodName="AdminForgetDevice" Verb="Stop" Noun="DeviceTrackingAdmin" PipelineParameter="DeviceKey" Output="Void"/>
-    <ServiceOperation MethodName="AdminGetDevice" Verb="Get" Noun="DeviceAdmin" PipelineParameter="DeviceKey" />
-    <ServiceOperation MethodName="AdminInitiateAuth" Verb="Start" Noun="AuthAdmin" PipelineParameter="ClientId" Output="Response" />
-    <ServiceOperation MethodName="AdminListDevices" Verb="Get" Noun="DeviceListAdmin" PipelineParameter="Username">
-      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <ServiceOperation MethodName="AdminListGroupsForUser" Verb="Get" Noun="GroupsForUserAdmin" PipelineParameter="Username">
-      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <ServiceOperation MethodName="AdminUserGlobalSignOut" Verb="Disconnect" Noun="UserGlobalAdmin" PipelineParameter="Username" Output="Void" />
-    <ServiceOperation MethodName="AdminRespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponseAdmin" PipelineParameter="ClientId" Output="Response" />
-    <ServiceOperation MethodName="AdminRemoveUserFromGroup" Verb="Remove" Noun="UserFromGroupAdmin" PipelineParameter="Username" Output="Void" ShouldProcessTarget="Username" />
-    <ServiceOperation MethodName="AddCustomAttributes" Output="Void" Noun="CustomAttribute"/>
-    <ServiceOperation MethodName="CreateGroup" PipelineParameter="GroupName" />
-    <ServiceOperation MethodName="CreateUserPool" ShouldProcessTarget="PoolName"/>
-    <ServiceOperation MethodName="CreateUserPoolClient" />
-    <ServiceOperation MethodName="DeleteGroup" PipelineParameter="GroupName" Output="Void"/>
-    <ServiceOperation MethodName="DeleteUserPool" Output="Void"/>
-    <ServiceOperation MethodName="DeleteUserPoolClient" Output="Void" PipelineParameter="ClientId"/>
-    <ServiceOperation MethodName="DescribeUserPool" />
-    <ServiceOperation MethodName="DescribeUserPoolClient" />
-    <ServiceOperation MethodName="GetGroup" PipelineParameter="GroupName"/>
-    <ServiceOperation MethodName="ListGroups" Verb="Get" Noun="GroupList">
-      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListUserPoolClients" Verb="Get" Noun="UserPoolClientList"/>
-    <ServiceOperation MethodName="ListUsersInGroup" Verb="Get" PipelineParameter="GroupName">
-      <AutoIterate EmitLimit="Limit" Start="NextToken" Next="NextToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <!-- see opening paragraphs of http://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-device-tracking.html 
-         as to why I chose 'stop-devicetracking' as a name for ForgetDevice. The pipeline parameters for these cmdlets have
-         been determined by inspecting the model for required parameters (in the complete absence of usable docs)
-    -->
-    <ServiceOperation MethodName="ForgetDevice" Verb="Stop" Noun="DeviceTracking" PipelineParameter="DeviceKey" Output="Void" />
-    <ServiceOperation MethodName="GetDevice" PipelineParameter="DeviceKey" />
-    <ServiceOperation MethodName="InitiateAuth" Verb="Start" Noun="Auth" PipelineParameter="ClientId" Output="Response" />
-    <!-- assuming page size here is same as other inconsistent paging apis in this service -->
-    <ServiceOperation MethodName="ListDevices" Verb="Get" Noun="DeviceList">
-      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <ServiceOperation MethodName="UpdateDeviceStatus" Verb="Edit" Noun="DeviceStatus" PipelineParameter="DeviceKey" Output="Void" />
-    <ServiceOperation MethodName="ConfirmDevice" Verb="Approve" Noun="Device" PipelineParameter="DeviceKey" />
-    <ServiceOperation MethodName="GlobalSignOut" Verb="Disconnect" Noun="DeviceGlobal" Output="Void"/>
-    <ServiceOperation MethodName="RespondToAuthChallenge" Verb="Send" Noun="AuthChallengeResponse" PipelineParameter="ClientId" Output="Response" />
-    <ServiceOperation MethodName="ListUsers" Verb="Get" Noun="UserList">
-      <AutoIterate EmitLimit="Limit" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListUserPools" Verb="Get" Noun="UserPoolList"/>
-    <ServiceOperation MethodName="UpdateGroup" PipelineParameter="GroupName" />
-    <ServiceOperation MethodName="UpdateUserPool" Output="Void"/>
-    <ServiceOperation MethodName="UpdateUserPoolClient" />
-    <!-- these operations do not need user auth (they use AnonymousAWSCredentials when instantiating the client) -->
-    <ServiceOperation MethodName="ChangePassword" AnonymousAuthentication="Always" Output="Void" Verb="Update" ShouldProcessTarget="AccessToken"/>
-    <ServiceOperation MethodName="ConfirmForgotPassword" AnonymousAuthentication="Always" Output="Void"/>
-    <ServiceOperation MethodName="ConfirmSignUp" AnonymousAuthentication="Always" Output="Void" Noun="UserRegistration"/>
-    <ServiceOperation MethodName="DeleteUser" AnonymousAuthentication="Always" Output="Void" />
-    <ServiceOperation MethodName="DeleteUserAttributes" AnonymousAuthentication="Always" Output="Void" PipelineParameter="AccessToken" Noun="UserAttribute"/>
-    <ServiceOperation MethodName="ForgotPassword" AnonymousAuthentication="Always" Verb="Reset" Noun="ForgottenPassword" />
-    <ServiceOperation MethodName="GetUser" AnonymousAuthentication="Always" Output="Response"/>
-    <ServiceOperation MethodName="GetUserAttributeVerificationCode" AnonymousAuthentication="Always" />
-    <ServiceOperation MethodName="ResendConfirmationCode" AnonymousAuthentication="Always" Verb="Send"/>
-    <ServiceOperation MethodName="SetUserSettings" AnonymousAuthentication="Always" Output="Void" Noun="UserSetting" ShouldProcessTarget="AccessToken"/>
-    <ServiceOperation MethodName="SignUp" AnonymousAuthentication="Always" Output="Response" Verb="Register" Noun="UserInPool"/>
-    <ServiceOperation MethodName="UpdateUserAttributes" AnonymousAuthentication="Always" Noun="UserAttribute" ShouldProcessTarget="AccessToken"/>
-    <ServiceOperation MethodName="VerifyUserAttribute" AnonymousAuthentication="Always" Output="Void" Verb="Test" PipelineParameter="AccessToken"/>
-    <ServiceOperation MethodName="GetCSVHeader" Output="Response" />
-    <ServiceOperation MethodName="ListUserImportJobs" Verb="Get" Noun="UserImportJobList">
-      <AutoIterate EmitLimit="MaxResults" Start="PaginationToken" Next="PaginationToken" ServicePageSize="60"/>
-    </ServiceOperation>
-    <ServiceOperation MethodName="StartUserImportJob" PipelineParameter="JobId" />
-    <ServiceOperation MethodName="StopUserImportJob" PipelineParameter="JobId" />
-    <ServiceOperation MethodName="CreateUserImportJob" />
-    <ServiceOperation MethodName="DescribeUserImportJob" PipelineParameter="JobId" />
-
-    <ServiceOperation MethodName="UpdateIdentityProvider" PipelineParameter="ProviderName" />
-    <ServiceOperation MethodName="CreateUserPoolDomain" PipelineParameter="Domain" Output="Void" />
-    <ServiceOperation MethodName="DeleteIdentityProvider" PipelineParameter="ProviderName" Output="Void" />
-    <ServiceOperation MethodName="DeleteUserPoolDomain" PipelineParameter="Domain" Output="Void" />
-    <ServiceOperation MethodName="DescribeIdentityProvider" PipelineParameter="ProviderName" />
-    <ServiceOperation MethodName="DescribeUserPoolDomain" />
-    <ServiceOperation MethodName="GetIdentityProviderByIdentifier" PipelineParameter="IdpIdentifier" />
-    <ServiceOperation MethodName="ListIdentityProviders" Verb="Get" Noun="IdentityProviderList"  />
-    <ServiceOperation MethodName="CreateIdentityProvider" PipelineParameter="ProviderName" />
-
-    <ServiceOperation MethodName="ListResourceServers" Verb="Get" Noun="ResourceServerList" />
-    <ServiceOperation MethodName="SetUICustomization" />
-    <ServiceOperation MethodName="UpdateResourceServer" PipelineParameter="Identifier" ShouldProcessTarget="Identifier" />
-    <ServiceOperation MethodName="CreateResourceServer" PipelineParameter="Identifier" ShouldProcessTarget="Identifier" />
-    <ServiceOperation MethodName="DeleteResourceServer" PipelineParameter="Identifier" Output="Void" />
-    <ServiceOperation MethodName="DescribeResourceServer" PipelineParameter="Identifier" />
-    <ServiceOperation MethodName="GetUICustomization" />
-    <ServiceOperation MethodName="AdminDisableProviderForUser" Verb="Disable" Noun="ProviderForUserAdmin" Output="Void" />
-    <ServiceOperation MethodName="AdminLinkProviderForUser" Verb="Connect" Noun="ProviderForUserAdmin" Output="Void" />
-
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCognitoIdentityProvider</SourceGenerationRoot>
+    <ServiceNounPrefix>CGIP</ServiceNounPrefix>
+    <ServiceName>Amazon Cognito Identity Provider</ServiceName>
+    <ServiceClientInterface>IAmazonCognitoIdentityProvider</ServiceClientInterface>
+    <ServiceClient>AmazonCognitoIdentityProviderClient</ServiceClient>
+    <ServiceNamespace>Amazon.CognitoIdentityProvider</ServiceNamespace>
+    <DefaultRegion />
+    <PositionalParameters />
+    <PipelineParameter>UserPoolId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="60" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>PaginationToken</Property>
+        <Property>NextToken</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties>
+        <Property>UserPoolId</Property>
+        <Property>UserName</Property>
+        <Property>ClientId</Property>
+        <Property>ClientName</Property>
+        <Property>PoolName</Property>
+        <Property>AccessToken</Property>
+        <Property>AttributeName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AdminAddUserToGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="UserToGroupAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminConfirmSignUp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Confirm" Noun="UserRegistrationAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminCreateUser" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Create" Noun="UserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDeleteUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="UserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDeleteUserAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="UserAttributeAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDisableUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="UserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminEnableUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="UserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="UserName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminGetUser" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminResetUserPassword" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="UserPasswordAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminSetUserSettings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="UserSettingAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUpdateUserAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="UserAttributeAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUpdateDeviceStatus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DeviceStatusAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminForgetDevice" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="DeviceTrackingAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminGetDevice" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminInitiateAuth" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="AuthAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ClientId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminListDevices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceListAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminListGroupsForUser" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GroupsForUserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUserGlobalSignOut" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disconnect" Noun="UserGlobalAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminRespondToAuthChallenge" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="AuthChallengeResponseAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ClientId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminRemoveUserFromGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="UserFromGroupAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Username" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddCustomAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="CustomAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserPool" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PoolName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserPoolClient" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPoolClient" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ClientId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserPool" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserPoolClient" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GroupList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserPoolClients" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserPoolClientList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsersInGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ForgetDevice" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="DeviceTracking" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDevice" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="InitiateAuth" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Auth" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ClientId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDevices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeviceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="AccessToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDeviceStatus" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Edit" Noun="DeviceStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmDevice" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Approve" Noun="Device" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="DeviceKey" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GlobalSignOut" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disconnect" Noun="DeviceGlobal" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="AccessToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RespondToAuthChallenge" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="AuthChallengeResponse" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ClientId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUsers" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="Limit" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserPools" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserPoolList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="GroupName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserPool" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserPoolClient" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChangePassword" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccessToken" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmForgotPassword" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Username" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmSignUp" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="UserRegistration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Username" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="AccessToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="UserAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="AccessToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ForgotPassword" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="ForgottenPassword" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Username" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUser" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="AccessToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserAttributeVerificationCode" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResendConfirmationCode" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Username" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserSettings" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="UserSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccessToken" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SignUp" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Register" Noun="UserInPool" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Username" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateUserAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="UserAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AccessToken" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyUserAttribute" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Always" PositionalParameters="" PipelineParameter="AccessToken" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCSVHeader" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListUserImportJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserImportJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="MaxResults" ServicePageSize="60" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartUserImportJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopUserImportJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserImportJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserImportJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateIdentityProvider" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ProviderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateUserPoolDomain" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentityProvider" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ProviderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteUserPoolDomain" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIdentityProvider" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ProviderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeUserPoolDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Domain" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityProviderByIdentifier" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="IdpIdentifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityProviders" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="IdentityProviderList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateIdentityProvider" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="ProviderName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceServers" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceServerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUICustomization" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateResourceServer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Identifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Identifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceServer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Identifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Identifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteResourceServer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Identifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceServer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="Identifier" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUICustomization" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminDisableProviderForUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="ProviderForUserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminLinkProviderForUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Connect" Noun="ProviderForUserAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifySoftwareToken" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="UserCode" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetUserPoolMfaConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetRiskConfiguration" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="RiskConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserMFAPreference" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="UserMFAPreference" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetUserPoolMfaConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="UserPoolMfaConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAuthEventFeedback" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AuthEventFeedback" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRiskConfiguration" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RiskConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminListUserAuthEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="UserAuthEventListAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminSetUserMFAPreference" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="UserMFAPreferenceAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AdminUpdateAuthEventFeedback" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="AuthEventFeedbackAdmin" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateSoftwareToken" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="SoftwareToken" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.CognitoIdentityProvider.Model.SMSMfaSettingsType</Type>
+        <Type>Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaSettingsType</Type>
+        <Type>Amazon.CognitoIdentityProvider.Model.SmsMfaConfigType</Type>
+        <Type>Amazon.CognitoIdentityProvider.Model.SoftwareTokenMfaConfigType</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

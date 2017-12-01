@@ -31,10 +31,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// Stop an Automation that is currently executing.
     /// </summary>
     [Cmdlet("Stop", "SSMAutomationExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
+    [OutputType("None")]
     [AWSCmdlet("Calls the Amazon Simple Systems Management StopAutomationExecution API operation.", Operation = new[] {"StopAutomationExecution"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the AutomationExecutionId parameter. Otherwise, this cmdlet does not return any output. " +
+    [AWSCmdletOutput("None",
+        "This cmdlet does not generate any output. " +
         "The service response (type Amazon.SimpleSystemsManagement.Model.StopAutomationExecutionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
     public partial class StopSSMAutomationExecutionCmdlet : AmazonSimpleSystemsManagementClientCmdlet, IExecutor
@@ -46,17 +46,20 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <para>The execution ID of the Automation to stop.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
         public System.String AutomationExecutionId { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter Type
         /// <summary>
-        /// Returns the value passed to the AutomationExecutionId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The stop request type. Valid types include the following: Cancel and Complete. The
+        /// default type is Cancel.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        [AWSConstantClassSource("Amazon.SimpleSystemsManagement.StopType")]
+        public Amazon.SimpleSystemsManagement.StopType Type { get; set; }
         #endregion
         
         #region Parameter Force
@@ -89,6 +92,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             PreExecutionContextLoad(context);
             
             context.AutomationExecutionId = this.AutomationExecutionId;
+            context.Type = this.Type;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,6 +113,10 @@ namespace Amazon.PowerShell.Cmdlets.SSM
             {
                 request.AutomationExecutionId = cmdletContext.AutomationExecutionId;
             }
+            if (cmdletContext.Type != null)
+            {
+                request.Type = cmdletContext.Type;
+            }
             
             CmdletOutput output;
             
@@ -119,8 +127,6 @@ namespace Amazon.PowerShell.Cmdlets.SSM
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.AutomationExecutionId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -176,6 +182,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AutomationExecutionId { get; set; }
+            public Amazon.SimpleSystemsManagement.StopType Type { get; set; }
         }
         
     }

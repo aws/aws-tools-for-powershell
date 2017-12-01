@@ -1,3 +1,24 @@
+### 3.3.201.0 (2017-12-02)
+  * Updated cmdlets for multiple services to include new APIs and API updates released during AWS re:Invent 2017, for services already supported by the tools. New services launched at the conference will be added to the tools in the coming days. The updated services are:
+    * Auto Scaling
+    * Amazon API Gateway
+    * Amazon DynamoDB
+    * Amazon Cognito
+    * Amazon Cognito Identity Provider
+    * Amazon EC2
+    * Amazon Elastic Container Service
+    * Amazon Lightsail
+    * Amazon Rekognition
+    * Amazon Systems Manager
+    * AWS Batch
+    * AWS CloudFormation
+    * AWS CodeDeploy
+    * AWS Greengrass
+    * AWS IoT
+    * AWS Lambda
+    * AWS WAF
+    * AWS WAF Regional
+  
 ### 3.3.197.0 (2017-11-27)
   * AWS Elemental Media Convert
     * Added support for the new service. Cmdlets for the service have the noun prefix 'EMC'.

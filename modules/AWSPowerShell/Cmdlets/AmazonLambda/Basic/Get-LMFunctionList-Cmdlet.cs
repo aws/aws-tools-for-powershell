@@ -56,7 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <summary>
         /// <para>
         /// <para>Optional string. If not specified, only the unqualified functions ARNs (Amazon Resource
-        /// Names) will be returned.</para><para>Valid value:</para><para><code>ALL</code> _ Will return all versions, including <code>$LATEST</code> which
+        /// Names) will be returned.</para><para>Valid value:</para><para><code>ALL</code>: Will return all versions, including <code>$LATEST</code> which
         /// will have fully qualified ARNs (Amazon Resource Names).</para>
         /// </para>
         /// </summary>
@@ -70,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>
         /// <para>Optional string. If not specified, will return only regular function versions (i.e.,
         /// non-replicated versions).</para><para>Valid values are:</para><para>The region from which the functions are replicated. For example, if you specify <code>us-east-1</code>,
-        /// only functions replicated from that region will be returned.</para><para><code>ALL</code> _ Will return all functions from any region. If specified, you also
+        /// only functions replicated from that region will be returned.</para><para><code>ALL</code>: Will return all functions from any region. If specified, you also
         /// must specify a valid FunctionVersion parameter.</para>
         /// </para>
         /// </summary>

@@ -91,8 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// <para>Filters the results by the specified instance types. Note that T2 and HS1 instance
-        /// types are not supported.</para>
+        /// <para>Filters the results by the specified instance types.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

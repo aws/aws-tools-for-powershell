@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
 {
     /// <summary>
     /// Returns an array of celebrities recognized in the input image. For more information,
-    /// see <a>celebrity-recognition</a>. 
+    /// see <a>celebrities</a>. 
     /// 
     ///  
     /// <para><code>RecognizeCelebrities</code> returns the 100 largest faces in the image. It
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// operations, passing image bytes is not supported. The image must be either a PNG or
     /// JPEG formatted file. 
     /// </para><para>
-    /// For an example, see <a>recognize-celebrities-tutorial</a>.
+    /// For an example, see <a>celebrities-procedure-image</a>.
     /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code>
     /// operation.

@@ -191,7 +191,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         #region Parameter VirtualizationType
         /// <summary>
         /// <para>
-        /// <para>The type of virtualization.</para><para>Default: <code>paravirtual</code></para>
+        /// <para>The type of virtualization (<code>hvm</code> | <code>paravirtual</code>).</para><para>Default: <code>paravirtual</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -40,8 +40,6 @@ namespace Amazon.PowerShell.Cmdlets.REK
     /// </para><note><para>
     /// Collection names are case-sensitive.
     /// </para></note><para>
-    /// For an example, see <a>example1</a>. 
-    /// </para><para>
     /// This operation requires permissions to perform the <code>rekognition:CreateCollection</code>
     /// action.
     /// </para>
