@@ -64,5 +64,7 @@
     </ServiceOperations>
     <InputObjectMappingRules />
     <SupportsShouldProcessVerbs />
-    <TypesNotToFlatten />
+    <TypesNotToFlatten>
+        <Type>Amazon.Elasticsearch.Model.EncryptionAtRestOptions</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

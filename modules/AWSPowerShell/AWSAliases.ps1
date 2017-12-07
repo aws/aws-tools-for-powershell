@@ -4537,6 +4537,7 @@ Set-Alias -Name Create-SESConfigurationSetEventDestination -Value New-SESConfigu
 Set-Alias -Name SES-CreateConfigurationSetEventDestination -Value New-SESConfigurationSetEventDestination
 Set-Alias -Name Create-SESConfigurationSetTrackingOption -Value New-SESConfigurationSetTrackingOption
 Set-Alias -Name SES-CreateConfigurationSetTrackingOptions -Value New-SESConfigurationSetTrackingOption
+Set-Alias -Name SES-CreateCustomVerificationEmailTemplate -Value New-SESCustomVerificationEmailTemplate
 Set-Alias -Name Create-SESReceiptFilter -Value New-SESReceiptFilter
 Set-Alias -Name SES-CreateReceiptFilter -Value New-SESReceiptFilter
 Set-Alias -Name Create-SESReceiptRule -Value New-SESReceiptRule
@@ -4551,6 +4552,7 @@ Set-Alias -Name Delete-SESConfigurationSetEventDestination -Value Remove-SESConf
 Set-Alias -Name SES-DeleteConfigurationSetEventDestination -Value Remove-SESConfigurationSetEventDestination
 Set-Alias -Name Delete-SESConfigurationSetTrackingOption -Value Remove-SESConfigurationSetTrackingOption
 Set-Alias -Name SES-DeleteConfigurationSetTrackingOptions -Value Remove-SESConfigurationSetTrackingOption
+Set-Alias -Name SES-DeleteCustomVerificationEmailTemplate -Value Remove-SESCustomVerificationEmailTemplate
 Set-Alias -Name Delete-SESIdentity -Value Remove-SESIdentity
 Set-Alias -Name SES-DeleteIdentity -Value Remove-SESIdentity
 Set-Alias -Name Delete-SESIdentityPolicy -Value Remove-SESIdentityPolicy
@@ -4574,6 +4576,7 @@ Set-Alias -Name SES-DescribeReceiptRule -Value Get-SESReceiptRule
 Set-Alias -Name Describe-SESReceiptRuleSet -Value Get-SESReceiptRuleSet
 Set-Alias -Name SES-DescribeReceiptRuleSet -Value Get-SESReceiptRuleSet
 Set-Alias -Name SES-GetAccountSendingEnabled -Value Get-SESAccountSendingEnabled
+Set-Alias -Name SES-GetCustomVerificationEmailTemplate -Value Get-SESCustomVerificationEmailTemplate
 Set-Alias -Name Get-SESIdentityDkimAttributes -Value Get-SESIdentityDkimAttribute
 Set-Alias -Name SES-GetIdentityDkimAttributes -Value Get-SESIdentityDkimAttribute
 Set-Alias -Name SES-GetIdentityMailFromDomainAttributes -Value Get-SESIdentityMailFromDomainAttribute
@@ -4586,6 +4589,7 @@ Set-Alias -Name SES-GetSendQuota -Value Get-SESSendQuota
 Set-Alias -Name SES-GetSendStatistics -Value Get-SESSendStatistic
 Set-Alias -Name SES-GetTemplate -Value Get-SESTemplate
 Set-Alias -Name SES-ListConfigurationSets -Value Get-SESConfigurationSetList
+Set-Alias -Name SES-ListCustomVerificationEmailTemplates -Value Get-SESCustomVerificationEmailTemplateList
 Set-Alias -Name List-SESIdentities -Value Get-SESIdentity
 Set-Alias -Name SES-ListIdentities -Value Get-SESIdentity
 Set-Alias -Name List-SESIdentityPolicyList -Value Get-SESIdentityPolicyList
@@ -4603,6 +4607,7 @@ Set-Alias -Name SES-PutIdentityPolicy -Value Write-SESIdentityPolicy
 Set-Alias -Name SES-ReorderReceiptRuleSet -Value Set-SESReceiptRuleSetOrder
 Set-Alias -Name SES-SendBounce -Value Send-SESBounce
 Set-Alias -Name SES-SendBulkTemplatedEmail -Value Send-SESBulkTemplatedEmail
+Set-Alias -Name SES-SendCustomVerificationEmail -Value Send-SESCustomVerificationEmail
 Set-Alias -Name SES-SendEmail -Value Send-SESEmail
 Set-Alias -Name SES-SendRawEmail -Value Send-SESRawEmail
 Set-Alias -Name SES-SendTemplatedEmail -Value Send-SESTemplatedEmail
@@ -4619,6 +4624,7 @@ Set-Alias -Name SES-UpdateConfigurationSetEventDestination -Value Update-SESConf
 Set-Alias -Name SES-UpdateConfigurationSetReputationMetricsEnabled -Value Update-SESConfigurationSetReputationMetricsEnabled
 Set-Alias -Name SES-UpdateConfigurationSetSendingEnabled -Value Update-SESConfigurationSetSendingEnabled
 Set-Alias -Name SES-UpdateConfigurationSetTrackingOptions -Value Update-SESConfigurationSetTrackingOption
+Set-Alias -Name SES-UpdateCustomVerificationEmailTemplate -Value Update-SESCustomVerificationEmailTemplate
 Set-Alias -Name SES-UpdateReceiptRule -Value Update-SESReceiptRule
 Set-Alias -Name SES-UpdateTemplate -Value Update-SESTemplate
 Set-Alias -Name Verify-SESDomainDkim -Value Confirm-SESDomainDkim
