@@ -28,16 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Requests termination of an existing ProvisionedProduct object. If there are <code>Tags</code>
-    /// associated with the object, they are terminated when the ProvisionedProduct object
-    /// is terminated. 
+    /// Terminates the specified provisioned product.
     /// 
     ///  
     /// <para>
-    /// This operation does not delete any records associated with the ProvisionedProduct
-    /// object.
+    /// This operation does not delete any records associated with the provisioned product.
     /// </para><para>
-    /// You can check the status of this request using the <a>DescribeRecord</a> operation.
+    /// You can check the status of this request using <a>DescribeRecord</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Remove", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
@@ -63,8 +60,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IgnoreError
         /// <summary>
         /// <para>
-        /// <para>If set to true, AWS Service Catalog stops managing the specified ProvisionedProduct
-        /// object even if it cannot delete the underlying resources.</para>
+        /// <para>If set to true, AWS Service Catalog stops managing the specified provisioned product
+        /// even if it cannot delete the underlying resources.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the ProvisionedProduct object to terminate. Specify either <code>ProvisionedProductName</code>
-        /// or <code>ProvisionedProductId</code>, but not both.</para>
+        /// <para>The identifier of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
+        /// and <code>ProvisionedProductId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -86,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductName
         /// <summary>
         /// <para>
-        /// <para>The name of the ProvisionedProduct object to terminate. Specify either <code>ProvisionedProductName</code>
-        /// or <code>ProvisionedProductId</code>, but not both.</para>
+        /// <para>The name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
+        /// and <code>ProvisionedProductId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,9 +95,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         /// <summary>
         /// <para>
         /// <para>An idempotency token that uniquely identifies the termination request. This token
-        /// is only valid during the termination process. After the ProvisionedProduct object
-        /// is terminated, further requests to terminate the same ProvisionedProduct object always
-        /// return <b>ResourceNotFound</b> regardless of the value of <code>TerminateToken</code>.</para>
+        /// is only valid during the termination process. After the provisioned product is terminated,
+        /// subsequent requests to terminate the same provisioned product always return <b>ResourceNotFound</b>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

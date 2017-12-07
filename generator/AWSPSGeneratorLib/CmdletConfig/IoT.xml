@@ -168,7 +168,7 @@
         <ServiceOperation MethodName="UpdateThing" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateTopicRule" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateTopicRule" Output="Void" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessTarget="RuleName" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ReplaceTopicRule" Output="Void" SkipOutputComputationCheck="false" Verb="Set" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="RuleName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">

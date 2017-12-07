@@ -104,7 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.EB
         #region Parameter PlatformArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the custome platform.</para>
+        /// <para>The ARN of the custom platform.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

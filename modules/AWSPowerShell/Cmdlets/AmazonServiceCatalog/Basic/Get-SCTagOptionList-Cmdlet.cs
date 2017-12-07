@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists detailed TagOptions information.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the specified TagOptions or all TagOptions.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SCTagOptionList")]
     [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filters_Active
         /// <summary>
         /// <para>
-        /// <para>The ListTagOptionsFilters active state.</para>
+        /// <para>The active state.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filters_Key
         /// <summary>
         /// <para>
-        /// <para>The ListTagOptionsFilters key.</para>
+        /// <para>The TagOption key.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,9 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -77,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filters_Value
         /// <summary>
         /// <para>
-        /// <para>The ListTagOptionsFilters value.</para>
+        /// <para>The TagOption value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,8 +85,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

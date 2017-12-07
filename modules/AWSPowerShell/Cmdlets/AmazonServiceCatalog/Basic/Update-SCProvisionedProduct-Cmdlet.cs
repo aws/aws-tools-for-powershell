@@ -28,15 +28,15 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Requests updates to the configuration of an existing ProvisionedProduct object. If
-    /// there are tags associated with the object, they cannot be updated or added with this
-    /// operation. Depending on the specific updates requested, this operation may update
-    /// with no interruption, with some interruption, or replace the ProvisionedProduct object
-    /// entirely. 
+    /// Requests updates to the configuration of the specified provisioned product.
     /// 
     ///  
     /// <para>
-    /// You can check the status of this request using the <a>DescribeRecord</a> operation.
+    /// If there are tags associated with the object, they cannot be updated or added. Depending
+    /// on the specific updates requested, this operation can update with no interruption,
+    /// with some interruption, or replace the provisioned product entirely.
+    /// </para><para>
+    /// You can check the status of this request using <a>DescribeRecord</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "SCProvisionedProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
@@ -62,9 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PathId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path to use in the updated ProvisionedProduct object. This value
-        /// is optional if the product has a default path, and is required if there is more than
-        /// one path for the specified product.</para>
+        /// <para>The new path identifier. This value is optional if the product has a default path,
+        /// and required if the product has more than one path.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the ProvisionedProduct object.</para>
+        /// <para>The identifier of the provisioned product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,8 +83,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the ProvisionedProduct object to update. Specify either <code>ProvisionedProductName</code>
-        /// or <code>ProvisionedProductId</code>, but not both.</para>
+        /// <para>The identifier of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
+        /// and <code>ProvisionedProductId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -95,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisionedProductName
         /// <summary>
         /// <para>
-        /// <para>The updated name of the ProvisionedProduct object. Specify either <code>ProvisionedProductName</code>
-        /// or <code>ProvisionedProductId</code>, but not both.</para>
+        /// <para>The updated name of the provisioned product. You cannot specify both <code>ProvisionedProductName</code>
+        /// and <code>ProvisionedProductId</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,8 +105,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product. This is sometimes referred
-        /// to as the product version.</para>
+        /// <para>The identifier of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -117,8 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningParameter
         /// <summary>
         /// <para>
-        /// <para>A list of <code>ProvisioningParameter</code> objects used to update the ProvisionedProduct
-        /// object.</para>
+        /// <para>The new parameters.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -129,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter UpdateToken
         /// <summary>
         /// <para>
-        /// <para>The idempotency token that uniquely identifies the provisioning update request.</para>
+        /// <para>The idempotency token that uniquely identifies the provisioning update rquest.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

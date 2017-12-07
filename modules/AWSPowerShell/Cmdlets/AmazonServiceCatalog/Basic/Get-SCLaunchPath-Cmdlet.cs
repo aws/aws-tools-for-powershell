@@ -28,9 +28,9 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Returns a paginated list of all paths to a specified product. A path is how the user
-    /// has access to a specified product, and is necessary when provisioning a product. A
-    /// path also determines the constraints put on the product.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the paths to the specified product. A path is how the user has access to a specified
+    /// product, and is necessary when provisioning a product. A path also determines the
+    /// constraints put on the product.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SCLaunchPath")]
     [OutputType("Amazon.ServiceCatalog.Model.LaunchPathSummary")]
@@ -56,9 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -69,8 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProductId
         /// <summary>
         /// <para>
-        /// <para>The product identifier. Identifies the product for which to retrieve <code>LaunchPathSummaries</code>
-        /// information.</para>
+        /// <para>The product identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -80,8 +77,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

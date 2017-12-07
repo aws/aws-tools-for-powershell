@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Accepts an offer to share a portfolio.
+    /// Accepts an offer to share the specified portfolio.
     /// </summary>
     [Cmdlet("Receive", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

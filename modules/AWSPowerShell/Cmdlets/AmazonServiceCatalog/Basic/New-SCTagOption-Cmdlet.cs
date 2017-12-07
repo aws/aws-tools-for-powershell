@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Create a new TagOption.
+    /// Creates a TagOption.
     /// </summary>
     [Cmdlet("New", "SCTagOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]

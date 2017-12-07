@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists resources associated with a TagOption.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the resources associated with the specified TagOption.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SCResourcesForTagOption")]
     [OutputType("Amazon.ServiceCatalog.Model.ResourceDetail")]
@@ -44,9 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -57,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ResourceType
         /// <summary>
         /// <para>
-        /// <para>Resource type.</para>
+        /// <para>The resource type.</para><ul><li><para><code>Portfolio</code></para></li><li><para><code>Product</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter TagOptionId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the TagOption.</para>
+        /// <para>The TagOption identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -77,8 +75,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

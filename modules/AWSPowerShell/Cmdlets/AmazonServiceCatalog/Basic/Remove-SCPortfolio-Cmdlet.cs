@@ -28,9 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Deletes the specified portfolio. This operation does not work with a portfolio that
-    /// has been shared with you or if it has products, users, constraints, or shared accounts
-    /// associated with it.
+    /// Deletes the specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot delete a portfolio if it was shared with you or if it has associated products,
+    /// users, constraints, or shared accounts.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -55,7 +59,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the portfolio for the delete request.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

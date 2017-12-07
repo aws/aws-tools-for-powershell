@@ -22,71 +22,67 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ServiceCatalog;
-using Amazon.ServiceCatalog.Model;
+using Amazon.CloudDirectory;
+using Amazon.CloudDirectory.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SC
+namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Associates the specified product with the specified portfolio.
+    /// Upgrades a published schema under a new minor version revision using the current contents
+    /// of <code>DevelopmentSchemaArn</code>.
     /// </summary>
-    [Cmdlet("Register", "SCProductWithPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the AWS Service Catalog AssociateProductWithPortfolio API operation.", Operation = new[] {"AssociateProductWithPortfolio"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ProductId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "CDIRPublishedSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Cloud Directory UpgradePublishedSchema API operation.", Operation = new[] {"UpgradePublishedSchema"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CloudDirectory.Model.UpgradePublishedSchemaResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RegisterSCProductWithPortfolioCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class UpdateCDIRPublishedSchemaCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
-        #region Parameter AcceptLanguage
+        #region Parameter DevelopmentSchemaArn
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>en</code> - English (default)</para></li><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
+        /// <para>The ARN of the development schema with the changes used for the upgrade.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String AcceptLanguage { get; set; }
+        public System.String DevelopmentSchemaArn { get; set; }
         #endregion
         
-        #region Parameter PortfolioId
+        #region Parameter DryRun
         /// <summary>
         /// <para>
-        /// <para>The portfolio identifier.</para>
+        /// <para>Used for testing whether the Development schema provided is backwards compatible,
+        /// or not, with the publish schema provided by the user to be upgraded. If schema compatibility
+        /// fails, an exception would be thrown else the call would succeed. This parameter is
+        /// optional and defaults to false.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String PortfolioId { get; set; }
+        public System.Boolean DryRun { get; set; }
         #endregion
         
-        #region Parameter ProductId
+        #region Parameter MinorVersion
         /// <summary>
         /// <para>
-        /// <para>The product identifier.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String ProductId { get; set; }
-        #endregion
-        
-        #region Parameter SourcePortfolioId
-        /// <summary>
-        /// <para>
-        /// <para>The identifier of the source portfolio.</para>
+        /// <para>Identifies the minor version of the published schema that will be created. This parameter
+        /// is NOT optional.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String SourcePortfolioId { get; set; }
+        public System.String MinorVersion { get; set; }
         #endregion
         
-        #region Parameter PassThru
+        #region Parameter PublishedSchemaArn
         /// <summary>
-        /// Returns the value passed to the ProductId parameter.
-        /// By default, this cmdlet does not generate any output.
+        /// <para>
+        /// <para>The ARN of the published schema to be upgraded.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
+        public System.String PublishedSchemaArn { get; set; }
         #endregion
         
         #region Parameter Force
@@ -103,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ProductId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Register-SCProductWithPortfolio (AssociateProductWithPortfolio)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("DevelopmentSchemaArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-CDIRPublishedSchema (UpgradePublishedSchema)"))
             {
                 return;
             }
@@ -118,10 +114,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AcceptLanguage = this.AcceptLanguage;
-            context.PortfolioId = this.PortfolioId;
-            context.ProductId = this.ProductId;
-            context.SourcePortfolioId = this.SourcePortfolioId;
+            context.DevelopmentSchemaArn = this.DevelopmentSchemaArn;
+            if (ParameterWasBound("DryRun"))
+                context.DryRun = this.DryRun;
+            context.MinorVersion = this.MinorVersion;
+            context.PublishedSchemaArn = this.PublishedSchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -136,23 +133,23 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioRequest();
+            var request = new Amazon.CloudDirectory.Model.UpgradePublishedSchemaRequest();
             
-            if (cmdletContext.AcceptLanguage != null)
+            if (cmdletContext.DevelopmentSchemaArn != null)
             {
-                request.AcceptLanguage = cmdletContext.AcceptLanguage;
+                request.DevelopmentSchemaArn = cmdletContext.DevelopmentSchemaArn;
             }
-            if (cmdletContext.PortfolioId != null)
+            if (cmdletContext.DryRun != null)
             {
-                request.PortfolioId = cmdletContext.PortfolioId;
+                request.DryRun = cmdletContext.DryRun.Value;
             }
-            if (cmdletContext.ProductId != null)
+            if (cmdletContext.MinorVersion != null)
             {
-                request.ProductId = cmdletContext.ProductId;
+                request.MinorVersion = cmdletContext.MinorVersion;
             }
-            if (cmdletContext.SourcePortfolioId != null)
+            if (cmdletContext.PublishedSchemaArn != null)
             {
-                request.SourcePortfolioId = cmdletContext.SourcePortfolioId;
+                request.PublishedSchemaArn = cmdletContext.PublishedSchemaArn;
             }
             
             CmdletOutput output;
@@ -163,9 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.ProductId;
+                object pipelineOutput = response.UpgradedSchemaArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -190,16 +185,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.AssociateProductWithPortfolioRequest request)
+        private Amazon.CloudDirectory.Model.UpgradePublishedSchemaResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.UpgradePublishedSchemaRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "AssociateProductWithPortfolio");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "UpgradePublishedSchema");
             try
             {
                 #if DESKTOP
-                return client.AssociateProductWithPortfolio(request);
+                return client.UpgradePublishedSchema(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.AssociateProductWithPortfolioAsync(request);
+                var task = client.UpgradePublishedSchemaAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -220,10 +215,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AcceptLanguage { get; set; }
-            public System.String PortfolioId { get; set; }
-            public System.String ProductId { get; set; }
-            public System.String SourcePortfolioId { get; set; }
+            public System.String DevelopmentSchemaArn { get; set; }
+            public System.Boolean? DryRun { get; set; }
+            public System.String MinorVersion { get; set; }
+            public System.String PublishedSchemaArn { get; set; }
         }
         
     }

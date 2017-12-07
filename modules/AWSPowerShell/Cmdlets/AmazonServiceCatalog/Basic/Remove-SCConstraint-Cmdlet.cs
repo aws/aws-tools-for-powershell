@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the constraint to delete.</para>
+        /// <para>The identifier of the constraint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

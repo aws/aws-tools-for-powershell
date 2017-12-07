@@ -505,8 +505,12 @@ Set-Alias -Name ACM-ListTagsForCertificate -Value Get-ACMCertificateTagList
 Set-Alias -Name ACM-RemoveTagsFromCertificate -Value Remove-ACMCertificateTag
 Set-Alias -Name ACM-RequestCertificate -Value New-ACMCertificate
 Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
+Set-Alias -Name CDIR-UpdateObjectAttributes -Value Update-CDIRObjectAttribute
 Set-Alias -Name CDIR-UpdateSchema -Value Update-CDIRSchema
 Set-Alias -Name CDIR-UpdateTypedLinkFacet -Value Update-CDIRTypedLinkFacet
+Set-Alias -Name CDIR-UpgradeAppliedSchema -Value Update-CDIRAppliedSchema
+Set-Alias -Name CDIR-UpgradePublishedSchema -Value Update-CDIRPublishedSchema
+Set-Alias -Name CDIR-GetSchemaAsJson -Value Get-CDIRSchemaAsJson
 Set-Alias -Name CDIR-GetTypedLinkFacetInformation -Value Get-CDIRTypedLinkFacetInformation
 Set-Alias -Name List-CDIRAppliedSchemaArn -Value Get-CDIRAppliedSchemaArn
 Set-Alias -Name CDIR-ListAppliedSchemaArns -Value Get-CDIRAppliedSchemaArn
@@ -554,7 +558,6 @@ Set-Alias -Name CDIR-RemoveFacetFromObject -Value Remove-CDIRFacetFromObject
 Set-Alias -Name CDIR-TagResource -Value Add-CDIRResourceTag
 Set-Alias -Name CDIR-UntagResource -Value Remove-CDIRResourceTag
 Set-Alias -Name CDIR-UpdateFacet -Value Update-CDIRFacet
-Set-Alias -Name CDIR-UpdateObjectAttributes -Value Update-CDIRObjectAttribute
 Set-Alias -Name CDIR-AddFacetToObject -Value Add-CDIRFacetToObject
 Set-Alias -Name CDIR-ApplySchema -Value Add-CDIRSchema
 Set-Alias -Name CDIR-AttachObject -Value Connect-CDIRObject
@@ -593,10 +596,10 @@ Set-Alias -Name CDIR-DetachPolicy -Value Dismount-CDIRPolicyFromObject
 Set-Alias -Name CDIR-DetachTypedLink -Value Dismount-CDIRTypedLink
 Set-Alias -Name CDIR-DisableDirectory -Value Disable-CDIRDirectory
 Set-Alias -Name CDIR-EnableDirectory -Value Enable-CDIRDirectory
+Set-Alias -Name CDIR-GetAppliedSchemaVersion -Value Get-CDIRAppliedSchemaVersion
 Set-Alias -Name CDIR-GetDirectory -Value Get-CDIRDirectoryMetadata
 Set-Alias -Name CDIR-GetFacet -Value Get-CDIRFacet
 Set-Alias -Name CDIR-GetObjectInformation -Value Get-CDIRObjectInformation
-Set-Alias -Name CDIR-GetSchemaAsJson -Value Get-CDIRSchemaAsJson
 Set-Alias -Name List-CFNStackResourceSummary -Value Get-CFNStackResourceSummary
 Set-Alias -Name CFN-ListStackResources -Value Get-CFNStackResourceSummary
 Set-Alias -Name List-CFNStackSummary -Value Get-CFNStackSummary

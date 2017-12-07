@@ -28,9 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves summary and status information about all products created within the caller's
-    /// account. If a portfolio ID is provided, this operation retrieves information for only
-    /// those products that are associated with the specified portfolio.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Gets information about the products for the specified portfolio or all products.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Search", "SCProductsAsAdmin", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.ProductViewDetail")]
@@ -56,8 +54,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The list of filters with which to limit search results. If no search filters are specified,
-        /// the output is all the products to which the administrator has access.</para>
+        /// <para>The search filters. If no search filters are specified, the output includes all products
+        /// to which the administrator has access.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,9 +66,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -102,7 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The sort field specifier. If no value is specified, results are not sorted.</para>
+        /// <para>The sort field. If no value is specified, the results are not sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -113,7 +109,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order specifier. If no value is specified, results are not sorted.</para>
+        /// <para>The sort order. If no value is specified, the results are not sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -124,8 +120,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

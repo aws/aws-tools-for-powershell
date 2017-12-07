@@ -78,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaFacet
         /// <summary>
         /// <para>
-        /// <para>A list of schema facets to be associated with the object that contains <code>SchemaArn</code>
-        /// and facet name. For more information, see <a>arns</a>.</para>
+        /// <para>A list of schema facets to be associated with the object. Do not provide minor version
+        /// components. See <a>SchemaFacet</a> for details.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

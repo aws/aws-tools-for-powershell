@@ -28,7 +28,8 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves detailed information about the specified provisioning artifact.
+    /// Gets information about the specified provisioning artifact (also known as a version)
+    /// for the specified product.
     /// </summary>
     [Cmdlet("Get", "SCProvisioningArtifact")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProvisioningArtifactResponse")]
@@ -62,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact. This is sometimes referred to as the
-        /// product version.</para>
+        /// <para>The identifier of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ReturnCloudFormationTemplate
         /// <summary>
         /// <para>
-        /// <para>Enable a verbose level of details for the provisioning artifact.</para>
+        /// <para>Indicates whether a verbose level of detail is enabled.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

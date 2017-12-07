@@ -33,7 +33,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
     /// 
     ///  
     /// <para>
-    /// Currently, Elastic Beanstalk only supports tagging Elastic Beanstalk environments.
+    /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
+    /// For details about environment tagging, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
+    /// Resources in Your Elastic Beanstalk Environment</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "EBResourceTag")]

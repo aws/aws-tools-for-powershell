@@ -28,8 +28,12 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Create a new provisioning artifact for the specified product. This operation does
-    /// not work with a product that has been shared with you.
+    /// Creates a provisioning artifact (also known as a version) for the specified product.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot create a provisioning artifact for a product that was shared with you.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateProvisioningArtifactResponse")]
@@ -53,7 +57,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameters_Description
         /// <summary>
         /// <para>
-        /// <para>The text description of the provisioning artifact properties.</para>
+        /// <para>The description of the provisioning artifact, including how it differs from the previous
+        /// provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,8 +68,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A token to disambiguate duplicate requests. You can use the same input in multiple
-        /// requests, provided that you also specify a different idempotency token for each request.</para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests differ
+        /// only by the idempotency token, the same response is returned for each repeated request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,9 +79,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameters_Info
         /// <summary>
         /// <para>
-        /// <para>Additional information about the provisioning artifact properties. When using this
-        /// element in a request, you must specify <code>LoadTemplateFromURL</code>. For more
-        /// information, see <a>CreateProvisioningArtifact</a>.</para>
+        /// <para>The URL of the CloudFormation template in Amazon S3. Specify the URL in JSON format
+        /// as follows:</para><para><code>"LoadTemplateFromURL": "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/..."</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -86,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameters_Name
         /// <summary>
         /// <para>
-        /// <para>The name assigned to the provisioning artifact properties.</para>
+        /// <para>The name of the provisioning artifact (for example, v1 v2beta). No spaces are allowed.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -106,8 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameters_Type
         /// <summary>
         /// <para>
-        /// <para>The type of the provisioning artifact properties. The following provisioning artifact
-        /// property types are used by AWS Marketplace products:</para><para><code>MARKETPLACE_AMI</code> - AMI products.</para><para><code>MARKETPLACE_CAR</code> - CAR (Cluster and AWS Resources) products.</para>
+        /// <para>The type of provisioning artifact.</para><ul><li><para><code>CLOUD_FORMATION_TEMPLATE</code> - AWS CloudFormation template</para></li><li><para><code>MARKETPLACE_AMI</code> - AWS Marketplace AMI</para></li><li><para><code>MARKETPLACE_CAR</code> - AWS Marketplace Clusters and AWS Resources</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieve detailed information about the provisioned product.
+    /// Gets information about the specified provisioned product.
     /// </summary>
     [Cmdlet("Get", "SCProvisionedProductDetail")]
     [OutputType("Amazon.ServiceCatalog.Model.ProvisionedProductDetail")]

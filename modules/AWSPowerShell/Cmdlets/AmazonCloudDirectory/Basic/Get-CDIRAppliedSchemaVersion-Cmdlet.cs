@@ -22,42 +22,32 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.ServiceCatalog;
-using Amazon.ServiceCatalog.Model;
+using Amazon.CloudDirectory;
+using Amazon.CloudDirectory.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SC
+namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Gets information about the specified product. This operation is run with administrator
-    /// access.
+    /// Returns current applied schema version ARN, including the minor version in use.
     /// </summary>
-    [Cmdlet("Get", "SCProductAsAdmin")]
-    [OutputType("Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse")]
-    [AWSCmdlet("Calls the AWS Service Catalog DescribeProductAsAdmin API operation.", Operation = new[] {"DescribeProductAsAdmin"})]
-    [AWSCmdletOutput("Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse",
-        "This cmdlet returns a Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "CDIRAppliedSchemaVersion")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS Cloud Directory GetAppliedSchemaVersion API operation.", Operation = new[] {"GetAppliedSchemaVersion"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.CloudDirectory.Model.GetAppliedSchemaVersionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class GetSCProductAsAdminCmdlet : AmazonServiceCatalogClientCmdlet, IExecutor
+    public partial class GetCDIRAppliedSchemaVersionCmdlet : AmazonCloudDirectoryClientCmdlet, IExecutor
     {
         
-        #region Parameter AcceptLanguage
+        #region Parameter SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The language code.</para><ul><li><para><code>en</code> - English (default)</para></li><li><para><code>jp</code> - Japanese</para></li><li><para><code>zh</code> - Chinese</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String AcceptLanguage { get; set; }
-        #endregion
-        
-        #region Parameter Id
-        /// <summary>
-        /// <para>
-        /// <para>The product identifier.</para>
+        /// <para>The ARN of the applied schema.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String Id { get; set; }
+        public System.String SchemaArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
@@ -73,8 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.AcceptLanguage = this.AcceptLanguage;
-            context.Id = this.Id;
+            context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -89,15 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.SC
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.ServiceCatalog.Model.DescribeProductAsAdminRequest();
+            var request = new Amazon.CloudDirectory.Model.GetAppliedSchemaVersionRequest();
             
-            if (cmdletContext.AcceptLanguage != null)
+            if (cmdletContext.SchemaArn != null)
             {
-                request.AcceptLanguage = cmdletContext.AcceptLanguage;
-            }
-            if (cmdletContext.Id != null)
-            {
-                request.Id = cmdletContext.Id;
+                request.SchemaArn = cmdletContext.SchemaArn;
             }
             
             CmdletOutput output;
@@ -108,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = response;
+                object pipelineOutput = response.AppliedSchemaArn;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -133,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         #region AWS Service Operation Call
         
-        private Amazon.ServiceCatalog.Model.DescribeProductAsAdminResponse CallAWSServiceOperation(IAmazonServiceCatalog client, Amazon.ServiceCatalog.Model.DescribeProductAsAdminRequest request)
+        private Amazon.CloudDirectory.Model.GetAppliedSchemaVersionResponse CallAWSServiceOperation(IAmazonCloudDirectory client, Amazon.CloudDirectory.Model.GetAppliedSchemaVersionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Service Catalog", "DescribeProductAsAdmin");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Cloud Directory", "GetAppliedSchemaVersion");
             try
             {
                 #if DESKTOP
-                return client.DescribeProductAsAdmin(request);
+                return client.GetAppliedSchemaVersion(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DescribeProductAsAdminAsync(request);
+                var task = client.GetAppliedSchemaVersionAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -163,8 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String AcceptLanguage { get; set; }
-            public System.String Id { get; set; }
+            public System.String SchemaArn { get; set; }
         }
         
     }

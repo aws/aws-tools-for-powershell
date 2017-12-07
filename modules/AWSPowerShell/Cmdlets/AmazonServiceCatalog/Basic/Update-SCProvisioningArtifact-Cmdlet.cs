@@ -28,8 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates an existing provisioning artifact's information. This operation does not work
-    /// on a provisioning artifact associated with a product that has been shared with you.
+    /// Updates the specified provisioning artifact (also known as a version) for the specified
+    /// product.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot update a provisioning artifact for a product that was shared with you.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdateProvisioningArtifactResponse")]
@@ -50,10 +55,20 @@ namespace Amazon.PowerShell.Cmdlets.SC
         public System.String AcceptLanguage { get; set; }
         #endregion
         
+        #region Parameter Active
+        /// <summary>
+        /// <para>
+        /// <para>Indicates whether the product version is active.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Boolean Active { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated text description of the provisioning artifact.</para>
+        /// <para>The updated description of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,8 +98,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact for the update request. This is sometimes
-        /// referred to as the product version.</para>
+        /// <para>The identifier of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -121,6 +135,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
             PreExecutionContextLoad(context);
             
             context.AcceptLanguage = this.AcceptLanguage;
+            if (ParameterWasBound("Active"))
+                context.Active = this.Active;
             context.Description = this.Description;
             context.Name = this.Name;
             context.ProductId = this.ProductId;
@@ -144,6 +160,10 @@ namespace Amazon.PowerShell.Cmdlets.SC
             if (cmdletContext.AcceptLanguage != null)
             {
                 request.AcceptLanguage = cmdletContext.AcceptLanguage;
+            }
+            if (cmdletContext.Active != null)
+            {
+                request.Active = cmdletContext.Active.Value;
             }
             if (cmdletContext.Description != null)
             {
@@ -226,6 +246,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String AcceptLanguage { get; set; }
+            public System.Boolean? Active { get; set; }
             public System.String Description { get; set; }
             public System.String Name { get; set; }
             public System.String ProductId { get; set; }

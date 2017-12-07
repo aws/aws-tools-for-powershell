@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a new portfolio share.
+    /// Shares the specified portfolio with the specified account.
     /// </summary>
     [Cmdlet("New", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID with which to share the portfolio.</para>
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

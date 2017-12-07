@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates an existing constraint.
+    /// Updates the specified constraint.
     /// </summary>
     [Cmdlet("Update", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdateConstraintResponse")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated text description of the constraint.</para>
+        /// <para>The updated description of the constraint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -62,7 +62,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the constraint to update.</para>
+        /// <para>The identifier of the constraint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

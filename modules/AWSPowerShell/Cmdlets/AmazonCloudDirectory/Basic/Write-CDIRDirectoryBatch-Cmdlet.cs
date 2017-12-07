@@ -29,7 +29,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
     /// Performs all the write operations in a batch. Either all the operations succeed or
-    /// none. Batch writes supports only object-related operations.
+    /// none.
     /// </summary>
     [Cmdlet("Write", "CDIRDirectoryBatch", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.BatchWriteOperationResponse")]

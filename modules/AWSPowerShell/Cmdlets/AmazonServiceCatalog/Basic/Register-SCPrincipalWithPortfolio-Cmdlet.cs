@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalARN
         /// <summary>
         /// <para>
-        /// <para>The ARN representing the principal (IAM user, role, or group).</para>
+        /// <para>The ARN of the principal (IAM user, role, or group).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -73,7 +73,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PrincipalType
         /// <summary>
         /// <para>
-        /// <para>The principal type. Must be <code>IAM</code></para>
+        /// <para>The principal type. The supported value is <code>IAM</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

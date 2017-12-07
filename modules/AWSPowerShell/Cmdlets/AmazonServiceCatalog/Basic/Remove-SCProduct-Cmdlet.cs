@@ -28,8 +28,12 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Deletes the specified product. This operation does not work with a product that has
-    /// been shared with you or is associated with a portfolio.
+    /// Deletes the specified product.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot delete a product if it was shared with you or is associated with a portfolio.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -54,7 +58,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the product for the delete request.</para>
+        /// <para>The product identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

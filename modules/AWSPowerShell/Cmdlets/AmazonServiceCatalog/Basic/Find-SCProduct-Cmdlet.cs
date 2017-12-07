@@ -28,13 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Returns a paginated list all of the <code>Products</code> objects to which the caller
-    /// has access. 
-    /// 
-    ///  
-    /// <para>
-    /// The output of this operation can be used as input for other operations, such as <a>DescribeProductView</a>.
-    /// </para>
+    /// Gets information about the products to which the caller has access.
     /// </summary>
     [Cmdlet("Find", "SCProduct")]
     [OutputType("Amazon.ServiceCatalog.Model.SearchProductsResponse")]
@@ -58,8 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Filter
         /// <summary>
         /// <para>
-        /// <para>The list of filters with which to limit search results. If no search filters are specified,
-        /// the output is all the products to which the calling user has access. </para>
+        /// <para>The search filters. If no search filters are specified, the output includes all products
+        /// to which the caller has access.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -70,9 +64,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +75,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SortBy
         /// <summary>
         /// <para>
-        /// <para>The sort field specifier. If no value is specified, results are not sorted.</para>
+        /// <para>The sort field. If no value is specified, the results are not sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,7 +86,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SortOrder
         /// <summary>
         /// <para>
-        /// <para>The sort order specifier. If no value is specified, results are not sorted.</para>
+        /// <para>The sort order. If no value is specified, the results are not sorted.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -105,8 +97,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

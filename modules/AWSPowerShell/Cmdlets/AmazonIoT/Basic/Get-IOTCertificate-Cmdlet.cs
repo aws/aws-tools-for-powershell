@@ -28,8 +28,7 @@ using Amazon.IoT.Model;
 namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Gets information about the specified certificate. You may specify the certificate
-    /// using either its ID or PEM.
+    /// Gets information about the specified certificate.
     /// </summary>
     [Cmdlet("Get", "IOTCertificate")]
     [OutputType("Amazon.IoT.Model.CertificateDescription")]

@@ -63,7 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter SchemaFacet_SchemaArn
         /// <summary>
         /// <para>
-        /// <para>The ARN of the schema that contains the facet.</para>
+        /// <para>The ARN of the schema that contains the facet with no minor component. See <a>arns</a>
+        /// and <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/inplaceschemaupgrade.html">In-Place
+        /// Schema Upgrade</a> for a description of when to provide minor versions.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

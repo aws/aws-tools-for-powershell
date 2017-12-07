@@ -32,8 +32,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
     /// 
     ///  
     /// <para>
-    /// You can copy the product to the same account or another account. You can copy the
-    /// product to the same region or another region.
+    /// You can copy a product to the same account or another account. You can copy a product
+    /// to the same region or another region.
     /// </para><para>
     /// This operation is performed asynchronously. To track the progress of the operation,
     /// use <a>DescribeCopyProductStatus</a>.
@@ -74,9 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para> A token to disambiguate duplicate requests. You can use the same input in multiple
-        /// requests, provided that you also specify a different idempotency token for each request.
-        /// </para>
+        /// <para> A unique identifier that you provide to ensure idempotency. If multiple requests
+        /// differ only by the idempotency token, the same response is returned for each repeated
+        /// request. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -96,8 +96,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SourceProvisioningArtifactIdentifier
         /// <summary>
         /// <para>
-        /// <para>The IDs of the product versions to copy. By default, all provisioning artifacts are
-        /// copied.</para>
+        /// <para>The identifiers of the provisioning artifacts (also known as versions) of the product
+        /// to copy. By default, all provisioning artifacts are copied.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -108,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter TargetProductId
         /// <summary>
         /// <para>
-        /// <para>The ID of the target product. By default, a new product is created.</para>
+        /// <para>The identifier of the target product. By default, a new product is created.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,12 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates the specified portfolio's details. This operation does not work with a product
-    /// that has been shared with you.
+    /// Updates the specified portfolio.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot update a product that was shared with you.
+    /// </para>
     /// </summary>
     [Cmdlet("Update", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdatePortfolioResponse")]
@@ -53,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AddTag
         /// <summary>
         /// <para>
-        /// <para>Tags to add to the existing list of tags associated with the portfolio.</para>
+        /// <para>The tags to add.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -64,7 +68,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated text description of the portfolio.</para>
+        /// <para>The updated description of the portfolio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -84,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the portfolio for the update request.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -104,7 +108,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter RemoveTag
         /// <summary>
         /// <para>
-        /// <para>Tags to remove from the existing list of tags associated with the portfolio.</para>
+        /// <para>The tags to remove.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

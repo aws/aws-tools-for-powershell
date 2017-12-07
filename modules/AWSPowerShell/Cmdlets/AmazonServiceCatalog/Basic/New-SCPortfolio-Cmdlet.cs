@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a new portfolio.
+    /// Creates a portfolio.
     /// </summary>
     [Cmdlet("New", "SCPortfolio", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreatePortfolioResponse")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The text description of the portfolio.</para>
+        /// <para>The description of the portfolio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -72,8 +72,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A token to disambiguate duplicate requests. You can use the same input in multiple
-        /// requests, provided that you also specify a different idempotency token for each request.</para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests differ
+        /// only by the idempotency token, the same response is returned for each repeated request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Tag
         /// <summary>
         /// <para>
-        /// <para>Tags to associate with the new portfolio.</para>
+        /// <para>The tags to associate with the portfolio.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,13 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves information about a specified product.
-    /// 
-    ///  
-    /// <para>
-    /// This operation is functionally identical to <a>DescribeProduct</a> except that it
-    /// takes as input <code>ProductViewId</code> instead of <code>ProductId</code>.
-    /// </para>
+    /// Gets information about the specified product.
     /// </summary>
     [Cmdlet("Get", "SCProductView")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeProductViewResponse")]
@@ -58,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The <code>ProductViewId</code> of the product to describe.</para>
+        /// <para>The product view identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

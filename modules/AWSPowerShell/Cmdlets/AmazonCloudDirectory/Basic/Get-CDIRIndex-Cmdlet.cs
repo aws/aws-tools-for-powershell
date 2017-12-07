@@ -28,7 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists objects attached to the specified index.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists objects and indexed values attached to the index.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIRIndex")]
     [OutputType("Amazon.CloudDirectory.Model.IndexAttachment")]
@@ -93,7 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The maximum number of results to retrieve from the index.</para>
+        /// <para>The maximum number of objects in a single page to retrieve from the index during a
+        /// request. For more information, see <a href="http://docs.aws.amazon.com/directoryservice/latest/admin-guide/limits.html#limits_cd">AWS
+        /// Directory Service Limits</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

@@ -28,8 +28,8 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Copies the input published schema into the <a>Directory</a> with the same name and
-    /// version as that of the published schema .
+    /// Copies the input published schema, at the specified version, into the <a>Directory</a>
+    /// with the same name and version as that of the published schema.
     /// </summary>
     [Cmdlet("Add", "CDIRSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.CloudDirectory.Model.ApplySchemaResponse")]

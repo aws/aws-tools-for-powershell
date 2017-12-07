@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists all provisioning artifacts associated with the specified product.
+    /// Lists all provisioning artifacts (also known as versions) for the specified product.
     /// </summary>
     [Cmdlet("Get", "SCProvisioningArtifactList")]
     [OutputType("Amazon.ServiceCatalog.Model.ProvisioningArtifactDetail")]

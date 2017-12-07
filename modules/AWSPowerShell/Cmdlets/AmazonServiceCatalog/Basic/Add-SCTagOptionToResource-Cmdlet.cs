@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Associate a TagOption identifier with a resource identifier.
+    /// Associate the specified TagOption with the specified portfolio or product.
     /// </summary>
     [Cmdlet("Add", "SCTagOptionToResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

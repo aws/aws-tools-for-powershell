@@ -28,10 +28,15 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Deletes the specified provisioning artifact. This operation does not work on a provisioning
-    /// artifact associated with a product that has been shared with you, or on the last provisioning
-    /// artifact associated with a product (a product must have at least one provisioning
-    /// artifact).
+    /// Deletes the specified provisioning artifact (also known as a version) for the specified
+    /// product.
+    /// 
+    ///  
+    /// <para>
+    /// You cannot delete a provisioning artifact associated with a product that was shared
+    /// with you. You cannot delete the last provisioning artifact for a product, because
+    /// a product must have at least one provisioning artifact.
+    /// </para>
     /// </summary>
     [Cmdlet("Remove", "SCProvisioningArtifact", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -66,8 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the provisioning artifact for the delete request. This is sometimes
-        /// referred to as the product version.</para>
+        /// <para>The identifier of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,8 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Returns a paginated list of all performed requests, in the form of RecordDetails objects
-    /// that are filtered as specified.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists the specified requests or all performed requests.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SCRecordHistory")]
     [OutputType("Amazon.ServiceCatalog.Model.RecordDetail")]
@@ -55,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Key
         /// <summary>
         /// <para>
-        /// <para>Specifies the access level.</para><para><code>Account</code> allows results at the account level. </para><para><code>Role</code> allows results based on the federated role of the specified user.</para><para><code>User</code> allows results limited to the specified user. </para>
+        /// <para>The access level.</para><ul><li><para><code>Account</code> - Filter results based on the account.</para></li><li><para><code>Role</code> - Filter results based on the federated role of the specified user.</para></li><li><para><code>User</code> - Filter results based on the specified user.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -66,7 +65,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SearchFilter_Key
         /// <summary>
         /// <para>
-        /// <para>The filter key.</para>
+        /// <para>The filter key.</para><ul><li><para><code>product</code> - Filter results based on the specified product identifier.</para></li><li><para><code>provisionedproduct</code> - Filter results based on the provisioned product
+        /// identifier.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -76,9 +76,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccessLevelFilter_Value
         /// <summary>
         /// <para>
-        /// <para>Specifies the user to which the access level applies. A value of <code>Self</code>
-        /// is currently supported.</para>
+        /// <para>The user to which the access level applies. The only supported value is <code>Self</code>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -100,7 +97,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter SearchFilter_Value
         /// <summary>
         /// <para>
-        /// <para>The filter value for <code>Key</code>.</para>
+        /// <para>The filter value.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -110,8 +107,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

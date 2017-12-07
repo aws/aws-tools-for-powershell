@@ -3563,6 +3563,16 @@ $IOT_Completers = {
             break
         }
         
+        # Amazon.IoT.CannedAccessControlList
+        {
+            ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_S3_CannedAcl") -Or
+            ($_ -eq "Set-IOTTopicRule/TopicRulePayload_ErrorAction_S3_CannedAcl")
+        }
+        {
+            $v = "authenticated-read","aws-exec-read","bucket-owner-full-control","bucket-owner-read","log-delivery-write","private","public-read","public-read-write"
+            break
+        }
+        
         # Amazon.IoT.CertificateStatus
         {
             ($_ -eq "Update-IOTCertificate/NewStatus") -Or
@@ -3570,6 +3580,18 @@ $IOT_Completers = {
         }
         {
             $v = "ACTIVE","INACTIVE","PENDING_ACTIVATION","PENDING_TRANSFER","REGISTER_INACTIVE","REVOKED"
+            break
+        }
+        
+        # Amazon.IoT.DynamoKeyType
+        {
+            ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_DynamoDB_HashKeyType") -Or
+            ($_ -eq "Set-IOTTopicRule/TopicRulePayload_ErrorAction_DynamoDB_HashKeyType") -Or
+            ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType") -Or
+            ($_ -eq "Set-IOTTopicRule/TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType")
+        }
+        {
+            $v = "NUMBER","STRING"
             break
         }
         
@@ -3609,6 +3631,16 @@ $IOT_Completers = {
         }
         {
             $v = "DEFAULT","THING_GROUP"
+            break
+        }
+        
+        # Amazon.IoT.MessageFormat
+        {
+            ($_ -eq "New-IOTTopicRule/TopicRulePayload_ErrorAction_Sns_MessageFormat") -Or
+            ($_ -eq "Set-IOTTopicRule/TopicRulePayload_ErrorAction_Sns_MessageFormat")
+        }
+        {
+            $v = "JSON","RAW"
             break
         }
         
@@ -3662,6 +3694,10 @@ $IOT_map = @{
     "TargetSelection"=@("Get-IOTJobsList","New-IOTJob")
     "TargetType"=@("Get-IOTV2LoggingLevelsList","Remove-IOTV2LoggingLevel")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
+    "TopicRulePayload_ErrorAction_DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
+    "TopicRulePayload_ErrorAction_DynamoDB_RangeKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
+    "TopicRulePayload_ErrorAction_S3_CannedAcl"=@("New-IOTTopicRule","Set-IOTTopicRule")
+    "TopicRulePayload_ErrorAction_Sns_MessageFormat"=@("New-IOTTopicRule","Set-IOTTopicRule")
 }
 
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map

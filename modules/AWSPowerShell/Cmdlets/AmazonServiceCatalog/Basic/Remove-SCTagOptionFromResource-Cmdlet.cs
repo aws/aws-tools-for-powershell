@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Disassociates a TagOption from a resource.
+    /// Disassociates the specified TagOption from the specified resource.
     /// </summary>
     [Cmdlet("Remove", "SCTagOptionFromResource", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the resource from which to disassociate the TagOption.</para>
+        /// <para>The resource identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter TagOptionId
         /// <summary>
         /// <para>
-        /// <para>Identifier of the TagOption to disassociate from the resource.</para>
+        /// <para>The TagOption identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates an existing TagOption.
+    /// Updates the specified TagOption.
     /// </summary>
     [Cmdlet("Update", "SCTagOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the constraint to update.</para>
+        /// <para>The TagOption identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

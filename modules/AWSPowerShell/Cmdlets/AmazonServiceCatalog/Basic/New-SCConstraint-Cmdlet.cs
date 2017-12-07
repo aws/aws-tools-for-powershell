@@ -28,8 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Creates a new constraint. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/constraints.html">Using
-    /// Constraints</a>.
+    /// Creates a constraint.
     /// </summary>
     [Cmdlet("New", "SCConstraint", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.CreateConstraintResponse")]
@@ -53,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The text description of the constraint.</para>
+        /// <para>The description of the constraint.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,8 +62,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter IdempotencyToken
         /// <summary>
         /// <para>
-        /// <para>A token to disambiguate duplicate requests. You can use the same input in multiple
-        /// requests, provided that you also specify a different idempotency token for each request.</para>
+        /// <para>A unique identifier that you provide to ensure idempotency. If multiple requests differ
+        /// only by the idempotency token, the same response is returned for each repeated request.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -74,9 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Parameter
         /// <summary>
         /// <para>
-        /// <para>The constraint parameters. Expected values vary depending on which <b>Type</b> is
-        /// specified. For more information, see the Examples section.</para><para>For Type <code>LAUNCH</code>, the <code>RoleArn</code> property is required. </para><para>For Type <code>NOTIFICATION</code>, the <code>NotificationArns</code> property is
-        /// required.</para><para>For Type <code>TEMPLATE</code>, the <code>Rules</code> property is required.</para>
+        /// <para>The constraint parameters, in JSON format. The syntax depends on the constraint type
+        /// as follows:</para><dl><dt>LAUNCH</dt><dd><para>Specify the <code>RoleArn</code> property as follows:</para><para>\"RoleArn\" : \"arn:aws:iam::123456789012:role/LaunchRole\"</para></dd><dt>NOTIFICATION</dt><dd><para>Specify the <code>NotificationArns</code> property as follows:</para><para>\"NotificationArns\" : [\"arn:aws:sns:us-east-1:123456789012:Topic\"]</para></dd><dt>TEMPLATE</dt><dd><para>Specify the <code>Rules</code> property. For more information, see <a href="http://docs.aws.amazon.com/servicecatalog/latest/adminguide/reference-template_constraint_rules.html">Template
+        /// Constraint Rules</a>.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,8 +106,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Type
         /// <summary>
         /// <para>
-        /// <para>The type of the constraint. Case-sensitive valid values are: <code>LAUNCH</code>,
-        /// <code>NOTIFICATION</code>, or <code>TEMPLATE</code>. </para>
+        /// <para>The type of constraint.</para><ul><li><para><code>LAUNCH</code></para></li><li><para><code>NOTIFICATION</code></para></li><li><para><code>TEMPLATE</code></para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

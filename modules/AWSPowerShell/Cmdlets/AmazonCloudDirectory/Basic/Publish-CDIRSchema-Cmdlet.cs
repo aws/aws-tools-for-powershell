@@ -28,9 +28,7 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Publishes a development schema with a version. If description and attributes are specified,
-    /// <code>PublishSchema</code> overrides the development schema description and attributes.
-    /// If not, the development schema description and attributes are used.
+    /// Publishes a development schema with a major version and a recommended minor version.
     /// </summary>
     [Cmdlet("Publish", "CDIRSchema", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.String")]
@@ -53,6 +51,17 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         public System.String DevelopmentSchemaArn { get; set; }
         #endregion
         
+        #region Parameter MinorVersion
+        /// <summary>
+        /// <para>
+        /// <para>The minor version under which the schema will be published. This parameter is recommended.
+        /// Schemas have both a major and minor version associated with them.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String MinorVersion { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
@@ -67,7 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         #region Parameter Version
         /// <summary>
         /// <para>
-        /// <para>The version under which the schema will be published.</para>
+        /// <para>The major version under which the schema will be published. Schemas have both a major
+        /// and minor version associated with them.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -104,6 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             PreExecutionContextLoad(context);
             
             context.DevelopmentSchemaArn = this.DevelopmentSchemaArn;
+            context.MinorVersion = this.MinorVersion;
             context.Name = this.Name;
             context.Version = this.Version;
             
@@ -125,6 +136,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (cmdletContext.DevelopmentSchemaArn != null)
             {
                 request.DevelopmentSchemaArn = cmdletContext.DevelopmentSchemaArn;
+            }
+            if (cmdletContext.MinorVersion != null)
+            {
+                request.MinorVersion = cmdletContext.MinorVersion;
             }
             if (cmdletContext.Name != null)
             {
@@ -199,6 +214,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String DevelopmentSchemaArn { get; set; }
+            public System.String MinorVersion { get; set; }
             public System.String Name { get; set; }
             public System.String Version { get; set; }
         }

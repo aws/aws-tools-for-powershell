@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Updates an existing product.
+    /// Updates the specified product.
     /// </summary>
     [Cmdlet("Update", "SCProduct", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ServiceCatalog.Model.UpdateProductResponse")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AddTag
         /// <summary>
         /// <para>
-        /// <para>Tags to add to the existing list of tags associated with the product.</para>
+        /// <para>The tags to add to the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The updated text description of the product.</para>
+        /// <para>The updated description of the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +83,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the product for the update request.</para>
+        /// <para>The product identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -103,7 +103,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter RemoveTag
         /// <summary>
         /// <para>
-        /// <para>Tags to remove from the existing list of tags associated with the product.</para>
+        /// <para>The tags to remove from the product.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

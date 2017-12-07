@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves detailed information and any tags associated with the specified portfolio.
+    /// Gets information about the specified portfolio.
     /// </summary>
     [Cmdlet("Get", "SCPortfolio")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribePortfolioResponse")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the portfolio for which to retrieve information.</para>
+        /// <para>The portfolio identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

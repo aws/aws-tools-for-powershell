@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Describes a TagOption.
+    /// Gets information about the specified TagOption.
     /// </summary>
     [Cmdlet("Get", "SCTagOption")]
     [OutputType("Amazon.ServiceCatalog.Model.TagOptionDetail")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The identifier of the TagOption.</para>
+        /// <para>The TagOption identifier.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

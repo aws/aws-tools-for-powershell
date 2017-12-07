@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves detailed information for a specified constraint.
+    /// Gets information about the specified constraint.
     /// </summary>
     [Cmdlet("Get", "SCConstraint")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeConstraintResponse")]

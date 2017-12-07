@@ -28,21 +28,17 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Provides information about parameters required to provision a specified product in
-    /// a specified manner. Use this operation to obtain the list of <code>ProvisioningArtifactParameters</code>
-    /// parameters available to call the <a>ProvisionProduct</a> operation for the specified
-    /// product.
+    /// Gets information about the configuration required to provision the specified product
+    /// using the specified provisioning artifact.
     /// 
     ///  
     /// <para>
     /// If the output contains a TagOption key with an empty list of values, there is a TagOption
     /// conflict for that key. The end user cannot take action to fix the conflict, and launch
-    /// is not blocked. In subsequent calls to the <code>ProvisionProduct</code> operation,
-    /// do not include conflicted TagOption keys as tags. Calls to <code>ProvisionProduct</code>
-    /// with empty TagOption values cause the error "Parameter validation failed: Missing
-    /// required parameter in Tags[<i>N</i>]:<i>Value</i> ". Calls to <code>ProvisionProduct</code>
-    /// with conflicted TagOption keys automatically tag the provisioned product with the
-    /// conflicted keys with the value "<code>sc-tagoption-conflict-portfolioId-productId</code>".
+    /// is not blocked. In subsequent calls to <a>ProvisionProduct</a>, do not include conflicted
+    /// TagOption keys as tags, or this will cause the error "Parameter validation failed:
+    /// Missing required parameter in Tags[<i>N</i>]:<i>Value</i>" and tag the provisioned
+    /// product with the value <code>sc-tagoption-conflict-portfolioId-productId</code>.
     /// </para>
     /// </summary>
     [Cmdlet("Get", "SCProvisioningParameter")]
@@ -67,9 +63,9 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PathId
         /// <summary>
         /// <para>
-        /// <para>The identifier of the path for this product's provisioning. This value is optional
-        /// if the product has a default path, and is required if there is more than one path
-        /// for the specified product.</para>
+        /// <para>The path identifier of the product. This value is optional if the product has a default
+        /// path, and required if the product has more than one path. To list the paths for a
+        /// product, use <a>ListLaunchPaths</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -89,8 +85,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter ProvisioningArtifactId
         /// <summary>
         /// <para>
-        /// <para>The provisioning artifact identifier for this product. This is sometimes referred
-        /// to as the product version.</para>
+        /// <para>The identifier of the provisioning artifact.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

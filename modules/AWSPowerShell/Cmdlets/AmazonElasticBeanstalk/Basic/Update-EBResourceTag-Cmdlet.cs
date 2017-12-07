@@ -34,6 +34,20 @@ namespace Amazon.PowerShell.Cmdlets.EB
     ///  
     /// <para>
     /// Currently, Elastic Beanstalk only supports tagging of Elastic Beanstalk environments.
+    /// For details about environment tagging, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.tagging.html">Tagging
+    /// Resources in Your Elastic Beanstalk Environment</a>.
+    /// </para><para>
+    /// If you create a custom IAM user policy to control permission to this operation, specify
+    /// one of the following two virtual actions (or both) instead of the API operation name:
+    /// </para><dl><dt>elasticbeanstalk:AddTags</dt><dd><para>
+    /// Controls permission to call <code>UpdateTagsForResource</code> and pass a list of
+    /// tags to add in the <code>TagsToAdd</code> parameter.
+    /// </para></dd><dt>elasticbeanstalk:RemoveTags</dt><dd><para>
+    /// Controls permission to call <code>UpdateTagsForResource</code> and pass a list of
+    /// tag keys to remove in the <code>TagsToRemove</code> parameter.
+    /// </para></dd></dl><para>
+    /// For details about creating a custom user policy, see <a href="http://docs.aws.amazon.com/elasticbeanstalk/latest/dg/AWSHowTo.iam.managed-policies.html#AWSHowTo.iam.policies">Creating
+    /// a Custom User Policy</a>.
     /// </para>
     /// </summary>
     [Cmdlet("Update", "EBResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]

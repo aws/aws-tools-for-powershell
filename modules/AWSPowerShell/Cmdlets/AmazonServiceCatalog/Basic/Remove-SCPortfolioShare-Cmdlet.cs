@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Deletes the specified portfolio share.
+    /// Stops sharing the specified portfolio with the specified account.
     /// </summary>
     [Cmdlet("Remove", "SCPortfolioShare", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
@@ -53,7 +53,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter AccountId
         /// <summary>
         /// <para>
-        /// <para>The account ID associated with the share to delete.</para>
+        /// <para>The AWS account ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

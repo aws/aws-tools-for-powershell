@@ -28,9 +28,13 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Retrieves a paginated list of the full details of a specific request. Use this operation
-    /// after calling a request operation (<a>ProvisionProduct</a>, <a>TerminateProvisionedProduct</a>,
-    /// or <a>UpdateProvisionedProduct</a>).
+    /// Gets information about the specified request operation.
+    /// 
+    ///  
+    /// <para>
+    /// Use this operation after calling a request operation (for example, <a>ProvisionProduct</a>,
+    /// <a>TerminateProvisionedProduct</a>, or <a>UpdateProvisionedProduct</a>). 
+    /// </para>
     /// </summary>
     [Cmdlet("Get", "SCRecord")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeRecordResponse")]
@@ -54,9 +58,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter Id
         /// <summary>
         /// <para>
-        /// <para>The record identifier of the ProvisionedProduct object for which to retrieve output
-        /// information. This is the <code>RecordDetail.RecordId</code> obtained from the request
-        /// operation's response.</para>
+        /// <para>The record identifier of the provisioned product. This identifier is returned by the
+        /// request operation.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -66,9 +69,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageSize
         /// <summary>
         /// <para>
-        /// <para>The maximum number of items to return in the results. If more results exist than fit
-        /// in the specified <code>PageSize</code>, the value of <code>NextPageToken</code> in
-        /// the response is non-null.</para>
+        /// <para>The maximum number of items to return with this call.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -79,8 +80,8 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter PageToken
         /// <summary>
         /// <para>
-        /// <para>The page token of the first page retrieved. If null, this retrieves the first page
-        /// of size <code>PageSize</code>.</para>
+        /// <para>The page token for the next set of results. To retrieve the first set of results,
+        /// use null.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

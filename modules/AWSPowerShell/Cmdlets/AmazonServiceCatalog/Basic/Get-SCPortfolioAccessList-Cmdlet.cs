@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Lists the account IDs that have been authorized sharing of the specified portfolio.
+    /// Lists the account IDs that have access to the specified portfolio.
     /// </summary>
     [Cmdlet("Get", "SCPortfolioAccessList")]
     [OutputType("System.String")]

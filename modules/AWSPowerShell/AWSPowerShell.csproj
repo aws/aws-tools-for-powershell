@@ -67,7 +67,7 @@
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.4\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
-      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.5.3\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.6\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudHSMV2">
       <HintPath>..\..\packages\AWSSDK.CloudHSMV2.3.3.0.4\lib\net35\AWSSDK.CloudHSMV2.dll</HintPath>
@@ -157,7 +157,7 @@
       <HintPath>..\..\packages\AWSSDK.ServerMigrationService.3.3.0.22\lib\net35\AWSSDK.ServerMigrationService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Budgets">
-      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.4.3\lib\net35\AWSSDK.Budgets.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Budgets.3.3.5\lib\net35\AWSSDK.Budgets.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.StepFunctions">
       <HintPath>..\..\packages\AWSSDK.StepFunctions.3.3.2\lib\net35\AWSSDK.StepFunctions.dll</HintPath>
@@ -190,7 +190,7 @@
       <HintPath>..\..\packages\AWSSDK.SimpleEmail.3.3.5\lib\net35\AWSSDK.SimpleEmail.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ServiceCatalog">
-      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.5.3\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ServiceCatalog.3.3.6\lib\net35\AWSSDK.ServiceCatalog.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SecurityToken">
       <HintPath>..\..\packages\AWSSDK.SecurityToken.3.3.3.3\lib\net35\AWSSDK.SecurityToken.dll</HintPath>
@@ -232,7 +232,7 @@
       <HintPath>..\..\packages\AWSSDK.KeyManagementService.3.3.4.1\lib\net35\AWSSDK.KeyManagementService.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.IoT">
-      <HintPath>..\..\packages\AWSSDK.IoT.3.3.6\lib\net35\AWSSDK.IoT.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.IoT.3.3.7\lib\net35\AWSSDK.IoT.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector">
       <HintPath>..\..\packages\AWSSDK.Inspector.3.3.2.3\lib\net35\AWSSDK.Inspector.dll</HintPath>
@@ -265,13 +265,13 @@
       <HintPath>..\..\packages\AWSSDK.ElasticFileSystem.3.3.1.3\lib\net35\AWSSDK.ElasticFileSystem.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElasticBeanstalk">
-      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.6.2\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ElasticBeanstalk.3.3.6.3\lib\net35\AWSSDK.ElasticBeanstalk.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ElastiCache">
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.5.1\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.9\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.9.1\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.2\lib\net35\AWSSDK.ECR.dll</HintPath>

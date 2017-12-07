@@ -28,7 +28,7 @@ using Amazon.ServiceCatalog.Model;
 namespace Amazon.PowerShell.Cmdlets.SC
 {
     /// <summary>
-    /// Describes the status of the specified copy product operation.
+    /// Gets the status of the specified copy product operation.
     /// </summary>
     [Cmdlet("Get", "SCCopyProductStatus")]
     [OutputType("Amazon.ServiceCatalog.Model.DescribeCopyProductStatusResponse")]
@@ -52,7 +52,7 @@ namespace Amazon.PowerShell.Cmdlets.SC
         #region Parameter CopyProductToken
         /// <summary>
         /// <para>
-        /// <para>The token returned from the call to <code>CopyProduct</code> that initiated the operation.</para>
+        /// <para>The token for the copy product operation. This token is returned by <a>CopyProduct</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

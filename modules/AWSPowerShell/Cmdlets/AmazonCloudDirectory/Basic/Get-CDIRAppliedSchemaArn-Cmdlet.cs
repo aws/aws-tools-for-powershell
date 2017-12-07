@@ -28,7 +28,8 @@ using Amazon.CloudDirectory.Model;
 namespace Amazon.PowerShell.Cmdlets.CDIR
 {
     /// <summary>
-    /// Lists schemas applied to a directory.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Lists schema major versions applied to a directory. If <code>SchemaArn</code> is provided,
+    /// lists the minor version.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "CDIRAppliedSchemaArn")]
     [OutputType("System.String")]
@@ -49,6 +50,17 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String DirectoryArn { get; set; }
+        #endregion
+        
+        #region Parameter SchemaArn
+        /// <summary>
+        /// <para>
+        /// <para>The response for <code>ListAppliedSchemaArns</code> when this parameter is used will
+        /// list all minor version ARNs for a major version.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SchemaArn { get; set; }
         #endregion
         
         #region Parameter MaxResult
@@ -92,6 +104,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (ParameterWasBound("MaxResult"))
                 context.MaxResults = this.MaxResult;
             context.NextToken = this.NextToken;
+            context.SchemaArn = this.SchemaArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -116,6 +129,10 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             if (cmdletContext.MaxResults != null)
             {
                 request.MaxResults = cmdletContext.MaxResults.Value;
+            }
+            if (cmdletContext.SchemaArn != null)
+            {
+                request.SchemaArn = cmdletContext.SchemaArn;
             }
             
             // Initialize loop variant and commence piping
@@ -221,6 +238,7 @@ namespace Amazon.PowerShell.Cmdlets.CDIR
             public System.String DirectoryArn { get; set; }
             public System.Int32? MaxResults { get; set; }
             public System.String NextToken { get; set; }
+            public System.String SchemaArn { get; set; }
         }
         
     }
