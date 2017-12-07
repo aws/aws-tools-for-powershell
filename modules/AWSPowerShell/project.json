@@ -106,6 +106,7 @@
 		"AWSSDK.SQS": "3.3.3.2",
 		"AWSSDK.StepFunctions": "3.3.2",
 		"AWSSDK.StorageGateway": "3.3.6",
+		"AWSSDK.Translate": "3.3.0",
 		"AWSSDK.WAF": "3.3.4",
 		"AWSSDK.WAFRegional": "3.3.3",
 		"AWSSDK.WorkDocs": "3.3.4",

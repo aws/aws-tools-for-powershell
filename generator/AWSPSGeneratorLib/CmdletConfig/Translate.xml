@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonTranslate</SourceGenerationRoot>
+    <ServiceNounPrefix>TRN</ServiceNounPrefix>
+    <ServiceName>Amazon Translate</ServiceName>
+    <ServiceClientInterface>IAmazonTranslate</ServiceClientInterface>
+    <ServiceClient>AmazonTranslateClient</ServiceClient>
+    <ServiceNamespace>Amazon.Translate</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="TranslateText" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="ConvertTo" Noun="TargetLanguage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TargetLanguageCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" MetadataProperties="SourceLanguageCode;TargetLanguageCode" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>
