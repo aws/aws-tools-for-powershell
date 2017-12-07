@@ -44,14 +44,14 @@ namespace AWSPowerShellGenerator.Utils
             var error = new Error { Message = string.Format(message, args) };
             Errors.Add(error);
             // helpful whilst debugging to see this immediately too
-            Console.WriteLine("AWSPowerShell Generation Error: " + error.Message);
+            Console.WriteLine("Error: " + error.Message);
         }
 
         public void LogError(Exception e)
         {
             Errors.Add(new Error { Exception = e });
             // helpful whilst debugging to see this immediately too
-            Console.WriteLine("AWSPowerShell Generation Exception: " + e.Message);
+            Console.WriteLine("Exception: " + e.Message);
         }
 
         public void LogError(Exception e, string message, params object[] args)
@@ -59,7 +59,7 @@ namespace AWSPowerShellGenerator.Utils
             var error = new Error { Message = string.Format(message, args), Exception = e };
             Errors.Add(error);
             // helpful whilst debugging to see this immediately too
-            Console.WriteLine("AWSPowerShell Generation Error: " + error.Message);
+            Console.WriteLine("Error: " + error.Message);
         }
 
         public int ErrorCount

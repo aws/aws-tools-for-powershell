@@ -888,7 +888,7 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (!ApprovedVerbs.Contains(verb))
             {
-                Logger.LogError("Unapproved verb [{0}] in operation [{1}]", verb, CurrentOperation.MethodName);
+                Logger.LogError("{0}: Unapproved verb [{1}] for operation [{2}]", CurrentModel.ServiceName, verb, CurrentOperation.MethodName);
             }
 
             if (CurrentOperation.IsAutoConfiguring)
@@ -946,14 +946,17 @@ namespace AWSPowerShellGenerator.Analysis
                     // be explicit in the config so it can be reviewed, even if we're not 
                     // auto-configuring the operation as a whole. Don't error here
                     // as we're assuming someone will review.
-                    noun = CurrentModel.ServiceNounPrefix + suggestedNoun;
-                    Logger.Log("Plural noun for auto-generated ServiceOperation on operation {0} set to {1}", CurrentOperation.MethodName, noun);
+                    Logger.Log("{0}: Plural noun for auto-generated ServiceOperation {1} set to {2}", 
+                               CurrentModel.ServiceName, 
+                               CurrentOperation.MethodName, 
+                               suggestedNoun);
                 }
                 else
                 {
                     // found plural noun that hasn't been manually configured, so error it
-                    Logger.LogError("Plural noun [{0}] in operation [{1}]. Suggest noun rename to [{2}].",
-                        noun,
+                    Logger.LogError("{0}: Plural noun [{1}] in operation [{2}]. Suggest noun rename to [{3}].",
+                        CurrentModel.ServiceName,
+                        noun.Substring(CurrentModel.ServiceNounPrefix.Length),
                         CurrentOperation.MethodName,
                         suggestedNoun);
                 }
@@ -1014,8 +1017,8 @@ namespace AWSPowerShellGenerator.Analysis
                     && !string.IsNullOrEmpty(CurrentModel.PipelineParameter)
                     && string.Equals(CurrentOperation.PipelineParameter, CurrentModel.PipelineParameter, StringComparison.Ordinal))
             {
-                Logger.LogError("Redundant pipeline parameter configuration on service operation {0}:{1}, already set at model level",
-                                CurrentModel.ServiceNounPrefix, CurrentOperation.MethodName);
+                Logger.LogError("{0}: Redundant pipeline parameter configuration on service operation {1}, already set at model level",
+                                CurrentModel.ServiceName, CurrentOperation.MethodName);
             }
 
             var declaredPipelineParam = CurrentOperation.PipelineParameter;
@@ -1030,8 +1033,8 @@ namespace AWSPowerShellGenerator.Analysis
             if (NonIterationParameterCount > 1)
             {
                 if (string.IsNullOrEmpty(declaredPipelineParam))
-                    Logger.LogError("No pipeline parameter has been declared for {0}:{1} but more than 1 parameter exists. THIS MAY BE A BREAKING CHANGE - INVESTIGATE THIS.",
-                                    CurrentModel.ServiceNounPrefix, CurrentOperation.MethodName);
+                    Logger.LogError("{0}: Operation {1} has more than one parameter but no pipeline parameter configuration was found. THIS MAY BE A BREAKING CHANGE - INVESTIGATE THIS.",
+                                    CurrentModel.ServiceName, CurrentOperation.MethodName);
                 return;
             }
 
@@ -1047,8 +1050,8 @@ namespace AWSPowerShellGenerator.Analysis
                     // this is a 'note' entry only as improvements in autoselection mean we can end up
                     // flagging lots of older configs where we had to be specific as errors
                     if (CurrentOperation.PipelineParameter.Equals(autoselectedParameter.AnalyzedName, StringComparison.Ordinal))
-                        Logger.Log("Possibly redundant pipeline parameter configuration for {0}:{1}, can be auto-assigned from inspection",
-                            CurrentModel.ServiceNounPrefix, CurrentOperation.MethodName);
+                        Logger.Log("{0}: Possibly redundant pipeline parameter configuration for {1}, can be auto-assigned from inspection",
+                            CurrentModel.ServiceName, CurrentOperation.MethodName);
 
                     return;
                 }
@@ -1150,7 +1153,7 @@ namespace AWSPowerShellGenerator.Analysis
                             {
                                 Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
                                 TargetParameter = pipelineParameter,
-                                AnalysisMessage = "Auto-assigned from pipeline parameter (verify!)"
+                                AnalysisMessage = "auto-assigned from pipeline parameter (verify!)"
                             };
                             return;
                         }
@@ -1162,7 +1165,7 @@ namespace AWSPowerShellGenerator.Analysis
                     {
                         Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
                         TargetParameter = potentialTargets[0],
-                        AnalysisMessage = "Single parameter with recognized suffix"
+                        AnalysisMessage = "single parameter with recognized suffix"
                     };
                     return;
 
@@ -1184,7 +1187,7 @@ namespace AWSPowerShellGenerator.Analysis
                                     {
                                         Status = SupportsShouldProcessInspection.InspectionStatus.TargetFromAnalysis,
                                         TargetParameter = potentialTarget,
-                                        AnalysisMessage = "Matched target parameter with value-from-pipeline configuration (verify!)"
+                                        AnalysisMessage = "matched target parameter with value-from-pipeline configuration (verify!)"
                                     };
                                     return;
                                 }
@@ -1195,7 +1198,7 @@ namespace AWSPowerShellGenerator.Analysis
             }
 
             var sb = new StringBuilder();
-            sb.AppendFormat("Cannot determine target parameter - ");
+            sb.AppendFormat("cannot determine target parameter, ");
             if (potentialTargets.Count == 0)
             {
                 sb.AppendFormat("no parameter ends with a recognized suffix from set: {0}", string.Join(",", _supportsShouldProcessParameterSuffixes));
@@ -1218,8 +1221,8 @@ namespace AWSPowerShellGenerator.Analysis
                 AnalysisMessage = sb.ToString()
             };
 
-            Logger.LogError("{0} Method {1} SupportsShouldProcess inspection {2}", 
-                            CurrentModel.ServiceNounPrefix,
+            Logger.LogError("{0}: Method {1} inspection for 'SupportsShouldProcess' attribution - {2}", 
+                            CurrentModel.ServiceName,
                             CurrentOperation.MethodName, 
                             SupportsShouldProcessInspectionResult.AnalysisMessage);
         }

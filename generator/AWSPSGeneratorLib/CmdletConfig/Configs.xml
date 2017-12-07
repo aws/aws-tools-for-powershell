@@ -50,6 +50,7 @@
     <Path>ETS.xml</Path>
     <Path>GML.xml</Path>
     <Path>Greengrass.xml</Path>
+    <Path>GuardDuty.xml</Path>
     <Path>Health.xml</Path>
     <Path>HSM.xml</Path>
     <Path>HSM2.xml</Path>

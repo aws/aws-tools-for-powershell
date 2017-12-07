@@ -3311,6 +3311,48 @@ $GG_map = @{
 _awsArgumentCompleterRegistration $GG_Completers $GG_map
 
 
+# Argument completions for service Amazon GuardDuty
+$GD_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.GuardDuty.Feedback
+        "Update-GDFindingFeedback/Feedback"
+        {
+            $v = "NOT_USEFUL","USEFUL"
+            break
+        }
+        
+        # Amazon.GuardDuty.IpSetFormat
+        "New-GDIPSet/Format"
+        {
+            $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
+            break
+        }
+        
+        # Amazon.GuardDuty.ThreatIntelSetFormat
+        "New-GDThreatIntelSet/Format"
+        {
+            $v = "ALIEN_VAULT","FIRE_EYE","OTX_CSV","PROOF_POINT","STIX","TXT"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$GD_map = @{
+    "Feedback"=@("Update-GDFindingFeedback")
+    "Format"=@("New-GDIPSet","New-GDThreatIntelSet")
+}
+
+_awsArgumentCompleterRegistration $GD_Completers $GD_map
+
+
 # Argument completions for service AWS Health
 $HLTH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

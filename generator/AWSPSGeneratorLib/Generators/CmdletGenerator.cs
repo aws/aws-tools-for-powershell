@@ -366,8 +366,6 @@ namespace AWSPowerShellGenerator.Generators
                     GenerateArgumentCompleters(CurrentModel);
                     ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
 
-                    CurrentModel.ModelUpdated = true;
-
                     if (CurrentModel.ModelUpdated)
                     {
                         CurrentModel.Serialize(configurationsFolder);
@@ -473,7 +471,7 @@ namespace AWSPowerShellGenerator.Generators
                 File.WriteAllText(Path.Combine(TempOutputDir, clientCmdletFilePath), fileContents);
             }
 
-            var methods = clientInterfaceType.GetMethods();
+            var methods = clientInterfaceType.GetMethods().OrderBy(m => m.Name).ToList();
             foreach (var method in methods)
             {
                 if (ShouldEmitMethod(method))

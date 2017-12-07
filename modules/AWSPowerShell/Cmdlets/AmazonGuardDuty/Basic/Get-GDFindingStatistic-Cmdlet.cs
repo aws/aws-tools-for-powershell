@@ -1,0 +1,194 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.GuardDuty;
+using Amazon.GuardDuty.Model;
+
+namespace Amazon.PowerShell.Cmdlets.GD
+{
+    /// <summary>
+    /// Lists Amazon GuardDuty findings' statistics for the specified detector ID.
+    /// </summary>
+    [Cmdlet("Get", "GDFindingStatistic")]
+    [OutputType("Amazon.GuardDuty.Model.FindingStatistics")]
+    [AWSCmdlet("Calls the Amazon GuardDuty GetFindingsStatistics API operation.", Operation = new[] {"GetFindingsStatistics"})]
+    [AWSCmdletOutput("Amazon.GuardDuty.Model.FindingStatistics",
+        "This cmdlet returns a FindingStatistics object.",
+        "The service call response (type Amazon.GuardDuty.Model.GetFindingsStatisticsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class GetGDFindingStatisticCmdlet : AmazonGuardDutyClientCmdlet, IExecutor
+    {
+        
+        #region Parameter DetectorId
+        /// <summary>
+        /// <para>
+        /// The ID of the detector that specifies the GuardDuty
+        /// service whose findings' statistics you want to retrieve.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String DetectorId { get; set; }
+        #endregion
+        
+        #region Parameter FindingCriterion
+        /// <summary>
+        /// <para>
+        /// Represents the criteria used for querying
+        /// findings.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("FindingCriteria")]
+        public Amazon.GuardDuty.Model.FindingCriteria FindingCriterion { get; set; }
+        #endregion
+        
+        #region Parameter FindingStatisticType
+        /// <summary>
+        /// <para>
+        /// Types of finding statistics to retrieve.
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("FindingStatisticTypes")]
+        public System.String[] FindingStatisticType { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.DetectorId = this.DetectorId;
+            context.FindingCriteria = this.FindingCriterion;
+            if (this.FindingStatisticType != null)
+            {
+                context.FindingStatisticTypes = new List<System.String>(this.FindingStatisticType);
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.GuardDuty.Model.GetFindingsStatisticsRequest();
+            
+            if (cmdletContext.DetectorId != null)
+            {
+                request.DetectorId = cmdletContext.DetectorId;
+            }
+            if (cmdletContext.FindingCriteria != null)
+            {
+                request.FindingCriteria = cmdletContext.FindingCriteria;
+            }
+            if (cmdletContext.FindingStatisticTypes != null)
+            {
+                request.FindingStatisticTypes = cmdletContext.FindingStatisticTypes;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.FindingStatistics;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.GuardDuty.Model.GetFindingsStatisticsResponse CallAWSServiceOperation(IAmazonGuardDuty client, Amazon.GuardDuty.Model.GetFindingsStatisticsRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon GuardDuty", "GetFindingsStatistics");
+            try
+            {
+                #if DESKTOP
+                return client.GetFindingsStatistics(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.GetFindingsStatisticsAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public System.String DetectorId { get; set; }
+            public Amazon.GuardDuty.Model.FindingCriteria FindingCriteria { get; set; }
+            public List<System.String> FindingStatisticTypes { get; set; }
+        }
+        
+    }
+}

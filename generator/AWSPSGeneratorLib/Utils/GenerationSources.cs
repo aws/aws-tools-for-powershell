@@ -69,7 +69,7 @@ namespace AWSPowerShellGenerator.Utils
             // to one namespace and assembly
             if (Assemblies.ContainsKey(baseName))
             {
-                Console.WriteLine("...ignoring additional attempt to register ndocs for assembly basename {0}, already present.", baseName);
+                Console.WriteLine("...ndocs for assembly basename {0} already registered.", baseName);
                 return;
             }
 

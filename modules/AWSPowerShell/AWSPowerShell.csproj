@@ -84,6 +84,9 @@
     <Reference Include="AWSSDK.Greengrass">
       <HintPath>..\..\packages\AWSSDK.Greengrass.3.3.2\lib\net35\AWSSDK.Greengrass.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.GuardDuty">
+      <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.0\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lex">
       <HintPath>..\..\packages\AWSSDK.Lex.3.3.2.3\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>
