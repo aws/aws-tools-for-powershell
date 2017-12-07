@@ -1,29 +1,68 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ES</ServiceNounPrefix>
-  <ServiceName>Amazon Elasticsearch</ServiceName>
-  <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
-  <ServiceClient>AmazonElasticsearchClient</ServiceClient>
-  <ServiceNamespace>Amazon.Elasticsearch</ServiceNamespace>
-
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken"/>
- 
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-ESTag" PipelineParameter="TagList" Output="Void"/>
-    <ServiceOperation MethodName="CreateElasticsearchDomain" NoPipelineParameter="true" Noun="Domain" ShouldProcessTarget="DomainName" />
-    <ServiceOperation MethodName="DeleteElasticsearchDomain" Noun="Domain" />
-    <ServiceOperation MethodName="DeleteElasticsearchServiceRole" Output="Void" />
-    <ServiceOperation MethodName="DescribeElasticsearchDomain" Noun="Domain"/>
-    <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" Noun="DomainConfig"/>
-    <ServiceOperation MethodName="DescribeElasticsearchInstanceTypeLimits" Noun="InstanceTypeLimit" PipelineParameter="DomainName"/>
-    <ServiceOperation MethodName="DescribeElasticsearchDomains" Noun="DomainList"/>
-    <ServiceOperation MethodName="ListDomainNames" Verb="Get" Noun="DomainNameList"/>
-    <ServiceOperation MethodName="ListElasticsearchInstanceTypes" Verb="Get" Noun="InstanceTypeList" PipelineParameter="DomainName"/>
-    <ServiceOperation MethodName="ListElasticsearchVersions" Verb="Get" Noun="VersionList"/>
-    <ServiceOperation MethodName="ListTags" Verb="Get" Noun="ResourceTag" LegacyAlias="Get-ESTag" />
-    <ServiceOperation MethodName="RemoveTags" Noun="ResourceTag" LegacyAlias="Remove-ESTag" Output="Void" PipelineParameter="TagKeys" ShouldProcessTarget="ARN" />
-    <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Noun="DomainConfig" NoPipelineParameter="true" ShouldProcessTarget="DomainName" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonElasticsearch</SourceGenerationRoot>
+    <ServiceNounPrefix>ES</ServiceNounPrefix>
+    <ServiceName>Amazon Elasticsearch</ServiceName>
+    <ServiceClientInterface>IAmazonElasticsearch</ServiceClientInterface>
+    <ServiceClient>AmazonElasticsearchClient</ServiceClient>
+    <ServiceNamespace>Amazon.Elasticsearch</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagList" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Add-ESTag">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateElasticsearchDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteElasticsearchDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteElasticsearchServiceRole" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeElasticsearchDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Domain" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeElasticsearchDomainConfig" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DomainConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeElasticsearchInstanceTypeLimits" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstanceTypeLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeElasticsearchDomains" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DomainList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainNames" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DomainNameList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListElasticsearchInstanceTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="InstanceTypeList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListElasticsearchVersions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="VersionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ARN" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ESTag">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagKeys" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Remove-ESTag">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateElasticsearchDomainConfig" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DomainConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

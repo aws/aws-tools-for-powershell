@@ -1,27 +1,45 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>RGT</ServiceNounPrefix>
-  <ServiceName>AWS Resource Groups Tagging API</ServiceName>
-  <ServiceClientInterface>IAmazonResourceGroupsTaggingAPI</ServiceClientInterface>
-  <ServiceClient>AmazonResourceGroupsTaggingAPIClient</ServiceClient>
-  <ServiceNamespace>Amazon.ResourceGroupsTaggingAPI</ServiceNamespace>
-
-  <AutoIterate Start="PaginationToken" Next="PaginationToken" />
-  
-  <PipelineByValueProperties>
-    <Property>ResourceARN</Property>
-    <Property>Key</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="GetResources" Noun="Resource" PipelineParameter="ResourceTypeFilters">
-      <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="TagsPerPage" ServicePageSize="100" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="GetTagKeys" Noun="TagKey" />
-    <ServiceOperation MethodName="GetTagValues" Noun="TagValue" />
-    <ServiceOperation MethodName="TagResources" Verb="Add" Noun="ResourceTag" PipelineParameter="ResourceARNList" />
-    <ServiceOperation MethodName="UntagResources" Verb="Remove" Noun="ResourceTag" PipelineParameter="ResourceARNList" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonResourceGroupsTaggingAPI</SourceGenerationRoot>
+    <ServiceNounPrefix>RGT</ServiceNounPrefix>
+    <ServiceName>AWS Resource Groups Tagging API</ServiceName>
+    <ServiceClientInterface>IAmazonResourceGroupsTaggingAPI</ServiceClientInterface>
+    <ServiceClient>AmazonResourceGroupsTaggingAPIClient</ServiceClient>
+    <ServiceNamespace>Amazon.ResourceGroupsTaggingAPI</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="PaginationToken" Next="PaginationToken" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>ResourceARN</Property>
+        <Property>Key</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Resource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceTypeFilters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="PaginationToken" Next="PaginationToken" EmitLimit="TagsPerPage" ServicePageSize="100" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTagKeys" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TagKey" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTagValues" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TagValue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Key" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceARNList" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceARNList" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

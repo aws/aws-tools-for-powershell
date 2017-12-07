@@ -1,76 +1,94 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>HSM</ServiceNounPrefix>
-  <ServiceName>AWS Cloud HSM</ServiceName>
-  <ServiceNamespace>Amazon.CloudHSM</ServiceNamespace>
-  <ServiceClientInterface>IAmazonCloudHSM</ServiceClientInterface>
-  <ServiceClient>AmazonCloudHSMClient</ServiceClient>
-
-  <AutoIterate Start="NextToken" Next="NextToken" />
-  
-  <NounMappings>
-    <Map From="Hsm" To="Item"/>
-    <Map From="Hapg" To="PartitionGroup"/>
-  </NounMappings>
-  
-  <VerbMappings>
-    <Map From="Delete" To="Remove"/>
-    <Map From="Describe" To="Get" />
-    <Map From="List" To="Get" />
-    <Map From="Modify" To="Update" />
-  </VerbMappings>
-  
-  <ServiceOperations>
-    <!-- Create Cmdlets -->
-    <ServiceOperation MethodName="CreateHapg"/>
-    <ServiceOperation MethodName="CreateHsm" PipelineParameter="IamRoleArn" AnonymousShouldProcessTarget="true" />
-    <ServiceOperation MethodName="CreateLunaClient" PipelineParameter="Certificate"/>
-    <!-- Remove Cmdlets -->
-    <ServiceOperation MethodName="DeleteHapg" ShouldProcessTarget="HapgArn">
-      <ParameterRenames>
-        <Map From="HapgArn" To="Arn"/>
-      </ParameterRenames>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteHsm" ShouldProcessTarget="HsmArn">
-      <ParameterRenames>
-        <Map From="HsmArn" To="Arn"/>
-      </ParameterRenames>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteLunaClient" ShouldProcessTarget="ClientArn">
-      <ParameterRenames>
-        <Map From="ClientArn" To="Arn"/>
-      </ParameterRenames>
-    </ServiceOperation>
-    <!-- Get Cmdlets -->
-    <ServiceOperation MethodName="DescribeHapg" Output="Response"/>
-    <ServiceOperation MethodName="DescribeHsm" Output="Response" PipelineParameter="HsmArn"/>
-    <ServiceOperation MethodName="DescribeLunaClient" Output="Response" PipelineParameter="ClientArn"/>
-    <ServiceOperation MethodName="GetConfig" Output="Response" PipelineParameter="ClientArn"/>
-    <!-- List Cmdlets -->
-    <ServiceOperation MethodName="ListAvailableZones" Noun="AvailableZone" LegacyAlias="Get-HSMAvailableZones" />
-    <ServiceOperation MethodName="ListHapgs" Noun="PartitionGroupList" />
-    <ServiceOperation MethodName="ListHsms" Noun="ItemList" />
-    <ServiceOperation MethodName="ListLunaClients" Noun="LunaClientList" />
-    <!-- Update Cmdlets -->
-    <ServiceOperation MethodName="ModifyHapg" PipelineParameter="HapgArn">
-      <ParameterRenames>
-        <Map From="HapgArn" To="Arn"/>
-      </ParameterRenames>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ModifyHsm" PipelineParameter="HsmArn">
-      <ParameterRenames>
-        <Map From="HsmArn" To="Arn"/>
-      </ParameterRenames>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ModifyLunaClient" PipelineParameter="ClientArn">
-      <ParameterRenames>
-        <Map From="ClientArn" To="Arn"/>
-      </ParameterRenames>
-    </ServiceOperation>
-    <ServiceOperation MethodName="AddTagsToResource" Verb="Set" Noun="ResourceTag" PipelineParameter="ResourceArn" />
-    <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTag" />
-    <ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" PipelineParameter="ResourceArn" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloudHSM</SourceGenerationRoot>
+    <ServiceNounPrefix>HSM</ServiceNounPrefix>
+    <ServiceName>AWS Cloud HSM</ServiceName>
+    <ServiceClientInterface>IAmazonCloudHSM</ServiceClientInterface>
+    <ServiceClient>AmazonCloudHSMClient</ServiceClient>
+    <ServiceNamespace>Amazon.CloudHSM</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="Delete" To="Remove" />
+        <Map From="Describe" To="Get" />
+        <Map From="List" To="Get" />
+        <Map From="Modify" To="Update" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Hsm" To="Item" />
+        <Map From="Hapg" To="PartitionGroup" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateHapg" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Label" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateHsm" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IamRoleArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLunaClient" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Certificate" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHapg" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HapgArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HapgArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteHsm" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="HsmArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLunaClient" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ClientArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHapg" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HapgArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeHsm" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLunaClient" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableZones" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AvailableZone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-HSMAvailableZones">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHapgs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PartitionGroupList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListHsms" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ItemList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLunaClients" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LunaClientList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyHapg" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HapgArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyHsm" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="HsmArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLunaClient" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClientArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTagsToResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

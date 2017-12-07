@@ -1,54 +1,82 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<ServiceNounPrefix>CT</ServiceNounPrefix>
-	<ServiceName>AWS CloudTrail</ServiceName>
-	<ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
-	<ServiceClient>AmazonCloudTrailClient</ServiceClient>
-	<ServiceNamespace>Amazon.CloudTrail</ServiceNamespace>
-
-	<PipelineParameter>Name</PipelineParameter>
-	
-	<NounMappings>
-		<Map From="Trails" To="Trail" />
-		<Map From="Tags" To="Tag" />
-		<Map From="PublicKeys" To="PublicKey" />
-	</NounMappings>
-	
-	<VerbMappings>
-		<Map From="List" To="Get" />
-	</VerbMappings>
-	
-	<Params>
-		<Param Name="Trail_" Exclude="true" />
-	</Params>
-	
-	<PipelineByValueProperties>
-		<Property>Name</Property>
-		<Property>S3BucketName</Property>
-		<Property>S3KeyPrefix</Property>
-		<Property>SnsTopicName</Property>
-	</PipelineByValueProperties>
-	
-	<ServiceOperations>
-		<ServiceOperation MethodName="AddTags" Noun="ResourceTag" LegacyAlias="Add-CTTag" Output="Void" PipelineParameter="ResourceId"/>
-		<ServiceOperation MethodName="CreateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
-		<ServiceOperation MethodName="DeleteTrail" Output="Void" />
-		<ServiceOperation MethodName="DescribeTrails" PipelineParameter="TrailNameList" PositionalParameters="TrailNameList;IncludeShadowTrails">
-			<Params>
-				<Param Name="TrailNameList" Alias="Name" />
-			</Params>
-		</ServiceOperation>
-		<ServiceOperation MethodName="GetTrailStatus" Output="Response" PositionalParameters="Name" />
-		<ServiceOperation MethodName="LookupEvents" Verb="Find" Noun="Event" LegacyAlias="Find-CTEvents"/>
-		<ServiceOperation MethodName="ListPublicKeys" />
-		<ServiceOperation MethodName="ListTags" Noun="ResourceTag" LegacyAlias="Get-CTTag"/>
-		<ServiceOperation MethodName="RemoveTags" Noun="ResourceTag" LegacyAlias="Remove-CTTag" Output="Void" ShouldProcessTarget="ResourceId"/>
-		<ServiceOperation MethodName="StartLogging" Output="Void" />
-		<ServiceOperation MethodName="StopLogging" Output="Void" />
-		<ServiceOperation MethodName="UpdateTrail" Output="Response" PositionalParameters="S3BucketName;S3KeyPrefix" />
-		<ServiceOperation MethodName="GetEventSelectors" Output="Response" Noun="EventSelector" LegacyAlias="Get-CTEventSelectors" />
-		<ServiceOperation MethodName="PutEventSelectors" Output="Response" Noun="EventSelector" LegacyAlias="Write-CTEventSelectors" />
-	</ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloudTrail</SourceGenerationRoot>
+    <ServiceNounPrefix>CT</ServiceNounPrefix>
+    <ServiceName>AWS CloudTrail</ServiceName>
+    <ServiceClientInterface>IAmazonCloudTrail</ServiceClientInterface>
+    <ServiceClient>AmazonCloudTrailClient</ServiceClient>
+    <ServiceNamespace>Amazon.CloudTrail</ServiceNamespace>
+    <PipelineParameter>Name</PipelineParameter>
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Trails" To="Trail" />
+        <Map From="Tags" To="Tag" />
+        <Map From="PublicKeys" To="PublicKey" />
+    </NounMappings>
+    <Params>
+        <Param Name="Trail_" NewName="" AutoRename="true" Exclude="true" AutoApplyAlias="true" Alias="" />
+    </Params>
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>Name</Property>
+        <Property>S3BucketName</Property>
+        <Property>S3KeyPrefix</Property>
+        <Property>SnsTopicName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Add-CTTag">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrail" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTrail" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrails" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TrailNameList;IncludeShadowTrails" PipelineParameter="TrailNameList" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="TrailNameList" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTrailStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="LookupEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="Event" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Find-CTEvents">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPublicKeys" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CTTag">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ResourceId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Remove-CTTag">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartLogging" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopLogging" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTrail" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="S3BucketName;S3KeyPrefix" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEventSelectors" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventSelector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrailName" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CTEventSelectors">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEventSelectors" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventSelector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Write-CTEventSelectors">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

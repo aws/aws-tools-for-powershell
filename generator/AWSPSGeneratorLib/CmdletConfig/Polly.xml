@@ -1,21 +1,44 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>POL</ServiceNounPrefix>
-  <ServiceName>Amazon Polly</ServiceName>
-  <ServiceClientInterface>IAmazonPolly</ServiceClientInterface>
-  <ServiceClient>AmazonPollyClient</ServiceClient>
-  <ServiceNamespace>Amazon.Polly</ServiceNamespace>
-
-  <DefaultRegion>us-east-1</DefaultRegion>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="DeleteLexicon" Output="Void"/>
-    <ServiceOperation MethodName="DescribeVoices" Noun="Voice" PipelineParameter="LanguageCode"/>
-    <ServiceOperation MethodName="GetLexicon" Output="Response"/>
-    <ServiceOperation MethodName="ListLexicons" Verb="Get" Noun="LexiconList"/>
-    <ServiceOperation MethodName="PutLexicon" Output="Void" PipelineParameter="Content"/>
-    <ServiceOperation MethodName="SynthesizeSpeech" Verb="Get" Output="Response" PipelineParameter="Text"/>
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonPolly</SourceGenerationRoot>
+    <ServiceNounPrefix>POL</ServiceNounPrefix>
+    <ServiceName>Amazon Polly</ServiceName>
+    <ServiceClientInterface>IAmazonPolly</ServiceClientInterface>
+    <ServiceClient>AmazonPollyClient</ServiceClient>
+    <ServiceNamespace>Amazon.Polly</ServiceNamespace>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteLexicon" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeVoices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Voice" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LanguageCode" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetLexicon" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListLexicons" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LexiconList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NextToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLexicon" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Content" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SynthesizeSpeech" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Text" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

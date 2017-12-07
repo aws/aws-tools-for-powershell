@@ -1,21 +1,41 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>EMSD</ServiceNounPrefix>
-  <ServiceName>AWS Elemental MediaStore Data Plane</ServiceName>
-  <ServiceNamespace>Amazon.MediaStoreData</ServiceNamespace>
-  <ServiceClientInterface>IAmazonMediaStoreData</ServiceClientInterface>
-  <ServiceClient>AmazonMediaStoreDataClient</ServiceClient>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="DeleteObject" Output="Void" />
-    <ServiceOperation MethodName="DescribeObject" Output="Response" Noun="ObjectMetadata" />
-    <ServiceOperation MethodName="GetObject" PipelineParameter="Path" Output="Response" />
-    <ServiceOperation MethodName="ListItems" Verb="Get" Noun="ItemList" />
-    <ServiceOperation MethodName="PutObject" Exclude="true" />
-  </ServiceOperations>
-
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonMediaStoreData</SourceGenerationRoot>
+    <ServiceNounPrefix>EMSD</ServiceNounPrefix>
+    <ServiceName>AWS Elemental MediaStore Data Plane</ServiceName>
+    <ServiceClientInterface>IAmazonMediaStoreData</ServiceClientInterface>
+    <ServiceClient>AmazonMediaStoreDataClient</ServiceClient>
+    <ServiceNamespace>Amazon.MediaStoreData</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteObject" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeObject" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ObjectMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetObject" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListItems" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ItemList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Path" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutObject" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

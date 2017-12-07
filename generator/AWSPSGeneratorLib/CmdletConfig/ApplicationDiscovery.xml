@@ -1,47 +1,90 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ADS</ServiceNounPrefix>
-  <ServiceName>Application Discovery Service</ServiceName>
-  <ServiceClientInterface>IAmazonApplicationDiscoveryService</ServiceClientInterface>
-  <ServiceClient>AmazonApplicationDiscoveryServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.ApplicationDiscoveryService</ServiceNamespace>
-
-  <NounMappings>
-    <Map From="Tags" To="Tag" />
-    <Map From="Agents" To="Agent" />
-    <Map From="Configurations" To="Configuration" />
-  </NounMappings>
-  
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" ServicePageSize="100" Exclusions="ListServerNeighbors"/>
-  
-  <PipelineParameter>ConfigurationIds</PipelineParameter>
-  
-  <PipelineByValueProperties>
-    <Property>AgentId</Property>
-    <Property>ConfigurationId</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AssociateConfigurationItemsToApplication" Verb="Add" PipelineParameter="ApplicationConfigurationId" Output="Void"/>
-    <ServiceOperation MethodName="CreateApplication"/>
-    <ServiceOperation MethodName="CreateTags" Output="Void" />
-    <ServiceOperation MethodName="DeleteApplications" Noun="Application" Output="Void" LegacyAlias="Remove-ADSApplications"/>
-    <ServiceOperation MethodName="DeleteTags" Output="Void" />
-    <ServiceOperation MethodName="DescribeAgents" />
-    <ServiceOperation MethodName="DescribeConfigurations" />
-    <ServiceOperation MethodName="DescribeExportConfigurations" Noun="ExportConfiguration" />
-    <ServiceOperation MethodName="DescribeExportTasks" Noun="ExportTask" />
-    <ServiceOperation MethodName="DisassociateConfigurationItemsFromApplication" Verb="Remove" PipelineParameter="ApplicationConfigurationId" Output="Void"/>
-    <ServiceOperation MethodName="DescribeTags" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="ExportConfigurations" Verb="Get" Noun="ExportConfigurationsId" />
-    <ServiceOperation MethodName="GetDiscoverySummary" Output="Response"/>
-    <ServiceOperation MethodName="ListConfigurations" Verb="Get" Noun="ConfigurationList" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="ListServerNeighbors" Verb="Get" Noun="ServerNeighborList" Output="Response"/>
-    <ServiceOperation MethodName="StartDataCollectionByAgentIds" Noun="DataCollectionByAgentId" />
-    <ServiceOperation MethodName="StartExportTask" AnonymousShouldProcessTarget="true" PipelineParameter="ExportDataFormat" />
-    <ServiceOperation MethodName="StopDataCollectionByAgentIds" Noun="DataCollectionByAgentId" />
-    <ServiceOperation MethodName="UpdateApplication" PipelineParameter="ConfigurationId" Output="Void"/>
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonApplicationDiscoveryService</SourceGenerationRoot>
+    <ServiceNounPrefix>ADS</ServiceNounPrefix>
+    <ServiceName>Application Discovery Service</ServiceName>
+    <ServiceClientInterface>IAmazonApplicationDiscoveryService</ServiceClientInterface>
+    <ServiceClient>AmazonApplicationDiscoveryServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.ApplicationDiscoveryService</ServiceNamespace>
+    <PipelineParameter>ConfigurationIds</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" Exclusions="ListServerNeighbors" />
+    <VerbMappings />
+    <NounMappings>
+        <Map From="Tags" To="Tag" />
+        <Map From="Agents" To="Agent" />
+        <Map From="Configurations" To="Configuration" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>AgentId</Property>
+        <Property>ConfigurationId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AssociateConfigurationItemsToApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplications" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Remove-ADSApplications">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAgents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportConfigurations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ExportConfiguration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ExportIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExportTasks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ExportTask" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateConfigurationItemsFromApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationConfigurationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExportConfigurations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ExportConfigurationsId" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiscoverySummary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListServerNeighbors" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ServerNeighborList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDataCollectionByAgentIds" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DataCollectionByAgentId" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AgentIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartExportTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ExportDataFormat" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDataCollectionByAgentIds" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DataCollectionByAgentId" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AgentIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

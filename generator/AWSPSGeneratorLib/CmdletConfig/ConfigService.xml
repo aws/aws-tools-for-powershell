@@ -1,57 +1,113 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>CFG</ServiceNounPrefix>
-  <ServiceName>AWS Config</ServiceName>
-  <ServiceNamespace>Amazon.ConfigService</ServiceNamespace>
-  <ServiceClientInterface>IAmazonConfigService</ServiceClientInterface>
-  <ServiceClient>AmazonConfigServiceClient</ServiceClient>
-
-  <PipelineParameter>DeliveryChannelName</PipelineParameter>
-  
-  <DefaultRegion>us-east-1</DefaultRegion>
-  
-  <!-- this service uses inconsistent naming for DeliveryChannelName(_Name) and ConfigurationRecorder(_Name) -->
-  <ServiceOperations>
-    <ServiceOperation MethodName="DeleteConfigRule" Output="Void" />
-    <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" />
-    <ServiceOperation MethodName="DeleteEvaluationResults" Output="Void" Noun="EvaluationResult" />
-    <ServiceOperation MethodName="DeliverConfigSnapshot" Verb="Submit" Noun="ConfigSnapshotDelivery" />
-    <ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" />
-    <ServiceOperation MethodName="DescribeComplianceByConfigRule"/>
-    <ServiceOperation MethodName="DescribeComplianceByResource"/>
-    <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus"/>
-    <ServiceOperation MethodName="DescribeConfigRules" Noun="ConfigRule" LegacyAlias="Get-CFGConfigRules" />
-    <ServiceOperation MethodName="DescribeConfigurationRecorders" PipelineParameter="ConfigurationRecorderName" Noun="ConfigurationRecorder" LegacyAlias="Get-CFGConfigurationRecorders" />
-    <ServiceOperation MethodName="DescribeConfigurationRecorderStatus" PipelineParameter="ConfigurationRecorderName"/>
-    <ServiceOperation MethodName="DescribeDeliveryChannels" Noun="DeliveryChannel" LegacyAlias="Get-CFGDeliveryChannels" />
-    <ServiceOperation MethodName="DescribeDeliveryChannelStatus" />
-    <ServiceOperation MethodName="GetComplianceDetailsByConfigRule"/>
-    <ServiceOperation MethodName="GetComplianceDetailsByResource"/>
-    <ServiceOperation MethodName="GetComplianceSummaryByConfigRule"/>
-    <ServiceOperation MethodName="GetComplianceSummaryByResourceType"/>
-    <ServiceOperation MethodName="GetDiscoveredResourceCounts" Noun="DiscoveredResourceCount" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="GetResourceConfigHistory"/>
-    <ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResource" PipelineParameter="ResourceName"/>
-    <ServiceOperation MethodName="PutConfigRule" PipelineParameter="ConfigRule_ConfigRuleName" Output="Void"/>
-    <ServiceOperation MethodName="PutConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name">
-      <Params>
-        <Param Name="ConfigurationRecorder_Name" NewName="ConfigurationRecorderName" Alias="ConfigurationRecorder_Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="PutDeliveryChannel" Output="Void" PipelineParameter="DeliveryChannel_Name">
-      <Params>
-        <Param Name="DeliveryChannel_Name" NewName="DeliveryChannelName" Alias="DeliveryChannel_Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="PutEvaluations" PipelineParameter="Evaluations" Noun="Evaluation" LegacyAlias="Write-CFGEvaluations" />
-    <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
-    <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" />
-    <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" PipelineParameter="ConfigurationRecorder_Name"/>
-  </ServiceOperations>
-
-  <MetadataProperties>
-    <Property>TotalDiscoveredResources</Property>
-  </MetadataProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonConfigService</SourceGenerationRoot>
+    <ServiceNounPrefix>CFG</ServiceNounPrefix>
+    <ServiceName>AWS Config</ServiceName>
+    <ServiceClientInterface>IAmazonConfigService</ServiceClientInterface>
+    <ServiceClient>AmazonConfigServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.ConfigService</ServiceNamespace>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter>DeliveryChannelName</PipelineParameter>
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>TotalDiscoveredResources</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteConfigRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRuleName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliveryChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEvaluationResults" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EvaluationResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRuleName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeliverConfigSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="ConfigSnapshotDelivery" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComplianceByConfigRule" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeComplianceByResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigRuleEvaluationStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigRules" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigRule" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFGConfigRules">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationRecorders" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationRecorder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFGConfigurationRecorders">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationRecorderStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorderName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryChannels" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DeliveryChannel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFGDeliveryChannels">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryChannelStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannelNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceDetailsByConfigRule" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceDetailsByResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceSummaryByConfigRule" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetComplianceSummaryByResourceType" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceTypes" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDiscoveredResourceCounts" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DiscoveredResourceCount" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetResourceConfigHistory" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DiscoveredResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRule_ConfigRuleName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorder_Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ConfigurationRecorder_Name" NewName="ConfigurationRecorderName" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ConfigurationRecorder_Name" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDeliveryChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryChannel_Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="DeliveryChannel_Name" NewName="DeliveryChannelName" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeliveryChannel_Name" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutEvaluations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Evaluation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Evaluations" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Write-CFGEvaluations">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorder_Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartConfigRulesEvaluation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigRuleNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopConfigurationRecorder" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationRecorder_Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

@@ -1,31 +1,38 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
-  <!-- causes the generator to skip everything in this file except for
-       legacy alias processing
-  -->
-  <SkipCmdletGeneration>true</SkipCmdletGeneration>
-  
-  <ServiceNounPrefix>CSD</ServiceNounPrefix>
-  <ServiceName>Amazon CloudSearchDomain</ServiceName>
-  <ServiceClientInterface>IAmazonCloudSearchDomain</ServiceClientInterface>
-  <ServiceClient>AmazonCloudSearchDomainClient</ServiceClient>
-  <ServiceNamespace>Amazon.CloudSearchDomain</ServiceNamespace>
-  
-  <!-- legacy aliases to original plural-noun named hand-maintained cmdlets, 
-       to be injected into the AWSPowerShellLegacyAliases.psm1 file
-  -->
-  <LegacyAliases>
-    <AliasSet Cmdlet="Get-CSDSuggestion">Get-CSDSuggestions</AliasSet>
-    <AliasSet Cmdlet="Search-CSDDocument">Search-CSDDocuments</AliasSet>
-    <AliasSet Cmdlet="Write-CSDDocument">Write-CSDDocuments</AliasSet>
-  </LegacyAliases>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="Search" Exclude="true"/>
-    <ServiceOperation MethodName="Suggest" Exclude="true"/>
-    <ServiceOperation MethodName="UploadDocuments" Exclude="true"/>
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>true</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloudSearchDomain</SourceGenerationRoot>
+    <ServiceNounPrefix>CSD</ServiceNounPrefix>
+    <ServiceName>Amazon CloudSearchDomain</ServiceName>
+    <ServiceClientInterface>IAmazonCloudSearchDomain</ServiceClientInterface>
+    <ServiceClient>AmazonCloudSearchDomainClient</ServiceClient>
+    <ServiceNamespace>Amazon.CloudSearchDomain</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-CSDSuggestion">Get-CSDSuggestions</AliasSet>
+        <AliasSet Cmdlet="Search-CSDDocument">Search-CSDDocuments</AliasSet>
+        <AliasSet Cmdlet="Write-CSDDocument">Write-CSDDocuments</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="Search" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Suggest" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UploadDocuments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

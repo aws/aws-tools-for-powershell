@@ -1,50 +1,95 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>EMC</ServiceNounPrefix>
-  <ServiceName>AWS Elemental MediaConvert</ServiceName>
-  <ServiceNamespace>Amazon.MediaConvert</ServiceNamespace>
-  <ServiceClientInterface>IAmazonMediaConvert</ServiceClientInterface>
-  <ServiceClient>AmazonMediaConvertClient</ServiceClient>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="20" />
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="CancelJob" Output="Void" />
-    <ServiceOperation MethodName="CreateJob" PipelineParameter="JobTemplate" />
-    <ServiceOperation MethodName="CreateJobTemplate" PipelineParameter="Queue" />
-    <ServiceOperation MethodName="CreatePreset" PipelineParameter="Name" />
-    <ServiceOperation MethodName="CreateQueue" PipelineParameter="Queue" />
-    <ServiceOperation MethodName="DeleteJobTemplate" Output="Void" />
-    <ServiceOperation MethodName="DeletePreset" Output="Void" />
-    <ServiceOperation MethodName="DeleteQueue" Output="Void" />
-    <ServiceOperation MethodName="DescribeEndpoints" Noun="Endpoint"  />
-    <ServiceOperation MethodName="GetJob" />
-    <ServiceOperation MethodName="GetJobTemplate">
-        <Params>
-            <Param Name="Name" Alias="JobTemplate" />
-        </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="GetPreset" />
-    <ServiceOperation MethodName="GetQueue" />
-    <ServiceOperation MethodName="ListJobTemplates" Verb="Get" Noun="JobTemplateList" PipelineParameter="Category" />
-    <ServiceOperation MethodName="ListJobs" Verb="Get" Noun="JobList" PipelineParameter="Queue">
-        <Params>
-            <Param Name="Queue" Alias="Name" />
-        </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListPresets" Verb="Get" Noun="PresetList" PipelineParameter="Category" />
-    <ServiceOperation MethodName="ListQueues" Verb="Get" Noun="QueueList" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="UpdateJobTemplate" PipelineParameter="Name" />
-    <ServiceOperation MethodName="UpdatePreset" PipelineParameter="Name" />
-    <ServiceOperation MethodName="UpdateQueue" PipelineParameter="Name" />
-  </ServiceOperations>
-
-  <TypesNotToFlatten>
-    <Type>Amazon.MediaConvert.Model.JobSettings</Type>
-    <Type>Amazon.MediaConvert.Model.JobTemplateSettings</Type>
-    <Type>Amazon.MediaConvert.Model.Input</Type>
-    <Type>Amazon.MediaConvert.Model.PresetSettings</Type>
-  </TypesNotToFlatten>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonMediaConvert</SourceGenerationRoot>
+    <ServiceNounPrefix>EMC</ServiceNounPrefix>
+    <ServiceName>AWS Elemental MediaConvert</ServiceName>
+    <ServiceClientInterface>IAmazonMediaConvert</ServiceClientInterface>
+    <ServiceClient>AmazonMediaConvertClient</ServiceClient>
+    <ServiceNamespace>Amazon.MediaConvert</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="20" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobTemplate" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJobTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Queue" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePreset" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQueue" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Queue" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteJobTemplate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePreset" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQueue" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetJobTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Name" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="JobTemplate" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPreset" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueue" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobTemplates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobTemplateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Category" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Queue" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Queue" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPresets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PresetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Category" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueues" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QueueList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJobTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePreset" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateQueue" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.MediaConvert.Model.JobSettings</Type>
+        <Type>Amazon.MediaConvert.Model.JobTemplateSettings</Type>
+        <Type>Amazon.MediaConvert.Model.Input</Type>
+        <Type>Amazon.MediaConvert.Model.PresetSettings</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

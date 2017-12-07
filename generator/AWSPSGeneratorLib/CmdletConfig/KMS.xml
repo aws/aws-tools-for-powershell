@@ -1,76 +1,143 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>KMS</ServiceNounPrefix>
-  <ServiceName>AWS Key Management Service</ServiceName>
-  <ServiceNamespace>Amazon.KeyManagementService</ServiceNamespace>
-  <ServiceClientInterface>IAmazonKeyManagementService</ServiceClientInterface>
-  <ServiceClient>AmazonKeyManagementServiceClient</ServiceClient>
-
-  <AutoIterate EmitLimit="Limit" Start="Marker" Next="NextMarker" TruncatedFlag="Truncated" />
-  
-  <MetadataProperties>
-    <Property>NextMarker</Property>
-    <Property>Truncated</Property>
-  </MetadataProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="CreateAlias" Output="Void" PipelineParameter="TargetKeyId"/>
-    <ServiceOperation MethodName="DeleteAlias" Output="Void" />
-    <ServiceOperation MethodName="ListAliases" Noun="AliasList" LegacyAlias="Get-KMSAliases"/>
-    <ServiceOperation MethodName="UpdateAlias" Output="Void" PipelineParameter="TargetKeyId"/>
-    <ServiceOperation MethodName="CreateGrant" Output="Response" NoPipelineParameter="true" ShouldProcessTarget="KeyId"/>
-    <ServiceOperation MethodName="ListGrants" Noun="GrantList" LegacyAlias="Get-KMSGrants" />
-    <ServiceOperation MethodName="RetireGrant" Output="Void" Verb="Disable" NoPipelineParameter="true" ShouldProcessTarget="GrantToken"/>
-    <ServiceOperation MethodName="RevokeGrant" Output="Void" PipelineParameter="KeyId" ShouldProcessTarget="GrantToken" />
-    <ServiceOperation MethodName="CreateKey" AnonymousShouldProcessTarget="true" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="DescribeKey" PipelineParameter="KeyId"/>
-    <ServiceOperation MethodName="DeleteImportedKeyMaterial" Output="Void" />
-    <ServiceOperation MethodName="DisableKey" Output="Void" />
-    <ServiceOperation MethodName="EnableKey" Output="Void" />
-    <ServiceOperation MethodName="UpdateKeyDescription" Output="Void" PipelineParameter="KeyId"/>
-    <ServiceOperation MethodName="ListKeys" Noun="KeyList" LegacyAlias="Get-KMSKeys" />
-    <ServiceOperation MethodName="GetParametersForImport" PipelineParameter="KeyId" Output="Response" />
-    <ServiceOperation MethodName="GetKeyPolicy" PipelineParameter="KeyId" />
-    <!-- has two parameters that are memory streams, so hand maintain -->
-    <ServiceOperation MethodName="ImportKeyMaterial" Exclude="true" />
-    <ServiceOperation MethodName="ListKeyPolicies" Noun="KsyPolicyList" LegacyAlias="Get-KMSKeyPolicies" />
-    <ServiceOperation MethodName="PutKeyPolicy" Output="Void" PipelineParameter="KeyId"/>
-    <ServiceOperation MethodName="DisableKeyRotation" Output="Void" />
-    <ServiceOperation MethodName="EnableKeyRotation" Output="Void" />
-    <ServiceOperation MethodName="GetKeyRotationStatus" />
-    <ServiceOperation MethodName="TagResource" PipelineParameter="KeyId" Output="Void" Verb="Add" Noun="ResourceTag" />
-    <ServiceOperation MethodName="UntagResource" PipelineParameter="KeyId" Output="Void" Verb="Remove" Noun="ResourceTag" />
-    <ServiceOperation MethodName="ListResourceTags" Noun="ResourceTag" />
-    <ServiceOperation MethodName="Decrypt" Verb="Invoke" Noun="Decrypt" Output="Response" IgnoreSupportsShouldProcess="true" NoPipelineParameter="true" RemapMemoryStreamParameters="false" />
-    <ServiceOperation MethodName="Encrypt" Verb="Invoke" Noun="Encrypt" Output="Response" PipelineParameter="KeyId" RemapMemoryStreamParameters="false" />
-    <ServiceOperation MethodName="ReEncrypt" Verb="Invoke" Noun="ReEncrypt" Output="Response" NoPipelineParameter="true" RemapMemoryStreamParameters="false" />
-    <ServiceOperation MethodName="CancelKeyDeletion" />
-    <ServiceOperation MethodName="ScheduleKeyDeletion" Verb="Request" Output="Response" PipelineParameter="KeyId" />
-    <ServiceOperation MethodName="ListRetirableGrants" Verb="Get" Noun="RetirableGrant" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="GenerateDataKey" Output="Response" AnonymousShouldProcessTarget="true" PipelineParameter="KeyId">
-      <Params>
-        <!-- stops rename thru singularization -->
-        <Param Name="NumberOfBytes" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="GenerateDataKeyWithoutPlaintext" Output="Response" PipelineParameter="KeyId">
-      <Params>
-        <!-- stops rename thru singularization -->
-        <Param Name="NumberOfBytes" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="GenerateRandom" AnonymousShouldProcessTarget="true">
-      <Params>
-        <!-- stops rename thru singularization -->
-        <Param Name="NumberOfBytes" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
-  </ServiceOperations>
-  
-  <VerbMappings>
-    <Map From="Generate" To="New" />
-    <Map From="List" To="Get" />
-  </VerbMappings>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonKeyManagementService</SourceGenerationRoot>
+    <ServiceNounPrefix>KMS</ServiceNounPrefix>
+    <ServiceName>AWS Key Management Service</ServiceName>
+    <ServiceClientInterface>IAmazonKeyManagementService</ServiceClientInterface>
+    <ServiceClient>AmazonKeyManagementServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.KeyManagementService</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="Limit" TruncatedFlag="Truncated" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="Generate" To="New" />
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>NextMarker</Property>
+        <Property>Truncated</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateAlias" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetKeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAlias" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AliasName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAliases" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AliasList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-KMSAliases">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAlias" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetKeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateGrant" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="KeyId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListGrants" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="GrantList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-KMSGrants">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetireGrant" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disable" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GrantToken" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeGrant" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="GrantToken" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateKey" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeKey" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteImportedKeyMaterial" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableKey" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateKeyDescription" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKeys" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="KeyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-KMSKeys">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetParametersForImport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyPolicy" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportKeyMaterial" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListKeyPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="KsyPolicyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-KMSKeyPolicies">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutKeyPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableKeyRotation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableKeyRotation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetKeyRotationStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListResourceTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Decrypt" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="Decrypt" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Encrypt" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="Encrypt" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReEncrypt" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="ReEncrypt" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CancelKeyDeletion" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ScheduleKeyDeletion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRetirableGrants" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="RetirableGrant" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateDataKey" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="NumberOfBytes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateDataKeyWithoutPlaintext" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="NumberOfBytes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="GenerateRandom" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="true" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NumberOfBytes" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="NumberOfBytes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

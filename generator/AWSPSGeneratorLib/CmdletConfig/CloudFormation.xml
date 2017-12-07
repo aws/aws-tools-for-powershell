@@ -1,122 +1,183 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>CFN</ServiceNounPrefix>
-  <ServiceName>AWS CloudFormation</ServiceName>
-  <ServiceClientInterface>IAmazonCloudFormation</ServiceClientInterface>
-  <ServiceClient>AmazonCloudFormationClient</ServiceClient>
-  <ServiceNamespace>Amazon.CloudFormation</ServiceNamespace>
-
-  <VerbMappings>
-    <Map From="Estimate" To="Measure" />
-    <Map From="Validate" To="Test" />
-  </VerbMappings>
-  
-  <CustomAliases>
-    <AliasSet Cmdlet="Measure-CFNTemplateCost">Estimate-CFNTemplateCost</AliasSet>
-    <AliasSet Cmdlet="Test-CFNTemplate">Validate-CFNTemplate</AliasSet>
-    <AliasSet Cmdlet="Get-CFNStackSummaries">List-CFNStacks</AliasSet>
-    <AliasSet Cmdlet="Get-CFNStackResourceSummaries">List-CFNStackResources</AliasSet>
-  </CustomAliases>
-  
-  <AutoIterate Start="NextToken" Next="NextToken" Exclusions="DescribeChangeSet" />
-
-  <PositionalParameters>StackName</PositionalParameters>
-  
-  <PipelineParameter>StackName</PipelineParameter>
-  
-  <NounMappings>
-    <Map From="StackEvents" To="StackEvent" />
-    <Map From="StackResourceSummaries" To="StackResourceSummary" />
-    <Map From="Stacks" To="Stack" />
-    <Map From="StackSummaries" To="StackSummary" />
-  </NounMappings>
-
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="CancelUpdateStack" Output="Void"/>
-    <ServiceOperation MethodName="CreateStack">
-      <Params>
-        <Param Name="TimeoutInMinutes" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ContinueUpdateRollback" Verb="Resume" Output="Void" />
-    <ServiceOperation MethodName="CreateChangeSet" Exclude="true"/>
-    <ServiceOperation MethodName="DeleteChangeSet" PipelineParameter="ChangeSetName" Output="Void" />
-    <ServiceOperation MethodName="DeleteStack" Output="Void"/>
-    <ServiceOperation MethodName="DescribeAccountLimits" Noun="AccountLimit" LegacyAlias="Get-CFNAccountLimits"/>
-    <ServiceOperation MethodName="DescribeChangeSet" PipelineParameter="ChangeSetName" Output="Response" />
-    <ServiceOperation MethodName="DescribeStackEvents" Noun="StackEvent" LegacyAlias="Get-CFNStackEvents"/>
-    <ServiceOperation MethodName="DescribeStackResource" PositionalParameters="LogicalResourceId"/>
-    <ServiceOperation MethodName="DescribeStackResources" Noun="StackResourceList" LegacyAlias="Get-CFNStackResources"/>
-    <ServiceOperation MethodName="DescribeStacks"/>
-    <ServiceOperation MethodName="EstimateTemplateCost" PipelineParameter="TemplateBody"/>
-    <ServiceOperation MethodName="ExecuteChangeSet" Verb="Start" PipelineParameter="ChangeSetName" Output="Void" />
-    <ServiceOperation MethodName="GetStackPolicy"/>
-    <ServiceOperation MethodName="GetTemplate" Exclude="true"/>
-    <ServiceOperation MethodName="GetTemplateSummary" Output="Response"/>
-    <ServiceOperation MethodName="ListImports" Noun="ImportList"/>
-    <ServiceOperation MethodName="ListChangeSets" Noun="ChangeSetList" />
-    <ServiceOperation MethodName="ListExports" Noun="Export"/>
-    <ServiceOperation MethodName="ListStackResources" Noun="StackResourceSummary" LegacyAlias="Get-CFNStackResourceSummaries" />
-    <ServiceOperation MethodName="ListStacks" Noun="StackSummary" PipelineParameter="StackStatusFilter" LegacyAlias="Get-CFNStackSummaries" />
-    <ServiceOperation MethodName="SetStackPolicy" Output="Void"/>
-    <ServiceOperation MethodName="SignalResource" Verb="Send" Noun="ResourceSignal" Output="Void"/>
-    <ServiceOperation MethodName="UpdateStack"/>
-    <ServiceOperation MethodName="ValidateTemplate" Output="Response" PipelineParameter="TemplateBody"/>
-
-    <ServiceOperation MethodName="ListStackSetOperationResults" Noun="StackSetOperationResultList" PipelineParameter="OperationId">
-      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListStackSetOperations" Noun="StackSetOperationList">
-      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListStackSets" Noun="StackSetList">
-      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-    </ServiceOperation>
-    <ServiceOperation MethodName="StopStackSetOperation" PipelineParameter="StackSetName" Output="Void" />
-    <ServiceOperation MethodName="UpdateStackSet" PipelineParameter="StackSetName" />
-    <ServiceOperation MethodName="CreateStackInstances" Noun="StackInstance" PipelineParameter="StackSetName">
-      <Params>
-        <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false"/>
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreateStackSet" PipelineParameter="StackSetName" />
-    <ServiceOperation MethodName="DeleteStackInstances" Noun="StackInstance" PipelineParameter="StackSetName">
-      <Params>
-        <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false"/>
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteStackSet" Output="Void" />
-    <ServiceOperation MethodName="DescribeStackInstance" PipelineParameter="StackSetName" />
-    <ServiceOperation MethodName="DescribeStackSet" />
-    <ServiceOperation MethodName="DescribeStackSetOperation" PipelineParameter="OperationId" />
-    <ServiceOperation MethodName="ListStackInstances" Noun="StackInstanceList" PipelineParameter="StackSetName">
-      <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-    </ServiceOperation>
-
-    <ServiceOperation MethodName="UpdateTerminationProtection" />
-
-    <ServiceOperation MethodName="UpdateStackInstances" Noun="StackInstance" PipelineParameter="StackSetName">
-      <Params>
-        <Param Name="Regions" NewName="StackInstanceRegion" AutoApplyAlias="false"/>
-      </Params>
-    </ServiceOperation>
-
-  </ServiceOperations>
-
-  <PipelineByValueProperties>
-    <Property>StackName</Property>
-    <Property>LogicalResourceId</Property>
-    <Property>PhysicalResourceId</Property>
-    <Property>OperationId</Property>
-  </PipelineByValueProperties>
-
-  <TypesNotToFlatten>
-    <Type>Amazon.CloudFormation.Model.StackSetOperationPreferences</Type>
-  </TypesNotToFlatten>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloudFormation</SourceGenerationRoot>
+    <ServiceNounPrefix>CFN</ServiceNounPrefix>
+    <ServiceName>AWS CloudFormation</ServiceName>
+    <ServiceClientInterface>IAmazonCloudFormation</ServiceClientInterface>
+    <ServiceClient>AmazonCloudFormationClient</ServiceClient>
+    <ServiceNamespace>Amazon.CloudFormation</ServiceNamespace>
+    <PositionalParameters>StackName</PositionalParameters>
+    <PipelineParameter>StackName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" Exclusions="DescribeChangeSet" />
+    <VerbMappings>
+        <Map From="Estimate" To="Measure" />
+        <Map From="Validate" To="Test" />
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="StackEvents" To="StackEvent" />
+        <Map From="StackResourceSummaries" To="StackResourceSummary" />
+        <Map From="Stacks" To="Stack" />
+        <Map From="StackSummaries" To="StackSummary" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Measure-CFNTemplateCost">Estimate-CFNTemplateCost</AliasSet>
+        <AliasSet Cmdlet="Test-CFNTemplate">Validate-CFNTemplate</AliasSet>
+        <AliasSet Cmdlet="Get-CFNStackSummaries">List-CFNStacks</AliasSet>
+        <AliasSet Cmdlet="Get-CFNStackResourceSummaries">List-CFNStackResources</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>StackName</Property>
+        <Property>LogicalResourceId</Property>
+        <Property>PhysicalResourceId</Property>
+        <Property>OperationId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelUpdateStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStack" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="TimeoutInMinutes" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ContinueUpdateRollback" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Resume" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateChangeSet" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChangeSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChangeSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStack" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AccountLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFNAccountLimits">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChangeSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChangeSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStackEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackEvent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFNStackEvents">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStackResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogicalResourceId" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStackResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFNStackResources">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStacks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EstimateTemplateCost" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateBody" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecuteChangeSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChangeSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStackPolicy" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemplateSummary" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListImports" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ImportList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ExportName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChangeSets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ChangeSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListExports" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Export" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackResourceSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFNStackResourceSummaries">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStacks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackStatusFilter" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CFNStackSummaries">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetStackPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SignalResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="ResourceSignal" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStack" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateTemplate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateBody" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackSetOperationResults" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackSetOperationResultList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OperationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackSetOperations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackSetOperationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackSets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Status" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopStackSetOperation" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStackSet" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStackInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Regions" NewName="StackInstanceRegion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStackSet" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStackInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Regions" NewName="StackInstanceRegion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteStackSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStackInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStackSet" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeStackSetOperation" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OperationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListStackInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTerminationProtection" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateStackInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StackInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StackSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Regions" NewName="StackInstanceRegion" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+            </Params>
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.CloudFormation.Model.StackSetOperationPreferences</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

@@ -1,34 +1,63 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>SMS</ServiceNounPrefix>
-  <ServiceName>Amazon Server Migration Service</ServiceName>
-  <ServiceClientInterface>IAmazonServerMigrationService</ServiceClientInterface>
-  <ServiceClient>AmazonServerMigrationServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.ServerMigrationService</ServiceNamespace>
-
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" Exclusions="GetReplicationRuns;GetServers"/>
-  
-  <PipelineByValueProperties>
-    <Property>ServerId</Property>
-    <Property>ReplicationJobId</Property>
-    <Property>ConnectorId</Property>
-  </PipelineByValueProperties>
-  
-  <PipelineParameter>ReplicationJobId</PipelineParameter>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="CreateReplicationJob" NoPipelineParameter="true" ShouldProcessTarget="ServerId" />
-    <ServiceOperation MethodName="DeleteReplicationJob" Output="Void" />
-    <ServiceOperation MethodName="DeleteServerCatalog" Output="Void" />
-    <ServiceOperation MethodName="DisassociateConnector" Output="Void" Verb="Unregister" />
-    <ServiceOperation MethodName="GetConnectors" Noun="Connector" />
-    <ServiceOperation MethodName="GetReplicationJobs" Noun="ReplicationJob" />
-    <ServiceOperation MethodName="GetReplicationRuns" Noun="ReplicationRun" Output="Response" />
-    <ServiceOperation MethodName="GetServers" Noun="Server" Output="Response" />
-    <ServiceOperation MethodName="ImportServerCatalog" Output="Void" />
-    <ServiceOperation MethodName="StartOnDemandReplicationRun" />
-    <ServiceOperation MethodName="UpdateReplicationJob" Output="Void" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonServerMigrationService</SourceGenerationRoot>
+    <ServiceNounPrefix>SMS</ServiceNounPrefix>
+    <ServiceName>Amazon Server Migration Service</ServiceName>
+    <ServiceClientInterface>IAmazonServerMigrationService</ServiceClientInterface>
+    <ServiceClient>AmazonServerMigrationServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.ServerMigrationService</ServiceNamespace>
+    <PipelineParameter>ReplicationJobId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" Exclusions="GetReplicationRuns;GetServers" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>ServerId</Property>
+        <Property>ReplicationJobId</Property>
+        <Property>ConnectorId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateReplicationJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ServerId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteServerCatalog" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateConnector" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Unregister" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConnectorId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetConnectors" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Connector" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReplicationJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReplicationJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetReplicationRuns" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReplicationRun" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServers" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Server" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportServerCatalog" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartOnDemandReplicationRun" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReplicationJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

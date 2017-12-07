@@ -1,23 +1,37 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonPricing</SourceGenerationRoot>
     <ServiceNounPrefix>PLS</ServiceNounPrefix>
     <ServiceName>AWS Price List Service</ServiceName>
-    <ServiceNamespace>Amazon.Pricing</ServiceNamespace>
     <ServiceClientInterface>IAmazonPricing</ServiceClientInterface>
     <ServiceClient>AmazonPricingClient</ServiceClient>
-
-    <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
-
+    <ServiceNamespace>Amazon.Pricing</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
     <MetadataProperties>
         <Property>FormatVersion</Property>
     </MetadataProperties>
-
+    <PipelineByValueProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="DescribeServices" Noun="Service" PipelineParameter="ServiceCode" />
-        <ServiceOperation MethodName="GetAttributeValues" Noun="AttributeValue" PipelineParameter="AttributeName" />
-        <ServiceOperation MethodName="GetProducts" Noun="Product" PipelineParameter="ServiceCode" />
+        <ServiceOperation MethodName="DescribeServices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Service" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceCode" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAttributeValues" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AttributeValue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AttributeName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetProducts" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Product" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ServiceCode" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
-
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

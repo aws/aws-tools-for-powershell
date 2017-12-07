@@ -1,119 +1,238 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>SES</ServiceNounPrefix>
-  <ServiceName>Amazon Simple Email Service</ServiceName>
-  <ServiceClientInterface>IAmazonSimpleEmailService</ServiceClientInterface>
-  <ServiceClient>AmazonSimpleEmailServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.SimpleEmail</ServiceNamespace>
-
-  <NounMappings>
-    <Map From="Identities" To="Identity" />
-    <Map From="IdentityDkimAttributes" To="IdentityDkimAttribute" />
-    <Map From="IdentityNotificationAttributes" To="IdentityNotificationAttribute" />
-    <Map From="IdentityVerificationAttributes" To="IdentityVerificationAttribute" />
-    <Map From="VerifiedEmailAddresses" To="VerifiedEmailAddress" />
-  </NounMappings>
-  
-  <VerbMappings>
-    <Map From="List" To="Get" />
-    <Map From="Verify" To="Confirm" />
-  </VerbMappings>
-
-  <AutoIterate EmitLimit="MaxItems" Start="NextToken" Next="NextToken" />
-  
-  <DefaultRegion>us-east-1</DefaultRegion>
-
-  <TypesNotToFlatten>
-    <Type>Amazon.SimpleEmail.Model.TrackingOptions</Type>
-    <Type>Amazon.SimpleEmail.Model.Template</Type>
-  </TypesNotToFlatten>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="DeleteIdentity" Output="Void" />
-    <ServiceOperation MethodName="DeleteIdentityPolicy" Output="Void" PipelineParameter="PolicyName" />
-    <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Output="Void" />
-    <ServiceOperation MethodName="GetIdentityDkimAttributes" />
-    <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" Noun="IdentityMailFromDomainAttribute" LegacyAlias="Get-SESIdentityMailFromDomainAttributes"/>
-    <ServiceOperation MethodName="GetIdentityNotificationAttributes" />
-    <ServiceOperation MethodName="GetIdentityPolicies" Noun="IdentityPolicy" PipelineParameter="PolicyNames" />
-    <ServiceOperation MethodName="GetIdentityVerificationAttributes" />
-    <ServiceOperation MethodName="GetSendQuota" Output="Response"/>
-    <ServiceOperation MethodName="GetSendStatistics" Noun="SendStatistic" LegacyAlias="Get-SESSendStatistics"/>
-    <ServiceOperation MethodName="ListIdentities" />
-    <ServiceOperation MethodName="ListIdentityPolicies" Noun="IdentityPolicyList" />
-    <ServiceOperation MethodName="ListVerifiedEmailAddresses"/>
-    <ServiceOperation MethodName="PutIdentityPolicy" Output="Void" PipelineParameter="Policy" />
-    <ServiceOperation MethodName="SendEmail" PipelineParameter="Source" ShouldProcessTarget="Source" PositionalParameters="Destination_ToAddresses"/>
-    <ServiceOperation MethodName="SendRawEmail" PipelineParameter="Source" ShouldProcessTarget="Source" PositionalParameters="Destinations" RemapMemoryStreamParameters="false"/>
-    <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="DkimEnabled"/>
-    <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" PipelineParameter="Identity" PositionalParameters="ForwardingEnabled"/>
-    <ServiceOperation MethodName="SetIdentityMailFromDomain" Output="Void" PipelineParameter="Identity" PositionalParameters="MailFromDomain;BehaviorOnMXFailure"/>
-    <ServiceOperation MethodName="SetIdentityNotificationTopic" Output="Void" PipelineParameter="Identity" PositionalParameters="NotificationType;SnsTopic"/>
-    <ServiceOperation MethodName="VerifyDomainDkim" />
-    <ServiceOperation MethodName="VerifyDomainIdentity" />
-    <ServiceOperation MethodName="VerifyEmailAddress" Output="Void" />
-    <ServiceOperation MethodName="VerifyEmailIdentity" Output="Void" />
-    <ServiceOperation MethodName="CloneReceiptRuleSet" Output="Void" Verb="Copy" PipelineParameter="OriginalRuleSetName"/>
-    <ServiceOperation MethodName="CreateReceiptFilter" Output="Void" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="CreateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
-    <ServiceOperation MethodName="CreateReceiptRuleSet" Output="Void"/>
-    <ServiceOperation MethodName="DeleteReceiptFilter" Output="Void" />
-    <ServiceOperation MethodName="DeleteReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
-    <ServiceOperation MethodName="DeleteReceiptRuleSet" Output="Void"/>
-    <ServiceOperation MethodName="DescribeActiveReceiptRuleSet" Output="Response" />
-    <ServiceOperation MethodName="DescribeReceiptRule" PipelineParameter="RuleName" />
-    <ServiceOperation MethodName="DescribeReceiptRuleSet" Output="Response"/>
-    <ServiceOperation MethodName="ListReceiptFilters" Noun="ReceiptFilterList" LegacyAlias="Get-SESReceiptFilters"/>
-    <ServiceOperation MethodName="ListReceiptRuleSets" Noun="ReceiptRuleSetList" LegacyAlias="Get-SESReceiptRuleSets"/>
-    <ServiceOperation MethodName="ReorderReceiptRuleSet" Output="Void" Verb="Set" Noun="ReceiptRuleSetOrder" PipelineParameter="RuleNames"/>
-    <ServiceOperation MethodName="SendBounce" PipelineParameter="BouncedRecipientInfoList" ShouldProcessTarget="BounceSender"/>
-    <ServiceOperation MethodName="SetActiveReceiptRuleSet" Output="Void"/>
-    <ServiceOperation MethodName="SetReceiptRulePosition" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="RuleName"/>
-    <ServiceOperation MethodName="UpdateReceiptRule" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="Rule_Name"/>
-    <ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Output="Void" PipelineParameter="Identity" />
-    <ServiceOperation MethodName="DeleteConfigurationSet" Output="Void"/>
-    <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Output="Void" PipelineParameter="EventDestinationName" />
-    <ServiceOperation MethodName="DescribeConfigurationSet" PipelineParameter="ConfigurationSetName" Output="Response"/>
-    <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Output="Void" PipelineParameter="ConfigurationSetName"/>
-    <ServiceOperation MethodName="CreateConfigurationSet" Output="Void"/>
-    <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Output="Void" PipelineParameter="ConfigurationSetName" />
-    <ServiceOperation MethodName="ListConfigurationSets" Verb="Get" Noun="ConfigurationSetList"/>
-
-    <ServiceOperation MethodName="CreateConfigurationSetTrackingOptions"
-                      Noun="ConfigurationSetTrackingOption"
-                      PipelineParameter="TrackingOptions"
-                      Output="Void" />
-    <ServiceOperation MethodName="UpdateConfigurationSetTrackingOptions"
-                      Noun="ConfigurationSetTrackingOption"
-                      PipelineParameter="TrackingOptions"
-                      Output="Void" />
-    <ServiceOperation MethodName="DeleteConfigurationSetTrackingOptions"
-                      Noun="ConfigurationSetTrackingOption"
-                      Output="Void" />
-
-    <ServiceOperation MethodName="GetTemplate" />
-    <ServiceOperation MethodName="ListTemplates" Noun="TemplateList" />
-    <ServiceOperation MethodName="SendBulkTemplatedEmail" PipelineParameter="TemplateData" ShouldProcessTarget="Source" />
-    <ServiceOperation MethodName="SendTemplatedEmail" PipelineParameter="TemplateData" ShouldProcessTarget="Source" />
-    <ServiceOperation MethodName="TestRenderTemplate" PipelineParameter="TemplateData" />
-    <ServiceOperation MethodName="UpdateTemplate" Output="Void" />
-    <ServiceOperation MethodName="CreateTemplate" Output="Void" />
-    <ServiceOperation MethodName="DeleteTemplate" Output="Void" />
-
-    <ServiceOperation MethodName="GetAccountSendingEnabled" />
-    <ServiceOperation MethodName="UpdateConfigurationSetReputationMetricsEnabled" PipelineParameter="Enabled" Output="Void" />
-    <ServiceOperation MethodName="UpdateAccountSendingEnabled" Output="Void" />
-    <ServiceOperation MethodName="UpdateConfigurationSetSendingEnabled" PipelineParameter="Enabled" Output="Void" />
-  </ServiceOperations>
-
-  <PipelineByValueProperties>
-    <Property>Identity</Property>
-    <Property>EmailAddress</Property>
-    <Property>RuleName</Property>
-    <Property>RuleSetName</Property>
-    <Property>EventDestinationName</Property>
-    <Property>ConfigurationSetName</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonSimpleEmailService</SourceGenerationRoot>
+    <ServiceNounPrefix>SES</ServiceNounPrefix>
+    <ServiceName>Amazon Simple Email Service</ServiceName>
+    <ServiceClientInterface>IAmazonSimpleEmailService</ServiceClientInterface>
+    <ServiceClient>AmazonSimpleEmailServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.SimpleEmail</ServiceNamespace>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+        <Map From="Verify" To="Confirm" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Identities" To="Identity" />
+        <Map From="IdentityDkimAttributes" To="IdentityDkimAttribute" />
+        <Map From="IdentityNotificationAttributes" To="IdentityNotificationAttribute" />
+        <Map From="IdentityVerificationAttributes" To="IdentityVerificationAttribute" />
+        <Map From="VerifiedEmailAddresses" To="VerifiedEmailAddress" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>Identity</Property>
+        <Property>EmailAddress</Property>
+        <Property>RuleName</Property>
+        <Property>RuleSetName</Property>
+        <Property>EventDestinationName</Property>
+        <Property>ConfigurationSetName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteIdentity" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIdentityPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteVerifiedEmailAddress" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailAddress" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityDkimAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identities" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityMailFromDomainAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="IdentityMailFromDomainAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identities" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SESIdentityMailFromDomainAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityNotificationAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identities" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="IdentityPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PolicyNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetIdentityVerificationAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identities" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSendQuota" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSendStatistics" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SendStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SESSendStatistics">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentities" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IdentityType" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListIdentityPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="IdentityPolicyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListVerifiedEmailAddresses" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutIdentityPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Policy" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendEmail" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Source" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Destination_ToAddresses" PipelineParameter="Source" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendRawEmail" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Source" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Destinations" PipelineParameter="Source" NoPipelineParameter="false" RemapMemoryStreamParameters="false">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIdentityDkimEnabled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DkimEnabled" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIdentityFeedbackForwardingEnabled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ForwardingEnabled" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIdentityMailFromDomain" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MailFromDomain;BehaviorOnMXFailure" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIdentityNotificationTopic" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="NotificationType;SnsTopic" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyDomainDkim" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyDomainIdentity" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Domain" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyEmailAddress" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailAddress" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="VerifyEmailIdentity" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EmailAddress" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CloneReceiptRuleSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Copy" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OriginalRuleSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReceiptFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReceiptRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Rule_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReceiptRuleSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReceiptFilter" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FilterName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReceiptRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RuleName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReceiptRuleSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeActiveReceiptRuleSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReceiptRule" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReceiptRuleSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReceiptFilters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReceiptFilterList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SESReceiptFilters">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListReceiptRuleSets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReceiptRuleSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SESReceiptRuleSets">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReorderReceiptRuleSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ReceiptRuleSetOrder" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendBounce" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="BounceSender" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="BouncedRecipientInfoList" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetActiveReceiptRuleSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetReceiptRulePosition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="RuleName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateReceiptRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Rule_Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIdentityHeadersInNotificationsEnabled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Identity" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationSetEventDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EventDestinationName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationSetEventDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationSet" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSet_Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationSetEventDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListConfigurationSets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigurationSetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationSetTrackingOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationSetTrackingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrackingOptions" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationSetTrackingOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationSetTrackingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrackingOptions" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationSetTrackingOptions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationSetTrackingOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationSetName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTemplates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TemplateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendBulkTemplatedEmail" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Source" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateData" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendTemplatedEmail" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Source" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateData" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestRenderTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateData" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTemplate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Template" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTemplate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Template" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTemplate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TemplateName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAccountSendingEnabled" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationSetReputationMetricsEnabled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Enabled" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAccountSendingEnabled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Enabled" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationSetSendingEnabled" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Enabled" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.SimpleEmail.Model.TrackingOptions</Type>
+        <Type>Amazon.SimpleEmail.Model.Template</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

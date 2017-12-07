@@ -1,41 +1,64 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ATH</ServiceNounPrefix>
-  <ServiceName>Amazon Athena</ServiceName>
-  <ServiceClientInterface>IAmazonAthena</ServiceClientInterface>
-  <ServiceClient>AmazonAthenaClient</ServiceClient>
-  <ServiceNamespace>Amazon.Athena</ServiceNamespace>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
-  <PipelineByValueProperties>
-    <Property>NamedQueryId</Property>
-    <Property>QueryExecutionId</Property>
-    <Property>Name</Property>
-    <Property>Database</Property>
-  </PipelineByValueProperties>
-
-  <PipelineParameter/>
-
-  <MetadataProperties>
-  </MetadataProperties>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="BatchGetNamedQuery" Verb="Get" Noun="NamedQueryBatch" Output="Response" />
-    <ServiceOperation MethodName="BatchGetQueryExecution" Verb="Get" Noun="QueryExecutionBatch" Output="Response" />
-    <ServiceOperation MethodName="CreateNamedQuery" PipelineParameter="QueryString" />
-    <ServiceOperation MethodName="DeleteNamedQuery" Output="Void" />
-    <ServiceOperation MethodName="GetNamedQuery" />
-    <ServiceOperation MethodName="GetQueryExecution" />
-
-    <!-- has non-standard paging, Count member sits in nested ResultSet structure -->
-    <ServiceOperation MethodName="GetQueryResults" Exclude="true" />
-
-    <ServiceOperation MethodName="ListNamedQueries" Verb="Get" Noun="NamedQueryList" />
-    <ServiceOperation MethodName="ListQueryExecutions" Verb="Get" Noun="QueryExecutionList" />
-    <ServiceOperation MethodName="StartQueryExecution" PipelineParameter="QueryString" />
-    <ServiceOperation MethodName="StopQueryExecution" Output="Void" />
-  </ServiceOperations>
-
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonAthena</SourceGenerationRoot>
+    <ServiceNounPrefix>ATH</ServiceNounPrefix>
+    <ServiceName>Amazon Athena</ServiceName>
+    <ServiceClientInterface>IAmazonAthena</ServiceClientInterface>
+    <ServiceClient>AmazonAthenaClient</ServiceClient>
+    <ServiceNamespace>Amazon.Athena</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>NamedQueryId</Property>
+        <Property>QueryExecutionId</Property>
+        <Property>Name</Property>
+        <Property>Database</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetNamedQuery" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NamedQueryBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NamedQueryIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetQueryExecution" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QueryExecutionBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryExecutionIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNamedQuery" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryString" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNamedQuery" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NamedQueryId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetNamedQuery" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NamedQueryId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryExecution" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueryResults" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNamedQueries" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NamedQueryList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueryExecutions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="QueryExecutionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartQueryExecution" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryString" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopQueryExecution" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="QueryExecutionId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

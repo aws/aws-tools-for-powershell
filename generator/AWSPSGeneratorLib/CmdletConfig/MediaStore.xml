@@ -1,47 +1,59 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>EMS</ServiceNounPrefix>
-  <ServiceName>AWS Elemental MediaStore</ServiceName>
-  <ServiceNamespace>Amazon.MediaStore</ServiceNamespace>
-  <ServiceClientInterface>IAmazonMediaStore</ServiceClientInterface>
-  <ServiceClient>AmazonMediaStoreClient</ServiceClient>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="CreateContainer">
-      <Params>
-        <Param Name="ContainerName" NewName="Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteContainer" Output="Void">
-      <Params>
-        <Param Name="ContainerName" NewName="Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteContainerPolicy" Output="Void">
-      <Params>
-        <Param Name="ContainerName" NewName="Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeContainer">
-      <Params>
-        <Param Name="ContainerName" NewName="Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="GetContainerPolicy">
-      <Params>
-        <Param Name="ContainerName" NewName="Name" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ListContainers" Verb="Get" Noun="ContainerList" />
-    <ServiceOperation MethodName="PutContainerPolicy" PipelineParameter="Policy" Output="Void">
-      <Params>
-        <Param Name="ContainerName" NewName="Name" />
-      </Params>
-    </ServiceOperation>
-  </ServiceOperations>
-
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonMediaStore</SourceGenerationRoot>
+    <ServiceNounPrefix>EMS</ServiceNounPrefix>
+    <ServiceName>AWS Elemental MediaStore</ServiceName>
+    <ServiceClientInterface>IAmazonMediaStore</ServiceClientInterface>
+    <ServiceClient>AmazonMediaStoreClient</ServiceClient>
+    <ServiceNamespace>Amazon.MediaStore</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateContainer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteContainerPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeContainer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetContainerPolicy" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ContainerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListContainers" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ContainerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutContainerPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Policy" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="ContainerName" NewName="Name" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

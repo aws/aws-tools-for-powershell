@@ -1,31 +1,55 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>KINF</ServiceNounPrefix>
-  <ServiceName>Amazon Kinesis Firehose</ServiceName>
-  <ServiceNamespace>Amazon.KinesisFirehose</ServiceNamespace>
-  <ServiceClientInterface>IAmazonKinesisFirehose</ServiceClientInterface>
-  <ServiceClient>AmazonKinesisFirehoseClient</ServiceClient>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="CreateDeliveryStream" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
-    <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" />
-    <ServiceOperation MethodName="DescribeDeliveryStream" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="ListDeliveryStreams" Verb="Get" Noun="DeliveryStreamList" NoPipelineParameter="true" Output="Response"/>
-    <ServiceOperation MethodName="PutRecord" Exclude="true" />
-    <ServiceOperation MethodName="PutRecordBatch" PipelineParameter="Records" Output="Response"/>
-    <ServiceOperation MethodName="UpdateDestination" Output="Void" NoPipelineParameter="true" ShouldProcessTarget="DeliveryStreamName" />
-  </ServiceOperations>
-
-  <TypesNotToFlatten>
-    <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate</Type>
-    <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
-    <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate</Type>
-    <Type>Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration</Type>
-    <Type>Amazon.KinesisFirehose.Model.SplunkDestinationUpdate</Type>
-  </TypesNotToFlatten>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonKinesisFirehose</SourceGenerationRoot>
+    <ServiceNounPrefix>KINF</ServiceNounPrefix>
+    <ServiceName>Amazon Kinesis Firehose</ServiceName>
+    <ServiceClientInterface>IAmazonKinesisFirehose</ServiceClientInterface>
+    <ServiceClient>AmazonKinesisFirehoseClient</ServiceClient>
+    <ServiceNamespace>Amazon.KinesisFirehose</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateDeliveryStream" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDeliveryStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeliveryStreamName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDeliveryStream" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeliveryStreams" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeliveryStreamList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecord" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutRecordBatch" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Records" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateDestination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeliveryStreamName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.S3DestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate</Type>
+        <Type>Amazon.KinesisFirehose.Model.S3DestinationUpdate</Type>
+        <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate</Type>
+        <Type>Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration</Type>
+        <Type>Amazon.KinesisFirehose.Model.SplunkDestinationUpdate</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

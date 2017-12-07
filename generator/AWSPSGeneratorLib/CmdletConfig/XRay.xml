@@ -1,19 +1,43 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>XR</ServiceNounPrefix>
-  <ServiceName>AWS X-Ray</ServiceName>
-  <ServiceClientInterface>IAmazonXRay</ServiceClientInterface>
-  <ServiceClient>AmazonXRayClient</ServiceClient>
-  <ServiceNamespace>Amazon.XRay</ServiceNamespace>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="BatchGetTraces" Verb="Get" Noun="TraceBatch" Output="Response" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="GetServiceGraph" Output="Response" PipelineParameter="StartTime"/>
-    <ServiceOperation MethodName="GetTraceGraph" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="GetTraceSummaries" Noun="TraceSummary" Output="Response" PipelineParameter="StartTime"/>
-    <ServiceOperation MethodName="PutTelemetryRecords" Noun="TelemetryRecord" Output="Void" PipelineParameter="EC2InstanceId"/>
-    <ServiceOperation MethodName="PutTraceSegments" Noun="TraceSegment"/>
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonXRay</SourceGenerationRoot>
+    <ServiceNounPrefix>XR</ServiceNounPrefix>
+    <ServiceName>AWS X-Ray</ServiceName>
+    <ServiceClientInterface>IAmazonXRay</ServiceClientInterface>
+    <ServiceClient>AmazonXRayClient</ServiceClient>
+    <ServiceNamespace>Amazon.XRay</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="BatchGetTraces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TraceBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetServiceGraph" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StartTime" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTraceGraph" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTraceSummaries" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TraceSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StartTime" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTelemetryRecords" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TelemetryRecord" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EC2InstanceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutTraceSegments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TraceSegment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TraceSegmentDocuments" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

@@ -1,96 +1,165 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<ServiceNounPrefix>DMS</ServiceNounPrefix>
-	<ServiceName>AWS Database Migration Service</ServiceName>
-	<ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
-	<ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
-	<ServiceNamespace>Amazon.DatabaseMigrationService</ServiceNamespace>
-
-  <AdditionalNamespaces />
-
-  <NounMappings>
-	<Map From="Certificates" To="Certificate" />
-  </NounMappings>
-
-  <PipelineParameter>EndpointArn</PipelineParameter>
-  
-  <AutoIterate EmitLimit="MaxRecords"
-               Start="Marker"
-               Next="Marker" 
-			   Exclusions="DescribeTableStatistics;DescribeReplicationTaskAssessmentResults"
-               ServicePageSize="100" />
-
-  <PipelineByValueProperties>
-	<Property>EndpointArn</Property>
-	<Property>EndpointIdentifier</Property>
-	<Property>ReplicationInstanceArn</Property>
-	<Property>ReplicationInstanceIdentifier</Property>
-	<Property>DatabaseName</Property>
-	<Property>KmsKeyId</Property>
-	<Property>EngineName</Property>
-	<Property>ReplicationSubnetGroupIdentifier</Property>
-	<Property>ReplicationSubnetGroupName</Property>
-	<Property>ReplicationTaskArn</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-
-	  <ServiceOperation MethodName="AddTagsToResource" 
-                      Verb="Set" 
-                      Noun="ResourceTag" 
-                      Output="Void" 
-                      PipelineParameter="ResourceArn" />
-	  <ServiceOperation MethodName="CreateEndpoint" PipelineParameter="EndpointIdentifier" ShouldProcessTarget="EndpointIdentifier"/>
-	  <ServiceOperation MethodName="CreateReplicationInstance"
-                      ShouldProcessTarget="ReplicationInstanceIdentifier"
-                      PipelineParameter="ReplicationInstanceIdentifier" />
-	  <ServiceOperation MethodName="CreateReplicationSubnetGroup" 
-                      PipelineParameter="ReplicationSubnetGroupIdentifier" />
-	  <ServiceOperation MethodName="CreateReplicationTask" 
-                      PipelineParameter="ReplicationInstanceArn" />
-	  <ServiceOperation MethodName="DeleteCertificate" />
-	  <ServiceOperation MethodName="DeleteEndpoint" />
-	  <ServiceOperation MethodName="DeleteReplicationInstance" />
-	  <ServiceOperation MethodName="DeleteReplicationSubnetGroup" Output="Void" />
-	  <ServiceOperation MethodName="DeleteReplicationTask" />
-	  <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute" />
-	  <ServiceOperation MethodName="DescribeCertificates" />
-	  <ServiceOperation MethodName="DescribeConnections" 
-                      Noun="Connection" 
-                      NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeEndpoints" Noun="Endpoint" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeEndpointTypes" Noun="EndpointType" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeOrderableReplicationInstances" Noun="OrderableReplicationInstance" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeRefreshSchemasStatus" />
-	  <ServiceOperation MethodName="DescribeReplicationInstances" Noun="ReplicationInstance" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeReplicationSubnetGroups" Noun="ReplicationSubnetGroup" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeReplicationTasks" Noun="ReplicationTask" NoPipelineParameter="true" />
-	  <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" Noun="ReplicationTaskAssessmentResult" Output="Response" />
-	  <ServiceOperation MethodName="DescribeSchemas" Noun="Schema" />
-	  <ServiceOperation MethodName="DescribeTableStatistics" Noun="TableStatistic" PipelineParameter="ReplicationTaskArn" Output="Response"/>
-	  <ServiceOperation MethodName="ImportCertificate" PipelineParameter="CertificatePem" />
-	  <ServiceOperation MethodName="ListTagsForResource" Verb="Get" Noun="ResourceTag" />
-	  <ServiceOperation MethodName="ModifyEndpoint" />
-	  <ServiceOperation MethodName="ModifyReplicationInstance" PipelineParameter="ReplicationInstanceArn"/>
-	  <ServiceOperation MethodName="ModifyReplicationSubnetGroup" PipelineParameter="ReplicationSubnetGroupIdentifier"/>
-	  <ServiceOperation MethodName="ModifyReplicationTask" PipelineParameter="ReplicationTaskArn"/>
-	  <ServiceOperation MethodName="RefreshSchemas" Verb="Invoke" Noun="SchemaRefresh" />
-	  <ServiceOperation MethodName="RemoveTagsFromResource" Noun="ResourceTag" Output="Void" PipelineParameter="ResourceArn" />
-	  <ServiceOperation MethodName="StartReplicationTask" PipelineParameter="ReplicationTaskArn" />
-	  <ServiceOperation MethodName="StopReplicationTask" />
-	  <ServiceOperation MethodName="TestConnection" PipelineParameter="ReplicationInstanceArn" />
-
-	  <ServiceOperation MethodName="ModifyEventSubscription" PipelineParameter="SubscriptionName" />
-	  <ServiceOperation MethodName="ReloadTables" Verb="Restore" Noun="Table" PipelineParameter="ReplicationTaskArn" />
-	  <ServiceOperation MethodName="CreateEventSubscription" PipelineParameter="SubscriptionName" />
-	  <ServiceOperation MethodName="DeleteEventSubscription" />
-	  <ServiceOperation MethodName="DescribeEventCategories" Noun="EventCategory" PipelineParameter="SourceType" />
-	  <ServiceOperation MethodName="DescribeEvents" Noun="Event" PipelineParameter="SourceIdentifier" />
-	  <ServiceOperation MethodName="DescribeEventSubscriptions" Noun="EventSubscription" PipelineParameter="SubscriptionName" />
-
-	  <ServiceOperation MethodName="StartReplicationTaskAssessment" />
-  </ServiceOperations>
-
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonDatabaseMigrationService</SourceGenerationRoot>
+    <ServiceNounPrefix>DMS</ServiceNounPrefix>
+    <ServiceName>AWS Database Migration Service</ServiceName>
+    <ServiceClientInterface>IAmazonDatabaseMigrationService</ServiceClientInterface>
+    <ServiceClient>AmazonDatabaseMigrationServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.DatabaseMigrationService</ServiceNamespace>
+    <PipelineParameter>EndpointArn</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="100" Exclusions="DescribeTableStatistics;DescribeReplicationTaskAssessmentResults" />
+    <VerbMappings />
+    <NounMappings>
+        <Map From="Certificates" To="Certificate" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>EndpointArn</Property>
+        <Property>EndpointIdentifier</Property>
+        <Property>ReplicationInstanceArn</Property>
+        <Property>ReplicationInstanceIdentifier</Property>
+        <Property>DatabaseName</Property>
+        <Property>KmsKeyId</Property>
+        <Property>EngineName</Property>
+        <Property>ReplicationSubnetGroupIdentifier</Property>
+        <Property>ReplicationSubnetGroupName</Property>
+        <Property>ReplicationTaskArn</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpoint" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReplicationInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationInstanceIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationSubnetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationSubnetGroupIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateReplicationTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpoint" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationSubnetGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationSubnetGroupIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReplicationTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AccountAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConnections" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Connection" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoints" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EndpointType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrderableReplicationInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OrderableReplicationInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRefreshSchemasStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReplicationInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationSubnetGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReplicationSubnetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTasks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReplicationTask" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReplicationTaskAssessmentResults" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReplicationTaskAssessmentResult" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSchemas" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Schema" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTableStatistics" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TableStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificatePem" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEndpoint" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationSubnetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationSubnetGroupIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyReplicationTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RefreshSchemas" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="SchemaRefresh" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartReplicationTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopReplicationTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestConnection" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationInstanceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEventSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReloadTables" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restore" Noun="Table" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventCategories" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventCategory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceType" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Event" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSubscriptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartReplicationTaskAssessment" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReplicationTaskArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

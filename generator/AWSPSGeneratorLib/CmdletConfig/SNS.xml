@@ -1,83 +1,146 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>SNS</ServiceNounPrefix>
-  <ServiceName>Amazon Simple Notification Service</ServiceName>
-  <ServiceClientInterface>IAmazonSimpleNotificationService</ServiceClientInterface>
-  <ServiceClient>AmazonSimpleNotificationServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.SimpleNotificationService</ServiceNamespace>
-
-  <NounMappings>
-    <Map From="SubscriptionAttributes" To="SubscriptionAttribute" />
-    <Map From="Subscriptions" To="Subscription" />
-    <Map From="SubscriptionsByTopic" To="SubscriptionByTopic" />
-    <Map From="TopicAttributes" To="TopicAttribute" />
-    <Map From="Topics" To="Topic" />
-  </NounMappings>
-  
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <AutoIterate Start="NextToken" Next="NextToken" />
-  
-  <PositionalParameters>TopicArn</PositionalParameters>
-  
-  <PipelineParameter>TopicArn</PipelineParameter>
-  
-  <PipelineByValueProperties>
-    <Property>NextToken</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddPermission" Output="Void" PositionalParameters="Label;AWSAccountId;ActionName">
-      <Params>
-        <!-- maintain compat with v1 sdk names -->
-        <Param Name="AWSAccountId" Alias="AWSAccountIds" />
-        <Param Name="ActionName" Alias="ActionNames" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="AuthorizeS3ToPublish" Exclude="true"/>
-    <ServiceOperation MethodName="CheckIfPhoneNumberIsOptedOut" Verb="Test"/>
-    <ServiceOperation MethodName="ConfirmSubscription" PositionalParameters="Token;AuthenticateOnUnsubscribe"/>
-    <ServiceOperation MethodName="CreatePlatformApplication" PipelineParameter="Name" PositionalParameters="Platform;Attributes"/>
-    <ServiceOperation MethodName="CreatePlatformEndpoint" PipelineParameter="PlatformApplicationArn" PositionalParameters="Token;Attributes;CustomUserData"/>
-    <ServiceOperation MethodName="CreateTopic" />
-    <ServiceOperation MethodName="DeleteEndpoint" Output="Void" ShouldProcessTarget="EndpointArn" />
-    <ServiceOperation MethodName="DeletePlatformApplication" Output="Void" ShouldProcessTarget="PlatformApplicationArn" />
-    <ServiceOperation MethodName="DeleteTopic" Output="Void" ShouldProcessTarget="TopicArn"/>
-    <ServiceOperation MethodName="GetEndpointAttributes" Noun="EndpointAttribute" LegacyAlias="Get-SNSEndpointAttributes" />
-    <ServiceOperation MethodName="GetPlatformApplicationAttributes" Noun="PlatformApplicationAttribute" LegacyAlias="Get-SNSPlatformApplicationAttributes" />
-    <ServiceOperation MethodName="GetSMSAttributes" Noun="SMSAttribute" LegacyAlias="Get-SNSSMSAttributes"/>
-    <ServiceOperation MethodName="GetSubscriptionAttributes" />
-    <ServiceOperation MethodName="GetTopicAttributes"/>
-    <ServiceOperation MethodName="ListEndpointsByPlatformApplication" PipelineParameter="PlatformApplicationArn"/>
-    <ServiceOperation MethodName="ListPhoneNumbersOptedOut"/>
-    <ServiceOperation MethodName="ListPlatformApplications" Noun="PlatformApplicationList" LegacyAlias="Get-SNSPlatformApplications"/>
-    <ServiceOperation MethodName="ListSubscriptions"/>
-    <ServiceOperation MethodName="ListSubscriptionsByTopic"/>
-    <ServiceOperation MethodName="ListTopics"/>
-    <ServiceOperation MethodName="OptInPhoneNumber" Verb="Enable" Noun="PhoneNumber" Output="Void"/>
-    <ServiceOperation MethodName="Publish" Verb="Publish" Noun="Message" PositionalParameters="Message;MessageStructure;Subject"/>
-    <ServiceOperation MethodName="RemovePermission" Output="Void" ShouldProcessTarget="Label" PositionalParameters="Label"/>
-    <!-- do we need shouldprocess here? -->
-    <ServiceOperation MethodName="SetEndpointAttributes" Output="Void" PipelineParameter="EndpointArn" PositionalParameters="Attributes" Noun="EndpointAttribute" LegacyAlias="Set-SNSEndpointAttributes" />
-    <ServiceOperation MethodName="SetPlatformApplicationAttributes" Output="Void" PipelineParameter="PlatformApplicationArn" PositionalParameters="Attributes" Noun="PlatformApplicationAttribute" LegacyAlias="Set-SNSPlatformApplicationAttributes"/>
-    <ServiceOperation MethodName="SetSMSAttributes" Output="Void" PositionalParameters="Attributes" Noun="SMSAttribute" LegacyAlias="Set-SNSSMSAttributes"/>
-    <ServiceOperation MethodName="SetSubscriptionAttributes" Output="Void" PipelineParameter="SubscriptionArn" PositionalParameters="AttributeName;AttributeValue"/>
-    <ServiceOperation MethodName="SetTopicAttributes" Output="Void" PositionalParameters="AttributeName;AttributeValue"/>
-    <ServiceOperation MethodName="Subscribe" Verb="Connect" Noun="Notification" PositionalParameters="Protocol;Endpoint"/>
-    <ServiceOperation MethodName="Unsubscribe" Verb="Disconnect" Noun="Notification" Output="Void" />
-    <ServiceOperation MethodName="SubscribeQueue" Exclude="true" />
-    <ServiceOperation MethodName="SubscribeQueueToTopics" Exclude="true" />
-    <ServiceOperation MethodName="FindTopic" Exclude="true" />
-  </ServiceOperations>
-  
-  <PipelineByValueProperties>
-    <Property>TopicArn</Property>
-    <Property>SubscriptionArn</Property>
-    <Property>PlatformApplicationArn</Property>
-    <Property>EndpointArn</Property>
-  </PipelineByValueProperties>>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonSimpleNotificationService</SourceGenerationRoot>
+    <ServiceNounPrefix>SNS</ServiceNounPrefix>
+    <ServiceName>Amazon Simple Notification Service</ServiceName>
+    <ServiceClientInterface>IAmazonSimpleNotificationService</ServiceClientInterface>
+    <ServiceClient>AmazonSimpleNotificationServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.SimpleNotificationService</ServiceNamespace>
+    <PositionalParameters>TopicArn</PositionalParameters>
+    <PipelineParameter>TopicArn</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="SubscriptionAttributes" To="SubscriptionAttribute" />
+        <Map From="Subscriptions" To="Subscription" />
+        <Map From="SubscriptionsByTopic" To="SubscriptionByTopic" />
+        <Map From="TopicAttributes" To="TopicAttribute" />
+        <Map From="Topics" To="Topic" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>NextToken</Property>
+        <Property>TopicArn</Property>
+        <Property>SubscriptionArn</Property>
+        <Property>PlatformApplicationArn</Property>
+        <Property>EndpointArn</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddPermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Label;AWSAccountId;ActionName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="AWSAccountId" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="AWSAccountIds" />
+                <Param Name="ActionName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ActionNames" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeS3ToPublish" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckIfPhoneNumberIsOptedOut" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PhoneNumber" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ConfirmSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Token;AuthenticateOnUnsubscribe" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlatformApplication" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Platform;Attributes" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlatformEndpoint" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Token;Attributes;CustomUserData" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTopic" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpoint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlatformApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PlatformApplicationArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTopic" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TopicArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetEndpointAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EndpointAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SNSEndpointAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPlatformApplicationAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PlatformApplicationAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SNSPlatformApplicationAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSMSAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SMSAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Attributes" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SNSSMSAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetSubscriptionAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTopicAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpointsByPlatformApplication" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPhoneNumbersOptedOut" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlatformApplications" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PlatformApplicationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SNSPlatformApplications">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListSubscriptionsByTopic" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTopics" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="OptInPhoneNumber" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="PhoneNumber" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PhoneNumber" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Publish" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Publish" Noun="Message" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Message;MessageStructure;Subject" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemovePermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Label" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Label" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetEndpointAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EndpointAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attributes" PipelineParameter="EndpointArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Set-SNSEndpointAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetPlatformApplicationAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PlatformApplicationAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attributes" PipelineParameter="PlatformApplicationArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Set-SNSPlatformApplicationAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSMSAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SMSAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attributes" PipelineParameter="Attributes" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Set-SNSSMSAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSubscriptionAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTopicAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AttributeName;AttributeValue" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Subscribe" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Connect" Noun="Notification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Protocol;Endpoint" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="Unsubscribe" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Disconnect" Noun="Notification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubscribeQueue" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubscribeQueueToTopics" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FindTopic" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

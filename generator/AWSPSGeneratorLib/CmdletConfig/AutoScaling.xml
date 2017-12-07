@@ -1,119 +1,220 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>AS</ServiceNounPrefix>
-  <ServiceName>Auto Scaling</ServiceName>
-  <ServiceClientInterface>IAmazonAutoScaling</ServiceClientInterface>
-  <ServiceClient>AmazonAutoScalingClient</ServiceClient>
-  <ServiceNamespace>Amazon.AutoScaling</ServiceNamespace>
-
-  <VerbMappings>
-    <Map From="Execute" To="Start" />
-    <Map From="Terminate" To="Stop" />
-    <Map From="Record" To="Write" />
-  </VerbMappings>
-  
-  <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" />
-  
-  <PositionalParameters>AutoScalingGroupName</PositionalParameters>
-  
-  <PipelineParameter>AutoScalingGroupName</PipelineParameter>
-  
-  <NounMappings>
-    <Map From="AdjustmentTypes" To="AdjustmentType" />
-    <Map From="AutoScalingGroups" To="AutoScalingGroup" />
-    <Map From="AutoScalingInstances" To="AutoScalingInstance" />
-    <Map From="AutoScalingNotificationTypes" To="AutoScalingNotificationType" />
-    <Map From="LaunchConfigurations" To="LaunchConfiguration" />
-    <Map From="MetricCollectionTypes" To="MetricCollectionType" />
-    <Map From="NotificationConfigurations" To="NotificationConfiguration" />
-    <Map From="Policies" To="Policy" />
-    <Map From="Processes" To="Process" />
-    <Map From="ScalingActivities" To="ScalingActivity" />
-    <Map From="ScalingProcessTypes" To="ScalingProcessType" />
-    <Map From="ScheduledActions" To="ScheduledAction" />
-    <Map From="Tags" To="Tag" />
-    <Map From="TerminationPolicyTypes" To="TerminationPolicyType" />
-  </NounMappings>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AttachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
-    <ServiceOperation MethodName="AttachLoadBalancerTargetGroups" Output="Void" Noun="LoadBalancerTargetGroup" />
-    <ServiceOperation MethodName="AttachInstances" Output="Void" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName" Verb="Mount" Noun="Instance" LegacyAlias="Add-ASInstances">
-      <PassThru>
-        <Expression>cmdletContext.InstanceIds</Expression>
-        <Documentation>Returns the ids of the EC2 instances that were attached</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CompleteLifecycleAction" Output="Void"/>
-    <ServiceOperation MethodName="CreateAutoScalingGroup" Output="Void" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize"/>
-    <ServiceOperation MethodName="CreateLaunchConfiguration" Output="Void" PipelineParameter="LaunchConfigurationName" PositionalParameters="ImageId;KeyName;SecurityGroups"/>
-    <ServiceOperation MethodName="CreateOrUpdateTags" Verb="Set" Noun="Tag" Output="Void" ShouldProcessTarget="Tags">
-      <PassThru>
-        <Expression>cmdletContext.Tags</Expression>
-        <Documentation>Returns the collection of Tag objects that were created or updated</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeLoadBalancers" Noun="LoadBalancer" />
-    <ServiceOperation MethodName="DeleteAutoScalingGroup" Output="Void" ShouldProcessTarget="AutoScalingGroupName"/>
-    <ServiceOperation MethodName="DeleteLaunchConfiguration" Output="Void" />
-    <ServiceOperation MethodName="DeleteLifecycleHook" ShouldProcessTarget="LifecycleHookName" Output="Void"/>
-    <ServiceOperation MethodName="DeleteNotificationConfiguration" Output="Void" ShouldProcessTarget="TopicARN" PositionalParameters="TopicARN"/>
-    <ServiceOperation MethodName="DeletePolicy" Output="Void" ShouldProcessTarget="PolicyName" PositionalParameters="PolicyName">
-      <Params>
-        <Param Name="PolicyName" Alias="PolicyARN" />
-        <!-- for compat with v1.1 releases -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteScheduledAction" Output="Void" ShouldProcessTarget="ScheduledActionName" PositionalParameters="ScheduledActionName"/>
-    <ServiceOperation MethodName="DeleteTags" Output="Void" ShouldProcessTarget="Tags"/>
-    <ServiceOperation MethodName="DescribeAccountLimits" Output="Response" Noun="AccountLimit" LegacyAlias="Get-ASAccountLimits" />
-    <ServiceOperation MethodName="DescribeAdjustmentTypes"/>
-    <ServiceOperation MethodName="DescribeAutoScalingGroups" />
-    <ServiceOperation MethodName="DescribeAutoScalingInstances" />
-    <ServiceOperation MethodName="DescribeAutoScalingNotificationTypes"/>
-    <ServiceOperation MethodName="DescribeLaunchConfigurations" />
-    <ServiceOperation MethodName="DescribeLifecycleHooks" PositionalParameters="LifecycleHookNames" Noun="LifecycleHook" LegacyAlias="Get-ASLifecycleHooks" />
-    <ServiceOperation MethodName="DescribeLifecycleHookTypes" Noun="LifecycleHookType" LegacyAlias="Get-ASLifecycleHookTypes" />
-    <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" Noun="LoadBalancerTargetGroup" />
-    <ServiceOperation MethodName="DescribeMetricCollectionTypes" Output="Response"/>
-    <ServiceOperation MethodName="DescribeNotificationConfigurations" />
-    <ServiceOperation MethodName="DescribePolicies" PositionalParameters="PolicyNames"/>
-    <ServiceOperation MethodName="DescribeScalingActivities" PositionalParameters="ActivityIds"/>
-    <ServiceOperation MethodName="DescribeScalingProcessTypes"/>
-    <ServiceOperation MethodName="DescribeScheduledActions"/>
-    <ServiceOperation MethodName="DescribeTags" />
-    <ServiceOperation MethodName="DescribeTerminationPolicyTypes"/>
-    <ServiceOperation MethodName="DetachLoadBalancers" Noun="LoadBalancer" PipelineParameter="LoadBalancerNames" Output="Void" />
-    <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Output="Void" Noun="LoadBalancerTargetGroup" />
-    <ServiceOperation MethodName="DetachInstances" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName" Noun="Instance" LegacyAlias="Dismount-ASInstances" />
-    <ServiceOperation MethodName="DisableMetricsCollection" Output="Void" PositionalParameters="Metrics"/>
-    <ServiceOperation MethodName="EnterStandby" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName;ShouldDecrementDesiredCapacity"/>
-    <ServiceOperation MethodName="EnableMetricsCollection" Output="Void" PositionalParameters="Metrics;Granularity"/>
-    <ServiceOperation MethodName="ExecutePolicy" Output="Void" PositionalParameters="PolicyName;HonorCooldown"/>
-    <ServiceOperation MethodName="ExitStandby" PipelineParameter="InstanceIds" PositionalParameters="AutoScalingGroupName"/>
-    <ServiceOperation MethodName="PutLifecycleHook" Output="Void"/>
-    <ServiceOperation MethodName="PutNotificationConfiguration" Output="Void" PositionalParameters="TopicARN;NotificationTypes"/>
-    <ServiceOperation MethodName="PutScalingPolicy" PositionalParameters="PolicyName" ShouldProcessTarget="AutoScalingGroupName" Output="Response" />
-    <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Output="Void" PositionalParameters="ScheduledActionName;StartTime;EndTime"/>
-    <ServiceOperation MethodName="RecordLifecycleActionHeartbeat" Output="Void"/>
-    <ServiceOperation MethodName="ResumeProcesses" Output="Void" PositionalParameters="ScalingProcesses"/>
-    <ServiceOperation MethodName="SetDesiredCapacity" Output="Void" PositionalParameters="DesiredCapacity;HonorCooldown"/>
-    <ServiceOperation MethodName="SetInstanceHealth" Output="Void" PipelineParameter="InstanceId" PositionalParameters="HealthStatus;ShouldRespectGracePeriod"/>
-    <ServiceOperation MethodName="SetInstanceProtection" Output="Void" />
-    <ServiceOperation MethodName="SuspendProcesses" Output="Void" PositionalParameters="ScalingProcesses"/>
-    <ServiceOperation MethodName="TerminateInstanceInAutoScalingGroup" PipelineParameter="InstanceId" PositionalParameters="ShouldDecrementDesiredCapacity"/>
-    <ServiceOperation MethodName="UpdateAutoScalingGroup" Output="Void" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity"/>
-  </ServiceOperations>
-  
-  <PipelineByValueProperties>
-    <Property>AutoScalingGroupName</Property>
-    <Property>LaunchConfigurationName</Property>
-    <Property>ImageId</Property>
-    <Property>TopicARN</Property>
-    <Property>InstanceId</Property>
-    <Property>PolicyName</Property>
-    <Property>ScheduledActionName</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonAutoScaling</SourceGenerationRoot>
+    <ServiceNounPrefix>AS</ServiceNounPrefix>
+    <ServiceName>Auto Scaling</ServiceName>
+    <ServiceClientInterface>IAmazonAutoScaling</ServiceClientInterface>
+    <ServiceClient>AmazonAutoScalingClient</ServiceClient>
+    <ServiceNamespace>Amazon.AutoScaling</ServiceNamespace>
+    <PositionalParameters>AutoScalingGroupName</PositionalParameters>
+    <PipelineParameter>AutoScalingGroupName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="Execute" To="Start" />
+        <Map From="Terminate" To="Stop" />
+        <Map From="Record" To="Write" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AdjustmentTypes" To="AdjustmentType" />
+        <Map From="AutoScalingGroups" To="AutoScalingGroup" />
+        <Map From="AutoScalingInstances" To="AutoScalingInstance" />
+        <Map From="AutoScalingNotificationTypes" To="AutoScalingNotificationType" />
+        <Map From="LaunchConfigurations" To="LaunchConfiguration" />
+        <Map From="MetricCollectionTypes" To="MetricCollectionType" />
+        <Map From="NotificationConfigurations" To="NotificationConfiguration" />
+        <Map From="Policies" To="Policy" />
+        <Map From="Processes" To="Process" />
+        <Map From="ScalingActivities" To="ScalingActivity" />
+        <Map From="ScalingProcessTypes" To="ScalingProcessType" />
+        <Map From="ScheduledActions" To="ScheduledAction" />
+        <Map From="Tags" To="Tag" />
+        <Map From="TerminationPolicyTypes" To="TerminationPolicyType" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>AutoScalingGroupName</Property>
+        <Property>LaunchConfigurationName</Property>
+        <Property>ImageId</Property>
+        <Property>TopicARN</Property>
+        <Property>InstanceId</Property>
+        <Property>PolicyName</Property>
+        <Property>ScheduledActionName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AttachLoadBalancers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachLoadBalancerTargetGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancerTargetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AttachInstances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Add-ASInstances">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.InstanceIds</Expression>
+                <Documentation>Returns the ids of the EC2 instances that were attached</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CompleteLifecycleAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAutoScalingGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLaunchConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ImageId;KeyName;SecurityGroups" PipelineParameter="LaunchConfigurationName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOrUpdateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="Tag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Tags" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.Tags</Expression>
+                <Documentation>Returns the collection of Tag objects that were created or updated</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancers" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAutoScalingGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AutoScalingGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLaunchConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LaunchConfigurationName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLifecycleHook" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LifecycleHookName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotificationConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TopicARN" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TopicARN" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="PolicyName" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="PolicyARN" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScheduledAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ScheduledActionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScheduledActionName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Tags" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AccountLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASAccountLimits">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAdjustmentTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAutoScalingNotificationTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLaunchConfigurations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LaunchConfigurationNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLifecycleHooks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LifecycleHook" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LifecycleHookNames" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASLifecycleHooks">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLifecycleHookTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LifecycleHookType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASLifecycleHookTypes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerTargetGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancerTargetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMetricCollectionTypes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotificationConfigurations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AutoScalingGroupNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyNames" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingActivities" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ActivityIds" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingProcessTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledActions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTerminationPolicyTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachLoadBalancers" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachLoadBalancerTargetGroups" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancerTargetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DetachInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Dismount-ASInstances">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableMetricsCollection" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Metrics" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnterStandby" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName;ShouldDecrementDesiredCapacity" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableMetricsCollection" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Metrics;Granularity" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExecutePolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName;HonorCooldown" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ExitStandby" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AutoScalingGroupName" PipelineParameter="InstanceIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLifecycleHook" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutNotificationConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TopicARN;NotificationTypes" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScalingPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AutoScalingGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="PolicyName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScheduledUpdateGroupAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScheduledActionName;StartTime;EndTime" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RecordLifecycleActionHeartbeat" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResumeProcesses" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScalingProcesses" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetDesiredCapacity" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DesiredCapacity;HonorCooldown" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetInstanceHealth" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="HealthStatus;ShouldRespectGracePeriod" PipelineParameter="InstanceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetInstanceProtection" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SuspendProcesses" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ScalingProcesses" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateInstanceInAutoScalingGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ShouldDecrementDesiredCapacity" PipelineParameter="InstanceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAutoScalingGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LaunchConfigurationName;MinSize;MaxSize;DesiredCapacity" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

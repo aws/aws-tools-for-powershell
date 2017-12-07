@@ -1,121 +1,203 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>EB</ServiceNounPrefix>
-  <ServiceName>AWS Elastic Beanstalk</ServiceName>
-  <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
-  <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
-  <ServiceNamespace>Amazon.ElasticBeanstalk</ServiceNamespace>
-
-  <PositionalParameters>ApplicationName</PositionalParameters>
- 
-  <PipelineParameter>ApplicationName</PipelineParameter>
- 
-  <NounMappings>
-    <Map From="Applications" To="Application" />
-    <Map From="ApplicationVersions" To="ApplicationVersion" />
-    <Map From="AvailableSolutionStacks" To="AvailableSolutionStack" />
-    <Map From="ConfigurationOptions" To="ConfigurationOption" />
-    <Map From="ConfigurationSettings" To="ConfigurationSetting" />
-    <Map From="EnvironmentResources" To="EnvironmentResource" />
-    <Map From="Environments" To="Environment" />
-    <Map From="Events" To="Event" />
-    <Map From="EnvironmentCNAMEs" To="EnvironmentCNAME" />
-  </NounMappings>
-
-  <VerbMappings>
-    <Map From="List" To="Get" />
-    <Map From="Terminate" To="Stop" />
-    <Map From="Check" To="Get" />
-    <Map From="Retrieve" To="Get" />
-    <Map From="Swap" To="Set" />
-    <Map From="Validate" To="Test" />
-  </VerbMappings>
- 
-  <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" ServicePageSize="1000" />
- 
-  <MetadataProperties>
-    <Property>RefreshedAt</Property>
-  </MetadataProperties>
- 
-  <PipelineByValueProperties>
-    <Property>NextToken</Property>
-    <Property>ApplicationName</Property>
-    <Property>SolutionStackName</Property>
-    <Property>EnvironmentId</Property>
-    <Property>VersionLabel</Property>
-    <Property>EnvironmentName</Property>
-    <Property>TemplateName</Property>
-  </PipelineByValueProperties>
- 
-  <ServiceOperations>
-    <ServiceOperation MethodName="AbortEnvironmentUpdate" Verb="Stop" Output="Void" ShouldProcessTarget="EnvironmentName"/>
-    <ServiceOperation MethodName="ApplyEnvironmentManagedAction" Verb="Submit" Output="Response" ShouldProcessTarget="EnvironmentName"/>
-    <ServiceOperation MethodName="CheckDNSAvailability" Output="Response" />
-    <ServiceOperation MethodName="ComposeEnvironments" Verb="Group" />
-    <ServiceOperation MethodName="CreateApplication" PositionalParameters="Description"/>
-    <ServiceOperation MethodName="CreateApplicationVersion" PositionalParameters="VersionLabel;Description"/>
-    <ServiceOperation MethodName="CreateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description;SourceConfiguration"/>
-    <ServiceOperation MethodName="CreateEnvironment" Output="Response" PositionalParameters="EnvironmentName"/>
-    <ServiceOperation MethodName="CreatePlatformVersion" PipelineParameter="PlatformName" Output="Response" />
-    <ServiceOperation MethodName="CreateStorageLocation"/>
-    <ServiceOperation MethodName="DeleteApplication" Output="Void" ShouldProcessTarget="ApplicationName"/>
-    <ServiceOperation MethodName="DeleteApplicationVersion" Output="Void" ShouldProcessTarget="VersionLabel" PositionalParameters="VersionLabel;DeleteSourceBundle"/>
-    <ServiceOperation MethodName="DeleteConfigurationTemplate" Output="Void" ShouldProcessTarget="TemplateName" PositionalParameters="TemplateName"/>
-    <ServiceOperation MethodName="DeleteEnvironmentConfiguration" Output="Void" ShouldProcessTarget="EnvironmentName" PositionalParameters="EnvironmentName">
-      <PassThru>
-        <Expression>cmdletContext.EnvironmentName</Expression>
-        <Type>System.String</Type>
-        <Documentation>Returns the name of the environment that was updated</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeletePlatformVersion" ShouldProcessTarget="PlatformArn"/>
-    <ServiceOperation MethodName="DescribeApplications" Noun="Application" LegacyAlias="Get-EBApplications"/>
-    <ServiceOperation MethodName="DescribeApplicationVersions" PositionalParameters="VersionLabels" Noun="ApplicationVersion" LegacyAlias="Get-EBApplicationVersions"/>
-    <ServiceOperation MethodName="DescribeConfigurationOptions" Output="Response" Noun="ConfigurationOption" LegacyAlias="Get-EBConfigurationOptions"/>
-    <ServiceOperation MethodName="DescribeConfigurationSettings" Noun="ConfigurationSetting" LegacyAlias="Get-EBConfigurationSettings"/>
-    <ServiceOperation MethodName="DescribeEnvironmentHealth" PipelineParameter="EnvironmentId" Output="Response" />
-    <ServiceOperation MethodName="DescribeEnvironmentResources" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName" Noun="EnvironmentResource" LegacyAlias="Get-EBEnvironmentResources"/>
-    <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" />
-    <ServiceOperation MethodName="DescribeEnvironmentManagedActions" Noun="EnvironmentManagedAction" />
-    <ServiceOperation MethodName="DescribeEnvironments" PositionalParameters="EnvironmentIds;VersionLabel"/>
-    <ServiceOperation MethodName="DescribeEvents"/>
-    <ServiceOperation MethodName="DescribeInstancesHealth" PipelineParameter="EnvironmentId" Noun="InstanceHealth" />
-    <ServiceOperation MethodName="DescribePlatformVersion" Noun="PlatformVersionDetail"/>
-    <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response" Noun="AvailableSolutionStackList" LegacyAlias="Get-EBAvailableSolutionStack" />
-    <ServiceOperation MethodName="ListPlatformVersions" Noun="PlatformVersion"/>
-    <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTag" Output="Response" />
-    <ServiceOperation MethodName="RebuildEnvironment" Verb="Start" Noun="EnvironmentRebuild" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
-      <PassThru>
-        <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
-        <Type>System.String</Type>
-        <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="RequestEnvironmentInfo" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;InfoType">
-      <PassThru>
-        <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
-        <Type>System.String</Type>
-        <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="RestartAppServer" Output="Void" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName">
-      <PassThru>
-        <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
-        <Type>System.String</Type>
-        <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="RetrieveEnvironmentInfo" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;InfoType"/>
-    <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Output="Void" PipelineParameter="SourceEnvironmentId" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName" Noun="EnvironmentCNAME" LegacyAlias="Set-EBEnvironmentCNAMEs"/>
-    <ServiceOperation MethodName="TerminateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;TerminateResources"/>
-    <ServiceOperation MethodName="UpdateApplication" PositionalParameters="Description"/>
-    <ServiceOperation MethodName="UpdateApplicationResourceLifecycle" Output="Response" />
-    <ServiceOperation MethodName="UpdateApplicationVersion" PositionalParameters="VersionLabel;Description"/>
-    <ServiceOperation MethodName="UpdateConfigurationTemplate" Output="Response" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove"/>
-    <ServiceOperation MethodName="UpdateEnvironment" Output="Response" PipelineParameter="EnvironmentId" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description"/>
-    <ServiceOperation MethodName="ValidateConfigurationSettings" PositionalParameters="OptionSettings" Noun="ConfigurationSetting" LegacyAlias="Test-EBConfigurationSettings"/>
-    <ServiceOperation MethodName="UpdateTagsForResource" Noun="ResourceTag" PipelineParameter="ResourceArn" Output="Void" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonElasticBeanstalk</SourceGenerationRoot>
+    <ServiceNounPrefix>EB</ServiceNounPrefix>
+    <ServiceName>AWS Elastic Beanstalk</ServiceName>
+    <ServiceClientInterface>IAmazonElasticBeanstalk</ServiceClientInterface>
+    <ServiceClient>AmazonElasticBeanstalkClient</ServiceClient>
+    <ServiceNamespace>Amazon.ElasticBeanstalk</ServiceNamespace>
+    <PositionalParameters>ApplicationName</PositionalParameters>
+    <PipelineParameter>ApplicationName</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="1000" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+        <Map From="Terminate" To="Stop" />
+        <Map From="Check" To="Get" />
+        <Map From="Retrieve" To="Get" />
+        <Map From="Swap" To="Set" />
+        <Map From="Validate" To="Test" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Applications" To="Application" />
+        <Map From="ApplicationVersions" To="ApplicationVersion" />
+        <Map From="AvailableSolutionStacks" To="AvailableSolutionStack" />
+        <Map From="ConfigurationOptions" To="ConfigurationOption" />
+        <Map From="ConfigurationSettings" To="ConfigurationSetting" />
+        <Map From="EnvironmentResources" To="EnvironmentResource" />
+        <Map From="Environments" To="Environment" />
+        <Map From="Events" To="Event" />
+        <Map From="EnvironmentCNAMEs" To="EnvironmentCNAME" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>RefreshedAt</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties>
+        <Property>NextToken</Property>
+        <Property>ApplicationName</Property>
+        <Property>SolutionStackName</Property>
+        <Property>EnvironmentId</Property>
+        <Property>VersionLabel</Property>
+        <Property>EnvironmentName</Property>
+        <Property>TemplateName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AbortEnvironmentUpdate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EnvironmentName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplyEnvironmentManagedAction" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EnvironmentName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CheckDNSAvailability" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CNAMEPrefix" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ComposeEnvironments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Group" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplication" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateApplicationVersion" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VersionLabel;Description" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateConfigurationTemplate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TemplateName;SolutionStackName;EnvironmentId;Description;SourceConfiguration" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePlatformVersion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlatformName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateStorageLocation" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ApplicationName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteApplicationVersion" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="VersionLabel" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VersionLabel;DeleteSourceBundle" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteConfigurationTemplate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TemplateName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TemplateName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentConfiguration" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EnvironmentName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.EnvironmentName</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the name of the environment that was updated</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePlatformVersion" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PlatformArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlatformArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplications" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Application" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EBApplications">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationVersions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ApplicationVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VersionLabels" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EBApplicationVersions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationOptions" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EBConfigurationOptions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeConfigurationSettings" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EBConfigurationSettings">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentHealth" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EnvironmentResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EBEnvironmentResources">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentManagedActionHistory" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentManagedActions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EnvironmentManagedAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentIds;VersionLabel" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeInstancesHealth" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstanceHealth" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePlatformVersion" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PlatformVersionDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PlatformArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAvailableSolutionStacks" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AvailableSolutionStackList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-EBAvailableSolutionStack">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPlatformVersions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PlatformVersion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filters" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebuildEnvironment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="EnvironmentRebuild" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestEnvironmentInfo" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName;InfoType" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestartAppServer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>GetFirstAssignedParameterValue("EnvironmentId", "EnvironmentName")</Expression>
+                <Type>System.String</Type>
+                <Documentation>Returns the id or name of the environment (depending on which parameter was supplied)</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RetrieveEnvironmentInfo" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName;InfoType" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SwapEnvironmentCNAMEs" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EnvironmentCNAME" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceEnvironmentName;DestinationEnvironmentId;DestinationEnvironmentName" PipelineParameter="SourceEnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Set-EBEnvironmentCNAMEs">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TerminateEnvironment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName;TerminateResources" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplication" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationResourceLifecycle" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateApplicationVersion" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="VersionLabel;Description" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateConfigurationTemplate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TemplateName;Description;OptionSettings;OptionsToRemove" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EnvironmentName;VersionLabel;TemplateName;Description" PipelineParameter="EnvironmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ValidateConfigurationSettings" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ConfigurationSetting" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="OptionSettings" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Test-EBConfigurationSettings">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateTagsForResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

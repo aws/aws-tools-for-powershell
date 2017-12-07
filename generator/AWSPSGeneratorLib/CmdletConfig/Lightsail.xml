@@ -34,221 +34,221 @@
         <Property>ResourceName</Property>
     </PipelineByValueProperties>
     <ServiceOperations>
-        <ServiceOperation MethodName="AllocateStaticIp" Output="Default" SkipOutputComputationCheck="false" Verb="New" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AllocateStaticIp" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachDisk" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachDisk" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachStaticIp" Output="Default" SkipOutputComputationCheck="false" Verb="Mount" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachStaticIp" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Mount" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CloseInstancePublicPorts" Output="Default" SkipOutputComputationCheck="false" Noun="InstancePublicPort" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CloseInstancePublicPorts" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstancePublicPort" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDisk" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDisk" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDiskFromSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDiskFromSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDiskSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDiskSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomain" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateDomainEntry" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateDomainEntry" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstanceSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInstanceSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstances" Output="Default" SkipOutputComputationCheck="false" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Instance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateInstancesFromSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateInstancesFromSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateKeyPair" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="KeyPairName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateKeyPair" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyPairName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDisk" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDisk" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDiskSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDiskSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomain" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteDomainEntry" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteDomainEntry" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstance" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteInstanceSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteInstanceSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteKeyPair" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="KeyPairName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteKeyPair" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyPairName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachDisk" Output="Default" SkipOutputComputationCheck="false" Verb="Dismount" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachDisk" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachStaticIp" Output="Default" SkipOutputComputationCheck="false" Verb="Dismount" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachStaticIp" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DownloadDefaultKeyPair" Output="Response" SkipOutputComputationCheck="false" Verb="Read" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DownloadDefaultKeyPair" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Read" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetActiveNames" Output="Default" SkipOutputComputationCheck="false" Noun="ActiveNameList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetActiveNames" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ActiveNameList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBlueprints" Output="Default" SkipOutputComputationCheck="false" Noun="BlueprintList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="IncludeInactive" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBlueprints" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="BlueprintList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IncludeInactive" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetBundles" Output="Default" SkipOutputComputationCheck="false" Noun="BundleList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="IncludeInactive" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetBundles" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="BundleList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="IncludeInactive" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomain" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDomains" Output="Default" SkipOutputComputationCheck="false" Noun="DomainList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDomains" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DomainList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDisk" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDisk" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDisks" Output="Default" SkipOutputComputationCheck="false" Noun="DiskList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDisks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DiskList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDiskSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDiskSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiskSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetDiskSnapshots" Output="Default" SkipOutputComputationCheck="false" Noun="DiskSnapshotList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetDiskSnapshots" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DiskSnapshotList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstance" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceAccessDetails" Output="Default" SkipOutputComputationCheck="false" Noun="InstanceAccessDetail" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstanceAccessDetails" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstanceAccessDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceMetricData" Output="Response" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstanceMetricData" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstancePortStates" Output="Default" SkipOutputComputationCheck="false" Noun="InstancePortStateList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstancePortStates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstancePortStateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceSnapshot" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstanceSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceSnapshotName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceSnapshots" Output="Default" SkipOutputComputationCheck="false" Noun="InstanceSnapshotList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstanceSnapshots" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstanceSnapshotList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstanceState" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstanceState" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetInstances" Output="Default" SkipOutputComputationCheck="false" Noun="InstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKeyPair" Output="Default" SkipOutputComputationCheck="false" Noun="KeyPairInfo" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="KeyPairName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetKeyPair" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="KeyPairInfo" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="KeyPairName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetKeyPairs" Output="Default" SkipOutputComputationCheck="false" Noun="KeypairList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetKeyPairs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="KeypairList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOperation" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="OperationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetOperation" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OperationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOperations" Output="Default" SkipOutputComputationCheck="false" Noun="OperationList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetOperations" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OperationList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetOperationsForResource" Output="Default" SkipOutputComputationCheck="false" Noun="OperationListForResource" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetOperationsForResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OperationListForResource" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetRegions" Output="Default" SkipOutputComputationCheck="false" Noun="RegionList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetRegions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="RegionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStaticIp" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetStaticIp" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetStaticIps" Output="Default" SkipOutputComputationCheck="false" Noun="StaticIpList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetStaticIps" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="StaticIpList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ImportKeyPair" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="PublicKeyBase64" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ImportKeyPair" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PublicKeyBase64" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="IsVpcPeered" Output="Default" SkipOutputComputationCheck="false" Verb="Test" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="IsVpcPeered" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Test" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="OpenInstancePublicPorts" Output="Default" SkipOutputComputationCheck="false" Noun="InstancePublicPort" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="OpenInstancePublicPorts" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="InstancePublicPort" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PeerVpc" Output="Default" SkipOutputComputationCheck="false" Verb="Add" Noun="PeerVpc" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PeerVpc" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="PeerVpc" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="PutInstancePublicPorts" Output="Default" SkipOutputComputationCheck="false" Verb="Set" Noun="InstancePublicPort" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="PutInstancePublicPorts" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="InstancePublicPort" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="RebootInstance" Output="Default" SkipOutputComputationCheck="false" Verb="Restart" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="RebootInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ReleaseStaticIp" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="ReleaseStaticIp" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="StaticIpName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StartInstance" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StartInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="StopInstance" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="StopInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params>
                 <Param Name="Force" NewName="OverrideStuck" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="UnpeerVpc" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="PeerVpc" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UnpeerVpc" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="PeerVpc" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateDomainEntry" Output="Default" SkipOutputComputationCheck="false" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateDomainEntry" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="UpdateLoadBalancerAttribute" Output="Default" SkipOutputComputationCheck="false" Verb="Update" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="LoadBalancerName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="UpdateLoadBalancerAttribute" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoadBalancer" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLoadBalancer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoadBalancerMetricData" Output="Response" SkipOutputComputationCheck="false" Verb="Get" Noun="LoadBalancerMetricData" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="LoadBalancerName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLoadBalancerMetricData" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancerMetricData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoadBalancers" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="LoadBalancerList" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLoadBalancers" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancerList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="GetLoadBalancerTlsCertificates" Output="Default" SkipOutputComputationCheck="false" Verb="Get" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="GetLoadBalancerTlsCertificates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachInstancesToLoadBalancer" Output="Default" SkipOutputComputationCheck="false" Verb="Add" Noun="InstancesToLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="LoadBalancerName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachInstancesToLoadBalancer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="InstancesToLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="AttachLoadBalancerTlsCertificate" Output="Default" SkipOutputComputationCheck="false" Verb="Add" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="CertificateName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="AttachLoadBalancerTlsCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoadBalancer" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="LoadBalancerName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLoadBalancer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="CreateLoadBalancerTlsCertificate" Output="Default" SkipOutputComputationCheck="false" Verb="New" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="CertificateName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="CreateLoadBalancerTlsCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoadBalancer" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLoadBalancer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DeleteLoadBalancerTlsCertificate" Output="Default" SkipOutputComputationCheck="false" Verb="Remove" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="CertificateName" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DeleteLoadBalancerTlsCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="LoadBalancerTlsCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CertificateName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Force" NewName="DeleteWithForce" AutoApplyAlias="false" />
+                <Param Name="Force" NewName="DeleteWithForce" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
             </Params>
         </ServiceOperation>
-        <ServiceOperation MethodName="DetachInstancesFromLoadBalancer" Output="Default" SkipOutputComputationCheck="false" Verb="Dismount" Noun="InstancesFromLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" AnonymousShouldProcessTarget="false" ShouldProcessTarget="LoadBalancerName" AnonymousAuthentication="Never" NoPipelineParameter="false" PipelineParameter="InstanceNames" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DetachInstancesFromLoadBalancer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Dismount" Noun="InstancesFromLoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="LoadBalancerName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
     </ServiceOperations>

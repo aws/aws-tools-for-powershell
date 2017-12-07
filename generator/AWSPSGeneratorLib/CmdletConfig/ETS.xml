@@ -1,69 +1,99 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ETS</ServiceNounPrefix>
-  <ServiceName>Amazon Elastic Transcoder</ServiceName>
-  <ServiceClientInterface>IAmazonElasticTranscoder</ServiceClientInterface>
-  <ServiceClient>AmazonElasticTranscoderClient</ServiceClient>
-  <ServiceNamespace>Amazon.ElasticTranscoder</ServiceNamespace>
-
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <NounMappings>
-    <Map From="Presets" To="Preset" />
-    <Map From="Pipelines" To="Pipeline" />
-  </NounMappings>
-  
-  <AutoIterate Start="PageToken" Next="NextPageToken" />
-  
-  <PositionalParameters>Id</PositionalParameters>
-  
-  <PipelineParameter>Id</PipelineParameter>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="CancelJob" Output="Void"/>
-    <ServiceOperation MethodName="CreateJob" PipelineParameter="PipelineId">
-      <Params>
-        <!-- op takes same structure for input and output, hence collisions -->
-        <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" />
-        <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" />
-        <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" />
-        <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" />
-        <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" />
-        <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" />
-        <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" />
-        <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="CreatePipeline" PipelineParameter="Name" PositionalParameters="InputBucket;OutputBucket;Role"/>
-    <ServiceOperation MethodName="CreatePreset" Output="Response" PipelineParameter="Name" PositionalParameters="Description;Container"/>
-    <ServiceOperation MethodName="DeletePipeline" Output="Void"/>
-    <ServiceOperation MethodName="DeletePreset" Output="Void"/>
-    <ServiceOperation MethodName="ListJobsByPipeline" PipelineParameter="PipelineId" PositionalParameters="Ascending"/>
-    <ServiceOperation MethodName="ListJobsByStatus" PipelineParameter="Status" PositionalParameters="Ascending"/>
-    <ServiceOperation MethodName="ListPipelines" PositionalParameters="Ascending"/>
-    <ServiceOperation MethodName="ListPresets" PositionalParameters="Ascending"/>
-    <ServiceOperation MethodName="ReadJob"/>
-    <ServiceOperation MethodName="ReadPipeline"/>
-    <ServiceOperation MethodName="ReadPreset"/>
-    <ServiceOperation MethodName="TestRole" Exclude="true"/>
-    <ServiceOperation MethodName="UpdatePipeline" PositionalParameters="Name;InputBucket;Role"/>
-    <ServiceOperation MethodName="UpdatePipelineNotifications" Noun="PipelineNotification" LegacyAlias="Update-ETSPipelineNotifications" />
-    <ServiceOperation MethodName="UpdatePipelineStatus" PositionalParameters="Status"/>
-  </ServiceOperations>
-
-  <!-- This feature would be a breaking change to several cmdlets, so we're punting it for PS -->
-  <MetadataProperties>
-    <Property>Warnings</Property>
-  </MetadataProperties>
-  
-  <PipelineByValueProperties>
-    <Property>Id</Property>
-    <Property>Key</Property>
-    <Property>PresetId</Property>
-    <Property>PipelineId</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonElasticTranscoder</SourceGenerationRoot>
+    <ServiceNounPrefix>ETS</ServiceNounPrefix>
+    <ServiceName>Amazon Elastic Transcoder</ServiceName>
+    <ServiceClientInterface>IAmazonElasticTranscoder</ServiceClientInterface>
+    <ServiceClient>AmazonElasticTranscoderClient</ServiceClient>
+    <ServiceNamespace>Amazon.ElasticTranscoder</ServiceNamespace>
+    <PositionalParameters>Id</PositionalParameters>
+    <PipelineParameter>Id</PipelineParameter>
+    <AutoIterate Start="PageToken" Next="NextPageToken" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Presets" To="Preset" />
+        <Map From="Pipelines" To="Pipeline" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties>
+        <Property>Warnings</Property>
+    </MetadataProperties>
+    <PipelineByValueProperties>
+        <Property>Id</Property>
+        <Property>Key</Property>
+        <Property>PresetId</Property>
+        <Property>PipelineId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePipeline" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="InputBucket;OutputBucket;Role" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePreset" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description;Container" PipelineParameter="Name" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePipeline" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeletePreset" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobsByPipeline" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ascending" PipelineParameter="PipelineId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobsByStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ascending" PipelineParameter="Status" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPipelines" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ascending" PipelineParameter="Ascending" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListPresets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Ascending" PipelineParameter="Ascending" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReadJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReadPipeline" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReadPreset" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TestRole" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipeline" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name;InputBucket;Role" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipelineNotifications" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PipelineNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Update-ETSPipelineNotifications">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdatePipelineStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Status" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

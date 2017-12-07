@@ -1,78 +1,109 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>SQS</ServiceNounPrefix>
-  <ServiceName>Amazon Simple Queue Service</ServiceName>
-  <ServiceClientInterface>IAmazonSQS</ServiceClientInterface>
-  <ServiceClient>AmazonSQSClient</ServiceClient>
-  <ServiceNamespace>Amazon.SQS</ServiceNamespace>
-
-  <PositionalParameters>QueueUrl</PositionalParameters>
-  
-  <PipelineParameter>QueueUrl</PipelineParameter>
-  
-  <NounMappings>
-    <Map From="QueueAttributes" To="QueueAttribute" />
-    <Map From="Queues" To="Queue" />
-  </NounMappings>
-  
-  <VerbMappings>
-    <Map From="List" To="Get" />
-    <Map From="Change" To="Edit" />
-  </VerbMappings>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddPermission" Output="Void" PositionalParameters="Label;AWSAccountIds;Actions">
-      <Params>
-        <Param Name="Actions" Alias="ActionNames" />
-        <!-- maintain compat with v1 sdk name -->
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="AuthorizeS3ToSendMessage" Exclude="true"/>
-    <ServiceOperation MethodName="ChangeMessageVisibility" Output="Void" PositionalParameters="ReceiptHandle;VisibilityTimeout;"/>
-    <ServiceOperation MethodName="ChangeMessageVisibilityBatch" Output="Response"/>
-    <ServiceOperation MethodName="CreateQueue" PipelineParameter="QueueName" PositionalParameters="DefaultVisibilityTimeout;DelaySeconds;Attributes">
-      <Params>
-        <!-- bring parameter name into line with other services and suffix with 'InUNITS' -->
-        <Param Name="DelaySeconds" NewName="DelayInSeconds" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DeleteMessage" Output="Void" ShouldProcessTarget="ReceiptHandle" PositionalParameters="ReceiptHandle;Attribute"/>
-    <ServiceOperation MethodName="DeleteMessageBatch" Output="Response" ShouldProcessTarget="Entries"/>
-    <!-- tricky, is [] type -->
-    <ServiceOperation MethodName="DeleteQueue" Output="Void" ShouldProcessTarget="QueueUrl" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="GetQueueAttributes" Output="Response" PositionalParameters="AttributeNames"/>
-    <ServiceOperation MethodName="GetQueueUrl" PipelineParameter="QueueName" PositionalParameters="QueueOwnerAWSAccountId"/>
-    <ServiceOperation MethodName="ListDeadLetterSourceQueues" Noun="DeadLetterSourceQueue" LegacyAlias="Get-SQSDeadLetterSourceQueues"/>
-    <ServiceOperation MethodName="ListQueues" PositionalParameters="Attribute"/>
-    <ServiceOperation MethodName="ListQueueTags" Noun="ResourceTag" />
-    <ServiceOperation MethodName="PurgeQueue" Output="Void" Verb="Clear" />
-    <ServiceOperation MethodName="ReceiveMessage" PositionalParameters="MaxNumberOfMessages;VisibilityTimeout;AttributeNames;WaitTimeSeconds" ShouldProcessTarget="QueueUrl">
-      <Params>
-        <!-- bring parameter name into line with other services and suffix with 'InUNITS' -->
-        <Param Name="WaitTimeSeconds" NewName="WaitTimeInSeconds" />
-        <Param Name="MaxNumberOfMessages" NewName="MessageCount" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="RemovePermission" Output="Void" ShouldProcessTarget="Label" PositionalParameters="Label"/>
-    <!-- do we need shouldprocess here? -->
-    <ServiceOperation MethodName="SendMessage" Output="Response" PositionalParameters="MessageBody;DelaySeconds" ShouldProcessTarget="MessageDeduplicationId">
-      <Params>
-        <!-- bring parameter name into line with other services and suffix with 'InUNITS' -->
-        <Param Name="DelaySeconds" NewName="DelayInSeconds" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="SendMessageBatch" Output="Response"/>
-    <ServiceOperation MethodName="SetQueueAttributes" Output="Void" PositionalParameters="Attributes"/>
-    <ServiceOperation MethodName="TagQueue" Verb="Add" Noun="ResourceTag" Output="Void" />
-    <ServiceOperation MethodName="UntagQueue" Verb="Remove" Noun="ResourceTag" Output="Void" />
-  </ServiceOperations>
-
-  <PipelineByValueProperties>
-    <Property>QueueUrl</Property>
-    <Property>Id</Property>
-    <Property>QueueName</Property>
-    <Property>ReceiptHandle</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonSQS</SourceGenerationRoot>
+    <ServiceNounPrefix>SQS</ServiceNounPrefix>
+    <ServiceName>Amazon Simple Queue Service</ServiceName>
+    <ServiceClientInterface>IAmazonSQS</ServiceClientInterface>
+    <ServiceClient>AmazonSQSClient</ServiceClient>
+    <ServiceNamespace>Amazon.SQS</ServiceNamespace>
+    <PositionalParameters>QueueUrl</PositionalParameters>
+    <PipelineParameter>QueueUrl</PipelineParameter>
+    <VerbMappings>
+        <Map From="List" To="Get" />
+        <Map From="Change" To="Edit" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="QueueAttributes" To="QueueAttribute" />
+        <Map From="Queues" To="Queue" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>QueueUrl</Property>
+        <Property>Id</Property>
+        <Property>QueueName</Property>
+        <Property>ReceiptHandle</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddPermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Label;AWSAccountIds;Actions" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="Actions" NewName="Action" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="ActionNames" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeS3ToSendMessage" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChangeMessageVisibility" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ReceiptHandle;VisibilityTimeout;" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ChangeMessageVisibilityBatch" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateQueue" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DefaultVisibilityTimeout;DelaySeconds;Attributes" PipelineParameter="QueueName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="DelaySeconds" NewName="DelayInSeconds" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMessage" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ReceiptHandle" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ReceiptHandle;Attribute" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteMessageBatch" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Entries" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteQueue" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QueueUrl" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueueAttributes" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AttributeNames" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetQueueUrl" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="QueueOwnerAWSAccountId" PipelineParameter="QueueName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDeadLetterSourceQueues" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DeadLetterSourceQueue" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-SQSDeadLetterSourceQueues">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueues" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attribute" PipelineParameter="QueueNamePrefix" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListQueueTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurgeQueue" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Clear" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ReceiveMessage" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="QueueUrl" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MaxNumberOfMessages;VisibilityTimeout;AttributeNames;WaitTimeSeconds" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="WaitTimeSeconds" NewName="WaitTimeInSeconds" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="MaxNumberOfMessages" NewName="MessageCount" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemovePermission" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Label" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Label" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendMessage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MessageDeduplicationId" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MessageBody;DelaySeconds" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="DelaySeconds" NewName="DelayInSeconds" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="SendMessageBatch" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetQueueAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Attributes" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="TagQueue" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UntagQueue" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

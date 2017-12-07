@@ -1,15 +1,31 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>MCA</ServiceNounPrefix>
-  <ServiceName>AWS Marketplace Commerce Analytics</ServiceName>
-  <ServiceNamespace>Amazon.AWSMarketplaceCommerceAnalytics</ServiceNamespace>
-  <ServiceClientInterface>IAmazonAWSMarketplaceCommerceAnalytics</ServiceClientInterface>
-  <ServiceClient>AmazonAWSMarketplaceCommerceAnalyticsClient</ServiceClient>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="GenerateDataSet" Verb="New" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" PositionalParameters="DestinationS3BucketName;RoleNameArn;SnsTopicArn"/>
-    <ServiceOperation MethodName="StartSupportDataExport" NoPipelineParameter="true" IgnoreSupportsShouldProcess="true" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonAWSMarketplaceCommerceAnalytics</SourceGenerationRoot>
+    <ServiceNounPrefix>MCA</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Commerce Analytics</ServiceName>
+    <ServiceClientInterface>IAmazonAWSMarketplaceCommerceAnalytics</ServiceClientInterface>
+    <ServiceClient>AmazonAWSMarketplaceCommerceAnalyticsClient</ServiceClient>
+    <ServiceNamespace>Amazon.AWSMarketplaceCommerceAnalytics</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GenerateDataSet" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DestinationS3BucketName;RoleNameArn;SnsTopicArn" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartSupportDataExport" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

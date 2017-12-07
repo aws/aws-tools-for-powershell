@@ -1,15 +1,31 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>LEX</ServiceNounPrefix>
-  <ServiceName>Amazon Lex</ServiceName>
-  <ServiceClientInterface>IAmazonLex</ServiceClientInterface>
-  <ServiceClient>AmazonLexClient</ServiceClient>
-  <ServiceNamespace>Amazon.Lex</ServiceNamespace>
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="PostText" Verb="Send" PipelineParameter="InputText" Output="Response" IgnoreSupportsShouldProcess="true"/>
-    <ServiceOperation MethodName="PostContent" Verb="Send" NoPipelineParameter="true" Output="Response" IgnoreSupportsShouldProcess="true"/>
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonLex</SourceGenerationRoot>
+    <ServiceNounPrefix>LEX</ServiceNounPrefix>
+    <ServiceName>Amazon Lex</ServiceName>
+    <ServiceClientInterface>IAmazonLex</ServiceClientInterface>
+    <ServiceClient>AmazonLexClient</ServiceClient>
+    <ServiceNamespace>Amazon.Lex</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="PostText" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InputText" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PostContent" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="" Exclude="false" IgnoreSupportsShouldProcess="true" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

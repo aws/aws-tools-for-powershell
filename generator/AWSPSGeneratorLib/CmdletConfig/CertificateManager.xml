@@ -1,32 +1,59 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ACM</ServiceNounPrefix>
-  <ServiceName>AWS Certificate Manager</ServiceName>
-  <ServiceClientInterface>IAmazonCertificateManager</ServiceClientInterface>
-  <ServiceClient>AmazonCertificateManagerClient</ServiceClient>
-  <ServiceNamespace>Amazon.CertificateManager</ServiceNamespace>
-
-  <AutoIterate Start="NextToken" EmitLimit="MaxItems" Next="NextToken" />
-  
-  <PipelineParameter>CertificateArn</PipelineParameter>
-  
-  <PipelineByValueProperties>
-    <Property>CertificateArn</Property>
-    <Property>DomainName</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddTagsToCertificate" Noun="CertificateTag" Output="Void" PositionalParameters="Tags"/>
-    <ServiceOperation MethodName="DeleteCertificate" Output="Void" />
-    <ServiceOperation MethodName="DescribeCertificate" Noun="CertificateDetail" />
-    <ServiceOperation MethodName="GetCertificate" Output="Response" />
-    <ServiceOperation MethodName="ImportCertificate" />
-    <ServiceOperation MethodName="ListCertificates" Verb="Get" Noun="CertificateList" />
-    <ServiceOperation MethodName="ListTagsForCertificate" Verb="Get" Noun="CertificateTagList" />
-    <ServiceOperation MethodName="RequestCertificate" Verb="New" NoPipelineParameter="true" ShouldProcessTarget="DomainName" />
-    <ServiceOperation MethodName="RemoveTagsFromCertificate" Noun="CertificateTag" Output="Void" ShouldProcessTarget="CertificateArn" />
-    <ServiceOperation MethodName="ResendValidationEmail" Verb="Send" Output="Void" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCertificateManager</SourceGenerationRoot>
+    <ServiceNounPrefix>ACM</ServiceNounPrefix>
+    <ServiceName>AWS Certificate Manager</ServiceName>
+    <ServiceClientInterface>IAmazonCertificateManager</ServiceClientInterface>
+    <ServiceClient>AmazonCertificateManagerClient</ServiceClient>
+    <ServiceNamespace>Amazon.CertificateManager</ServiceNamespace>
+    <PipelineParameter>CertificateArn</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxItems" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>CertificateArn</Property>
+        <Property>DomainName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="CertificateTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="CertificateDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetCertificate" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCertificates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CertificateTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RequestCertificate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromCertificate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="CertificateTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="CertificateArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResendValidationEmail" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

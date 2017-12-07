@@ -1,62 +1,85 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>CW</ServiceNounPrefix>
-  <ServiceName>Amazon CloudWatch</ServiceName>
-  <ServiceClientInterface>IAmazonCloudWatch</ServiceClientInterface>
-  <ServiceClient>AmazonCloudWatchClient</ServiceClient>
-  <ServiceNamespace>Amazon.CloudWatch</ServiceNamespace>
-
-  <NounMappings>
-    <Map From="AlarmActions" To="AlarmAction" />
-    <Map From="Alarms" To="Alarm" />
-    <Map From="AlarmsForMetric" To="AlarmForMetric" />
-  </NounMappings>
-  
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <AutoIterate EmitLimit="MaxRecords" Start="NextToken" Next="NextToken" />
-
-  <PositionalParameters>AlarmNames</PositionalParameters>
-
-  <PipelineParameter>AlarmNames</PipelineParameter>
-  
-  <!-- legacy aliases to original plural-noun named hand-maintained cmdlets, 
-       to be injected into the AWSPowerShellLegacyAliases.psm1 file
-  -->
-  <LegacyAliases>
-    <AliasSet Cmdlet="Get-CWMetricList">Get-CWMetrics</AliasSet>
-  </LegacyAliases>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="DeleteAlarms" Output="Void"/>
-    <ServiceOperation MethodName="DeleteDashboards" Noun="Dashboard" Output="Void" />
-    <ServiceOperation MethodName="DescribeAlarmHistory" PipelineParameter="AlarmName" PositionalParameters="HistoryItemType;StartDate;EndDate"/>
-    <ServiceOperation MethodName="DescribeAlarms"/>
-    <ServiceOperation MethodName="DescribeAlarmsForMetric" PipelineParameter="MetricName" PositionalParameters="Namespace;Statistic"/>
-    <ServiceOperation MethodName="DisableAlarmActions" Output="Void"/>
-    <ServiceOperation MethodName="EnableAlarmActions" Output="Void"/>
-    <ServiceOperation MethodName="GetDashboard" Output="Response" />
-    <ServiceOperation MethodName="GetMetricStatistics" Output="Response" PipelineParameter="Namespace" PositionalParameters="MetricName;Dimensions;StartDate;EndDate" Noun="MetricStatistic" LegacyAlias="Get-CWMetricStatistics" />
-    <ServiceOperation MethodName="ListDashboards" Noun="DashboardList">
-      <AutoIterate EmitLimit="" Start="NextToken" Next="NextToken" />
-    </ServiceOperation>
-    <!-- even though we can now handle api-specific autoiteration settings, this cmdlet had a 'NoAutoIteration' flag
-         added at some stage, so we cannot re-enable generation yet as we'd lose it and incur a breaking change
-    -->
-    <ServiceOperation MethodName="ListMetrics" Exclude="true" />
-    <ServiceOperation MethodName="PutDashboard" PipelineParameter="DashboardBody" />
-    <ServiceOperation MethodName="PutMetricAlarm" Output="Void" PipelineParameter="AlarmName" PositionalParameters="AlarmDescription"/>
-    <ServiceOperation MethodName="PutMetricData" Output="Void" PipelineParameter="Namespace" PositionalParameters="MetricData"/>
-    <ServiceOperation MethodName="SetAlarmState" Output="Void" PipelineParameter="AlarmName" PositionalParameters="StateValue;StateReason;StateReasonData"/>
-  </ServiceOperations>
-  
-  <PipelineByValueProperties>
-    <Property>AlarmName</Property>
-    <Property>MetricName</Property>
-    <Property>Namespace</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloudWatch</SourceGenerationRoot>
+    <ServiceNounPrefix>CW</ServiceNounPrefix>
+    <ServiceName>Amazon CloudWatch</ServiceName>
+    <ServiceClientInterface>IAmazonCloudWatch</ServiceClientInterface>
+    <ServiceClient>AmazonCloudWatchClient</ServiceClient>
+    <ServiceNamespace>Amazon.CloudWatch</ServiceNamespace>
+    <PositionalParameters>AlarmNames</PositionalParameters>
+    <PipelineParameter>AlarmNames</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxRecords" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AlarmActions" To="AlarmAction" />
+        <Map From="Alarms" To="Alarm" />
+        <Map From="AlarmsForMetric" To="AlarmForMetric" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases>
+        <AliasSet Cmdlet="Get-CWMetricList">Get-CWMetrics</AliasSet>
+    </LegacyAliases>
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>AlarmName</Property>
+        <Property>MetricName</Property>
+        <Property>Namespace</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteAlarms" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDashboards" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Dashboard" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarmHistory" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="HistoryItemType;StartDate;EndDate" PipelineParameter="AlarmName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarms" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAlarmsForMetric" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Namespace;Statistic" PipelineParameter="MetricName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisableAlarmActions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="EnableAlarmActions" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetDashboard" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetMetricStatistics" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="MetricStatistic" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MetricName;Dimensions;StartDate;EndDate" PipelineParameter="Namespace" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CWMetricStatistics">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDashboards" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DashboardList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardNamePrefix" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="" ServicePageSize="-1" />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMetrics" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutDashboard" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DashboardBody" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricAlarm" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AlarmDescription" PipelineParameter="AlarmName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutMetricData" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MetricData" PipelineParameter="Namespace" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetAlarmState" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="StateValue;StateReason;StateReasonData" PipelineParameter="AlarmName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

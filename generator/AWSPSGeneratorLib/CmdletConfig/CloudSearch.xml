@@ -1,68 +1,117 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>CS</ServiceNounPrefix>
-  <ServiceName>Amazon CloudSearch</ServiceName>
-  <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
-  <ServiceClient>AmazonCloudSearchClient</ServiceClient>
-  <ServiceNamespace>Amazon.CloudSearch</ServiceNamespace>
-
-  <PositionalParameters>DomainName</PositionalParameters>
-  
-  <PipelineParameter>DomainName</PipelineParameter>
-  
-  <NounMappings>
-    <Map From="AnalysisSchemes" To="AnalysisScheme" />
-    <Map From="AvailabilityOptions" To="AvailabilityOption" />
-    <Map From="Domains" To="Domain" />
-    <Map From="DomainNames" To="DomainName" />
-    <Map From="Expressions" To="Expression" />
-    <Map From="IndexFields" To="IndexField" />
-    <Map From="ScalingParameters" To="ScalingParameter" />
-    <Map From="ServiceAccessPolicies" To="ServiceAccessPolicy" />
-    <Map From="Suggesters" To="Suggester" />
-  </NounMappings>
-  
-  <VerbMappings>
-    <Map From="Define" To="Set" />
-  </VerbMappings>
-  
-  <CustomAliases>
-    <AliasSet Cmdlet="Set-CSIndexField">Define-CSIndexField</AliasSet>
-    <AliasSet Cmdlet="Start-CSIndex">Index-CSDocuments</AliasSet>
-  </CustomAliases>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="BuildSuggesters" Verb="Start" Noun="SuggestersBuild"/>
-    <ServiceOperation MethodName="CreateDomain"/>
-    <ServiceOperation MethodName="DefineAnalysisScheme" ShouldProcessTarget="DomainName"/>
-    <ServiceOperation MethodName="DefineExpression"/>
-    <ServiceOperation MethodName="DefineIndexField"/>
-    <ServiceOperation MethodName="DefineSuggester"/>
-    <ServiceOperation MethodName="DeleteAnalysisScheme" ShouldProcessTarget="AnalysisSchemeName" PositionalParameters="AnalysisSchemeName"/>
-    <ServiceOperation MethodName="DeleteDomain"/>
-    <ServiceOperation MethodName="DeleteExpression" ShouldProcessTarget="ExpressionName" PositionalParameters="ExpressionName"/>
-    <ServiceOperation MethodName="DeleteIndexField" ShouldProcessTarget="IndexFieldName" PositionalParameters="IndexFieldName"/>
-    <ServiceOperation MethodName="DeleteSuggester" ShouldProcessTarget="SuggesterName" PositionalParameters="SuggesterName"/>
-    <ServiceOperation MethodName="DescribeAnalysisSchemes" Noun="AnalysisScheme" LegacyAlias="Get-CSAnalysisSchemes"/>
-    <ServiceOperation MethodName="DescribeAvailabilityOptions" Noun="AvailabilityOption" LegacyAlias="Get-CSAvailabilityOptions"/>
-    <ServiceOperation MethodName="DescribeDomains" />
-    <ServiceOperation MethodName="DescribeExpressions"/>
-    <ServiceOperation MethodName="DescribeIndexFields" PositionalParameters="FieldNames" Noun="IndexField" LegacyAlias="Get-CSIndexFields"/>
-    <ServiceOperation MethodName="DescribeScalingParameters" Noun="ScalingParameter" LegacyAlias="Get-CSScalingParameters"/>
-    <ServiceOperation MethodName="DescribeServiceAccessPolicies" Noun="ServiceAccessPolicy" LegacyAlias="Get-CSServiceAccessPolicies"/>
-    <ServiceOperation MethodName="DescribeSuggesters"/>
-    <ServiceOperation MethodName="IndexDocuments" Verb="Start" Noun="Index"/>
-    <ServiceOperation MethodName="ListDomainNames" Verb="Get" Noun="DomainNameList" LegacyAlias="Get-CSListDomainNames"/>
-    <ServiceOperation MethodName="UpdateAvailabilityOptions" Noun="AvailabilityOption" LegacyAlias="Update-CSAvailabilityOptions"/>
-    <ServiceOperation MethodName="UpdateScalingParameters" Noun="ScalingParameter" LegacyAlias="Update-CSScalingParameters"/>
-    <ServiceOperation MethodName="UpdateServiceAccessPolicies" PositionalParameters="AccessPolicies" Noun="ServiceAccessPolicy" LegacyAlias="Update-CSServiceAccessPolicies"/>
-  </ServiceOperations>
-  
-  <PipelineByValueProperties>
-    <Property>DomainName</Property>
-    <Property>DomainId</Property>
-    <Property>IndexFieldName</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloudSearch</SourceGenerationRoot>
+    <ServiceNounPrefix>CS</ServiceNounPrefix>
+    <ServiceName>Amazon CloudSearch</ServiceName>
+    <ServiceClientInterface>IAmazonCloudSearch</ServiceClientInterface>
+    <ServiceClient>AmazonCloudSearchClient</ServiceClient>
+    <ServiceNamespace>Amazon.CloudSearch</ServiceNamespace>
+    <PositionalParameters>DomainName</PositionalParameters>
+    <PipelineParameter>DomainName</PipelineParameter>
+    <VerbMappings>
+        <Map From="Define" To="Set" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="AnalysisSchemes" To="AnalysisScheme" />
+        <Map From="AvailabilityOptions" To="AvailabilityOption" />
+        <Map From="Domains" To="Domain" />
+        <Map From="DomainNames" To="DomainName" />
+        <Map From="Expressions" To="Expression" />
+        <Map From="IndexFields" To="IndexField" />
+        <Map From="ScalingParameters" To="ScalingParameter" />
+        <Map From="ServiceAccessPolicies" To="ServiceAccessPolicy" />
+        <Map From="Suggesters" To="Suggester" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases>
+        <AliasSet Cmdlet="Set-CSIndexField">Define-CSIndexField</AliasSet>
+        <AliasSet Cmdlet="Start-CSIndex">Index-CSDocuments</AliasSet>
+    </CustomAliases>
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>DomainName</Property>
+        <Property>DomainId</Property>
+        <Property>IndexFieldName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="BuildSuggesters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="SuggestersBuild" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineAnalysisScheme" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DomainName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineExpression" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineIndexField" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DefineSuggester" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAnalysisScheme" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AnalysisSchemeName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AnalysisSchemeName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDomain" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteExpression" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ExpressionName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ExpressionName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteIndexField" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="IndexFieldName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="IndexFieldName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteSuggester" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SuggesterName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SuggesterName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAnalysisSchemes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AnalysisScheme" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSAnalysisSchemes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAvailabilityOptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AvailabilityOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSAvailabilityOptions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDomains" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DomainNames" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeExpressions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeIndexFields" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="IndexField" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="FieldNames" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSIndexFields">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingParameters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScalingParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSScalingParameters">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServiceAccessPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ServiceAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSServiceAccessPolicies">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSuggesters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="IndexDocuments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="Index" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDomainNames" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DomainNameList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-CSListDomainNames">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAvailabilityOptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AvailabilityOption" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Update-CSAvailabilityOptions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateScalingParameters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScalingParameter" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Update-CSScalingParameters">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateServiceAccessPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ServiceAccessPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="AccessPolicies" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Update-CSServiceAccessPolicies">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

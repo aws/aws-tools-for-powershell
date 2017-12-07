@@ -1,47 +1,84 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonMigrationHub</SourceGenerationRoot>
     <ServiceNounPrefix>MH</ServiceNounPrefix>
     <ServiceName>AWS Migration Hub</ServiceName>
     <ServiceClientInterface>IAmazonMigrationHub</ServiceClientInterface>
     <ServiceClient>AmazonMigrationHubClient</ServiceClient>
     <ServiceNamespace>Amazon.MigrationHub</ServiceNamespace>
-
-    <PipelineParameter></PipelineParameter>
-
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
-    <TypesNotToFlatten>
-        <Type>Amazon.MigrationHub.Model.CreatedArtifact</Type>
-         <Type>Amazon.MigrationHub.Model.DiscoveredResource</Type>
-         <Type>Amazon.MigrationHub.Model.MigrationTask</Type>
-         <Type>Amazon.MigrationHub.Model.Task</Type>
-    </TypesNotToFlatten>
-
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
     <PipelineByValueProperties>
         <Property>MigrationTaskName</Property>
         <Property>ProgressUpdateStream</Property>
         <Property>ConfigurationId</Property>
         <Property>ApplicationId</Property>
     </PipelineByValueProperties>
-
     <ServiceOperations>
-        <ServiceOperation MethodName="AssociateCreatedArtifact" Verb="Add" PipelineParameter="CreatedArtifact" Output="Void" ShouldProcessTarget="MigrationTaskName" />
-        <ServiceOperation MethodName="AssociateDiscoveredResource" Verb="Add" PipelineParameter="DiscoveredResource" Output="Void" ShouldProcessTarget="MigrationTaskName" />
-        <ServiceOperation MethodName="CreateProgressUpdateStream" PipelineParameter="ProgressUpdateStreamName" Output="Void" />
-        <ServiceOperation MethodName="DeleteProgressUpdateStream" PipelineParameter="ProgressUpdateStreamName" Output="Void" />
-        <ServiceOperation MethodName="DescribeApplicationState" Output="Response" />
-        <ServiceOperation MethodName="DescribeMigrationTask" PipelineParameter="MigrationTaskName" />
-        <ServiceOperation MethodName="DisassociateCreatedArtifact" Verb="Remove" PipelineParameter="CreatedArtifactName" Output="Void" />
-        <ServiceOperation MethodName="DisassociateDiscoveredResource" Verb="Remove" PipelineParameter="ConfigurationId" Output="Void" />
-        <ServiceOperation MethodName="ImportMigrationTask" PipelineParameter="MigrationTaskName" Output="Void" />
-        <ServiceOperation MethodName="ListCreatedArtifacts" Verb="Get" Noun="CreatedArtifactList" PipelineParameter="MigrationTaskName" />
-        <ServiceOperation MethodName="ListDiscoveredResources" Verb="Get" Noun="DiscoveredResourceList" PipelineParameter="MigrationTaskName" />
-        <ServiceOperation MethodName="ListMigrationTasks" Verb="Get" Noun="MigrationTaskList"  />
-        <ServiceOperation MethodName="ListProgressUpdateStreams" Verb="Get" Noun="ProgressUpdateStream" />
-        <ServiceOperation MethodName="NotifyApplicationState" Verb="Send" Noun="ApplicationStateNotification" PipelineParameter="ApplicationId" Output="Void" />
-        <ServiceOperation MethodName="NotifyMigrationTaskState" Verb="Send" Noun="MigrationTaskStateNotification" PipelineParameter="Task" Output="Void" />
-        <ServiceOperation MethodName="PutResourceAttributes" Verb="Set" Noun="ResourceAttribute" PipelineParameter="MigrationTaskName" Output="Void" />
+        <ServiceOperation MethodName="AssociateCreatedArtifact" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MigrationTaskName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CreatedArtifact" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AssociateDiscoveredResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="MigrationTaskName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DiscoveredResource" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateProgressUpdateStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteProgressUpdateStream" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProgressUpdateStreamName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeApplicationState" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeMigrationTask" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateCreatedArtifact" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CreatedArtifactName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DisassociateDiscoveredResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ConfigurationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ImportMigrationTask" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListCreatedArtifacts" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CreatedArtifactList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListDiscoveredResources" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DiscoveredResourceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListMigrationTasks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="MigrationTaskList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListProgressUpdateStreams" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ProgressUpdateStream" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyApplicationState" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="ApplicationStateNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="NotifyMigrationTaskState" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MigrationTaskStateNotification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Task" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutResourceAttributes" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="ResourceAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="MigrationTaskName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.MigrationHub.Model.CreatedArtifact</Type>
+        <Type>Amazon.MigrationHub.Model.DiscoveredResource</Type>
+        <Type>Amazon.MigrationHub.Model.MigrationTask</Type>
+        <Type>Amazon.MigrationHub.Model.Task</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

@@ -1,16 +1,34 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>CUR</ServiceNounPrefix>
-  <ServiceName>AWS Cost and Usage Report</ServiceName>
-  <ServiceNamespace>Amazon.CostAndUsageReport</ServiceNamespace>
-  <ServiceClientInterface>IAmazonCostAndUsageReport</ServiceClientInterface>
-  <ServiceClient>AmazonCostAndUsageReportClient</ServiceClient>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="PutReportDefinition" Output="Void" NoPipelineParameter="true"/>
-    <ServiceOperation MethodName="DescribeReportDefinitions" NoPipelineParameter="true" Noun="ReportDefinition" LegacyAlias="Get-CURReportDefinitions" />
-    <ServiceOperation MethodName="DeleteReportDefinition"/>
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCostAndUsageReport</SourceGenerationRoot>
+    <ServiceNounPrefix>CUR</ServiceNounPrefix>
+    <ServiceName>AWS Cost and Usage Report</ServiceName>
+    <ServiceClientInterface>IAmazonCostAndUsageReport</ServiceClientInterface>
+    <ServiceClient>AmazonCostAndUsageReportClient</ServiceClient>
+    <ServiceNamespace>Amazon.CostAndUsageReport</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="PutReportDefinition" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReportDefinitions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReportDefinition" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true" LegacyAlias="Get-CURReportDefinitions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteReportDefinition" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReportName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

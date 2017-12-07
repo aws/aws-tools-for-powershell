@@ -1,41 +1,74 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>ASA</ServiceNounPrefix>
-  <ServiceName>AWS Support API</ServiceName>
-  <ServiceClientInterface>IAmazonAWSSupport</ServiceClientInterface>
-  <ServiceClient>AmazonAWSSupportClient</ServiceClient>
-  <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
-
-  <DefaultRegion>us-east-1</DefaultRegion>
-  
-  <AutoIterate Start="NextToken" EmitLimit="MaxResults" Next="NextToken" />
-  
-  <PositionalParameters>CaseId</PositionalParameters>
-  
-  <PipelineParameter>CaseId</PipelineParameter>
-  
-  <PipelineByValueProperties>
-    <Property>CaseId</Property>
-    <Property>DisplayId</Property>
-    <Property>CheckId</Property>
-  </PipelineByValueProperties>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddCommunicationToCase" PositionalParameters="CommunicationBody;CcEmailAddresses" />
-    <ServiceOperation MethodName="CreateCase" PipelineParameter="Subject" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" />
-    <ServiceOperation MethodName="DescribeCases" PipelineParameter="CaseIdList" Noun="Case" LegacyAlias="Get-ASACases"/>
-    <ServiceOperation MethodName="DescribeCommunications" Noun="Communication" LegacyAlias="Get-ASACommunications"/>
-    <ServiceOperation MethodName="DescribeServices" PipelineParameter="ServiceCodeList" PositionalParameters="Language" Noun="Service" LegacyAlias="Get-ASAServices"/>
-    <ServiceOperation MethodName="DescribeSeverityLevels" Noun="SeverityLevel" LegacyAlias="Get-ASASeverityLevels"/>
-    <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" Noun="TrustedAdvisorCheckRefreshStatus" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses"/>
-    <ServiceOperation MethodName="DescribeTrustedAdvisorCheckResult" PipelineParameter="CheckId" PositionalParameters="Language"/>
-    <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" Noun="TrustedAdvisorCheck" LegacyAlias="Get-ASATrustedAdvisorChecks"/>
-    <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" Noun="TrustedAdvisorCheckSummary" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries"/>
-    <ServiceOperation MethodName="RefreshTrustedAdvisorCheck" Verb="Request" Noun="TrustedAdvisorCheckRefresh" />
-    <ServiceOperation MethodName="ResolveCase" Output="Response" />
-    <ServiceOperation MethodName="DescribeAttachment" />
-    <ServiceOperation MethodName="AddAttachmentsToSet" Output="Response" PipelineParameter="AttachmentSetId" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonAWSSupport</SourceGenerationRoot>
+    <ServiceNounPrefix>ASA</ServiceNounPrefix>
+    <ServiceName>AWS Support API</ServiceName>
+    <ServiceClientInterface>IAmazonAWSSupport</ServiceClientInterface>
+    <ServiceClient>AmazonAWSSupportClient</ServiceClient>
+    <ServiceNamespace>Amazon.AWSSupport</ServiceNamespace>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PositionalParameters>CaseId</PositionalParameters>
+    <PipelineParameter>CaseId</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>CaseId</Property>
+        <Property>DisplayId</Property>
+        <Property>CheckId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddCommunicationToCase" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CommunicationBody;CcEmailAddresses" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateCase" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ServiceCode;SeverityCode;CategoryCode;CommunicationBody" PipelineParameter="Subject" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCases" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Case" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CaseIdList" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASACases">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCommunications" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Communication" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASACommunications">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeServices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Service" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Language" PipelineParameter="ServiceCodeList" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASAServices">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSeverityLevels" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SeverityLevel" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Language" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASASeverityLevels">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckRefreshStatuses" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TrustedAdvisorCheckRefreshStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CheckIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASATrustedAdvisorCheckRefreshStatuses">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckResult" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Language" PipelineParameter="CheckId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorChecks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TrustedAdvisorCheck" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Language" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASATrustedAdvisorChecks">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrustedAdvisorCheckSummaries" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TrustedAdvisorCheckSummary" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CheckIds" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-ASATrustedAdvisorCheckSummaries">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RefreshTrustedAdvisorCheck" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Request" Noun="TrustedAdvisorCheckRefresh" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="CheckId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResolveCase" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAttachment" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AttachmentId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddAttachmentsToSet" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AttachmentSetId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

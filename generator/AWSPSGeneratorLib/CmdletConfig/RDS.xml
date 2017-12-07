@@ -1,187 +1,358 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>RDS</ServiceNounPrefix>
-  <ServiceName>Amazon Relational Database Service</ServiceName>
-  <ServiceClientInterface>IAmazonRDS</ServiceClientInterface>
-  <ServiceClient>AmazonRDSClient</ServiceClient>
-  <ServiceNamespace>Amazon.RDS</ServiceNamespace>
-
-  <VerbMappings>
-    <Map From="List" To="Get" />
-    <Map From="Reboot" To="Restart" />
-    <Map From="Download" To="Get" />
-  </VerbMappings>
-  
-  <NounMappings>
-    <Map From="DBEngineVersions" To="DBEngineVersion" />
-    <Map From="DBInstances" To="DBInstance" />
-    <Map From="DBParameterGroups" To="DBParameterGroup" />
-    <Map From="DBParameters" To="DBParameter" />
-    <Map From="DBSecurityGroups" To="DBSecurityGroup" />
-    <Map From="DBSnapshots" To="DBSnapshot" />
-    <Map From="DBSubnetGroups" To="DBSubnetGroup" />
-    <Map From="EngineDefaultParameters" To="EngineDefaultParameter" />
-    <Map From="Events" To="Event" />
-    <Map From="OptionGroupOptions" To="OptionGroupOption" />
-    <Map From="OptionGroups" To="OptionGroup" />
-    <Map From="OrderableDBInstanceOptions" To="OrderableDBInstanceOption" />
-    <Map From="ReservedDBInstances" To="ReservedDBInstance" />
-    <Map From="TagsForResource" To="TagForResource" />
-    <Map From="TagsFromResource" To="TagFromResource" />
-  </NounMappings>
-  
-  <AutoIterate EmitLimit="MaxRecords" Start="Marker" Next="Marker" />
-  
-  <PositionalParameters>DBInstanceIdentifier</PositionalParameters>
-  
-  <PipelineParameter>DBInstanceIdentifier</PipelineParameter>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="AddSourceIdentifierToSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SourceIdentifier"/>
-    <ServiceOperation MethodName="AddTagsToResource" Output="Void" PipelineParameter="ResourceName" PositionalParameters="Tags">
-      <PassThru>
-        <Expression>cmdletContext.Tags</Expression>
-        <Documentation>Returns the collection of tags that were added</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="AddRoleToDBCluster" Output="Void" PipelineParameter="DBClusterIdentifier" PositionalParameters="RoleArn"/>
-    <ServiceOperation MethodName="ApplyPendingMaintenanceAction" PipelineParameter="ResourceIdentifier" Verb="Submit"/>
-    <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" Verb="Enable" Noun="DBSecurityGroupIngress" PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
-    <ServiceOperation MethodName="CopyDBClusterParameterGroup" PipelineParameter="SourceDBClusterParameterGroupIdentifier" />
-    <ServiceOperation MethodName="CopyDBClusterSnapshot" PipelineParameter="SourceDBClusterSnapshotIdentifier" PositionalParameters="TargetDBClusterSnapshotIdentifier" />
-    <ServiceOperation MethodName="CopyDBParameterGroup" PipelineParameter="SourceDBParameterGroupIdentifier" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription"/>
-    <ServiceOperation MethodName="CopyDBSnapshot" PipelineParameter="SourceDBSnapshotIdentifier" PositionalParameters="TargetDBSnapshotIdentifier" ShouldProcessTarget="SourceDBSnapshotIdentifier"/>
-    <ServiceOperation MethodName="CopyOptionGroup" PipelineParameter="SourceOptionGroupIdentifier" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription"/>
-    <ServiceOperation MethodName="CreateDBCluster" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier"/>
-    <ServiceOperation MethodName="CreateDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" />
-    <ServiceOperation MethodName="CreateDBClusterSnapshot" PipelineParameter="DBClusterIdentifier" PositionalParameter="DBClusterSnapshotIdentifier"/>
-    <ServiceOperation MethodName="CreateDBInstance" PipelineParameter="DBName" PositionalParameters="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="CreateDBInstanceReadReplica" PositionalParameters="SourceDBInstanceIdentifier" ShouldProcessTarget="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="CreateDBParameterGroup" PipelineParameter="DBParameterGroupName" PositionalParameters="Description"/>
-    <ServiceOperation MethodName="CreateDBSecurityGroup" PipelineParameter="DBSecurityGroupName" PositionalParameters="DBSecurityGroupDescription"/>
-    <ServiceOperation MethodName="CreateDBSnapshot" PipelineParameter="DBSnapshotIdentifier" PositionalParameters="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="CreateDBSubnetGroup" PipelineParameter="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds"/>
-    <ServiceOperation MethodName="CreateEventSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SnsTopicArn;SourceType"/>
-    <ServiceOperation MethodName="CreateOptionGroup" PipelineParameter="OptionGroupName" PositionalParameters="EngineName;MajorEngineVersion;OptionGroupDescription"/>
-    <ServiceOperation MethodName="DeleteDBCluster" ShouldProcessTarget="DBClusterIdentifier"/>
-    <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Output="Void" ShouldProcessTarget="DBClusterParameterGroupName"/>
-    <ServiceOperation MethodName="DeleteDBClusterSnapshot" ShouldProcessTarget="DBClusterSnapshotIdentifier"/>
-    <ServiceOperation MethodName="DeleteDBInstance" ShouldProcessTarget="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="DeleteDBParameterGroup" Output="Void"/>
-    <ServiceOperation MethodName="DeleteDBSecurityGroup" Output="Void" />
-    <ServiceOperation MethodName="DeleteDBSnapshot"/>
-    <ServiceOperation MethodName="DeleteDBSubnetGroup" Output="Void"/>
-    <ServiceOperation MethodName="DeleteEventSubscription"/>
-    <ServiceOperation MethodName="DeleteOptionGroup" Output="Void" />
-    <ServiceOperation MethodName="DescribeAccountAttributes" Noun="AccountAttribute" LegacyAlias="Get-RDSAccountAttributes" />
-    <ServiceOperation MethodName="DescribeCertificates" Noun="Certificate" LegacyAlias="Get-RDSCertificates"/>
-    <ServiceOperation MethodName="DescribeDBEngineVersions" PipelineParameter="Engine" PositionalParameters="EngineVersion;DBParameterGroupFamily"/>
-    <ServiceOperation MethodName="DescribeDBInstances"/>
-    <ServiceOperation MethodName="DescribeDBLogFiles" Noun="DBLogFile" LegacyAlias="Get-RDSDBLogFiles">
-      <Params>
-        <Param Name="FilenameContains" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DownloadDBLogFilePortion" Output="Response" PositionalParameters="LogFileName">
-      <Params>
-        <!-- stops rename thru singularization -->
-        <Param Name="NumberOfLines" AutoRename="false" />
-      </Params>
-    </ServiceOperation>
-    <ServiceOperation MethodName="DescribeDBParameterGroups" PipelineParameter="DBParameterGroupName"/>
-    <ServiceOperation MethodName="DescribeDBParameters" PipelineParameter="DBParameterGroupName" PositionalParameters="Source"/>
-    <ServiceOperation MethodName="DescribeDBSecurityGroups" PipelineParameter="DBSecurityGroupName"/>
-    <ServiceOperation MethodName="DescribeDBSnapshots" PositionalParameters="DBSnapshotIdentifier;SnapshotType"/>
-    <ServiceOperation MethodName="DescribeDBSnapshotAttributes" Noun="DBSnapshotAttribute" LegacyAlias="Get-RDSDBSnapshotAttributes"/>
-    <ServiceOperation MethodName="DescribeDBSubnetGroups" PipelineParameter="DBSubnetGroupName"/>
-    <ServiceOperation MethodName="DescribeEngineDefaultParameters" PipelineParameter="DBParameterGroupFamily"/>
-    <ServiceOperation MethodName="DescribeEventCategories" PipelineParameter="SourceType" Noun="EventCategory" LegacyAlias="Get-RDSEventCategories"/>
-    <ServiceOperation MethodName="DescribeEvents" PipelineParameter="SourceIdentifier" PositionalParameters="SourceType"/>
-    <ServiceOperation MethodName="DescribeEventSubscriptions" PipelineParameter="SubscriptionName" Noun="EventSubscription" LegacyAlias="Get-RDSEventSubscriptions"/>
-    <ServiceOperation MethodName="DescribeDBClusterParameterGroups" PipelineParameter="DBClusterParameterGroupName"/>
-    <ServiceOperation MethodName="DescribeDBClusterParameters" PipelineParameter="DBClusterParameterGroupName" />
-    <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Noun="DBClusterSnapshotAttribute" />
-    <ServiceOperation MethodName="DescribeDBClusters" />
-    <ServiceOperation MethodName="DescribeDBClusterSnapshots" />
-    <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" />
-    <ServiceOperation MethodName="DescribeOptionGroupOptions" PipelineParameter="EngineName" PositionalParameters="MajorEngineVersion"/>
-    <ServiceOperation MethodName="DescribeOptionGroups" PipelineParameter="OptionGroupName"/>
-    <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" PipelineParameter="Engine"/>
-    <ServiceOperation MethodName="DescribeReservedDBInstances" PipelineParameter="ReservedDBInstanceId"/>
-    <ServiceOperation MethodName="DescribePendingMaintenanceActions" PipelineParameter="ResourceIdentifier" Noun="PendingMaintenanceAction" LegacyAlias="Get-RDSPendingMaintenanceActions"/>
-    <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" PipelineParameter="ReservedDBInstancesOfferingId" Noun="ReservedDBInstancesOfferingList" LegacyAlias="Get-RDSReservedDBInstancesOfferings"/>
-    <ServiceOperation MethodName="DescribeSourceRegions" Noun="SourceRegion" />
-    <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Noun="ValidDBInstanceModification" />
-    <ServiceOperation MethodName="FailoverDBCluster" Verb="Start" Noun="DBClusterFailover" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="ListTagsForResource" PipelineParameter="ResourceName"/>
-    <ServiceOperation MethodName="ModifyDBCluster" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="ModifyDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" PositionalParameters="Parameters"/>
-    <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" />
-    <ServiceOperation MethodName="ModifyDBInstance" ShouldProcessTarget="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="ModifyDBParameterGroup" PipelineParameter="DBParameterGroupName" PositionalParameters="Parameters"/>
-    <ServiceOperation MethodName="ModifyDBSnapshot" PipelineParameter="DBSnapshotIdentifier"/>
-    <ServiceOperation MethodName="ModifyDBSnapshotAttribute" PipelineParameter="DBSnapshotIdentifier"/>
-    <ServiceOperation MethodName="ModifyDBSubnetGroup" PipelineParameter="DBSubnetGroupName" PositionalParameters="DBSubnetGroupDescription;SubnetIds"/>
-    <ServiceOperation MethodName="ModifyEventSubscription" PipelineParameter="SubscriptionName" PositionalParameters="SnsTopicArn"/>
-    <ServiceOperation MethodName="ModifyOptionGroup" PipelineParameter="OptionGroupName" PositionalParameters="ApplyImmediately"/>
-    <ServiceOperation MethodName="PromoteReadReplica" Verb="Convert" Noun="ReadReplicaToStandalone"/>
-    <ServiceOperation MethodName="PromoteReadReplicaDBCluster" Verb="Convert" Noun="ReadReplicaDBCluster"/>
-    <ServiceOperation MethodName="PurchaseReservedDBInstancesOffering" Verb="Get" Noun="ReservedDBInstancesOffering" PipelineParameter="ReservedDBInstancesOfferingId"/>
-    <ServiceOperation MethodName="RebootDBInstance"/>
-    <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" PipelineParameter="DBClusterIdentifier" PositionalParameters="RoleArn"/>
-    <!-- do we need shouldprocess here? -->
-    <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" ShouldProcessTarget="SourceIdentifier" PipelineParameter="SubscriptionName" PositionalParameters="SourceIdentifier"/>
-    <!-- do we need shouldprocess here? this is [] type-->
-    <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" ShouldProcessTarget="TagKeys" PipelineParameter="ResourceName" PositionalParameters="TagKeys">
-      <PassThru>
-        <Expression>cmdletContext.TagKeys</Expression>
-        <Documentation>Returns the collection of tag keys that were removed</Documentation>
-      </PassThru>
-    </ServiceOperation>
-    <ServiceOperation MethodName="ResetDBParameterGroup" PipelineParameter="DBParameterGroupName"/>
-    <ServiceOperation MethodName="ResetDBClusterParameterGroup" PipelineParameter="DBClusterParameterGroupName" PositionalParameters="Parameters"/> />
-    <ServiceOperation MethodName="RestoreDBClusterFromS3" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="RestoreDBClusterToPointInTime" PipelineParameter="DBClusterIdentifier" ShouldProcessTarget="DBClusterIdentifier" />
-    <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" PositionalParameters="DBSnapshotIdentifier" ShouldProcessTarget="DBInstanceIdentifier"/>
-    <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" PipelineParameter="SourceDBInstanceIdentifier" PositionalParameters="TargetDBInstanceIdentifier" ShouldProcessTarget="SourceDBInstanceIdentifier"/>
-    <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" PipelineParameter="DBSecurityGroupName" PositionalParameters="CIDRIP"/>
-    <ServiceOperation MethodName="StartDBInstance" />
-    <ServiceOperation MethodName="StopDBInstance" />
-
-    <ServiceOperation MethodName="RestoreDBInstanceFromS3" ShouldProcessTarget="DBInstanceIdentifier" />
-  </ServiceOperations>
-
-  <NounMappings>
-    <Map From="DBClusterParameterGroups" To="DBClusterParameterGroup" />
-    <Map From="DBClusterParameters" To="DBClusterParameter" />
-    <Map From="DBClusters" To="DBCluster" />
-    <Map From="DBClusterSnapshots" To="DBClusterSnapshot" />
-    <Map From="EngineDefaultClusterParameters" To="EngineDefaultClusterParameter" />
-  </NounMappings>
-
-  <PipelineByValueProperties>
-    <Property>DBSecurityGroupName</Property>
-    <Property>EC2SecurityGroupName</Property>
-    <Property>EC2SecurityGroupId</Property>
-    <Property>EC2SecurityGroupOwnerId</Property>
-    <Property>DBInstanceIdentifier</Property>
-    <Property>DBParameterGroupName</Property>
-    <Property>DBSnapshotIdentifier</Property>
-    <Property>DBSubnetGroupName</Property>
-    <Property>SubscriptionName</Property>
-    <Property>OptionGroupName</Property>
-    <Property>Engine</Property>
-    <Property>EngineName</Property>
-    <Property>EngineVersion</Property>
-    <Property>DBInstanceClass</Property>
-    <Property>ReservedDBInstancesOfferingId</Property>
-    <Property>ReservedDBInstanceId</Property>
-    <Property>ResourceName</Property>
-    <Property>SnsTopicArn</Property>
-    <Property>SourceIdentifier</Property>
-    <Property>CIDRIP</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonRDS</SourceGenerationRoot>
+    <ServiceNounPrefix>RDS</ServiceNounPrefix>
+    <ServiceName>Amazon Relational Database Service</ServiceName>
+    <ServiceClientInterface>IAmazonRDS</ServiceClientInterface>
+    <ServiceClient>AmazonRDSClient</ServiceClient>
+    <ServiceNamespace>Amazon.RDS</ServiceNamespace>
+    <PositionalParameters>DBInstanceIdentifier</PositionalParameters>
+    <PipelineParameter>DBInstanceIdentifier</PipelineParameter>
+    <AutoIterate Start="Marker" Next="Marker" EmitLimit="MaxRecords" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="List" To="Get" />
+        <Map From="Reboot" To="Restart" />
+        <Map From="Download" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="DBEngineVersions" To="DBEngineVersion" />
+        <Map From="DBInstances" To="DBInstance" />
+        <Map From="DBParameterGroups" To="DBParameterGroup" />
+        <Map From="DBParameters" To="DBParameter" />
+        <Map From="DBSecurityGroups" To="DBSecurityGroup" />
+        <Map From="DBSnapshots" To="DBSnapshot" />
+        <Map From="DBSubnetGroups" To="DBSubnetGroup" />
+        <Map From="EngineDefaultParameters" To="EngineDefaultParameter" />
+        <Map From="Events" To="Event" />
+        <Map From="OptionGroupOptions" To="OptionGroupOption" />
+        <Map From="OptionGroups" To="OptionGroup" />
+        <Map From="OrderableDBInstanceOptions" To="OrderableDBInstanceOption" />
+        <Map From="ReservedDBInstances" To="ReservedDBInstance" />
+        <Map From="TagsForResource" To="TagForResource" />
+        <Map From="TagsFromResource" To="TagFromResource" />
+        <Map From="DBClusterParameterGroups" To="DBClusterParameterGroup" />
+        <Map From="DBClusterParameters" To="DBClusterParameter" />
+        <Map From="DBClusters" To="DBCluster" />
+        <Map From="DBClusterSnapshots" To="DBClusterSnapshot" />
+        <Map From="EngineDefaultClusterParameters" To="EngineDefaultClusterParameter" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>DBSecurityGroupName</Property>
+        <Property>EC2SecurityGroupName</Property>
+        <Property>EC2SecurityGroupId</Property>
+        <Property>EC2SecurityGroupOwnerId</Property>
+        <Property>DBInstanceIdentifier</Property>
+        <Property>DBParameterGroupName</Property>
+        <Property>DBSnapshotIdentifier</Property>
+        <Property>DBSubnetGroupName</Property>
+        <Property>SubscriptionName</Property>
+        <Property>OptionGroupName</Property>
+        <Property>Engine</Property>
+        <Property>EngineName</Property>
+        <Property>EngineVersion</Property>
+        <Property>DBInstanceClass</Property>
+        <Property>ReservedDBInstancesOfferingId</Property>
+        <Property>ReservedDBInstanceId</Property>
+        <Property>ResourceName</Property>
+        <Property>SnsTopicArn</Property>
+        <Property>SourceIdentifier</Property>
+        <Property>CIDRIP</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddSourceIdentifierToSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTagsToResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.Tags</Expression>
+                <Documentation>Returns the collection of tags that were added</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddRoleToDBCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ApplyPendingMaintenanceAction" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Submit" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AuthorizeDBSecurityGroupIngress" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Enable" Noun="DBSecurityGroupIngress" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyDBClusterParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceDBClusterParameterGroupIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyDBClusterSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetDBClusterSnapshotIdentifier" PipelineParameter="SourceDBClusterSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyDBParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetDBParameterGroupIdentifier;TargetDBParameterGroupDescription" PipelineParameter="SourceDBParameterGroupIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyDBSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceDBSnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetDBSnapshotIdentifier" PipelineParameter="SourceDBSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CopyOptionGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetOptionGroupIdentifier;TargetOptionGroupDescription" PipelineParameter="SourceOptionGroupIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBCluster" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBClusterParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBClusterSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBInstanceIdentifier" PipelineParameter="DBName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBInstanceReadReplica" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceDBInstanceIdentifier" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Description" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBSecurityGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBSecurityGroupDescription" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBInstanceIdentifier" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateDBSubnetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBSubnetGroupDescription;SubnetIds" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEventSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnsTopicArn;SourceType" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOptionGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EngineName;MajorEngineVersion;OptionGroupDescription" PipelineParameter="OptionGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBCluster" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBClusterParameterGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterParameterGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBClusterSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterSnapshotIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBParameterGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBSecurityGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteDBSubnetGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEventSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOptionGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OptionGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AccountAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSAccountAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCertificates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Certificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSCertificates">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBEngineVersions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="EngineVersion;DBParameterGroupFamily" PipelineParameter="Engine" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBLogFiles" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DBLogFile" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSDBLogFiles">
+            <Params>
+                <Param Name="FilenameContains" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DownloadDBLogFilePortion" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="LogFileName" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params>
+                <Param Name="NumberOfLines" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+            </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBParameterGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBParameters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Source" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBSecurityGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBSnapshots" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBSnapshotIdentifier;SnapshotType" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBSnapshotAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DBSnapshotAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSDBSnapshotAttributes">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBSubnetGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEngineDefaultParameters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupFamily" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventCategories" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventCategory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SourceType" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSEventCategories">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceType" PipelineParameter="SourceIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventSubscriptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSEventSubscriptions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusterParameterGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusterParameters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusterSnapshotAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="DBClusterSnapshotAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeDBClusterSnapshots" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEngineDefaultClusterParameters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOptionGroupOptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="MajorEngineVersion" PipelineParameter="EngineName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOptionGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="OptionGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOrderableDBInstanceOptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Engine" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedDBInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedDBInstanceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribePendingMaintenanceActions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="PendingMaintenanceAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSPendingMaintenanceActions">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeReservedDBInstancesOfferings" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ReservedDBInstancesOfferingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Get-RDSReservedDBInstancesOfferings">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSourceRegions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SourceRegion" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeValidDBInstanceModifications" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ValidDBInstanceModification" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="FailoverDBCluster" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="DBClusterFailover" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBCluster" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBClusterParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBClusterSnapshotAttribute" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Parameters" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBSnapshotAttribute" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBSnapshotIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyDBSubnetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBSubnetGroupDescription;SubnetIds" PipelineParameter="DBSubnetGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyEventSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SnsTopicArn" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyOptionGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="ApplyImmediately" PipelineParameter="OptionGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PromoteReadReplica" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Convert" Noun="ReadReplicaToStandalone" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PromoteReadReplicaDBCluster" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Convert" Noun="ReadReplicaDBCluster" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PurchaseReservedDBInstancesOffering" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ReservedDBInstancesOffering" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ReservedDBInstancesOfferingId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RebootDBInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveRoleFromDBCluster" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="RoleArn" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveSourceIdentifierFromSubscription" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="SourceIdentifier" PipelineParameter="SubscriptionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TagKeys" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TagKeys" PipelineParameter="ResourceName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.TagKeys</Expression>
+                <Documentation>Returns the collection of tag keys that were removed</Documentation>
+            </PassThru>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetDBParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResetDBClusterParameterGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Parameters" PipelineParameter="DBClusterParameterGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDBClusterFromS3" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDBClusterFromSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDBClusterToPointInTime" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBClusterIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DBClusterIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDBInstanceFromDBSnapshot" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="DBSnapshotIdentifier" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDBInstanceToPointInTime" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="SourceDBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TargetDBInstanceIdentifier" PipelineParameter="SourceDBInstanceIdentifier" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RevokeDBSecurityGroupIngress" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="CIDRIP" PipelineParameter="DBSecurityGroupName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartDBInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopDBInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RestoreDBInstanceFromS3" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DBInstanceIdentifier" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

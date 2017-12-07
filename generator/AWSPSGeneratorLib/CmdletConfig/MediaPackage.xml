@@ -1,32 +1,63 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>EMP</ServiceNounPrefix>
-  <ServiceName>AWS Elemental MediaPackage</ServiceName>
-  <ServiceNamespace>Amazon.MediaPackage</ServiceNamespace>
-  <ServiceClientInterface>IAmazonMediaPackage</ServiceClientInterface>
-  <ServiceClient>AmazonMediaPackageClient</ServiceClient>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-
-  <ServiceOperations>
-    <ServiceOperation MethodName="CreateChannel" PipelineParameter="Id" Output="Response" />
-    <ServiceOperation MethodName="CreateOriginEndpoint" PipelineParameter="Id" Output="Response" />
-    <ServiceOperation MethodName="DeleteChannel" Output="Void" />
-    <ServiceOperation MethodName="DeleteOriginEndpoint" Output="Void" />
-    <ServiceOperation MethodName="DescribeChannel" Output="Response" />
-    <ServiceOperation MethodName="DescribeOriginEndpoint" Output="Response" />
-    <ServiceOperation MethodName="ListChannels" Verb="Get" Noun="ChannelList" />
-    <ServiceOperation MethodName="ListOriginEndpoints" Verb="Get" Noun="OriginEndpointList" PipelineParameter="ChannelId" />
-    <ServiceOperation MethodName="RotateChannelCredentials" Output="Response" Verb="Invoke" Noun="ChannelCredentialRotation" />
-    <ServiceOperation MethodName="UpdateChannel" PipelineParameter="Id" Output="Response" />
-    <ServiceOperation MethodName="UpdateOriginEndpoint" PipelineParameter="Id" Output="Response" />
-  </ServiceOperations>
-
-  <TypesNotToFlatten>
-    <Type>Amazon.MediaPackage.Model.DashPackage</Type>
-    <Type>Amazon.MediaPackage.Model.HlsPackage</Type>
-    <Type>Amazon.MediaPackage.Model.MssPackage</Type>
-  </TypesNotToFlatten>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonMediaPackage</SourceGenerationRoot>
+    <ServiceNounPrefix>EMP</ServiceNounPrefix>
+    <ServiceName>AWS Elemental MediaPackage</ServiceName>
+    <ServiceClientInterface>IAmazonMediaPackage</ServiceClientInterface>
+    <ServiceClient>AmazonMediaPackageClient</ServiceClient>
+    <ServiceNamespace>Amazon.MediaPackage</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateOriginEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteChannel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteOriginEndpoint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeOriginEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListChannels" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ChannelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListOriginEndpoints" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OriginEndpointList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ChannelId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RotateChannelCredentials" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Invoke" Noun="ChannelCredentialRotation" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateChannel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateOriginEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Id" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.MediaPackage.Model.DashPackage</Type>
+        <Type>Amazon.MediaPackage.Model.HlsPackage</Type>
+        <Type>Amazon.MediaPackage.Model.MssPackage</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

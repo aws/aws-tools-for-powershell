@@ -1,37 +1,51 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>IE</ServiceNounPrefix>
-  <ServiceName>AWS Import/Export</ServiceName>
-  <ServiceClientInterface>IAmazonImportExport</ServiceClientInterface>
-  <ServiceClient>AmazonImportExportClient</ServiceClient>
-  <ServiceNamespace>Amazon.ImportExport</ServiceNamespace>
-
-  <DefaultRegion>us-east-1</DefaultRegion>
-  
-  <VerbMappings>
-    <Map From="List" To="Get" />
-  </VerbMappings>
-  
-  <NounMappings>
-    <Map From="Jobs" To="Job" />
-  </NounMappings>
-  
-  <PositionalParameters>JobId</PositionalParameters>
-  
-  <PipelineParameter>JobId</PipelineParameter>
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="CancelJob"/>
-    <ServiceOperation MethodName="CreateJob" Output="Response" PipelineParameter="JobType" PositionalParameters="Manifest;ManifestAddendum;ValidateOnly"/>
-    <ServiceOperation MethodName="GetStatus" Output="Response"/>
-    <ServiceOperation MethodName="ListJobs" PipelineParameter="MaxJobs" PositionalParameters="Marker"/>
-    <ServiceOperation MethodName="UpdateJob" Output="Response" PositionalParameters="Manifest;JobType;ValidateOnly"/>
-    <ServiceOperation MethodName="GetShippingLabel" Output="Response" />
-  </ServiceOperations>
-  
-  <PipelineByValueProperties>
-    <Property>JobId</Property>
-  </PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonImportExport</SourceGenerationRoot>
+    <ServiceNounPrefix>IE</ServiceNounPrefix>
+    <ServiceName>AWS Import/Export</ServiceName>
+    <ServiceClientInterface>IAmazonImportExport</ServiceClientInterface>
+    <ServiceClient>AmazonImportExportClient</ServiceClient>
+    <ServiceNamespace>Amazon.ImportExport</ServiceNamespace>
+    <DefaultRegion>us-east-1</DefaultRegion>
+    <PositionalParameters>JobId</PositionalParameters>
+    <PipelineParameter>JobId</PipelineParameter>
+    <VerbMappings>
+        <Map From="List" To="Get" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Jobs" To="Job" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>JobId</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="CancelJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Manifest;ManifestAddendum;ValidateOnly" PipelineParameter="JobType" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Marker" PipelineParameter="MaxJobs" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Manifest;JobType;ValidateOnly" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetShippingLabel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

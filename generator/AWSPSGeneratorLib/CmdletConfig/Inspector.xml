@@ -1,19 +1,24 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonInspector</SourceGenerationRoot>
     <ServiceNounPrefix>INS</ServiceNounPrefix>
     <ServiceName>Amazon Inspector</ServiceName>
-    <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
     <ServiceClientInterface>IAmazonInspector</ServiceClientInterface>
     <ServiceClient>AmazonInspectorClient</ServiceClient>
-
-    <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
-    
+    <ServiceNamespace>Amazon.Inspector</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
     <VerbMappings>
-        <Map From="List" To="Get"/>
+        <Map From="List" To="Get" />
     </VerbMappings>
-    
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
     <PipelineByValueProperties>
         <Property>AssessmentRunArn</Property>
         <Property>AssessmentRunName</Property>
@@ -26,40 +31,108 @@
         <Property>RoleArn</Property>
         <Property>TopicArn</Property>
     </PipelineByValueProperties>
-    
     <ServiceOperations>
-        <ServiceOperation MethodName="AddAttributesToFindings" Noun="FindingAttribute" PipelineParameter="FindingArn" />
-        <ServiceOperation MethodName="CreateAssessmentTarget" PipelineParameter="ResourceGroupArn" ShouldProcessTarget="AssessmentTargetName" />
-        <ServiceOperation MethodName="CreateAssessmentTemplate" PipelineParameter="AssessmentTargetArn" ShouldProcessTarget="AssessmentTemplateName" />
-        <ServiceOperation MethodName="CreateResourceGroup" />
-        <ServiceOperation MethodName="DeleteAssessmentRun" Output="Void" />
-        <ServiceOperation MethodName="DeleteAssessmentTarget" Output="Void" />
-        <ServiceOperation MethodName="DeleteAssessmentTemplate" Output="Void" />
-        <ServiceOperation MethodName="DescribeAssessmentRuns" Noun="AssessmentRun" Output="Response"/>
-        <ServiceOperation MethodName="DescribeAssessmentTargets" Noun="AssessmentTarget" Output="Response" />
-        <ServiceOperation MethodName="DescribeAssessmentTemplates" Noun="AssessmentTemplate" Output="Response" />
-        <ServiceOperation MethodName="DescribeCrossAccountAccessRole" Output="Response" />
-        <ServiceOperation MethodName="DescribeFindings" Noun="Finding" Output="Response" PipelineParameter="FindingArn" />
-        <ServiceOperation MethodName="DescribeResourceGroups" Noun="ResourceGroup" Output="Response" />
-        <ServiceOperation MethodName="DescribeRulesPackages" Noun="RulesPackage" Output="Response" PipelineParameter="RulesPackageArn" />
-        <ServiceOperation MethodName="GetAssessmentReport" PipelineParameter="AssessmentRunArn" Output="Response" />
-        <ServiceOperation MethodName="GetTelemetryMetadata" />
-        <ServiceOperation MethodName="ListAssessmentRunAgents" Noun="AssessmentRunAgent" PipelineParameter="AssessmentRunArn" />
-        <ServiceOperation MethodName="ListAssessmentRuns" Noun="AssessmentRunList" PipelineParameter="AssessmentTemplateArn" />
-        <ServiceOperation MethodName="ListAssessmentTargets" Noun="AssessmentTargetList" />
-        <ServiceOperation MethodName="ListAssessmentTemplates" Noun="AssessmentTemplateList" PipelineParameter="AssessmentTargetArn" />
-        <ServiceOperation MethodName="ListEventSubscriptions" Noun="EventSubscription" />
-        <ServiceOperation MethodName="ListFindings" Noun="FindingList" PipelineParameter="AssessmentRunArn" />
-        <ServiceOperation MethodName="ListRulesPackages" Noun="RulesPackageList" />
-        <ServiceOperation MethodName="ListTagsForResource" Noun="ResourceTagList" />
-        <ServiceOperation MethodName="PreviewAgents" Noun="AgentPreview" Verb="Get" />
-        <ServiceOperation MethodName="RegisterCrossAccountAccessRole" Output="Void" />
-        <ServiceOperation MethodName="RemoveAttributesFromFindings" Noun="FindingAttribute" NoPipelineParameter="true" />
-        <ServiceOperation MethodName="SetTagsForResource" Output="Void" Noun="ResourceTag" PipelineParameter="ResourceArn" />
-        <ServiceOperation MethodName="StartAssessmentRun" NoPipelineParameter="true" ShouldProcessTarget="AssessmentTemplateArn" />
-        <ServiceOperation MethodName="StopAssessmentRun" Output="Void" PipelineParameter="AssessmentRunArn" />
-        <ServiceOperation MethodName="SubscribeToEvent" Output="Void" Noun="EventSubscription" Verb="Add" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
-        <ServiceOperation MethodName="UnsubscribeFromEvent" Output="Void" Noun="EventSubscription" Verb="Remove" NoPipelineParameter="true" ShouldProcessTarget="TopicArn" />
-        <ServiceOperation MethodName="UpdateAssessmentTarget" Output="Void" PipelineParameter="AssessmentTargetArn" />
+        <ServiceOperation MethodName="AddAttributesToFindings" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="FindingAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FindingArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessmentTarget" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AssessmentTargetName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateAssessmentTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AssessmentTemplateName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateResourceGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceGroupTags" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentRun" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteAssessmentTemplate" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessmentRuns" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentRun" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessmentTargets" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTargetArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAssessmentTemplates" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentTemplate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTemplateArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeCrossAccountAccessRole" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeFindings" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Finding" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="FindingArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeResourceGroups" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceGroupArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRulesPackages" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="RulesPackage" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RulesPackageArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetAssessmentReport" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetTelemetryMetadata" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentRunAgents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentRunAgent" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentRuns" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentRunList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTemplateArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentTargets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentTargetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Filter_AssessmentTargetNamePattern" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListAssessmentTemplates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AssessmentTemplateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEventSubscriptions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListFindings" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="FindingList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListRulesPackages" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="RulesPackageList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTagsForResource" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PreviewAgents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="AgentPreview" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PreviewAgentsArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterCrossAccountAccessRole" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RoleArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveAttributesFromFindings" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="FindingAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetTagsForResource" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartAssessmentRun" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="AssessmentTemplateArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopAssessmentRun" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentRunArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SubscribeToEvent" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TopicArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UnsubscribeFromEvent" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EventSubscription" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TopicArn" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateAssessmentTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AssessmentTargetArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

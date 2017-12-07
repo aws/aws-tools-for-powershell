@@ -349,6 +349,8 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// in order of definition (starting at 0) for each cmdlet that uses the parameter. PS
         /// recommendation is no more than 5 per cmdlet. This list will be suffixed with operation-
         /// specific sets of positional data.
+        /// NOTE: We prefer to not specify positional parameters these days. This config option is
+        /// present to support older services only.
         /// </summary>
         public string PositionalParameters;
 
@@ -873,7 +875,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// class.
         /// </summary>
         [XmlAttribute]
-        public string OutputWrapper;
+        public string OutputWrapper = string.Empty;
 
         /// <summary>
         /// The path to the properties contained in the service call output. Usually this
@@ -894,10 +896,10 @@ namespace AWSPowerShellGenerator.CmdletConfig
         }
 
         [XmlAttribute("Verb")] 
-        public string RequestedVerb;
+        public string RequestedVerb = string.Empty;
 
         [XmlAttribute("Noun")]
-        public string RequestedNoun;
+        public string RequestedNoun = string.Empty;
 
         [XmlArray("Params")]
         [XmlArrayItem("Param")]

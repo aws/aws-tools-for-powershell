@@ -1,80 +1,151 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-	<ServiceNounPrefix>ELB2</ServiceNounPrefix>
-	<ServiceName>Elastic Load Balancing V2</ServiceName>
-	<ServiceClientInterface>IAmazonElasticLoadBalancingV2</ServiceClientInterface>
-	<ServiceClient>AmazonElasticLoadBalancingV2Client</ServiceClient>
-	<ServiceNamespace>Amazon.ElasticLoadBalancingV2</ServiceNamespace>
-
-	<AutoIterate EmitLimit="PageSize" Start="Marker" Next="NextMarker" />
-	
-	<NounMappings>
-		<Map From="Tags" To="Tag" />
-		<Map From="Rules" To="Rule" />
-		<Map From="Targets" To="Target" />
-		<Map From="Listeners" To="Listener" />
-		<Map From="Subnets" To="Subnet" />
-	</NounMappings>
-	
-	<VerbMappings>
-		<Map From="Modify" To="Edit" />
-		<Map From="Deregister" To="Unregister" />
-	</VerbMappings>
-
-	<TypesNotToFlatten>
-		<Type>Amazon.ElasticLoadBalancingV2.Model.Certificate</Type>
-	</TypesNotToFlatten>
-
-	<ServiceOperations>
-		<ServiceOperation MethodName="AddListenerCertificates" Noun="ListenerCertificate" PipelineParameter="Certificates" />
-		<ServiceOperation MethodName="AddTags" NoPipelineParameter="true" Output="Void" />
-		<ServiceOperation MethodName="CreateListener" PipelineParameter="LoadBalancerArn" />
-		<ServiceOperation MethodName="CreateLoadBalancer" NoPipelineParameter="true" />
-		<ServiceOperation MethodName="CreateRule" PipelineParameter="ListenerArn" />
-		<ServiceOperation MethodName="CreateTargetGroup" NoPipelineParameter="true" ShouldProcessTarget="Name" />
-		<ServiceOperation MethodName="DeleteListener" Output="Void" />
-		<ServiceOperation MethodName="DeleteLoadBalancer" Output="Void" />
-		<ServiceOperation MethodName="DeleteRule" Output="Void" />
-		<ServiceOperation MethodName="DeleteTargetGroup" Output="Void" />
-		<ServiceOperation MethodName="DeregisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
-		<ServiceOperation MethodName="DescribeAccountLimits" Noun="AccountLimit" />
-		<ServiceOperation MethodName="DescribeListeners" PipelineParameter="ListenerArn" />
-		<ServiceOperation MethodName="DescribeListenerCertificates" Noun="ListenerCertificate" />
-		<ServiceOperation MethodName="DescribeLoadBalancerAttributes" Noun="LoadBalancerAttribute" />
-		<ServiceOperation MethodName="DescribeLoadBalancers" NoPipelineParameter="true" Noun="LoadBalancer" />
-		<ServiceOperation MethodName="DescribeRules" PipelineParameter="ListenerArn" />
-		<ServiceOperation MethodName="DescribeSSLPolicies" Noun="SSLPolicy" />
-		<ServiceOperation MethodName="DescribeTags" />
-		<ServiceOperation MethodName="DescribeTargetGroupAttributes" Noun="TargetGroupAttribute" />
-		<ServiceOperation MethodName="DescribeTargetGroups" PipelineParameter="LoadBalancerArn" Noun="TargetGroup" />
-		<ServiceOperation MethodName="DescribeTargetHealth" PipelineParameter="TargetGroupArn" />
-		<ServiceOperation MethodName="ModifyListener" PipelineParameter="ListenerArn" />
-		<ServiceOperation MethodName="ModifyLoadBalancerAttributes" Noun="LoadBalancerAttribute" PipelineParameter="LoadBalancerArn" />
-		<ServiceOperation MethodName="ModifyRule" PipelineParameter="RuleArn" />
-		<ServiceOperation MethodName="ModifyTargetGroup" PipelineParameter="TargetGroupArn" />
-		<ServiceOperation MethodName="ModifyTargetGroupAttributes" Noun="TargetGroupAttribute" PipelineParameter="TargetGroupArn" />
-		<ServiceOperation MethodName="RegisterTargets" PipelineParameter="TargetGroupArn" Output="Void" />
-		<ServiceOperation MethodName="RemoveListenerCertificates" Noun="ListenerCertificate" PipelineParameter="Certificates" Output="Void" />
-		<ServiceOperation MethodName="RemoveTags" NoPipelineParameter="true" Output="Void" />
-		<ServiceOperation MethodName="SetIpAddressType" PipelineParameter="LoadBalancerArn"/>
-		<ServiceOperation MethodName="SetRulePriorities" Noun="RulePriority" NoPipelineParameter="true" />
-		<ServiceOperation MethodName="SetSecurityGroups" PipelineParameter="LoadBalancerArn" Noun="SecurityGroup" />
-		<ServiceOperation MethodName="SetSubnets" PipelineParameter="LoadBalancerArn" />
-	</ServiceOperations>
-	
-	<PipelineByValueProperties>
-		<Property>TargetGroupArn</Property>
-		<Property>SubnetId</Property>
-		<Property>ZoneName</Property>
-		<Property>CertificateArn</Property>
-		<Property>ListenerArn</Property>
-		<Property>LoadBalancerArn</Property>
-		<Property>LoadBalancerName</Property>
-		<Property>VpcId</Property>
-		<Property>RuleArn</Property>
-		<Property>ResourceArn</Property>
-		<Property>TargetGroupName</Property>
-	</PipelineByValueProperties>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonElasticLoadBalancingV2</SourceGenerationRoot>
+    <ServiceNounPrefix>ELB2</ServiceNounPrefix>
+    <ServiceName>Elastic Load Balancing V2</ServiceName>
+    <ServiceClientInterface>IAmazonElasticLoadBalancingV2</ServiceClientInterface>
+    <ServiceClient>AmazonElasticLoadBalancingV2Client</ServiceClient>
+    <ServiceNamespace>Amazon.ElasticLoadBalancingV2</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="Marker" Next="NextMarker" EmitLimit="PageSize" ServicePageSize="-1" />
+    <VerbMappings>
+        <Map From="Modify" To="Edit" />
+        <Map From="Deregister" To="Unregister" />
+    </VerbMappings>
+    <NounMappings>
+        <Map From="Tags" To="Tag" />
+        <Map From="Rules" To="Rule" />
+        <Map From="Targets" To="Target" />
+        <Map From="Listeners" To="Listener" />
+        <Map From="Subnets" To="Subnet" />
+    </NounMappings>
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties>
+        <Property>TargetGroupArn</Property>
+        <Property>SubnetId</Property>
+        <Property>ZoneName</Property>
+        <Property>CertificateArn</Property>
+        <Property>ListenerArn</Property>
+        <Property>LoadBalancerArn</Property>
+        <Property>LoadBalancerName</Property>
+        <Property>VpcId</Property>
+        <Property>RuleArn</Property>
+        <Property>ResourceArn</Property>
+        <Property>TargetGroupName</Property>
+    </PipelineByValueProperties>
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddListenerCertificates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ListenerCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Certificates" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateListener" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateLoadBalancer" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateRule" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTargetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Name" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteListener" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteLoadBalancer" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteRule" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTargetGroup" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterTargets" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeAccountLimits" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AccountLimit" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeListeners" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeListenerCertificates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ListenerCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancerAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeLoadBalancers" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancer" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeRules" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeSSLPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SSLPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Names" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetGroupAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TargetGroupAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TargetGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTargetHealth" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyListener" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ListenerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyLoadBalancerAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="LoadBalancerAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyRule" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RuleArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTargetGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ModifyTargetGroupAttributes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TargetGroupAttribute" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterTargets" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TargetGroupArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveListenerCertificates" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ListenerCertificate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Certificates" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetIpAddressType" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetRulePriorities" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="RulePriority" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSecurityGroups" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="SecurityGroup" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="SetSubnets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LoadBalancerArn" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.ElasticLoadBalancingV2.Model.Certificate</Type>
+    </TypesNotToFlatten>
 </ConfigModel>

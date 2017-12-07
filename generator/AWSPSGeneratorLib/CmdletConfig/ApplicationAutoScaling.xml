@@ -1,27 +1,56 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>AAS</ServiceNounPrefix>
-  <ServiceName>Application Auto Scaling</ServiceName>
-  <ServiceClientInterface>IAmazonApplicationAutoScaling</ServiceClientInterface>
-  <ServiceClient>AmazonApplicationAutoScalingClient</ServiceClient>
-  <ServiceNamespace>Amazon.ApplicationAutoScaling</ServiceNamespace>
-
-  <PipelineParameter>ServiceNamespace</PipelineParameter>
-  
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="DeleteScheduledAction" PipelineParameter="ScheduledActionName" Output="Void" />
-    <ServiceOperation MethodName="DescribeScheduledActions" Noun="ScheduledAction" />
-    <ServiceOperation MethodName="PutScalingPolicy" Verb="Set" ShouldProcessTarget="PolicyName" Output="Response" LegacyAlias="Write-AASScalingPolicy" />
-    <ServiceOperation MethodName="PutScheduledAction" Verb="Set" PipelineParameter="ResourceId" Output="Void" />
-    <ServiceOperation MethodName="RegisterScalableTarget" Verb="Add" Output="Void" />
-    <ServiceOperation MethodName="DeleteScalingPolicy" Verb="Remove" Output="Void" ShouldProcessTarget="PolicyName" />
-    <ServiceOperation MethodName="DeregisterScalableTarget" Verb="Remove" Output="Void" />
-    <ServiceOperation MethodName="DescribeScalableTargets" Noun="ScalableTarget" />
-    <ServiceOperation MethodName="DescribeScalingActivities" Noun="ScalingActivity" />
-    <ServiceOperation MethodName="DescribeScalingPolicies" Noun="ScalingPolicy" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonApplicationAutoScaling</SourceGenerationRoot>
+    <ServiceNounPrefix>AAS</ServiceNounPrefix>
+    <ServiceName>Application Auto Scaling</ServiceName>
+    <ServiceClientInterface>IAmazonApplicationAutoScaling</ServiceClientInterface>
+    <ServiceClient>AmazonApplicationAutoScalingClient</ServiceClient>
+    <ServiceNamespace>Amazon.ApplicationAutoScaling</ServiceNamespace>
+    <PipelineParameter>ServiceNamespace</PipelineParameter>
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DeleteScheduledAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ScheduledActionName" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScheduledActions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScheduledAction" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScalingPolicy" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true" LegacyAlias="Write-AASScalingPolicy">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutScheduledAction" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Set" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterScalableTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteScalingPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="PolicyName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterScalableTarget" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalableTargets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScalableTarget" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingActivities" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScalingActivity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeScalingPolicies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ScalingPolicy" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

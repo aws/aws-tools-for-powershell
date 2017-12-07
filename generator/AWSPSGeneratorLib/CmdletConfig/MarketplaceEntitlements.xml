@@ -1,16 +1,29 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>MES</ServiceNounPrefix>
-  <ServiceName>AWS Marketplace Entitlement Service</ServiceName>
-  <ServiceClientInterface>IAmazonMarketplaceEntitlementService</ServiceClientInterface>
-  <ServiceClient>AmazonMarketplaceEntitlementServiceClient</ServiceClient>
-  <ServiceNamespace>Amazon.MarketplaceEntitlementService</ServiceNamespace>
-
-  <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" />
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="GetEntitlements" Noun="EntitlementList" PipelineParameter="ProductCode" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonMarketplaceEntitlementService</SourceGenerationRoot>
+    <ServiceNounPrefix>MES</ServiceNounPrefix>
+    <ServiceName>AWS Marketplace Entitlement Service</ServiceName>
+    <ServiceClientInterface>IAmazonMarketplaceEntitlementService</ServiceClientInterface>
+    <ServiceClient>AmazonMarketplaceEntitlementServiceClient</ServiceClient>
+    <ServiceNamespace>Amazon.MarketplaceEntitlementService</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="GetEntitlements" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EntitlementList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

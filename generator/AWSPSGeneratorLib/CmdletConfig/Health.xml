@@ -1,21 +1,44 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <ServiceNounPrefix>HLTH</ServiceNounPrefix>
-  <ServiceName>AWS Health</ServiceName>
-  <ServiceNamespace>Amazon.AWSHealth</ServiceNamespace>
-  <ServiceClientInterface>IAmazonAWSHealth</ServiceClientInterface>
-  <ServiceClient>AmazonAWSHealthClient</ServiceClient>
-
-  <AutoIterate EmitLimit="MaxResults" Start="NextToken" Next="NextToken" />
-  
-  <ServiceOperations>
-    <ServiceOperation MethodName="DescribeAffectedEntities" Noun="AffectedEntity" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DescribeEntityAggregates" Noun="EntityAggregate" />
-    <ServiceOperation MethodName="DescribeEventAggregates" Noun="EventAggregate" PipelineParameter="AggregateField" />
-    <ServiceOperation MethodName="DescribeEventDetails" Noun="EventDetail" PipelineParameter="EventArns" Output="Response" />
-    <ServiceOperation MethodName="DescribeEvents" Noun="Event" NoPipelineParameter="true" />
-    <ServiceOperation MethodName="DescribeEventTypes" Noun="EventType" NoPipelineParameter="true" />
-  </ServiceOperations>
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonAWSHealth</SourceGenerationRoot>
+    <ServiceNounPrefix>HLTH</ServiceNounPrefix>
+    <ServiceName>AWS Health</ServiceName>
+    <ServiceClientInterface>IAmazonAWSHealth</ServiceClientInterface>
+    <ServiceClient>AmazonAWSHealthClient</ServiceClient>
+    <ServiceNamespace>Amazon.AWSHealth</ServiceNamespace>
+    <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="-1" />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeAffectedEntities" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="AffectedEntity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEntityAggregates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EntityAggregate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EventArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventAggregates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventAggregate" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="AggregateField" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventDetails" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EventArns" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEvents" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Event" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEventTypes" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="EventType" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>

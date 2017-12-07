@@ -1,16 +1,34 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<ConfigModel 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonAWSMarketplaceMetering</SourceGenerationRoot>
     <ServiceNounPrefix>MM</ServiceNounPrefix>
     <ServiceName>AWS Marketplace Metering</ServiceName>
-    <ServiceNamespace>Amazon.AWSMarketplaceMetering</ServiceNamespace>
     <ServiceClientInterface>IAmazonAWSMarketplaceMetering</ServiceClientInterface>
     <ServiceClient>AmazonAWSMarketplaceMeteringClient</ServiceClient>
-    
+    <ServiceNamespace>Amazon.AWSMarketplaceMetering</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
     <ServiceOperations>
-        <ServiceOperation MethodName="MeterUsage" Verb="Send" Noun="MeteringData" PipelineParameter="ProductCode" ShouldProcessTarget="ProductCode" />
-        <ServiceOperation MethodName="BatchMeterUsage" Verb="Send" Noun="MeteringDataBatch" PipelineParameter="ProductCode" ShouldProcessTarget="ProductCode" Output="Response"/>
-        <ServiceOperation MethodName="ResolveCustomer" Verb="Get" Noun="CustomerMetadata" Output="Response"/>
+        <ServiceOperation MethodName="MeterUsage" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MeteringData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchMeterUsage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Send" Noun="MeteringDataBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ProductCode" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ProductCode" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ResolveCustomer" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="CustomerMetadata" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="RegistrationToken" NoPipelineParameter="false" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
     </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
 </ConfigModel>
