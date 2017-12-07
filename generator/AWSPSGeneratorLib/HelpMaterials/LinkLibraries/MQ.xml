@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+	<link name="Developer Guide">https://aws.amazon.com/documentation/amazon-mq/</link>
+  </set>
+</links>

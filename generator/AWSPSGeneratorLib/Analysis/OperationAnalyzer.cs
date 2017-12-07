@@ -898,6 +898,30 @@ namespace AWSPowerShellGenerator.Analysis
                 CurrentOperation.RequestedVerb = verb;
             }
 
+            CheckForPluralNoun(noun);
+
+            if (CurrentOperation.IsAutoConfiguring)
+            {
+                // if we're configuring a new operation, state the verb and noun selected
+                // explicitly in the config file so it can be reviewed and corrected if necessary
+                CurrentOperation.RequestedVerb = verb;
+                CurrentOperation.RequestedNoun = noun.Substring(CurrentModel.ServiceNounPrefix.Length);
+            }
+
+            CurrentOperation.SelectedVerb = verb;
+            CurrentOperation.SelectedNoun = noun;
+
+            return true;
+        }
+
+        // Called when auto-assigning a noun for a List* operation and subsequently
+        // in analysis to ensure we check all cmdlets. Returns the suggested verb,
+        // which we use in analyzing List* operations but ignore (message only)
+        // elsewhere
+        private string CheckForPluralNoun(string noun)
+        {
+            var suggestedNoun = new StringBuilder();
+
             var nounArray = Regex.Split(noun, @"(?<!^)(?=[A-Z])");
             var nounTermination = nounArray[nounArray.Length - 1];
             // service yields some nounds as plural but they are not for cmdlet name purposes
@@ -910,7 +934,6 @@ namespace AWSPowerShellGenerator.Analysis
 
             if (Pluralization.IsPlural(nounTermination) && !pluralFalsePositives.Contains(nounTermination))
             {
-                var suggestedNoun = new StringBuilder();
                 // entry 0-n is the capitalized noun prefix, skip that
                 for (var i = CurrentModel.ServiceNounPrefix.Length; i < nounArray.Length - 1; i++)
                 {
@@ -929,27 +952,14 @@ namespace AWSPowerShellGenerator.Analysis
                 else
                 {
                     // found plural noun that hasn't been manually configured, so error it
-                    Logger.LogError("Plural noun [{0}] in operation [{1} ({2}-{3})]. Suggest noun rename to [{4}].",
+                    Logger.LogError("Plural noun [{0}] in operation [{1}]. Suggest noun rename to [{2}].",
                         noun,
                         CurrentOperation.MethodName,
-                        verb,
-                        noun,
                         suggestedNoun);
                 }
             }
 
-            if (CurrentOperation.IsAutoConfiguring)
-            {
-                // if we're configuring a new operation, state the verb and noun selected
-                // explicitly in the config file so it can be reviewed and corrected if necessary
-                CurrentOperation.RequestedVerb = verb;
-                CurrentOperation.RequestedNoun = noun.Substring(CurrentModel.ServiceNounPrefix.Length);
-            }
-
-            CurrentOperation.SelectedVerb = verb;
-            CurrentOperation.SelectedNoun = noun;
-
-            return true;
+            return suggestedNoun.ToString();
         }
 
         /// <summary>
@@ -1343,7 +1353,8 @@ namespace AWSPowerShellGenerator.Analysis
             if (string.IsNullOrEmpty(newNoun) && CurrentOperation.IsAutoConfiguring && CurrentOperation.IsRemappedListOperation)
             {
                 Logger.Log("Auto-generating for SDK List operation; setting noun to have List suffix");
-                newNoun = noun + "List";
+                var suggestedNoun = CheckForPluralNoun(noun);
+                newNoun = (string.IsNullOrEmpty(suggestedNoun) ? noun : suggestedNoun) + "List";
             }
 
             if (newNoun == null)

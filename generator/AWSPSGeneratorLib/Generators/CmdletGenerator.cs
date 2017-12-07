@@ -366,6 +366,8 @@ namespace AWSPowerShellGenerator.Generators
                     GenerateArgumentCompleters(CurrentModel);
                     ProcessLegacyAliasesForCustomCmdlets(CurrentModel);
 
+                    CurrentModel.ModelUpdated = true;
+
                     if (CurrentModel.ModelUpdated)
                     {
                         CurrentModel.Serialize(configurationsFolder);

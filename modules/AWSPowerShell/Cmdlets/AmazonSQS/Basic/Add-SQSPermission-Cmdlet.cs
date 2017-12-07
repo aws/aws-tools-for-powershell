@@ -150,7 +150,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             
             if (this.Action != null)
             {
-                context.Actions = new List<System.String>(this.Action);
+                context.Action = new List<System.String>(this.Action);
             }
             if (this.AWSAccountId != null)
             {
@@ -174,9 +174,9 @@ namespace Amazon.PowerShell.Cmdlets.SQS
             // create request
             var request = new Amazon.SQS.Model.AddPermissionRequest();
             
-            if (cmdletContext.Actions != null)
+            if (cmdletContext.Action != null)
             {
-                request.Actions = cmdletContext.Actions;
+                request.Actions = cmdletContext.Action;
             }
             if (cmdletContext.AWSAccountIds != null)
             {
@@ -256,7 +256,7 @@ namespace Amazon.PowerShell.Cmdlets.SQS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public List<System.String> Actions { get; set; }
+            public List<System.String> Action { get; set; }
             public List<System.String> AWSAccountIds { get; set; }
             public System.String Label { get; set; }
             public System.String QueueUrl { get; set; }

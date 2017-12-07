@@ -4396,6 +4396,44 @@ $ML_map = @{
 _awsArgumentCompleterRegistration $ML_Completers $ML_map
 
 
+# Argument completions for service Amazon MQ
+$MQ_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.MQ.DeploymentMode
+        "New-MQBroker/DeploymentMode"
+        {
+            $v = "ACTIVE_STANDBY_MULTI_AZ","SINGLE_INSTANCE"
+            break
+        }
+        
+        # Amazon.MQ.EngineType
+        {
+            ($_ -eq "New-MQBroker/EngineType") -Or
+            ($_ -eq "New-MQConfiguration/EngineType")
+        }
+        {
+            $v = "ACTIVEMQ"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$MQ_map = @{
+    "DeploymentMode"=@("New-MQBroker")
+    "EngineType"=@("New-MQBroker","New-MQConfiguration")
+}
+
+_awsArgumentCompleterRegistration $MQ_Completers $MQ_map
+
+
 # Argument completions for service Amazon MTurk Service
 $MTR_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

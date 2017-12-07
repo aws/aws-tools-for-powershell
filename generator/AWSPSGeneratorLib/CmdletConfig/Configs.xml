@@ -76,6 +76,7 @@
     <Path>MediaStore.xml</Path>
     <Path>MediaStoreData.xml</Path>
     <Path>MigrationHub.xml</Path>
+    <Path>MQ.xml</Path>
     <Path>OpsWorks.xml</Path>
     <Path>OpsWorksCM.xml</Path>
     <Path>Organizations.xml</Path>

@@ -5,6 +5,8 @@
     * Added support for new APIs to enable schema changes across your directories with in-place schema upgrades. Your directories now remain available while backward-compatible schema changes are being applied, such as the addition of new fields. You also can view the history of your schema changes in Cloud Directory by using both major and minor version identifiers, which can help you track and audit schema versions across directories. The new cmdlets are Get-CDIRAppliedSchemaVersion (GetAppliedSchemaVersion API), Update-CDIRAppliedSchema (UpgradeAppliedSchema API) and Update-CDIRPublishedSchema (UpgradePublishedSchema API).
   * AWS Budgets
     * Added support for additional cost types to support finer control for different charges included in a cost budget.
+  * Amazon MQ
+    * Added support for the Amazon MQ service launched at AWS re:Invent 2017. Amazon MQ is a managed message broker service for [Apache ActiveMQ](http://activemq.apache.org/) that makes it easy to set up and operate message brokers in the cloud. Cmdlets for the service have the noun prefix 'MQ' and can be listed with the command *Get-AWSCmdletName -Service MQ*.
 
 ### 3.3.201.0 (2017-12-02)
   * Updated cmdlets for multiple services to include new APIs and API updates released during AWS re:Invent 2017, for services already supported by the tools. New services launched at the conference will be added to the tools in the coming days. The updated services are:

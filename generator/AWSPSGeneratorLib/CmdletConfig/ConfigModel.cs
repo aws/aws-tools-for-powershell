@@ -1063,7 +1063,7 @@ namespace AWSPowerShellGenerator.CmdletConfig
         /// lost, they will be attached as notes to the service response in the history stack.
         /// </summary>
         [XmlAttribute]
-        public string MetadataProperties;
+        public string MetadataProperties = string.Empty;
 
         string[] _metadataPropertiesList;
         [XmlIgnore]
