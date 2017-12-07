@@ -201,5 +201,15 @@ namespace Amazon.PowerShell.Utils
 
             return string.Format("Name resolution failure attempting to reach service.\n{0}.", exceptionMessage);
         }
+
+        public static string ConvertToBase64(string source)
+        {
+            return ConvertToBase64(System.Text.Encoding.UTF8.GetBytes(source));
+        }
+
+        public static string ConvertToBase64(byte[] source)
+        {
+            return System.Convert.ToBase64String(source);
+        }
     }
 }

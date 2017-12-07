@@ -1265,6 +1265,19 @@ namespace AWSPowerShellGenerator.CmdletConfig
                 return _aliasesSet;
             }
         }
+
+        public enum AutoConversion
+        {
+            None = 0,
+            ToBase64 = 1
+        }
+
+        /// <summary>
+        /// If set, the cmdlet automatically converts from the source type (string or
+        /// byte array) to a base64 representation required by the service.
+        /// </summary>
+        [XmlAttribute]
+        public AutoConversion AutoConvert { get; set; }
     }
 
     public class AliasSet

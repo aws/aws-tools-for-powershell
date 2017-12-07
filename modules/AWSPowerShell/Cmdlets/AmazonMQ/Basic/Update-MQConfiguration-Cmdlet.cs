@@ -55,6 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// <para>
         /// Required. The base64-encoded XML configuration.
         /// </para>
+        /// <para>The cmdlet will automatically convert the supplied parameter value to Base64 before supplying to the service.</para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
         public System.String Data { get; set; }
@@ -100,7 +101,7 @@ namespace Amazon.PowerShell.Cmdlets.MQ
             PreExecutionContextLoad(context);
             
             context.ConfigurationId = this.ConfigurationId;
-            context.Data = this.Data;
+            context.Data = Utils.Common.ConvertToBase64(this.Data);
             context.Description = this.Description;
             
             // allow further manipulation of loaded context prior to processing

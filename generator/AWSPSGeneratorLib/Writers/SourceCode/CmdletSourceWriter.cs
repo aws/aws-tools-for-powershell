@@ -446,6 +446,13 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                          + "\r\n<br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call."
                          + "\r\n</para>";
             }
+            var paramCustomization = Operation.FindCustomParameterData(property.AnalyzedName);
+            if (paramCustomization != null && paramCustomization.AutoConvert == Param.AutoConversion.ToBase64)
+            {
+                paramDoc +=
+                    "\r\n<para>The cmdlet will automatically convert the supplied parameter value to Base64 before supplying to the service.</para>";
+            }
+
             writer.WriteLine(DocumentationUtils.CommentDocumentation(paramDoc));
             WriteParamProperty(writer, property, param, ref usedPositionalCount);
         }
@@ -787,7 +794,15 @@ namespace AWSPowerShellGenerator.Writers.SourceCode
                             writer.WriteLine("if (ParameterWasBound(\"{0}\"))", property.CmdletParameterName);
                             writer.IncreaseIndent();
                         }
-                        writer.WriteLine("context.{0} = this.{1};", property.ContextParameterName, property.CmdletParameterName);
+                        var paramCustomization = Operation.FindCustomParameterData(property.AnalyzedName);
+                        if (paramCustomization != null && paramCustomization.AutoConvert == Param.AutoConversion.ToBase64)
+                        {
+                            writer.WriteLine("context.{0} = Utils.Common.ConvertToBase64(this.{1});", property.ContextParameterName, property.CmdletParameterName);
+                        }
+                        else
+                        {
+                            writer.WriteLine("context.{0} = this.{1};", property.ContextParameterName, property.CmdletParameterName);
+                        }
                         if (property.UseParameterValueOnlyIfBound)
                             writer.DecreaseIndent();
                     }
