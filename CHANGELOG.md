@@ -1,4 +1,6 @@
 ###
+  * Amazon EC2
+    * Updated the New-EC2Instance cmdlet to support the new [T2 Unlimited](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-unlimited.html#launch-t2) feature.
   * Amazon Cloud Directory
     * Added support for new APIs to enable schema changes across your directories with in-place schema upgrades. Your directories now remain available while backward-compatible schema changes are being applied, such as the addition of new fields. You also can view the history of your schema changes in Cloud Directory by using both major and minor version identifiers, which can help you track and audit schema versions across directories. The new cmdlets are Get-CDIRAppliedSchemaVersion (GetAppliedSchemaVersion API), Update-CDIRAppliedSchema (UpgradeAppliedSchema API) and Update-CDIRPublishedSchema (UpgradePublishedSchema API).
   * AWS Budgets

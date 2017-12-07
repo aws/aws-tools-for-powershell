@@ -28,7 +28,44 @@ using Amazon.EC2.Model;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
-    ///  Launches a specified number of instances of an AMI for which you have permissions.
+    /// <para>
+    /// Launches a specified number of instances of an AMI for which you have permissions.
+    /// </para>
+    /// <para>
+    /// You can specify a number of options, or leave the default options. The following rules apply:
+    /// <ul>
+    /// <li>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</li>
+    /// <li>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</li>
+    /// <li>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance Types Available Only in a VPC</a>.</li>
+    /// <li>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</li>
+    /// <li>Not all instance types support IPv6 addresses. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>.</li>
+    /// <li>If you don't specify a security group ID, we use the default security group. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>.</li>
+    /// <li>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</li>
+    /// </ul>
+    /// </para>
+    /// <para>
+    /// You can create a <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that 
+    /// contains the parameters to launch an instance. When you launch an instance using the cmdlet you can specify the launch template instead of specifying 
+    /// the launch parameters. 
+    /// </para>
+    /// <para>
+    /// To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each 
+    /// instead of one launch request for 500 instances.
+    /// </para>
+    /// <para>
+    /// An instance is ready for you to use when it's in the running state. You can check the state of your instance using the Get-EC2Instance cmdlet. You can 
+    /// tag instances and EBS volumes during launch, after launch, or both. For more information, see <a href="https://docs.aws.amazon.com/powershell/latest/reference/index.html?page=New-EC2Tag.html&tocid=New-EC2Tag">New-EC2Tag</a>
+    /// and <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a>. 
+    /// </para>
+    /// <para>
+    /// Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public 
+    /// images use this feature to provide secure access without passwords. For more information, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a>
+    /// in the Amazon Elastic Compute Cloud User Guide. 
+    /// </para>
+    /// <para>
+    /// For troubleshooting, see <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What To Do If An Instance Immediately Terminates</a>, and 
+    /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the Amazon Elastic Compute Cloud User Guide. 
+    /// </para>
     /// </summary>
     [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Reservation")]
@@ -456,6 +493,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         public Amazon.EC2.Model.InstanceIpv6Address[] Ipv6Addresses { get; set; }
         #endregion
 
+        #region Parameter LaunchTemplate
+        /// <summary>
+        /// The launch template to use to launch the instances. Any parameters that you specify to the cmdlet
+        /// override the same parameters in the launch template
+        /// </summary>
+        [Parameter]
+        public Amazon.EC2.Model.LaunchTemplateSpecification LaunchTemplate { get; set; }
+        #endregion
+
+        #region Parameter InstanceMarketOption
+        /// <summary>
+        /// The market (purchasing) option for the instances.
+        /// </summary>
+        [Parameter]
+        public Amazon.EC2.Model.InstanceMarketOptionsRequest InstanceMarketOption { get; set; }
+        #endregion
+
+        #region Parameter CpuCredit
+        /// <summary>
+        /// <para>
+        /// The credit option for CPU usage of the instance. Valid values are <code>standard</code> and <code>unlimited</code>. 
+        /// To change this attribute after launch, use the Edit-EC2InstanceCreditSpecification cmdlet. For more information, see 
+        /// <a href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-instances.html\">T2 Instances</a> in the 
+        /// <i>Amazon Elastic Compute Cloud User Guide</i>.
+        /// </para>
+        /// <para>
+        /// The default value if not specified is <code>standard</code>.
+        /// </para>
+        /// </summary>
+        [Parameter]
+        public System.String CpuCredit { get; set; }
+        #endregion
+
         public NewEC2InstanceCmdlet()
         {
             this.MinCount = this.MaxCount = 1;    
@@ -540,6 +610,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             catch (IOException e)
             {
                 ThrowArgumentError("Error attempting to access UserDataFile.", UserDataFile, e);
+            }
+            if (this.LaunchTemplate != null)
+            {
+                context.LaunchTemplate = this.LaunchTemplate;
+            }
+            if (this.InstanceMarketOption != null)
+            {
+                context.InstanceMarketOption = this.InstanceMarketOption;
+            }
+            if (!string.IsNullOrEmpty(this.CpuCredit))
+            {
+                context.CpuCredit = this.CpuCredit;
             }
             
             var output = Execute(context) as CmdletOutput;
@@ -791,6 +873,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 request.Ipv6AddressCount = cmdletContext.Ipv6AddressCount.Value;
             }
+            if (cmdletContext.LaunchTemplate != null)
+            {
+                request.LaunchTemplate = cmdletContext.LaunchTemplate;
+            }
+            if (cmdletContext.InstanceMarketOption != null)
+            {
+                request.InstanceMarketOptions = cmdletContext.InstanceMarketOption;
+            }
+            if (!string.IsNullOrEmpty(cmdletContext.CpuCredit))
+            {
+                request.CreditSpecification = new CreditSpecificationRequest
+                {
+                    CpuCredits = cmdletContext.CpuCredit
+                };
+            }
 
             var client = Client ?? CreateClient(context.Credentials, context.Region);
             CmdletOutput output;
@@ -889,6 +986,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             public List<Amazon.EC2.Model.ElasticGpuSpecification> ElasticGpuSpecification { get; set; }
             public List<Amazon.EC2.Model.InstanceIpv6Address> Ipv6Addresses { get; set; }
             public int? Ipv6AddressCount { get; set; }
+            public Amazon.EC2.Model.LaunchTemplateSpecification LaunchTemplate { get; set; }
+            public Amazon.EC2.Model.InstanceMarketOptionsRequest InstanceMarketOption { get; set; }
+            public System.String CpuCredit { get; set; }
         }
         
     }
