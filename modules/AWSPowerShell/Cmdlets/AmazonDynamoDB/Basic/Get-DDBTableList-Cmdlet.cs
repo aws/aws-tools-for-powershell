@@ -62,6 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.DDB
         /// <para>A maximum number of table names to return. If this parameter is not specified, the
         /// limit is 100.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

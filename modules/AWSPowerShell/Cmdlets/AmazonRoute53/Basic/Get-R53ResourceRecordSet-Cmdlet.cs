@@ -137,6 +137,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// elements in the response identify the first resource record set in the next group
         /// of <code>maxitems</code> resource record sets.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

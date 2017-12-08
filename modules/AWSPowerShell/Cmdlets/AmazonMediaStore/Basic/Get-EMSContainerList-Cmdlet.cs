@@ -59,6 +59,9 @@ namespace Amazon.PowerShell.Cmdlets.EMS
         /// <para>Enter the maximum number of containers in the response. Use from 1 to 255 characters.
         /// </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

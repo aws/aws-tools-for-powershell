@@ -73,6 +73,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>The total number of agents/Connectors to return in a single page of output. The maximum
         /// value is 100.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

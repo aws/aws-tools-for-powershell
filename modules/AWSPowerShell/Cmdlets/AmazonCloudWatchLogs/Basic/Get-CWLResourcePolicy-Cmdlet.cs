@@ -46,6 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CWL
         /// <para>
         /// <para>The maximum number of resource policies to be displayed with one call of this API.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

@@ -47,6 +47,9 @@ namespace Amazon.PowerShell.Cmdlets.MQ
         /// The maximum number of brokers that Amazon MQ
         /// can return per page (20 by default). This value must be an integer from 5 to 100.
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

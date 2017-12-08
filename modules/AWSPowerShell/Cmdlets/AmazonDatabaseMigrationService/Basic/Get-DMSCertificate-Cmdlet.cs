@@ -75,6 +75,9 @@ namespace Amazon.PowerShell.Cmdlets.DMS
         /// the specified <code>MaxRecords</code> value, a pagination token called a marker is
         /// included in the response so that the remaining results can be retrieved. </para><para>Default: 10</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]

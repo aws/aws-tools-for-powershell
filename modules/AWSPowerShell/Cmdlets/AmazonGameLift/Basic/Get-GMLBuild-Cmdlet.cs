@@ -71,6 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.GML
         /// <para>Maximum number of results to return. Use this parameter with <code>NextToken</code>
         /// to get results as a set of sequential pages.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

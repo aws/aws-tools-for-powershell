@@ -72,6 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ORG
         /// the maximum even when there are more results available. You should check <code>NextToken</code>
         /// after every operation to ensure that you receive all of the results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

@@ -99,6 +99,9 @@ namespace Amazon.PowerShell.Cmdlets.SHLD
         /// <para>The maximum number of <a>AttackSummary</a> objects to be returned. If this is left
         /// blank, the first 20 results will be returned.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

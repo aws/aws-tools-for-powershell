@@ -53,6 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// than or equal to 10. If you do not specify a value, or if you specify a value less
         /// than 1 or greater than 10, the operation will return up to 10 results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

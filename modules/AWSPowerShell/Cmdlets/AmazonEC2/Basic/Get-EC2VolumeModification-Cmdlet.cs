@@ -88,6 +88,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The maximum number of results (up to a limit of 500) to be returned in a paginated
         /// request.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

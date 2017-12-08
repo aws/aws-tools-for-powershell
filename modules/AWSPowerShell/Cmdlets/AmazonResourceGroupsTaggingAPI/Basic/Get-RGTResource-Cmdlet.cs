@@ -109,6 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.RGT
         /// the remaining 2 resources, each with its 10 tags.</para><para>You can set <code>TagsPerPage</code> to a minimum of 100 items and the maximum of
         /// 500 items.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

@@ -83,6 +83,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// this maximum, the response includes a <code>NextToken</code> value that you can assign
         /// to the <code>NextToken</code> request parameter to get the next set of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

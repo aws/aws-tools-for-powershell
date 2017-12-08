@@ -93,6 +93,9 @@ namespace Amazon.PowerShell.Cmdlets.ACM
         /// the <code>NextToken</code> element is sent in the response. Use this <code>NextToken</code>
         /// value in a subsequent request to retrieve additional items.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

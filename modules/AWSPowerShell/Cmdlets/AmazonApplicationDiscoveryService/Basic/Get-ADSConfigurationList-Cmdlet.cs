@@ -84,6 +84,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// <para>
         /// <para>The total number of items to return. The maximum value is 100.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

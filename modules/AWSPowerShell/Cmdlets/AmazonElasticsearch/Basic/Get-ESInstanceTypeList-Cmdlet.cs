@@ -70,6 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.ES
         /// <para> Set this value to limit the number of results returned. Value provided must be greater
         /// than 30 else it wont be honored. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

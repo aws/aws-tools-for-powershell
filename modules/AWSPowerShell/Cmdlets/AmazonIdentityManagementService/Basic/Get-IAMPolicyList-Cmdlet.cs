@@ -124,6 +124,9 @@ namespace Amazon.PowerShell.Cmdlets.IAM
         /// response element returns <code>true</code> and <code>Marker</code> contains a value
         /// to include in the subsequent call that tells the service where to continue from.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

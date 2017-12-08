@@ -213,6 +213,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// results of the initial request can be seen by sending another request with the returned
         /// <code>NextToken</code> value. The maximum is 100.</para><para>Default: 100</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

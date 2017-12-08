@@ -57,6 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.EMSD
         /// <para>
         /// <para>The maximum results to return. The service might return fewer results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

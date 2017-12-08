@@ -65,6 +65,9 @@ namespace Amazon.PowerShell.Cmdlets.R53
         /// the response to this request. If you specify a value greater than 100, Amazon Route
         /// 53 returns only the first 100 reusable delegation sets.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

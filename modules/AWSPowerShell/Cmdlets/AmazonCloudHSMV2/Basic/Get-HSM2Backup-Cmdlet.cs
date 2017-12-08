@@ -70,6 +70,9 @@ namespace Amazon.PowerShell.Cmdlets.HSM2
         /// <para>The maximum number of backups to return in the response. When there are more backups
         /// than the number you specify, the response contains a <code>NextToken</code> value.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

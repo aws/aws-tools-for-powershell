@@ -160,6 +160,9 @@ namespace Amazon.PowerShell.Cmdlets.ML
         /// <para>The number of pages of information to include in the result. The range of acceptable
         /// values is <code>1</code> through <code>100</code>. The default value is <code>100</code>.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

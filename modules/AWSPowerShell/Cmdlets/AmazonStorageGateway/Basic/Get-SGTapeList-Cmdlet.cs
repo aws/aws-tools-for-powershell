@@ -71,6 +71,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>
         /// <para>Specifies that the number of virtual tapes described be limited to the specified number.</para><note><para>Amazon Web Services may impose its own limit, if this field is not set.</para></note>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

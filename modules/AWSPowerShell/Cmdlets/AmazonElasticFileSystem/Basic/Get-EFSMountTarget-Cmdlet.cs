@@ -91,6 +91,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// <para>(Optional) Maximum number of mount targets to return in the response. It must be an
         /// integer with a value greater than zero.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

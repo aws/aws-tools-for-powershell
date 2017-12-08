@@ -102,6 +102,9 @@ namespace Amazon.PowerShell.Cmdlets.LM
         /// <para>Optional integer. Specifies the maximum number of event sources to return in response.
         /// This value must be greater than 0.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

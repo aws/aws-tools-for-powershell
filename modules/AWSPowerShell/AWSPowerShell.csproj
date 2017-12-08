@@ -147,6 +147,9 @@
     <Reference Include="AWSSDK.Polly">
       <HintPath>..\..\packages\AWSSDK.Polly.3.3.4\lib\net35\AWSSDK.Polly.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.ResourceGroups">
+      <HintPath>..\..\packages\AWSSDK.ResourceGroups.3.3.0\lib\net35\AWSSDK.ResourceGroups.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ResourceGroupsTaggingAPI">
       <HintPath>..\..\packages\AWSSDK.ResourceGroupsTaggingAPI.3.3.1.6\lib\net35\AWSSDK.ResourceGroupsTaggingAPI.dll</HintPath>
     </Reference>

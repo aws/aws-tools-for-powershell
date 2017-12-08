@@ -854,6 +854,25 @@ namespace AWSPowerShellGenerator.Analysis
                 }
             }
 
+            // some services are now adopting 'Tag' and 'Untag'
+            if (string.IsNullOrEmpty(noun) && CurrentOperation.IsAutoConfiguring)
+            {
+                if (methodName.Equals("Tag", StringComparison.Ordinal))
+                {
+                    verb = "Add";
+                    noun = "ResourceTag";
+                }
+                else if (methodName.Equals("Untag", StringComparison.Ordinal))
+                {
+                    verb = "Remove";
+                    noun = "ResourceTag";
+                }
+                else
+                {
+                    Logger.LogError("{0}: method name {1} cannot be split into verb-noun automatically", CurrentModel.ServiceName, methodName);
+                }
+            }
+
             // save the noun part of the split method name so we can potentially use it for the 'operation'
             // message if the cmdlet requires confirmation
             CurrentOperation.OriginalNoun = noun;

@@ -116,6 +116,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// response.</para><para>If no <code>MaxRecords</code> is specified, all available environments are retrieved
         /// in a single response.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]

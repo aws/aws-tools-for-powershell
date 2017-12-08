@@ -1,3 +1,7 @@
+###
+  * AWS Resource Groups
+    * Added support for the AWS Resource Groups service launched at AWS re:Invent 2017. A resource group is a collection of AWS resources that are all in the same AWS region, and that match criteria provided in a query. Queries include lists of resources that are specified in the following format *AWS::service::resource*, and tags. Tags are keys that help identify and sort your resources within your organization; optionally, tags include values for keys. Cmdlets for the service have the noun prefix 'RG' and can be listed with the command *Get-AWSCmdletName -Service RG*.
+
 ### 3.3.205.0 (2017-12-08)
   * Amazon EC2
     * Updated the New-EC2Instance cmdlet to support the new [T2 Unlimited](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-unlimited.html#launch-t2) feature.

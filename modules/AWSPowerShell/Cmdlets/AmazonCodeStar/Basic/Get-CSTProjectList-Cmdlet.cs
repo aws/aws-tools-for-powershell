@@ -46,6 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.CST
         /// <para>
         /// <para>The maximum amount of data that can be contained in a single set of results.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

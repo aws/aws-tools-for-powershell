@@ -113,6 +113,9 @@ namespace Amazon.PowerShell.Cmdlets.AAS
         /// not used, the operation returns up to 50 results and a <code>NextToken</code> value,
         /// if applicable.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

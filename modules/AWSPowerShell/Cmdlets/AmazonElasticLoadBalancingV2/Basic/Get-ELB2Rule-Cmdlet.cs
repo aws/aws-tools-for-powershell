@@ -57,6 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.ELB2
         /// <para>
         /// <para>The maximum number of results to return with this call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

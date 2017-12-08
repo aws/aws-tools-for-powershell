@@ -64,6 +64,9 @@ namespace Amazon.PowerShell.Cmdlets.SES
         /// <para>
         /// <para>The maximum number of identities per page. Possible values are 1-1000 inclusive.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

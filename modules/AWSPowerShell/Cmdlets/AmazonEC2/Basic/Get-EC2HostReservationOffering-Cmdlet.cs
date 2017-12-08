@@ -106,6 +106,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// value. This value can be between 5 and 500; if <code>maxResults</code> is given a
         /// larger value than 500, you will receive an error.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

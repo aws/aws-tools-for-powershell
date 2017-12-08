@@ -109,6 +109,9 @@ namespace Amazon.PowerShell.Cmdlets.DAX
         /// the specified <code>MaxResults</code> value, a token is included in the response so
         /// that the remaining results can be retrieved.</para><para>The value for <code>MaxResults</code> must be between 20 and 100.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

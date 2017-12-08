@@ -94,6 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.ECR
         /// 1 and 100. If this  parameter is not used, then <code>GetLifecyclePolicyPreviewRequest</code>
         /// returns up to  100 results and a <code>nextToken</code> value, if  applicable.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

@@ -60,6 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>The maximum number of returned results per page. The <a>GatewayResponses</a> collection
         /// does not support pagination and the limit does not apply here.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

@@ -57,6 +57,9 @@ namespace Amazon.PowerShell.Cmdlets.OPS
         /// <para>Do not use. A validation exception occurs if you add a <code>MaxResults</code> parameter
         /// to a <code>ListTagsRequest</code> call. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

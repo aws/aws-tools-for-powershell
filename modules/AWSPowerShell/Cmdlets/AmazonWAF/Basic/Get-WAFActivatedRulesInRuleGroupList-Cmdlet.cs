@@ -60,6 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.WAF
         /// you specify for <code>Limit</code>, the response includes a <code>NextMarker</code>
         /// value that you can use to get another batch of <code>ActivatedRules</code>.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

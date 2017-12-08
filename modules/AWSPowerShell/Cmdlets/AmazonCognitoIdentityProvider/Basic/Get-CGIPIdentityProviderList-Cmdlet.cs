@@ -56,6 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.CGIP
         /// <para>
         /// <para>The maximum number of identity providers to return.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

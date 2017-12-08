@@ -72,6 +72,9 @@ namespace Amazon.PowerShell.Cmdlets.ADS
         /// only returns <code>maxResults</code> results in a single page along with a <code>nextToken</code>
         /// response element.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

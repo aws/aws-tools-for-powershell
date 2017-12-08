@@ -49,6 +49,9 @@ namespace Amazon.PowerShell.Cmdlets.KMS
         /// might return fewer.</para><para>This value is optional. If you include a value, it must be between 1 and 1000, inclusive.
         /// If you do not include a value, it defaults to 100.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

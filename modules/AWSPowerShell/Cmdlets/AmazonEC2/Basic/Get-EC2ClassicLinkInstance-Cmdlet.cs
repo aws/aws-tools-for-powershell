@@ -82,6 +82,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is given a value larger than 1000, only 1000 results are returned. You cannot specify
         /// this parameter and the instance IDs parameter in the same request.</para><para>Constraint: If the value is greater than 1000, we return only 1000 items.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

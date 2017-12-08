@@ -58,6 +58,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>
         /// <para>The maximum number of platform values returned in one call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]

@@ -118,6 +118,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// can be between 5 and 1000. You cannot specify this parameter and the instance IDs
         /// parameter in the same call.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

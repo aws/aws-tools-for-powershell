@@ -103,6 +103,9 @@ namespace Amazon.PowerShell.Cmdlets.REK
         /// <para>Maximum number of celebrities you want Rekognition Video to return in the response.
         /// The default is 1000.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

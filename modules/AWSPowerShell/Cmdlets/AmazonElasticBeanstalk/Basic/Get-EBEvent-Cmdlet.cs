@@ -161,6 +161,9 @@ namespace Amazon.PowerShell.Cmdlets.EB
         /// <para>Specifies the maximum number of events that can be returned, beginning with the most
         /// recent event.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]

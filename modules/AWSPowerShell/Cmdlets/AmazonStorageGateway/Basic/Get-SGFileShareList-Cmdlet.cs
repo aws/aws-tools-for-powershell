@@ -60,6 +60,9 @@ namespace Amazon.PowerShell.Cmdlets.SG
         /// <para>The maximum number of file shares to return in the response. The value must be an
         /// integer with a value greater than zero. Optional.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

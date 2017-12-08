@@ -94,6 +94,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The maximum number of alarm history records to retrieve.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxRecords")]

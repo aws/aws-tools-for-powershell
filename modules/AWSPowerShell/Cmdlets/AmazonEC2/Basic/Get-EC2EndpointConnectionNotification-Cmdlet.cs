@@ -69,6 +69,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>The maximum number of results to return in a single call. To retrieve the remaining
         /// results, make another request with the returned <code>NextToken</code> value.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

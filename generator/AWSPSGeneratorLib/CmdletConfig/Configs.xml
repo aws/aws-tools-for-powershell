@@ -88,6 +88,7 @@
     <Path>RDS.xml</Path>
     <Path>Rekognition.xml</Path>
     <Path>Redshift.xml</Path>
+    <Path>ResourceGroups.xml</Path>
     <Path>ResourceGroupsTagging.xml</Path>
     <Path>Route53.xml</Path>
     <Path>Route53Domains.xml</Path>

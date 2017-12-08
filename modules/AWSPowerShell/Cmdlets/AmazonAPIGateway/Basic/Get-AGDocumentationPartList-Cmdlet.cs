@@ -100,6 +100,9 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The maximum number of returned results per page.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

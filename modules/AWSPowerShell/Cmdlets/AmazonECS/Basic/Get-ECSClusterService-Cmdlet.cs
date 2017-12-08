@@ -74,6 +74,9 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// 1 and 10. If this parameter is not used, then <code>ListServices</code> returns up
         /// to 10 results and a <code>nextToken</code> value if applicable.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

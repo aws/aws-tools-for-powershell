@@ -111,6 +111,9 @@ namespace Amazon.PowerShell.Cmdlets.EFS
         /// EFS returns is the minimum of the <code>MaxItems</code> parameter specified in the
         /// request and the service's internal maximum number of items per page. </para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems")]

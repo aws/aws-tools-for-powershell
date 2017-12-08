@@ -56,6 +56,9 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         /// size is 100. A value of 0 uses the default.</para><para>This is only an upper limit. The actual number of results returned per call might
         /// be fewer than the specified maximum.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]

@@ -46,6 +46,9 @@ namespace Amazon.PowerShell.Cmdlets.MH
         /// <para>
         /// <para>Filter to limit the maximum number of results to list per page.</para>
         /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
         [Alias("MaxItems","MaxResults")]
