@@ -51,7 +51,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="GetJobTemplate" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Name" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="JobTemplate" />
+                <Param Name="Name" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="JobTemplate" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="GetPreset" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -60,13 +60,13 @@
         <ServiceOperation MethodName="GetQueue" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListJobTemplates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobTemplateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Category" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
         <ServiceOperation MethodName="ListJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Queue" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Queue" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" />
+                <Param Name="Queue" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="Name" AutoConvert="None" />
             </Params>
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListJobTemplates" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobTemplateList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Category" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListPresets" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PresetList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Category" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />

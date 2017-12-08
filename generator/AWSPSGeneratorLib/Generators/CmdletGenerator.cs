@@ -368,6 +368,9 @@ namespace AWSPowerShellGenerator.Generators
 
                     if (CurrentModel.ModelUpdated)
                     {
+                        // for browsing convenience re-order the operations in case this was an existing service we 
+                        // added new operations to
+                        CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
                         CurrentModel.Serialize(configurationsFolder);
                     }
 
@@ -471,6 +474,7 @@ namespace AWSPowerShellGenerator.Generators
                 File.WriteAllText(Path.Combine(TempOutputDir, clientCmdletFilePath), fileContents);
             }
 
+            // process the methods in order to make debugging more convenient
             var methods = clientInterfaceType.GetMethods().OrderBy(m => m.Name).ToList();
             foreach (var method in methods)
             {

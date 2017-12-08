@@ -69,6 +69,7 @@
 		"AWSSDK.Kinesis": "3.3.4",
 		"AWSSDK.KinesisAnalytics": "3.3.3.3",
 		"AWSSDK.KinesisFirehose": "3.3.3",
+		"AWSSDK.KinesisVideo": "3.3.0",
 		"AWSSDK.Lambda": "3.3.10",
 		"AWSSDK.Lex": "3.3.2.3",
 		"AWSSDK.LexModelBuildingService": "3.3.3.3",

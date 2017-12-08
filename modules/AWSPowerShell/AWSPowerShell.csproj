@@ -93,6 +93,9 @@
     <Reference Include="AWSSDK.GuardDuty">
       <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.0\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.KinesisVideo">
+      <HintPath>..\..\packages\AWSSDK.KinesisVideo.3.3.0\lib\net35\AWSSDK.KinesisVideo.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Lex">
       <HintPath>..\..\packages\AWSSDK.Lex.3.3.2.3\lib\net35\AWSSDK.Lex.dll</HintPath>
     </Reference>

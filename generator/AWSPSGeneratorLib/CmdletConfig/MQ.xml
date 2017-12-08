@@ -70,7 +70,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateConfiguration" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Configuration" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Data" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Data" AutoConvert="ToBase64" />
+                <Param Name="Data" NewName="" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="ToBase64" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateUser" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="User" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Username" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

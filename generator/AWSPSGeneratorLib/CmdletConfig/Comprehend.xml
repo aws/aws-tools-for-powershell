@@ -8,6 +8,7 @@
     <ServiceClient>AmazonComprehendClient</ServiceClient>
     <ServiceNamespace>Amazon.Comprehend</ServiceNamespace>
     <PipelineParameter />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="500" />
     <VerbMappings />
     <NounMappings />
     <Params />
@@ -17,7 +18,6 @@
     <ParamEmitters />
     <MetadataProperties />
     <PipelineByValueProperties />
-    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="500" />
     <ServiceOperations>
         <ServiceOperation MethodName="BatchDetectDominantLanguage" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Find" Noun="DominantLanguageBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />

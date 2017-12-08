@@ -3959,6 +3959,41 @@ $KINF_map = @{
 _awsArgumentCompleterRegistration $KINF_Completers $KINF_map
 
 
+# Argument completions for service Amazon Kinesis Video Streams
+$KV_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.KinesisVideo.APIName
+        "Get-KVDataEndpoint/APIName"
+        {
+            $v = "GET_MEDIA","GET_MEDIA_FOR_FRAGMENT_LIST","LIST_FRAGMENTS","PUT_MEDIA"
+            break
+        }
+        
+        # Amazon.KinesisVideo.UpdateDataRetentionOperation
+        "Update-KVDataRetention/Operation"
+        {
+            $v = "DECREASE_DATA_RETENTION","INCREASE_DATA_RETENTION"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$KV_map = @{
+    "APIName"=@("Get-KVDataEndpoint")
+    "Operation"=@("Update-KVDataRetention")
+}
+
+_awsArgumentCompleterRegistration $KV_Completers $KV_map
+
+
 # Argument completions for service AWS Key Management Service
 $KMS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

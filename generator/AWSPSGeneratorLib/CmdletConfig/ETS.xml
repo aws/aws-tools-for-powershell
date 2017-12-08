@@ -37,14 +37,14 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PipelineId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Input_Encryption_InitializationVector" NewName="InputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Output_Encryption_InitializationVector" NewName="OutputEncryptionInitializationVector" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Input_Encryption_Key" NewName="InputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Output_Encryption_Key" NewName="OutputEncryptionKey" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Input_Encryption_KeyMd5" NewName="InputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Output_Encryption_KeyMd5" NewName="OutputEncryptionKeyMd5" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Input_Encryption_Mode" NewName="InputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Output_Encryption_Mode" NewName="OutputEncryptionMode" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreatePipeline" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="InputBucket;OutputBucket;Role" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">

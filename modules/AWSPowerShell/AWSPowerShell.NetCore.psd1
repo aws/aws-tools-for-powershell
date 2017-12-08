@@ -118,6 +118,7 @@ RequiredAssemblies = @(
   "AWSSDK.Kinesis.dll",
   "AWSSDK.KinesisAnalytics.dll",
   "AWSSDK.KinesisFirehose.dll",
+  "AWSSDK.KinesisVideo.dll",
   "AWSSDK.Lambda.dll",
   "AWSSDK.Lex.dll",
   "AWSSDK.LexModelBuildingService.dll",

@@ -40,7 +40,7 @@
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterContainerInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="Cluster" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Force" NewName="ForceDeregistration" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
+                <Param Name="Force" NewName="ForceDeregistration" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DeregisterTaskDefinition" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskDefinition" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -49,10 +49,10 @@
         <ServiceOperation MethodName="DescribeClusters" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ClusterDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeServices" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Service" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeContainerInstances" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ContainerInstanceDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeContainerInstances" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ContainerInstanceDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeServices" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Service" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeTaskDefinition" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TaskDefinitionDetail" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TaskDefinition" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -67,16 +67,16 @@
         <ServiceOperation MethodName="ListClusters" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ClusterList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSClusters">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListServices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ClusterService" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
         <ServiceOperation MethodName="ListContainerInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ContainerInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSContainerInstances">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="ListTaskDefinitions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TaskDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSTaskDefinitions">
+        <ServiceOperation MethodName="ListServices" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ClusterService" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTaskDefinitionFamilies" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TaskDefinitionFamilyList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSTaskDefinitionFamilies">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTaskDefinitions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TaskDefinitionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSTaskDefinitions">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListTasks" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="TaskList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-ECSTasks">

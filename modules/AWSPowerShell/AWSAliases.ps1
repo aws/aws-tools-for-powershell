@@ -3219,6 +3219,16 @@ Set-Alias -Name KINF-ListDeliveryStreams -Value Get-KINFDeliveryStreamList
 Set-Alias -Name Put-KINFRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-PutRecordBatch -Value Write-KINFRecordBatch
 Set-Alias -Name KINF-UpdateDestination -Value Update-KINFDestination
+Set-Alias -Name KV-CreateStream -Value New-KVStream
+Set-Alias -Name KV-DeleteStream -Value Remove-KVStream
+Set-Alias -Name KV-DescribeStream -Value Get-KVStream
+Set-Alias -Name KV-GetDataEndpoint -Value Get-KVDataEndpoint
+Set-Alias -Name KV-ListStreams -Value Get-KVStreamList
+Set-Alias -Name KV-ListTagsForStream -Value Get-KVTagsForStreamList
+Set-Alias -Name KV-TagStream -Value Add-KVStreamTag
+Set-Alias -Name KV-UntagStream -Value Remove-KVStreamTag
+Set-Alias -Name KV-UpdateDataRetention -Value Update-KVDataRetention
+Set-Alias -Name KV-UpdateStream -Value Update-KVStream
 Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name KMS-CancelKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name Create-KMSAlias -Value New-KMSAlias

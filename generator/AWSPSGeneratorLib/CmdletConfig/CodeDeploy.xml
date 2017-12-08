@@ -21,19 +21,25 @@
     <MetadataProperties />
     <PipelineByValueProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="AddTagsToOnPremisesInstances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="OnPremiseInstanceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetApplicationRevisions" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApplicationRevisionBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="BatchGetApplications" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApplicationBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ApplicationNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CDApplications">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetDeploymentInstances" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentInstanceBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeploymentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDeploymentGroups" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentGroupBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetDeploymentInstances" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentInstanceBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeploymentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="BatchGetDeployments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="DeploymentBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeploymentIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-CDDeployments">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="BatchGetOnPremisesInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OnPremiseInstanceBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ContinueDeployment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Resume" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeploymentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -44,10 +50,10 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeployment" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="TargetInstances_Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
-                <Param Name="TargetInstances_TagFilters" NewName="TargetInstancesTagFilter" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TargetInstances_TagFilter" />
-                <Param Name="Revision_RevisionType" NewName="RevisionType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="TargetInstances_AutoScalingGroups" NewName="TargetInstancesAutoScalingGroup" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TargetInstances_AutoScalingGroup" />
+                <Param Name="TargetInstances_Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+                <Param Name="TargetInstances_TagFilters" NewName="TargetInstancesTagFilter" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TargetInstances_TagFilter" AutoConvert="None" />
+                <Param Name="Revision_RevisionType" NewName="RevisionType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="TargetInstances_AutoScalingGroups" NewName="TargetInstancesAutoScalingGroup" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TargetInstances_AutoScalingGroup" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeploymentConfig" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -55,16 +61,16 @@
         </ServiceOperation>
         <ServiceOperation MethodName="CreateDeploymentGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
-                <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
-                <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action" NewName="GreenFleetProvisioningOptionAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GreenFleetProvisioningOption_Action" />
-                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes" NewName="OnSuccessBlueInstanceTerminationWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" />
-                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action" NewName="OnSuccessBlueInstanceTerminationAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_Action" />
-                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes" NewName="DeploymentReadyOptionWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_WaitTimeInMinute" />
-                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout" NewName="DeploymentReadyOptionTimeoutAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_ActionOnTimeout" />
-                <Param Name="DeploymentStyle_DeploymentOption" NewName="DeploymentStyleOption" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="DeploymentStyle_DeploymentType" NewName="DeploymentStyleType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="LoadBalancerInfo_ElbInfoList" NewName="LoadBalancerInfoList" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+                <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action" NewName="GreenFleetProvisioningOptionAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GreenFleetProvisioningOption_Action" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes" NewName="OnSuccessBlueInstanceTerminationWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action" NewName="OnSuccessBlueInstanceTerminationAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_Action" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes" NewName="DeploymentReadyOptionWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_WaitTimeInMinute" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout" NewName="DeploymentReadyOptionTimeoutAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_ActionOnTimeout" AutoConvert="None" />
+                <Param Name="DeploymentStyle_DeploymentOption" NewName="DeploymentStyleOption" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="DeploymentStyle_DeploymentType" NewName="DeploymentStyleType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="LoadBalancerInfo_ElbInfoList" NewName="LoadBalancerInfoList" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteApplication" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -74,6 +80,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DeleteDeploymentGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="DeploymentGroupName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeregisterOnPremisesInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetApplication" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -92,6 +101,9 @@
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="GetDeploymentInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetOnPremisesInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="ListApplicationRevisions" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ApplicationRevisionList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -115,7 +127,19 @@
         <ServiceOperation MethodName="ListGitHubAccountTokenNames" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="GitHubAccountTokenNameList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="ListOnPremisesInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OnPremiseInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="PutLifecycleEventHookExecutionStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LifecycleEventHookExecutionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="RegisterApplicationRevision" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RegisterOnPremisesInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTagsFromOnPremisesInstances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstanceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="SkipWaitTimeForInstanceTermination" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DeploymentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -129,41 +153,17 @@
         </ServiceOperation>
         <ServiceOperation MethodName="UpdateDeploymentGroup" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
-                <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" />
-                <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action" NewName="GreenFleetProvisioningOptionAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GreenFleetProvisioningOption_Action" />
-                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes" NewName="OnSuccessBlueInstanceTerminationWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" />
-                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action" NewName="OnSuccessBlueInstanceTerminationAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_Action" />
-                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes" NewName="DeploymentReadyOptionWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_WaitTimeInMinute" />
-                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout" NewName="DeploymentReadyOptionTimeoutAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_ActionOnTimeout" />
-                <Param Name="DeploymentStyle_DeploymentOption" NewName="DeploymentStyleOption" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="DeploymentStyle_DeploymentType" NewName="DeploymentStyleType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="LoadBalancerInfo_ElbInfoList" NewName="LoadBalancerInfoList" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Ec2TagSet_Ec2TagSetList" NewName="Ec2TagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+                <Param Name="OnPremisesTagSet_OnPremisesTagSetList" NewName="OnPremisesTagSetList" AutoRename="true" Exclude="false" AutoApplyAlias="false" Alias="" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_GreenFleetProvisioningOption_Action" NewName="GreenFleetProvisioningOptionAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="GreenFleetProvisioningOption_Action" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinutes" NewName="OnSuccessBlueInstanceTerminationWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_TerminationWaitTimeInMinute" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_TerminateBlueInstancesOnDeploymentSuccess_Action" NewName="OnSuccessBlueInstanceTerminationAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateBlueInstancesOnDeploymentSuccess_Action" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_WaitTimeInMinutes" NewName="DeploymentReadyOptionWaitTime" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_WaitTimeInMinute" AutoConvert="None" />
+                <Param Name="BlueGreenDeploymentConfiguration_DeploymentReadyOption_ActionOnTimeout" NewName="DeploymentReadyOptionTimeoutAction" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="DeploymentReadyOption_ActionOnTimeout" AutoConvert="None" />
+                <Param Name="DeploymentStyle_DeploymentOption" NewName="DeploymentStyleOption" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="DeploymentStyle_DeploymentType" NewName="DeploymentStyleType" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="LoadBalancerInfo_ElbInfoList" NewName="LoadBalancerInfoList" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
             </Params>
-        </ServiceOperation>
-        <ServiceOperation MethodName="AddTagsToOnPremisesInstances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="OnPremiseInstanceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="BatchGetOnPremisesInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OnPremiseInstanceBatch" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceNames" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DeregisterOnPremisesInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="GetOnPremisesInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="InstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="ListOnPremisesInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="OnPremiseInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="RegisterOnPremisesInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTagsFromOnPremisesInstances" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="OnPremiseInstanceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="InstanceNames" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="PutLifecycleEventHookExecutionStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="LifecycleEventHookExecutionId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
         </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />

@@ -21,13 +21,19 @@
     <MetadataProperties />
     <PipelineByValueProperties />
     <ServiceOperations>
+        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="CreateWorkspaces" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Workspace" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Workspaces" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspaceBundles" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="WorkspaceBundle" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaceBundles">
+        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
-        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+        <ServiceOperation MethodName="DescribeTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspaceBundles" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="WorkspaceBundle" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaceBundles">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="DescribeWorkspaceDirectories" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="WorkspaceDirectory" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="DirectoryIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Get-WKSWorkspaceDirectories">
@@ -37,41 +43,35 @@
             <Params />
             <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="Limit" ServicePageSize="-1" />
         </ServiceOperation>
+        <ServiceOperation MethodName="DescribeWorkspacesConnectionStatus" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
         <ServiceOperation MethodName="ModifyWorkspaceProperties" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="WorkspaceProperty" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="WorkspaceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="RebootWorkspaces" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Restart" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="RebootWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="RebootWorkspaceRequest" />
+                <Param Name="RebootWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="RebootWorkspaceRequest" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="RebuildWorkspaces" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Reset" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="RebuildWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="RebuildWorkspaceRequest" />
+                <Param Name="RebuildWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="RebuildWorkspaceRequest" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="StartWorkspaces" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="StartWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StartWorkspaceRequest" />
+                <Param Name="StartWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StartWorkspaceRequest" AutoConvert="None" />
             </Params>
-        </ServiceOperation>
-        <ServiceOperation MethodName="CreateTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="DescribeTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
-            <Params />
         </ServiceOperation>
         <ServiceOperation MethodName="StopWorkspaces" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="StopWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StopWorkspaceRequest" />
+                <Param Name="StopWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="StopWorkspaceRequest" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="TerminateWorkspaces" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="Workspace" Exclude="true" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="TerminateWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateWorkspaceRequest" />
+                <Param Name="TerminateWorkspaceRequests" NewName="Request" AutoRename="true" Exclude="false" AutoApplyAlias="true" Alias="TerminateWorkspaceRequest" AutoConvert="None" />
             </Params>
         </ServiceOperation>
     </ServiceOperations>

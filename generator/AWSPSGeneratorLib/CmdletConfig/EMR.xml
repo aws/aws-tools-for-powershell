@@ -43,6 +43,13 @@
         <ServiceOperation MethodName="AddJobFlowSteps" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Steps" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Add-EMRTag">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.Tags</Expression>
+                <Documentation>Returns the collection of Tag objects that were added</Documentation>
+            </PassThru>
+        </ServiceOperation>
         <ServiceOperation MethodName="CancelSteps" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="Step" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Stop-EMRSteps">
             <Params />
         </ServiceOperation>
@@ -97,12 +104,19 @@
         <ServiceOperation MethodName="RemoveAutoScalingPolicy" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ClusterId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
         </ServiceOperation>
+        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TagKeys" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-EMRTag">
+            <Params />
+            <PassThru>
+                <Expression>cmdletContext.TagKeys</Expression>
+                <Documentation>Returns the collection of Tag keys that were removed</Documentation>
+            </PassThru>
+        </ServiceOperation>
         <ServiceOperation MethodName="RunJobFlow" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Name;LogUri" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params>
-                <Param Name="Instances_Placement_AvailabilityZone" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Instances_Placement_AvailabilityZones" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Instances_Ec2SubnetId" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
-                <Param Name="Instances_Ec2SubnetIds" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" />
+                <Param Name="Instances_Placement_AvailabilityZone" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Instances_Placement_AvailabilityZones" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Instances_Ec2SubnetId" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
+                <Param Name="Instances_Ec2SubnetIds" NewName="" AutoRename="false" Exclude="false" AutoApplyAlias="true" Alias="" AutoConvert="None" />
             </Params>
         </ServiceOperation>
         <ServiceOperation MethodName="SetTerminationProtection" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TerminationProtected" PipelineParameter="JobFlowIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
@@ -113,20 +127,6 @@
         </ServiceOperation>
         <ServiceOperation MethodName="TerminateJobFlows" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobFlowIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
             <Params />
-        </ServiceOperation>
-        <ServiceOperation MethodName="AddTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="Tags" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Add-EMRTag">
-            <Params />
-            <PassThru>
-                <Expression>cmdletContext.Tags</Expression>
-                <Documentation>Returns the collection of Tag objects that were added</Documentation>
-            </PassThru>
-        </ServiceOperation>
-        <ServiceOperation MethodName="RemoveTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="TagKeys" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PositionalParameters="TagKeys" PipelineParameter="ResourceId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true" LegacyAlias="Remove-EMRTag">
-            <Params />
-            <PassThru>
-                <Expression>cmdletContext.TagKeys</Expression>
-                <Documentation>Returns the collection of Tag keys that were removed</Documentation>
-            </PassThru>
         </ServiceOperation>
     </ServiceOperations>
     <InputObjectMappingRules />
