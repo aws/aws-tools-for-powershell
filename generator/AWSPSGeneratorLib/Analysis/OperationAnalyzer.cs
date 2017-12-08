@@ -948,7 +948,8 @@ namespace AWSPowerShellGenerator.Analysis
             {
                 "data",
                 "information",
-                "status"
+                "status",
+                "media"
             };
 
             if (Pluralization.IsPlural(nounTermination) && !pluralFalsePositives.Contains(nounTermination))

@@ -3229,6 +3229,7 @@ Set-Alias -Name KV-TagStream -Value Add-KVStreamTag
 Set-Alias -Name KV-UntagStream -Value Remove-KVStreamTag
 Set-Alias -Name KV-UpdateDataRetention -Value Update-KVDataRetention
 Set-Alias -Name KV-UpdateStream -Value Update-KVStream
+Set-Alias -Name KVM-GetMedia -Value Get-KVMMedia
 Set-Alias -Name Cancel-KMSKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name KMS-CancelKeyDeletion -Value Stop-KMSKeyDeletion
 Set-Alias -Name Create-KMSAlias -Value New-KMSAlias

@@ -65,6 +65,7 @@
     <Path>KinesisAnalytics.xml</Path>
     <Path>KinesisFirehose.xml</Path>
     <Path>KinesisVideo.xml</Path>
+    <Path>KinesisVideoMedia.xml</Path>
     <Path>Lambda.xml</Path>
     <Path>Lex.xml</Path>
     <Path>LexModelBuilder.xml</Path>
