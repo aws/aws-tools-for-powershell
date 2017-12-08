@@ -1183,6 +1183,17 @@ Set-Alias -Name CGIP-UpdateUserPool -Value Update-CGIPUserPool
 Set-Alias -Name CGIP-UpdateUserPoolClient -Value Update-CGIPUserPoolClient
 Set-Alias -Name CGIP-VerifySoftwareToken -Value Test-CGIPSoftwareToken
 Set-Alias -Name CGIP-VerifyUserAttribute -Value Test-CGIPUserAttribute
+Set-Alias -Name COMP-BatchDetectDominantLanguage -Value Find-COMPDominantLanguageBatch
+Set-Alias -Name COMP-BatchDetectEntities -Value Find-COMPEntityBatch
+Set-Alias -Name COMP-BatchDetectKeyPhrases -Value Find-COMPKeyPhrasesBatch
+Set-Alias -Name COMP-BatchDetectSentiment -Value Find-COMPSentimentBatch
+Set-Alias -Name COMP-DescribeTopicsDetectionJob -Value Get-COMPTopicsDetectionJob
+Set-Alias -Name COMP-DetectDominantLanguage -Value Find-COMPDominantLanguage
+Set-Alias -Name COMP-DetectEntities -Value Find-COMPEntity
+Set-Alias -Name COMP-DetectKeyPhrases -Value Find-COMPKeyPhrase
+Set-Alias -Name COMP-DetectSentiment -Value Find-COMPSentiment
+Set-Alias -Name COMP-ListTopicsDetectionJobs -Value Get-COMPTopicsDetectionJobList
+Set-Alias -Name COMP-StartTopicsDetectionJob -Value Start-COMPTopicsDetectionJob
 Set-Alias -Name Delete-CFGConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name CFG-DeleteConfigRule -Value Remove-CFGConfigRule
 Set-Alias -Name Delete-CFGConfigurationRecorder -Value Remove-CFGConfigurationRecorder

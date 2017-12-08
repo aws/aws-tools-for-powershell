@@ -82,6 +82,7 @@ RequiredAssemblies = @(
   "AWSSDK.CodeStar.dll",
   "AWSSDK.CognitoIdentity.dll",
   "AWSSDK.CognitoIdentityProvider.dll",
+  "AWSSDK.Comprehend.dll",
   "AWSSDK.ConfigService.dll",
   "AWSSDK.Core.dll",
   "AWSSDK.CostAndUsageReport.dll",

@@ -35,6 +35,7 @@
 		"AWSSDK.CodeStar": "3.3.1.3",
 		"AWSSDK.CognitoIdentity": "3.3.2.17",
 		"AWSSDK.CognitoIdentityProvider": "3.3.7",
+		"AWSSDK.Comprehend": "3.3.0",
 		"AWSSDK.ConfigService": "3.3.11.1",
 		"AWSSDK.Core": "3.3.21",
 		"AWSSDK.CostAndUsageReport": "3.3.0.17",

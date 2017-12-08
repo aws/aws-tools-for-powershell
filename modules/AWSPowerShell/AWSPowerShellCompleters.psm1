@@ -1849,6 +1849,37 @@ $CGIP_map = @{
 _awsArgumentCompleterRegistration $CGIP_Completers $CGIP_map
 
 
+# Argument completions for service Amazon AmazonComprehend
+$COMP_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Comprehend.LanguageCode
+        {
+            ($_ -eq "Find-COMPEntity/LanguageCode") -Or
+            ($_ -eq "Find-COMPKeyPhrase/LanguageCode") -Or
+            ($_ -eq "Find-COMPSentiment/LanguageCode")
+        }
+        {
+            $v = "en","es"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$COMP_map = @{
+    "LanguageCode"=@("Find-COMPEntity","Find-COMPKeyPhrase","Find-COMPSentiment")
+}
+
+_awsArgumentCompleterRegistration $COMP_Completers $COMP_map
+
+
 # Argument completions for service AWS Config
 $CFG_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

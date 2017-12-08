@@ -75,6 +75,9 @@
     <Reference Include="AWSSDK.CodeStar">
       <HintPath>..\..\packages\AWSSDK.CodeStar.3.3.1.3\lib\net35\AWSSDK.CodeStar.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Comprehend">
+      <HintPath>..\..\packages\AWSSDK.Comprehend.3.3.0\lib\net35\AWSSDK.Comprehend.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CostAndUsageReport">
       <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.17\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
     </Reference>
