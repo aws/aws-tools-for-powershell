@@ -1,4 +1,4 @@
-###
+### 3.3.205.0 (2017-12-08)
   * Amazon EC2
     * Updated the New-EC2Instance cmdlet to support the new [T2 Unlimited](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/t2-unlimited.html#launch-t2) feature.
   * Amazon Cloud Directory
@@ -14,9 +14,9 @@
   * Amazon GuardDuty
     * Added support for the Amazon GuardDuty service launched at AWS re:Invent 2017. Amazon GuardDuty is a continuous security monitoring service that analyzes and processes VPC Flow Logs, AWS CloudTrail event logs, and DNS logs. It uses threat intelligence feeds, such as lists of malicious IPs and domains, and machine learning to identify unexpected and potentially unauthorized and malicious activity within your AWS environment. Cmdlets for the service have the noun prefix 'GD' and can be listed with the command *Get-AWSCmdletName -Service GD*.
   * Amazon Comprehend
-    * Added support for Amazon Comprehend. Amazon Comprehend uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases. Cmdlets for the service have the noun prefix 'COMP' and can be listed with the command *Get-AWSCmdletName -Service COMP*.
+    * Added support for the Amazon Comprehend service launched at AWS re:Invent 2017. Amazon Comprehend uses natural language processing (NLP) to extract insights about the content of documents. Amazon Comprehend processes any text file in UTF-8 format. It develops insights by recognizing the entities, key phrases, language, sentiments, and other common elements in a document. Use Amazon Comprehend to create new products based on understanding the structure of documents. For example, using Amazon Comprehend you can search social networking feeds for mentions of products or scan an entire document repository for key phrases. Cmdlets for the service have the noun prefix 'COMP' and can be listed with the command *Get-AWSCmdletName -Service COMP*.
   * Amazon Translate
-    * Added support for Amazon Translate. Amazon Translate translates documents from the following six languages into English, and from English into these languages:
+    * Added support for Amazon Translate service launched at AWS re:Invent 2017. Amazon Translate translates documents from the following six languages into English, and from English into these languages:
         * Arabic
         * Chinese
         * French
