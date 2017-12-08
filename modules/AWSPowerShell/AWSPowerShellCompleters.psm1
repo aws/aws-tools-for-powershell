@@ -1997,6 +1997,52 @@ $CUR_map = @{
 _awsArgumentCompleterRegistration $CUR_Completers $CUR_map
 
 
+# Argument completions for service AWS Cost Explorer
+$CE_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.CostExplorer.Context
+        "Get-CEDimensionValue/Context"
+        {
+            $v = "COST_AND_USAGE","RESERVATIONS"
+            break
+        }
+        
+        # Amazon.CostExplorer.Dimension
+        "Get-CEDimensionValue/Dimension"
+        {
+            $v = "AZ","INSTANCE_TYPE","LINKED_ACCOUNT","OPERATING_SYSTEM","OPERATION","PLATFORM","PURCHASE_TYPE","RECORD_TYPE","REGION","SCOPE","SERVICE","SUBSCRIPTION_ID","TENANCY","USAGE_TYPE","USAGE_TYPE_GROUP"
+            break
+        }
+        
+        # Amazon.CostExplorer.Granularity
+        {
+            ($_ -eq "Get-CECostAndUsage/Granularity") -Or
+            ($_ -eq "Get-CEReservationUtilization/Granularity")
+        }
+        {
+            $v = "DAILY","MONTHLY"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$CE_map = @{
+    "Context"=@("Get-CEDimensionValue")
+    "Dimension"=@("Get-CEDimensionValue")
+    "Granularity"=@("Get-CECostAndUsage","Get-CEReservationUtilization")
+}
+
+_awsArgumentCompleterRegistration $CE_Completers $CE_map
+
+
 # Argument completions for service AWS Database Migration Service
 $DMS_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

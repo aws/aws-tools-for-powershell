@@ -1243,6 +1243,10 @@ Set-Alias -Name Describe-CURReportDefinition -Value Get-CURReportDefinition
 Set-Alias -Name CUR-DescribeReportDefinitions -Value Get-CURReportDefinition
 Set-Alias -Name Put-CURReportDefinition -Value Write-CURReportDefinition
 Set-Alias -Name CUR-PutReportDefinition -Value Write-CURReportDefinition
+Set-Alias -Name CE-GetCostAndUsage -Value Get-CECostAndUsage
+Set-Alias -Name CE-GetDimensionValues -Value Get-CEDimensionValue
+Set-Alias -Name CE-GetReservationUtilization -Value Get-CEReservationUtilization
+Set-Alias -Name CE-GetTags -Value Get-CETag
 Set-Alias -Name DMS-AddTagsToResource -Value Set-DMSResourceTag
 Set-Alias -Name Create-DMSEndpoint -Value New-DMSEndpoint
 Set-Alias -Name DMS-CreateEndpoint -Value New-DMSEndpoint

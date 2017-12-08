@@ -39,6 +39,7 @@
 		"AWSSDK.ConfigService": "3.3.11.1",
 		"AWSSDK.Core": "3.3.21",
 		"AWSSDK.CostAndUsageReport": "3.3.0.17",
+		"AWSSDK.CostExplorer": "3.3.0",
 		"AWSSDK.DatabaseMigrationService": "3.3.5",
 		"AWSSDK.DataPipeline": "3.3.0.23",
 		"AWSSDK.DAX": "3.3.0.6",

@@ -86,6 +86,7 @@ RequiredAssemblies = @(
   "AWSSDK.ConfigService.dll",
   "AWSSDK.Core.dll",
   "AWSSDK.CostAndUsageReport.dll",
+  "AWSSDK.CostExplorer.dll",
   "AWSSDK.DatabaseMigrationService.dll",
   "AWSSDK.DataPipeline.dll",
   "AWSSDK.DAX.dll",

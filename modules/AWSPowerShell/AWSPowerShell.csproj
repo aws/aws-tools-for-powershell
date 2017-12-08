@@ -81,6 +81,9 @@
     <Reference Include="AWSSDK.CostAndUsageReport">
       <HintPath>..\..\packages\AWSSDK.CostAndUsageReport.3.3.0.17\lib\net35\AWSSDK.CostAndUsageReport.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.CostExplorer">
+      <HintPath>..\..\packages\AWSSDK.CostExplorer.3.3.0\lib\net35\AWSSDK.CostExplorer.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.DAX">
       <HintPath>..\..\packages\AWSSDK.DAX.3.3.0.6\lib\net35\AWSSDK.DAX.dll</HintPath>
     </Reference>

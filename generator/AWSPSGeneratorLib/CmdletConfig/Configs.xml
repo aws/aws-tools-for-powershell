@@ -27,6 +27,7 @@
     <Path>CognitoIdentityProvider.xml</Path>
     <Path>Comprehend.xml</Path>
     <Path>ConfigService.xml</Path>
+    <Path>CostExplorer.xml</Path>
     <Path>CloudWatch.xml</Path>
     <Path>CloudWatchEvents.xml</Path>
     <Path>CloudWatchLogs.xml</Path>
