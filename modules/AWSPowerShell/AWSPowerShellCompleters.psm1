@@ -434,6 +434,67 @@ $APS_map = @{
 _awsArgumentCompleterRegistration $APS_Completers $APS_map
 
 
+# Argument completions for service AWS AppSync
+$ASYN_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AppSync.AuthenticationType
+        {
+            ($_ -eq "New-ASYNGraphqlApi/AuthenticationType") -Or
+            ($_ -eq "Update-ASYNGraphqlApi/AuthenticationType")
+        }
+        {
+            $v = "AMAZON_COGNITO_USER_POOLS","API_KEY","AWS_IAM"
+            break
+        }
+        
+        # Amazon.AppSync.DataSourceType
+        {
+            ($_ -eq "New-ASYNDataSource/Type") -Or
+            ($_ -eq "Update-ASYNDataSource/Type")
+        }
+        {
+            $v = "AMAZON_DYNAMODB","AMAZON_ELASTICSEARCH","AWS_LAMBDA"
+            break
+        }
+        
+        # Amazon.AppSync.OutputType
+        "Get-ASYNIntrospectionSchema/Format"
+        {
+            $v = "JSON","SDL"
+            break
+        }
+        
+        # Amazon.AppSync.TypeDefinitionFormat
+        {
+            ($_ -eq "Get-ASYNType/Format") -Or
+            ($_ -eq "Get-ASYNTypeList/Format") -Or
+            ($_ -eq "New-ASYNType/Format") -Or
+            ($_ -eq "Update-ASYNType/Format")
+        }
+        {
+            $v = "JSON","SDL"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ASYN_map = @{
+    "AuthenticationType"=@("New-ASYNGraphqlApi","Update-ASYNGraphqlApi")
+    "Format"=@("Get-ASYNIntrospectionSchema","Get-ASYNType","Get-ASYNTypeList","New-ASYNType","Update-ASYNType")
+    "Type"=@("New-ASYNDataSource","Update-ASYNDataSource")
+}
+
+_awsArgumentCompleterRegistration $ASYN_Completers $ASYN_map
+
+
 # Argument completions for service Amazon Athena
 $ATH_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

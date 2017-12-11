@@ -2,13 +2,15 @@
   * AWS Cost Explorer
     * Added support for the AWS Cost Explorer service. AWS Cost Explorer helps you visualize, understand, and manage your AWS costs and usage over time. The Cost Explorer API gives you programmatic access to the full Cost Explorer dataset, including advanced metrics (e.g., Reserved Instance utilization) and your cost allocation tags. Cmdlets for the service have the noun prefix 'CE' and can be listed with the command *Get-AWSCmdletName -Service CE*.
   * AWS Resource Groups
-    * Added support for the AWS Resource Groups service launched at AWS re:Invent 2017. A resource group is a collection of AWS resources that are all in the same AWS region, and that match criteria provided in a query. Queries include lists of resources that are specified in the following format *AWS::service::resource*, and tags. Tags are keys that help identify and sort your resources within your organization; optionally, tags include values for keys. Cmdlets for the service have the noun prefix 'RG' and can be listed with the command *Get-AWSCmdletName -Service RG*.
+    * Added support for the AWS Resource Groups service announced at AWS re:Invent 2017. A resource group is a collection of AWS resources that are all in the same AWS region, and that match criteria provided in a query. Queries include lists of resources that are specified in the following format *AWS::service::resource*, and tags. Tags are keys that help identify and sort your resources within your organization; optionally, tags include values for keys. Cmdlets for the service have the noun prefix 'RG' and can be listed with the command *Get-AWSCmdletName -Service RG*.
   * Amazon Kinesis Video Streams
-    * Added support for the Amazon Kinesis Video Streams service launched at AWS re:Invent 2017. Amazon Kinesis Video Streams is a fully managed AWS service that you can use to stream live video from devices to the AWS Cloud, or build applications for real-time video processing or batch-oriented video analytics. Cmdlets for the service have the noun prefix 'KV' and can be listed with the command *Get-AWSCmdletName -Service KV*.
+    * Added support for the Amazon Kinesis Video Streams service announced at AWS re:Invent 2017. Amazon Kinesis Video Streams is a fully managed AWS service that you can use to stream live video from devices to the AWS Cloud, or build applications for real-time video processing or batch-oriented video analytics. Cmdlets for the service have the noun prefix 'KV' and can be listed with the command *Get-AWSCmdletName -Service KV*.
   * Amazon Kinesis Video Streams Media
-    * Added support for the Amazon Kinesis Video Streams Media service launched at AWS re:Invent 2017. Cmdlets for the service have the noun prefix 'KVM' and can be listed with the command *Get-AWSCmdletName -Service KVM*.
+    * Added support for the Amazon Kinesis Video Streams Media service announced at AWS re:Invent 2017. Cmdlets for the service have the noun prefix 'KVM' and can be listed with the command *Get-AWSCmdletName -Service KVM*.
   * AWS IoT Jobs Data Plane
-    * Added support for the AWS IoT Jobs Data Plane service launched at AWS re:Invent 2017. Cmdlets for the service have the noun prefix 'IOTJ' and can be listed with the command *Get-AWSCmdletName -Service IOTJ*.
+    * Added support for the AWS IoT Jobs Data Plane service announced at AWS re:Invent 2017. Cmdlets for the service have the noun prefix 'IOTJ' and can be listed with the command *Get-AWSCmdletName -Service IOTJ*.
+  * AWS AppSync
+    * Added support for the AWS AppSync service announced at AWS re:Invent 2017. AWS AppSync is an enterprise level, fully managed GraphQL service with real-time data synchronization and offline programming features. Cmdlets for the service have the noun prefix 'ASYN' and can be listed with the command *Get-AWSCmdletName -Service ASYN*.
 
 ### 3.3.205.0 (2017-12-08)
   * Amazon EC2

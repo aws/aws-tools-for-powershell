@@ -5,6 +5,7 @@
     <Path>ApplicationDiscovery.xml</Path>
     <Path>ApplicationAutoScaling.xml</Path>
     <Path>AppStream.xml</Path>
+    <Path>AppSync.xml</Path>
     <Path>Athena.xml</Path>
     <Path>AutoScaling.xml</Path>
     <Path>AWSSupport.xml</Path>

@@ -57,6 +57,9 @@
     <Reference Include="AWSSDK.AppStream">
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.6.3\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AppSync">
+      <HintPath>..\..\packages\AWSSDK.AppSync.3.3.0\lib\net35\AWSSDK.AppSync.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.Athena">
       <HintPath>..\..\packages\AWSSDK.Athena.3.3.0.6\lib\net35\AWSSDK.Athena.dll</HintPath>
     </Reference>
