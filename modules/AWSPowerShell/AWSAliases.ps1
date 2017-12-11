@@ -4592,6 +4592,7 @@ Set-Alias -Name SM-StopTrainingJob -Value Stop-SMTrainingJob
 Set-Alias -Name SM-UpdateEndpoint -Value Update-SMEndpoint
 Set-Alias -Name SM-UpdateEndpointWeightsAndCapacities -Value Update-SMEndpointWeightAndCapacity
 Set-Alias -Name SM-UpdateNotebookInstance -Value Update-SMNotebookInstance
+Set-Alias -Name SMR-InvokeEndpoint -Value Invoke-SMREndpoint
 Set-Alias -Name SAR-CreateApplication -Value New-SARApplication
 Set-Alias -Name SAR-CreateApplicationVersion -Value New-SARApplicationVersion
 Set-Alias -Name SAR-CreateCloudFormationChangeSet -Value New-SARCloudFormationChangeSet

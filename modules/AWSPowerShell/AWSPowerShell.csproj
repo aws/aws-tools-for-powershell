@@ -177,6 +177,9 @@
     <Reference Include="AWSSDK.SageMaker">
       <HintPath>..\..\packages\AWSSDK.SageMaker.3.3.0\lib\net35\AWSSDK.SageMaker.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.SageMakerRuntime">
+      <HintPath>..\..\packages\AWSSDK.SageMakerRuntime.3.3.0\lib\net35\AWSSDK.SageMakerRuntime.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.ServerlessApplicationRepository">
       <HintPath>..\..\packages\AWSSDK.ServerlessApplicationRepository.3.3.0\lib\net35\AWSSDK.ServerlessApplicationRepository.dll</HintPath>
     </Reference>
