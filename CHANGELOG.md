@@ -15,6 +15,8 @@
     * Added support for the Alexa for Business service announced at AWS re:Invent 2017. Alexa for Business gives you the tools you need to manage Alexa devices, enroll users, and assign skills. You can build your own voice skills using the Alexa Skills Kit and the Alexa for Business API. You can also make them available as private skills for your organization. Cmdlets for the service have the noun prefix 'ALXB' and can be listed with the command *Get-AWSCmdletName -Service ALXB*.
   * AWS Cloud9
     * Added support for the AWS Cloud9 service announced at AWS re:Invent 2017. AWS Cloud9 is a cloud-based integrated development environment (IDE) that you use to write, run, and debug code. Cmdlets for the service have the noun prefix 'C9' and can be listed with the command *Get-AWSCmdletName -Service C9*.
+  * AWS Serverless Application Repository
+    * Added support for the AWS Serverless Application Repository. With AWS Serverless Application Repository, you can quickly find and deploy serverless applications in the AWS Cloud. You can browse applications by category, or search for them by name, publisher, or event source. Cmdlets for the service have the noun prefix 'SAR' and can be listed with the command *Get-AWSCmdletName -Service SAR*.
 
 ### 3.3.205.0 (2017-12-08)
   * Amazon EC2

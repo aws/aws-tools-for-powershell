@@ -4563,6 +4563,15 @@ Set-Alias -Name S3-RestoreObject -Value Restore-S3Object
 Set-Alias -Name List-S3Buckets -Value Get-S3Bucket
 Set-Alias -Name List-S3Objects -Value Get-S3Object
 Set-Alias -Name Get-S3Content -Value Read-S3Object
+Set-Alias -Name SAR-CreateApplication -Value New-SARApplication
+Set-Alias -Name SAR-CreateApplicationVersion -Value New-SARApplicationVersion
+Set-Alias -Name SAR-CreateCloudFormationChangeSet -Value New-SARCloudFormationChangeSet
+Set-Alias -Name SAR-GetApplication -Value Get-SARApplication
+Set-Alias -Name SAR-GetApplicationPolicy -Value Get-SARApplicationPolicy
+Set-Alias -Name SAR-ListApplications -Value Get-SARApplicationList
+Set-Alias -Name SAR-ListApplicationVersions -Value Get-SARApplicationVersionList
+Set-Alias -Name SAR-PutApplicationPolicy -Value Set-SARApplicationPolicy
+Set-Alias -Name SAR-UpdateApplication -Value Update-SARApplication
 Set-Alias -Name SC-AcceptPortfolioShare -Value Receive-SCPortfolioShare
 Set-Alias -Name Associate-SCPrincipalWithPortfolio -Value Register-SCPrincipalWithPortfolio
 Set-Alias -Name SC-AssociatePrincipalWithPortfolio -Value Register-SCPrincipalWithPortfolio
