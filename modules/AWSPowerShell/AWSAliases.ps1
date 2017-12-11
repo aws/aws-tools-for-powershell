@@ -3157,6 +3157,10 @@ Set-Alias -Name IOT-UpdateRoleAlias -Value Update-IOTRoleAlias
 Set-Alias -Name IOT-UpdateThing -Value Update-IOTThing
 Set-Alias -Name IOT-UpdateThingGroup -Value Update-IOTThingGroup
 Set-Alias -Name IOT-UpdateThingGroupsForThing -Value Update-IOTThingGroupsForThing
+Set-Alias -Name IOTJ-DescribeJobExecution -Value Get-IOTJJobExecution
+Set-Alias -Name IOTJ-GetPendingJobExecutions -Value Get-IOTJPendingJobExecution
+Set-Alias -Name IOTJ-StartNextPendingJobExecution -Value Start-IOTJNextPendingJobExecution
+Set-Alias -Name IOTJ-UpdateJobExecution -Value Update-IOTJJobExecution
 Set-Alias -Name KIN-AddTagsToStream -Value Add-KINTagsToStream
 Set-Alias -Name Create-KINStream -Value New-KINStream
 Set-Alias -Name KIN-CreateStream -Value New-KINStream

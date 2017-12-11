@@ -3822,6 +3822,33 @@ $IOT_map = @{
 _awsArgumentCompleterRegistration $IOT_Completers $IOT_map
 
 
+# Argument completions for service AWS IoT Jobs Data Plane
+$IOTJ_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.IoTJobsDataPlane.JobExecutionStatus
+        "Update-IOTJJobExecution/Status"
+        {
+            $v = "CANCELED","FAILED","IN_PROGRESS","QUEUED","REJECTED","REMOVED","SUCCEEDED"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$IOTJ_map = @{
+    "Status"=@("Update-IOTJJobExecution")
+}
+
+_awsArgumentCompleterRegistration $IOTJ_Completers $IOTJ_map
+
+
 # Argument completions for service Amazon Kinesis
 $KIN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

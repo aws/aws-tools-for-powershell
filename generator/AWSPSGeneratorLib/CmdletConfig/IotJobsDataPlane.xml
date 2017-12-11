@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonIoTJobsDataPlane</SourceGenerationRoot>
+    <ServiceNounPrefix>IOTJ</ServiceNounPrefix>
+    <ServiceName>AWS IoT Jobs Data Plane</ServiceName>
+    <ServiceClientInterface>IAmazonIoTJobsDataPlane</ServiceClientInterface>
+    <ServiceClient>AmazonIoTJobsDataPlaneClient</ServiceClient>
+    <ServiceNamespace>Amazon.IoTJobsDataPlane</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <ServiceOperations>
+        <ServiceOperation MethodName="DescribeJobExecution" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="JobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="GetPendingJobExecutions" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="PendingJobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNextPendingJobExecution" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="NextPendingJobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ThingName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateJobExecution" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="JobExecution" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="JobId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>

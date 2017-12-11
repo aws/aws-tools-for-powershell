@@ -114,6 +114,7 @@ RequiredAssemblies = @(
   "AWSSDK.ImportExport.dll",
   "AWSSDK.Inspector.dll",
   "AWSSDK.IoT.dll",
+  "AWSSDK.IoTJobsDataPlane.dll",
   "AWSSDK.KeyManagementService.dll",
   "AWSSDK.Kinesis.dll",
   "AWSSDK.KinesisAnalytics.dll",

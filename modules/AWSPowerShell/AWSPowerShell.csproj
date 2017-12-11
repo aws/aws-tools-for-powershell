@@ -93,6 +93,9 @@
     <Reference Include="AWSSDK.GuardDuty">
       <HintPath>..\..\packages\AWSSDK.GuardDuty.3.3.0\lib\net35\AWSSDK.GuardDuty.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.IoTJobsDataPlane">
+      <HintPath>..\..\packages\AWSSDK.IoTJobsDataPlane.3.3.0\lib\net35\AWSSDK.IoTJobsDataPlane.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.KinesisVideo">
       <HintPath>..\..\packages\AWSSDK.KinesisVideo.3.3.0\lib\net35\AWSSDK.KinesisVideo.dll</HintPath>
     </Reference>

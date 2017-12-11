@@ -65,6 +65,7 @@
 		"AWSSDK.ImportExport": "3.3.0.24",
 		"AWSSDK.Inspector": "3.3.2.3",
 		"AWSSDK.IoT": "3.3.7",
+		"AWSSDK.IoTJobsDataPlane": "3.3.0",
 		"AWSSDK.KeyManagementService": "3.3.4.1",
 		"AWSSDK.Kinesis": "3.3.4",
 		"AWSSDK.KinesisAnalytics": "3.3.3.3",
