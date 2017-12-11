@@ -29,11 +29,6 @@ namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
     /// Creates a URL to start a streaming session for the specified user.
-    /// 
-    ///  
-    /// <para>
-    /// By default, the URL is valid only for one minute from the time that it is generated.
-    /// </para>
     /// </summary>
     [Cmdlet("New", "APSStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateStreamingURLResponse")]
@@ -47,7 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ApplicationId
         /// <summary>
         /// <para>
-        /// <para>The ID of the application that must be launched after the session starts.</para>
+        /// <para>The name of the application to launch after the session starts. This is the name that
+        /// you specified as <b>Name</b> in the Image Assistant.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter SessionContext
         /// <summary>
         /// <para>
-        /// <para>The session context of the streaming URL.</para>
+        /// <para>The session context. For more information, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/managing-stacks-fleets.html#managing-stacks-fleets-parameters">Session
+        /// Context</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -98,7 +95,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The time that the streaming URL will be valid, in seconds. Specify a value between
-        /// 1 and 604800 seconds.</para>
+        /// 1 and 604800 seconds. The default is 60 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

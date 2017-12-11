@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// </summary>
     [Cmdlet("Get", "COMPTopicsDetectionJob")]
     [OutputType("Amazon.Comprehend.Model.TopicsDetectionJobProperties")]
-    [AWSCmdlet("Calls the Amazon AmazonComprehend DescribeTopicsDetectionJob API operation.", Operation = new[] {"DescribeTopicsDetectionJob"})]
+    [AWSCmdlet("Calls the Amazon Comprehend DescribeTopicsDetectionJob API operation.", Operation = new[] {"DescribeTopicsDetectionJob"})]
     [AWSCmdletOutput("Amazon.Comprehend.Model.TopicsDetectionJobProperties",
         "This cmdlet returns a TopicsDetectionJobProperties object.",
         "The service call response (type Amazon.Comprehend.Model.DescribeTopicsDetectionJobResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -121,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         private Amazon.Comprehend.Model.DescribeTopicsDetectionJobResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.DescribeTopicsDetectionJobRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AmazonComprehend", "DescribeTopicsDetectionJob");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "DescribeTopicsDetectionJob");
             try
             {
                 #if DESKTOP

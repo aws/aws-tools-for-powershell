@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// </summary>
     [Cmdlet("Find", "COMPKeyPhrasesBatch")]
     [OutputType("Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse")]
-    [AWSCmdlet("Calls the Amazon AmazonComprehend BatchDetectKeyPhrases API operation.", Operation = new[] {"BatchDetectKeyPhrases"})]
+    [AWSCmdlet("Calls the Amazon Comprehend BatchDetectKeyPhrases API operation.", Operation = new[] {"BatchDetectKeyPhrases"})]
     [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse",
         "This cmdlet returns a Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -139,7 +139,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         private Amazon.Comprehend.Model.BatchDetectKeyPhrasesResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.BatchDetectKeyPhrasesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AmazonComprehend", "BatchDetectKeyPhrases");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "BatchDetectKeyPhrases");
             try
             {
                 #if DESKTOP

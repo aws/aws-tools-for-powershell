@@ -33,7 +33,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// </summary>
     [Cmdlet("Find", "COMPEntity")]
     [OutputType("Amazon.Comprehend.Model.Entity")]
-    [AWSCmdlet("Calls the Amazon AmazonComprehend DetectEntities API operation.", Operation = new[] {"DetectEntities"})]
+    [AWSCmdlet("Calls the Amazon Comprehend DetectEntities API operation.", Operation = new[] {"DetectEntities"})]
     [AWSCmdletOutput("Amazon.Comprehend.Model.Entity",
         "This cmdlet returns a collection of Entity objects.",
         "The service call response (type Amazon.Comprehend.Model.DetectEntitiesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -142,7 +142,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         private Amazon.Comprehend.Model.DetectEntitiesResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.DetectEntitiesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AmazonComprehend", "DetectEntities");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "DetectEntities");
             try
             {
                 #if DESKTOP

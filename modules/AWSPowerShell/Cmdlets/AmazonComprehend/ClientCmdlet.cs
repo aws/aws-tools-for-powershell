@@ -27,7 +27,7 @@ using Amazon.Comprehend.Model;
 
 namespace Amazon.PowerShell.Cmdlets.COMP
 {
-    [AWSClientCmdlet("Amazon AmazonComprehend", "COMP", "2017-11-27")]
+    [AWSClientCmdlet("Amazon Comprehend", "COMP", "2017-11-27")]
     public abstract partial class AmazonComprehendClientCmdlet : ServiceCmdlet
     {
         protected IAmazonComprehend Client { get; private set; }

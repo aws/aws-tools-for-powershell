@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    
+    /// Starts the specified image builder.
     /// </summary>
     [Cmdlet("Start", "APSImageBuilder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.ImageBuilder")]
@@ -40,10 +40,21 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class StartAPSImageBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        #region Parameter AppstreamAgentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the AppStream 2.0 agent to use for this image builder. To use the latest
+        /// version of the AppStream 2.0 agent, specify [LATEST].</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AppstreamAgentVersion { get; set; }
+        #endregion
+        
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -79,6 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AppstreamAgentVersion = this.AppstreamAgentVersion;
             context.Name = this.Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -96,6 +108,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.StartImageBuilderRequest();
             
+            if (cmdletContext.AppstreamAgentVersion != null)
+            {
+                request.AppstreamAgentVersion = cmdletContext.AppstreamAgentVersion;
+            }
             if (cmdletContext.Name != null)
             {
                 request.Name = cmdletContext.Name;
@@ -164,6 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AppstreamAgentVersion { get; set; }
             public System.String Name { get; set; }
         }
         

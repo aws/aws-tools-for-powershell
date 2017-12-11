@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// </summary>
     [Cmdlet("Find", "COMPSentimentBatch")]
     [OutputType("Amazon.Comprehend.Model.BatchDetectSentimentResponse")]
-    [AWSCmdlet("Calls the Amazon AmazonComprehend BatchDetectSentiment API operation.", Operation = new[] {"BatchDetectSentiment"})]
+    [AWSCmdlet("Calls the Amazon Comprehend BatchDetectSentiment API operation.", Operation = new[] {"BatchDetectSentiment"})]
     [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectSentimentResponse",
         "This cmdlet returns a Amazon.Comprehend.Model.BatchDetectSentimentResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -141,7 +141,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         private Amazon.Comprehend.Model.BatchDetectSentimentResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.BatchDetectSentimentRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AmazonComprehend", "BatchDetectSentiment");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "BatchDetectSentiment");
             try
             {
                 #if DESKTOP

@@ -148,7 +148,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// Interface, and you must specify a <a>NetworkConfiguration</a> when you create a service
         /// or run a task with the task definition. For more information, see <a href="http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html">Task
         /// Networking</a> in the <i>Amazon Elastic Container Service Developer Guide</i>.</para><para>If the network mode is <code>host</code>, you can't run multiple instantiations of
-        /// the same task on a single container instance when port mappings are used.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
+        /// the same task on a single container instance when port mappings are used.</para><para>Docker for Windows uses different network modes than Docker for Linux. When you register
+        /// a task definition with Windows containers, you must not specify a network mode.</para><para>For more information, see <a href="https://docs.docker.com/engine/reference/run/#network-settings">Network
         /// settings</a> in the <i>Docker run reference</i>.</para>
         /// </para>
         /// </summary>

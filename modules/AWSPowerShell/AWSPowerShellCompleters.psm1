@@ -1992,7 +1992,7 @@ $CGIP_map = @{
 _awsArgumentCompleterRegistration $CGIP_Completers $CGIP_map
 
 
-# Argument completions for service Amazon AmazonComprehend
+# Argument completions for service Amazon Comprehend
 $COMP_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     

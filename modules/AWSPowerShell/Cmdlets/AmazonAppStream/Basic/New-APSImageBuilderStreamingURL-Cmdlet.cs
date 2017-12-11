@@ -28,7 +28,7 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    
+    /// Creates a URL to start an image builder streaming session.
     /// </summary>
     [Cmdlet("New", "APSImageBuilderStreamingURL", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.CreateImageBuilderStreamingURLResponse")]
@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -52,7 +52,8 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Validity
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The time that the streaming URL will be valid, in seconds. Specify a value between
+        /// 1 and 604800 seconds. The default is 3600 seconds.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

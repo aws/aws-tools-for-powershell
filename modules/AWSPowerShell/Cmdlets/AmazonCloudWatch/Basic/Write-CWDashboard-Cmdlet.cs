@@ -65,7 +65,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The detailed information about the dashboard in JSON format, including the widgets
-        /// to include and their location on the dashboard.</para><para>For more information about the syntax, see <a>CloudWatch-Dashboard-Body-Structure</a>.</para>
+        /// to include and their location on the dashboard. This parameter is required.</para><para>For more information about the syntax, see <a>CloudWatch-Dashboard-Body-Structure</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>The name of the dashboard. If a dashboard with this name already exists, this call
         /// modifies that dashboard, replacing its current contents. Otherwise, a new dashboard
         /// is created. The maximum length is 255, and valid characters are A-Z, a-z, 0-9, "-",
-        /// and "_".</para>
+        /// and "_". This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

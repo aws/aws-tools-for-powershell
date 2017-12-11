@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description displayed to end users.</para>
+        /// <para>The description for display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -87,7 +87,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The fleet name displayed to end users.</para>
+        /// <para>The fleet name for display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -107,7 +107,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter FleetType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The fleet type.</para><dl><dt>ALWAYS_ON</dt><dd><para>Provides users with instant-on access to their apps. You are charged for all running
+        /// instances in your fleet, even if no users are streaming apps.</para></dd><dt>ON_DEMAND</dt><dd><para>Provide users with access to applications after they connect, which takes one to two
+        /// minutes. You are charged for instance streaming when users are connected and a small
+        /// hourly fee for instances that are not streaming apps.</para></dd></dl>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -118,7 +121,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The name of the image used by the fleet.</para>
+        /// <para>The name of the image used to create the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

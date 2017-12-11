@@ -28,7 +28,13 @@ using Amazon.AppStream.Model;
 namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    
+    /// Creates an image builder.
+    /// 
+    ///  
+    /// <para>
+    /// The initial state of the builder is <code>PENDING</code>. When it is ready, the state
+    /// is <code>RUNNING</code>.
+    /// </para>
     /// </summary>
     [Cmdlet("New", "APSImageBuilder", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.AppStream.Model.ImageBuilder")]
@@ -40,10 +46,21 @@ namespace Amazon.PowerShell.Cmdlets.APS
     public partial class NewAPSImageBuilderCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
+        #region Parameter AppstreamAgentVersion
+        /// <summary>
+        /// <para>
+        /// <para>The version of the AppStream 2.0 agent to use for this image builder. To use the latest
+        /// version of the AppStream 2.0 agent, specify [LATEST].</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String AppstreamAgentVersion { get; set; }
+        #endregion
+        
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The description for display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,7 +80,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The image builder name for display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -73,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter EnableDefaultInternetAccess
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>Enables or disables default internet access for the image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -83,7 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the image used to create the builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -93,7 +110,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter InstanceType
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The instance type to use when launching the image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -103,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Name
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>A unique name for the image builder.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -171,6 +188,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.AppstreamAgentVersion = this.AppstreamAgentVersion;
             context.Description = this.Description;
             context.DisplayName = this.DisplayName;
             context.DomainJoinInfo_DirectoryName = this.DomainJoinInfo_DirectoryName;
@@ -204,6 +222,10 @@ namespace Amazon.PowerShell.Cmdlets.APS
             // create request
             var request = new Amazon.AppStream.Model.CreateImageBuilderRequest();
             
+            if (cmdletContext.AppstreamAgentVersion != null)
+            {
+                request.AppstreamAgentVersion = cmdletContext.AppstreamAgentVersion;
+            }
             if (cmdletContext.Description != null)
             {
                 request.Description = cmdletContext.Description;
@@ -350,6 +372,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public System.String AppstreamAgentVersion { get; set; }
             public System.String Description { get; set; }
             public System.String DisplayName { get; set; }
             public System.String DomainJoinInfo_DirectoryName { get; set; }

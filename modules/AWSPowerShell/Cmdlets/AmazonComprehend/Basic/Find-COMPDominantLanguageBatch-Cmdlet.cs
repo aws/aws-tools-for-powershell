@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// </summary>
     [Cmdlet("Find", "COMPDominantLanguageBatch")]
     [OutputType("Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse")]
-    [AWSCmdlet("Calls the Amazon AmazonComprehend BatchDetectDominantLanguage API operation.", Operation = new[] {"BatchDetectDominantLanguage"})]
+    [AWSCmdlet("Calls the Amazon Comprehend BatchDetectDominantLanguage API operation.", Operation = new[] {"BatchDetectDominantLanguage"})]
     [AWSCmdletOutput("Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse",
         "This cmdlet returns a Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -126,7 +126,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         private Amazon.Comprehend.Model.BatchDetectDominantLanguageResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.BatchDetectDominantLanguageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AmazonComprehend", "BatchDetectDominantLanguage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "BatchDetectDominantLanguage");
             try
             {
                 #if DESKTOP

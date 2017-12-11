@@ -3,7 +3,7 @@
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
     <SourceGenerationRoot>AmazonComprehend</SourceGenerationRoot>
     <ServiceNounPrefix>COMP</ServiceNounPrefix>
-    <ServiceName>Amazon AmazonComprehend</ServiceName>
+    <ServiceName>Amazon Comprehend</ServiceName>
     <ServiceClientInterface>IAmazonComprehend</ServiceClientInterface>
     <ServiceClient>AmazonComprehendClient</ServiceClient>
     <ServiceNamespace>Amazon.Comprehend</ServiceNamespace>

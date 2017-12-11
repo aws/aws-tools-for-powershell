@@ -71,7 +71,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The description displayed to end users.</para>
+        /// <para>The description for display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -115,7 +115,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter DisplayName
         /// <summary>
         /// <para>
-        /// <para>The fleet name displayed to end users.</para>
+        /// <para>The fleet name for display.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -135,7 +135,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         #region Parameter ImageName
         /// <summary>
         /// <para>
-        /// <para>The name of the image used by the fleet.</para>
+        /// <para>The name of the image used to create the fleet.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

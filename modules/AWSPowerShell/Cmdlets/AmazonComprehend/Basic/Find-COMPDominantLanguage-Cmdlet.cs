@@ -34,7 +34,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
     /// </summary>
     [Cmdlet("Find", "COMPDominantLanguage")]
     [OutputType("Amazon.Comprehend.Model.DominantLanguage")]
-    [AWSCmdlet("Calls the Amazon AmazonComprehend DetectDominantLanguage API operation.", Operation = new[] {"DetectDominantLanguage"})]
+    [AWSCmdlet("Calls the Amazon Comprehend DetectDominantLanguage API operation.", Operation = new[] {"DetectDominantLanguage"})]
     [AWSCmdletOutput("Amazon.Comprehend.Model.DominantLanguage",
         "This cmdlet returns a collection of DominantLanguage objects.",
         "The service call response (type Amazon.Comprehend.Model.DetectDominantLanguageResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -123,7 +123,7 @@ namespace Amazon.PowerShell.Cmdlets.COMP
         
         private Amazon.Comprehend.Model.DetectDominantLanguageResponse CallAWSServiceOperation(IAmazonComprehend client, Amazon.Comprehend.Model.DetectDominantLanguageRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon AmazonComprehend", "DetectDominantLanguage");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Comprehend", "DetectDominantLanguage");
             try
             {
                 #if DESKTOP

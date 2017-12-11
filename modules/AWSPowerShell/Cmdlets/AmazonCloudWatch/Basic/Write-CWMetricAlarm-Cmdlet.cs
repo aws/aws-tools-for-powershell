@@ -92,9 +92,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>ALARM</code> state
         /// from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: arn:aws:automate:<i>region</i>:ec2:stop | arn:aws:automate:<i>region</i>:ec2:terminate
-        /// | arn:aws:automate:<i>region</i>:ec2:recover</para><para>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para>
+        /// | arn:aws:automate:<i>region</i>:ec2:recover | arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+        /// | arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>
+        /// autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></para><para>Valid Values (for use with IAM roles): arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
+        /// | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
+        /// | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -132,6 +134,16 @@ namespace Amazon.PowerShell.Cmdlets.CW
         [System.Management.Automation.Parameter]
         [AWSConstantClassSource("Amazon.CloudWatch.ComparisonOperator")]
         public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
+        #endregion
+        
+        #region Parameter DatapointsToAlarm
+        /// <summary>
+        /// <para>
+        /// <para>The number of datapoints that must be breaching to trigger the alarm.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 DatapointsToAlarm { get; set; }
         #endregion
         
         #region Parameter Dimension
@@ -177,7 +189,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The percentile statistic for the metric associated with the alarm. Specify a value
-        /// between p0.0 and p100.</para>
+        /// between p0.0 and p100. When you call <code>PutMetricAlarm</code>, you must specify
+        /// either <code>Statistic</code> or <code>ExtendedStatistic,</code> but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -189,9 +202,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to the <code>INSUFFICIENT_DATA</code>
         /// state from any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: arn:aws:automate:<i>region</i>:ec2:stop | arn:aws:automate:<i>region</i>:ec2:terminate
-        /// | arn:aws:automate:<i>region</i>:ec2:recover</para><para>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para>
+        /// | arn:aws:automate:<i>region</i>:ec2:recover | arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+        /// | arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>
+        /// autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></para><para>Valid Values (for use with IAM roles): arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
+        /// | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
+        /// | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -224,9 +239,11 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <para>
         /// <para>The actions to execute when this alarm transitions to an <code>OK</code> state from
         /// any other state. Each action is specified as an Amazon Resource Name (ARN).</para><para>Valid Values: arn:aws:automate:<i>region</i>:ec2:stop | arn:aws:automate:<i>region</i>:ec2:terminate
-        /// | arn:aws:automate:<i>region</i>:ec2:recover</para><para>Valid Values (for use with IAM roles): arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
-        /// | arn:aws:swf:us-east-1:{<i>customer-account</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para>
+        /// | arn:aws:automate:<i>region</i>:ec2:recover | arn:aws:sns:<i>region</i>:<i>account-id</i>:<i>sns-topic-name</i>
+        /// | arn:aws:autoscaling:<i>region</i>:<i>account-id</i>:scalingPolicy:<i>policy-id</i>
+        /// autoScalingGroupName/<i>group-friendly-name</i>:policyName/<i>policy-friendly-name</i></para><para>Valid Values (for use with IAM roles): arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Stop/1.0
+        /// | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Terminate/1.0
+        /// | arn:aws:swf:<i>region</i>:{<i>account-id</i>}:action/actions/AWS_EC2.InstanceId.Reboot/1.0</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -258,7 +275,9 @@ namespace Amazon.PowerShell.Cmdlets.CW
         /// <summary>
         /// <para>
         /// <para>The statistic for the metric associated with the alarm, other than percentile. For
-        /// percentile statistics, use <code>ExtendedStatistic</code>.</para>
+        /// percentile statistics, use <code>ExtendedStatistic</code>. When you call <code>PutMetricAlarm</code>,
+        /// you must specify either <code>Statistic</code> or <code>ExtendedStatistic,</code>
+        /// but not both.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -352,6 +371,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
             context.AlarmDescription = this.AlarmDescription;
             context.AlarmName = this.AlarmName;
             context.ComparisonOperator = this.ComparisonOperator;
+            if (ParameterWasBound("DatapointsToAlarm"))
+                context.DatapointsToAlarm = this.DatapointsToAlarm;
             if (this.Dimension != null)
             {
                 context.Dimensions = new List<Amazon.CloudWatch.Model.Dimension>(this.Dimension);
@@ -412,6 +433,10 @@ namespace Amazon.PowerShell.Cmdlets.CW
             if (cmdletContext.ComparisonOperator != null)
             {
                 request.ComparisonOperator = cmdletContext.ComparisonOperator;
+            }
+            if (cmdletContext.DatapointsToAlarm != null)
+            {
+                request.DatapointsToAlarm = cmdletContext.DatapointsToAlarm.Value;
             }
             if (cmdletContext.Dimensions != null)
             {
@@ -536,6 +561,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
             public System.String AlarmDescription { get; set; }
             public System.String AlarmName { get; set; }
             public Amazon.CloudWatch.ComparisonOperator ComparisonOperator { get; set; }
+            public System.Int32? DatapointsToAlarm { get; set; }
             public List<Amazon.CloudWatch.Model.Dimension> Dimensions { get; set; }
             public System.String EvaluateLowSampleCountPercentile { get; set; }
             public System.Int32? EvaluationPeriods { get; set; }

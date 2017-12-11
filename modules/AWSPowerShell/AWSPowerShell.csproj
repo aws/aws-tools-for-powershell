@@ -58,7 +58,7 @@
       <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.0\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppStream">
-      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.6.3\lib\net35\AWSSDK.AppStream.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.AppStream.3.3.7\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.AppSync">
       <HintPath>..\..\packages\AWSSDK.AppSync.3.3.0\lib\net35\AWSSDK.AppSync.dll</HintPath>
@@ -316,7 +316,7 @@
       <HintPath>..\..\packages\AWSSDK.ElastiCache.3.3.5.1\lib\net35\AWSSDK.ElastiCache.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECS">
-      <HintPath>..\..\packages\AWSSDK.ECS.3.3.9.1\lib\net35\AWSSDK.ECS.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.ECS.3.3.9.2\lib\net35\AWSSDK.ECS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ECR">
       <HintPath>..\..\packages\AWSSDK.ECR.3.3.3.2\lib\net35\AWSSDK.ECR.dll</HintPath>
@@ -370,7 +370,7 @@
       <HintPath>..\..\packages\AWSSDK.CloudWatchEvents.3.3.3.3\lib\net35\AWSSDK.CloudWatchEvents.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudWatch">
-      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.4.3\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.CloudWatch.3.3.5\lib\net35\AWSSDK.CloudWatch.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.CloudTrail">
       <HintPath>..\..\packages\AWSSDK.CloudTrail.3.3.1.22\lib\net35\AWSSDK.CloudTrail.dll</HintPath>

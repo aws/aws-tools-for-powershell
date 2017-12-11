@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.CW
         #region Parameter DashboardName
         /// <summary>
         /// <para>
-        /// <para>The dashboards to be deleted.</para>
+        /// <para>The dashboards to be deleted. This parameter is required.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
