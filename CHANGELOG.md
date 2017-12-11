@@ -17,6 +17,8 @@
     * Added support for the AWS Cloud9 service announced at AWS re:Invent 2017. AWS Cloud9 is a cloud-based integrated development environment (IDE) that you use to write, run, and debug code. Cmdlets for the service have the noun prefix 'C9' and can be listed with the command *Get-AWSCmdletName -Service C9*.
   * AWS Serverless Application Repository
     * Added support for the AWS Serverless Application Repository. With AWS Serverless Application Repository, you can quickly find and deploy serverless applications in the AWS Cloud. You can browse applications by category, or search for them by name, publisher, or event source. Cmdlets for the service have the noun prefix 'SAR' and can be listed with the command *Get-AWSCmdletName -Service SAR*.
+  * Amazon SageMaker Service
+    * Added support for Amazon SageMaker Service, announced at AWS re:Invent 2017. Amazon SageMaker is a fully managed machine learning service. With Amazon SageMaker, data scientists and developers can quickly and easily build and train machine learning models, and then directly deploy them into a production-ready hosted environment. Cmdlets for the service have the noun prefix 'SM' and can be listed with the command *Get-AWSCmdletName -Service SM*.
 
 ### 3.3.205.0 (2017-12-08)
   * Amazon EC2

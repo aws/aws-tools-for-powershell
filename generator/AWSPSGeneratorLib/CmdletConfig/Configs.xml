@@ -100,6 +100,7 @@
     <Path>Route53.xml</Path>
     <Path>Route53Domains.xml</Path>
     <Path>S3.xml</Path>
+    <Path>SageMaker.xml</Path>
     <Path>Shield.xml</Path>
     <Path>ServerlessApplicationRepository.xml</Path>
     <Path>ServiceCatalog.xml</Path>

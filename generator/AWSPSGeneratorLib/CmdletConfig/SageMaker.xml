@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonSageMaker</SourceGenerationRoot>
+    <ServiceNounPrefix>SM</ServiceNounPrefix>
+    <ServiceName>Amazon SageMaker Service</ServiceName>
+    <ServiceClientInterface>IAmazonSageMaker</ServiceClientInterface>
+    <ServiceClient>AmazonSageMakerClient</ServiceClient>
+    <ServiceNamespace>Amazon.SageMaker</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="100" />
+    <ServiceOperations>
+        <ServiceOperation MethodName="AddTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Add" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Tags" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpoint" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEndpointConfig" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EndpointConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateModel" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="ModelName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="PrimaryContainer" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateNotebookInstance" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreatePresignedNotebookInstanceUrl" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="PresignedNotebookInstanceUrl" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateTrainingJob" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="TrainingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrainingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpoint" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEndpointConfig" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EndpointConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteModel" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteTags" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="ResourceTag" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TagKeys" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpoint" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEndpointConfig" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EndpointConfig" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeModel" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="Model" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ModelName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeNotebookInstance" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeTrainingJob" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrainingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrainingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpointConfigs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ConfigList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEndpoints" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EndpointList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListModels" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ModelList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListNotebookInstances" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="NotebookInstanceList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTags" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="ResourceTagList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="ResourceArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListTrainingJobs" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="TrainingJobList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="true" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StartNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Start" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="StopTrainingJob" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Stop" Noun="TrainingJob" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="TrainingJobName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEndpoint" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Endpoint" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="EndpointName" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointConfigName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEndpointWeightsAndCapacities" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="EndpointWeightAndCapacity" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EndpointName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateNotebookInstance" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="NotebookInstance" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="NotebookInstanceName" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten>
+        <Type>Amazon.SageMaker.Model.AlgorithmSpecification</Type>
+        <Type>Amazon.SageMaker.Model.ContainerDefinition</Type>
+        <Type>Amazon.SageMaker.Model.DesiredWeightAndCapacity</Type>
+        <Type>Amazon.SageMaker.Model.OutputDataConfig</Type>
+        <Type>Amazon.SageMaker.Model.ResourceConfig</Type>
+    </TypesNotToFlatten>
+</ConfigModel>

@@ -5664,6 +5664,120 @@ $S3_map = @{
 _awsArgumentCompleterRegistration $S3_Completers $S3_map
 
 
+# Argument completions for service Amazon SageMaker Service
+$SM_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.SageMaker.EndpointConfigSortKey
+        "Get-SMConfigList/SortBy"
+        {
+            $v = "CreationTime","Name"
+            break
+        }
+        
+        # Amazon.SageMaker.EndpointSortKey
+        "Get-SMEndpointList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+        
+        # Amazon.SageMaker.EndpointStatus
+        "Get-SMEndpointList/StatusEquals"
+        {
+            $v = "Creating","Deleting","Failed","InService","OutOfService","RollingBack","Updating"
+            break
+        }
+        
+        # Amazon.SageMaker.InstanceType
+        {
+            ($_ -eq "New-SMNotebookInstance/InstanceType") -Or
+            ($_ -eq "Update-SMNotebookInstance/InstanceType")
+        }
+        {
+            $v = "ml.m4.xlarge","ml.p2.xlarge","ml.t2.medium"
+            break
+        }
+        
+        # Amazon.SageMaker.ModelSortKey
+        "Get-SMModelList/SortBy"
+        {
+            $v = "CreationTime","Name"
+            break
+        }
+        
+        # Amazon.SageMaker.NotebookInstanceSortKey
+        "Get-SMNotebookInstanceList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+        
+        # Amazon.SageMaker.NotebookInstanceSortOrder
+        "Get-SMNotebookInstanceList/SortOrder"
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+        
+        # Amazon.SageMaker.NotebookInstanceStatus
+        "Get-SMNotebookInstanceList/StatusEquals"
+        {
+            $v = "Deleting","Failed","InService","Pending","Stopped","Stopping"
+            break
+        }
+        
+        # Amazon.SageMaker.OrderKey
+        {
+            ($_ -eq "Get-SMConfigList/SortOrder") -Or
+            ($_ -eq "Get-SMEndpointList/SortOrder") -Or
+            ($_ -eq "Get-SMModelList/SortOrder")
+        }
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+        
+        # Amazon.SageMaker.SortBy
+        "Get-SMTrainingJobList/SortBy"
+        {
+            $v = "CreationTime","Name","Status"
+            break
+        }
+        
+        # Amazon.SageMaker.SortOrder
+        "Get-SMTrainingJobList/SortOrder"
+        {
+            $v = "Ascending","Descending"
+            break
+        }
+        
+        # Amazon.SageMaker.TrainingJobStatus
+        "Get-SMTrainingJobList/StatusEquals"
+        {
+            $v = "Completed","Failed","InProgress","Stopped","Stopping"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$SM_map = @{
+    "InstanceType"=@("New-SMNotebookInstance","Update-SMNotebookInstance")
+    "SortBy"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
+    "SortOrder"=@("Get-SMConfigList","Get-SMEndpointList","Get-SMModelList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
+    "StatusEquals"=@("Get-SMEndpointList","Get-SMNotebookInstanceList","Get-SMTrainingJobList")
+}
+
+_awsArgumentCompleterRegistration $SM_Completers $SM_map
+
+
 # Argument completions for service AWS Service Catalog
 $SC_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

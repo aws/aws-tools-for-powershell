@@ -1,0 +1,324 @@
+/*******************************************************************************
+ *  Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+ *  Licensed under the Apache License, Version 2.0 (the "License"). You may not use
+ *  this file except in compliance with the License. A copy of the License is located at
+ *
+ *  http://aws.amazon.com/apache2.0
+ *
+ *  or in the "license" file accompanying this file.
+ *  This file is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+ *  CONDITIONS OF ANY KIND, either express or implied. See the License for the
+ *  specific language governing permissions and limitations under the License.
+ * *****************************************************************************
+ *
+ *  AWS Tools for Windows (TM) PowerShell (TM)
+ *
+ */
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Management.Automation;
+using System.Text;
+using Amazon.PowerShell.Common;
+using Amazon.Runtime;
+using Amazon.SageMaker;
+using Amazon.SageMaker.Model;
+
+namespace Amazon.PowerShell.Cmdlets.SM
+{
+    /// <summary>
+    /// Creates an Amazon SageMaker notebook instance. A notebook instance is an ML compute
+    /// instance running on a Jupyter notebook. 
+    /// 
+    ///  
+    /// <para>
+    /// In a <code>CreateNotebookInstance</code> request, you specify the type of ML compute
+    /// instance that you want to run. Amazon SageMaker launches the instance, installs common
+    /// libraries that you can use to explore datasets for model training, and attaches an
+    /// ML storage volume to the notebook instance. 
+    /// </para><para>
+    /// Amazon SageMaker also provides a set of example notebooks. Each notebook demonstrates
+    /// how to use Amazon SageMaker with a specific an algorithm or with a machine learning
+    /// framework. 
+    /// </para><para>
+    /// After receiving the request, Amazon SageMaker does the following:
+    /// </para><ol><li><para>
+    /// Creates a network interface in the Amazon SageMaker VPC.
+    /// </para></li><li><para>
+    /// (Option) If you specified <code>SubnetId</code>, creates a network interface in your
+    /// own VPC, which is inferred from the subnet ID that you provide in the input. When
+    /// creating this network interface, Amazon SageMaker attaches the security group that
+    /// you specified in the request to the network interface that it creates in your VPC.
+    /// </para></li><li><para>
+    /// Launches an EC2 instance of the type specified in the request in the Amazon SageMaker
+    /// VPC. If you specified <code>SubnetId</code> of your VPC, Amazon SageMaker specifies
+    /// both network interfaces when launching this instance. This enables inbound traffic
+    /// from your own VPC to the notebook instance, assuming that the security groups allow
+    /// it.
+    /// </para></li></ol><para>
+    /// After creating the notebook instance, Amazon SageMaker returns its Amazon Resource
+    /// Name (ARN).
+    /// </para><para>
+    /// After Amazon SageMaker creates the notebook instance, you can connect to the Jupyter
+    /// server and work in Jupyter notebooks. For example, you can write code to explore a
+    /// dataset that you can use for model training, train a model, host models by creating
+    /// Amazon SageMaker endpoints, and validate hosted models. 
+    /// </para><para>
+    /// For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/how-it-works.html">How
+    /// It Works</a>. 
+    /// </para>
+    /// </summary>
+    [Cmdlet("New", "SMNotebookInstance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon SageMaker Service CreateNotebookInstance API operation.", Operation = new[] {"CreateNotebookInstance"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a String object.",
+        "The service call response (type Amazon.SageMaker.Model.CreateNotebookInstanceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    )]
+    public partial class NewSMNotebookInstanceCmdlet : AmazonSageMakerClientCmdlet, IExecutor
+    {
+        
+        #region Parameter InstanceType
+        /// <summary>
+        /// <para>
+        /// <para>The type of ML compute instance to launch for the notebook instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.SageMaker.InstanceType")]
+        public Amazon.SageMaker.InstanceType InstanceType { get; set; }
+        #endregion
+        
+        #region Parameter KmsKeyId
+        /// <summary>
+        /// <para>
+        /// <para> If you provide a AWS KMS key ID, Amazon SageMaker uses it to encrypt data at rest
+        /// on the ML storage volume that is attached to your notebook instance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String KmsKeyId { get; set; }
+        #endregion
+        
+        #region Parameter NotebookInstanceName
+        /// <summary>
+        /// <para>
+        /// <para>The name of the new notebook instance.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String NotebookInstanceName { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para> When you send any requests to AWS resources from the notebook instance, Amazon SageMaker
+        /// assumes this role to perform tasks on your behalf. You must grant this role necessary
+        /// permissions so Amazon SageMaker can perform these tasks. The policy must allow the
+        /// Amazon SageMaker service principal (sagemaker.amazonaws.com) permissions to assume
+        /// this role. For more information, see <a href="http://docs.aws.amazon.com/sagemaker/latest/dg/sagemaker-roles.html">Amazon
+        /// SageMaker Roles</a>. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter SecurityGroupId
+        /// <summary>
+        /// <para>
+        /// <para>The VPC security group IDs, in the form sg-xxxxxxxx. The security groups must be for
+        /// the same VPC as specified in the subnet. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("SecurityGroupIds")]
+        public System.String[] SecurityGroupId { get; set; }
+        #endregion
+        
+        #region Parameter SubnetId
+        /// <summary>
+        /// <para>
+        /// <para>The ID of the subnet in a VPC to which you would like to have a connectivity from
+        /// your ML compute instance. </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String SubnetId { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>A list of tags to associate with the notebook instance. You can add tags later by
+        /// using the <code>CreateTags</code> API.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public Amazon.SageMaker.Model.Tag[] Tag { get; set; }
+        #endregion
+        
+        #region Parameter Force
+        /// <summary>
+        /// This parameter overrides confirmation prompts to force 
+        /// the cmdlet to continue its operation. This parameter should always
+        /// be used with caution.
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public SwitchParameter Force { get; set; }
+        #endregion
+        
+        protected override void ProcessRecord()
+        {
+            base.ProcessRecord();
+            
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("NotebookInstanceName", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SMNotebookInstance (CreateNotebookInstance)"))
+            {
+                return;
+            }
+            
+            var context = new CmdletContext
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials
+            };
+            
+            // allow for manipulation of parameters prior to loading into context
+            PreExecutionContextLoad(context);
+            
+            context.InstanceType = this.InstanceType;
+            context.KmsKeyId = this.KmsKeyId;
+            context.NotebookInstanceName = this.NotebookInstanceName;
+            context.RoleArn = this.RoleArn;
+            if (this.SecurityGroupId != null)
+            {
+                context.SecurityGroupIds = new List<System.String>(this.SecurityGroupId);
+            }
+            context.SubnetId = this.SubnetId;
+            if (this.Tag != null)
+            {
+                context.Tags = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
+            }
+            
+            // allow further manipulation of loaded context prior to processing
+            PostExecutionContextLoad(context);
+            
+            var output = Execute(context) as CmdletOutput;
+            ProcessOutput(output);
+        }
+        
+        #region IExecutor Members
+        
+        public object Execute(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+            // create request
+            var request = new Amazon.SageMaker.Model.CreateNotebookInstanceRequest();
+            
+            if (cmdletContext.InstanceType != null)
+            {
+                request.InstanceType = cmdletContext.InstanceType;
+            }
+            if (cmdletContext.KmsKeyId != null)
+            {
+                request.KmsKeyId = cmdletContext.KmsKeyId;
+            }
+            if (cmdletContext.NotebookInstanceName != null)
+            {
+                request.NotebookInstanceName = cmdletContext.NotebookInstanceName;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.SecurityGroupIds != null)
+            {
+                request.SecurityGroupIds = cmdletContext.SecurityGroupIds;
+            }
+            if (cmdletContext.SubnetId != null)
+            {
+                request.SubnetId = cmdletContext.SubnetId;
+            }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
+            
+            CmdletOutput output;
+            
+            // issue call
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            try
+            {
+                var response = CallAWSServiceOperation(client, request);
+                Dictionary<string, object> notes = null;
+                object pipelineOutput = response.NotebookInstanceArn;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response,
+                    Notes = notes
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput { ErrorResponse = e };
+            }
+            
+            return output;
+        }
+        
+        public ExecutorContext CreateContext()
+        {
+            return new CmdletContext();
+        }
+        
+        #endregion
+        
+        #region AWS Service Operation Call
+        
+        private Amazon.SageMaker.Model.CreateNotebookInstanceResponse CallAWSServiceOperation(IAmazonSageMaker client, Amazon.SageMaker.Model.CreateNotebookInstanceRequest request)
+        {
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon SageMaker Service", "CreateNotebookInstance");
+            try
+            {
+                #if DESKTOP
+                return client.CreateNotebookInstance(request);
+                #elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CreateNotebookInstanceAsync(request);
+                return task.Result;
+                #else
+                        #error "Unknown build edition"
+                #endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                var webException = exc.InnerException as System.Net.WebException;
+                if (webException != null)
+                {
+                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+                }
+                throw;
+            }
+        }
+        
+        #endregion
+        
+        internal partial class CmdletContext : ExecutorContext
+        {
+            public Amazon.SageMaker.InstanceType InstanceType { get; set; }
+            public System.String KmsKeyId { get; set; }
+            public System.String NotebookInstanceName { get; set; }
+            public System.String RoleArn { get; set; }
+            public List<System.String> SecurityGroupIds { get; set; }
+            public System.String SubnetId { get; set; }
+            public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
+        }
+        
+    }
+}

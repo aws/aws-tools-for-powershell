@@ -150,6 +150,7 @@ RequiredAssemblies = @(
   "AWSSDK.Route53.dll",
   "AWSSDK.Route53Domains.dll",
   "AWSSDK.S3.dll",
+  "AWSSDK.SageMaker.dll",
   "AWSSDK.SecurityToken.dll",
   "AWSSDK.ServerlessApplicationRepository.dll",
   "AWSSDK.ServerMigrationService.dll",
