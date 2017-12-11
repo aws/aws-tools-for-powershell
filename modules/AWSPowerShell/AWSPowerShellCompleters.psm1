@@ -152,6 +152,58 @@ $AWS_EC2ImageAttributeCompleter = {
 _awsArgumentCompleterRegistration $AWS_EC2ImageAttributeCompleter @{ "Attribute"=@("Edit-EC2ImageAttribute") }
 
 # begin auto-generated service completers
+# Argument completions for service Alexa For Business
+$ALXB_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.AlexaForBusiness.DistanceUnit
+        {
+            ($_ -eq "New-ALXBProfile/DistanceUnit") -Or
+            ($_ -eq "Update-ALXBProfile/DistanceUnit")
+        }
+        {
+            $v = "IMPERIAL","METRIC"
+            break
+        }
+        
+        # Amazon.AlexaForBusiness.TemperatureUnit
+        {
+            ($_ -eq "New-ALXBProfile/TemperatureUnit") -Or
+            ($_ -eq "Update-ALXBProfile/TemperatureUnit")
+        }
+        {
+            $v = "CELSIUS","FAHRENHEIT"
+            break
+        }
+        
+        # Amazon.AlexaForBusiness.WakeWord
+        {
+            ($_ -eq "New-ALXBProfile/WakeWord") -Or
+            ($_ -eq "Update-ALXBProfile/WakeWord")
+        }
+        {
+            $v = "ALEXA","AMAZON","COMPUTER","ECHO"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$ALXB_map = @{
+    "DistanceUnit"=@("New-ALXBProfile","Update-ALXBProfile")
+    "TemperatureUnit"=@("New-ALXBProfile","Update-ALXBProfile")
+    "WakeWord"=@("New-ALXBProfile","Update-ALXBProfile")
+}
+
+_awsArgumentCompleterRegistration $ALXB_Completers $ALXB_map
+
+
 # Argument completions for service Amazon API Gateway
 $AG_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

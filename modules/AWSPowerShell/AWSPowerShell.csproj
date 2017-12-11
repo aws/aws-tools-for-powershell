@@ -54,6 +54,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.AlexaForBusiness">
+      <HintPath>..\..\packages\AWSSDK.AlexaForBusiness.3.3.0\lib\net35\AWSSDK.AlexaForBusiness.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.AppStream">
       <HintPath>..\..\packages\AWSSDK.AppStream.3.3.6.3\lib\net35\AWSSDK.AppStream.dll</HintPath>
     </Reference>

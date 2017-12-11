@@ -53,6 +53,7 @@ RequiredModules = @()
 # who want to work with generic types when the type parameter is in an 
 # external SDK assembly.
 RequiredAssemblies = @(
+  "AWSSDK.AlexaForBusiness.dll",
   "AWSSDK.APIGateway.dll",
   "AWSSDK.ApplicationAutoScaling.dll",
   "AWSSDK.ApplicationDiscoveryService.dll",

@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <ConfigModelCollection>
   <Configs>
+    <Path>AlexaForBusiness.xml</Path>
     <Path>APIGateway.xml</Path>
     <Path>ApplicationDiscovery.xml</Path>
     <Path>ApplicationAutoScaling.xml</Path>

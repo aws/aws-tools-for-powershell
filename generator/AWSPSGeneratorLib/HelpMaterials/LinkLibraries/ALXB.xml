@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<links>
+  <set target="*">
+      <link name="Administration Guide">https://docs.aws.amazon.com/a4b/latest/ag/what-is.html</link>
+      <link name="Service API Reference">https://docs.aws.amazon.com/a4b/latest/APIReference/Welcome.html</link>
+  </set>
+</links>
