@@ -14,6 +14,7 @@
     <Path>Beanstalk.xml</Path>
     <Path>Budgets.xml</Path>
     <Path>CertificateManager.xml</Path>
+    <Path>Cloud9.xml</Path>
     <Path>CloudDirectory.xml</Path>
     <Path>CloudFormation.xml</Path>
     <Path>CloudFront.xml</Path>

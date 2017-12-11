@@ -892,6 +892,36 @@ $ACM_map = @{
 _awsArgumentCompleterRegistration $ACM_Completers $ACM_map
 
 
+# Argument completions for service AWS Cloud9
+$C9_Completers = {
+    param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
+    
+    switch ($("$commandName/$parameterName"))
+    {
+        # Amazon.Cloud9.MemberPermissions
+        {
+            ($_ -eq "New-C9EnvironmentMembership/Permissions") -Or
+            ($_ -eq "Update-C9EnvironmentMembership/Permissions")
+        }
+        {
+            $v = "read-only","read-write"
+            break
+        }
+        
+    }
+    
+    $v |
+        Where-Object { $_ -like "$wordToComplete*" } |
+        ForEach-Object { New-Object System.Management.Automation.CompletionResult $_, $_, 'ParameterValue', $_ }
+}
+
+$C9_map = @{
+    "Permissions"=@("New-C9EnvironmentMembership","Update-C9EnvironmentMembership")
+}
+
+_awsArgumentCompleterRegistration $C9_Completers $C9_map
+
+
 # Argument completions for service AWS Cloud Directory
 $CDIR_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)

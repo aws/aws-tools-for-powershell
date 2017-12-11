@@ -72,6 +72,9 @@
     <Reference Include="AWSSDK.Batch">
       <HintPath>..\..\packages\AWSSDK.Batch.3.3.4\lib\net35\AWSSDK.Batch.dll</HintPath>
     </Reference>
+    <Reference Include="AWSSDK.Cloud9">
+      <HintPath>..\..\packages\AWSSDK.Cloud9.3.3.0\lib\net35\AWSSDK.Cloud9.dll</HintPath>
+    </Reference>
     <Reference Include="AWSSDK.CloudDirectory">
       <HintPath>..\..\packages\AWSSDK.CloudDirectory.3.3.6\lib\net35\AWSSDK.CloudDirectory.dll</HintPath>
     </Reference>

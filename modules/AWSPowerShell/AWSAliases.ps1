@@ -567,6 +567,16 @@ Set-Alias -Name ACM-ListTagsForCertificate -Value Get-ACMCertificateTagList
 Set-Alias -Name ACM-RemoveTagsFromCertificate -Value Remove-ACMCertificateTag
 Set-Alias -Name ACM-RequestCertificate -Value New-ACMCertificate
 Set-Alias -Name ACM-ResendValidationEmail -Value Send-ACMValidationEmail
+Set-Alias -Name C9-CreateEnvironmentEC2 -Value New-C9EnvironmentEC2
+Set-Alias -Name C9-CreateEnvironmentMembership -Value New-C9EnvironmentMembership
+Set-Alias -Name C9-DeleteEnvironment -Value Remove-C9Environment
+Set-Alias -Name C9-DeleteEnvironmentMembership -Value Remove-C9EnvironmentMembership
+Set-Alias -Name C9-DescribeEnvironmentMemberships -Value Get-C9EnvironmentMembershipList
+Set-Alias -Name C9-DescribeEnvironments -Value Get-C9EnvironmentData
+Set-Alias -Name C9-DescribeEnvironmentStatus -Value Get-C9EnvironmentStatus
+Set-Alias -Name C9-ListEnvironments -Value Get-C9EnvironmentList
+Set-Alias -Name C9-UpdateEnvironment -Value Update-C9Environment
+Set-Alias -Name C9-UpdateEnvironmentMembership -Value Update-C9EnvironmentMembership
 Set-Alias -Name CDIR-AddFacetToObject -Value Add-CDIRFacetToObject
 Set-Alias -Name CDIR-ApplySchema -Value Add-CDIRSchema
 Set-Alias -Name CDIR-AttachObject -Value Connect-CDIRObject

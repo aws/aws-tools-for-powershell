@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <SourceGenerationRoot>AmazonCloud9</SourceGenerationRoot>
+    <ServiceNounPrefix>C9</ServiceNounPrefix>
+    <ServiceName>AWS Cloud9</ServiceName>
+    <ServiceClientInterface>IAmazonCloud9</ServiceClientInterface>
+    <ServiceClient>AmazonCloud9Client</ServiceClient>
+    <ServiceNamespace>Amazon.Cloud9</ServiceNamespace>
+    <PipelineParameter />
+    <VerbMappings />
+    <NounMappings />
+    <Params />
+    <AdditionalNamespaces />
+    <CustomAliases />
+    <LegacyAliases />
+    <ParamEmitters />
+    <MetadataProperties />
+    <PipelineByValueProperties />
+    <AutoIterate Start="NextToken" Next="NextToken" EmitLimit="MaxResults" ServicePageSize="25" />
+    <ServiceOperations>
+        <ServiceOperation MethodName="CreateEnvironmentEC2" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EnvironmentEC2" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="Name" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="CreateEnvironmentMembership" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="New" Noun="EnvironmentMembership" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="Environment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DeleteEnvironmentMembership" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Remove" Noun="EnvironmentMembership" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentMemberships" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EnvironmentMembershipList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EnvironmentData" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentIds" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="DescribeEnvironmentStatus" Output="Response" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EnvironmentStatus" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="ListEnvironments" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Get" Noun="EnvironmentList" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironment" Output="Void" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="Environment" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="EnvironmentId" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+        <ServiceOperation MethodName="UpdateEnvironmentMembership" Output="Default" SkipOutputComputationCheck="false" OutputWrapper="" Verb="Update" Noun="EnvironmentMembership" Exclude="false" IgnoreSupportsShouldProcess="false" ShouldProcessTarget="" AnonymousShouldProcessTarget="false" ShouldProcessMsgNoun="" AnonymousAuthentication="Never" PipelineParameter="UserArn" NoPipelineParameter="false" MetadataProperties="" RemapMemoryStreamParameters="true">
+            <Params />
+        </ServiceOperation>
+    </ServiceOperations>
+    <InputObjectMappingRules />
+    <SupportsShouldProcessVerbs />
+    <TypesNotToFlatten />
+</ConfigModel>
