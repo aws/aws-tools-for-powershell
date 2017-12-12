@@ -171,11 +171,9 @@ namespace Amazon.PowerShell.Utils
     {
 #region Private members/methods
 
-        private ProgressRunner _runner;
+        private readonly ProgressRunner _runner;
 
 #endregion
-
-#region Public methods/constructor
 
         /// <summary>
         /// Constructs a tracker to work with a given ProgressRunner.
@@ -183,12 +181,10 @@ namespace Amazon.PowerShell.Utils
         /// even the tracker will be listening to.
         /// </summary>
         /// <param name="runner"></param>
-        public ProgressTracker(ProgressRunner runner)
+        protected ProgressTracker(ProgressRunner runner)
         {
             _runner = runner;
         }
-
-#endregion
 
 #region Protected members
 
@@ -222,8 +218,6 @@ namespace Amazon.PowerShell.Utils
     public abstract class ProgressTracker<T> : ProgressTracker
         where T : EventArgs
     {
-#region Public methods/constructor
-
         /// <summary>
         /// Constructs a tracker to work with a given ProgressRunner.
         /// The subscribe action must subscribe the specified handler to the
@@ -231,7 +225,7 @@ namespace Amazon.PowerShell.Utils
         /// </summary>
         /// <param name="runner"></param>
         /// <param name="subscribe"></param>
-        public ProgressTracker(ProgressRunner runner, Action<EventHandler<T>> subscribe)
+        protected ProgressTracker(ProgressRunner runner, Action<EventHandler<T>> subscribe)
             : base(runner)
         {
             subscribe((s, e) =>
@@ -239,8 +233,6 @@ namespace Amazon.PowerShell.Utils
                 ReportProgress(e);
             });
         }
-
-#endregion
 
 #region Public abstract methods
 

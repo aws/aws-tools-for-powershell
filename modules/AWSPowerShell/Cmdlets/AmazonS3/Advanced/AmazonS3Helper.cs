@@ -153,6 +153,18 @@ namespace Amazon.PowerShell.Cmdlets.S3
             SetHeaders(request.Headers, headers);
         }
 
+        /// <summary>
+        /// Sets metadata and headers collections for the request.
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="metadata"></param>
+        /// <param name="headers"></param>
+        public static void SetMetadataAndHeaders(InitiateMultipartUploadRequest request, Hashtable metadata, Hashtable headers)
+        {
+            SetMetadata(request.Metadata, metadata);
+            SetHeaders(request.Headers, headers);
+        }
+
         private static void SetMetadata(MetadataCollection mc, Hashtable metadata)
         {
             if (metadata == null || metadata.Count == 0)

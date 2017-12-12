@@ -25,6 +25,9 @@ using Amazon.S3.Transfer;
 using System.IO;
 using Amazon.PowerShell.Utils;
 using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Threading;
 using Amazon.Runtime;
 
 namespace Amazon.PowerShell.Cmdlets.S3
@@ -43,16 +46,15 @@ namespace Amazon.PowerShell.Cmdlets.S3
     /// </para>
     /// </summary>
     [Cmdlet("Copy", "S3Object", DefaultParameterSetName = CopySingleObjectToLocalFile, SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Low)]
-    [OutputType(new[] { typeof(CopyObjectResponse), typeof(FileInfo), typeof(DirectoryInfo) })]
+    [OutputType(new[] { typeof(S3Object), typeof(FileInfo), typeof(DirectoryInfo) })]
     [AWSCmdlet("Calls the Amazon S3 CopyObject API operation to copy an existing S3 object to another S3 destination (bucket and/or object),"
                     + " or download a single S3 object to a local file or folder or download object(s) matching a supplied"
                     + " key prefix to a folder.",
                     Operation = new [] {"CopyObject"})]
-    [AWSCmdletOutput("Amazon.S3.Model.CopyObjectResponse or System.IO.FileInfo or System.IO.DirectoryInfo",
-        "When copying an object to another object in S3 the cmdlet returns an Amazon.S3.Model.CopyObjectResponse instance from the service API call to effect the copy. "
+    [AWSCmdletOutput("Amazon.S3.Model.S3Object or System.IO.FileInfo or System.IO.DirectoryInfo",
+        "When copying an object to another object in S3 the cmdlet returns an Amazon.S3.Model.S3Object referencing the new object. "
             + " When copying a single object from S3 to the local file system the cmdlet returns a FileInfo instance representing the local file. "
-            + " When copying multiple objects to a local folder the cmdlet returns a DirectoryInfo instance to the folder.",
-        "The service response (type Amazon.S3.Model.CopyObjectResponse) is also added to the cmdlet entry in the $AWSHistory stack regardless of S3->S3 or S3->local file copy mode."
+            + " When copying multiple objects to a local folder the cmdlet returns a DirectoryInfo instance to the folder."
     )]
     public class CopyS3ObjectCmdlet : AmazonS3ClientCmdlet, IExecutor
     {
@@ -60,6 +62,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
         const string CopySingleObjectToLocalFolder = "CopySingleObjectToLocalFolder";
         const string CopyMultipleObjectsToLocalFolder = "CopyMultipleObjectsToLocalFolder";
         const string CopyS3ObjectToS3Object = "CopyS3ObjectToS3Object";
+
+        private const long OneGigabyte = 1024 * 1024 * 1024;
+        private const long FiveGigabytes = 5 * OneGigabyte;
 
         #region Parameter BucketName
         /// <summary>
@@ -452,6 +457,12 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 Headers = this.HeaderCollection
             };
 
+            // this makes things simpler later
+            if (string.IsNullOrEmpty(context.DestinationBucket))
+                context.DestinationBucket = context.SourceBucket;
+            if (string.IsNullOrEmpty(context.DestinationKey))
+                context.DestinationKey = context.SourceKey;
+
             switch (this.ParameterSetName)
             {
                 case CopySingleObjectToLocalFile:
@@ -528,7 +539,9 @@ namespace Amazon.PowerShell.Cmdlets.S3
             if (!string.IsNullOrEmpty(cmdletContext.KeyPrefix))
                 return CopyS3ObjectsToLocalFolder(context);
 
-            return CopyS3ObjectToS3(context);
+            // S3 requires multi-part operation for objects > 5GB
+            var objectSize = GetObjectData(Client, cmdletContext.SourceBucket, cmdletContext.SourceKey).Size;
+            return objectSize > FiveGigabytes ? MultipartCopyS3ObjectToS3(context, objectSize) : CopyS3ObjectToS3(context);
         }
 
         public ExecutorContext CreateContext()
@@ -538,25 +551,33 @@ namespace Amazon.PowerShell.Cmdlets.S3
 
         #endregion
 
+        private S3Object GetObjectData(IAmazonS3 s3Client, string bucketName, string objectKey)
+        {
+            var request = new ListObjectsRequest
+            {
+                BucketName = bucketName,
+                Prefix = objectKey
+            };
+
+            var response = CallAWSServiceOperation(s3Client, request);
+            return response.S3Objects[0];
+        }
+
+        #region S3 to S3 Copy
+
         private object CopyS3ObjectToS3(ExecutorContext context)
         {
             var cmdletContext = context as CmdletContext;
 
             var request = new CopyObjectRequest();
 
-            if (cmdletContext.SourceBucket != null)
-                request.SourceBucket = cmdletContext.SourceBucket;
-            if (cmdletContext.SourceKey != null)
-                request.SourceKey = cmdletContext.SourceKey;
+            request.SourceBucket = cmdletContext.SourceBucket;
+            request.SourceKey = cmdletContext.SourceKey;
             if (cmdletContext.SourceVersionId != null)
                 request.SourceVersionId = cmdletContext.SourceVersionId;
 
-            if (cmdletContext.DestinationBucket != null)
-                request.DestinationBucket = cmdletContext.DestinationBucket;
-            else
-                request.DestinationBucket = cmdletContext.SourceBucket;
-            if (cmdletContext.DestinationKey != null)
-                request.DestinationKey = cmdletContext.DestinationKey;
+            request.DestinationBucket = cmdletContext.DestinationBucket;
+            request.DestinationKey = cmdletContext.DestinationKey;
 
             if (cmdletContext.ContentType != null)
                 request.ContentType = cmdletContext.ContentType;
@@ -603,9 +624,13 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 try
                 {
                     var response = CallAWSServiceOperation(client, request);
+                    var objectData = GetObjectData(Client, 
+                                                   request.DestinationBucket, 
+                                                   string.IsNullOrEmpty(cmdletContext.DestinationKey) 
+                                                    ? cmdletContext.SourceKey : cmdletContext.DestinationKey);
                     output = new CmdletOutput
                     {
-                        PipelineOutput = response,
+                        PipelineOutput = objectData,
                         ServiceResponse = response
                     };
                 }
@@ -617,6 +642,130 @@ namespace Amazon.PowerShell.Cmdlets.S3
                 return output;
             }
         }
+
+        #endregion
+
+        #region S3 to S3 MultiPart Copy
+
+        private object MultipartCopyS3ObjectToS3(ExecutorContext context, long objectSize)
+        {
+            var cmdletContext = context as CmdletContext;
+            const string activityFormat = "Copying {0}:{1} to {2}:{3}";
+            const string msgFormat = "Copied {0:N0} of {1:N0} bytes";
+            CmdletOutput output = null;
+
+            var activity = string.Format(activityFormat, 
+                                         cmdletContext.SourceBucket, 
+                                         cmdletContext.SourceKey,
+                                         cmdletContext.DestinationBucket, 
+                                         cmdletContext.DestinationKey);
+                                                               
+            Utils.Common.WriteVerboseEndpointMessage(this, Client.Config, "Amazon S3", "CopyObject");
+
+            WriteProgressRecord(activity, string.Format(msgFormat, 0, objectSize), 0);
+
+            var initiateRequest = new InitiateMultipartUploadRequest();
+            PopulateRequest(cmdletContext, initiateRequest);
+            var initiateResponse = CallAWSServiceOperation(Client, initiateRequest);
+            var uploadId = initiateResponse.UploadId;
+
+            var copyController = new MultiPartObjectCopyController(Client, uploadId, objectSize, cmdletContext);
+
+            try
+            {
+                copyController.Run();
+                while (true)
+                {
+                    Thread.Sleep(1000);
+
+                    var percentDone = (int)((double)copyController.BytesUploaded / objectSize * 100);
+
+                    var progressMsg = string.Format(msgFormat, copyController.BytesUploaded, objectSize);
+                    WriteProgressRecord(activity, progressMsg, percentDone);
+
+                    if (copyController.ShouldExit())
+                        break;
+                }
+
+                if (copyController.Error != null)
+                {
+                    // leaving uploadId set will cause us to abort the upload so the
+                    // user is not charged for incomplete uploads
+                    throw new Exception("Error during upload copy of part", copyController.Error);
+                }
+
+                var completeRequest = new CompleteMultipartUploadRequest
+                {
+                    UploadId = uploadId,
+                    BucketName = cmdletContext.DestinationBucket,
+                    Key = cmdletContext.DestinationKey,
+                    PartETags = copyController.ETags
+                };
+
+                CallAWSServiceOperation(Client, completeRequest);
+                uploadId = null;
+            }
+            finally
+            {
+                if (string.IsNullOrEmpty(uploadId))
+                {
+                    WriteProgressCompleteRecord(activity, "Copy object completed");
+
+                    var objectData = GetObjectData(Client, cmdletContext.DestinationBucket, cmdletContext.DestinationKey);
+                    output = new CmdletOutput
+                    {
+                        PipelineOutput = objectData
+                    };
+                }
+                else
+                {
+                    var abortRequest = new AbortMultipartUploadRequest
+                    {
+                        UploadId = uploadId,
+                        BucketName = cmdletContext.DestinationBucket,
+                        Key = cmdletContext.DestinationKey
+                    };
+                    CallAWSServiceOperation(Client, abortRequest);
+                    WriteProgressCompleteRecord(activity, "Operation failed");
+                }
+            }
+
+            return output;
+        }
+
+        private void PopulateRequest(CmdletContext cmdletContext, InitiateMultipartUploadRequest request)
+        {
+            request.BucketName = cmdletContext.DestinationBucket;
+            request.Key = cmdletContext.DestinationKey;
+
+            if (cmdletContext.ContentType != null)
+                request.ContentType = cmdletContext.ContentType;
+            if (cmdletContext.CannedACL != null)
+                request.CannedACL = cmdletContext.CannedACL.Value;
+            if (cmdletContext.StorageClass != null)
+                request.StorageClass = cmdletContext.StorageClass.Value;
+
+            if (cmdletContext.ServerSideEncryptionMethod != null)
+                request.ServerSideEncryptionMethod = cmdletContext.ServerSideEncryptionMethod.Value;
+            if (cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId != null)
+                request.ServerSideEncryptionKeyManagementServiceKeyId = cmdletContext.ServerSideEncryptionKeyManagementServiceKeyId;
+
+            request.ServerSideEncryptionCustomerMethod = cmdletContext.ServerSideEncryptionCustomerMethod;
+            request.ServerSideEncryptionCustomerProvidedKey = cmdletContext.ServerSideEncryptionCustomerProvidedKey;
+            request.ServerSideEncryptionCustomerProvidedKeyMD5 = cmdletContext.ServerSideEncryptionCustomerProvidedKeyMD5;
+
+            if (cmdletContext.WebsiteRedirectLocation != null)
+                request.WebsiteRedirectLocation = cmdletContext.WebsiteRedirectLocation;
+
+            if (cmdletContext.TagSet != null)
+                request.TagSet.AddRange(cmdletContext.TagSet);
+
+            AmazonS3Helper.SetMetadataAndHeaders(request, cmdletContext.Metadata, cmdletContext.Headers);
+        }
+
+        #endregion
+
+        #region S3 to Local File or Folder Copy
 
         private object CopyS3ObjectToLocalFile(ExecutorContext context)
         {
@@ -694,6 +843,8 @@ namespace Amazon.PowerShell.Cmdlets.S3
             return output;
         }
 
+        #endregion
+
         #region AWS Service Operation Call
 
         private Amazon.S3.Model.CopyObjectResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyObjectRequest request)
@@ -712,14 +863,95 @@ namespace Amazon.PowerShell.Cmdlets.S3
             }
             catch (AmazonServiceException exc)
             {
-                var webException = exc.InnerException as System.Net.WebException;
-                if (webException != null)
-                {
-                    throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
-                }
-
-                throw;
+                TestForNameResolutionException(client, exc);
             }
+
+            return null;
+        }
+
+        private Amazon.S3.Model.ListObjectsResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.ListObjectsRequest request)
+        {
+            try
+            {
+#if DESKTOP
+                return client.ListObjects(request);
+#elif CORECLR
+// todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.ListObjectsAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                TestForNameResolutionException(client, exc);
+            }
+
+            return null;
+        }
+
+        private Amazon.S3.Model.InitiateMultipartUploadResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.InitiateMultipartUploadRequest request)
+        {
+            try
+            {
+#if DESKTOP
+                return client.InitiateMultipartUpload(request);
+#elif CORECLR
+// todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.InitiateMultipartUploadAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
+            catch (AmazonServiceException exc)
+            {
+                TestForNameResolutionException(client, exc);
+            }
+
+            return null;
+        }
+
+        private Amazon.S3.Model.CompleteMultipartUploadResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CompleteMultipartUploadRequest request)
+        {
+            // not testing for name resolution error here since it would have already
+            // failed during the init call
+#if DESKTOP
+            return client.CompleteMultipartUpload(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.CompleteMultipartUploadAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+        }
+
+        private Amazon.S3.Model.AbortMultipartUploadResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.AbortMultipartUploadRequest request)
+        {
+            // not testing for name resolution error here since it would have already
+            // failed during the init call
+#if DESKTOP
+            return client.AbortMultipartUpload(request);
+#elif CORECLR
+            // todo: handle AggregateException and extract true service exception for rethrow
+            var task = client.AbortMultipartUploadAsync(request);
+            return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+        }
+
+        private void TestForNameResolutionException(IAmazonS3 client, Exception exc)
+        {
+            var webException = exc.InnerException as System.Net.WebException;
+            if (webException != null)
+            {
+                throw new Exception(Utils.Common.FormatNameResolutionFailureMessage(client.Config, webException.Message), webException);
+            }
+
+            throw exc;
         }
 
         #endregion
@@ -760,6 +992,268 @@ namespace Amazon.PowerShell.Cmdlets.S3
             public String WebsiteRedirectLocation { get; set; }
 
             public Tag[] TagSet { get; set; }
+        }
+
+        internal class MultiPartObjectCopyController
+        {
+            private static readonly long MinPartSize = 5 * (long)Math.Pow(2, 20);
+            private const int MaxNumberOfParts = 10000;
+            private const int MaxWorkerThreads = 5;
+
+            private readonly object _lock = new object();
+
+            private readonly long _objectSize;
+            private long _bytesUploaded;
+            private readonly CmdletContext _context;
+            private readonly string _uploadId;
+            private readonly IAmazonS3 _s3Client;
+            private int _nextPartToUpload = -1;
+            private Exception _errorException;
+
+            /// <summary>
+            /// Byte range for each part and the service's etag value
+            /// on completion of the part upload
+            /// </summary>
+            public class PartDetail
+            {
+                public int PartNumber { get; set; }
+                public long StartByte { get; set; }
+                public long Size { get; set; }
+                public string ETag { get; set; }
+            }
+
+            /// <summary>
+            /// Contains the collection of parts we need to process
+            /// </summary>
+            private readonly List<PartDetail> _parts = new List<PartDetail>();
+
+            /// <summary>
+            /// The number of parts we've broken the upload into, based on
+            /// the max allowed by S3 in conjunction with the minimum part size
+            /// </summary>
+            public int NumberOfParts { get { return _parts.Count; } }
+
+            public long BytesUploaded
+            {
+                get
+                {
+                    long uploaded;
+                    lock (_lock)
+                    {
+                        uploaded = _bytesUploaded;
+                    }
+
+                    return uploaded;
+                }
+            }
+
+            /// <summary>
+            /// If set, an error was trapped by one of the upload threads
+            /// and the outer code should quit (ShouldExit will yield true)
+            /// and report this to the user. The exception is posted by the
+            /// first thread to encounter an error; errors on other threads
+            /// are dropped on the floor.
+            /// </summary>
+            public Exception Error
+            {
+                get
+                {
+                    lock (_lock)
+                    {
+                        return _errorException;
+                    }
+                }
+
+                private set
+                {
+                    lock (_lock)
+                    {
+                        if (_errorException == null)
+                        {
+                            _errorException = value;
+                        }
+                    }
+                }
+            }
+
+            public MultiPartObjectCopyController(IAmazonS3 s3Client, string uploadId, long objectSize, CmdletContext context)
+            {
+                _s3Client = s3Client;
+                _uploadId = uploadId;
+                _context = context;
+                _objectSize = objectSize;
+
+                PartitionIntoParts();
+            }
+
+            /// <summary>
+            /// Indicates to the caller we're done either because we've encountered an error or
+            /// all parts have been processed
+            /// </summary>
+            /// <returns></returns>
+            public bool ShouldExit()
+            {
+                lock (_lock)
+                {
+                    if (Error != null)
+                        return true;
+
+                    if (_bytesUploaded == _objectSize)
+                        return true;
+                }
+
+                return false;
+            }
+
+            /// <summary>
+            /// Launches threads to process the part list and immediately
+            /// exits back to the caller.
+            /// </summary>
+            public void Run()
+            {
+                var threadCount = _parts.Count > MaxWorkerThreads ? MaxWorkerThreads : 2;
+                for (var i = 0; i < threadCount; i++)
+                {
+                    ThreadPool.QueueUserWorkItem(UploadPartCopyThreadWorker, this);
+                    Thread.Sleep(100);
+                }
+            }
+
+            public List<PartETag> ETags
+            {
+                get
+                {
+                    return _parts.Select(p => new PartETag(p.PartNumber, p.ETag)).ToList();
+                }
+            }
+
+            private static void UploadPartCopyThreadWorker(object state)
+            {
+                var _this = state as MultiPartObjectCopyController;
+                Debug.Assert(_this != null, "_this != null");
+
+#if DEBUG
+                Thread.CurrentThread.Name = string.Format("UploadPartCopyThreadWorker {0}:{1}", 
+                                                          _this._context.DestinationBucket, 
+                                                          _this._context.DestinationKey);
+#endif
+
+                var part = _this.NextPartToUpload;
+                while (part != null)
+                {
+                    var copyPartRequest = new CopyPartRequest
+                    {
+                        UploadId = _this._uploadId,
+                        PartNumber = part.PartNumber,
+                        FirstByte = part.StartByte,
+                        LastByte = part.StartByte + part.Size - 1
+                    };
+                    _this.PopulateRequest(copyPartRequest);
+
+                    try
+                    {
+                        var response = _this.CallAWSServiceOperation(_this._s3Client, copyPartRequest);
+                        part.ETag = response.ETag;
+                        lock (_this._lock)
+                        {
+                            _this._bytesUploaded += part.Size;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        _this.Error = e;
+                    }
+
+                    part = _this.NextPartToUpload;
+                }
+            }
+
+            private PartDetail NextPartToUpload
+            {
+                get
+                {
+                    if (Error == null)
+                    {
+                        var partIndex = Interlocked.Increment(ref _nextPartToUpload);
+                        if (partIndex < _parts.Count)
+                            return _parts[partIndex];
+                    }
+                        
+                    return null;
+                }
+            }
+
+            private void PopulateRequest(CopyPartRequest request)
+            {
+                request.SourceBucket = _context.SourceBucket;
+                request.SourceKey = _context.SourceKey;
+                request.DestinationBucket = _context.DestinationBucket;
+                request.DestinationKey = _context.DestinationKey;
+                if (string.IsNullOrEmpty(_context.SourceVersionId))
+                    request.SourceVersionId = _context.SourceVersionId;
+                if (_context.ETagToMatch != null)
+                    request.ETagToMatch = new List<string> { _context.ETagToMatch };
+                if (_context.ETagToNotMatch != null)
+                    request.ETagsToNotMatch = new List<string> { _context.ETagToNotMatch };
+                if (_context.ModifiedSinceDate != null)
+                    request.ModifiedSinceDate = _context.ModifiedSinceDate.Value;
+                if (_context.UnmodifiedSinceDate != null)
+                    request.UnmodifiedSinceDate = _context.UnmodifiedSinceDate.Value;
+                if (_context.ServerSideEncryptionMethod != null)
+                    request.ServerSideEncryptionMethod = _context.ServerSideEncryptionMethod.Value;
+                if (_context.ServerSideEncryptionKeyManagementServiceKeyId != null)
+                    request.ServerSideEncryptionKeyManagementServiceKeyId = _context.ServerSideEncryptionKeyManagementServiceKeyId;
+
+                request.CopySourceServerSideEncryptionCustomerMethod = _context.CopySourceServerSideEncryptionCustomerMethod;
+                request.CopySourceServerSideEncryptionCustomerProvidedKey = _context.CopySourceServerSideEncryptionCustomerProvidedKey;
+                request.CopySourceServerSideEncryptionCustomerProvidedKeyMD5 = _context.CopySourceServerSideEncryptionCustomerProvidedKeyMD5;
+
+                request.ServerSideEncryptionCustomerMethod = _context.ServerSideEncryptionCustomerMethod;
+                request.ServerSideEncryptionCustomerProvidedKey = _context.ServerSideEncryptionCustomerProvidedKey;
+                request.ServerSideEncryptionCustomerProvidedKeyMD5 = _context.ServerSideEncryptionCustomerProvidedKeyMD5;
+            }
+
+            private void PartitionIntoParts()
+            {
+                var partSize = (long)Math.Ceiling((double)_objectSize / MaxNumberOfParts);
+                if (partSize < MinPartSize)
+                {
+                    partSize = MinPartSize;
+                }
+
+                long startByte = 0;
+                var remaining = _objectSize;
+                var partNumber = 1;
+                while (remaining > 0)
+                {
+                    var part = new PartDetail
+                    {
+                        PartNumber = partNumber++,
+                        StartByte = startByte,
+                        Size = (remaining > partSize) ? partSize : remaining
+                    };
+                    
+                    _parts.Add(part);
+
+                    remaining -= part.Size;
+                    startByte = part.StartByte + part.Size;
+                }
+            }
+
+            private Amazon.S3.Model.CopyPartResponse CallAWSServiceOperation(IAmazonS3 client, Amazon.S3.Model.CopyPartRequest request)
+            {
+                // not testing for name resolution error here, since it would have already failed
+                // in the init call
+#if DESKTOP
+                return client.CopyPart(request);
+#elif CORECLR
+                // todo: handle AggregateException and extract true service exception for rethrow
+                var task = client.CopyPartAsync(request);
+                return task.Result;
+#else
+#error "Unknown build edition"
+#endif
+            }
         }
     }
 }
