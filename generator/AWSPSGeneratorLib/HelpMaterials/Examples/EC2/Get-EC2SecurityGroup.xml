@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <examples>
   <example>
-    <code>PS C:\> Get-EC2SecurityGroup.xml -GroupId sg-12345678
+    <code>PS C:\> Get-EC2SecurityGroup -GroupId sg-12345678
     
 Description         : default VPC security group
 GroupId             : sg-12345678
@@ -14,7 +14,7 @@ VpcId               : vpc-12345678</code>
     <description>This example describes the specified security group for a VPC. When working with security groups belonging to a VPC you must use the security group ID (-GroupId parameter), not name (-GroupName parameter), to reference the group.</description>
   </example>
   <example>
-    <code>PS C:\> Get-EC2SecurityGroup.xml -GroupName my-security-group
+    <code>PS C:\> Get-EC2SecurityGroup -GroupName my-security-group
     
 Description         : my security group
 GroupId             : sg-45678901
