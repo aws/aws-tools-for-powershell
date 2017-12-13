@@ -39,7 +39,9 @@ namespace Amazon.PowerShell.Cmdlets.LMB
     /// If you specify the name of an existing slot type, the fields in the request replace
     /// the existing values in the <code>$LATEST</code> version of the slot type. Amazon Lex
     /// removes the fields that you don't provide in the request. If you don't specify required
-    /// fields, Amazon Lex throws an exception.
+    /// fields, Amazon Lex throws an exception. When you update the <code>$LATEST</code> version
+    /// of a slot type, if a bot uses the <code>$LATEST</code> version of an intent that contains
+    /// the slot type, the bot's <code>status</code> field is set to <code>NOT_BUILT</code>.
     /// </para><para>
     /// This operation requires permissions for the <code>lex:PutSlotType</code> action.
     /// </para>

@@ -88,7 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         /// <summary>
         /// <para>
         /// <para>The YAML-formatted or JSON-formatted revision string. It includes information about
-        /// what Lambda function to update and optional Lambda functions that validate deployment
+        /// which Lambda function to update and optional Lambda functions that validate deployment
         /// lifecycle events.</para>
         /// </para>
         /// </summary>

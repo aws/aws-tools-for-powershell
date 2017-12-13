@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter ComputePlatform
         /// <summary>
         /// <para>
-        /// <para>The destination platform type for the deployment <code>Lambda</code> or <code>Server</code>).</para>
+        /// <para> The destination platform type for the deployment (<code>Lambda</code> or <code>Server</code>).</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

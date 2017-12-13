@@ -137,8 +137,8 @@ namespace Amazon.PowerShell.Cmdlets.CD
         #region Parameter TrafficRoutingConfig_Type
         /// <summary>
         /// <para>
-        /// <para>The type of traffic shifting a deployment configuration uses (<code>TimeBasedCanary</code>
-        /// or <code>TimeBasedLinear</code>).</para>
+        /// <para>The type of traffic shifting (<code>TimeBasedCanary</code> or <code>TimeBasedLinear</code>)
+        /// used by a deployment configuration .</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
