@@ -30,9 +30,27 @@ using Amazon.Runtime.CredentialManagement;
 namespace Amazon.PowerShell.Cmdlets.EC2
 {
     /// <summary>
+    /// <para>
     /// Retrieves the encrypted administrator password for the instances running Windows and optionally decrypts it.
+    /// </para>
+    /// <para>
+    /// When running on Windows with the desktop version of PowerShell if the -Decrypt switch is specified the cmdlet 
+    /// can attempt to auto-discover the name of the keypair that was used to launch the instance, and inspects the 
+    /// configuration store of the AWS Toolkit for Visual Studio to determine if the corresponding keypair data needed 
+    /// to decrypt the password is available locally. If it is the password will be decrypted without needing to specify 
+    /// the location of the Pem file.
+    /// </para>
+    /// <para>
+    /// On platforms other than Windows, or when running PowerShell Core on Windows, the configuration store of the AWS
+    /// Toolkit for Visual Studio is not available. In these situations the location of a Pem file containing the data 
+    /// needed to decrypt the password can be supplied to the -PemFile parameter.
+    /// </para>
+    /// <para>
+    /// Note that if the -PemFile parameter is supplied (on any platform), the cmdlet automatically assumes that -Decrypt
+    /// is set.
+    /// </para>
     /// </summary>
-    [Cmdlet("Get", "EC2PasswordData")]
+    [Cmdlet("Get", "EC2PasswordData", DefaultParameterSetName = AutoInspectForPemFile)]
     [OutputType("PasswordData", "string")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud GetPasswordData API operation.", Operation = new[] { "GetPasswordData" })]
     [AWSCmdletOutput("PasswordData",
@@ -42,19 +60,30 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     [AWSCmdletOutput("string", "If -Decrypt or -PemFile is specified, the decrypted password.")]
     public class GetEC2PasswordDataCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        private const string AutoInspectForPemFile = "AutoInspectForPemFile";
+        private const string ManuallySupplyPemFile = "ManuallySupplyPemFile";
+
         #region Parameter InstanceId
         /// <summary>
         /// The ID of the instance for which to get the password.
         /// </summary>
-        [Parameter(Position=0, ValueFromPipelineByPropertyName=true, Mandatory=true)]
+        [Parameter(Position=0, ValueFromPipelineByPropertyName=true, ParameterSetName = AutoInspectForPemFile, Mandatory=true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ParameterSetName = ManuallySupplyPemFile, Mandatory=true)]
         public System.String InstanceId { get; set; }
         #endregion
 
         #region Parameter Decrypt
         /// <summary>
-        /// If set, the instance password is decrypted and emitted to the pipeline as a string. 
+        /// <para>
+        /// If specified the instance password is decrypted and emitted to the pipeline as a string. 
+        /// </para>
+        /// <para>
+        /// <b>Note:</b> If the -Pem File parameter is used this switch is assumed to be set. It is included
+        /// in both parameter sets for this cmdlet for legacy, non-breaking change reasons.
+        /// </para>
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = AutoInspectForPemFile)]
+        [Parameter(ParameterSetName = ManuallySupplyPemFile)]
         public SwitchParameter Decrypt { get; set; }
         #endregion
 
@@ -65,16 +94,10 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// used to launch the instance. This will be used to decrypt the password data. 
         /// </para>
         /// <para>
-        /// If a .pem file is not specified and -Decrypt is set, the name of the keypair used 
-        /// to launch the instance will be retrieved from EC2 and an attempt made to load the 
-        /// keypair materials from the local store maintained by the AWS Toolkit for Visual Studio, 
-        /// if installed.
-        /// </para>
-        /// <para>
         /// If -PemFile is specified, then -Decrypt is assumed.
         /// </para>
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = ManuallySupplyPemFile, Mandatory = true)]
         public System.String PemFile { get; set; }
         #endregion
 
@@ -83,17 +106,21 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             base.ProcessRecord();
             
             var context = new CmdletContext
-                              {
-                                  Region = this.Region,
-                                  Credentials = this.CurrentCredentials,
-                                  InstanceId = this.InstanceId,
-                                  Decrypt = this.Decrypt.IsPresent || !string.IsNullOrEmpty(this.PemFile),
-                                  PemFile = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.PemFile.Trim()),
-                                  ProfileLocation = Parameters.ProfileLocation,
-                                  ProfileName = Parameters.ProfileName
-                              };
+            {
+                Region = this.Region,
+                Credentials = this.CurrentCredentials,
+                InstanceId = this.InstanceId,
+                ProfileLocation = Parameters.ProfileLocation,
+                ProfileName = Parameters.ProfileName,
+                Decrypt = this.Decrypt.IsPresent
+            };
 
             // specifying a pem file implies the user wants the password decrypted
+            if (!string.IsNullOrEmpty(this.PemFile))
+            {
+                context.Decrypt = true;
+                context.PemFile = PSHelpers.PSPathToAbsolute(this.SessionState.Path, this.PemFile.Trim());
+            }
 
             var output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
