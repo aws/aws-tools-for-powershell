@@ -1,4 +1,4 @@
-###
+### 3.3.208.0 (2017-12-13)
   * AWS Cost Explorer
     * Added support for the AWS Cost Explorer service. AWS Cost Explorer helps you visualize, understand, and manage your AWS costs and usage over time. The Cost Explorer API gives you programmatic access to the full Cost Explorer dataset, including advanced metrics (e.g., Reserved Instance utilization) and your cost allocation tags. Cmdlets for the service have the noun prefix 'CE' and can be listed with the command *Get-AWSCmdletName -Service CE*.
   * AWS Resource Groups
