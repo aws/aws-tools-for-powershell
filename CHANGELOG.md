@@ -1,3 +1,9 @@
+### 3.3.208.1 (2017-12-13)
+  * Amazon EC2
+    * Fixed issue with Get-EC2PasswordData cmdlet reporting a null reference when invoked without the -PemFile parameter. This parameter is not required if the keypair data for the instance is saved in the configuration store for the AWS Toolkit for Visual Studio.
+  * All cmdlets
+    * Fixed issue with the tools not correctly support the new China (Ningxia) region (cn-northwest0-1).
+
 ### 3.3.208.0 (2017-12-13)
   * AWS Cost Explorer
     * Added support for the AWS Cost Explorer service. AWS Cost Explorer helps you visualize, understand, and manage your AWS costs and usage over time. The Cost Explorer API gives you programmatic access to the full Cost Explorer dataset, including advanced metrics (e.g., Reserved Instance utilization) and your cost allocation tags. Cmdlets for the service have the noun prefix 'CE' and can be listed with the command *Get-AWSCmdletName -Service CE*.
