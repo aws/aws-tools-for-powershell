@@ -49,6 +49,22 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.Boolean ApiKeyRequired { get; set; }
         #endregion
         
+        #region Parameter AuthorizationScope
+        /// <summary>
+        /// <para>
+        /// <para>A list authorization scopes configured on the method used with a <code>COGNITO_USER_POOL</code>
+        /// authorizer to authorize the method invocation by matching them against the scopes
+        /// parsed from the access token in the incoming request. The method invocation is authorized
+        /// if any method scopes matches a claimed scope in the access token. Otherwise, the invocation
+        /// is not authorized. When the method scope is configured, the client must provide an
+        /// access token instead of an identity token for authorizatinon purposes.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("AuthorizationScopes")]
+        public System.String[] AuthorizationScope { get; set; }
+        #endregion
+        
         #region Parameter AuthorizationType
         /// <summary>
         /// <para>
@@ -188,6 +204,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             
             if (ParameterWasBound("ApiKeyRequired"))
                 context.ApiKeyRequired = this.ApiKeyRequired;
+            if (this.AuthorizationScope != null)
+            {
+                context.AuthorizationScopes = new List<System.String>(this.AuthorizationScope);
+            }
             context.AuthorizationType = this.AuthorizationType;
             context.AuthorizerId = this.AuthorizerId;
             context.HttpMethod = this.HttpMethod;
@@ -230,6 +250,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (cmdletContext.ApiKeyRequired != null)
             {
                 request.ApiKeyRequired = cmdletContext.ApiKeyRequired.Value;
+            }
+            if (cmdletContext.AuthorizationScopes != null)
+            {
+                request.AuthorizationScopes = cmdletContext.AuthorizationScopes;
             }
             if (cmdletContext.AuthorizationType != null)
             {
@@ -332,6 +356,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         internal partial class CmdletContext : ExecutorContext
         {
             public System.Boolean? ApiKeyRequired { get; set; }
+            public List<System.String> AuthorizationScopes { get; set; }
             public System.String AuthorizationType { get; set; }
             public System.String AuthorizerId { get; set; }
             public System.String HttpMethod { get; set; }

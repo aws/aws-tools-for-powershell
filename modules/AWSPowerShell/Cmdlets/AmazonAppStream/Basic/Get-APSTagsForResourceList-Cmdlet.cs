@@ -22,71 +22,44 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmail;
-using Amazon.SimpleEmail.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates an empty receipt rule set.
+    /// Lists the tags for the specified AppStream 2.0 resource. You can tag AppStream 2.0
+    /// image builders, images, fleets, and stacks.
     /// 
     ///  
     /// <para>
-    /// For information about setting up receipt rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
-    /// SES Developer Guide</a>.
-    /// </para><para>
-    /// You can execute this operation no more than once per second.
+    /// For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic">Tagging
+    /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("New", "SESReceiptRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service CreateReceiptRuleSet API operation.", Operation = new[] {"CreateReceiptRuleSet"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the RuleSetName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleEmail.Model.CreateReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "APSTagsForResourceList")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the AWS AppStream ListTagsForResource API operation.", Operation = new[] {"ListTagsForResource"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.AppStream.Model.ListTagsForResourceResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class NewSESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class GetAPSTagsForResourceListCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
-        #region Parameter RuleSetName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the rule set to create. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
-        public System.String RuleSetName { get; set; }
-        #endregion
-        
-        #region Parameter PassThru
-        /// <summary>
-        /// Returns the value passed to the RuleSetName parameter.
-        /// By default, this cmdlet does not generate any output.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter PassThru { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceArn { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("RuleSetName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "New-SESReceiptRuleSet (CreateReceiptRuleSet)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -97,7 +70,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.RuleSetName = this.RuleSetName;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -112,11 +85,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmail.Model.CreateReceiptRuleSetRequest();
+            var request = new Amazon.AppStream.Model.ListTagsForResourceRequest();
             
-            if (cmdletContext.RuleSetName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.RuleSetName = cmdletContext.RuleSetName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -127,9 +100,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
-                if (this.PassThru.IsPresent)
-                    pipelineOutput = this.RuleSetName;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -154,16 +125,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmail.Model.CreateReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CreateReceiptRuleSetRequest request)
+        private Amazon.AppStream.Model.ListTagsForResourceResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.ListTagsForResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CreateReceiptRuleSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "ListTagsForResource");
             try
             {
                 #if DESKTOP
-                return client.CreateReceiptRuleSet(request);
+                return client.ListTagsForResource(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CreateReceiptRuleSetAsync(request);
+                var task = client.ListTagsForResourceAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -184,7 +155,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String RuleSetName { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

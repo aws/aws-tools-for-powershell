@@ -66,8 +66,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>A token returned from a previous call to <code>ListCustomVerificationEmailTemplates</code>
-        /// to indicate the position in the list of email templates.</para>
+        /// <para>An array the contains the name and creation time stamp for each template in your Amazon
+        /// SES account.</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

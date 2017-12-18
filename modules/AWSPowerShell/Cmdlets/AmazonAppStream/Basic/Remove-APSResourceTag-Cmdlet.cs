@@ -22,58 +22,56 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmail;
-using Amazon.SimpleEmail.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a receipt rule set by cloning an existing one. All receipt rules and configurations
-    /// are copied to the new receipt rule set and are completely independent of the source
-    /// rule set.
+    /// Disassociates the specified tags from the specified AppStream 2.0 resource.
     /// 
     ///  
     /// <para>
-    /// For information about setting up rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
-    /// SES Developer Guide</a>.
+    /// To list the current tags for your resources, use <a>ListTagsForResource</a>.
     /// </para><para>
-    /// You can execute this operation no more than once per second.
+    /// For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic">Tagging
+    /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Copy", "SESReceiptRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("Remove", "APSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service CloneReceiptRuleSet API operation.", Operation = new[] {"CloneReceiptRuleSet"})]
+    [AWSCmdlet("Calls the AWS AppStream UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OriginalRuleSetName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TagKey parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.AppStream.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class CopySESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class RemoveAPSResourceTagCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
-        #region Parameter OriginalRuleSetName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the rule set to clone.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter TagKey
+        /// <summary>
+        /// <para>
+        /// <para>The tag keys for the tags to disassociate.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String OriginalRuleSetName { get; set; }
-        #endregion
-        
-        #region Parameter RuleSetName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the rule set to create. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain less than 64 characters.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RuleSetName { get; set; }
+        [Alias("TagKeys")]
+        public System.String[] TagKey { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the OriginalRuleSetName parameter.
+        /// Returns the value passed to the TagKey parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,8 +92,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("OriginalRuleSetName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-SESReceiptRuleSet (CloneReceiptRuleSet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-APSResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -109,8 +107,11 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.OriginalRuleSetName = this.OriginalRuleSetName;
-            context.RuleSetName = this.RuleSetName;
+            context.ResourceArn = this.ResourceArn;
+            if (this.TagKey != null)
+            {
+                context.TagKeys = new List<System.String>(this.TagKey);
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,15 +126,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest();
+            var request = new Amazon.AppStream.Model.UntagResourceRequest();
             
-            if (cmdletContext.OriginalRuleSetName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.OriginalRuleSetName = cmdletContext.OriginalRuleSetName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.RuleSetName != null)
+            if (cmdletContext.TagKeys != null)
             {
-                request.RuleSetName = cmdletContext.RuleSetName;
+                request.TagKeys = cmdletContext.TagKeys;
             }
             
             CmdletOutput output;
@@ -146,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.OriginalRuleSetName;
+                    pipelineOutput = this.TagKey;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -171,16 +172,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest request)
+        private Amazon.AppStream.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CloneReceiptRuleSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.CloneReceiptRuleSet(request);
+                return client.UntagResource(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CloneReceiptRuleSetAsync(request);
+                var task = client.UntagResourceAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -201,8 +202,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OriginalRuleSetName { get; set; }
-            public System.String RuleSetName { get; set; }
+            public System.String ResourceArn { get; set; }
+            public List<System.String> TagKeys { get; set; }
         }
         
     }

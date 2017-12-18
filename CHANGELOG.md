@@ -1,8 +1,14 @@
+###
+  * Amazon AppStream
+    * Added support add tags to Amazon AppStream 2.0 resources with new cmdlets Add-APSResourceTag (TagResource API) and Remove-APSResourceTag (UntagResource API).
+  * Amazon S3
+    * Extended the Copy-S3Object cmdlet to support copying of objects larger than 5GB within S3. The cmdlet previously used the CopyObject API which is limited to objects up to 5GB in size. With this release the cmdlet inspects the object size and switches automatically to multi-part copy if necessary. The output of the cmdlet when copying objects within S3 has also changed; previously the output of the CopyObject API was emitted. With this update an Amazon.S3.Model.S3Object, referencing the newly copied object, is emitted to the pipeline.
+
 ### 3.3.208.1 (2017-12-13)
   * Amazon EC2
     * Fixed issue with Get-EC2PasswordData cmdlet reporting a null reference when invoked without the -PemFile parameter. This parameter is not required if the keypair data for the instance is saved in the configuration store for the AWS Toolkit for Visual Studio.
   * All cmdlets
-    * Fixed issue with the tools not correctly support the new China (Ningxia) region (cn-northwest0-1).
+    * Added support for the new China (Ningxia) region (cn-northwest-1).
 
 ### 3.3.208.0 (2017-12-13)
   * AWS Cost Explorer

@@ -77,7 +77,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// <para>
         /// <para>The type of the network connection to the integration endpoint. The valid value is
         /// <code>INTERNET</code> for connections through the public routable internet or <code>VPC_LINK</code>
-        /// for private connections between API Gateway and an network load balancer in a VPC.
+        /// for private connections between API Gateway and a network load balancer in a VPC.
         /// The default value is <code>INTERNET</code>.</para>
         /// </para>
         /// </summary>

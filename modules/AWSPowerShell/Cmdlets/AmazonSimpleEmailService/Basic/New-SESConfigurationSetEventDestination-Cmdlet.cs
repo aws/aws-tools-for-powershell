@@ -127,7 +127,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         #region Parameter EventDestination_Name
         /// <summary>
         /// <para>
-        /// <para>The name of the event destination. The name must:</para><ul><li><para>Contain only ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</para></li><li><para>Contain less than 64 characters.</para></li></ul>
+        /// <para>The name of the event destination. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
+        /// or dashes (-).</para></li><li><para>Contain less than 64 characters.</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

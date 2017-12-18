@@ -270,10 +270,13 @@ Set-Alias -Name APS-DisassociateFleet -Value Unregister-APSFleet
 Set-Alias -Name APS-ExpireSession -Value Revoke-APSSession
 Set-Alias -Name APS-ListAssociatedFleets -Value Get-APSAssociatedFleetList
 Set-Alias -Name APS-ListAssociatedStacks -Value Get-APSAssociatedStackList
+Set-Alias -Name APS-ListTagsForResource -Value Get-APSTagsForResourceList
 Set-Alias -Name APS-StartFleet -Value Start-APSFleet
 Set-Alias -Name APS-StartImageBuilder -Value Start-APSImageBuilder
 Set-Alias -Name APS-StopFleet -Value Stop-APSFleet
 Set-Alias -Name APS-StopImageBuilder -Value Stop-APSImageBuilder
+Set-Alias -Name APS-TagResource -Value Add-APSResourceTag
+Set-Alias -Name APS-UntagResource -Value Remove-APSResourceTag
 Set-Alias -Name APS-UpdateDirectoryConfig -Value Update-APSDirectoryConfig
 Set-Alias -Name APS-UpdateFleet -Value Update-APSFleet
 Set-Alias -Name APS-UpdateStack -Value Update-APSStack

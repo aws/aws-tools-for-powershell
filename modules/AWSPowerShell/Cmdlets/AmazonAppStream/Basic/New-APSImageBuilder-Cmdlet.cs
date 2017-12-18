@@ -50,7 +50,7 @@ namespace Amazon.PowerShell.Cmdlets.APS
         /// <summary>
         /// <para>
         /// <para>The version of the AppStream 2.0 agent to use for this image builder. To use the latest
-        /// version of the AppStream 2.0 agent, specify [LATEST].</para>
+        /// version of the AppStream 2.0 agent, specify [LATEST]. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

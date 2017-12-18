@@ -29,8 +29,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
 {
     /// <summary>
     /// Adds an email address to the list of identities for your Amazon SES account and attempts
-    /// to verify it. This operation causes a confirmation email message to be sent to the
-    /// specified address.
+    /// to verify it. As a result of executing this operation, a verification email is sent
+    /// to the specified address.
     /// 
     ///  
     /// <para>

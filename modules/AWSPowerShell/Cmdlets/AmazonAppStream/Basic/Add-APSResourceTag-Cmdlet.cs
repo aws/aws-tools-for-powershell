@@ -22,58 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.SimpleEmail;
-using Amazon.SimpleEmail.Model;
+using Amazon.AppStream;
+using Amazon.AppStream.Model;
 
-namespace Amazon.PowerShell.Cmdlets.SES
+namespace Amazon.PowerShell.Cmdlets.APS
 {
     /// <summary>
-    /// Creates a receipt rule set by cloning an existing one. All receipt rules and configurations
-    /// are copied to the new receipt rule set and are completely independent of the source
-    /// rule set.
+    /// Adds or overwrites one or more tags for the specified AppStream 2.0 resource. You
+    /// can tag AppStream 2.0 image builders, images, fleets, and stacks.
     /// 
     ///  
     /// <para>
-    /// For information about setting up rule sets, see the <a href="http://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon
-    /// SES Developer Guide</a>.
+    /// Each tag consists of a key and an optional value. If a resource already has a tag
+    /// with the same key, this operation updates its value.
     /// </para><para>
-    /// You can execute this operation no more than once per second.
+    /// To list the current tags for your resources, use <a>ListTagsForResource</a>. To disassociate
+    /// tags from your resources, use <a>UntagResource</a>.
+    /// </para><para>
+    /// For more information about tags, see <a href="http://docs.aws.amazon.com/appstream2/latest/developerguide/tagging-basic">Tagging
+    /// Your Resources</a> in the <i>Amazon AppStream 2.0 Developer Guide</i>.
     /// </para>
     /// </summary>
-    [Cmdlet("Copy", "SESReceiptRuleSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
-    [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Simple Email Service CloneReceiptRuleSet API operation.", Operation = new[] {"CloneReceiptRuleSet"})]
-    [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the OriginalRuleSetName parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Add", "APSResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("None","System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]")]
+    [AWSCmdlet("Calls the AWS AppStream TagResource API operation.", Operation = new[] {"TagResource"})]
+    [AWSCmdletOutput("None or System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]",
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the Tag parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.AppStream.Model.TagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class CopySESReceiptRuleSetCmdlet : AmazonSimpleEmailServiceClientCmdlet, IExecutor
+    public partial class AddAPSResourceTagCmdlet : AmazonAppStreamClientCmdlet, IExecutor
     {
         
-        #region Parameter OriginalRuleSetName
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The name of the rule set to clone.</para>
+        /// <para>The Amazon Resource Name (ARN) of the resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>The tags to associate. A tag is a key-value pair (the value is optional). For example,
+        /// <code>Environment=Test</code>, or, if you do not specify a value, <code>Environment=</code>.
+        /// </para><para>If you do not specify a value, we set the value to an empty string.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String OriginalRuleSetName { get; set; }
-        #endregion
-        
-        #region Parameter RuleSetName
-        /// <summary>
-        /// <para>
-        /// <para>The name of the rule set to create. The name must:</para><ul><li><para>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_),
-        /// or dashes (-).</para></li><li><para>Start and end with a letter or number.</para></li><li><para>Contain less than 64 characters.</para></li></ul>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String RuleSetName { get; set; }
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the OriginalRuleSetName parameter.
+        /// Returns the value passed to the Tag parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -94,8 +99,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("OriginalRuleSetName", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Copy-SESReceiptRuleSet (CloneReceiptRuleSet)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Add-APSResourceTag (TagResource)"))
             {
                 return;
             }
@@ -109,8 +114,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.OriginalRuleSetName = this.OriginalRuleSetName;
-            context.RuleSetName = this.RuleSetName;
+            context.ResourceArn = this.ResourceArn;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -125,15 +137,15 @@ namespace Amazon.PowerShell.Cmdlets.SES
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest();
+            var request = new Amazon.AppStream.Model.TagResourceRequest();
             
-            if (cmdletContext.OriginalRuleSetName != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.OriginalRuleSetName = cmdletContext.OriginalRuleSetName;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
-            if (cmdletContext.RuleSetName != null)
+            if (cmdletContext.Tags != null)
             {
-                request.RuleSetName = cmdletContext.RuleSetName;
+                request.Tags = cmdletContext.Tags;
             }
             
             CmdletOutput output;
@@ -146,7 +158,7 @@ namespace Amazon.PowerShell.Cmdlets.SES
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.OriginalRuleSetName;
+                    pipelineOutput = this.Tag;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -171,16 +183,16 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         #region AWS Service Operation Call
         
-        private Amazon.SimpleEmail.Model.CloneReceiptRuleSetResponse CallAWSServiceOperation(IAmazonSimpleEmailService client, Amazon.SimpleEmail.Model.CloneReceiptRuleSetRequest request)
+        private Amazon.AppStream.Model.TagResourceResponse CallAWSServiceOperation(IAmazonAppStream client, Amazon.AppStream.Model.TagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Simple Email Service", "CloneReceiptRuleSet");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS AppStream", "TagResource");
             try
             {
                 #if DESKTOP
-                return client.CloneReceiptRuleSet(request);
+                return client.TagResource(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.CloneReceiptRuleSetAsync(request);
+                var task = client.TagResourceAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -201,8 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.SES
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String OriginalRuleSetName { get; set; }
-            public System.String RuleSetName { get; set; }
+            public System.String ResourceArn { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
         }
         
     }
