@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the Amazon Elastic Compute Cloud User Guide. 
     /// </para>
     /// </summary>
-    [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [Cmdlet("New", "EC2Instance", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium, DefaultParameterSetName = LaunchWithImageId)]
     [OutputType("Reservation")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud RunInstances API operation.", Operation = new[] { "RunInstances" })]
     [AWSCmdletOutput("Reservation",
@@ -76,12 +76,16 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public class NewEC2InstanceCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        private const string LaunchWithImageId = "LaunchWithImageId";
+        private const string LaunchFromTemplate = "LaunchFromTemplate";
+
         #region Parameter ImageId
         /// <summary>
         /// The ID of the AMI to launch. The set of available AMI IDs can be determined using the
         /// Get-EC2Image or Get-EC2ImageByName cmdlets.
         /// </summary>
-        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = true, ParameterSetName = LaunchWithImageId)]
+        [Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, Mandatory = false, ParameterSetName = LaunchFromTemplate)]
         public System.String ImageId { get; set; }
         #endregion
 
@@ -498,7 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// The launch template to use to launch the instances. Any parameters that you specify to the cmdlet
         /// override the same parameters in the launch template
         /// </summary>
-        [Parameter]
+        [Parameter(ParameterSetName = LaunchFromTemplate, Mandatory = true)]
         public Amazon.EC2.Model.LaunchTemplateSpecification LaunchTemplate { get; set; }
         #endregion
 
