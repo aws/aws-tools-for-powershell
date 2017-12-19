@@ -41,7 +41,8 @@ namespace Amazon.PowerShell.Cmdlets.CW
     /// overwrites the previous configuration of the alarm.
     /// </para><para>
     /// If you are an IAM user, you must have Amazon EC2 permissions for some operations:
-    /// </para><ul><li><para><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code> for
+    /// </para><ul><li><para><code>iam:CreateServiceLinkedRole</code> for all alarms with EC2 actions
+    /// </para></li><li><para><code>ec2:DescribeInstanceStatus</code> and <code>ec2:DescribeInstances</code> for
     /// all alarms on EC2 instance status metrics
     /// </para></li><li><para><code>ec2:StopInstances</code> for alarms with stop actions
     /// </para></li><li><para><code>ec2:TerminateInstances</code> for alarms with terminate actions

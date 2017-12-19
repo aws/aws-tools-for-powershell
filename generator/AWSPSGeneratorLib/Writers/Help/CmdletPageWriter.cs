@@ -49,7 +49,7 @@ namespace AWSPowerShellGenerator.Writers.Help
 
         protected override string GetTitle()
         {
-            return string.Format("{0}: {1} Cmdlet", GetService(), GetName());
+            return string.Format("{0}: {1}", GetService(), GetName());
         }
 
         protected override string GetName()

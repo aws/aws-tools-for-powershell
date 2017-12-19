@@ -1,8 +1,9 @@
-###
+### 3.3.210.0 (2017-12-19)
   * Amazon AppStream
     * Added support add tags to Amazon AppStream 2.0 resources with new cmdlets Add-APSResourceTag (TagResource API) and Remove-APSResourceTag (UntagResource API).
   * Amazon S3
     * Extended the Copy-S3Object cmdlet to support copying of objects larger than 5GB within S3. The cmdlet previously used the CopyObject API which is limited to objects up to 5GB in size. With this release the cmdlet inspects the object size and switches automatically to multi-part copy if necessary. The output of the cmdlet when copying objects within S3 has also changed; previously the output of the CopyObject API was emitted. With this update an Amazon.S3.Model.S3Object, referencing the newly copied object, is emitted to the pipeline.
+  * Added tab completion support for the new EU (Paris), eu-west-3, region to the -Region parameter for cmdlets.
 
 ### 3.3.208.1 (2017-12-13)
   * Amazon EC2
