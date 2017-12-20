@@ -1,0 +1,482 @@
+{
+  "AdditionalNamespaces": "",
+  "DefaultRegion": null,
+  "IsS3": "false",
+  "MetadataPropertyNames": "",
+  "PipelineByValuePropertyNamesList": "ResourceArn,Name,ProtectionId,AttackId,MitigationName",
+  "PipelineParameter": "",
+  "PositionalParameters": null,
+  "ServiceClient": "AmazonShieldClient",
+  "ServiceClientConfig": "AmazonShieldConfig",
+  "ServiceClientInterface": "IAmazonShield",
+  "ServiceName": "AWS Shield",
+  "ServiceNamespace": "Amazon.Shield",
+  "ServiceNounPrefix": "SHLD",
+  "SupportsShouldProcessVerbsList": "",
+  "TypesNotToFlatten": "",
+  "AutoIterate": {
+    "EmitLimit": "MaxResults",
+    "Exclusions": null,
+    "Next": "NextToken",
+    "ServicePageSize": -1,
+    "Start": "NextToken",
+    "TruncatedFlag": null
+  },
+  "CustomAliases": [],
+  "InputObjectMappingRules": [],
+  "ParamEmitters": [],
+  "NounMappings": {},
+  "VerbMappings": {},
+  "Operations": {
+    "CreateProtection": {
+      "Verb": "New",
+      "Noun": "SHLDProtection",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceArn",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Protection",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ResourceArn"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "CreateSubscription": {
+      "Verb": "New",
+      "Noun": "SHLDSubscription",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Subscription",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "No parameters, setting anonymous target",
+          "Status": "AnonymousTarget",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteProtection": {
+      "Verb": "Remove",
+      "Noun": "SHLDProtection",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "ProtectionId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Protection",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: ProtectionId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ProtectionId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteSubscription": {
+      "Verb": "Remove",
+      "Noun": "SHLDSubscription",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Subscription",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "No parameters, setting anonymous target",
+          "Status": "AnonymousTarget",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DescribeAttack": {
+      "Verb": "Get",
+      "Noun": "SHLDAttack",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "AttackId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Attack",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DescribeProtection": {
+      "Verb": "Get",
+      "Noun": "SHLDProtection",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ProtectionId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Protection",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DescribeSubscription": {
+      "Verb": "Get",
+      "Noun": "SHLDSubscription",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Subscription",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetSubscriptionState": {
+      "Verb": "Get",
+      "Noun": "SHLDSubscriptionState",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "SubscriptionState",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListAttacks": {
+      "Verb": "Get",
+      "Noun": "SHLDAttackList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Attacks",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListProtections": {
+      "Verb": "Get",
+      "Noun": "SHLDProtectionList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Protections",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": -1,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    }
+  }
+}

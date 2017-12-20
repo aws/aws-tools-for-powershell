@@ -1,0 +1,482 @@
+{
+  "AdditionalNamespaces": "",
+  "DefaultRegion": null,
+  "IsS3": "false",
+  "MetadataPropertyNames": "",
+  "PipelineByValuePropertyNamesList": "",
+  "PipelineParameter": "",
+  "PositionalParameters": null,
+  "ServiceClient": "AmazonCloudHSMV2Client",
+  "ServiceClientConfig": "AmazonCloudHSMV2Config",
+  "ServiceClientInterface": "IAmazonCloudHSMV2",
+  "ServiceName": "AWS Cloud HSM V2",
+  "ServiceNamespace": "Amazon.CloudHSMV2",
+  "ServiceNounPrefix": "HSM2",
+  "SupportsShouldProcessVerbsList": "",
+  "TypesNotToFlatten": "",
+  "AutoIterate": {
+    "EmitLimit": "MaxResults",
+    "Exclusions": null,
+    "Next": "NextToken",
+    "ServicePageSize": 25,
+    "Start": "NextToken",
+    "TruncatedFlag": null
+  },
+  "CustomAliases": [],
+  "InputObjectMappingRules": [],
+  "ParamEmitters": [],
+  "NounMappings": {},
+  "VerbMappings": {},
+  "Operations": {
+    "CreateCluster": {
+      "Verb": "New",
+      "Noun": "HSM2Cluster",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "true",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Cluster",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "Status": "AnonymousTarget",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "CreateHsm": {
+      "Verb": "New",
+      "Noun": "HSM2Hsm",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ClusterId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Hsm",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ClusterId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteCluster": {
+      "Verb": "Remove",
+      "Noun": "HSM2Cluster",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ClusterId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Cluster",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ClusterId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteHsm": {
+      "Verb": "Remove",
+      "Noun": "HSM2Hsm",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "HsmId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Hsm",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "HsmId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DescribeBackups": {
+      "Verb": "Get",
+      "Noun": "HSM2Backup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Backups",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DescribeClusters": {
+      "Verb": "Get",
+      "Noun": "HSM2Cluster",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Clusters",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "InitializeCluster": {
+      "Verb": "Initialize",
+      "Noun": "HSM2Cluster",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "ClusterId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Cluster",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ClusterId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListTags": {
+      "Verb": "Get",
+      "Noun": "HSM2ResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "TagResource": {
+      "Verb": "Add",
+      "Noun": "HSM2ResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resource",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: ResourceId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ResourceId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UntagResource": {
+      "Verb": "Remove",
+      "Noun": "HSM2ResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resource",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: ResourceId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextToken",
+          "ServicePageSize": 25,
+          "Start": "NextToken",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ResourceId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    }
+  }
+}

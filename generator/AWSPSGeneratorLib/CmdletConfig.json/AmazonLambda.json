@@ -1,0 +1,1217 @@
+{
+  "AdditionalNamespaces": "",
+  "DefaultRegion": null,
+  "IsS3": "false",
+  "MetadataPropertyNames": "",
+  "PipelineByValuePropertyNamesList": "FunctionName,UUID",
+  "PipelineParameter": "FunctionName",
+  "PositionalParameters": null,
+  "ServiceClient": "AmazonLambdaClient",
+  "ServiceClientConfig": "AmazonLambdaConfig",
+  "ServiceClientInterface": "IAmazonLambda",
+  "ServiceName": "AWS Lambda",
+  "ServiceNamespace": "Amazon.Lambda",
+  "ServiceNounPrefix": "LM",
+  "SupportsShouldProcessVerbsList": "",
+  "TypesNotToFlatten": "",
+  "AutoIterate": {
+    "EmitLimit": "MaxItems",
+    "Exclusions": null,
+    "Next": "NextMarker",
+    "ServicePageSize": -1,
+    "Start": "Marker",
+    "TruncatedFlag": null
+  },
+  "CustomAliases": [],
+  "InputObjectMappingRules": [],
+  "ParamEmitters": [],
+  "NounMappings": {},
+  "VerbMappings": {
+    "List": "Get",
+    "Upload": "Publish"
+  },
+  "Operations": {
+    "AddPermission": {
+      "Verb": "Add",
+      "Noun": "LMPermission",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Permission",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "CreateAlias": {
+      "Verb": "New",
+      "Noun": "LMAlias",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Alias",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "CreateEventSourceMapping": {
+      "Verb": "New",
+      "Noun": "LMEventSourceMapping",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": "EventSource;Role",
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventSourceMapping",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "CreateFunction": {
+      "Exclude": "true"
+    },
+    "DeleteAlias": {
+      "Verb": "Remove",
+      "Noun": "LMAlias",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Alias",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteEventSourceMapping": {
+      "Verb": "Remove",
+      "Noun": "LMEventSourceMapping",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "UUID",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventSourceMapping",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "UUID"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteFunction": {
+      "Verb": "Remove",
+      "Noun": "LMFunction",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Function",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteFunctionConcurrency": {
+      "Verb": "Remove",
+      "Noun": "LMFunctionConcurrency",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FunctionConcurrency",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetAccountSettings": {
+      "Verb": "Get",
+      "Noun": "LMAccountSetting",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "AccountSettings",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetAlias": {
+      "Verb": "Get",
+      "Noun": "LMAlias",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Alias",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetEventSourceMapping": {
+      "Verb": "Get",
+      "Noun": "LMEventSourceMapping",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "UUID",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventSourceMapping",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetFunction": {
+      "Verb": "Get",
+      "Noun": "LMFunction",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Function",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetFunctionConfiguration": {
+      "Verb": "Get",
+      "Noun": "LMFunctionConfiguration",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FunctionConfiguration",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetPolicy": {
+      "Verb": "Get",
+      "Noun": "LMPolicy",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Policy",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "Invoke": {
+      "Exclude": "true"
+    },
+    "InvokeAsync": {
+      "Exclude": "true"
+    },
+    "ListAliases": {
+      "Verb": "Get",
+      "Noun": "LMAliasList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Aliases",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListEventSourceMappings": {
+      "Verb": "Get",
+      "Noun": "LMEventSourceMappingList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": "Get-LMEventSourceMappings",
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventSourceMappings",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListFunctions": {
+      "Verb": "Get",
+      "Noun": "LMFunctionList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": "Get-LMFunctions",
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Functions",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListTags": {
+      "Verb": "Get",
+      "Noun": "LMResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "Resource",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListVersionsByFunction": {
+      "Verb": "Get",
+      "Noun": "LMVersionsByFunction",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "VersionsByFunction",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "PublishVersion": {
+      "Verb": "Publish",
+      "Noun": "LMVersion",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Version",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "PutFunctionConcurrency": {
+      "Verb": "Write",
+      "Noun": "LMFunctionConcurrency",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FunctionConcurrency",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "RemovePermission": {
+      "Verb": "Remove",
+      "Noun": "LMPermission",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Permission",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FunctionName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "TagResource": {
+      "Verb": "Add",
+      "Noun": "LMResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Resource",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resource",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Resource",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "auto-assigned from pipeline parameter (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "Resource"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UntagResource": {
+      "Verb": "Remove",
+      "Noun": "LMResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "TagKeys",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "Resource",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resource",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: TagKey",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": "Resource"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UpdateAlias": {
+      "Verb": "Update",
+      "Noun": "LMAlias",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Alias",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UpdateEventSourceMapping": {
+      "Verb": "Update",
+      "Noun": "LMEventSourceMapping",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventSourceMapping",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UpdateFunctionCode": {
+      "Exclude": "true"
+    },
+    "UpdateFunctionConfiguration": {
+      "Verb": "Update",
+      "Noun": "LMFunctionConfiguration",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FunctionConfiguration",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxItems",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": -1,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "FunctionName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    }
+  }
+}

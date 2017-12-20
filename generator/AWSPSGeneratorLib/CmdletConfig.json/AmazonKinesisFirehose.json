@@ -1,0 +1,305 @@
+{
+  "AdditionalNamespaces": "",
+  "DefaultRegion": null,
+  "IsS3": "false",
+  "MetadataPropertyNames": "",
+  "PipelineByValuePropertyNamesList": "",
+  "PipelineParameter": "",
+  "PositionalParameters": null,
+  "ServiceClient": "AmazonKinesisFirehoseClient",
+  "ServiceClientConfig": "AmazonKinesisFirehoseConfig",
+  "ServiceClientInterface": "IAmazonKinesisFirehose",
+  "ServiceName": "Amazon Kinesis Firehose",
+  "ServiceNamespace": "Amazon.KinesisFirehose",
+  "ServiceNounPrefix": "KINF",
+  "SupportsShouldProcessVerbsList": "",
+  "TypesNotToFlatten": "Amazon.KinesisFirehose.Model.RedshiftDestinationConfiguration,Amazon.KinesisFirehose.Model.S3DestinationConfiguration,Amazon.KinesisFirehose.Model.RedshiftDestinationUpdate,Amazon.KinesisFirehose.Model.S3DestinationUpdate,Amazon.KinesisFirehose.Model.ExtendedS3DestinationConfiguration,Amazon.KinesisFirehose.Model.ExtendedS3DestinationUpdate,Amazon.KinesisFirehose.Model.SplunkDestinationConfiguration,Amazon.KinesisFirehose.Model.SplunkDestinationUpdate",
+  "AutoIterate": {
+    "EmitLimit": null,
+    "Exclusions": null,
+    "Next": null,
+    "ServicePageSize": -1,
+    "Start": null,
+    "TruncatedFlag": null
+  },
+  "CustomAliases": [],
+  "InputObjectMappingRules": [],
+  "ParamEmitters": [],
+  "NounMappings": {},
+  "VerbMappings": {},
+  "Operations": {
+    "CreateDeliveryStream": {
+      "Verb": "New",
+      "Noun": "KINFDeliveryStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "DeliveryStreamName",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeliveryStream",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": "DeliveryStreamName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteDeliveryStream": {
+      "Verb": "Remove",
+      "Noun": "KINFDeliveryStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "DeliveryStreamName",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeliveryStream",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": "Auto-assigned from pipeline parameter: DeliveryStreamName",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "DeliveryStreamName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DescribeDeliveryStream": {
+      "Verb": "Get",
+      "Noun": "KINFDeliveryStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeliveryStream",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListDeliveryStreams": {
+      "Verb": "Get",
+      "Noun": "KINFDeliveryStreamList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "DeliveryStreams",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "PutRecord": {
+      "Exclude": "true"
+    },
+    "PutRecordBatch": {
+      "Verb": "Write",
+      "Noun": "KINFRecordBatch",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Records",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "RecordBatch",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "DeliveryStreamName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UpdateDestination": {
+      "Verb": "Update",
+      "Noun": "KINFDestination",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "DeliveryStreamName",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Destination",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": "DeliveryStreamName"
+        },
+        "MemoryStreamParameters": ""
+      }
+    }
+  }
+}

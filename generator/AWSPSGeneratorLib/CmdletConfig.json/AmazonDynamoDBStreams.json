@@ -1,0 +1,128 @@
+{
+  "AdditionalNamespaces": "",
+  "DefaultRegion": null,
+  "IsS3": "false",
+  "MetadataPropertyNames": "",
+  "PipelineByValuePropertyNamesList": "",
+  "PipelineParameter": "TableName",
+  "PositionalParameters": "TableName",
+  "ServiceClient": "AmazonDynamoDBStreamsClient",
+  "ServiceClientConfig": "AmazonDynamoDBStreamsConfig",
+  "ServiceClientInterface": "IAmazonDynamoDBStreams",
+  "ServiceName": "Amazon DynamoDB",
+  "ServiceNamespace": "Amazon.DynamoDBv2",
+  "ServiceNounPrefix": "DDB",
+  "SupportsShouldProcessVerbsList": "",
+  "TypesNotToFlatten": "",
+  "AutoIterate": {
+    "EmitLimit": null,
+    "Exclusions": null,
+    "Next": null,
+    "ServicePageSize": -1,
+    "Start": null,
+    "TruncatedFlag": null
+  },
+  "CustomAliases": [],
+  "InputObjectMappingRules": [],
+  "ParamEmitters": [],
+  "NounMappings": {},
+  "VerbMappings": {},
+  "Operations": {
+    "DescribeStream": {
+      "Verb": "Get",
+      "Noun": "DDBStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "StreamArn",
+      "PositionalParameters": "Limit;ExclusiveStartShardId",
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Stream",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetRecords": {
+      "Exclude": "true"
+    },
+    "GetShardIterator": {
+      "Exclude": "true"
+    },
+    "ListStreams": {
+      "Verb": "Get",
+      "Noun": "DDBStreamList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": "Limit;ExclusiveStartStreamName",
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Streams",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": null,
+          "Exclusions": null,
+          "Next": null,
+          "ServicePageSize": -1,
+          "Start": null,
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    }
+  }
+}

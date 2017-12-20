@@ -111,7 +111,12 @@ namespace AWSPowerShellGenerator.Generators
         /// The subfolder hierarchy beneath GeneratorOptions.RootPath that holds the
         /// service xml configuration files and generator manifest to process.
         /// </summary>
-        public const string CmdletGeneratorConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig";
+        public const string CmdletConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig";
+
+        /// <summary>
+        /// For use in the new generator, the current one emits json versions of the configs here
+        /// </summary>
+        public const string CmdletJsonConfigurationsFoldername = @"generator\AWSPSGeneratorLib\CmdletConfig.json";
 
         public const string CmdletsOutputSubFoldername = "Cmdlets";
         public const string ArgumentCompletersSubFoldername = "ArgumentCompleters";
@@ -343,7 +348,7 @@ namespace AWSPowerShellGenerator.Generators
             LoadSpecialServiceAssemblies();
 
             CmdletsOutputPath = Path.Combine(OutputFolder, CmdletsOutputSubFoldername);
-            var configurationsFolder = Path.Combine(Options.RootPath, CmdletGeneratorConfigurationsFoldername);
+            var configurationsFolder = Path.Combine(Options.RootPath, CmdletConfigurationsFoldername);
 
             ModelCollection = ConfigModelCollection.LoadAllConfigs(configurationsFolder, Options.Verbose);
 
@@ -373,6 +378,10 @@ namespace AWSPowerShellGenerator.Generators
                         CurrentModel.ServiceOperationsList = CurrentModel.ServiceOperationsList.OrderBy(so => so.MethodName).ToList();
                         CurrentModel.Serialize(configurationsFolder);
                     }
+
+                    // always serialize the json format, so we have reliable test data to work
+                    // on in the new ps generator
+                    new JsonPSConfigWriter(configModel, Options.RootPath).Serialize();
 
                     if (!Options.BreakOnOutputMismatchError)
                     {
@@ -862,7 +871,8 @@ namespace AWSPowerShellGenerator.Generators
             CurrentOperation = serviceOperation;
             CurrentOperation.Processed = true;
 
-            var analyzer = new OperationAnalyzer(Options.AnalysisLog)
+            // capture the analyzer so we can serialize the config as json later
+            serviceOperation.Analyzer = new OperationAnalyzer(Options.AnalysisLog)
             {
                 AllModels = ModelCollection,
                 CurrentModel = CurrentModel,
@@ -871,7 +881,7 @@ namespace AWSPowerShellGenerator.Generators
                 AssemblyDocumentation = CurrentServiceNDoc
             };
 
-            analyzer.Analyze(this, method);
+            serviceOperation.Analyzer.Analyze(this, method);
 
             // set file name and location
             var filePath = string.Format(@"{0}\Basic\{1}-{2}-Cmdlet.cs",
@@ -884,7 +894,7 @@ namespace AWSPowerShellGenerator.Generators
             {
                 using (var writer = new IndentedTextWriter(sw))
                 {
-                    WriteCmdlet(writer, analyzer);
+                    WriteCmdlet(writer, serviceOperation.Analyzer);
                 }
 
                 var fileContents = sw.ToString();

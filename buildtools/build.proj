@@ -68,6 +68,7 @@
     <Target Name="restore-nuget" DependsOnTargets="GetSDKToolingInfoTarget">
         <Message Text="Restore nuget packages"/>
         <Exec Command="..\solutions\.nuget\NuGet.exe restore ..\modules\AWSPowerShell\AWSPowerShell.csproj"/>
+	    <Exec Command="..\solutions\.nuget\NuGet.exe restore ..\generator\AWSPSGeneratorLib\AWSPSGeneratorLib.csproj"/>
 
 		<!--
 		<Exec Command="&quot;$(SDKToolingExe)&quot; restore" 
@@ -76,7 +77,7 @@
 		-->
     </Target>
 	
-    <Target Name="build-generator">
+    <Target Name="build-generator" DependsOnTargets="restore-nuget">
 		<Message Text="Building AWS PowerShell generator"/>
 		<Exec Command="$(devenv2013) /Rebuild $(Configuration) ..\solutions\AWSPowerShellGenerator.sln"/>
     </Target>

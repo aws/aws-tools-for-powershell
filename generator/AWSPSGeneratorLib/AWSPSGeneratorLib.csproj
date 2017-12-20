@@ -46,6 +46,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\thirdparty\System.Management.Automation.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.10.0.2\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
@@ -56,6 +60,7 @@
     <Compile Include="GeneratorOptions.cs" />
     <Compile Include="Generators\CmdletGenerator.cs" />
     <Compile Include="Generators\FormatGenerator.cs" />
+    <Compile Include="Generators\JsonPSConfigWriter.cs" />
     <Compile Include="Generators\ParamEmitters\AmazonEC2\InstanceIdsParamEmitter.cs" />
     <Compile Include="Generators\ParamEmitters\AmazonS3\DualstackParamEmitter.cs" />
     <Compile Include="Generators\ParamEmitters\AmazonS3\AccelerateParamEmitter.cs" />
@@ -196,6 +201,7 @@
     <None Include="CmdletConfig\WD.xml" />
     <None Include="CmdletConfig\WKS.xml" />
     <None Include="CmdletConfig\XRay.xml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormatConfig\ConfigModel.cs" />

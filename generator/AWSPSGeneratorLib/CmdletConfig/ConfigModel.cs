@@ -6,6 +6,7 @@ using System.IO;
 using System.Diagnostics;
 using System.Text;
 using System.Xml;
+using AWSPowerShellGenerator.Analysis;
 using Microsoft.PowerShell.Commands;
 
 namespace AWSPowerShellGenerator.CmdletConfig
@@ -1122,6 +1123,12 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public string LegacyAlias { get; set; }
 
         #region Data constructed during generation
+
+        /// <summary>
+        /// The analyzer instance and its results for this op
+        /// </summary>
+        [XmlIgnore]
+        internal OperationAnalyzer Analyzer { get; set; }
 
         /// <summary>
         /// The verb we decided, or were directed, to use for the cmdlet
