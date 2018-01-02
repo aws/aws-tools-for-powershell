@@ -613,6 +613,51 @@
         "MemoryStreamParameters": ""
       }
     },
+    "CreateOTAUpdate": {
+      "Verb": "New",
+      "Noun": "IOTOTAUpdate",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "OtaUpdateId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "OTAUpdate",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "OtaUpdateId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
     "CreatePolicy": {
       "Verb": "New",
       "Noun": "IOTPolicy",
@@ -744,6 +789,51 @@
           "AnalysisMessage": "single parameter with recognized suffix",
           "Status": "TargetFromAnalysis",
           "TargetParameterName": "RoleArn"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "CreateStream": {
+      "Verb": "New",
+      "Noun": "IOTStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "StreamId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Stream",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "StreamId"
         },
         "MemoryStreamParameters": ""
       }
@@ -1073,6 +1163,51 @@
         "MemoryStreamParameters": ""
       }
     },
+    "DeleteOTAUpdate": {
+      "Verb": "Remove",
+      "Noun": "IOTOTAUpdate",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "OtaUpdateId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "OTAUpdate",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: OtaUpdateId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "OtaUpdateId"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
     "DeletePolicy": {
       "Verb": "Remove",
       "Noun": "IOTPolicy",
@@ -1249,6 +1384,51 @@
           "AnalysisMessage": "Single parameter, auto-selected as target",
           "Status": "TargetFromAnalysis",
           "TargetParameterName": "RoleAlias"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "DeleteStream": {
+      "Verb": "Remove",
+      "Noun": "IOTStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "StreamId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Stream",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: StreamId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "Single parameter, auto-selected as target",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "StreamId"
         },
         "MemoryStreamParameters": ""
       }
@@ -1973,6 +2153,51 @@
         "MemoryStreamParameters": ""
       }
     },
+    "DescribeStream": {
+      "Verb": "Get",
+      "Noun": "IOTStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "StreamId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Stream",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
     "DescribeThing": {
       "Verb": "Get",
       "Noun": "IOTThing",
@@ -2536,6 +2761,51 @@
       },
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LoggingOptions",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "GetOTAUpdate": {
+      "Verb": "Get",
+      "Noun": "IOTOTAUpdate",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "OtaUpdateId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "OTAUpdate",
         "ConfirmImpactSetting": "Medium",
         "GenerateIterationCode": "false",
         "IterationPattern": "Pattern2",
@@ -3196,6 +3466,51 @@
         "MemoryStreamParameters": ""
       }
     },
+    "ListOTAUpdates": {
+      "Verb": "Get",
+      "Noun": "IOTOTAUpdateList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "OTAUpdates",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
     "ListOutgoingCertificates": {
       "Verb": "Get",
       "Noun": "IOTOutgoingCertificate",
@@ -3537,6 +3852,51 @@
       },
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "RoleAliases",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "ListStreams": {
+      "Verb": "Get",
+      "Noun": "IOTStreamList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "true",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Streams",
         "ConfirmImpactSetting": "Medium",
         "GenerateIterationCode": "false",
         "IterationPattern": "Pattern2",
@@ -4981,7 +5341,7 @@
         "GenerateIterationCode": "false",
         "IterationPattern": "Pattern2",
         "PassThruSource": "Auto-assigned from pipeline parameter: EventConfiguration",
-        "PassThruTypeName": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=885c28607f98e604]]",
+        "PassThruTypeName": "System.Collections.Generic.Dictionary`2[[System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089],[Amazon.IoT.Model.Configuration, AWSSDK.IoT, Version=3.3.0.0, Culture=neutral, PublicKeyToken=71c852f8be1c371d]]",
         "RequiresPassThruGeneration": "true",
         "AutoIterateSettings": {
           "EmitLimit": "MaxResults",
@@ -5085,6 +5445,51 @@
           "AnalysisMessage": "single parameter with recognized suffix",
           "Status": "TargetFromAnalysis",
           "TargetParameterName": "RoleArn"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UpdateStream": {
+      "Verb": "Update",
+      "Noun": "IOTStream",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "StreamId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Stream",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "MaxResults",
+          "Exclusions": null,
+          "Next": "NextMarker",
+          "ServicePageSize": 250,
+          "Start": "Marker",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "StreamId"
         },
         "MemoryStreamParameters": ""
       }

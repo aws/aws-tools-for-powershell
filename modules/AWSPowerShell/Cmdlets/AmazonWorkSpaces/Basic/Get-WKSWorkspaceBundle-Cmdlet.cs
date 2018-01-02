@@ -28,18 +28,11 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Obtains information about the WorkSpace bundles that are available to your account
-    /// in the specified region.
+    /// Describes the available WorkSpace bundles.
     /// 
     ///  
     /// <para>
-    /// You can filter the results with either the <code>BundleIds</code> parameter, or the
-    /// <code>Owner</code> parameter, but not both.
-    /// </para><para>
-    /// This operation supports pagination with the use of the <code>NextToken</code> request
-    /// and response parameters. If more results are available, the <code>NextToken</code>
-    /// response member contains a token that you pass in the next call to this operation
-    /// to retrieve the next set of items.
+    /// You can filter the results using either bundle ID or owner, but not both.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspaceBundle")]
@@ -56,8 +49,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter BundleId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contains the identifiers of the bundles to retrieve. This
-        /// parameter cannot be combined with any other filter parameter.</para>
+        /// <para>The IDs of the bundles. This parameter cannot be combined with any other filter.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -68,8 +60,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
-        /// if this is the first call.</para>
+        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
@@ -82,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Owner
         /// <summary>
         /// <para>
-        /// <para>The owner of the bundles to retrieve. This parameter cannot be combined with any other
-        /// filter parameter.</para><para>This contains one of the following values:</para><ul><li><para>null- Retrieves the bundles that belong to the account making the call.</para></li><li><para><code>AMAZON</code>- Retrieves the bundles that are provided by AWS.</para></li></ul>
+        /// <para>The owner of the bundles. This parameter cannot be combined with any other filter.</para><para>Specify <code>AMAZON</code> to describe the bundles provided by AWS or null to describe
+        /// the bundles that belong to your account.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

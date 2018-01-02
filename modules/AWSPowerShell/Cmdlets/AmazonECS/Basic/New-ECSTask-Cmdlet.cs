@@ -39,7 +39,25 @@ namespace Amazon.PowerShell.Cmdlets.ECS
     /// </para><para>
     /// Alternatively, you can use <a>StartTask</a> to use your own scheduler or place tasks
     /// manually on specific container instances.
-    /// </para>
+    /// </para><para>
+    /// The Amazon ECS API follows an eventual consistency model, due to the distributed nature
+    /// of the system supporting the API. This means that the result of an API command you
+    /// run that affects your Amazon ECS resources might not be immediately visible to all
+    /// subsequent commands you run. You should keep this in mind when you carry out an API
+    /// command that immediately follows a previous API command.
+    /// </para><para>
+    /// To manage eventual consistency, you can do the following:
+    /// </para><ul><li><para>
+    /// Confirm the state of the resource before you run a command to modify it. Run the DescribeTasks
+    /// command using an exponential backoff algorithm to ensure that you allow enough time
+    /// for the previous command to propagate through the system. To do this, run the DescribeTasks
+    /// command repeatedly, starting with a couple of seconds of wait time, and increasing
+    /// gradually up to five minutes of wait time.
+    /// </para></li><li><para>
+    /// Add wait time between subsequent commands, even if the DescribeTasks command returns
+    /// an accurate response. Apply an exponential backoff algorithm starting with a couple
+    /// of seconds of wait time, and increase gradually up to about five minutes of wait time.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "ECSTask", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.ECS.Model.RunTaskResponse")]

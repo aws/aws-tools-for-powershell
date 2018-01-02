@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Modifies the WorkSpace properties, including the running mode and AutoStop time.
+    /// Modifies the specified WorkSpace properties.
     /// </summary>
     [Cmdlet("Edit", "WKSWorkspaceProperty", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
@@ -40,12 +40,33 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     public partial class EditWKSWorkspacePropertyCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
     {
         
+        #region Parameter WorkspaceProperties_ComputeTypeName
+        /// <summary>
+        /// <para>
+        /// <para>The compute type. For more information, see <a href="http://aws.amazon.com/workspaces/details/#Amazon_WorkSpaces_Bundles">Amazon
+        /// WorkSpaces Bundles</a>.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.WorkSpaces.Compute")]
+        public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceProperties_RootVolumeSizeGib
+        /// <summary>
+        /// <para>
+        /// <para>The size of the root volume.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 WorkspaceProperties_RootVolumeSizeGib { get; set; }
+        #endregion
+        
         #region Parameter WorkspaceProperties_RunningMode
         /// <summary>
         /// <para>
-        /// <para>The running mode of the WorkSpace. AlwaysOn WorkSpaces are billed monthly. AutoStop
-        /// WorkSpaces are billed by the hour and stopped when no longer being used in order to
-        /// save on costs.</para>
+        /// <para>The running mode. For more information, see <a href="http://docs.aws.amazon.com/workspaces/latest/adminguide/running-mode.html">Manage
+        /// the WorkSpace Running Mode</a>.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -63,6 +84,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         [System.Management.Automation.Parameter]
         [Alias("WorkspaceProperties_RunningModeAutoStopTimeoutInMinutes")]
         public System.Int32 WorkspaceProperties_RunningModeAutoStopTimeoutInMinute { get; set; }
+        #endregion
+        
+        #region Parameter WorkspaceProperties_UserVolumeSizeGib
+        /// <summary>
+        /// <para>
+        /// <para>The size of the user storage.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 WorkspaceProperties_UserVolumeSizeGib { get; set; }
         #endregion
         
         #region Parameter WorkspaceId
@@ -114,9 +145,14 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             PreExecutionContextLoad(context);
             
             context.WorkspaceId = this.WorkspaceId;
+            context.WorkspaceProperties_ComputeTypeName = this.WorkspaceProperties_ComputeTypeName;
+            if (ParameterWasBound("WorkspaceProperties_RootVolumeSizeGib"))
+                context.WorkspaceProperties_RootVolumeSizeGib = this.WorkspaceProperties_RootVolumeSizeGib;
             context.WorkspaceProperties_RunningMode = this.WorkspaceProperties_RunningMode;
             if (ParameterWasBound("WorkspaceProperties_RunningModeAutoStopTimeoutInMinute"))
                 context.WorkspaceProperties_RunningModeAutoStopTimeoutInMinutes = this.WorkspaceProperties_RunningModeAutoStopTimeoutInMinute;
+            if (ParameterWasBound("WorkspaceProperties_UserVolumeSizeGib"))
+                context.WorkspaceProperties_UserVolumeSizeGib = this.WorkspaceProperties_UserVolumeSizeGib;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -141,6 +177,26 @@ namespace Amazon.PowerShell.Cmdlets.WKS
              // populate WorkspaceProperties
             bool requestWorkspacePropertiesIsNull = true;
             request.WorkspaceProperties = new Amazon.WorkSpaces.Model.WorkspaceProperties();
+            Amazon.WorkSpaces.Compute requestWorkspaceProperties_workspaceProperties_ComputeTypeName = null;
+            if (cmdletContext.WorkspaceProperties_ComputeTypeName != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_ComputeTypeName = cmdletContext.WorkspaceProperties_ComputeTypeName;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_ComputeTypeName != null)
+            {
+                request.WorkspaceProperties.ComputeTypeName = requestWorkspaceProperties_workspaceProperties_ComputeTypeName;
+                requestWorkspacePropertiesIsNull = false;
+            }
+            System.Int32? requestWorkspaceProperties_workspaceProperties_RootVolumeSizeGib = null;
+            if (cmdletContext.WorkspaceProperties_RootVolumeSizeGib != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_RootVolumeSizeGib = cmdletContext.WorkspaceProperties_RootVolumeSizeGib.Value;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_RootVolumeSizeGib != null)
+            {
+                request.WorkspaceProperties.RootVolumeSizeGib = requestWorkspaceProperties_workspaceProperties_RootVolumeSizeGib.Value;
+                requestWorkspacePropertiesIsNull = false;
+            }
             Amazon.WorkSpaces.RunningMode requestWorkspaceProperties_workspaceProperties_RunningMode = null;
             if (cmdletContext.WorkspaceProperties_RunningMode != null)
             {
@@ -159,6 +215,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             if (requestWorkspaceProperties_workspaceProperties_RunningModeAutoStopTimeoutInMinute != null)
             {
                 request.WorkspaceProperties.RunningModeAutoStopTimeoutInMinutes = requestWorkspaceProperties_workspaceProperties_RunningModeAutoStopTimeoutInMinute.Value;
+                requestWorkspacePropertiesIsNull = false;
+            }
+            System.Int32? requestWorkspaceProperties_workspaceProperties_UserVolumeSizeGib = null;
+            if (cmdletContext.WorkspaceProperties_UserVolumeSizeGib != null)
+            {
+                requestWorkspaceProperties_workspaceProperties_UserVolumeSizeGib = cmdletContext.WorkspaceProperties_UserVolumeSizeGib.Value;
+            }
+            if (requestWorkspaceProperties_workspaceProperties_UserVolumeSizeGib != null)
+            {
+                request.WorkspaceProperties.UserVolumeSizeGib = requestWorkspaceProperties_workspaceProperties_UserVolumeSizeGib.Value;
                 requestWorkspacePropertiesIsNull = false;
             }
              // determine if request.WorkspaceProperties should be set to null
@@ -233,8 +299,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         internal partial class CmdletContext : ExecutorContext
         {
             public System.String WorkspaceId { get; set; }
+            public Amazon.WorkSpaces.Compute WorkspaceProperties_ComputeTypeName { get; set; }
+            public System.Int32? WorkspaceProperties_RootVolumeSizeGib { get; set; }
             public Amazon.WorkSpaces.RunningMode WorkspaceProperties_RunningMode { get; set; }
             public System.Int32? WorkspaceProperties_RunningModeAutoStopTimeoutInMinutes { get; set; }
+            public System.Int32? WorkspaceProperties_UserVolumeSizeGib { get; set; }
         }
         
     }

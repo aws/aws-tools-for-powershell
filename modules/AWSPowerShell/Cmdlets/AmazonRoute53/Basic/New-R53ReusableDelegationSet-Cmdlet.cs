@@ -30,15 +30,47 @@ namespace Amazon.PowerShell.Cmdlets.R53
     /// <summary>
     /// Creates a delegation set (a group of four name servers) that can be reused by multiple
     /// hosted zones. If a hosted zoned ID is specified, <code>CreateReusableDelegationSet</code>
-    /// marks the delegation set associated with that zone as reusable
+    /// marks the delegation set associated with that zone as reusable.
     /// 
     ///  <note><para>
-    /// A reusable delegation set can't be associated with a private hosted zone.
+    /// You can't associate a reusable delegation set with a private hosted zone.
     /// </para></note><para>
-    /// For information on how to use a reusable delegation set to configure white label name
+    /// For information about using a reusable delegation set to configure white label name
     /// servers, see <a href="http://docs.aws.amazon.com/Route53/latest/DeveloperGuide/white-label-name-servers.html">Configuring
     /// White Label Name Servers</a>.
-    /// </para>
+    /// </para><para>
+    /// The process for migrating existing hosted zones to use a reusable delegation set is
+    /// comparable to the process for configuring white label name servers. You need to perform
+    /// the following steps:
+    /// </para><ol><li><para>
+    /// Create a reusable delegation set.
+    /// </para></li><li><para>
+    /// Recreate hosted zones, and reduce the TTL to 60 seconds or less.
+    /// </para></li><li><para>
+    /// Recreate resource record sets in the new hosted zones.
+    /// </para></li><li><para>
+    /// Change the registrar's name servers to use the name servers for the new hosted zones.
+    /// </para></li><li><para>
+    /// Monitor traffic for the website or application.
+    /// </para></li><li><para>
+    /// Change TTLs back to their original values.
+    /// </para></li></ol><para>
+    /// If you want to migrate existing hosted zones to use a reusable delegation set, the
+    /// existing hosted zones can't use any of the name servers that are assigned to the reusable
+    /// delegation set. If one or more hosted zones do use one or more name servers that are
+    /// assigned to the reusable delegation set, you can do one of the following:
+    /// </para><ul><li><para>
+    /// For small numbers of hosted zones—up to a few hundred—it's relatively easy to create
+    /// reusable delegation sets until you get one that has four name servers that don't overlap
+    /// with any of the name servers in your hosted zones.
+    /// </para></li><li><para>
+    /// For larger numbers of hosted zones, the easiest solution is to use more than one reusable
+    /// delegation set.
+    /// </para></li><li><para>
+    /// For larger numbers of hosted zones, you can also migrate hosted zones that have overlapping
+    /// name servers to hosted zones that don't have overlapping name servers, then migrate
+    /// the hosted zones again to use the reusable delegation set.
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("New", "R53ReusableDelegationSet", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.Route53.Model.CreateReusableDelegationSetResponse")]

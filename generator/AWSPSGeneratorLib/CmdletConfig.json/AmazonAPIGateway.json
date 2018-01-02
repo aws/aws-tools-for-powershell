@@ -3493,6 +3493,51 @@
         "MemoryStreamParameters": ""
       }
     },
+    "GetTags": {
+      "Verb": "Get",
+      "Noun": "AGResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceArn",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "Limit",
+          "Exclusions": "GetApiKeys;GetUsage",
+          "Next": "Position",
+          "ServicePageSize": -1,
+          "Start": "Position",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": null,
+          "Status": "TargetFromConfig",
+          "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
     "GetUsage": {
       "Verb": "Get",
       "Noun": "AGUsage",
@@ -4223,6 +4268,51 @@
         "MemoryStreamParameters": ""
       }
     },
+    "TagResource": {
+      "Verb": "Add",
+      "Noun": "AGResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resource",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "Limit",
+          "Exclusions": "GetApiKeys;GetUsage",
+          "Next": "Position",
+          "ServicePageSize": -1,
+          "Start": "Position",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ResourceArn"
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
     "TestInvokeAuthorizer": {
       "Verb": "Test",
       "Noun": "AGInvokeAuthorizer",
@@ -4309,6 +4399,51 @@
           "AnalysisMessage": null,
           "Status": "TargetFromConfig",
           "TargetParameterName": ""
+        },
+        "MemoryStreamParameters": ""
+      }
+    },
+    "UntagResource": {
+      "Verb": "Remove",
+      "Noun": "AGResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "PassThru": {
+        "Documentation": null,
+        "Expression": null,
+        "Type": null
+      },
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resource",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "EmitLimit": "Limit",
+          "Exclusions": "GetApiKeys;GetUsage",
+          "Next": "Position",
+          "ServicePageSize": -1,
+          "Start": "Position",
+          "TruncatedFlag": null
+        },
+        "SupportsShouldProcessInspectionResult": {
+          "AnalysisMessage": "single parameter with recognized suffix",
+          "Status": "TargetFromAnalysis",
+          "TargetParameterName": "ResourceArn"
         },
         "MemoryStreamParameters": ""
       }

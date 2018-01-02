@@ -63,8 +63,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputId
         /// <summary>
         /// <para>
-        /// <para>The ID of the input configuration from which to delete the input configuration. You
-        /// can get a list of the input IDs for an application using the <a>DescribeApplication</a>
+        /// <para>The ID of the input configuration from which to delete the input processing configuration.
+        /// You can get a list of the input IDs for an application by using the <a>DescribeApplication</a>
         /// operation.</para>
         /// </para>
         /// </summary>

@@ -30,9 +30,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
     /// <summary>
     /// Creates one or more WorkSpaces.
     /// 
-    ///  <note><para>
+    ///  
+    /// <para>
     /// This operation is asynchronous and returns before the WorkSpaces are created.
-    /// </para></note>
+    /// </para>
     /// </summary>
     [Cmdlet("New", "WKSWorkspace", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.WorkSpaces.Model.CreateWorkspacesResponse")]
@@ -46,7 +47,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter Workspace
         /// <summary>
         /// <para>
-        /// <para>An array of structures that specify the WorkSpaces to create.</para>
+        /// <para>Information about the WorkSpaces to create.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

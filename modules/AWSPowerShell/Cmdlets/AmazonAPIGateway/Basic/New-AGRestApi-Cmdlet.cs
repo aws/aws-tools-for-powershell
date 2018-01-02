@@ -39,6 +39,20 @@ namespace Amazon.PowerShell.Cmdlets.AG
     public partial class NewAGRestApiCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
+        #region Parameter ApiKeySource
+        /// <summary>
+        /// <para>
+        /// <para>The source of the API key for metring requests according to a usage plan. Valid values
+        /// are <ul><li><code>HEADER</code> to read the API key from the <code>X-API-Key</code>
+        /// header of a request. </li><li><code>AUTHORIZER</code> to read the API key from the
+        /// <code>UsageIdentifierKey</code> from a custom authorizer.</li></ul></para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [AWSConstantClassSource("Amazon.APIGateway.ApiKeySourceType")]
+        public Amazon.APIGateway.ApiKeySourceType ApiKeySource { get; set; }
+        #endregion
+        
         #region Parameter BinaryMediaType
         /// <summary>
         /// <para>
@@ -69,6 +83,19 @@ namespace Amazon.PowerShell.Cmdlets.AG
         /// </summary>
         [System.Management.Automation.Parameter]
         public System.String Description { get; set; }
+        #endregion
+        
+        #region Parameter MinimumCompressionSize
+        /// <summary>
+        /// <para>
+        /// <para>A nullable integer used to enable (non-negative between 0 and 10485760 (10M) bytes,
+        /// inclusive) or disable (null) compression on an API. When compression is enabled, compression
+        /// or decompression are not applied on the payload if the payload size is smaller than
+        /// this value. Setting it to zero allows compression for any payload size.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.Int32 MinimumCompressionSize { get; set; }
         #endregion
         
         #region Parameter Name
@@ -133,6 +160,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
+            context.ApiKeySource = this.ApiKeySource;
             if (this.BinaryMediaType != null)
             {
                 context.BinaryMediaTypes = new List<System.String>(this.BinaryMediaType);
@@ -143,6 +171,8 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 context.EndpointConfiguration_Types = new List<System.String>(this.EndpointConfiguration_Type);
             }
+            if (ParameterWasBound("MinimumCompressionSize"))
+                context.MinimumCompressionSize = this.MinimumCompressionSize;
             context.Name = this.Name;
             context.Version = this.Version;
             
@@ -161,6 +191,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             // create request
             var request = new Amazon.APIGateway.Model.CreateRestApiRequest();
             
+            if (cmdletContext.ApiKeySource != null)
+            {
+                request.ApiKeySource = cmdletContext.ApiKeySource;
+            }
             if (cmdletContext.BinaryMediaTypes != null)
             {
                 request.BinaryMediaTypes = cmdletContext.BinaryMediaTypes;
@@ -191,6 +225,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             if (requestEndpointConfigurationIsNull)
             {
                 request.EndpointConfiguration = null;
+            }
+            if (cmdletContext.MinimumCompressionSize != null)
+            {
+                request.MinimumCompressionSize = cmdletContext.MinimumCompressionSize.Value;
             }
             if (cmdletContext.Name != null)
             {
@@ -264,10 +302,12 @@ namespace Amazon.PowerShell.Cmdlets.AG
         
         internal partial class CmdletContext : ExecutorContext
         {
+            public Amazon.APIGateway.ApiKeySourceType ApiKeySource { get; set; }
             public List<System.String> BinaryMediaTypes { get; set; }
             public System.String CloneFrom { get; set; }
             public System.String Description { get; set; }
             public List<System.String> EndpointConfiguration_Types { get; set; }
+            public System.Int32? MinimumCompressionSize { get; set; }
             public System.String Name { get; set; }
             public System.String Version { get; set; }
         }

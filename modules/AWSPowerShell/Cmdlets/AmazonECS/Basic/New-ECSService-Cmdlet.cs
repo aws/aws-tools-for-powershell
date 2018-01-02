@@ -145,6 +145,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Int32 DesiredCount { get; set; }
         #endregion
         
+        #region Parameter HealthCheckGracePeriodSecond
+        /// <summary>
+        /// <para>
+        /// <para>The period of time, in seconds, that the Amazon ECS service scheduler should ignore
+        /// unhealthy Elastic Load Balancing target health checks after a task has first started.
+        /// This is only valid if your service is configured to use a load balancer. If your service's
+        /// tasks take a while to start and respond to ELB health checks, you can specify a health
+        /// check grace period of up to 1,800 seconds during which the ECS service scheduler will
+        /// ignore ELB health check status. This grace period can prevent the ECS service scheduler
+        /// from marking tasks as unhealthy and stopping them before they have time to come up.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("HealthCheckGracePeriodSeconds")]
+        public System.Int32 HealthCheckGracePeriodSecond { get; set; }
+        #endregion
+        
         #region Parameter LaunchType
         /// <summary>
         /// <para>
@@ -349,6 +366,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.DeploymentConfiguration_MinimumHealthyPercent = this.DeploymentConfiguration_MinimumHealthyPercent;
             if (ParameterWasBound("DesiredCount"))
                 context.DesiredCount = this.DesiredCount;
+            if (ParameterWasBound("HealthCheckGracePeriodSecond"))
+                context.HealthCheckGracePeriodSeconds = this.HealthCheckGracePeriodSecond;
             context.LaunchType = this.LaunchType;
             if (this.LoadBalancer != null)
             {
@@ -431,6 +450,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.DesiredCount != null)
             {
                 request.DesiredCount = cmdletContext.DesiredCount.Value;
+            }
+            if (cmdletContext.HealthCheckGracePeriodSeconds != null)
+            {
+                request.HealthCheckGracePeriodSeconds = cmdletContext.HealthCheckGracePeriodSeconds.Value;
             }
             if (cmdletContext.LaunchType != null)
             {
@@ -587,6 +610,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MaximumPercent { get; set; }
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
+            public System.Int32? HealthCheckGracePeriodSeconds { get; set; }
             public Amazon.ECS.LaunchType LaunchType { get; set; }
             public List<Amazon.ECS.Model.LoadBalancer> LoadBalancers { get; set; }
             public Amazon.ECS.AssignPublicIp NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp { get; set; }

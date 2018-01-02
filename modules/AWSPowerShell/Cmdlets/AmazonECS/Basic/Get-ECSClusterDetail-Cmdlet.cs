@@ -54,7 +54,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         #region Parameter Include
         /// <summary>
         /// <para>
-        /// <para>Additional information about your clusters to be separated by launch type, including:</para><ul><li><para>runningEC2TasksCount</para></li><li><para>RunningFargateTasksCount</para></li><li><para>pendingEC2TasksCount</para></li><li><para>pendingFargateTasksCount</para></li><li><para>activeEC2ServiceCount</para></li><li><para>activeFargateServiceCount</para></li><li><para>drainingEC2ServiceCount</para></li><li><para>drainingFargateServiceCount</para></li></ul>
+        /// <para>Additional information about your clusters to be separated by launch type, including:</para><ul><li><para>runningEC2TasksCount</para></li><li><para>runningFargateTasksCount</para></li><li><para>pendingEC2TasksCount</para></li><li><para>pendingFargateTasksCount</para></li><li><para>activeEC2ServiceCount</para></li><li><para>activeFargateServiceCount</para></li><li><para>drainingEC2ServiceCount</para></li><li><para>drainingFargateServiceCount</para></li></ul>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

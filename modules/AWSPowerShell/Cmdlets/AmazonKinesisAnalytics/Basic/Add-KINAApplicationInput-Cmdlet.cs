@@ -93,10 +93,10 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter Input_NamePrefix
         /// <summary>
         /// <para>
-        /// <para>Name prefix to use when creating in-application stream. Suppose you specify a prefix
-        /// "MyInApplicationStream". Amazon Kinesis Analytics will then create one or more (as
-        /// per the <code>InputParallelism</code> count you specified) in-application streams
-        /// with names "MyInApplicationStream_001", "MyInApplicationStream_002" and so on. </para>
+        /// <para>Name prefix to use when creating an in-application stream. Suppose that you specify
+        /// a prefix "MyInApplicationStream." Amazon Kinesis Analytics then creates one or more
+        /// (as per the <code>InputParallelism</code> count you specified) in-application streams
+        /// with names "MyInApplicationStream_001," "MyInApplicationStream_002," and so on. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -186,7 +186,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter KinesisFirehoseInput_ResourceARN
         /// <summary>
         /// <para>
-        /// <para>ARN of the input Firehose delivery stream.</para>
+        /// <para>ARN of the input delivery stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -208,7 +208,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputLambdaProcessor_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role used to access the AWS Lambda function.</para>
+        /// <para>The ARN of the IAM role that is used to access the AWS Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

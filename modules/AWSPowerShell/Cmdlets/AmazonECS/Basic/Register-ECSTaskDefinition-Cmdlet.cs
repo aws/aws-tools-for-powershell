@@ -78,9 +78,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The number of <code>cpu</code> units used by the task. If using the EC2 launch type,
-        /// this field is optional and any value can be used. If you are using the Fargate launch
-        /// type, this field is required and you must use one of the following values, which determines
-        /// your range of valid values for the <code>memory</code> parameter:</para><ul><li><para>256 (.25 vCPU) - Available <code>memory</code> values: 512MB, 1GB, 2GB</para></li><li><para>512 (.5 vCPU) - Available <code>memory</code> values: 1GB, 2GB, 3GB, 4GB</para></li><li><para>1024 (1 vCPU) - Available <code>memory</code> values: 2GB, 3GB, 4GB, 5GB, 6GB, 7GB,
+        /// this field is optional and any value can be used.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
+        /// specifying container-level resources for Windows containers.</para></note><para>If you are using the Fargate launch type, this field is required and you must use
+        /// one of the following values, which determines your range of valid values for the <code>memory</code>
+        /// parameter:</para><ul><li><para>256 (.25 vCPU) - Available <code>memory</code> values: 0.5GB, 1GB, 2GB</para></li><li><para>512 (.5 vCPU) - Available <code>memory</code> values: 1GB, 2GB, 3GB, 4GB</para></li><li><para>1024 (1 vCPU) - Available <code>memory</code> values: 2GB, 3GB, 4GB, 5GB, 6GB, 7GB,
         /// 8GB</para></li><li><para>2048 (2 vCPU) - Available <code>memory</code> values: Between 4GB and 16GB in 1GB
         /// increments</para></li><li><para>4096 (4 vCPU) - Available <code>memory</code> values: Between 8GB and 30GB in 1GB
         /// increments</para></li></ul>
@@ -118,9 +119,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         /// <summary>
         /// <para>
         /// <para>The amount (in MiB) of memory used by the task. If using the EC2 launch type, this
-        /// field is optional and any value can be used. If you are using the Fargate launch type,
-        /// this field is required and you must use one of the following values, which determines
-        /// your range of valid values for the <code>cpu</code> parameter:</para><ul><li><para>512MB, 1GB, 2GB - Available <code>cpu</code> values: 256 (.25 vCPU)</para></li><li><para>1GB, 2GB, 3GB, 4GB - Available <code>cpu</code> values: 512 (.5 vCPU)</para></li><li><para>2GB, 3GB, 4GB, 5GB, 6GB, 7GB, 8GB - Available <code>cpu</code> values: 1024 (1 vCPU)</para></li><li><para>Between 4GB and 16GB in 1GB increments - Available <code>cpu</code> values: 2048 (2
+        /// field is optional and any value can be used.</para><note><para>Task-level CPU and memory parameters are ignored for Windows containers. We recommend
+        /// specifying container-level resources for Windows containers.</para></note><para>If you are using the Fargate launch type, this field is required and you must use
+        /// one of the following values, which determines your range of valid values for the <code>cpu</code>
+        /// parameter:</para><ul><li><para>0.5GB, 1GB, 2GB - Available <code>cpu</code> values: 256 (.25 vCPU)</para></li><li><para>1GB, 2GB, 3GB, 4GB - Available <code>cpu</code> values: 512 (.5 vCPU)</para></li><li><para>2GB, 3GB, 4GB, 5GB, 6GB, 7GB, 8GB - Available <code>cpu</code> values: 1024 (1 vCPU)</para></li><li><para>Between 4GB and 16GB in 1GB increments - Available <code>cpu</code> values: 2048 (2
         /// vCPU)</para></li><li><para>Between 8GB and 30GB in 1GB increments - Available <code>cpu</code> values: 4096 (4
         /// vCPU)</para></li></ul>
         /// </para>

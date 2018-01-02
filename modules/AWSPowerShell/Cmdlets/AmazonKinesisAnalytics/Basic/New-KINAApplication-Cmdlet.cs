@@ -30,8 +30,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// <summary>
     /// Creates an Amazon Kinesis Analytics application. You can configure each application
     /// with one streaming source as input, application code to process the input, and up
-    /// to five streaming destinations where you want Amazon Kinesis Analytics to write the
-    /// output data from your application. For an overview, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html">How
+    /// to three destinations where you want Amazon Kinesis Analytics to write the output
+    /// data from your application. For an overview, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works.html">How
     /// it Works</a>. 
     /// 
     ///  
@@ -46,7 +46,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     /// like SQL streams or pumps.
     /// </para><para>
     /// In the output configuration, you can configure the application to write data from
-    /// in-application streams created in your applications to up to five streaming destinations.
+    /// in-application streams created in your applications to up to three destinations.
     /// </para><para>
     ///  To read data from your source stream or write data to destination streams, Amazon
     /// Kinesis Analytics needs your permissions. You grant these permissions by creating
@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <para>One or more SQL statements that read input data, transform it, and generate output.
         /// For example, you can write a SQL statement that reads data from one in-application
         /// stream, generates a running average of the number of advertisement clicks by vendor,
-        /// and insert resulting rows in another in-application stream using pumps. For more inforamtion
+        /// and insert resulting rows in another in-application stream using pumps. For more information
         /// about the typical pattern, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/how-it-works-app-code.html">Application
         /// Code</a>. </para><para>You can provide such series of SQL statements, where output of one statement can be
         /// used as the input for the next statement. You store intermediate results by creating
@@ -128,7 +128,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// In this configuration, you map this streaming source to an in-application stream that
         /// is created. Your application code can then query the in-application stream like a
         /// table (you can think of it as a constantly updating table).</para><para>For the streaming source, you provide its Amazon Resource Name (ARN) and format of
-        /// data on the stream (for example, JSON, CSV, etc). You also must provide an IAM role
+        /// data on the stream (for example, JSON, CSV, etc.). You also must provide an IAM role
         /// that Amazon Kinesis Analytics can assume to read this stream on your behalf.</para><para>To create the in-application stream, you need to specify a schema to transform your
         /// data into a schematized version used in SQL. In the schema, you provide the necessary
         /// mapping of the data elements in the streaming source to record columns in the in-app
@@ -144,14 +144,14 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>You can configure application output to write data from any of the in-application
-        /// streams to up to five destinations.</para><para>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery
-        /// streams, or both.</para><para>In the configuration, you specify the in-application stream name, the destination
-        /// stream Amazon Resource Name (ARN), and the format to use when writing data. You must
-        /// also provide an IAM role that Amazon Kinesis Analytics can assume to write to the
-        /// destination stream on your behalf.</para><para>In the output configuration, you also provide the output stream Amazon Resource Name
-        /// (ARN) and the format of data in the stream (for example, JSON, CSV). You also must
-        /// provide an IAM role that Amazon Kinesis Analytics can assume to write to this stream
-        /// on your behalf.</para>
+        /// streams to up to three destinations.</para><para>These destinations can be Amazon Kinesis streams, Amazon Kinesis Firehose delivery
+        /// streams, Amazon Lambda destinations, or any combination of the three.</para><para>In the configuration, you specify the in-application stream name, the destination
+        /// stream or Lambda function Amazon Resource Name (ARN), and the format to use when writing
+        /// data. You must also provide an IAM role that Amazon Kinesis Analytics can assume to
+        /// write to the destination stream or Lambda function on your behalf.</para><para>In the output configuration, you also provide the output stream or Lambda function
+        /// ARN. For stream destinations, you provide the format of data in the stream (for example,
+        /// JSON, CSV). You also must provide an IAM role that Amazon Kinesis Analytics can assume
+        /// to write to the stream or Lambda function on your behalf.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

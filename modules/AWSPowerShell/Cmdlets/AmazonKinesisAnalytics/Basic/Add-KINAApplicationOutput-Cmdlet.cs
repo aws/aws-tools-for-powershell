@@ -33,10 +33,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
     ///  
     /// <para>
     /// If you want Amazon Kinesis Analytics to deliver data from an in-application stream
-    /// within your application to an external destination (such as an Amazon Kinesis stream
-    /// or a Firehose delivery stream), you add the relevant configuration to your application
-    /// using this operation. You can configure one or more outputs for your application.
-    /// Each output configuration maps an in-application stream and an external destination.
+    /// within your application to an external destination (such as an Amazon Kinesis stream,
+    /// an Amazon Kinesis Firehose delivery stream, or an Amazon Lambda function), you add
+    /// the relevant configuration to your application using this operation. You can configure
+    /// one or more outputs for your application. Each output configuration maps an in-application
+    /// stream and an external destination.
     /// </para><para>
     ///  You can use one of the output configurations to deliver data from your in-application
     /// error stream to an external destination so that you can analyze the errors. For conceptual
@@ -77,8 +78,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter CurrentApplicationVersionId
         /// <summary>
         /// <para>
-        /// <para>Version of the application to which you want add the output configuration. You can
-        /// use the <a>DescribeApplication</a> operation to get the current application version.
+        /// <para>Version of the application to which you want to add the output configuration. You
+        /// can use the <a>DescribeApplication</a> operation to get the current application version.
         /// If the version specified is not the current version, the <code>ConcurrentModificationException</code>
         /// is returned. </para>
         /// </para>
@@ -131,6 +132,17 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         public System.String KinesisStreamsOutput_ResourceARN { get; set; }
         #endregion
         
+        #region Parameter LambdaOutput_ResourceARN
+        /// <summary>
+        /// <para>
+        /// <para>Amazon Resource Name (ARN) of the destination Lambda function to write to.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Output_LambdaOutput_ResourceARN")]
+        public System.String LambdaOutput_ResourceARN { get; set; }
+        #endregion
+        
         #region Parameter KinesisFirehoseOutput_RoleARN
         /// <summary>
         /// <para>
@@ -153,6 +165,19 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         [System.Management.Automation.Parameter]
         [Alias("Output_KinesisStreamsOutput_RoleARN")]
         public System.String KinesisStreamsOutput_RoleARN { get; set; }
+        #endregion
+        
+        #region Parameter LambdaOutput_RoleARN
+        /// <summary>
+        /// <para>
+        /// <para>ARN of the IAM role that Amazon Kinesis Analytics can assume to write to the destination
+        /// function on your behalf. You need to grant the necessary permissions to this role.
+        /// </para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Output_LambdaOutput_RoleARN")]
+        public System.String LambdaOutput_RoleARN { get; set; }
         #endregion
         
         #region Parameter PassThru
@@ -201,6 +226,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             context.Output_KinesisFirehoseOutput_RoleARN = this.KinesisFirehoseOutput_RoleARN;
             context.Output_KinesisStreamsOutput_ResourceARN = this.KinesisStreamsOutput_ResourceARN;
             context.Output_KinesisStreamsOutput_RoleARN = this.KinesisStreamsOutput_RoleARN;
+            context.Output_LambdaOutput_ResourceARN = this.LambdaOutput_ResourceARN;
+            context.Output_LambdaOutput_RoleARN = this.LambdaOutput_RoleARN;
             context.Output_Name = this.Output_Name;
             
             // allow further manipulation of loaded context prior to processing
@@ -335,6 +362,41 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 request.Output.KinesisStreamsOutput = requestOutput_output_KinesisStreamsOutput;
                 requestOutputIsNull = false;
             }
+            Amazon.KinesisAnalytics.Model.LambdaOutput requestOutput_output_LambdaOutput = null;
+            
+             // populate LambdaOutput
+            bool requestOutput_output_LambdaOutputIsNull = true;
+            requestOutput_output_LambdaOutput = new Amazon.KinesisAnalytics.Model.LambdaOutput();
+            System.String requestOutput_output_LambdaOutput_lambdaOutput_ResourceARN = null;
+            if (cmdletContext.Output_LambdaOutput_ResourceARN != null)
+            {
+                requestOutput_output_LambdaOutput_lambdaOutput_ResourceARN = cmdletContext.Output_LambdaOutput_ResourceARN;
+            }
+            if (requestOutput_output_LambdaOutput_lambdaOutput_ResourceARN != null)
+            {
+                requestOutput_output_LambdaOutput.ResourceARN = requestOutput_output_LambdaOutput_lambdaOutput_ResourceARN;
+                requestOutput_output_LambdaOutputIsNull = false;
+            }
+            System.String requestOutput_output_LambdaOutput_lambdaOutput_RoleARN = null;
+            if (cmdletContext.Output_LambdaOutput_RoleARN != null)
+            {
+                requestOutput_output_LambdaOutput_lambdaOutput_RoleARN = cmdletContext.Output_LambdaOutput_RoleARN;
+            }
+            if (requestOutput_output_LambdaOutput_lambdaOutput_RoleARN != null)
+            {
+                requestOutput_output_LambdaOutput.RoleARN = requestOutput_output_LambdaOutput_lambdaOutput_RoleARN;
+                requestOutput_output_LambdaOutputIsNull = false;
+            }
+             // determine if requestOutput_output_LambdaOutput should be set to null
+            if (requestOutput_output_LambdaOutputIsNull)
+            {
+                requestOutput_output_LambdaOutput = null;
+            }
+            if (requestOutput_output_LambdaOutput != null)
+            {
+                request.Output.LambdaOutput = requestOutput_output_LambdaOutput;
+                requestOutputIsNull = false;
+            }
              // determine if request.Output should be set to null
             if (requestOutputIsNull)
             {
@@ -413,6 +475,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             public System.String Output_KinesisFirehoseOutput_RoleARN { get; set; }
             public System.String Output_KinesisStreamsOutput_ResourceARN { get; set; }
             public System.String Output_KinesisStreamsOutput_RoleARN { get; set; }
+            public System.String Output_LambdaOutput_ResourceARN { get; set; }
+            public System.String Output_LambdaOutput_RoleARN { get; set; }
             public System.String Output_Name { get; set; }
         }
         

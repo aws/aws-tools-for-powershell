@@ -151,6 +151,23 @@ namespace Amazon.PowerShell.Cmdlets.ECS
         public System.Boolean ForceNewDeployment { get; set; }
         #endregion
         
+        #region Parameter HealthCheckGracePeriodSecond
+        /// <summary>
+        /// <para>
+        /// <para>The period of time, in seconds, that the Amazon ECS service scheduler should ignore
+        /// unhealthy Elastic Load Balancing target health checks after a task has first started.
+        /// This is only valid if your service is configured to use a load balancer. If your service's
+        /// tasks take a while to start and respond to ELB health checks, you can specify a health
+        /// check grace period of up to 1,800 seconds during which the ECS service scheduler will
+        /// ignore ELB health check status. This grace period can prevent the ECS service scheduler
+        /// from marking tasks as unhealthy and stopping them before they have time to come up.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("HealthCheckGracePeriodSeconds")]
+        public System.Int32 HealthCheckGracePeriodSecond { get; set; }
+        #endregion
+        
         #region Parameter DeploymentConfiguration_MaximumPercent
         /// <summary>
         /// <para>
@@ -275,6 +292,8 @@ namespace Amazon.PowerShell.Cmdlets.ECS
                 context.DesiredCount = this.DesiredCount;
             if (ParameterWasBound("ForceNewDeployment"))
                 context.ForceNewDeployment = this.ForceNewDeployment;
+            if (ParameterWasBound("HealthCheckGracePeriodSecond"))
+                context.HealthCheckGracePeriodSeconds = this.HealthCheckGracePeriodSecond;
             context.NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp = this.AwsvpcConfiguration_AssignPublicIp;
             if (this.AwsvpcConfiguration_SecurityGroup != null)
             {
@@ -343,6 +362,10 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             if (cmdletContext.ForceNewDeployment != null)
             {
                 request.ForceNewDeployment = cmdletContext.ForceNewDeployment.Value;
+            }
+            if (cmdletContext.HealthCheckGracePeriodSeconds != null)
+            {
+                request.HealthCheckGracePeriodSeconds = cmdletContext.HealthCheckGracePeriodSeconds.Value;
             }
             
              // populate NetworkConfiguration
@@ -479,6 +502,7 @@ namespace Amazon.PowerShell.Cmdlets.ECS
             public System.Int32? DeploymentConfiguration_MinimumHealthyPercent { get; set; }
             public System.Int32? DesiredCount { get; set; }
             public System.Boolean? ForceNewDeployment { get; set; }
+            public System.Int32? HealthCheckGracePeriodSeconds { get; set; }
             public Amazon.ECS.AssignPublicIp NetworkConfiguration_AwsvpcConfiguration_AssignPublicIp { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_SecurityGroups { get; set; }
             public List<System.String> NetworkConfiguration_AwsvpcConfiguration_Subnets { get; set; }

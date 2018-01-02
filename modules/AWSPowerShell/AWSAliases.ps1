@@ -147,6 +147,7 @@ Set-Alias -Name AG-GetSdkType -Value Get-AGSdkType
 Set-Alias -Name AG-GetSdkTypes -Value Get-AGSdkTypeList
 Set-Alias -Name AG-GetStage -Value Get-AGStage
 Set-Alias -Name AG-GetStages -Value Get-AGStageList
+Set-Alias -Name AG-GetTags -Value Get-AGResourceTag
 Set-Alias -Name AG-GetUsage -Value Get-AGUsage
 Set-Alias -Name AG-GetUsagePlan -Value Get-AGUsagePlan
 Set-Alias -Name AG-GetUsagePlanKey -Value Get-AGUsagePlanKey
@@ -169,8 +170,10 @@ Set-Alias -Name Put-AGMethodResponse -Value Write-AGMethodResponse
 Set-Alias -Name AG-PutMethodResponse -Value Write-AGMethodResponse
 Set-Alias -Name Put-AGRestApi -Value Write-AGRestApi
 Set-Alias -Name AG-PutRestApi -Value Write-AGRestApi
+Set-Alias -Name AG-TagResource -Value Add-AGResourceTag
 Set-Alias -Name AG-TestInvokeAuthorizer -Value Test-AGInvokeAuthorizer
 Set-Alias -Name AG-TestInvokeMethod -Value Test-AGInvokeMethod
+Set-Alias -Name AG-UntagResource -Value Remove-AGResourceTag
 Set-Alias -Name AG-UpdateAccount -Value Update-AGAccount
 Set-Alias -Name AG-UpdateApiKey -Value Update-AGApiKey
 Set-Alias -Name AG-UpdateAuthorizer -Value Update-AGAuthorizer
@@ -3113,11 +3116,13 @@ Set-Alias -Name IOT-CreateCertificateFromCsr -Value New-IOTCertificateFromCsr
 Set-Alias -Name IOT-CreateJob -Value New-IOTJob
 Set-Alias -Name Create-IOTKeysAndCertificate -Value New-IOTKeysAndCertificate
 Set-Alias -Name IOT-CreateKeysAndCertificate -Value New-IOTKeysAndCertificate
+Set-Alias -Name IOT-CreateOTAUpdate -Value New-IOTOTAUpdate
 Set-Alias -Name Create-IOTPolicy -Value New-IOTPolicy
 Set-Alias -Name IOT-CreatePolicy -Value New-IOTPolicy
 Set-Alias -Name Create-IOTPolicyVersion -Value New-IOTPolicyVersion
 Set-Alias -Name IOT-CreatePolicyVersion -Value New-IOTPolicyVersion
 Set-Alias -Name IOT-CreateRoleAlias -Value New-IOTRoleAlias
+Set-Alias -Name IOT-CreateStream -Value New-IOTStream
 Set-Alias -Name Create-IOTThing -Value New-IOTThing
 Set-Alias -Name IOT-CreateThing -Value New-IOTThing
 Set-Alias -Name IOT-CreateThingGroup -Value New-IOTThingGroup
@@ -3130,6 +3135,7 @@ Set-Alias -Name Delete-IOTCACertificate -Value Remove-IOTCACertificate
 Set-Alias -Name IOT-DeleteCACertificate -Value Remove-IOTCACertificate
 Set-Alias -Name Delete-IOTCertificate -Value Remove-IOTCertificate
 Set-Alias -Name IOT-DeleteCertificate -Value Remove-IOTCertificate
+Set-Alias -Name IOT-DeleteOTAUpdate -Value Remove-IOTOTAUpdate
 Set-Alias -Name Delete-IOTPolicy -Value Remove-IOTPolicy
 Set-Alias -Name IOT-DeletePolicy -Value Remove-IOTPolicy
 Set-Alias -Name Delete-IOTPolicyVersion -Value Remove-IOTPolicyVersion
@@ -3137,6 +3143,7 @@ Set-Alias -Name IOT-DeletePolicyVersion -Value Remove-IOTPolicyVersion
 Set-Alias -Name Delete-IOTRegistrationCode -Value Remove-IOTRegistrationCode
 Set-Alias -Name IOT-DeleteRegistrationCode -Value Remove-IOTRegistrationCode
 Set-Alias -Name IOT-DeleteRoleAlias -Value Remove-IOTRoleAlias
+Set-Alias -Name IOT-DeleteStream -Value Remove-IOTStream
 Set-Alias -Name Delete-IOTThing -Value Remove-IOTThing
 Set-Alias -Name IOT-DeleteThing -Value Remove-IOTThing
 Set-Alias -Name IOT-DeleteThingGroup -Value Remove-IOTThingGroup
@@ -3159,6 +3166,7 @@ Set-Alias -Name IOT-DescribeIndex -Value Get-IOTIndex
 Set-Alias -Name IOT-DescribeJob -Value Get-IOTJob
 Set-Alias -Name IOT-DescribeJobExecution -Value Get-IOTJobExecution
 Set-Alias -Name IOT-DescribeRoleAlias -Value Get-IOTRoleAlias
+Set-Alias -Name IOT-DescribeStream -Value Get-IOTStream
 Set-Alias -Name Describe-IOTThing -Value Get-IOTThing
 Set-Alias -Name IOT-DescribeThing -Value Get-IOTThing
 Set-Alias -Name IOT-DescribeThingGroup -Value Get-IOTThingGroup
@@ -3174,6 +3182,7 @@ Set-Alias -Name IOT-GetEffectivePolicies -Value Get-IOTEffectivePolicy
 Set-Alias -Name IOT-GetIndexingConfiguration -Value Get-IOTIndexingConfiguration
 Set-Alias -Name IOT-GetJobDocument -Value Get-IOTJobDocument
 Set-Alias -Name IOT-GetLoggingOptions -Value Get-IOTLoggingOption
+Set-Alias -Name IOT-GetOTAUpdate -Value Get-IOTOTAUpdate
 Set-Alias -Name IOT-GetPolicy -Value Get-IOTPolicy
 Set-Alias -Name IOT-GetPolicyVersion -Value Get-IOTPolicyVersion
 Set-Alias -Name IOT-GetRegistrationCode -Value Get-IOTRegistrationCode
@@ -3188,6 +3197,7 @@ Set-Alias -Name IOT-ListIndices -Value Get-IOTIndicesList
 Set-Alias -Name IOT-ListJobExecutionsForJob -Value Get-IOTJobExecutionsForJobList
 Set-Alias -Name IOT-ListJobExecutionsForThing -Value Get-IOTJobExecutionsForThingList
 Set-Alias -Name IOT-ListJobs -Value Get-IOTJobsList
+Set-Alias -Name IOT-ListOTAUpdates -Value Get-IOTOTAUpdateList
 Set-Alias -Name IOT-ListOutgoingCertificates -Value Get-IOTOutgoingCertificate
 Set-Alias -Name IOT-ListPolicies -Value Get-IOTPolicyList
 Set-Alias -Name IOT-ListPolicyPrincipals -Value Get-IOTPolicyPrincipalsList
@@ -3195,6 +3205,7 @@ Set-Alias -Name IOT-ListPolicyVersions -Value Get-IOTPolicyVersionList
 Set-Alias -Name IOT-ListPrincipalPolicies -Value Get-IOTPrincipalPolicyList
 Set-Alias -Name IOT-ListPrincipalThings -Value Get-IOTPrincipalThingList
 Set-Alias -Name IOT-ListRoleAliases -Value Get-IOTRoleAliasesList
+Set-Alias -Name IOT-ListStreams -Value Get-IOTStreamList
 Set-Alias -Name IOT-ListTargetsForPolicy -Value Get-IOTTargetsForPolicyList
 Set-Alias -Name IOT-ListThingGroups -Value Get-IOTThingGroupsList
 Set-Alias -Name IOT-ListThingGroupsForThing -Value Get-IOTThingGroupsForThingList
@@ -3229,6 +3240,7 @@ Set-Alias -Name IOT-UpdateCertificate -Value Update-IOTCertificate
 Set-Alias -Name IOT-UpdateEventConfigurations -Value Update-IOTEventConfiguration
 Set-Alias -Name IOT-UpdateIndexingConfiguration -Value Update-IOTIndexingConfiguration
 Set-Alias -Name IOT-UpdateRoleAlias -Value Update-IOTRoleAlias
+Set-Alias -Name IOT-UpdateStream -Value Update-IOTStream
 Set-Alias -Name IOT-UpdateThing -Value Update-IOTThing
 Set-Alias -Name IOT-UpdateThingGroup -Value Update-IOTThingGroup
 Set-Alias -Name IOT-UpdateThingGroupsForThing -Value Update-IOTThingGroupsForThing

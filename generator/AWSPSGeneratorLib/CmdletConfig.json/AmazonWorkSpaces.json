@@ -436,7 +436,7 @@
           "TruncatedFlag": null
         },
         "SupportsShouldProcessInspectionResult": {
-          "AnalysisMessage": "single parameter with recognized suffix",
+          "AnalysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
           "Status": "TargetFromAnalysis",
           "TargetParameterName": "WorkspaceId"
         },

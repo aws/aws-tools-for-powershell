@@ -22,64 +22,63 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Lists OTA updates.
     /// </summary>
-    [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTOTAUpdateList")]
+    [OutputType("Amazon.IoT.Model.OTAUpdateSummary")]
+    [AWSCmdlet("Calls the AWS IoT ListOTAUpdates API operation.", Operation = new[] {"ListOTAUpdates"})]
+    [AWSCmdletOutput("Amazon.IoT.Model.OTAUpdateSummary",
+        "This cmdlet returns a collection of OTAUpdateSummary objects.",
+        "The service call response (type Amazon.IoT.Model.ListOTAUpdatesResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
+        "Additionally, the following properties are added as Note properties to the service response type instance for the cmdlet entry in the $AWSHistory stack: NextToken (type System.String)"
     )]
-    public partial class RemoveWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetIOTOTAUpdateListCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter OtaUpdateStatus
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>The OTA update job status.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
+        [AWSConstantClassSource("Amazon.IoT.OTAUpdateStatus")]
+        public Amazon.IoT.OTAUpdateStatus OtaUpdateStatus { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter MaxResult
         /// <summary>
         /// <para>
-        /// <para>The tag keys.</para>
+        /// <para>The maximum number of results to return at one time.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("MaxItems","MaxResults")]
+        public int MaxResult { get; set; }
         #endregion
         
-        #region Parameter Force
+        #region Parameter NextToken
         /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
+        /// <para>
+        /// <para>A token used to retreive the next set of results.</para>
+        /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        public System.String NextToken { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSTag (DeleteTags)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -90,11 +89,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
-            if (this.TagKey != null)
-            {
-                context.TagKeys = new List<System.String>(this.TagKey);
-            }
+            if (ParameterWasBound("MaxResult"))
+                context.MaxResults = this.MaxResult;
+            context.NextToken = this.NextToken;
+            context.OtaUpdateStatus = this.OtaUpdateStatus;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +107,19 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.DeleteTagsRequest();
+            var request = new Amazon.IoT.Model.ListOTAUpdatesRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.MaxResults != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.MaxResults.Value);
             }
-            if (cmdletContext.TagKeys != null)
+            if (cmdletContext.NextToken != null)
             {
-                request.TagKeys = cmdletContext.TagKeys;
+                request.NextToken = cmdletContext.NextToken;
+            }
+            if (cmdletContext.OtaUpdateStatus != null)
+            {
+                request.OtaUpdateStatus = cmdletContext.OtaUpdateStatus;
             }
             
             CmdletOutput output;
@@ -128,7 +130,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.OtaUpdates;
+                notes = new Dictionary<string, object>();
+                notes["NextToken"] = response.NextToken;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +157,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DeleteTagsRequest request)
+        private Amazon.IoT.Model.ListOTAUpdatesResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.ListOTAUpdatesRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "ListOTAUpdates");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.ListOTAUpdates(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
+                var task = client.ListOTAUpdatesAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,8 +187,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public List<System.String> TagKeys { get; set; }
+            public int? MaxResults { get; set; }
+            public System.String NextToken { get; set; }
+            public Amazon.IoT.OTAUpdateStatus OtaUpdateStatus { get; set; }
         }
         
     }

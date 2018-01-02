@@ -69,8 +69,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputId
         /// <summary>
         /// <para>
-        /// <para>The ID of the input configuration to which to add the input configuration. You can
-        /// get a list of the input IDs for an application using the <a>DescribeApplication</a>
+        /// <para>The ID of the input configuration to add the input processing configuration to. You
+        /// can get a list of the input IDs for an application using the <a>DescribeApplication</a>
         /// operation.</para>
         /// </para>
         /// </summary>
@@ -93,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputLambdaProcessor_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role used to access the AWS Lambda function.</para>
+        /// <para>The ARN of the IAM role that is used to access the AWS Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

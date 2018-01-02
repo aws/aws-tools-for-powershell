@@ -22,43 +22,62 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Updates an existing stream. The stream version will be incremented by one.
     /// </summary>
-    [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Update", "IOTStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
+    [OutputType("Amazon.IoT.Model.UpdateStreamResponse")]
+    [AWSCmdlet("Calls the AWS IoT UpdateStream API operation.", Operation = new[] {"UpdateStream"})]
+    [AWSCmdletOutput("Amazon.IoT.Model.UpdateStreamResponse",
+        "This cmdlet returns a Amazon.IoT.Model.UpdateStreamResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class UpdateIOTStreamCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter Description
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>The description of the stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
+        public System.String Description { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter File
         /// <summary>
         /// <para>
-        /// <para>The tag keys.</para>
+        /// <para>The files associated with the stream.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
+        [Alias("Files")]
+        public Amazon.IoT.Model.StreamFile[] File { get; set; }
+        #endregion
+        
+        #region Parameter RoleArn
+        /// <summary>
+        /// <para>
+        /// <para>An IAM role that allows the IoT service principal assumes to access your S3 files.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        public System.String RoleArn { get; set; }
+        #endregion
+        
+        #region Parameter StreamId
+        /// <summary>
+        /// <para>
+        /// <para>The stream ID.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String StreamId { get; set; }
         #endregion
         
         #region Parameter Force
@@ -75,8 +94,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSTag (DeleteTags)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Update-IOTStream (UpdateStream)"))
             {
                 return;
             }
@@ -90,11 +109,13 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
-            if (this.TagKey != null)
+            context.Description = this.Description;
+            if (this.File != null)
             {
-                context.TagKeys = new List<System.String>(this.TagKey);
+                context.Files = new List<Amazon.IoT.Model.StreamFile>(this.File);
             }
+            context.RoleArn = this.RoleArn;
+            context.StreamId = this.StreamId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +130,23 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.DeleteTagsRequest();
+            var request = new Amazon.IoT.Model.UpdateStreamRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.Description != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.Description = cmdletContext.Description;
             }
-            if (cmdletContext.TagKeys != null)
+            if (cmdletContext.Files != null)
             {
-                request.TagKeys = cmdletContext.TagKeys;
+                request.Files = cmdletContext.Files;
+            }
+            if (cmdletContext.RoleArn != null)
+            {
+                request.RoleArn = cmdletContext.RoleArn;
+            }
+            if (cmdletContext.StreamId != null)
+            {
+                request.StreamId = cmdletContext.StreamId;
             }
             
             CmdletOutput output;
@@ -128,7 +157,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +182,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DeleteTagsRequest request)
+        private Amazon.IoT.Model.UpdateStreamResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.UpdateStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "UpdateStream");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.UpdateStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
+                var task = client.UpdateStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,8 +212,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public List<System.String> TagKeys { get; set; }
+            public System.String Description { get; set; }
+            public List<Amazon.IoT.Model.StreamFile> Files { get; set; }
+            public System.String RoleArn { get; set; }
+            public System.String StreamId { get; set; }
         }
         
     }

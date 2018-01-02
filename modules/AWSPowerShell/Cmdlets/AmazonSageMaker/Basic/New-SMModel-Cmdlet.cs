@@ -42,9 +42,8 @@ namespace Amazon.PowerShell.Cmdlets.SM
     /// Amazon SageMaker then deploys all of the containers that you defined for the model
     /// in the hosting environment. 
     /// </para><para>
-    /// In the <code>CreateModel</code> request, you must define at least one container with
-    /// the <code>PrimaryContainer</code> parameter. You can optionally specify additional
-    /// containers with the <code>SupplementalContainers</code> parameter. 
+    /// In the <code>CreateModel</code> request, you must define a container with the <code>PrimaryContainer</code>
+    /// parameter. 
     /// </para><para>
     /// In the request, you also provide an IAM role that Amazon SageMaker can assume to access
     /// model artifacts and docker image for deployment on ML compute hosting instances. In
@@ -98,17 +97,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
         public Amazon.SageMaker.Model.ContainerDefinition PrimaryContainer { get; set; }
         #endregion
         
-        #region Parameter SupplementalContainer
-        /// <summary>
-        /// <para>
-        /// <para>The additional optional containers to deploy.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("SupplementalContainers")]
-        public Amazon.SageMaker.Model.ContainerDefinition[] SupplementalContainer { get; set; }
-        #endregion
-        
         #region Parameter Tag
         /// <summary>
         /// <para>
@@ -154,10 +142,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             context.ExecutionRoleArn = this.ExecutionRoleArn;
             context.ModelName = this.ModelName;
             context.PrimaryContainer = this.PrimaryContainer;
-            if (this.SupplementalContainer != null)
-            {
-                context.SupplementalContainers = new List<Amazon.SageMaker.Model.ContainerDefinition>(this.SupplementalContainer);
-            }
             if (this.Tag != null)
             {
                 context.Tags = new List<Amazon.SageMaker.Model.Tag>(this.Tag);
@@ -189,10 +173,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             if (cmdletContext.PrimaryContainer != null)
             {
                 request.PrimaryContainer = cmdletContext.PrimaryContainer;
-            }
-            if (cmdletContext.SupplementalContainers != null)
-            {
-                request.SupplementalContainers = cmdletContext.SupplementalContainers;
             }
             if (cmdletContext.Tags != null)
             {
@@ -265,7 +245,6 @@ namespace Amazon.PowerShell.Cmdlets.SM
             public System.String ExecutionRoleArn { get; set; }
             public System.String ModelName { get; set; }
             public Amazon.SageMaker.Model.ContainerDefinition PrimaryContainer { get; set; }
-            public List<Amazon.SageMaker.Model.ContainerDefinition> SupplementalContainers { get; set; }
             public List<Amazon.SageMaker.Model.Tag> Tags { get; set; }
         }
         

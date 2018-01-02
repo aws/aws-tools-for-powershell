@@ -22,64 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Gets information about a stream.
     /// </summary>
-    [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTStream")]
+    [OutputType("Amazon.IoT.Model.StreamInfo")]
+    [AWSCmdlet("Calls the AWS IoT DescribeStream API operation.", Operation = new[] {"DescribeStream"})]
+    [AWSCmdletOutput("Amazon.IoT.Model.StreamInfo",
+        "This cmdlet returns a StreamInfo object.",
+        "The service call response (type Amazon.IoT.Model.DescribeStreamResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetIOTStreamCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter StreamId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>The stream ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The tag keys.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String StreamId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSTag (DeleteTags)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -90,11 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
-            if (this.TagKey != null)
-            {
-                context.TagKeys = new List<System.String>(this.TagKey);
-            }
+            context.StreamId = this.StreamId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.DeleteTagsRequest();
+            var request = new Amazon.IoT.Model.DescribeStreamRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.StreamId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.TagKeys != null)
-            {
-                request.TagKeys = cmdletContext.TagKeys;
+                request.StreamId = cmdletContext.StreamId;
             }
             
             CmdletOutput output;
@@ -128,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.StreamInfo;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DeleteTagsRequest request)
+        private Amazon.IoT.Model.DescribeStreamResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DescribeStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DescribeStream");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.DescribeStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
+                var task = client.DescribeStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,8 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public List<System.String> TagKeys { get; set; }
+            public System.String StreamId { get; set; }
         }
         
     }

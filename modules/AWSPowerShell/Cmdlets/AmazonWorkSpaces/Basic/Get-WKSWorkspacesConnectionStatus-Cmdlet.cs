@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes the connection status of a specified WorkSpace.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the connection status of the specified WorkSpaces.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspacesConnectionStatus")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspaceConnectionStatus")]
@@ -44,7 +44,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter WorkspaceId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contain the identifiers of the WorkSpaces.</para>
+        /// <para>The identifiers of the WorkSpaces.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -55,7 +55,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The next token of the request.</para>
+        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

@@ -22,38 +22,39 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Removes Tags from a given resource.
     /// </summary>
-    [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "AGResourceTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
+    [AWSCmdlet("Calls the Amazon API Gateway UntagResource API operation.", Operation = new[] {"UntagResource"})]
     [AWSCmdletOutput("None",
         "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "The service response (type Amazon.APIGateway.Model.UntagResourceResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class RemoveAGResourceTagCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>[Required] The ARN of a resource that can be tagged. At present, <a>Stage</a> is the
+        /// only taggable resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
+        public System.String ResourceArn { get; set; }
         #endregion
         
         #region Parameter TagKey
         /// <summary>
         /// <para>
-        /// <para>The tag keys.</para>
+        /// <para>The Tag keys to delete.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -75,8 +76,8 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSTag (DeleteTags)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceArn", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-AGResourceTag (UntagResource)"))
             {
                 return;
             }
@@ -90,7 +91,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
+            context.ResourceArn = this.ResourceArn;
             if (this.TagKey != null)
             {
                 context.TagKeys = new List<System.String>(this.TagKey);
@@ -109,11 +110,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.DeleteTagsRequest();
+            var request = new Amazon.APIGateway.Model.UntagResourceRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.ResourceArn != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             if (cmdletContext.TagKeys != null)
             {
@@ -153,16 +154,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DeleteTagsRequest request)
+        private Amazon.APIGateway.Model.UntagResourceResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.UntagResourceRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "UntagResource");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.UntagResource(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
+                var task = client.UntagResourceAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,7 +184,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
+            public System.String ResourceArn { get; set; }
             public List<System.String> TagKeys { get; set; }
         }
         

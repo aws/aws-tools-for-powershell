@@ -22,64 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Gets an OTA update.
     /// </summary>
-    [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "IOTOTAUpdate")]
+    [OutputType("Amazon.IoT.Model.OTAUpdateInfo")]
+    [AWSCmdlet("Calls the AWS IoT GetOTAUpdate API operation.", Operation = new[] {"GetOTAUpdate"})]
+    [AWSCmdletOutput("Amazon.IoT.Model.OTAUpdateInfo",
+        "This cmdlet returns a OTAUpdateInfo object.",
+        "The service call response (type Amazon.IoT.Model.GetOTAUpdateResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetIOTOTAUpdateCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter OtaUpdateId
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>The OTA update ID.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
-        #endregion
-        
-        #region Parameter TagKey
-        /// <summary>
-        /// <para>
-        /// <para>The tag keys.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String OtaUpdateId { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSTag (DeleteTags)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -90,11 +63,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
-            if (this.TagKey != null)
-            {
-                context.TagKeys = new List<System.String>(this.TagKey);
-            }
+            context.OtaUpdateId = this.OtaUpdateId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +78,11 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.DeleteTagsRequest();
+            var request = new Amazon.IoT.Model.GetOTAUpdateRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.OtaUpdateId != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
-            }
-            if (cmdletContext.TagKeys != null)
-            {
-                request.TagKeys = cmdletContext.TagKeys;
+                request.OtaUpdateId = cmdletContext.OtaUpdateId;
             }
             
             CmdletOutput output;
@@ -128,7 +93,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.OtaUpdateInfo;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +118,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DeleteTagsRequest request)
+        private Amazon.IoT.Model.GetOTAUpdateResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.GetOTAUpdateRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "GetOTAUpdate");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.GetOTAUpdate(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
+                var task = client.GetOTAUpdateAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,8 +148,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public List<System.String> TagKeys { get; set; }
+            public System.String OtaUpdateId { get; set; }
         }
         
     }

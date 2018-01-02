@@ -29,9 +29,9 @@ namespace Amazon.PowerShell.Cmdlets.KINA
 {
     /// <summary>
     /// Infers a schema by evaluating sample records on the specified streaming source (Amazon
-    /// Kinesis stream or Amazon Kinesis Firehose delivery stream). In the response, the operation
-    /// returns the inferred schema and also the sample records that the operation used to
-    /// infer the schema.
+    /// Kinesis stream or Amazon Kinesis Firehose delivery stream) or S3 object. In the response,
+    /// the operation returns the inferred schema and also the sample records that the operation
+    /// used to infer the schema.
     /// 
     ///  
     /// <para>
@@ -57,7 +57,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter S3Configuration_BucketARN
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>ARN of the S3 bucket that contains the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -67,7 +67,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter S3Configuration_FileKey
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>The name of the object that contains the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -78,7 +78,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         /// <summary>
         /// <para>
         /// <para>The starting position on the stream.</para><ul><li><para><code>NOW</code> - Start reading just after the most recent record in the stream,
-        /// start at the request timestamp that the customer issued.</para></li><li><para><code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream,
+        /// start at the request time stamp that the customer issued.</para></li><li><para><code>TRIM_HORIZON</code> - Start reading at the last untrimmed record in the stream,
         /// which is the oldest record available in the stream. This option is not available for
         /// an Amazon Kinesis Firehose delivery stream.</para></li><li><para><code>LAST_STOPPED_POINT</code> - Resume reading from where the application last
         /// stopped reading.</para></li></ul>
@@ -114,7 +114,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter InputLambdaProcessor_RoleARN
         /// <summary>
         /// <para>
-        /// <para>The ARN of the IAM role used to access the AWS Lambda function.</para>
+        /// <para>The ARN of the IAM role that is used to access the AWS Lambda function.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -136,7 +136,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         #region Parameter S3Configuration_RoleARN
         /// <summary>
         /// <para>
-        /// Documentation for this parameter is not currently available; please refer to the service API documentation.
+        /// <para>IAM ARN of the role used to access the data.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]

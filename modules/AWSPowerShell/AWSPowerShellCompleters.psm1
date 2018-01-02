@@ -217,6 +217,13 @@ $AG_Completers = {
             break
         }
         
+        # Amazon.APIGateway.ApiKeySourceType
+        "New-AGRestApi/ApiKeySource"
+        {
+            $v = "AUTHORIZER","HEADER"
+            break
+        }
+        
         # Amazon.APIGateway.AuthorizerType
         "New-AGAuthorizer/Type"
         {
@@ -312,6 +319,7 @@ $AG_Completers = {
 }
 
 $AG_map = @{
+    "ApiKeySource"=@("New-AGRestApi")
     "CacheClusterSize"=@("New-AGDeployment","New-AGStage")
     "ConnectionType"=@("Write-AGIntegration")
     "ContentHandling"=@("Write-AGIntegration","Write-AGIntegrationResponse")
@@ -2066,7 +2074,7 @@ $CFG_Completers = {
             ($_ -eq "Get-CFGResourceConfigHistory/ResourceType")
         }
         {
-            $v = "AWS::ACM::Certificate","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::CloudFormation::Stack","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory"
+            $v = "AWS::ACM::Certificate","AWS::AutoScaling::AutoScalingGroup","AWS::AutoScaling::LaunchConfiguration","AWS::AutoScaling::ScalingPolicy","AWS::AutoScaling::ScheduledAction","AWS::CloudFormation::Stack","AWS::CloudFront::Distribution","AWS::CloudFront::StreamingDistribution","AWS::CloudTrail::Trail","AWS::CloudWatch::Alarm","AWS::CodeBuild::Project","AWS::DynamoDB::Table","AWS::EC2::CustomerGateway","AWS::EC2::EIP","AWS::EC2::Host","AWS::EC2::Instance","AWS::EC2::InternetGateway","AWS::EC2::NetworkAcl","AWS::EC2::NetworkInterface","AWS::EC2::RouteTable","AWS::EC2::SecurityGroup","AWS::EC2::Subnet","AWS::EC2::Volume","AWS::EC2::VPC","AWS::EC2::VPNConnection","AWS::EC2::VPNGateway","AWS::ElasticLoadBalancingV2::LoadBalancer","AWS::IAM::Group","AWS::IAM::Policy","AWS::IAM::Role","AWS::IAM::User","AWS::RDS::DBInstance","AWS::RDS::DBSecurityGroup","AWS::RDS::DBSnapshot","AWS::RDS::DBSubnetGroup","AWS::RDS::EventSubscription","AWS::Redshift::Cluster","AWS::Redshift::ClusterParameterGroup","AWS::Redshift::ClusterSecurityGroup","AWS::Redshift::ClusterSnapshot","AWS::Redshift::ClusterSubnetGroup","AWS::Redshift::EventSubscription","AWS::S3::Bucket","AWS::SSM::ManagedInstanceInventory","AWS::WAF::RateBasedRule","AWS::WAF::Rule","AWS::WAF::WebACL","AWS::WAFRegional::RateBasedRule","AWS::WAFRegional::Rule","AWS::WAFRegional::WebACL"
             break
         }
         
@@ -3906,6 +3914,13 @@ $IOT_Completers = {
             break
         }
         
+        # Amazon.IoT.OTAUpdateStatus
+        "Get-IOTOTAUpdateList/OtaUpdateStatus"
+        {
+            $v = "CREATE_COMPLETE","CREATE_FAILED","CREATE_IN_PROGRESS","CREATE_PENDING"
+            break
+        }
+        
         # Amazon.IoT.ReportType
         "Get-IOTThingRegistrationTaskReportsList/ReportType"
         {
@@ -3923,7 +3938,8 @@ $IOT_Completers = {
         # Amazon.IoT.TargetSelection
         {
             ($_ -eq "Get-IOTJobsList/TargetSelection") -Or
-            ($_ -eq "New-IOTJob/TargetSelection")
+            ($_ -eq "New-IOTJob/TargetSelection") -Or
+            ($_ -eq "New-IOTOTAUpdate/TargetSelection")
         }
         {
             $v = "CONTINUOUS","SNAPSHOT"
@@ -3951,9 +3967,10 @@ $IOT_map = @{
     "LogTarget_TargetType"=@("Set-IOTV2LoggingLevel")
     "NewAutoRegistrationStatus"=@("Update-IOTCACertificate")
     "NewStatus"=@("Update-IOTCACertificate","Update-IOTCertificate")
+    "OtaUpdateStatus"=@("Get-IOTOTAUpdateList")
     "ReportType"=@("Get-IOTThingRegistrationTaskReportsList")
     "Status"=@("Get-IOTAuthorizersList","Get-IOTJobExecutionsForJobList","Get-IOTJobExecutionsForThingList","Get-IOTJobsList","Get-IOTThingRegistrationTasksList","New-IOTAuthorizer","Register-IOTCertificate","Update-IOTAuthorizer")
-    "TargetSelection"=@("Get-IOTJobsList","New-IOTJob")
+    "TargetSelection"=@("Get-IOTJobsList","New-IOTJob","New-IOTOTAUpdate")
     "TargetType"=@("Get-IOTV2LoggingLevelsList","Remove-IOTV2LoggingLevel")
     "ThingIndexingConfiguration_ThingIndexingMode"=@("Update-IOTIndexingConfiguration")
     "TopicRulePayload_ErrorAction_DynamoDB_HashKeyType"=@("New-IOTTopicRule","Set-IOTTopicRule")
@@ -5346,7 +5363,7 @@ $R53_Completers = {
             ($_ -eq "New-R53HealthCheck/HealthCheckConfig_AlarmIdentifier_Region")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         
@@ -5414,7 +5431,7 @@ $R53_Completers = {
             ($_ -eq "Unregister-R53VPCFromHostedZone/VPC_VPCRegion")
         }
         {
-            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-west-1","eu-west-2","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
+            $v = "ap-northeast-1","ap-northeast-2","ap-south-1","ap-southeast-1","ap-southeast-2","ca-central-1","cn-north-1","eu-central-1","eu-west-1","eu-west-2","eu-west-3","sa-east-1","us-east-1","us-east-2","us-west-1","us-west-2"
             break
         }
         
@@ -6454,6 +6471,13 @@ $WKS_Completers = {
     
     switch ($("$commandName/$parameterName"))
     {
+        # Amazon.WorkSpaces.Compute
+        "Edit-WKSWorkspaceProperty/WorkspaceProperties_ComputeTypeName"
+        {
+            $v = "GRAPHICS","PERFORMANCE","POWER","STANDARD","VALUE"
+            break
+        }
+        
         # Amazon.WorkSpaces.RunningMode
         "Edit-WKSWorkspaceProperty/WorkspaceProperties_RunningMode"
         {
@@ -6469,6 +6493,7 @@ $WKS_Completers = {
 }
 
 $WKS_map = @{
+    "WorkspaceProperties_ComputeTypeName"=@("Edit-WKSWorkspaceProperty")
     "WorkspaceProperties_RunningMode"=@("Edit-WKSWorkspaceProperty")
 }
 

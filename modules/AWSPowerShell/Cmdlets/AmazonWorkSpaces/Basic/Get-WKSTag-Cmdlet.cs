@@ -28,7 +28,7 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Describes tags for a WorkSpace.
+    /// Describes the tags for the specified WorkSpace.
     /// </summary>
     [Cmdlet("Get", "WKSTag")]
     [OutputType("Amazon.WorkSpaces.Model.Tag")]
@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter ResourceId
         /// <summary>
         /// <para>
-        /// <para>The resource ID of the request.</para>
+        /// <para>The ID of the resource.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]

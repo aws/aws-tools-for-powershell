@@ -22,61 +22,37 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.KinesisAnalytics;
-using Amazon.KinesisAnalytics.Model;
+using Amazon.IoT;
+using Amazon.IoT.Model;
 
-namespace Amazon.PowerShell.Cmdlets.KINA
+namespace Amazon.PowerShell.Cmdlets.IOT
 {
     /// <summary>
-    /// Deletes a CloudWatch log stream from an application. For more information about using
-    /// CloudWatch log streams with Amazon Kinesis Analytics applications, see <a href="http://docs.aws.amazon.com/kinesisanalytics/latest/dev/cloudwatch-logs.html">Working
-    /// with Amazon CloudWatch Logs</a>.
+    /// Deletes a stream.
     /// </summary>
-    [Cmdlet("Remove", "KINAApplicationCloudWatchLoggingOption", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
+    [Cmdlet("Remove", "IOTStream", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Kinesis Analytics DeleteApplicationCloudWatchLoggingOption API operation.", Operation = new[] {"DeleteApplicationCloudWatchLoggingOption"})]
+    [AWSCmdlet("Calls the AWS IoT DeleteStream API operation.", Operation = new[] {"DeleteStream"})]
     [AWSCmdletOutput("None or System.String",
-        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the CloudWatchLoggingOptionId parameter. Otherwise, this cmdlet does not return any output. " +
-        "The service response (type Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+        "When you use the PassThru parameter, this cmdlet outputs the value supplied to the StreamId parameter. Otherwise, this cmdlet does not return any output. " +
+        "The service response (type Amazon.IoT.Model.DeleteStreamResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveKINAApplicationCloudWatchLoggingOptionCmdlet : AmazonKinesisAnalyticsClientCmdlet, IExecutor
+    public partial class RemoveIOTStreamCmdlet : AmazonIoTClientCmdlet, IExecutor
     {
         
-        #region Parameter ApplicationName
+        #region Parameter StreamId
         /// <summary>
         /// <para>
-        /// <para>The Kinesis Analytics application name.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.String ApplicationName { get; set; }
-        #endregion
-        
-        #region Parameter CloudWatchLoggingOptionId
-        /// <summary>
-        /// <para>
-        /// <para>The <code>CloudWatchLoggingOptionId</code> of the CloudWatch logging option to delete.
-        /// You can get the <code>CloudWatchLoggingOptionId</code> by using the <a>DescribeApplication</a>
-        /// operation. </para>
+        /// <para>The stream ID.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
-        public System.String CloudWatchLoggingOptionId { get; set; }
-        #endregion
-        
-        #region Parameter CurrentApplicationVersionId
-        /// <summary>
-        /// <para>
-        /// <para>The version ID of the Kinesis Analytics application.</para>
-        /// </para>
-        /// </summary>
-        [System.Management.Automation.Parameter(ValueFromPipelineByPropertyName = true)]
-        public System.Int64 CurrentApplicationVersionId { get; set; }
+        public System.String StreamId { get; set; }
         #endregion
         
         #region Parameter PassThru
         /// <summary>
-        /// Returns the value passed to the CloudWatchLoggingOptionId parameter.
+        /// Returns the value passed to the StreamId parameter.
         /// By default, this cmdlet does not generate any output.
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -97,8 +73,8 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         {
             base.ProcessRecord();
             
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("CloudWatchLoggingOptionId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-KINAApplicationCloudWatchLoggingOption (DeleteApplicationCloudWatchLoggingOption)"))
+            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("StreamId", MyInvocation.BoundParameters);
+            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-IOTStream (DeleteStream)"))
             {
                 return;
             }
@@ -112,10 +88,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ApplicationName = this.ApplicationName;
-            context.CloudWatchLoggingOptionId = this.CloudWatchLoggingOptionId;
-            if (ParameterWasBound("CurrentApplicationVersionId"))
-                context.CurrentApplicationVersionId = this.CurrentApplicationVersionId;
+            context.StreamId = this.StreamId;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -130,19 +103,11 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionRequest();
+            var request = new Amazon.IoT.Model.DeleteStreamRequest();
             
-            if (cmdletContext.ApplicationName != null)
+            if (cmdletContext.StreamId != null)
             {
-                request.ApplicationName = cmdletContext.ApplicationName;
-            }
-            if (cmdletContext.CloudWatchLoggingOptionId != null)
-            {
-                request.CloudWatchLoggingOptionId = cmdletContext.CloudWatchLoggingOptionId;
-            }
-            if (cmdletContext.CurrentApplicationVersionId != null)
-            {
-                request.CurrentApplicationVersionId = cmdletContext.CurrentApplicationVersionId.Value;
+                request.StreamId = cmdletContext.StreamId;
             }
             
             CmdletOutput output;
@@ -155,7 +120,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
                 Dictionary<string, object> notes = null;
                 object pipelineOutput = null;
                 if (this.PassThru.IsPresent)
-                    pipelineOutput = this.CloudWatchLoggingOptionId;
+                    pipelineOutput = this.StreamId;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -180,16 +145,16 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         #region AWS Service Operation Call
         
-        private Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionResponse CallAWSServiceOperation(IAmazonKinesisAnalytics client, Amazon.KinesisAnalytics.Model.DeleteApplicationCloudWatchLoggingOptionRequest request)
+        private Amazon.IoT.Model.DeleteStreamResponse CallAWSServiceOperation(IAmazonIoT client, Amazon.IoT.Model.DeleteStreamRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Kinesis Analytics", "DeleteApplicationCloudWatchLoggingOption");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS IoT", "DeleteStream");
             try
             {
                 #if DESKTOP
-                return client.DeleteApplicationCloudWatchLoggingOption(request);
+                return client.DeleteStream(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteApplicationCloudWatchLoggingOptionAsync(request);
+                var task = client.DeleteStreamAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -210,9 +175,7 @@ namespace Amazon.PowerShell.Cmdlets.KINA
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ApplicationName { get; set; }
-            public System.String CloudWatchLoggingOptionId { get; set; }
-            public System.Int64? CurrentApplicationVersionId { get; set; }
+            public System.String StreamId { get; set; }
         }
         
     }

@@ -28,16 +28,8 @@ using Amazon.WorkSpaces.Model;
 namespace Amazon.PowerShell.Cmdlets.WKS
 {
     /// <summary>
-    /// Retrieves information about the AWS Directory Service directories in the region that
-    /// are registered with Amazon WorkSpaces and are available to your account.
-    /// 
-    ///  
-    /// <para>
-    /// This operation supports pagination with the use of the <code>NextToken</code> request
-    /// and response parameters. If more results are available, the <code>NextToken</code>
-    /// response member contains a token that you pass in the next call to this operation
-    /// to retrieve the next set of items.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// Describes the available AWS Directory Service directories that are registered with
+    /// Amazon WorkSpaces.<br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "WKSWorkspaceDirectory")]
     [OutputType("Amazon.WorkSpaces.Model.WorkspaceDirectory")]
@@ -53,8 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter DirectoryId
         /// <summary>
         /// <para>
-        /// <para>An array of strings that contains the directory identifiers to retrieve information
-        /// for. If this member is null, all directories are retrieved.</para>
+        /// <para>The identifiers of the directories. If the value is null, all directories are retrieved.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
@@ -65,8 +56,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         #region Parameter NextToken
         /// <summary>
         /// <para>
-        /// <para>The <code>NextToken</code> value from a previous call to this operation. Pass null
-        /// if this is the first call.</para>
+        /// <para>The token for the next set of results. (You received this token from a previous call.)</para>
         /// </para>
         /// <para>
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.

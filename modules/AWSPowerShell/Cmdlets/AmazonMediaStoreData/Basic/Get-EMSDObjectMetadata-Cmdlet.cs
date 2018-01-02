@@ -28,7 +28,7 @@ using Amazon.MediaStoreData.Model;
 namespace Amazon.PowerShell.Cmdlets.EMSD
 {
     /// <summary>
-    /// Gets the header for an object at the specified path.
+    /// Gets the headers for an object at the specified path.
     /// </summary>
     [Cmdlet("Get", "EMSDObjectMetadata")]
     [OutputType("Amazon.MediaStoreData.Model.DescribeObjectResponse")]

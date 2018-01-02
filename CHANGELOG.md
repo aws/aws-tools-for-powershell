@@ -1,3 +1,18 @@
+### 3.3.215.0 (2018-01-02)
+  * Amazon API Gateway
+    * Added support for tagging resources for cost allocation with new cmdlets Add-AGResourceTag (TagResource API), Get-AGResourceTag (GetTags API) and Remove-AGResourceTag (UntagResource API). The New-AGStage cmdlet was also updated with a new -Tag parameter.
+    * Updated the New-AGRestApi cmdlet with parameters to support setting minimum compression size and returning API keys from a custom authorizer for use with a usage plan.
+  * Amazon ECS
+    * Updated the New-ECSService and Update-ECSService cmdlets to support the new service feature enabling a grace period for health checks to be specified.
+  * AWS IoT
+    * Added cmdlets to support the new service feature for code signed Over-the-air update functionality for Amazon FreeRTOS. Users can now create and schedule Over-the-air updates to their Amazon FreeRTOS devices using these new APIs.
+  * Amazon Kinesis Analytics
+    * Updated the Add-KINAApplicationOutput cmdlet to support the new service feature enabling AWS Lambda functions as output.
+  * Amazon SageMaker Service
+    * *BREAKING CHANGE* The -SupplementalContainer parameter for the New-SMModel cmdlet has been removed as it is no longer supported by the service.
+  * Amazon WorkSpaces
+    * Updated the Edit-WKSWorkspaceProperty cmdlet to support new service features for flexible storage and switching of hardware bundles.
+
 ### 3.3.210.0 (2017-12-19)
   * Amazon AppStream
     * Added support add tags to Amazon AppStream 2.0 resources with new cmdlets Add-APSResourceTag (TagResource API) and Remove-APSResourceTag (UntagResource API).
@@ -63,7 +78,7 @@
 ### 3.3.201.0 (2017-12-02)
   * Updated cmdlets for multiple services to include new APIs and API updates released during AWS re:Invent 2017, for services already supported by the tools. New services launched at the conference will be added to the tools in the coming days. The updated services are:
     * Auto Scaling
-    * Amazon API Gateway
+    * Amazon API GatewayGateway
     * Amazon DynamoDB
     * Amazon Cognito
     * Amazon Cognito Identity Provider
@@ -679,7 +694,7 @@
     - *Breaking Change* Fixed issue with incorrect mapping of Stop-WKSWorkspace to the TerminateWorkspaces API, which could cause data loss if termination was not expected. A new cmdlet, Remove-WKSWorkspace, has been added which maps to the TerminateWorkspaces API. Stop-WKSWorkspace has been mapped to the StopWorkspaces API and the existing -Request parameter changed to accept types of Amazon.Workspaces.Model.StopRequest (previously it accepted Amazon.Workspaces.Model.TerminateRequest). For users employing New-Object to construct the parameters, this is a breaking change (customers known to have used this cmdlet in the past few months have been contacted about this change).
     - In addition to introducing a new cmdlet and correcting the mapping we have also taken steps to improve the usability of the cmdlets related to manipulating workspaces (Start-WKSWorkspace, Stop-WKSWorkspace, Remove-WKSWorkspace, Reset-WKSWorkspace and Rebuild-WKSWorkspace). These cmdlets all now support an additional –WorkspaceId parameter. This parameter accepts an array of strings that are the IDs of the workspaces to operate on, improving pipeline usability. Examples have been added to the cmdlet help to show the new simplified usages.
   * Elastic Load Balancing V2
-    - Application Load Balancers now support native Internet Protocol version 6 (IPv6) in an Amazon Virtual Private Cloud (VPC). With this ability, clients can now connect to the Application Load Balancer in a dual-stack mode via either IPv4 or IPv6. The New-ELB2LoadBalancer was extended with a new parameter, -IpAddressType, to support this new feature and one new cmdlet was added, Set-ELB2IpAddressType (SetIpAddressType API). 
+    - Application Load Balancers now support native Internet Protocol version 6 (IPv6) in an Amazon Virtual Private Cloud (VPC). With this ability, clients can now connect to the Application Load Balancer in a dual-stack mode via either IPv4 or IPv6. The New-ELB2LoadBalancer was extended with a new parameter, -IpAddressType, to support this new feature and one new cmdlet was added, Set-ELB2IpAddressType (SetIpAddressType API).
   * Amazon Relational Database Service
     - Extended the New-RDSDBInstanceReadReplica cmdlet with parameters -KmsKeyId. -PresignedUrl and -SourceRegion to support cross-region read replica copying.
 

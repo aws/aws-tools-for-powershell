@@ -22,64 +22,66 @@ using System.Management.Automation;
 using System.Text;
 using Amazon.PowerShell.Common;
 using Amazon.Runtime;
-using Amazon.WorkSpaces;
-using Amazon.WorkSpaces.Model;
+using Amazon.APIGateway;
+using Amazon.APIGateway.Model;
 
-namespace Amazon.PowerShell.Cmdlets.WKS
+namespace Amazon.PowerShell.Cmdlets.AG
 {
     /// <summary>
-    /// Deletes the specified tags from a WorkSpace.
+    /// Gets the Tags collection for a given resource.
     /// </summary>
-    [Cmdlet("Remove", "WKSTag", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
-    [OutputType("None")]
-    [AWSCmdlet("Calls the Amazon WorkSpaces DeleteTags API operation.", Operation = new[] {"DeleteTags"})]
-    [AWSCmdletOutput("None",
-        "This cmdlet does not generate any output. " +
-        "The service response (type Amazon.WorkSpaces.Model.DeleteTagsResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
+    [Cmdlet("Get", "AGResourceTag")]
+    [OutputType("System.String")]
+    [AWSCmdlet("Calls the Amazon API Gateway GetTags API operation.", Operation = new[] {"GetTags"})]
+    [AWSCmdletOutput("System.String",
+        "This cmdlet returns a collection of String objects.",
+        "The service call response (type Amazon.APIGateway.Model.GetTagsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
-    public partial class RemoveWKSTagCmdlet : AmazonWorkSpacesClientCmdlet, IExecutor
+    public partial class GetAGResourceTagCmdlet : AmazonAPIGatewayClientCmdlet, IExecutor
     {
         
-        #region Parameter ResourceId
+        #region Parameter ResourceArn
         /// <summary>
         /// <para>
-        /// <para>The ID of the resource.</para>
+        /// <para>[Required] The ARN of a resource that can be tagged. At present, <a>Stage</a> is the
+        /// only taggable resource.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
+        public System.String ResourceArn { get; set; }
+        #endregion
+        
+        #region Parameter Limit
+        /// <summary>
+        /// <para>
+        /// <para>(Not currently supported) The maximum number of returned results per page.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        public System.String ResourceId { get; set; }
+        [Alias("MaxItems")]
+        public int Limit { get; set; }
         #endregion
         
-        #region Parameter TagKey
+        #region Parameter Position
         /// <summary>
         /// <para>
-        /// <para>The tag keys.</para>
+        /// <para>(Not currently supported) The current pagination position in the paged result set.</para>
+        /// </para>
+        /// <para>
+        /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
-        [Alias("TagKeys")]
-        public System.String[] TagKey { get; set; }
-        #endregion
-        
-        #region Parameter Force
-        /// <summary>
-        /// This parameter overrides confirmation prompts to force 
-        /// the cmdlet to continue its operation. This parameter should always
-        /// be used with caution.
-        /// </summary>
-        [System.Management.Automation.Parameter]
-        public SwitchParameter Force { get; set; }
+        [Alias("NextToken")]
+        public System.String Position { get; set; }
         #endregion
         
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            
-            var resourceIdentifiersText = FormatParameterValuesForConfirmationMsg("ResourceId", MyInvocation.BoundParameters);
-            if (!ConfirmShouldProceed(this.Force.IsPresent, resourceIdentifiersText, "Remove-WKSTag (DeleteTags)"))
-            {
-                return;
-            }
             
             var context = new CmdletContext
             {
@@ -90,11 +92,10 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             // allow for manipulation of parameters prior to loading into context
             PreExecutionContextLoad(context);
             
-            context.ResourceId = this.ResourceId;
-            if (this.TagKey != null)
-            {
-                context.TagKeys = new List<System.String>(this.TagKey);
-            }
+            if (ParameterWasBound("Limit"))
+                context.Limit = this.Limit;
+            context.Position = this.Position;
+            context.ResourceArn = this.ResourceArn;
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
@@ -109,15 +110,19 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         {
             var cmdletContext = context as CmdletContext;
             // create request
-            var request = new Amazon.WorkSpaces.Model.DeleteTagsRequest();
+            var request = new Amazon.APIGateway.Model.GetTagsRequest();
             
-            if (cmdletContext.ResourceId != null)
+            if (cmdletContext.Limit != null)
             {
-                request.ResourceId = cmdletContext.ResourceId;
+                request.Limit = AutoIterationHelpers.ConvertEmitLimitToServiceTypeInt32(cmdletContext.Limit.Value);
             }
-            if (cmdletContext.TagKeys != null)
+            if (cmdletContext.Position != null)
             {
-                request.TagKeys = cmdletContext.TagKeys;
+                request.Position = cmdletContext.Position;
+            }
+            if (cmdletContext.ResourceArn != null)
+            {
+                request.ResourceArn = cmdletContext.ResourceArn;
             }
             
             CmdletOutput output;
@@ -128,7 +133,7 @@ namespace Amazon.PowerShell.Cmdlets.WKS
             {
                 var response = CallAWSServiceOperation(client, request);
                 Dictionary<string, object> notes = null;
-                object pipelineOutput = null;
+                object pipelineOutput = response.Tags;
                 output = new CmdletOutput
                 {
                     PipelineOutput = pipelineOutput,
@@ -153,16 +158,16 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         #region AWS Service Operation Call
         
-        private Amazon.WorkSpaces.Model.DeleteTagsResponse CallAWSServiceOperation(IAmazonWorkSpaces client, Amazon.WorkSpaces.Model.DeleteTagsRequest request)
+        private Amazon.APIGateway.Model.GetTagsResponse CallAWSServiceOperation(IAmazonAPIGateway client, Amazon.APIGateway.Model.GetTagsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon WorkSpaces", "DeleteTags");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon API Gateway", "GetTags");
             try
             {
                 #if DESKTOP
-                return client.DeleteTags(request);
+                return client.GetTags(request);
                 #elif CORECLR
                 // todo: handle AggregateException and extract true service exception for rethrow
-                var task = client.DeleteTagsAsync(request);
+                var task = client.GetTagsAsync(request);
                 return task.Result;
                 #else
                         #error "Unknown build edition"
@@ -183,8 +188,9 @@ namespace Amazon.PowerShell.Cmdlets.WKS
         
         internal partial class CmdletContext : ExecutorContext
         {
-            public System.String ResourceId { get; set; }
-            public List<System.String> TagKeys { get; set; }
+            public int? Limit { get; set; }
+            public System.String Position { get; set; }
+            public System.String ResourceArn { get; set; }
         }
         
     }

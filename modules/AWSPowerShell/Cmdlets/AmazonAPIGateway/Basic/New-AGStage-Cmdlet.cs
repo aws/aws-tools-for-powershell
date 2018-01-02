@@ -144,6 +144,18 @@ namespace Amazon.PowerShell.Cmdlets.AG
         public System.Collections.Hashtable CanarySettings_StageVariableOverride { get; set; }
         #endregion
         
+        #region Parameter Tag
+        /// <summary>
+        /// <para>
+        /// <para>Key/Value map of strings. Valid character set is [a-zA-Z+-=._:/]. Tag key can be up
+        /// to 128 characters and must not start with "aws:". Tag value can be up to 256 characters.</para>
+        /// </para>
+        /// </summary>
+        [System.Management.Automation.Parameter]
+        [Alias("Tags")]
+        public System.Collections.Hashtable Tag { get; set; }
+        #endregion
+        
         #region Parameter CanarySettings_UseStageCache
         /// <summary>
         /// <para>
@@ -216,6 +228,14 @@ namespace Amazon.PowerShell.Cmdlets.AG
             context.DocumentationVersion = this.DocumentationVersion;
             context.RestApiId = this.RestApiId;
             context.StageName = this.StageName;
+            if (this.Tag != null)
+            {
+                context.Tags = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
+                foreach (var hashKey in this.Tag.Keys)
+                {
+                    context.Tags.Add((String)hashKey, (String)(this.Tag[hashKey]));
+                }
+            }
             if (this.Variable != null)
             {
                 context.Variables = new Dictionary<System.String, System.String>(StringComparer.Ordinal);
@@ -317,6 +337,10 @@ namespace Amazon.PowerShell.Cmdlets.AG
             {
                 request.StageName = cmdletContext.StageName;
             }
+            if (cmdletContext.Tags != null)
+            {
+                request.Tags = cmdletContext.Tags;
+            }
             if (cmdletContext.Variables != null)
             {
                 request.Variables = cmdletContext.Variables;
@@ -396,6 +420,7 @@ namespace Amazon.PowerShell.Cmdlets.AG
             public System.String DocumentationVersion { get; set; }
             public System.String RestApiId { get; set; }
             public System.String StageName { get; set; }
+            public Dictionary<System.String, System.String> Tags { get; set; }
             public Dictionary<System.String, System.String> Variables { get; set; }
         }
         
