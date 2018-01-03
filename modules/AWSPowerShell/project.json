@@ -95,7 +95,7 @@
 		"AWSSDK.Pinpoint": "3.3.5.1",
 		"AWSSDK.Polly": "3.3.4",
 		"AWSSDK.Pricing": "3.3.0.1",
-		"AWSSDK.RDS": "3.3.18",
+		"AWSSDK.RDS": "3.3.18.1",
 		"AWSSDK.Redshift": "3.3.3.3",
 		"AWSSDK.Rekognition": "3.3.8",
 		"AWSSDK.ResourceGroups": "3.3.0",

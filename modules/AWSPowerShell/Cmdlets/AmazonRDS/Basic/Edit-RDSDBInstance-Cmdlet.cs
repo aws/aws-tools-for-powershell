@@ -46,27 +46,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter AllocatedStorage
         /// <summary>
         /// <para>
-        /// <para> The new storage capacity of the RDS instance. Changing this setting does not result
-        /// in an outage and the change is applied during the next maintenance window unless <code>ApplyImmediately</code>
-        /// is set to <code>true</code> for this request. </para><para><b>MySQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>MariaDB</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>PostgreSQL</b></para><para>Default: Uses existing setting</para><para>Valid Values: 5-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para>Type: Integer</para><para><b>Oracle</b></para><para>Default: Uses existing setting</para><para>Valid Values: 10-6144</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value.</para><para><b>SQL Server</b></para><para>Cannot be modified.</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
-        /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
-        /// time. The duration of the migration depends on several factors such as database load,
-        /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
-        /// (if any), and the number of prior scale storage operations. Typical migration times
-        /// are under 24 hours, but the process can take up to several days in some cases. During
-        /// the migration, the DB instance is available for use, but might experience performance
-        /// degradation. While the migration takes place, nightly backups for the instance are
-        /// suspended. No other Amazon RDS operations can take place for the instance, including
-        /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance.</para>
+        /// <para>The new amount of storage (in gibibytes) to allocate for the DB instance. </para><para>For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be at least 10%
+        /// greater than the current value. Values that are not at least 10% greater than the
+        /// existing value are rounded up so that they are 10% greater than the current value.
+        /// </para><para>For the valid values for allocated storage for each engine, see <a>CreateDBInstance</a>.
+        /// </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -304,14 +288,11 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Iops
         /// <summary>
         /// <para>
-        /// <para> The new Provisioned IOPS (I/O operations per second) value for the RDS instance.
-        /// Changing this setting does not result in an outage and the change is applied during
+        /// <para>The new Provisioned IOPS (I/O operations per second) value for the RDS instance. </para><para>Changing this setting does not result in an outage and the change is applied during
         /// the next maintenance window unless the <code>ApplyImmediately</code> parameter is
-        /// set to <code>true</code> for this request. </para><para>Default: Uses existing setting</para><para>Constraints: Value supplied must be at least 10% greater than the current value. Values
-        /// that are not at least 10% greater than the existing value are rounded up so that they
-        /// are 10% greater than the current value. If you are migrating from Provisioned IOPS
+        /// set to <code>true</code> for this request. If you are migrating from Provisioned IOPS
         /// to standard storage, set this value to 0. The DB instance will require a reboot for
-        /// the change in storage type to take effect.</para><para><b>SQL Server</b></para><para>Setting the IOPS value for the SQL Server database engine is not supported.</para><para>Type: Integer</para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
+        /// the change in storage type to take effect. </para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
         /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
         /// time. The duration of the migration depends on several factors such as database load,
         /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
@@ -321,7 +302,10 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         /// degradation. While the migration takes place, nightly backups for the instance are
         /// suspended. No other Amazon RDS operations can take place for the instance, including
         /// modifying the instance, rebooting the instance, deleting the instance, creating a
-        /// Read Replica for the instance, and creating a DB snapshot of the instance.</para>
+        /// Read Replica for the instance, and creating a DB snapshot of the instance. </para><para>Constraints: For MariaDB, MySQL, Oracle, and PostgreSQL, the value supplied must be
+        /// at least 10% greater than the current value. Values that are not at least 10% greater
+        /// than the existing value are rounded up so that they are 10% greater than the current
+        /// value. </para><para>Default: Uses existing setting</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
@@ -503,8 +487,18 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter StorageType
         /// <summary>
         /// <para>
-        /// <para>Specifies the storage type to be associated with the DB instance.</para><para> Valid values: <code>standard | gp2 | io1</code></para><para> If you specify <code>io1</code>, you must also include a value for the <code>Iops</code>
-        /// parameter. </para><para> Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
+        /// <para>Specifies the storage type to be associated with the DB instance. </para><para>If you specify Provisioned IOPS (<code>io1</code>), you must also include a value
+        /// for the <code>Iops</code> parameter. </para><para>If you choose to migrate your DB instance from using standard storage to using Provisioned
+        /// IOPS, or from using Provisioned IOPS to using standard storage, the process can take
+        /// time. The duration of the migration depends on several factors such as database load,
+        /// storage size, storage type (standard or Provisioned IOPS), amount of IOPS provisioned
+        /// (if any), and the number of prior scale storage operations. Typical migration times
+        /// are under 24 hours, but the process can take up to several days in some cases. During
+        /// the migration, the DB instance is available for use, but might experience performance
+        /// degradation. While the migration takes place, nightly backups for the instance are
+        /// suspended. No other Amazon RDS operations can take place for the instance, including
+        /// modifying the instance, rebooting the instance, deleting the instance, creating a
+        /// Read Replica for the instance, and creating a DB snapshot of the instance. </para><para> Valid values: <code>standard | gp2 | io1</code></para><para>Default: <code>io1</code> if the <code>Iops</code> parameter is specified, otherwise
         /// <code>standard</code></para>
         /// </para>
         /// </summary>

@@ -213,7 +213,8 @@ namespace Amazon.PowerShell.Cmdlets.RDS
         #region Parameter Port
         /// <summary>
         /// <para>
-        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <code>3306</code></para>
+        /// <para>The port number on which the instances in the DB cluster accept connections.</para><para> Default: <code>3306</code> if engine is set as aurora or <code>5432</code> if set
+        /// to aurora-postgresql. </para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter]
