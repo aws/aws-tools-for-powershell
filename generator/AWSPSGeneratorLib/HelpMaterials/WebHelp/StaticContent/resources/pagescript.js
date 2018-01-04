@@ -120,7 +120,7 @@
     },
 
     setCopyrightText: function () {
-        var c = "&copy; Copyright 2008-" + new Date().getFullYear() + " Amazon.com, Inc. or its affiliates. All Rights Reserved.";
+        var c = "&copy; Copyright 20012-" + new Date().getFullYear() + " Amazon.com, Inc. or its affiliates. All Rights Reserved.";
         jQuery("#copyright").html(c);
     }
 };

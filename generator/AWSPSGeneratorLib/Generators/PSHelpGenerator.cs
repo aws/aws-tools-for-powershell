@@ -172,7 +172,7 @@ namespace AWSPowerShellGenerator.Generators
                 psHelpWriter.WriteStartElement("copyright");
                 {
                     psHelpWriter.WriteElementString("para", 
-                                                    string.Format("&copy; Copyright 2008 - {0} Amazon.com, Inc.or its affiliates.All Rights Reserved.",
+                                                    string.Format("&copy; Copyright 2012 - {0} Amazon.com, Inc.or its affiliates.All Rights Reserved.",
                                                                   DateTime.UtcNow.Year));
                 }
                 psHelpWriter.WriteEndElement();
