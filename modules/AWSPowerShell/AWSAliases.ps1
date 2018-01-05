@@ -1042,7 +1042,6 @@ Set-Alias -Name Delete-CDDeploymentConfig -Value Remove-CDDeploymentConfig
 Set-Alias -Name CD-DeleteDeploymentConfig -Value Remove-CDDeploymentConfig
 Set-Alias -Name Delete-CDDeploymentGroup -Value Remove-CDDeploymentGroup
 Set-Alias -Name CD-DeleteDeploymentGroup -Value Remove-CDDeploymentGroup
-Set-Alias -Name Delete-CDGitHubAccountToken -Value Remove-CDGitHubAccountToken
 Set-Alias -Name CD-DeleteGitHubAccountToken -Value Remove-CDGitHubAccountToken
 Set-Alias -Name Deregister-CDOnPremiseInstance -Value Unregister-CDOnPremiseInstance
 Set-Alias -Name CD-DeregisterOnPremisesInstance -Value Unregister-CDOnPremiseInstance
@@ -1976,8 +1975,6 @@ Set-Alias -Name Describe-EC2SecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name EC2-DescribeSecurityGroups -Value Get-EC2SecurityGroup
 Set-Alias -Name Describe-EC2SnapshotAttribute -Value Get-EC2SnapshotAttribute
 Set-Alias -Name EC2-DescribeSnapshotAttribute -Value Get-EC2SnapshotAttribute
-Set-Alias -Name Describe-EC2Snapshots -Value Get-EC2Snapshot
-Set-Alias -Name EC2-DescribeSnapshots -Value Get-EC2Snapshot
 Set-Alias -Name Describe-EC2SpotDatafeedSubscription -Value Get-EC2SpotDatafeedSubscription
 Set-Alias -Name EC2-DescribeSpotDatafeedSubscription -Value Get-EC2SpotDatafeedSubscription
 Set-Alias -Name Describe-EC2SpotFleetInstance -Value Get-EC2SpotFleetInstance
@@ -1998,8 +1995,6 @@ Set-Alias -Name Describe-EC2Tags -Value Get-EC2Tag
 Set-Alias -Name EC2-DescribeTags -Value Get-EC2Tag
 Set-Alias -Name Describe-EC2VolumeAttribute -Value Get-EC2VolumeAttribute
 Set-Alias -Name EC2-DescribeVolumeAttribute -Value Get-EC2VolumeAttribute
-Set-Alias -Name Describe-EC2Volumes -Value Get-EC2Volume
-Set-Alias -Name EC2-DescribeVolumes -Value Get-EC2Volume
 Set-Alias -Name Describe-EC2VolumeModification -Value Get-EC2VolumeModification
 Set-Alias -Name EC2-DescribeVolumesModifications -Value Get-EC2VolumeModification
 Set-Alias -Name Describe-EC2VolumeStatus -Value Get-EC2VolumeStatus

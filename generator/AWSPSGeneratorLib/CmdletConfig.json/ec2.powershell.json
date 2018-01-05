@@ -1384,6 +1384,7 @@
     "CreateLaunchTemplate": {
       "verb": "New",
       "noun": "LaunchTemplate",
+      "pipelineProperty": "LaunchTemplateData",
       "shouldProcessTargetProperty": "LaunchTemplateName",
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "LaunchTemplate",
@@ -1412,6 +1413,7 @@
     "CreateLaunchTemplateVersion": {
       "verb": "New",
       "noun": "LaunchTemplateVersion",
+      "pipelineProperty": "LaunchTemplateData",
       "shouldProcessTargetProperty": "LaunchTemplateName",
       "useAnonymousShouldProcessTarget": "true",
       "AnalyzerResults": {
@@ -4416,32 +4418,7 @@
       }
     },
     "DescribeSnapshots": {
-      "verb": "Get",
-      "noun": "Snapshot",
-      "legacyPositionalParameters": [
-        "OwnerIds",
-        "RestorableByUserIds",
-        "Filters"
-      ],
-      "pipelineProperty": "SnapshotIds",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Snapshots",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "excludedOperations": [
-            "DescribeSpotFleetRequestHistory",
-            "DescribeVpcEndpointServices"
-          ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
-      }
+      "excludeFromGeneration": "true"
     },
     "DescribeSpotDatafeedSubscription": {
       "verb": "Get",
@@ -4683,30 +4660,7 @@
       }
     },
     "DescribeVolumes": {
-      "verb": "Get",
-      "noun": "Volume",
-      "legacyPositionalParameters": [
-        "Filters"
-      ],
-      "pipelineProperty": "VolumeIds",
-      "AnalyzerResults": {
-        "ConfirmationMessageNoun": "Volumes",
-        "ConfirmImpactSetting": "Medium",
-        "GenerateIterationCode": "true",
-        "IterationPattern": "Pattern2",
-        "PassThruSource": null,
-        "PassThruTypeName": "",
-        "RequiresPassThruGeneration": "false",
-        "AutoIterateSettings": {
-          "excludedOperations": [
-            "DescribeSpotFleetRequestHistory",
-            "DescribeVpcEndpointServices"
-          ],
-          "requestTokenMember": "NextToken",
-          "responseTokenMember": "NextToken",
-          "resultLimitMember": "MaxResults"
-        }
-      }
+      "excludeFromGeneration": "true"
     },
     "DescribeVolumesModifications": {
       "verb": "Get",

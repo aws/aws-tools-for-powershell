@@ -43,7 +43,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EBS Volumes</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EC2Volume")]
+    [Cmdlet("Get", "EC2Volume", DefaultParameterSetName=QueryByFilter)]
     [OutputType("Amazon.EC2.Model.Volume")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeVolumes API operation.", Operation = new[] {"DescribeVolumes"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Volume",
@@ -53,7 +53,9 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class GetEC2VolumeCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
-        
+        private const string QueryById = "ByID";
+        private const string QueryByFilter = "ByFilter";
+
         #region Parameter Filter
         /// <summary>
         /// <para>
@@ -77,7 +79,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// for Magnetic volumes.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
+        [System.Management.Automation.Parameter(Position = 1, ParameterSetName = QueryByFilter)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
@@ -88,7 +90,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more volume IDs.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = QueryById)]
         [Alias("VolumeIds")]
         public System.String[] VolumeId { get; set; }
         #endregion
@@ -110,7 +112,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ParameterSetName = QueryByFilter)]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion
@@ -128,7 +130,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ParameterSetName = QueryByFilter)]
         public System.String NextToken { get; set; }
         #endregion
         
@@ -159,8 +161,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
-            
-            var output = Execute(context) as CmdletOutput;
+
+            CmdletOutput output;
+            if (ParameterSetName.Equals(QueryById))
+                output = ExecuteById(context) as CmdletOutput;
+            else
+                output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
         
@@ -185,12 +191,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 500;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 500. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 500 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -204,6 +217,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -243,6 +270,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 500 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -256,7 +292,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             return null;
         }
-        
+
+        public object ExecuteById(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+
+            // create request
+            var request = new Amazon.EC2.Model.DescribeVolumesRequest
+            {
+                VolumeIds = cmdletContext.VolumeIds
+            };
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            CmdletOutput output;
+
+            try
+            {
+
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = response.Volumes;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput {ErrorResponse = e};
+            }
+
+            return output;
+        }
+
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();

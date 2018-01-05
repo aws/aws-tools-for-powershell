@@ -74,7 +74,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     /// EBS Snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.
     /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
-    [Cmdlet("Get", "EC2Snapshot")]
+    [Cmdlet("Get", "EC2Snapshot", DefaultParameterSetName=QueryByFilter)]
     [OutputType("Amazon.EC2.Model.Snapshot")]
     [AWSCmdlet("Calls the Amazon Elastic Compute Cloud DescribeSnapshots API operation.", Operation = new[] {"DescribeSnapshots"})]
     [AWSCmdletOutput("Amazon.EC2.Model.Snapshot",
@@ -84,6 +84,8 @@ namespace Amazon.PowerShell.Cmdlets.EC2
     )]
     public partial class GetEC2SnapshotCmdlet : AmazonEC2ClientCmdlet, IExecutor
     {
+        private const string QueryById = "ByID";
+        private const string QueryByFilter = "ByFilter";
         
         #region Parameter Filter
         /// <summary>
@@ -105,7 +107,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// is independent of the <code>tag-key</code> filter.</para></li><li><para><code>volume-id</code> - The ID of the volume the snapshot is for.</para></li><li><para><code>volume-size</code> - The size of the volume, in GiB.</para></li></ul>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 3)]
+        [System.Management.Automation.Parameter(Position = 3, ParameterSetName = QueryByFilter)]
         [Alias("Filters")]
         public Amazon.EC2.Model.Filter[] Filter { get; set; }
         #endregion
@@ -116,7 +118,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>Returns the snapshots owned by the specified owner. Multiple owners can be specified.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 1)]
+        [System.Management.Automation.Parameter(Position = 1, ParameterSetName = QueryByFilter)]
         [Alias("OwnerIds")]
         public System.String[] OwnerId { get; set; }
         #endregion
@@ -127,7 +129,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more AWS accounts IDs that can create volumes from the snapshot.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 2)]
+        [System.Management.Automation.Parameter(Position = 2, ParameterSetName = QueryByFilter)]
         [Alias("RestorableByUserIds")]
         public System.String[] RestorableByUserId { get; set; }
         #endregion
@@ -138,7 +140,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <para>One or more snapshot IDs.</para><para>Default: Describes snapshots for which you have launch permissions.</para>
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]
+        [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true, ParameterSetName = QueryById)]
         [Alias("SnapshotIds")]
         public System.String[] SnapshotId { get; set; }
         #endregion
@@ -160,7 +162,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ParameterSetName = QueryByFilter)]
         [Alias("MaxItems","MaxResults")]
         public int MaxResult { get; set; }
         #endregion
@@ -178,7 +180,7 @@ namespace Amazon.PowerShell.Cmdlets.EC2
         /// <br/><b>Note:</b> This parameter is only used if you are manually controlling output pagination of the service API call.
         /// </para>
         /// </summary>
-        [System.Management.Automation.Parameter]
+        [System.Management.Automation.Parameter(ParameterSetName = QueryByFilter)]
         public System.String NextToken { get; set; }
         #endregion
         
@@ -217,8 +219,12 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             // allow further manipulation of loaded context prior to processing
             PostExecutionContextLoad(context);
-            
-            var output = Execute(context) as CmdletOutput;
+
+            CmdletOutput output;
+            if (ParameterSetName.Equals(QueryById))
+                output = ExecuteById(context) as CmdletOutput;
+            else
+                output = Execute(context) as CmdletOutput;
             ProcessOutput(output);
         }
         
@@ -251,12 +257,19 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             System.String _nextMarker = null;
             int? _emitLimit = null;
             int _retrievedSoFar = 0;
+            int? _pageSize = 1000;
             if (AutoIterationHelpers.HasValue(cmdletContext.NextToken))
             {
                 _nextMarker = cmdletContext.NextToken;
             }
             if (AutoIterationHelpers.HasValue(cmdletContext.MaxResults))
             {
+                // The service has a maximum page size of 1000. If the user has
+                // asked for more items than page max, and there is no page size
+                // configured, we rely on the service ignoring the set maximum
+                // and giving us 1000 items back. If a page size is set, that will
+                // be used to configure the pagination.
+                // We'll make further calls to satisfy the user's request.
                 _emitLimit = cmdletContext.MaxResults;
             }
             bool _userControllingPaging = AutoIterationHelpers.HasValue(cmdletContext.NextToken) || AutoIterationHelpers.HasValue(cmdletContext.MaxResults);
@@ -270,6 +283,20 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     if (AutoIterationHelpers.HasValue(_emitLimit))
                     {
                         request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(_emitLimit.Value);
+                    }
+                    
+                    if (AutoIterationHelpers.HasValue(_pageSize))
+                    {
+                        int correctPageSize;
+                        if (AutoIterationHelpers.IsSet(request.MaxResults))
+                        {
+                            correctPageSize = AutoIterationHelpers.Min(_pageSize.Value, request.MaxResults);
+                        }
+                        else
+                        {
+                            correctPageSize = _pageSize.Value;
+                        }
+                        request.MaxResults = AutoIterationHelpers.ConvertEmitLimitToInt32(correctPageSize);
                     }
                     
                     var client = Client ?? CreateClient(context.Credentials, context.Region);
@@ -309,6 +336,15 @@ namespace Amazon.PowerShell.Cmdlets.EC2
                     }
                     
                     ProcessOutput(output);
+                    // The service has a maximum page size of 1000 and the user has set a retrieval limit.
+                    // Deduce what's left to fetch and if less than one page update _emitLimit to fetch just
+                    // what's left to match the user's request.
+                    
+                    var _remainingItems = _emitLimit - _retrievedSoFar;
+                    if (_remainingItems < _pageSize)
+                    {
+                        _emitLimit = _remainingItems;
+                    }
                 } while (_continueIteration && AutoIterationHelpers.HasValue(_nextMarker));
                 
             }
@@ -322,7 +358,39 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             
             return null;
         }
-        
+
+        public object ExecuteById(ExecutorContext context)
+        {
+            var cmdletContext = context as CmdletContext;
+
+            // create request
+            var request = new Amazon.EC2.Model.DescribeSnapshotsRequest
+            {
+                SnapshotIds = cmdletContext.SnapshotIds
+            };
+
+            var client = Client ?? CreateClient(context.Credentials, context.Region);
+            CmdletOutput output;
+
+            try
+            {
+
+                var response = CallAWSServiceOperation(client, request);
+                object pipelineOutput = response.Snapshots;
+                output = new CmdletOutput
+                {
+                    PipelineOutput = pipelineOutput,
+                    ServiceResponse = response
+                };
+            }
+            catch (Exception e)
+            {
+                output = new CmdletOutput {ErrorResponse = e};
+            }
+
+            return output;
+        }
+
         public ExecutorContext CreateContext()
         {
             return new CmdletContext();
