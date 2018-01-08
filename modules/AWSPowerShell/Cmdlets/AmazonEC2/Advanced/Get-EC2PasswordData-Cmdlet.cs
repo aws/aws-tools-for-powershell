@@ -145,6 +145,18 @@ namespace Amazon.PowerShell.Cmdlets.EC2
             {
                 var response = CallAWSServiceOperation(client, request);
 
+                if (string.IsNullOrEmpty(response.PasswordData))
+                {
+                    var msg = string.Format(
+                        "Password data is not yet available for instance {0}.\n\nPassword generation and encryption can sometimes take more than 30 minutes. Please wait at least 5 minutes after launching an instance before trying to retrieve the generated password.",
+                        cmdletContext.InstanceId);
+                    this.WriteWarning(msg);
+                    return new CmdletOutput
+                    {
+                        ServiceResponse = response
+                    };
+                }
+
                 if (!cmdletContext.Decrypt)
                 {
                     output = new CmdletOutput
