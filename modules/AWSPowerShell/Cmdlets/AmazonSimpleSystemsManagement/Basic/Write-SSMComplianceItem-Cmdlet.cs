@@ -32,6 +32,45 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// This action lets you register custom compliance details with a resource. This call
     /// overwrites existing compliance information on the resource, so you must provide a
     /// full list of compliance items each time that you send the request.
+    /// 
+    ///  
+    /// <para>
+    /// ComplianceType can be one of the following:
+    /// </para><ul><li><para>
+    /// ExecutionId: The execution ID when the patch, association, or custom compliance item
+    /// was applied.
+    /// </para></li><li><para>
+    /// ExecutionType: Specify patch, association, or Custom:<code>string</code>.
+    /// </para></li><li><para>
+    /// ExecutionTime. The time the patch, association, or custom compliance item was applied
+    /// to the instance.
+    /// </para></li><li><para>
+    /// Id: The patch, association, or custom compliance ID.
+    /// </para></li><li><para>
+    /// Title: A title.
+    /// </para></li><li><para>
+    /// Status: The status of the compliance item. For example, <code>approved</code> for
+    /// patches, or <code>Failed</code> for associations.
+    /// </para></li><li><para>
+    /// Severity: A patch severity. For example, <code>critical</code>.
+    /// </para></li><li><para>
+    /// DocumentName: A SSM document name. For example, AWS-RunPatchBaseline.
+    /// </para></li><li><para>
+    /// DocumentVersion: An SSM document version number. For example, 4.
+    /// </para></li><li><para>
+    /// Classification: A patch classification. For example, <code>security updates</code>.
+    /// </para></li><li><para>
+    /// PatchBaselineId: A patch baseline ID.
+    /// </para></li><li><para>
+    /// PatchSeverity: A patch severity. For example, <code>Critical</code>.
+    /// </para></li><li><para>
+    /// PatchState: A patch state. For example, <code>InstancesWithFailedPatches</code>.
+    /// </para></li><li><para>
+    /// PatchGroup: The name of a patch group.
+    /// </para></li><li><para>
+    /// InstalledTime: The time the association, patch, or custom compliance item was applied
+    /// to the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'
+    /// </para></li></ul>
     /// </summary>
     [Cmdlet("Write", "SSMComplianceItem", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]

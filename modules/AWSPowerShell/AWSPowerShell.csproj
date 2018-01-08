@@ -223,10 +223,10 @@
       <HintPath>..\..\packages\AWSSDK.SQS.3.3.3.2\lib\net35\AWSSDK.SQS.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Snowball">
-      <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.9\lib\net35\AWSSDK.Snowball.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Snowball.3.3.2.10\lib\net35\AWSSDK.Snowball.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleSystemsManagement">
-      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.15\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.SimpleSystemsManagement.3.3.15.1\lib\net35\AWSSDK.SimpleSystemsManagement.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.SimpleNotificationService">
       <HintPath>..\..\packages\AWSSDK.SimpleNotificationService.3.3.0.24\lib\net35\AWSSDK.SimpleNotificationService.dll</HintPath>
@@ -280,7 +280,7 @@
       <HintPath>..\..\packages\AWSSDK.IoT.3.3.8\lib\net35\AWSSDK.IoT.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.Inspector">
-      <HintPath>..\..\packages\AWSSDK.Inspector.3.3.3\lib\net35\AWSSDK.Inspector.dll</HintPath>
+      <HintPath>..\..\packages\AWSSDK.Inspector.3.3.4\lib\net35\AWSSDK.Inspector.dll</HintPath>
     </Reference>
     <Reference Include="AWSSDK.ImportExport">
       <HintPath>..\..\packages\AWSSDK.ImportExport.3.3.0.24\lib\net35\AWSSDK.ImportExport.dll</HintPath>

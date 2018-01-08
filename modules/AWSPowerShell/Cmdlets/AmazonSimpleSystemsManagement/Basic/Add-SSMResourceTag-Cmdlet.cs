@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// 
     ///  
     /// <para>
-    /// Each resource can have a maximum of 10 tags. 
+    /// Each resource can have a maximum of 50 tags. 
     /// </para><para>
     /// We recommend that you devise a set of tag keys that meets your needs for each resource
     /// type. Using a consistent set of tag keys makes it easier for you to manage your resources.

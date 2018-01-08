@@ -45,7 +45,7 @@ namespace Amazon.PowerShell.Cmdlets.SNOW
         #region Parameter AddressId
         /// <summary>
         /// <para>
-        /// <para>The ID for the address that you want the cluster shipped to.&gt;</para>
+        /// <para>The ID for the address that you want the cluster shipped to.</para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipelineByPropertyName = true, ValueFromPipeline = true)]

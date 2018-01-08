@@ -40,7 +40,9 @@ namespace Amazon.PowerShell.Cmdlets.SSM
     /// operation and returns the matching values up to that point and a <code>NextToken</code>.
     /// You can specify the <code>NextToken</code> in a subsequent call to get the next set
     /// of results.
-    /// </para><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
+    /// </para><note><para>
+    /// This API action doesn't support filtering by tags. 
+    /// </para></note><br/><br/>This operation automatically pages all available results to the pipeline - parameters related to iteration are only needed if you want to manually control the paginated output.
     /// </summary>
     [Cmdlet("Get", "SSMParametersByPath")]
     [OutputType("Amazon.SimpleSystemsManagement.Model.Parameter")]
@@ -68,8 +70,8 @@ namespace Amazon.PowerShell.Cmdlets.SSM
         /// <summary>
         /// <para>
         /// <para>The hierarchy for the parameter. Hierarchies start with a forward slash (/) and end
-        /// with the parameter name. A hierarchy can have a maximum of five levels. For example:
-        /// <code>/Finance/Prod/IAD/WinServ2016/license15</code></para>
+        /// with the parameter name. A hierarchy can have a maximum of 15 levels. Here is an example
+        /// of a hierarchy: <code>/Finance/Prod/IAD/WinServ2016/license33</code></para>
         /// </para>
         /// </summary>
         [System.Management.Automation.Parameter(Position = 0, ValueFromPipeline = true)]
