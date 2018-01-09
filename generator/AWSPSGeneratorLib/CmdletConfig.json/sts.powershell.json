@@ -2,7 +2,7 @@
   "additionalNamespaces": [],
   "outputMetadataPropertyNames": [],
   "pipelineByValuePropertyNames": [],
-  "defaultPipelineParameter": "",
+  "defaultPipelineProperty": "",
   "sdkServiceNamespace": "Amazon.SecurityToken",
   "sdkServiceClient": "AmazonSecurityTokenServiceClient",
   "sdkServiceClientConfig": "AmazonSecurityTokenServiceConfig",
@@ -29,29 +29,19 @@
   },
   "serviceOperations": {
     "AssumeRole": {
-      "Verb": "Use",
-      "Noun": "STSRole",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Response",
-      "OutputWrapper": "",
-      "PipelineParameter": "RoleArn",
-      "PositionalParameters": "RoleSessionName;Policy;DurationSeconds;ExternalId",
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Use",
+      "noun": "STSRole",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "RoleArn",
+      "output": "Response",
+      "legacyPositionalParameters": "RoleSessionName;Policy;DurationSeconds;ExternalId",
+      "customParameters": [
         {
-          "Name": "DurationSeconds",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "DurationInSeconds"
+          "name": "DurationSeconds",
+          "newName": "DurationInSeconds"
         }
       ],
       "AnalyzerResults": {
@@ -75,27 +65,21 @@
       }
     },
     "AssumeRoleWithSAML": {
-      "Exclude": "true"
+      "exclude": "true"
     },
     "AssumeRoleWithWebIdentity": {
-      "Exclude": "true"
+      "exclude": "true"
     },
     "DecodeAuthorizationMessage": {
-      "Verb": "Convert",
-      "Noun": "STSAuthorizationMessage",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Default",
-      "OutputWrapper": "",
-      "PipelineParameter": "EncodedMessage",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
+      "verb": "Convert",
+      "noun": "STSAuthorizationMessage",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "EncodedMessage",
+      "output": "Default",
+      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "AuthorizationMessage",
         "ConfirmImpactSetting": "Medium",
@@ -117,21 +101,15 @@
       }
     },
     "GetCallerIdentity": {
-      "Verb": "Get",
-      "Noun": "STSCallerIdentity",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Response",
-      "OutputWrapper": "",
-      "PipelineParameter": "",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
+      "verb": "Get",
+      "noun": "STSCallerIdentity",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "",
+      "output": "Response",
+      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "CallerIdentity",
         "ConfirmImpactSetting": "Medium",
@@ -153,29 +131,19 @@
       }
     },
     "GetFederationToken": {
-      "Verb": "Get",
-      "Noun": "STSFederationToken",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Response",
-      "OutputWrapper": "",
-      "PipelineParameter": "Name",
-      "PositionalParameters": "Policy;DurationSeconds",
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Get",
+      "noun": "STSFederationToken",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "Name",
+      "output": "Response",
+      "legacyPositionalParameters": "Policy;DurationSeconds",
+      "customParameters": [
         {
-          "Name": "DurationSeconds",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "DurationInSeconds"
+          "name": "DurationSeconds",
+          "newName": "DurationInSeconds"
         }
       ],
       "AnalyzerResults": {
@@ -199,29 +167,19 @@
       }
     },
     "GetSessionToken": {
-      "Verb": "Get",
-      "Noun": "STSSessionToken",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Default",
-      "OutputWrapper": "",
-      "PipelineParameter": "DurationSeconds",
-      "PositionalParameters": "SerialNumber;TokenCode",
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Get",
+      "noun": "STSSessionToken",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "DurationSeconds",
+      "output": "Default",
+      "legacyPositionalParameters": "SerialNumber;TokenCode",
+      "customParameters": [
         {
-          "Name": "DurationSeconds",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "DurationInSeconds"
+          "name": "DurationSeconds",
+          "newName": "DurationInSeconds"
         }
       ],
       "AnalyzerResults": {

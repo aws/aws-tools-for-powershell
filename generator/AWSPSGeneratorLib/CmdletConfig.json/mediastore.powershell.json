@@ -2,7 +2,7 @@
   "additionalNamespaces": [],
   "outputMetadataPropertyNames": [],
   "pipelineByValuePropertyNames": [],
-  "defaultPipelineParameter": "",
+  "defaultPipelineProperty": "",
   "sdkServiceNamespace": "Amazon.MediaStore",
   "sdkServiceClient": "AmazonMediaStoreClient",
   "sdkServiceClientConfig": "AmazonMediaStoreConfig",
@@ -18,29 +18,19 @@
   "verbMappings": {},
   "serviceOperations": {
     "CreateContainer": {
-      "Verb": "New",
-      "Noun": "EMSContainer",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Default",
-      "OutputWrapper": "",
-      "PipelineParameter": "ContainerName",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "New",
+      "noun": "EMSContainer",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "ContainerName",
+      "output": "Default",
+      "legacyPositionalParameters": null,
+      "customParameters": [
         {
-          "Name": "ContainerName",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "Name"
+          "name": "ContainerName",
+          "newName": "Name"
         }
       ],
       "AnalyzerResults": {
@@ -65,29 +55,19 @@
       }
     },
     "DeleteContainer": {
-      "Verb": "Remove",
-      "Noun": "EMSContainer",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Void",
-      "OutputWrapper": "",
-      "PipelineParameter": "ContainerName",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Remove",
+      "noun": "EMSContainer",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "ContainerName",
+      "output": "Void",
+      "legacyPositionalParameters": null,
+      "customParameters": [
         {
-          "Name": "ContainerName",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "Name"
+          "name": "ContainerName",
+          "newName": "Name"
         }
       ],
       "AnalyzerResults": {
@@ -112,29 +92,19 @@
       }
     },
     "DeleteContainerPolicy": {
-      "Verb": "Remove",
-      "Noun": "EMSContainerPolicy",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Void",
-      "OutputWrapper": "",
-      "PipelineParameter": "ContainerName",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Remove",
+      "noun": "EMSContainerPolicy",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "ContainerName",
+      "output": "Void",
+      "legacyPositionalParameters": null,
+      "customParameters": [
         {
-          "Name": "ContainerName",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "Name"
+          "name": "ContainerName",
+          "newName": "Name"
         }
       ],
       "AnalyzerResults": {
@@ -159,29 +129,19 @@
       }
     },
     "DescribeContainer": {
-      "Verb": "Get",
-      "Noun": "EMSContainer",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Default",
-      "OutputWrapper": "",
-      "PipelineParameter": "ContainerName",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Get",
+      "noun": "EMSContainer",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "ContainerName",
+      "output": "Default",
+      "legacyPositionalParameters": null,
+      "customParameters": [
         {
-          "Name": "ContainerName",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "Name"
+          "name": "ContainerName",
+          "newName": "Name"
         }
       ],
       "AnalyzerResults": {
@@ -206,29 +166,19 @@
       }
     },
     "GetContainerPolicy": {
-      "Verb": "Get",
-      "Noun": "EMSContainerPolicy",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Default",
-      "OutputWrapper": "",
-      "PipelineParameter": "ContainerName",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Get",
+      "noun": "EMSContainerPolicy",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "ContainerName",
+      "output": "Default",
+      "legacyPositionalParameters": null,
+      "customParameters": [
         {
-          "Name": "ContainerName",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "Name"
+          "name": "ContainerName",
+          "newName": "Name"
         }
       ],
       "AnalyzerResults": {
@@ -253,21 +203,15 @@
       }
     },
     "ListContainers": {
-      "Verb": "Get",
-      "Noun": "EMSContainerList",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Default",
-      "OutputWrapper": "",
-      "PipelineParameter": "",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
+      "verb": "Get",
+      "noun": "EMSContainerList",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "",
+      "output": "Default",
+      "legacyPositionalParameters": null,
       "AnalyzerResults": {
         "ConfirmationMessageNoun": "Containers",
         "ConfirmImpactSetting": "Medium",
@@ -290,29 +234,19 @@
       }
     },
     "PutContainerPolicy": {
-      "Verb": "Write",
-      "Noun": "EMSContainerPolicy",
-      "AnonymousAuthentication": "Never",
-      "AnonymousShouldProcessTarget": "false",
-      "IgnoreSupportsShouldProcess": "false",
-      "LegacyAlias": null,
-      "MetadataProperties": "",
-      "NoPipelineParameter": "false",
-      "Output": "Void",
-      "OutputWrapper": "",
-      "PipelineParameter": "Policy",
-      "PositionalParameters": null,
-      "RemapMemoryStreamParameters": "true",
-      "ShouldProcessMsgNoun": "",
-      "ShouldProcessTarget": "",
-      "CustomParametersList": [
+      "verb": "Write",
+      "noun": "EMSContainerPolicy",
+      "useAnonymousAuthentication": "Never",
+      "useAnonymousShouldProcessTarget": "false",
+      "legacyAlias": null,
+      "metadataOutputProperties": "",
+      "pipelineProperty": "Policy",
+      "output": "Void",
+      "legacyPositionalParameters": null,
+      "customParameters": [
         {
-          "Name": "ContainerName",
-          "Aliases": "",
-          "AutoApplyAlias": "true",
-          "AutoRename": "true",
-          "Exclude": "false",
-          "NewName": "Name"
+          "name": "ContainerName",
+          "newName": "Name"
         }
       ],
       "AnalyzerResults": {

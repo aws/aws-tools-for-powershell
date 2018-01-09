@@ -2,7 +2,7 @@
   "additionalNamespaces": [],
   "outputMetadataPropertyNames": [],
   "pipelineByValuePropertyNames": [],
-  "defaultPipelineParameter": "",
+  "defaultPipelineProperty": "",
   "sdkServiceNamespace": "Amazon.CloudSearchDomain",
   "sdkServiceClient": "AmazonCloudSearchDomainClient",
   "sdkServiceClientConfig": "AmazonCloudSearchDomainConfig",
@@ -17,13 +17,13 @@
   "verbMappings": {},
   "serviceOperations": {
     "Search": {
-      "Exclude": "true"
+      "exclude": "true"
     },
     "Suggest": {
-      "Exclude": "true"
+      "exclude": "true"
     },
     "UploadDocuments": {
-      "Exclude": "true"
+      "exclude": "true"
     }
   }
 }

@@ -77,7 +77,7 @@ namespace AWSPowerShellGenerator.Generators
             {
                 _jsonWriter.WritePropertyName(operation.MethodName);
                 _jsonWriter.WriteStartObject();
-                WriteSimpleProperty("Exclude", "true");
+                WriteSimpleProperty("exclude", "true");
                 _jsonWriter.WriteEndObject();
 
                 return;
@@ -87,21 +87,32 @@ namespace AWSPowerShellGenerator.Generators
 
             _jsonWriter.WritePropertyName(operation.MethodName);
             _jsonWriter.WriteStartObject();
-            WriteSimpleProperty("Verb", analyzer.CurrentOperation.SelectedVerb);
-            WriteSimpleProperty("Noun", analyzer.CurrentOperation.SelectedNoun);
-            WriteSimpleProperty("AnonymousAuthentication", analyzer.CurrentOperation.AnonymousAuthentication.ToString());
-            WriteSimpleProperty("AnonymousShouldProcessTarget", analyzer.CurrentOperation.AnonymousShouldProcessTarget.ToString().ToLower());
-            WriteSimpleProperty("IgnoreSupportsShouldProcess", analyzer.CurrentOperation.IgnoreSupportsShouldProcess.ToString().ToLower());
-            WriteSimpleProperty("LegacyAlias", analyzer.CurrentOperation.LegacyAlias);
-            WriteSimpleProperty("MetadataProperties", analyzer.CurrentOperation.MetadataProperties);
-            WriteSimpleProperty("NoPipelineParameter", analyzer.CurrentOperation.NoPipelineParameter.ToString().ToLower());
-            WriteSimpleProperty("Output", analyzer.CurrentOperation.Output.ToString());
-            WriteSimpleProperty("OutputWrapper", analyzer.CurrentOperation.OutputWrapper);
-            WriteSimpleProperty("PipelineParameter", analyzer.CurrentOperation.PipelineParameter);
-            WriteSimpleProperty("PositionalParameters", analyzer.CurrentOperation.PositionalParameters);
-            WriteSimpleProperty("RemapMemoryStreamParameters", analyzer.CurrentOperation.RemapMemoryStreamParameters.ToString().ToLower());
-            WriteSimpleProperty("ShouldProcessMsgNoun", analyzer.CurrentOperation.ShouldProcessMsgNoun);
-            WriteSimpleProperty("ShouldProcessTarget", analyzer.CurrentOperation.ShouldProcessTarget);
+            WriteSimpleProperty("verb", analyzer.CurrentOperation.SelectedVerb);
+            WriteSimpleProperty("noun", analyzer.CurrentOperation.SelectedNoun);
+            WriteSimpleProperty("useAnonymousAuthentication", analyzer.CurrentOperation.AnonymousAuthentication.ToString());
+            WriteSimpleProperty("useAnonymousShouldProcessTarget", analyzer.CurrentOperation.AnonymousShouldProcessTarget.ToString().ToLower());
+            if (analyzer.CurrentOperation.IgnoreSupportsShouldProcess)
+                WriteSimpleProperty("suppressShouldProcessConfirmation", "true");
+
+            WriteSimpleProperty("legacyAlias", analyzer.CurrentOperation.LegacyAlias);
+            WriteSimpleProperty("metadataOutputProperties", analyzer.CurrentOperation.MetadataProperties);
+            if (analyzer.CurrentOperation.NoPipelineParameter)
+                WriteSimpleProperty("noPipelineProperty", "true");
+            else
+                WriteSimpleProperty("pipelineProperty", analyzer.CurrentOperation.PipelineParameter);
+
+            WriteSimpleProperty("output", analyzer.CurrentOperation.Output.ToString());
+            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.OutputWrapper))
+                WriteSimpleProperty("outputWrapperMember", analyzer.CurrentOperation.OutputWrapper);
+
+            WriteSimpleProperty("legacyPositionalParameters", analyzer.CurrentOperation.PositionalParameters);
+
+            if (!analyzer.CurrentOperation.RemapMemoryStreamParameters)
+                WriteSimpleProperty("remapMemoryStreamParameters", "false");
+            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.ShouldProcessMsgNoun))
+                WriteSimpleProperty("shouldProcessMsgNoun", analyzer.CurrentOperation.ShouldProcessMsgNoun);
+            if (!string.IsNullOrEmpty(analyzer.CurrentOperation.ShouldProcessTarget))
+                WriteSimpleProperty("shouldProcessTargetProperty", analyzer.CurrentOperation.ShouldProcessTarget);
 
             if (analyzer.CurrentOperation.AutoIterate != null)
                 WriteAutoIterateObject("paginationSettings", analyzer.CurrentOperation.AutoIterate);
@@ -109,15 +120,20 @@ namespace AWSPowerShellGenerator.Generators
             if (analyzer.CurrentOperation.CustomParametersList != null &&
                 analyzer.CurrentOperation.CustomParametersList.Count > 0)
             {
-                WriteObjectListProperty("CustomParametersList", analyzer.CurrentOperation.CustomParametersList,
+                WriteObjectListProperty("customParameters", analyzer.CurrentOperation.CustomParametersList,
                     (param) =>
                     {
-                        WriteSimpleProperty("Name", param.Name);
-                        WriteSimpleProperty("Aliases", param.AliasesList);
-                        WriteSimpleProperty("AutoApplyAlias", param.AutoApplyAlias.ToString().ToLower());
-                        WriteSimpleProperty("AutoRename", param.AutoRename.ToString().ToLower());
-                        WriteSimpleProperty("Exclude", param.Exclude.ToString().ToLower());
-                        WriteSimpleProperty("NewName", param.NewName);
+                        WriteSimpleProperty("name", param.Name);
+                        if (!string.IsNullOrEmpty(param.NewName))
+                            WriteSimpleProperty("newName", param.NewName);
+                        if (!string.IsNullOrEmpty(param.AliasesList))
+                            WriteSimpleProperty("aliases", param.AliasesList);
+                        if (!param.AutoApplyAlias)
+                            WriteSimpleProperty("autoApplyAlias", "false");
+                        if (!param.AutoRename)
+                            WriteSimpleProperty("autoRename", "false");
+                        if (param.Exclude)
+                            WriteSimpleProperty("exclude", "true");
                     });
             }
             WritePassThruObject(analyzer.CurrentOperation.PassThru);
@@ -151,9 +167,9 @@ namespace AWSPowerShellGenerator.Generators
             
             WriteStringListProperty("outputMetadataPropertyNames", Model.MetadataPropertyNames);
             WriteStringListProperty("pipelineByValuePropertyNames", Model.PipelineByValuePropertyNamesList);
-            WriteSimpleProperty("defaultPipelineParameter", Model.PipelineParameter);
+            WriteSimpleProperty("defaultPipelineProperty", Model.PipelineParameter);
             if (!string.IsNullOrEmpty(Model.PositionalParameters))
-                WriteSimpleProperty("legacyPositionalParameters", Model.PositionalParameters);
+                WriteSimpleProperty("legacyPositionalProperties", Model.PositionalParameters);
             
             WriteSimpleProperty("sdkServiceNamespace", Model.ServiceNamespace);
             WriteSimpleProperty("sdkServiceClient", Model.ServiceClient);
