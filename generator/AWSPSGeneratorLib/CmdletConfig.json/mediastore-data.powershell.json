@@ -1,0 +1,172 @@
+{
+  "additionalNamespaces": [],
+  "outputMetadataPropertyNames": [],
+  "pipelineByValuePropertyNames": [],
+  "defaultPipelineParameter": "",
+  "sdkServiceNamespace": "Amazon.MediaStoreData",
+  "sdkServiceClient": "AmazonMediaStoreDataClient",
+  "sdkServiceClientConfig": "AmazonMediaStoreDataConfig",
+  "legacyCmdletPrefix": "EMSD",
+  "verbsRequiringShouldProcessConfirmation": [],
+  "nonFlattenedTypes": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults"
+  },
+  "nounMappings": {},
+  "verbMappings": {},
+  "serviceOperations": {
+    "DeleteObject": {
+      "Verb": "Remove",
+      "Noun": "EMSDObject",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Path",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Object",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Path",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Path"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeObject": {
+      "Verb": "Get",
+      "Noun": "EMSDObjectMetadata",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Path",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Object",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "GetObject": {
+      "Verb": "Get",
+      "Noun": "EMSDObject",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Path",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Object",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ListItems": {
+      "Verb": "Get",
+      "Noun": "EMSDItemList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "Path",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Items",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "PutObject": {
+      "Exclude": "true"
+    }
+  }
+}

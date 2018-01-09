@@ -1,0 +1,578 @@
+{
+  "additionalNamespaces": [],
+  "outputMetadataPropertyNames": [],
+  "pipelineByValuePropertyNames": [
+    "Name"
+  ],
+  "defaultPipelineParameter": "Rule",
+  "sdkServiceNamespace": "Amazon.CloudWatchEvents",
+  "sdkServiceClient": "AmazonCloudWatchEventsClient",
+  "sdkServiceClientConfig": "AmazonCloudWatchEventsConfig",
+  "legacyCmdletPrefix": "CWE",
+  "verbsRequiringShouldProcessConfirmation": [],
+  "nonFlattenedTypes": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": null,
+    "resultLimitMember": "Limit"
+  },
+  "nounMappings": {},
+  "verbMappings": {},
+  "serviceOperations": {
+    "DeleteRule": {
+      "Verb": "Remove",
+      "Noun": "CWERule",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Name",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Rule",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeEventBus": {
+      "Verb": "Get",
+      "Noun": "CWEEventBus",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventBus",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeRule": {
+      "Verb": "Get",
+      "Noun": "CWERuleDetail",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Name",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Rule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DisableRule": {
+      "Verb": "Disable",
+      "Noun": "CWERule",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Name",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Rule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "EnableRule": {
+      "Verb": "Enable",
+      "Noun": "CWERule",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Name",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Rule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Name",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ListRuleNamesByTarget": {
+      "Verb": "Get",
+      "Noun": "CWERuleNamesByTarget",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "TargetArn",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "RuleNamesByTarget",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ListRules": {
+      "Verb": "Get",
+      "Noun": "CWERule",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "NamePrefix",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Rules",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ListTargetsByRule": {
+      "Verb": "Get",
+      "Noun": "CWETargetsByRule",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "TargetsByRule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "PutEvents": {
+      "Verb": "Write",
+      "Noun": "CWEEvent",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Entries",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Events",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Entries"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "PutPermission": {
+      "Verb": "Write",
+      "Noun": "CWEPermission",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "PrincipalId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Permission",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "StatementId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "PutRule": {
+      "Verb": "Write",
+      "Noun": "CWERule",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "Name",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Rule",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Name"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "PutTargets": {
+      "Verb": "Write",
+      "Noun": "CWETarget",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Targets",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "auto-assigned from pipeline parameter (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Rule"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "RemovePermission": {
+      "Verb": "Remove",
+      "Noun": "CWEPermission",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "StatementId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Permission",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": "Auto-assigned from pipeline parameter: StatementId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "StatementId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "RemoveTargets": {
+      "Verb": "Remove",
+      "Noun": "CWETarget",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Targets",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Ids"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "TestEventPattern": {
+      "Verb": "Test",
+      "Noun": "CWEEventPattern",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "Event",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "EventPattern",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": null,
+          "resultLimitMember": "Limit"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    }
+  }
+}

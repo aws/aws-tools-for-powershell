@@ -1,0 +1,540 @@
+{
+  "additionalNamespaces": [],
+  "outputMetadataPropertyNames": [],
+  "pipelineByValuePropertyNames": [],
+  "defaultPipelineParameter": "",
+  "sdkServiceNamespace": "Amazon.ResourceGroups",
+  "sdkServiceClient": "AmazonResourceGroupsClient",
+  "sdkServiceClientConfig": "AmazonResourceGroupsConfig",
+  "legacyCmdletPrefix": "RG",
+  "verbsRequiringShouldProcessConfirmation": [],
+  "nonFlattenedTypes": [
+    "Amazon.ResourceGroups.Model.ResourceQuery"
+  ],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "NextToken",
+    "responseTokenMember": "NextToken",
+    "resultLimitMember": "MaxResults",
+    "servicePageSize": 50
+  },
+  "nounMappings": {},
+  "verbMappings": {},
+  "serviceOperations": {
+    "CreateGroup": {
+      "Verb": "New",
+      "Noun": "RGGroup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceQuery",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "Name",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Group",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": "Name"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DeleteGroup": {
+      "Verb": "Remove",
+      "Noun": "RGGroup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "GroupName",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "CustomParametersList": [
+        {
+          "Name": "GroupName",
+          "Aliases": "Name",
+          "AutoApplyAlias": "true",
+          "AutoRename": "true",
+          "Exclude": "false",
+          "NewName": ""
+        }
+      ],
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Group",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "GroupName"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "GetGroup": {
+      "Verb": "Get",
+      "Noun": "RGGroup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "GroupName",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "CustomParametersList": [
+        {
+          "Name": "GroupName",
+          "Aliases": "Name",
+          "AutoApplyAlias": "true",
+          "AutoRename": "true",
+          "Exclude": "false",
+          "NewName": ""
+        }
+      ],
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Group",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "GetGroupQuery": {
+      "Verb": "Get",
+      "Noun": "RGGroupQuery",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "GroupName",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "CustomParametersList": [
+        {
+          "Name": "GroupName",
+          "Aliases": "Name",
+          "AutoApplyAlias": "true",
+          "AutoRename": "true",
+          "Exclude": "false",
+          "NewName": ""
+        }
+      ],
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "GroupQuery",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "GetTags": {
+      "Verb": "Get",
+      "Noun": "RGResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "Arn",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "Arn",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ListGroupResources": {
+      "Verb": "Get",
+      "Noun": "RGGroupResourceList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "GroupName",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "CustomParametersList": [
+        {
+          "Name": "GroupName",
+          "Aliases": "Name",
+          "AutoApplyAlias": "true",
+          "AutoRename": "true",
+          "Exclude": "false",
+          "NewName": ""
+        }
+      ],
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "GroupResources",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ListGroups": {
+      "Verb": "Get",
+      "Noun": "RGGroupList",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Groups",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "SearchResources": {
+      "Verb": "Find",
+      "Noun": "RGResource",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceQuery",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Resources",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "Tag": {
+      "Verb": "Add",
+      "Noun": "RGResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Tags",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Arn"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "Untag": {
+      "Verb": "Remove",
+      "Noun": "RGResourceTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "Keys",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "Arn"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "UpdateGroup": {
+      "Verb": "Update",
+      "Noun": "RGGroup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "Description",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "CustomParametersList": [
+        {
+          "Name": "GroupName",
+          "Aliases": "Name",
+          "AutoApplyAlias": "true",
+          "AutoRename": "true",
+          "Exclude": "false",
+          "NewName": ""
+        }
+      ],
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Group",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "GroupName"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "UpdateGroupQuery": {
+      "Verb": "Update",
+      "Noun": "RGGroupQuery",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "ResourceQuery",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "CustomParametersList": [
+        {
+          "Name": "GroupName",
+          "Aliases": "Name",
+          "AutoApplyAlias": "true",
+          "AutoRename": "true",
+          "Exclude": "false",
+          "NewName": ""
+        }
+      ],
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "GroupQuery",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "NextToken",
+          "responseTokenMember": "NextToken",
+          "resultLimitMember": "MaxResults",
+          "servicePageSize": 50
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "GroupName"
+        },
+        "MemoryStreamParameters": []
+      }
+    }
+  }
+}

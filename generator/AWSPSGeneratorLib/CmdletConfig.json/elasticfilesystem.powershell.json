@@ -1,0 +1,433 @@
+{
+  "additionalNamespaces": [],
+  "outputMetadataPropertyNames": [],
+  "pipelineByValuePropertyNames": [],
+  "defaultPipelineParameter": "FileSystemId",
+  "sdkServiceNamespace": "Amazon.ElasticFileSystem",
+  "sdkServiceClient": "AmazonElasticFileSystemClient",
+  "sdkServiceClientConfig": "AmazonElasticFileSystemConfig",
+  "legacyCmdletPrefix": "EFS",
+  "verbsRequiringShouldProcessConfirmation": [],
+  "nonFlattenedTypes": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": "Marker",
+    "responseTokenMember": "NextMarker",
+    "resultLimitMember": "MaxItems"
+  },
+  "nounMappings": {
+    "Tags": "Tag",
+    "FileSystems": "FileSystem",
+    "MountTargets": "MountTarget",
+    "MountTargetSecurityGroups": "MountTargetSecurityGroup"
+  },
+  "verbMappings": {},
+  "serviceOperations": {
+    "CreateFileSystem": {
+      "Verb": "New",
+      "Noun": "EFSFileSystem",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "true",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FileSystem",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "AnonymousShouldProcessTarget specified in config",
+          "status": "AnonymousTarget",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "CreateMountTarget": {
+      "Verb": "New",
+      "Noun": "EFSMountTarget",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "MountTarget",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "matched target parameter with value-from-pipeline configuration (verify!)",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "FileSystemId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "CreateTags": {
+      "Verb": "New",
+      "Noun": "EFSTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Tags",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: Tag",
+        "PassThruTypeName": "Amazon.ElasticFileSystem.Model.Tag",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "FileSystemId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DeleteFileSystem": {
+      "Verb": "Remove",
+      "Noun": "EFSFileSystem",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FileSystem",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FileSystemId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "FileSystemId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DeleteMountTarget": {
+      "Verb": "Remove",
+      "Noun": "EFSMountTarget",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "MountTargetId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "MountTarget",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: MountTargetId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "Single parameter, auto-selected as target",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "MountTargetId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DeleteTags": {
+      "Verb": "Remove",
+      "Noun": "EFSTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "Tags",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "High",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: FileSystemId",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "FileSystemId"
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeFileSystems": {
+      "Verb": "Get",
+      "Noun": "EFSFileSystem",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "FileSystems",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeMountTargets": {
+      "Verb": "Get",
+      "Noun": "EFSMountTarget",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "MountTargets",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeMountTargetSecurityGroups": {
+      "Verb": "Get",
+      "Noun": "EFSMountTargetSecurityGroup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "MountTargetId",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "MountTargetSecurityGroups",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "DescribeTags": {
+      "Verb": "Get",
+      "Noun": "EFSTag",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Default",
+      "OutputWrapper": "",
+      "PipelineParameter": "",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Tags",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "true",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": null,
+          "status": "TargetFromConfig",
+          "targetParameterName": ""
+        },
+        "MemoryStreamParameters": []
+      }
+    },
+    "ModifyMountTargetSecurityGroups": {
+      "Verb": "Edit",
+      "Noun": "EFSMountTargetSecurityGroup",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Void",
+      "OutputWrapper": "",
+      "PipelineParameter": "SecurityGroups",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "MountTargetSecurityGroups",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "Pattern2",
+        "PassThruSource": "Auto-assigned from pipeline parameter: SecurityGroup",
+        "PassThruTypeName": "System.String",
+        "RequiresPassThruGeneration": "true",
+        "AutoIterateSettings": {
+          "requestTokenMember": "Marker",
+          "responseTokenMember": "NextMarker",
+          "resultLimitMember": "MaxItems"
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "MountTargetId"
+        },
+        "MemoryStreamParameters": []
+      }
+    }
+  }
+}

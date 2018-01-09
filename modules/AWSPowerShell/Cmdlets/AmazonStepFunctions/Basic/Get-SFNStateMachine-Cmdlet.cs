@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Get", "SFNStateMachine")]
     [OutputType("Amazon.StepFunctions.Model.DescribeStateMachineResponse")]
-    [AWSCmdlet("Calls the Amazon Step Functions DescribeStateMachine API operation.", Operation = new[] {"DescribeStateMachine"})]
+    [AWSCmdlet("Calls the AWS Step Functions DescribeStateMachine API operation.", Operation = new[] {"DescribeStateMachine"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.DescribeStateMachineResponse",
         "This cmdlet returns a Amazon.StepFunctions.Model.DescribeStateMachineResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -119,7 +119,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.DescribeStateMachineResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DescribeStateMachineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "DescribeStateMachine");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "DescribeStateMachine");
             try
             {
                 #if DESKTOP

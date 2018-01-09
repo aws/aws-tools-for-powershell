@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Start", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.StartExecutionResponse")]
-    [AWSCmdlet("Calls the Amazon Step Functions StartExecution API operation.", Operation = new[] {"StartExecution"})]
+    [AWSCmdlet("Calls the AWS Step Functions StartExecution API operation.", Operation = new[] {"StartExecution"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.StartExecutionResponse",
         "This cmdlet returns a Amazon.StepFunctions.Model.StartExecutionResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -173,7 +173,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.StartExecutionResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.StartExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "StartExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "StartExecution");
             try
             {
                 #if DESKTOP

@@ -42,7 +42,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Update", "SFNStateMachine", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.DateTime")]
-    [AWSCmdlet("Calls the Amazon Step Functions UpdateStateMachine API operation.", Operation = new[] {"UpdateStateMachine"})]
+    [AWSCmdlet("Calls the AWS Step Functions UpdateStateMachine API operation.", Operation = new[] {"UpdateStateMachine"})]
     [AWSCmdletOutput("System.DateTime",
         "This cmdlet returns a DateTime object.",
         "The service call response (type Amazon.StepFunctions.Model.UpdateStateMachineResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -176,7 +176,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.UpdateStateMachineResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.UpdateStateMachineRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "UpdateStateMachine");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "UpdateStateMachine");
             try
             {
                 #if DESKTOP

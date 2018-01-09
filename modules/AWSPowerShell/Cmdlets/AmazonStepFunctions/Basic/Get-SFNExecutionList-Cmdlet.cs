@@ -39,7 +39,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Get", "SFNExecutionList")]
     [OutputType("Amazon.StepFunctions.Model.ExecutionListItem")]
-    [AWSCmdlet("Calls the Amazon Step Functions ListExecutions API operation.", Operation = new[] {"ListExecutions"})]
+    [AWSCmdlet("Calls the AWS Step Functions ListExecutions API operation.", Operation = new[] {"ListExecutions"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.ExecutionListItem",
         "This cmdlet returns a collection of ExecutionListItem objects.",
         "The service call response (type Amazon.StepFunctions.Model.ListExecutionsResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -233,7 +233,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.ListExecutionsResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.ListExecutionsRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "ListExecutions");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "ListExecutions");
             try
             {
                 #if DESKTOP

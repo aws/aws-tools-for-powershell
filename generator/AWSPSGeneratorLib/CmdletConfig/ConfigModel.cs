@@ -285,6 +285,13 @@ namespace AWSPowerShellGenerator.CmdletConfig
         public bool SkipCmdletGeneration;
 
         /// <summary>
+        /// Base name of the corresponding C2j file containing the api model. We
+        /// only use this in transition to the new C2j-based PowerShell generator
+        /// framework.
+        /// </summary>
+        public string C2jFilename;
+
+        /// <summary>
         /// If specified, governs the subfolder beneath AWSPowerShell/Cmdlets
         /// where the generated source will be emitted. If not specified,
         /// the name of the service client is used instead.

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>states</C2jFilename>
     <SourceGenerationRoot>AmazonStepFunctions</SourceGenerationRoot>
     <ServiceNounPrefix>SFN</ServiceNounPrefix>
-    <ServiceName>Amazon Step Functions</ServiceName>
+    <ServiceName>AWS Step Functions</ServiceName>
     <ServiceClientInterface>IAmazonStepFunctions</ServiceClientInterface>
     <ServiceClient>AmazonStepFunctionsClient</ServiceClient>
     <ServiceNamespace>Amazon.StepFunctions</ServiceNamespace>

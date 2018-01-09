@@ -1,0 +1,58 @@
+{
+  "additionalNamespaces": [],
+  "outputMetadataPropertyNames": [],
+  "pipelineByValuePropertyNames": [],
+  "defaultPipelineParameter": "",
+  "sdkServiceNamespace": "Amazon.SageMakerRuntime",
+  "sdkServiceClient": "AmazonSageMakerRuntimeClient",
+  "sdkServiceClientConfig": "AmazonSageMakerRuntimeConfig",
+  "legacyCmdletPrefix": "SMR",
+  "verbsRequiringShouldProcessConfirmation": [],
+  "nonFlattenedTypes": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": null,
+    "responseTokenMember": null
+  },
+  "nounMappings": {},
+  "verbMappings": {},
+  "serviceOperations": {
+    "InvokeEndpoint": {
+      "Verb": "Invoke",
+      "Noun": "SMREndpoint",
+      "AnonymousAuthentication": "Never",
+      "AnonymousShouldProcessTarget": "false",
+      "IgnoreSupportsShouldProcess": "false",
+      "LegacyAlias": null,
+      "MetadataProperties": "",
+      "NoPipelineParameter": "false",
+      "Output": "Response",
+      "OutputWrapper": "",
+      "PipelineParameter": "EndpointName",
+      "PositionalParameters": null,
+      "RemapMemoryStreamParameters": "true",
+      "ShouldProcessMsgNoun": "",
+      "ShouldProcessTarget": "",
+      "AnalyzerResults": {
+        "ConfirmationMessageNoun": "Endpoint",
+        "ConfirmImpactSetting": "Medium",
+        "GenerateIterationCode": "false",
+        "IterationPattern": "None",
+        "PassThruSource": null,
+        "PassThruTypeName": "",
+        "RequiresPassThruGeneration": "false",
+        "AutoIterateSettings": {
+          "requestTokenMember": null,
+          "responseTokenMember": null
+        },
+        "supportsShouldProcessInspectionResult": {
+          "analysisMessage": "single parameter with recognized suffix",
+          "status": "TargetFromAnalysis",
+          "targetParameterName": "EndpointName"
+        },
+        "MemoryStreamParameters": [
+          "Body"
+        ]
+      }
+    }
+  }
+}

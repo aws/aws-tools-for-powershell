@@ -27,7 +27,7 @@ using Amazon.StepFunctions.Model;
 
 namespace Amazon.PowerShell.Cmdlets.SFN
 {
-    [AWSClientCmdlet("Amazon Step Functions", "SFN", "2016-11-23")]
+    [AWSClientCmdlet("AWS Step Functions", "SFN", "2016-11-23")]
     public abstract partial class AmazonStepFunctionsClientCmdlet : ServiceCmdlet
     {
         protected IAmazonStepFunctions Client { get; private set; }

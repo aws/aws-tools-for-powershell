@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Remove", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.High)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Step Functions DeleteActivity API operation.", Operation = new[] {"DeleteActivity"})]
+    [AWSCmdlet("Calls the AWS Step Functions DeleteActivity API operation.", Operation = new[] {"DeleteActivity"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the ActivityArn parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.StepFunctions.Model.DeleteActivityResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -147,7 +147,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.DeleteActivityResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.DeleteActivityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "DeleteActivity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "DeleteActivity");
             try
             {
                 #if DESKTOP

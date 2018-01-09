@@ -41,7 +41,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Get", "SFNExecutionHistory")]
     [OutputType("Amazon.StepFunctions.Model.HistoryEvent")]
-    [AWSCmdlet("Calls the Amazon Step Functions GetExecutionHistory API operation.", Operation = new[] {"GetExecutionHistory"})]
+    [AWSCmdlet("Calls the AWS Step Functions GetExecutionHistory API operation.", Operation = new[] {"GetExecutionHistory"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.HistoryEvent",
         "This cmdlet returns a collection of HistoryEvent objects.",
         "The service call response (type Amazon.StepFunctions.Model.GetExecutionHistoryResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack.",
@@ -234,7 +234,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.GetExecutionHistoryResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.GetExecutionHistoryRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "GetExecutionHistory");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "GetExecutionHistory");
             try
             {
                 #if DESKTOP

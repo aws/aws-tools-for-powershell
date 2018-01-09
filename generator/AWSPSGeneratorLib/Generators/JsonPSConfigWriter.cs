@@ -34,7 +34,7 @@ namespace AWSPowerShellGenerator.Generators
         {
             Model = configModel;
             var outputFolder = Path.Combine(Path.GetFullPath(rootPath), CmdletGenerator.CmdletJsonConfigurationsFoldername);
-            OutputPath = Path.Combine(outputFolder, configModel.SourceGenerationFolder + ".json");
+            OutputPath = Path.Combine(outputFolder, configModel.C2jFilename + ".powershell.json");
         }
 
         public void Serialize()
@@ -155,11 +155,12 @@ namespace AWSPowerShellGenerator.Generators
             if (!string.IsNullOrEmpty(Model.PositionalParameters))
                 WriteSimpleProperty("legacyPositionalParameters", Model.PositionalParameters);
             
+            WriteSimpleProperty("sdkServiceNamespace", Model.ServiceNamespace);
             WriteSimpleProperty("sdkServiceClient", Model.ServiceClient);
             WriteSimpleProperty("sdkServiceClientConfig", Model.ServiceClientConfig);
             WriteSimpleProperty("legacyCmdletPrefix", Model.ServiceNounPrefix);
             WriteStringListProperty("verbsRequiringShouldProcessConfirmation", Model.SupportsShouldProcessVerbsList);
-            WriteStringListProperty("typesNotToFlatten", Model.TypesNotToFlatten);
+            WriteStringListProperty("nonFlattenedTypes", Model.TypesNotToFlatten);
 
             WriteAutoIterateObject("defaultPaginationSettings", Model.AutoIterate);
             WriteCustomAliasesList();
@@ -185,10 +186,13 @@ namespace AWSPowerShellGenerator.Generators
         {
             _jsonWriter.WritePropertyName(propertyName);
             _jsonWriter.WriteStartArray();
-            foreach (var v in list)
+            if (list != null)
             {
-                _jsonWriter.WriteValue(v);
-            }   
+                foreach (var v in list)
+                {
+                    _jsonWriter.WriteValue(v);
+                }
+            }
             _jsonWriter.WriteEndArray();
         }
 
@@ -225,17 +229,21 @@ namespace AWSPowerShellGenerator.Generators
             _jsonWriter.WriteStartObject();
             WriteSimpleProperty("requestTokenMember", autoIterate.Start);
             WriteSimpleProperty("responseTokenMember", autoIterate.Next);
-            WriteSimpleProperty("resultLimitMember", autoIterate.EmitLimit);
-            WriteSimpleProperty("servicePageSize", autoIterate.ServicePageSize);
-            WriteSimpleProperty("resultsTruncatedMember", autoIterate.TruncatedFlag);
-            WriteSimpleProperty("excludedOperations", autoIterate.Exclusions);
+            if (!string.IsNullOrEmpty(autoIterate.EmitLimit))
+                WriteSimpleProperty("resultLimitMember", autoIterate.EmitLimit);
+            if (autoIterate.ServicePageSize != -1)
+                WriteSimpleProperty("servicePageSize", autoIterate.ServicePageSize);
+            if (!string.IsNullOrEmpty(autoIterate.TruncatedFlag))
+                WriteSimpleProperty("resultsTruncatedMember", autoIterate.TruncatedFlag);
+            if (!string.IsNullOrEmpty(autoIterate.Exclusions))
+                WriteStringListProperty("excludedOperations", autoIterate.ExclusionSet);
             _jsonWriter.WriteEndObject();
         }
 
         private void WritePassThruObject(PassThruOverride passThru)
         {
             if (passThru == null)
-                passThru = new PassThruOverride();
+                return;
 
             _jsonWriter.WritePropertyName("passThru");
             _jsonWriter.WriteStartObject();
@@ -284,52 +292,51 @@ namespace AWSPowerShellGenerator.Generators
 
         private void WriteCustomAliasesList()
         {
-            WriteObjectListProperty("customAliases", Model.CustomAliasesList,
-                (aliasSet) =>
-                {
-                    WriteSimpleProperty("cmdlet", aliasSet.Cmdlet);
-                    WriteSimpleProperty("aliasNames", aliasSet.AliasesField);
-                });
+            if (Model.CustomAliasesList != null && Model.CustomAliasesList.Count > 0)
+            {
+                WriteObjectListProperty("customAliases", Model.CustomAliasesList,
+                    (aliasSet) =>
+                    {
+                        WriteSimpleProperty("cmdlet", aliasSet.Cmdlet);
+                        WriteSimpleProperty("aliasNames", aliasSet.AliasesField);
+                    });
+            }
         }
 
         private void WriteInputObjectMappingRulesList()
         {
-            WriteObjectListProperty("inputObjectMappingRules", Model.InputObjectMappingRulesList,
-                (inputObjectMapping) =>
-                {
-                    WriteSimpleProperty("isGlobalReference", inputObjectMapping.IsGlobalReference.ToString().ToLower());
-                    WriteSimpleProperty("mappingRefName", inputObjectMapping.MappingRefName);
-                    WriteSimpleProperty("typeName", inputObjectMapping.TypeName);
-                    WriteObjectListProperty("mappingRules", inputObjectMapping.MappingRules,
-                        (mappingRule) =>
-                        {
-                            WriteSimpleProperty("helpDescription", mappingRule.HelpDescription);
-                            WriteSimpleProperty("memberName", mappingRule.MemberName);
-                            WriteSimpleProperty("parameterName", mappingRule.ParamName);
-                        });
-                });
-        }
-
-        private void WriteNounMappingsList()
-        {
-            WriteObjectListProperty("nounMappings", Model.NounMappingsList,
-               (map) =>
-               {
-                   WriteSimpleProperty("from", map.From);
-                   WriteSimpleProperty("to", map.To);
-               });
+            if (Model.InputObjectMappingRulesList != null && Model.InputObjectMappingRulesList.Count > 0)
+            {
+                WriteObjectListProperty("inputObjectMappingRules", Model.InputObjectMappingRulesList,
+                    (inputObjectMapping) =>
+                    {
+                        WriteSimpleProperty("isGlobalReference", inputObjectMapping.IsGlobalReference.ToString().ToLower());
+                        WriteSimpleProperty("mappingRefName", inputObjectMapping.MappingRefName);
+                        WriteSimpleProperty("typeName", inputObjectMapping.TypeName);
+                        WriteObjectListProperty("mappingRules", inputObjectMapping.MappingRules,
+                            (mappingRule) =>
+                            {
+                                WriteSimpleProperty("helpDescription", mappingRule.HelpDescription);
+                                WriteSimpleProperty("memberName", mappingRule.MemberName);
+                                WriteSimpleProperty("parameterName", mappingRule.ParamName);
+                            });
+                    });
+            }
         }
 
         private void WriteParamEmittersList()
         {
-            WriteObjectListProperty("legacyParamEmitters", Model.ParamEmittersList,
-                 (paramEmitter) =>
-                 {
-                     WriteSimpleProperty("emitterType", paramEmitter.EmitterType);
-                     WriteSimpleProperty("exclude", paramEmitter.Exclude);
-                     WriteSimpleProperty("paramName", paramEmitter.ParamName);
-                     WriteSimpleProperty("paramType", paramEmitter.ParamType);
-                 });
+            if (Model.ParamEmittersList != null && Model.ParamEmittersList.Count > 0)
+            {
+                WriteObjectListProperty("legacyParamEmitters", Model.ParamEmittersList,
+                    (paramEmitter) =>
+                    {
+                        WriteSimpleProperty("emitterType", paramEmitter.EmitterType);
+                        WriteSimpleProperty("exclude", paramEmitter.Exclude);
+                        WriteSimpleProperty("paramName", paramEmitter.ParamName);
+                        WriteSimpleProperty("paramType", paramEmitter.ParamType);
+                    });
+            }
         }
     }
 }

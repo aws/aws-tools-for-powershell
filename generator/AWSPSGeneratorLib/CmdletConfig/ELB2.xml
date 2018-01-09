@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>elasticloadbalancingv2</C2jFilename>
     <SourceGenerationRoot>AmazonElasticLoadBalancingV2</SourceGenerationRoot>
     <ServiceNounPrefix>ELB2</ServiceNounPrefix>
     <ServiceName>Elastic Load Balancing V2</ServiceName>

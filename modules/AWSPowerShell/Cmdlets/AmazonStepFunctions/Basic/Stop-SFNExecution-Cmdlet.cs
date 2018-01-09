@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Stop", "SFNExecution", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("System.DateTime")]
-    [AWSCmdlet("Calls the Amazon Step Functions StopExecution API operation.", Operation = new[] {"StopExecution"})]
+    [AWSCmdlet("Calls the AWS Step Functions StopExecution API operation.", Operation = new[] {"StopExecution"})]
     [AWSCmdletOutput("System.DateTime",
         "This cmdlet returns a DateTime object.",
         "The service call response (type Amazon.StepFunctions.Model.StopExecutionResponse) can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -166,7 +166,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.StopExecutionResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.StopExecutionRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "StopExecution");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "StopExecution");
             try
             {
                 #if DESKTOP

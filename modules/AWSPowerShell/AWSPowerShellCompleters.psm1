@@ -5948,7 +5948,7 @@ $SES_map = @{
 _awsArgumentCompleterRegistration $SES_Completers $SES_map
 
 
-# Argument completions for service Amazon Step Functions
+# Argument completions for service AWS Step Functions
 $SFN_Completers = {
     param($commandName, $parameterName, $wordToComplete, $commandAst, $fakeBoundParameter)
     

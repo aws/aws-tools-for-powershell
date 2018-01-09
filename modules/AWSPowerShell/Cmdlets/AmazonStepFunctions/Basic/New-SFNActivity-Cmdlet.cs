@@ -37,7 +37,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("New", "SFNActivity", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("Amazon.StepFunctions.Model.CreateActivityResponse")]
-    [AWSCmdlet("Calls the Amazon Step Functions CreateActivity API operation.", Operation = new[] {"CreateActivity"})]
+    [AWSCmdlet("Calls the AWS Step Functions CreateActivity API operation.", Operation = new[] {"CreateActivity"})]
     [AWSCmdletOutput("Amazon.StepFunctions.Model.CreateActivityResponse",
         "This cmdlet returns a Amazon.StepFunctions.Model.CreateActivityResponse object containing multiple properties. The object can also be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
     )]
@@ -143,7 +143,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.CreateActivityResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.CreateActivityRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "CreateActivity");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "CreateActivity");
             try
             {
                 #if DESKTOP

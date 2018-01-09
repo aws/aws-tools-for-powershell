@@ -1,0 +1,29 @@
+{
+  "additionalNamespaces": [],
+  "outputMetadataPropertyNames": [],
+  "pipelineByValuePropertyNames": [],
+  "defaultPipelineParameter": "",
+  "sdkServiceNamespace": "Amazon.CloudSearchDomain",
+  "sdkServiceClient": "AmazonCloudSearchDomainClient",
+  "sdkServiceClientConfig": "AmazonCloudSearchDomainConfig",
+  "legacyCmdletPrefix": "CSD",
+  "verbsRequiringShouldProcessConfirmation": [],
+  "nonFlattenedTypes": [],
+  "defaultPaginationSettings": {
+    "requestTokenMember": null,
+    "responseTokenMember": null
+  },
+  "nounMappings": {},
+  "verbMappings": {},
+  "serviceOperations": {
+    "Search": {
+      "Exclude": "true"
+    },
+    "Suggest": {
+      "Exclude": "true"
+    },
+    "UploadDocuments": {
+      "Exclude": "true"
+    }
+  }
+}

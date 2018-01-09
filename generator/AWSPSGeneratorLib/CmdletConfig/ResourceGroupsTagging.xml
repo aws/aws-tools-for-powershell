@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>resourcegroupstaggingapi</C2jFilename>
     <SourceGenerationRoot>AmazonResourceGroupsTaggingAPI</SourceGenerationRoot>
     <ServiceNounPrefix>RGT</ServiceNounPrefix>
     <ServiceName>AWS Resource Groups Tagging API</ServiceName>

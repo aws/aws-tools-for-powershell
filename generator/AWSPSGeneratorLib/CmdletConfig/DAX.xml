@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ConfigModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
     <SkipCmdletGeneration>false</SkipCmdletGeneration>
+    <C2jFilename>dax</C2jFilename>
     <SourceGenerationRoot>AmazonDAX</SourceGenerationRoot>
     <ServiceNounPrefix>DAX</ServiceNounPrefix>
     <ServiceName>Amazon DynamoDB Accelerator (DAX)</ServiceName>

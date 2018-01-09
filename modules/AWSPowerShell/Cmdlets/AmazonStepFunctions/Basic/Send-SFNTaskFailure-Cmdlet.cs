@@ -32,7 +32,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
     /// </summary>
     [Cmdlet("Send", "SFNTaskFailure", SupportsShouldProcess = true, ConfirmImpact = ConfirmImpact.Medium)]
     [OutputType("None","System.String")]
-    [AWSCmdlet("Calls the Amazon Step Functions SendTaskFailure API operation.", Operation = new[] {"SendTaskFailure"})]
+    [AWSCmdlet("Calls the AWS Step Functions SendTaskFailure API operation.", Operation = new[] {"SendTaskFailure"})]
     [AWSCmdletOutput("None or System.String",
         "When you use the PassThru parameter, this cmdlet outputs the value supplied to the TaskToken parameter. Otherwise, this cmdlet does not return any output. " +
         "The service response (type Amazon.StepFunctions.Model.SendTaskFailureResponse) can be referenced from properties attached to the cmdlet entry in the $AWSHistory stack."
@@ -178,7 +178,7 @@ namespace Amazon.PowerShell.Cmdlets.SFN
         
         private Amazon.StepFunctions.Model.SendTaskFailureResponse CallAWSServiceOperation(IAmazonStepFunctions client, Amazon.StepFunctions.Model.SendTaskFailureRequest request)
         {
-            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "Amazon Step Functions", "SendTaskFailure");
+            Utils.Common.WriteVerboseEndpointMessage(this, client.Config, "AWS Step Functions", "SendTaskFailure");
             try
             {
                 #if DESKTOP
